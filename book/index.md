@@ -13,12 +13,12 @@ share: true
 
 用开源社区的方式，协作共建主题电子书是本站的使命之一；希望用这种方式消除英文语言的障碍，把各种非常酷的开源技术更快速地传播给更广泛的开源用户；尽量减低新手的学习门槛。也希望各界的大神分享您的聪明才智，分享才是价值。
 
-![Rancher_Logo](media/Rancher_Logo.jpg)
+![Rancher_Logo](/images/Rancher_Logo.jpg)
 
 
 ## Rancher 实战红宝书
 
-[![cover-Rancher-docs](media/cover-Rancher-docs.png)](http://rancher.hidocker.io/)
+[![cover-Rancher-docs](/images/cover-Rancher-docs.png)](http://rancher.hidocker.io/)
 
 电子书访问地址：
 
