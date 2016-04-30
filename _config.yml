@@ -10,15 +10,15 @@ url: http://hidocker.io
 # Owner/author information
 owner:
   name:           Martin Liu
-  avatar:         avatar.jpg
+  avatar:         head-200-200.jpg
   bio:            "Blogger, runner, opensource fans"
   email:          67120666@qq.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        zliu
-  facebook:       liuzheng
+  twitter:
+  facebook:       
   github:         martinliu
   stackexchange:
-  linkedin:       liuzheng
+  linkedin:
   instagram:
   flickr:
   tumblr:
