@@ -32,7 +32,7 @@ background:
 google_analytics: UA-68135493-1
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+bing_verify: 12F570013342D1F8B60A455D09221C1D
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    Aisa/Shanghai
