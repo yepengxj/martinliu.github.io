@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About the Jekyll Theme
+title: 关于本站
 image:
   feature: abstract-5.jpg
   credit: dargadgetz
@@ -30,3 +30,4 @@ If you've used any of [my other themes](http://mademistakes.com/work/jekyll-them
 <div markdown="0"><a href="{{ site.url }}/theme-setup/" class="btn btn-info">Theme Setup</a> <a href="https://github.com/mmistakes/hpstr-jekyll-theme" class="btn btn-success">Download HPSTR</a></div>
 
 [^1]: Example: *domain.com/category-name/post-title*
+
