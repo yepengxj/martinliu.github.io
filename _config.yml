@@ -1,5 +1,5 @@
 title:            容器你好
-description:      关于容器的经验和沉淀。
+description:      关于容器的经验和沉淀
 disqus_shortname: hellodocker
 reading_time:     true
 words_per_minute: 200
@@ -11,7 +11,7 @@ url: http://hidocker.io
 owner:
   name:           Martin Liu
   avatar:         avatar.jpg
-  bio:            "I am a blogger, runner, opensource fans"
+  bio:            "Blogger, runner, opensource fans"
   email:          67120666@qq.com
   # Social networking links used in footer. Update and remove as you like.
   twitter:        zliu
@@ -29,7 +29,7 @@ owner:
 background: triangular.png
 
 # Analytics and webmaster tools stuff goes here
-google_analytics:
+google_analytics: UA-68135493-1
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
 bing_verify:
