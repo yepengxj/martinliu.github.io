@@ -15,9 +15,13 @@ share: true
 
 ## Rancher 实战红宝书
 
+Github： https://github.com/martinliu/rancher-docs
+Gitbook: https://www.gitbook.com/book/martinliu/rancher-docs/
+
 凡是参与文档贡献，并在 github 贡献者清单上出现者，就有机会获得以下纪念品。纪念品发货每两周发货一次。
 
 纪念品由 Rancher 和其它赞助公司提供，目前计划首批 100 件 定制版 Tshirt。
+
 * Rancher Logo 
 * GitHub Logo 
 * 您的 GitHub ID
