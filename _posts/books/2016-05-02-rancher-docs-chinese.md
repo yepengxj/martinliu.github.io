@@ -15,7 +15,7 @@ http://hidocker.io/book/ 是本站电子书汇总页面。
 
 ## 电子书在线协作 github 网页版
 
-<iframe height=498 width=510 src="http://player.youku.com/embed/XMTU1NDk4Mzc2OA==" frameborder=0 ></iframe>
+
 
 
 
