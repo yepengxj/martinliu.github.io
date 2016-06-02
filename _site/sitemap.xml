@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://hidocker.io/devops/rancher-may-online-meetup-rancher-dev-in-a-box/</loc>
+<lastmod>2016-06-02T03:04:57+00:00</lastmod>
+</url>
+<url>
 <loc>http://hidocker.io/books/test2/</loc>
 <lastmod>2016-05-02T16:27:09+00:00</lastmod>
 </url>
