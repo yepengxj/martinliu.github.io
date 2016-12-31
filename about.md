@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 tags: about
 ---
-![Martin Liu ](/images/martinliu-s.jpg)
+![Martin Liu ](/images/martinliu-s.JPG)
 
 我喜欢长跑，喜欢四处转转，从事企业数据中心系统架构解决方案的工作，喜爱用wordpress写写blog，热爱开源软件。
 
