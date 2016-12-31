@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">容器你好</title>
+<title type="text">Martin's Blog</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://martinliu.github.io//feed.xml" />
-<link rel="alternate" type="text/html" href="http://martinliu.github.io/" />
-<updated>2016-10-26T08:18:09+00:00</updated>
-<id>http://martinliu.github.io//</id>
+<link rel="self" type="application/atom+xml" href="http://pixyll.com/feed.xml" />
+<link rel="alternate" type="text/html" href="http://pixyll.com" />
+<updated>2016-12-31T22:22:18+08:00</updated>
+<id>http://pixyll.com/</id>
 <author>
-  <name>Martin Liu</name>
-  <uri>http://martinliu.github.io//</uri>
-  <email>67120666@qq.com</email>
+  <name></name>
+  <uri>http://pixyll.com/</uri>
+  
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[5月 Rancher 线上 Meetup 回顾]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//devops/rancher-may-online-meetup-rancher-dev-in-a-box/" />
-  <id>http://martinliu.github.io//devops/rancher-may-online-meetup-rancher-dev-in-a-box</id>
-  <published>2016-06-02T03:04:57+00:00</published>
-  <updated>2016-06-02T03:04:57+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box/" />
+  <id>http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box</id>
+  <published>2016-06-02T11:04:57+08:00</published>
+  <updated>2016-06-02T11:04:57+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;本文是6月线上 meetup 的预热篇，想法是把 Rancher 官方的内容回顾一遍，并结合国情；看看有什么观点可以一起探讨的。&lt;/p&gt;
@@ -31,28 +31,28 @@
 &lt;p&gt;通过翻墙，我把视频和 ppt 都搬了回来。视频上传到了腾讯，ppt 进了百度盘。&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;视频在这里&lt;/h2&gt;
-&lt;p&gt;在线观看。&lt;/p&gt;
-&lt;p style=&quot;text-align: center&quot;&gt;&lt;iframe class=&quot;video_iframe&quot; style=&quot;z-index:1;&quot; src=&quot;http://v.qq.com/iframe/player.html?vid=h0304qdm5so&amp;amp;width=660&amp;amp;height=400&amp;amp;auto=0&quot; allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;400&quot; width=&quot;660&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;在线观看。
+&amp;lt;p style=&quot;text-align: center&quot;&amp;gt;&amp;lt;iframe class=&quot;video_iframe&quot; style=&quot;z-index:1;&quot; src=&quot;http://v.qq.com/iframe/player.html?vid=h0304qdm5so&amp;amp;width=660&amp;amp;height=400&amp;amp;auto=0&quot; allowfullscreen=&quot;&quot; frameborder=&quot;0&quot; height=&quot;400&quot; width=&quot;660&quot;&amp;gt;&amp;lt;/iframe&amp;gt;&amp;lt;/p&amp;gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section-1&quot;&gt;下载在这里&lt;/h2&gt;
 &lt;p&gt;下载地址： &lt;a href=&quot;http://pan.baidu.com/s/1nv5wjEx&quot;&gt;http://pan.baidu.com/s/1nv5wjEx&lt;/a&gt;&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//devops/rancher-may-online-meetup-rancher-dev-in-a-box/&quot;&gt;5月 Rancher 线上 Meetup 回顾&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on June 02, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box/&quot;&gt;5月 Rancher 线上 Meetup 回顾&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on June 02, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Rancher 开源中文电子书征集参与者]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//books/test2/" />
-  <id>http://martinliu.github.io//books/test2</id>
-  <published>2016-05-02T16:27:09+00:00</published>
-  <updated>2016-05-02T16:27:09+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/books/2016/05/03/test2/" />
+  <id>http://pixyll.com/books/2016/05/03/test2</id>
+  <published>2016-05-03T00:27:09+08:00</published>
+  <updated>2016-05-03T00:27:09+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;Rancher 开源中文电子书已经上线, 欢迎参与协作。
@@ -62,22 +62,22 @@ http://hidocker.io/book/ 是本站电子书汇总页面。&lt;/p&gt;
 
 &lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://player.youku.com/embed/XMTU1NDk4Mzc2OA==&quot; frameborder=&quot;0&quot;&gt; &lt;/iframe&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//books/test2/&quot;&gt;Rancher 开源中文电子书征集参与者&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on May 02, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/books/2016/05/03/test2/&quot;&gt;Rancher 开源中文电子书征集参与者&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on May 03, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[线上会议-Rancer中的Kubernetes技术预览]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//cluster-management/introducing-kubernetes-environments-in-rancher/" />
-  <id>http://martinliu.github.io//cluster-management/introducing-kubernetes-environments-in-rancher</id>
-  <updated>2016-03-07 03:48:54 +0000T00:00:00-00:00</updated>
-  <published>2016-03-07T00:00:00+00:00</published>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/cluster-management/2016/03/07/introducing-kubernetes-environments-in-rancher/" />
+  <id>http://pixyll.com/cluster-management/2016/03/07/introducing-kubernetes-environments-in-rancher</id>
+  <updated>2016-03-07 11:48:54 +0800T00:00:00-00:00</updated>
+  <published>2016-03-07T00:00:00+08:00</published>
   
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;这是二月的一次重要的线上会议，主讲人是&lt;a href=&quot;http://rancher.com/author/smw355/&quot;&gt;Shannon Williams&lt;/a&gt;，他的一个同事帮助做了产品演示。Rancher 此次融入 Kubernetes 的支持是一个重大的功能增强，这个功能会在三月份的第二或者第三周发布。&lt;/p&gt;
@@ -101,21 +101,21 @@ http://hidocker.io/book/ 是本站电子书汇总页面。&lt;/p&gt;
 
 &lt;p&gt;百度网盘下载：  &lt;a href=&quot;http://pan.baidu.com/s/1c1eLivQ&quot;&gt;http://pan.baidu.com/s/1c1eLivQ&lt;/a&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//cluster-management/introducing-kubernetes-environments-in-rancher/&quot;&gt;线上会议-Rancer中的Kubernetes技术预览&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on March 07, 2016.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/cluster-management/2016/03/07/introducing-kubernetes-environments-in-rancher/&quot;&gt;线上会议-Rancer中的Kubernetes技术预览&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on March 07, 2016.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[为容器而定制的超融合基础架构]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/rancher-all-in-one/" />
-  <id>http://martinliu.github.io//container/rancher-all-in-one</id>
-  <published>2015-12-19T00:00:00+00:00</published>
-  <updated>2015-12-19T00:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/12/19/rancher-all-in-one/" />
+  <id>http://pixyll.com/container/2015/12/19/rancher-all-in-one</id>
+  <published>2015-12-19T00:00:00+08:00</published>
+  <updated>2015-12-19T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;转载自：&lt;a href=&quot;http://rancher.com/introducing-hyper-converged-infrastructure-for-containers-powered-by-rancher-and-redapt/&quot;&gt;Rancher Blog&lt;/a&gt;
@@ -156,21 +156,69 @@ http://hidocker.io/book/ 是本站电子书汇总页面。&lt;/p&gt;
 
 &lt;p&gt;我们与Redapt已经认识并且工作在一起已经多年了。早在2011年，我在 Cloud.com 的团队与Redapt合作，用CloudStack共同搭建了当时最大的私有云，由超过40000台物理服务器构成。我们对他们的技术能力、创新能力和专业性感到非常钦佩。构建一个超融合基础架构方案需求软件厂商和硬件厂商之间的密切协作。我们很幸运地再次与Redapt携手，共同为市场打造专门为容器方案定制的首款超融合基础架构。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/rancher-all-in-one/&quot;&gt;为容器而定制的超融合基础架构&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on December 19, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/12/19/rancher-all-in-one/&quot;&gt;为容器而定制的超融合基础架构&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on December 19, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[为什么微软欲10亿收购Mesosphere]]></title>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/cluster-management/2015/10/05/why-microsoft-want-to-buy-mesophere/" />
+  <id>http://pixyll.com/cluster-management/2015/10/05/why-microsoft-want-to-buy-mesophere</id>
+  <published>2015-10-05T00:00:00+08:00</published>
+  <updated>2015-10-05T00:00:00+08:00</updated>
+  <author>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
+  </author>
+  <content type="html">
+    &lt;p&gt;具报道微软正在和一家快速增长的云计算创业公司 &lt;a href=&quot;https://mesosphere.com/&quot;&gt;Mesosphere&lt;/a&gt; 商讨并购事宜。根据湾区行业媒体 “The Information” 记者 Amir Efrati 的报道，这家创业公司目前估值接近10亿美元。&lt;/p&gt;
+
+&lt;p&gt;交易的细节目前还不清楚 —— 记者没有说明交易进行到哪个阶段，也没有说明微软内部对于这个估值的态度。 Mesosphere 和微软都对这个消息表示无可奉告。&lt;/p&gt;
+
+&lt;p&gt;让微软开出如此天价的除了 Mesosphere 的技术，最近硅谷对于软件定义的数据中心的热情肯定也是个因素。数十亿美元的热钱涌入这个领域，创业公司门前排满了传统 IT 巨头，谁也不想在制定行业标准和抢占行业制高点方面丢了先机。到底 Mesosphere 到底是何方神圣，为何能十亿级别估值？&lt;/p&gt;
+
+&lt;h2 id=&quot;mesosphere-&quot;&gt;Mesosphere 这个公司是干啥的？&lt;/h2&gt;
+
+&lt;p&gt;作为一家飞速增长的创业公司，自 2013 年来 Mesosphere 专注于围绕开源软件 Apache Mesos 开发产品和服务。Twitter 这样的巨头为了应对集群的飞速膨胀，借助 Mesos 将数以千计的服务器整合地像使用一台电脑，同时还管理运行这台“电脑”中成千上万的任务。 另外一家独角兽公司 Docker，则支持将他们火爆的容器产品部署到 Mesos 集群中。Docker 依靠其简单灵活的容器产品一夜成名，开发者终于能够在统一的环境中开发、测试和发布应用，将过去数周的工作缩减到几个小时。Yelp 这样的巨头就将 Mesos 和 Docker 组合起来，使用 Mesos 将整个数据中心变成一个资源池，然后通过 Docker 将应用部署到整个集群。&lt;/p&gt;
+
+&lt;p&gt;类似其他提供基础设施和数据的管理软件的创业公司，Mesosphere 也来自真正拥有“大数据”的门派。CEO Florian Leibert 在独立创业之前，曾经是 Airbnb 和 Twitter 的技术负责人（就连巨头 Google 内部也有一个功能类似 Mesos 的管理平台 Borg）。Leibert 将 Mesos 引入了 Airbnb，这样技术团队可以轻松地在其上搭建 Spark 大数据运算系统。&lt;/p&gt;
+
+&lt;p&gt;今年春天在一次福布斯杂志采访中，Leibert 告诉记者他们的产品能让数据中心非常容易管理，不论里面有五台还是五千台机器。一个佐证是掌管着 Twitter 数千台服务器仅仅是屈指可数的几位运维工程师。&lt;/p&gt;
+
+&lt;p&gt;说起他们创业最苦逼的事情，Leibert 苦笑道 “怎么和大家说明白我们是干啥的”。最后总结成一句话，让你们服务器的利用率提高两三倍。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;微软 看上她哪点了？&lt;/h2&gt;
+
+&lt;p&gt;从微软的角度来说，通过并购获得 Mesos 技术，就能够迅速在这一波软件定义的基础设施大潮中站稳脚跟。之前 LinkedIn 已经天使投资了另外一家相同领域的创业公司 Confluent，Google 和 IBM 则联合 Docker、Mesosphere 一起来制定新的容器标准（Open Container Project），微软至今毫无建树。正如 Efrati 在他的访谈中提到，虽然微软已经参与了 Docker 项目，但在上述大领域中还没有能占一席之地的项目。&lt;/p&gt;
+
+&lt;p&gt;大家不要忘记，六月份的时候坊间曾经流传微软要并购 Docker。根据微软的风格，在做出并购决定之前，还会仔细评估这些创业公司一阵。&lt;/p&gt;
+
+&lt;p&gt;2014年底，Mesosphere 得到了 Khosla Venture 的3600万美元B轮融资，之前A轮则是由 Andreessen Horowitz 领投。根据 Pitchbook 的数据，Mesosphere 的 A 轮估值约为 4500 万美元，B 轮之后增加到数亿美元。同期 Docker 公司经过 C 轮融资估值达到 4 亿美元，随后四月份更是加入了独角兽俱乐部（十亿美元）。&lt;/p&gt;
+
+&lt;p&gt;虽然我们现在还不确定未来 Docker 被巨头并购时的估值，但是 Mesospher 如果能够比 Docker 成长地更快，那么虽然盈利不大，但足以让它的估值从一亿美元猛增到十亿美元（在新兴产业领域，人们对增长速度的关注远远高于现实盈利）。如果最终证实了 The Information 报道的估值，也算是个合情合理的价格。&lt;/p&gt;
+
+&lt;p&gt;大家都拭目以待的是微软是否真的下定决心在这个新兴领域放手一搏，就算竞争对手已经找好了同盟军。当然大家也关心 Mesosphere 是否现在就想卖，即使这个估值听起来已经不太小。&lt;/p&gt;
+
+&lt;p&gt;来自：2015-08-19 福布斯记者 Alex Konrad
+http://www.forbes.com/sites/alexkonrad/2015/08/18/why-microsoft-could-reportedly-want-to-buy-cloud-startup-mesosphere-even-at-1-billion/#rd&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/cluster-management/2015/10/05/why-microsoft-want-to-buy-mesophere/&quot;&gt;为什么微软欲10亿收购Mesosphere&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on October 05, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[仅Docker还不够]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/docker-is-not-enough/" />
-  <id>http://martinliu.github.io//container/docker-is-not-enough</id>
-  <published>2015-10-04T16:00:00+00:00</published>
-  <updated>2015-10-04T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/10/05/docker-is-not-enough/" />
+  <id>http://pixyll.com/container/2015/10/05/docker-is-not-enough</id>
+  <published>2015-10-05T00:00:00+08:00</published>
+  <updated>2015-10-05T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;If you’re here, you might know about docker, if you don’t know about docker, please refer to the following articles, videos and slides about docker, which might capture your interest [0].&lt;/p&gt;
@@ -183,7 +231,7 @@ http://hidocker.io/book/ 是本站电子书汇总页面。&lt;/p&gt;
 
 &lt;p&gt;So let’s have a look on this short list:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ansible &amp;amp; Docker
+&lt;pre&gt;&lt;code&gt;Ansible &amp;amp; Docker
 Amazon EC2 &amp;amp; Docker
 Apache Brooklyn &amp;amp; Docker
 Apache Hadoop &amp;amp; Docker
@@ -219,13 +267,12 @@ Stackato &amp;amp; Docker
 Tsuru &amp;amp; Docker
 VMware &amp;amp; Docker
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;As we can see, these eCosystems have Docker in common, but you might ask if and how all these implement the integration and enhance their own system with Docker and play with others and which of them might be the right solution for different use cases, i.e. to build (web-) apps, services or a whole cloud platform to provide for instance SaaS offerings or to help to achieve higher density in data centers and control the VM sprawl, etc..&lt;/p&gt;
 
 &lt;p&gt;Well, first I’m going to classify these eCosystems in the following categories:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Big Data
+&lt;pre&gt;&lt;code&gt;Big Data
 Cloud Platform
 IaaS
 Data Center Operating System
@@ -234,7 +281,6 @@ Docker Management
 PaaS
 Orchestration and Configuration Management Engines
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;which leads to the following table matrix:&lt;/p&gt;
 
@@ -308,69 +354,21 @@ https://www.openshift.com/blogs/openshift-v3-platform-combines-docker-kubernetes
 
 &lt;p&gt;From : https://www.cloudssky.com/en/blog/Docker-Is-Not-Enough/&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/docker-is-not-enough/&quot;&gt;仅Docker还不够&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on October 04, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[为什么微软欲10亿收购Mesosphere]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//cluster-management/why-microsoft-want-to-buy-mesophere/" />
-  <id>http://martinliu.github.io//cluster-management/why-microsoft-want-to-buy-mesophere</id>
-  <published>2015-10-04T16:00:00+00:00</published>
-  <updated>2015-10-04T16:00:00+00:00</updated>
-  <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;具报道微软正在和一家快速增长的云计算创业公司 &lt;a href=&quot;https://mesosphere.com/&quot;&gt;Mesosphere&lt;/a&gt; 商讨并购事宜。根据湾区行业媒体 “The Information” 记者 Amir Efrati 的报道，这家创业公司目前估值接近10亿美元。&lt;/p&gt;
-
-&lt;p&gt;交易的细节目前还不清楚 —— 记者没有说明交易进行到哪个阶段，也没有说明微软内部对于这个估值的态度。 Mesosphere 和微软都对这个消息表示无可奉告。&lt;/p&gt;
-
-&lt;p&gt;让微软开出如此天价的除了 Mesosphere 的技术，最近硅谷对于软件定义的数据中心的热情肯定也是个因素。数十亿美元的热钱涌入这个领域，创业公司门前排满了传统 IT 巨头，谁也不想在制定行业标准和抢占行业制高点方面丢了先机。到底 Mesosphere 到底是何方神圣，为何能十亿级别估值？&lt;/p&gt;
-
-&lt;h2 id=&quot;mesosphere-&quot;&gt;Mesosphere 这个公司是干啥的？&lt;/h2&gt;
-
-&lt;p&gt;作为一家飞速增长的创业公司，自 2013 年来 Mesosphere 专注于围绕开源软件 Apache Mesos 开发产品和服务。Twitter 这样的巨头为了应对集群的飞速膨胀，借助 Mesos 将数以千计的服务器整合地像使用一台电脑，同时还管理运行这台“电脑”中成千上万的任务。 另外一家独角兽公司 Docker，则支持将他们火爆的容器产品部署到 Mesos 集群中。Docker 依靠其简单灵活的容器产品一夜成名，开发者终于能够在统一的环境中开发、测试和发布应用，将过去数周的工作缩减到几个小时。Yelp 这样的巨头就将 Mesos 和 Docker 组合起来，使用 Mesos 将整个数据中心变成一个资源池，然后通过 Docker 将应用部署到整个集群。&lt;/p&gt;
-
-&lt;p&gt;类似其他提供基础设施和数据的管理软件的创业公司，Mesosphere 也来自真正拥有“大数据”的门派。CEO Florian Leibert 在独立创业之前，曾经是 Airbnb 和 Twitter 的技术负责人（就连巨头 Google 内部也有一个功能类似 Mesos 的管理平台 Borg）。Leibert 将 Mesos 引入了 Airbnb，这样技术团队可以轻松地在其上搭建 Spark 大数据运算系统。&lt;/p&gt;
-
-&lt;p&gt;今年春天在一次福布斯杂志采访中，Leibert 告诉记者他们的产品能让数据中心非常容易管理，不论里面有五台还是五千台机器。一个佐证是掌管着 Twitter 数千台服务器仅仅是屈指可数的几位运维工程师。&lt;/p&gt;
-
-&lt;p&gt;说起他们创业最苦逼的事情，Leibert 苦笑道 “怎么和大家说明白我们是干啥的”。最后总结成一句话，让你们服务器的利用率提高两三倍。&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;微软 看上她哪点了？&lt;/h2&gt;
-
-&lt;p&gt;从微软的角度来说，通过并购获得 Mesos 技术，就能够迅速在这一波软件定义的基础设施大潮中站稳脚跟。之前 LinkedIn 已经天使投资了另外一家相同领域的创业公司 Confluent，Google 和 IBM 则联合 Docker、Mesosphere 一起来制定新的容器标准（Open Container Project），微软至今毫无建树。正如 Efrati 在他的访谈中提到，虽然微软已经参与了 Docker 项目，但在上述大领域中还没有能占一席之地的项目。&lt;/p&gt;
-
-&lt;p&gt;大家不要忘记，六月份的时候坊间曾经流传微软要并购 Docker。根据微软的风格，在做出并购决定之前，还会仔细评估这些创业公司一阵。&lt;/p&gt;
-
-&lt;p&gt;2014年底，Mesosphere 得到了 Khosla Venture 的3600万美元B轮融资，之前A轮则是由 Andreessen Horowitz 领投。根据 Pitchbook 的数据，Mesosphere 的 A 轮估值约为 4500 万美元，B 轮之后增加到数亿美元。同期 Docker 公司经过 C 轮融资估值达到 4 亿美元，随后四月份更是加入了独角兽俱乐部（十亿美元）。&lt;/p&gt;
-
-&lt;p&gt;虽然我们现在还不确定未来 Docker 被巨头并购时的估值，但是 Mesospher 如果能够比 Docker 成长地更快，那么虽然盈利不大，但足以让它的估值从一亿美元猛增到十亿美元（在新兴产业领域，人们对增长速度的关注远远高于现实盈利）。如果最终证实了 The Information 报道的估值，也算是个合情合理的价格。&lt;/p&gt;
-
-&lt;p&gt;大家都拭目以待的是微软是否真的下定决心在这个新兴领域放手一搏，就算竞争对手已经找好了同盟军。当然大家也关心 Mesosphere 是否现在就想卖，即使这个估值听起来已经不太小。&lt;/p&gt;
-
-&lt;p&gt;来自：2015-08-19 福布斯记者 Alex Konrad
-http://www.forbes.com/sites/alexkonrad/2015/08/18/why-microsoft-could-reportedly-want-to-buy-cloud-startup-mesosphere-even-at-1-billion/#rd&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//cluster-management/why-microsoft-want-to-buy-mesophere/&quot;&gt;为什么微软欲10亿收购Mesosphere&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on October 04, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/10/05/docker-is-not-enough/&quot;&gt;仅Docker还不够&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on October 05, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[国内Docker服务和产品初探]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/china-docker-service-product-overview/" />
-  <id>http://martinliu.github.io//container/china-docker-service-product-overview</id>
-  <published>2015-10-03T16:00:00+00:00</published>
-  <updated>2015-10-03T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/10/04/china-docker-service-product-overview/" />
+  <id>http://pixyll.com/container/2015/10/04/china-docker-service-product-overview</id>
+  <published>2015-10-04T00:00:00+08:00</published>
+  <updated>2015-10-04T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;h2 id=&quot;section&quot;&gt;各家产品感受&lt;/h2&gt;
@@ -466,21 +464,21 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 
 &lt;p&gt;文章来源：&lt;a href=&quot;http://dockone.io/article/707&quot;&gt;http://dockone.io/article/707&lt;/a&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/china-docker-service-product-overview/&quot;&gt;国内Docker服务和产品初探&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on October 03, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/10/04/china-docker-service-product-overview/&quot;&gt;国内Docker服务和产品初探&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on October 04, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[FAQ： 关于 Union Filesystems, Storage 和 Volumes]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/uninofs-storage-volume-faq/" />
-  <id>http://martinliu.github.io//container/uninofs-storage-volume-faq</id>
-  <published>2015-10-01T16:00:00+00:00</published>
-  <updated>2015-10-01T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/" />
+  <id>http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq</id>
+  <published>2015-10-02T00:00:00+08:00</published>
+  <updated>2015-10-02T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;h2 id=&quot;docker-image-&quot;&gt;Docker image 是分层的意味着什么?&lt;/h2&gt;
@@ -493,7 +491,7 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 
 &lt;h2 id=&quot;unionfs-&quot;&gt;UnionFS 是分布式文件系统么？&lt;/h2&gt;
 
-&lt;p&gt;No, it is not.&lt;/p&gt;
+&lt;p&gt;No, it is not. &lt;/p&gt;
 
 &lt;h2 id=&quot;docker-storage-drivers--volumes-&quot;&gt;Docker Storage Drivers 和 Volumes 是一回事么？&lt;/h2&gt;
 
@@ -505,19 +503,18 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 
 &lt;h2 id=&quot;nfs&quot;&gt;用NFS共享卷作为容器的卷有什么问题么？&lt;/h2&gt;
 
-&lt;p&gt;Not really. This is a pretty common scenario.&lt;/p&gt;
+&lt;p&gt;Not really. This is a pretty common scenario. &lt;/p&gt;
 
 &lt;h2 id=&quot;dockerimage&quot;&gt;如何将更新后的Docker容器导出为可以重用的新的Image？&lt;/h2&gt;
 
 &lt;p&gt;You can do this by using docker commit. In an example where you have a container named “mywebsite” the following command would create a new image named “mikegcoleman\mynginx” from that container&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker commit mywebsite mikegcoleman&lt;span class=&quot;se&quot;&gt;\m&lt;/span&gt;ynginx
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;docker commit mywebsite mikegcoleman\mynginx
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;如何对容器做安全加固？&lt;/h2&gt;
 
-&lt;p&gt;Visit the Docker Security resource center to get access to tools and best practices in securing your Docker implementation.&lt;/p&gt;
+&lt;p&gt;Visit the Docker Security resource center to get access to tools and best practices in securing your Docker implementation. &lt;/p&gt;
 
 &lt;h2 id=&quot;ram--cpu&quot;&gt;如何配置容器对(RAM 和 CPU)资源的用量？&lt;/h2&gt;
 
@@ -565,25 +562,25 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 
 &lt;p&gt;Part of the reason for storing your data in volumes is it makes it fairly trivial to backup. Information on the hows and whats can be found in the Docker documentation.&lt;/p&gt;
 
-&lt;p&gt;As for version control, I’m not exactly sure what you mean, but I’ll take a crack at it anyway. As a best practice we recommend using Dockerfiles to control the creation of new Docker images. Those Dockerfiles should be stored in GitHub, and treated like any other source code. Additionally, when images are pushed to a registry, they can be tagged with a version number so you can keep older versions around or be explicit about which version you wish to use in the future.&lt;/p&gt;
+&lt;p&gt;As for version control, I’m not exactly sure what you mean, but I’ll take a crack at it anyway. As a best practice we recommend using Dockerfiles to control the creation of new Docker images. Those Dockerfiles should be stored in GitHub, and treated like any other source code. Additionally, when images are pushed to a registry, they can be tagged with a version number so you can keep older versions around or be explicit about which version you wish to use in the future. &lt;/p&gt;
 
 &lt;p&gt;来源：&lt;a href=&quot;http://blog.docker.com/2015/10/docker-basics-webinar-qa/&quot;&gt;http://blog.docker.com/2015/10/docker-basics-webinar-qa/&lt;/a&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/uninofs-storage-volume-faq/&quot;&gt;FAQ： 关于 Union Filesystems, Storage 和 Volumes&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on October 01, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/&quot;&gt;FAQ： 关于 Union Filesystems, Storage 和 Volumes&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on October 02, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Container 101 - Bob Reselman]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/containers-101-bob-reselman/" />
-  <id>http://martinliu.github.io//container/containers-101-bob-reselman</id>
-  <published>2015-09-30T16:00:00+00:00</published>
-  <updated>2015-09-30T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/10/01/containers-101-bob-reselman/" />
+  <id>http://pixyll.com/container/2015/10/01/containers-101-bob-reselman</id>
+  <published>2015-10-01T00:00:00+08:00</published>
+  <updated>2015-10-01T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;阅读提示：在看一些翻译文章的时候，需要看看是什么人？什么时候？在那里发布的文章？为什么发布这个文章？特别是对不熟悉的作者还是有必要去linkedin查一下这个人的工作记录，曾经的就职情况，曾经的出版物主要有那些？以上都是看看此人的江湖地位和背景，主要是看它写文章是否带有某种立场和角度；这年头毕竟枪文太多，还是需要有防胡悠的意识。&lt;/p&gt;
@@ -688,7 +685,7 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/images/2015/10/Contain5.jpg&quot; alt=&quot;图5&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;图5：容器映像可以定义某个特殊主机为基本映像，然后分别为网站服务器、脚本运行时环境和脚本文件添加层。&lt;/li&gt;
+  &lt;li&gt;图5：容器映像可以定义某个特殊主机为基本映像，然后分别为网站服务器、脚本运行时环境和脚本文件添加层。  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;正如你所见，每个容器都不一样。不过，它们都作为孤立进程而并行驻留在主机上，可以利用CoreOS内核。没有实施硬件分配机制。所有环境资源都可以共享。&lt;/p&gt;
@@ -721,203 +718,26 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 
 &lt;p&gt;正如我在文章开头所说，容器不会很快销声匿迹。实际上，微软、谷歌、IBM、红帽、亚马逊及其他许多知名科技公司已联合起来，组建了开放容器项目（Open Container Initiative），这是在Linux基金会下面成立的。设想一下：微软与Linux领导厂商合作。所以，如果雷德蒙德的人全力搭上容器这趟快车，容器进入到你我的世界只是个时间问题。所以，如果你还没有开始接触容器，现在正是时候。&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/containers-101-bob-reselman/&quot;&gt;Container 101 - Bob Reselman&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on September 30, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Container技术栈概述]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/container-tech-stack/" />
-  <id>http://martinliu.github.io//container/container-tech-stack</id>
-  <published>2015-09-30T00:00:00+00:00</published>
-  <updated>2015-09-30T00:00:00+00:00</updated>
-  <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;应用架构驱动着基础设施架构的发展。下一代应用架构聚焦于社交、移动、大数据、智能硬件，驱动应用向着更好的用户体验发展，也对传统的技术架构产生了冲击。&lt;/p&gt;
-
-&lt;p&gt;本文我们将看下新一代技术架构的元素，以及公司在下一代应用和基础设施中，应当如何进行架构选型。&lt;/p&gt;
-
-&lt;p&gt;在过去的6-12个月里，Container技术引起了企业的CIO、架构师和开发人员的极大兴趣。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Container技术引起CIO兴趣的原因在于，他们找到了向现代应用框架快速转型的方法，从而驱动业务的发展。&lt;/li&gt;
-  &lt;li&gt;对于架构师来说，Container技术增强了应用的可移植性，适用于混合云架构。&lt;/li&gt;
-  &lt;li&gt;而开发人员通过Container技术，可以快速地应用微服务架构，增强应用的可扩展性。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;DockerCon 和 Red Hat Summit 中，都曾讨论过这一趋势。但是每种新技术，都会带来新的挑战和利弊权衡。本文将对container技术架构中的元素逐一进行分析。&lt;/p&gt;
-
-&lt;p&gt;下图为Docker技术人员 Patrick Chanezon 总结的Container技术栈：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/2015/09/docker-stack.png&quot; alt=&quot;docker tech stack&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在深入了解Container技术架构之前，有必要先理解以下几个基本问题：
-   * Container技术非常适用于分布式应用框架中，这意味着底层的Container基础架构必须是模块化和非常灵活的；
-   * 以下所探讨的核心概念，很多来源于如今的虚拟化架构，比如服务发现（Service Discovery），集群管理（Cluster Management）和资源调度（Resource Scheduling）；
-   * 围绕整个container技术架构的公司生态也在快速发展，多数情况下，他们都从单一的工具开始，慢慢发展为一个全栈服务。&lt;/p&gt;
-
-&lt;h2 id=&quot;container&quot;&gt;深入Container技术架构&lt;/h2&gt;
-
-&lt;p&gt;从单一的Container到服务于产品的架构，需要一系列的工具和配置。从这些工具和配置上，我们可以看出下一代基于Container的应用需要哪些组件：&lt;/p&gt;
-
-&lt;p&gt;首先，要进行以下声明：
-  * 所有这些组件都不是硬件的，也不依赖于云服务；
-  * 在实现时，可能会结合一些组件到一个软件中；
-  * 并非所有组件都是必须的。&lt;/p&gt;
-
-&lt;p&gt;下面是对整个技术栈自下而上的分析。&lt;/p&gt;
-
-&lt;h3 id=&quot;devops&quot;&gt;DevOps工具&lt;/h3&gt;
-
-&lt;p&gt;叫“开发工具”和“运维工具”更加直观，他们运行在本地机器上，用来启动Container，虚拟机或初始化应用包。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Hashicorp Vagrant，Docker Machine，VMware AppCatalyst, Shippable, Wercker
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;vm&quot;&gt;物理宿主机（或VM）&lt;/h3&gt;
-
-&lt;p&gt;Container实际运行的机器，可能是一个本地的笔记本电脑，一个数据服务器或一个公有云实例。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;VMware ESX，Microsoft Hyper-V，KVM，LXD
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-os&quot;&gt;Container OS&lt;/h3&gt;
-
-&lt;p&gt;负责和底层物理宿主机交互的操作系统（Linux或Windows），还负责提供所有container共享的OS级别的服务。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CoreOS，RedHat Atomic Host，Rancher OS，Canonical Snappy，VMware Photo
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-runtime&quot;&gt;Container Runtime&lt;/h3&gt;
-
-&lt;p&gt;创建、启动、停止、销毁Container的软件层。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker，Rkt，Lattice
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-1&quot;&gt;Container&lt;/h3&gt;
-
-&lt;p&gt;管理着应用和Container OS之间的交互。也有人将其类比为虚拟机，但是container并不包含一个完整的操作系统。&lt;/p&gt;
-
-&lt;h3 id=&quot;marketplace&quot;&gt;Marketplace/镜像管理&lt;/h3&gt;
-
-&lt;p&gt;储存和管理container镜像的服务器（自己搭建或采用云端的SaaS应用）。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker Registry，CoreOS Registry
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;configuration-management&quot;&gt;配置管理（Configuration Management）&lt;/h3&gt;
-
-&lt;p&gt;管理和自动化配置文件和部署的工具。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;比如Ansible，Chef，Puppet，Docker Compose，Terraform
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-networking&quot;&gt;Container Networking&lt;/h3&gt;
-
-&lt;p&gt;SDN，管理container之间包路由的网络框架。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker Networking，WeaveWorks，Flannel (CoreOS), Calico
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-2&quot;&gt;Container集群管理&lt;/h3&gt;
-
-&lt;p&gt;帮助建立Container集群，形成服务，管理集群资源，保障可用性。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker Swarm, Hashicorp Serf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;section&quot;&gt;服务发现&lt;/h3&gt;
-
-&lt;p&gt;随着更多的元素/微服务 被加入到应用中，找到这些服务并确认其是否可用变得很困难。服务发现可以在其加入网络中时，管理广播和服务许可。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker Swarm, Hashicorp Serf
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-&quot;&gt;Container 调度&lt;/h3&gt;
-
-&lt;p&gt;这项服务保障了container在宿主机中处于最高效的位置，容量规划，失败时重启container，需求变化时扩展应用等。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Kubernetes，Mesos
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;section-1&quot;&gt;应用调度&lt;/h3&gt;
-
-&lt;p&gt;和container调度的功能类似，是一系列面向应用的服务，描述应用被部署时所需的资源，时间，依赖等。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Marathon，Chronos，Hadoop，Spark
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;section-2&quot;&gt;安全&lt;/h3&gt;
-
-&lt;p&gt;在container架构中，同样需要所有的安全组件，从OS到认证服务，到数据管理。&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CoreOS Linux，Intel Clear Containers，Docker Notary，Hashicorp Vault, OpenSCAP, Twistlock, Scalock, Conjur, Lynis
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;日志管理&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker logs, logspout
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;section-4&quot;&gt;监控/可视化&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Docker ps/top/stats, Docker stats API, sysdig, cAdvisor, Weave Scope
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;container-3&quot;&gt;Container实现——灵活性，交互性以及挑战&lt;/h3&gt;
-
-&lt;p&gt;对于企业来说，Container技术的挑战之一在于，选择Container技术栈意味着舍弃传统的，由ISV提供的一站式“单块架构”，通常会令企业望而生畏。&lt;/p&gt;
-
-&lt;p&gt;第二个挑战在于，初创公司常常将个人项目作为工具，许多情况下，要么是某公司在主导这个项目，要么由一个开源社区主导。&lt;/p&gt;
-
-&lt;p&gt;第三个挑战在于许多工具是彼此协作和可替代的。许多早期用户会试用不同项目的组件，而不是由一个供应商或开源项目提供的技术栈。短期来讲，有助于早期采用者实现灵活性和技术的多样性。长期来看，不利于企业对稳定环境的需求，同时也会增加对新技术的学习成本。相关的公有云服务，比如Amazon Elastic Cloud Services和 Google Container Engine，可以帮助用户屏蔽技术上的复杂性。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-5&quot;&gt;总结&lt;/h2&gt;
-
-&lt;p&gt;Container技术和架构产生和发展都很迅速。许多初创企业都在驱动新工具和框架的产生，能够将合适的架构组件组合起来的技术，将为企业带来很多优势。不管基于已有的基础架构还是公有云，随着更多的解决方案级别的产品被推向市场，Container技术的发展脉络也将逐步清晰。&lt;/p&gt;
-
-&lt;p&gt;本文译自wikibon文章《Evolving Container Architectures》，原文请点击 &lt;a href=&quot;http://wikibon.com/evolving-container-architectures/&quot;&gt;阅读原文&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/container-tech-stack/&quot;&gt;Container技术栈概述&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on September 30, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/10/01/containers-101-bob-reselman/&quot;&gt;Container 101 - Bob Reselman&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on October 01, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[红帽的OpenShift V3进入市场]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/redhat-openshift-v3-paas/" />
-  <id>http://martinliu.github.io//container/redhat-openshift-v3-paas</id>
-  <published>2015-09-29T16:00:00+00:00</published>
-  <updated>2015-09-29T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/09/30/redhat-openshift-v3-paas/" />
+  <id>http://pixyll.com/container/2015/09/30/redhat-openshift-v3-paas</id>
+  <published>2015-09-30T00:00:00+08:00</published>
+  <updated>2015-09-30T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;Red Hat在今年7月底的红帽峰会上发布了重要的战略级新产品 OpenShift v3；没错是v3。由于它和v2相比是重新基于Docker相关技术开发的，也就是说是实际上的 v 1.0; 红帽在这样的市场氛围里是不会在Docker方面没有作为的。不仅如此，还发布了与之配套的 Red Hat Enterprise Linux Atomic Host 作为容器运行的专有主机平台。&lt;/p&gt;
 
-&lt;p&gt;相关这个红帽大会的ppt 可以在这里下载 [http://www.redhat.com/summit/2015/presentations/ ](http://www.redhat.com/summit/2015/presentations/&lt;/p&gt;
+&lt;p&gt;相关这个红帽大会的ppt 可以在这里下载 [http://www.redhat.com/summit/2015/presentations/ ](http://www.redhat.com/summit/2015/presentations/ &lt;/p&gt;
 
 &lt;p&gt;作为这个新产品的发布，全球的roadshow是必须的，在中国也做了，相关资料可以在这里下载：&lt;/p&gt;
 
@@ -1027,21 +847,184 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
   &lt;li&gt;路线选择：红帽是一家开源公司，是社区驱动的。而Pivotal在CloudFoundry产品上越来越趋向于传统的专有软件公司，就是说它所有的东西，从底层技术到中间技术，再到上层技术，都自成体系。其实传统公司有传统公司的优势，但开源公司有开源的优势，只不过红帽一直保持开源的思路，通过开源的方式，充分把企业客户提出的要求，在上游社区中得以体现。这样的社区可以保证例如OpenShift这样的应用服务，不仅来自于红帽，也有来自于其它社区的合作伙伴以及ISV的贡献。&lt;/li&gt;
 &lt;/ol&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/redhat-openshift-v3-paas/&quot;&gt;红帽的OpenShift V3进入市场&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on September 29, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/09/30/redhat-openshift-v3-paas/&quot;&gt;红帽的OpenShift V3进入市场&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on September 30, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Container技术栈概述]]></title>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/09/30/container-tech-stack/" />
+  <id>http://pixyll.com/container/2015/09/30/container-tech-stack</id>
+  <published>2015-09-30T00:00:00+08:00</published>
+  <updated>2015-09-30T00:00:00+08:00</updated>
+  <author>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
+  </author>
+  <content type="html">
+    &lt;p&gt;应用架构驱动着基础设施架构的发展。下一代应用架构聚焦于社交、移动、大数据、智能硬件，驱动应用向着更好的用户体验发展，也对传统的技术架构产生了冲击。&lt;/p&gt;
+
+&lt;p&gt;本文我们将看下新一代技术架构的元素，以及公司在下一代应用和基础设施中，应当如何进行架构选型。&lt;/p&gt;
+
+&lt;p&gt;在过去的6-12个月里，Container技术引起了企业的CIO、架构师和开发人员的极大兴趣。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Container技术引起CIO兴趣的原因在于，他们找到了向现代应用框架快速转型的方法，从而驱动业务的发展。&lt;/li&gt;
+  &lt;li&gt;对于架构师来说，Container技术增强了应用的可移植性，适用于混合云架构。&lt;/li&gt;
+  &lt;li&gt;而开发人员通过Container技术，可以快速地应用微服务架构，增强应用的可扩展性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;DockerCon 和 Red Hat Summit 中，都曾讨论过这一趋势。但是每种新技术，都会带来新的挑战和利弊权衡。本文将对container技术架构中的元素逐一进行分析。&lt;/p&gt;
+
+&lt;p&gt;下图为Docker技术人员 Patrick Chanezon 总结的Container技术栈：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2015/09/docker-stack.png&quot; alt=&quot;docker tech stack&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在深入了解Container技术架构之前，有必要先理解以下几个基本问题：
+   * Container技术非常适用于分布式应用框架中，这意味着底层的Container基础架构必须是模块化和非常灵活的；
+   * 以下所探讨的核心概念，很多来源于如今的虚拟化架构，比如服务发现（Service Discovery），集群管理（Cluster Management）和资源调度（Resource Scheduling）；
+   * 围绕整个container技术架构的公司生态也在快速发展，多数情况下，他们都从单一的工具开始，慢慢发展为一个全栈服务。&lt;/p&gt;
+
+&lt;h2 id=&quot;container&quot;&gt;深入Container技术架构&lt;/h2&gt;
+
+&lt;p&gt;从单一的Container到服务于产品的架构，需要一系列的工具和配置。从这些工具和配置上，我们可以看出下一代基于Container的应用需要哪些组件：&lt;/p&gt;
+
+&lt;p&gt;首先，要进行以下声明：
+  * 所有这些组件都不是硬件的，也不依赖于云服务；
+  * 在实现时，可能会结合一些组件到一个软件中；
+  * 并非所有组件都是必须的。&lt;/p&gt;
+
+&lt;p&gt;下面是对整个技术栈自下而上的分析。&lt;/p&gt;
+
+&lt;h3 id=&quot;devops&quot;&gt;DevOps工具&lt;/h3&gt;
+
+&lt;p&gt;叫“开发工具”和“运维工具”更加直观，他们运行在本地机器上，用来启动Container，虚拟机或初始化应用包。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hashicorp Vagrant，Docker Machine，VMware AppCatalyst, Shippable, Wercker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;vm&quot;&gt;物理宿主机（或VM）&lt;/h3&gt;
+
+&lt;p&gt;Container实际运行的机器，可能是一个本地的笔记本电脑，一个数据服务器或一个公有云实例。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;VMware ESX，Microsoft Hyper-V，KVM，LXD
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-os&quot;&gt;Container OS&lt;/h3&gt;
+
+&lt;p&gt;负责和底层物理宿主机交互的操作系统（Linux或Windows），还负责提供所有container共享的OS级别的服务。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CoreOS，RedHat Atomic Host，Rancher OS，Canonical Snappy，VMware Photo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-runtime&quot;&gt;Container Runtime&lt;/h3&gt;
+
+&lt;p&gt;创建、启动、停止、销毁Container的软件层。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker，Rkt，Lattice
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-1&quot;&gt;Container&lt;/h3&gt;
+
+&lt;p&gt;管理着应用和Container OS之间的交互。也有人将其类比为虚拟机，但是container并不包含一个完整的操作系统。&lt;/p&gt;
+
+&lt;h3 id=&quot;marketplace&quot;&gt;Marketplace/镜像管理&lt;/h3&gt;
+
+&lt;p&gt;储存和管理container镜像的服务器（自己搭建或采用云端的SaaS应用）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker Registry，CoreOS Registry
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;configuration-management&quot;&gt;配置管理（Configuration Management）&lt;/h3&gt;
+
+&lt;p&gt;管理和自动化配置文件和部署的工具。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;比如Ansible，Chef，Puppet，Docker Compose，Terraform
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-networking&quot;&gt;Container Networking&lt;/h3&gt;
+
+&lt;p&gt;SDN，管理container之间包路由的网络框架。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker Networking，WeaveWorks，Flannel (CoreOS), Calico
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-2&quot;&gt;Container集群管理&lt;/h3&gt;
+
+&lt;p&gt;帮助建立Container集群，形成服务，管理集群资源，保障可用性。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker Swarm, Hashicorp Serf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;服务发现&lt;/h3&gt;
+
+&lt;p&gt;随着更多的元素/微服务 被加入到应用中，找到这些服务并确认其是否可用变得很困难。服务发现可以在其加入网络中时，管理广播和服务许可。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker Swarm, Hashicorp Serf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-&quot;&gt;Container 调度&lt;/h3&gt;
+
+&lt;p&gt;这项服务保障了container在宿主机中处于最高效的位置，容量规划，失败时重启container，需求变化时扩展应用等。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Kubernetes，Mesos
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;应用调度&lt;/h3&gt;
+
+&lt;p&gt;和container调度的功能类似，是一系列面向应用的服务，描述应用被部署时所需的资源，时间，依赖等。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Marathon，Chronos，Hadoop，Spark
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;安全&lt;/h3&gt;
+
+&lt;p&gt;在container架构中，同样需要所有的安全组件，从OS到认证服务，到数据管理。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CoreOS Linux，Intel Clear Containers，Docker Notary，Hashicorp Vault, OpenSCAP, Twistlock, Scalock, Conjur, Lynis
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;日志管理&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker logs, logspout
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;section-4&quot;&gt;监控/可视化&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Docker ps/top/stats, Docker stats API, sysdig, cAdvisor, Weave Scope
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;container-3&quot;&gt;Container实现——灵活性，交互性以及挑战&lt;/h3&gt;
+
+&lt;p&gt;对于企业来说，Container技术的挑战之一在于，选择Container技术栈意味着舍弃传统的，由ISV提供的一站式“单块架构”，通常会令企业望而生畏。&lt;/p&gt;
+
+&lt;p&gt;第二个挑战在于，初创公司常常将个人项目作为工具，许多情况下，要么是某公司在主导这个项目，要么由一个开源社区主导。&lt;/p&gt;
+
+&lt;p&gt;第三个挑战在于许多工具是彼此协作和可替代的。许多早期用户会试用不同项目的组件，而不是由一个供应商或开源项目提供的技术栈。短期来讲，有助于早期采用者实现灵活性和技术的多样性。长期来看，不利于企业对稳定环境的需求，同时也会增加对新技术的学习成本。相关的公有云服务，比如Amazon Elastic Cloud Services和 Google Container Engine，可以帮助用户屏蔽技术上的复杂性。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-5&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;Container技术和架构产生和发展都很迅速。许多初创企业都在驱动新工具和框架的产生，能够将合适的架构组件组合起来的技术，将为企业带来很多优势。不管基于已有的基础架构还是公有云，随着更多的解决方案级别的产品被推向市场，Container技术的发展脉络也将逐步清晰。&lt;/p&gt;
+
+&lt;p&gt;本文译自wikibon文章《Evolving Container Architectures》，原文请点击 &lt;a href=&quot;http://wikibon.com/evolving-container-architectures/&quot;&gt;阅读原文&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/09/30/container-tech-stack/&quot;&gt;Container技术栈概述&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on September 30, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Docker官方进军中国]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container/docker-come-to-china/" />
-  <id>http://martinliu.github.io//container/docker-come-to-china</id>
-  <published>2015-09-26T16:00:00+00:00</published>
-  <updated>2015-09-26T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container/2015/09/27/docker-come-to-china/" />
+  <id>http://pixyll.com/container/2015/09/27/docker-come-to-china</id>
+  <published>2015-09-27T00:00:00+08:00</published>
+  <updated>2015-09-27T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;Docker 是一种基于轻量级虚拟化技术 LXC 开发的容器管理技术，它通过高级 API 为进程单独提供了一个轻量级的虚拟环境。Docker 以其方便、快捷、高效的运行方式，获得了很多公司的青睐。&lt;/p&gt;
@@ -1106,21 +1089,21 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
   &lt;li&gt;GitHub上Docker相关的项目32000+&lt;/li&gt;
 &lt;/ul&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container/docker-come-to-china/&quot;&gt;Docker官方进军中国&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on September 26, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container/2015/09/27/docker-come-to-china/&quot;&gt;Docker官方进军中国&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on September 27, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Docker 1.8发布带来的新工具]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container-runtime/docker-1-8-release/" />
-  <id>http://martinliu.github.io//container-runtime/docker-1-8-release</id>
-  <published>2015-09-26T16:00:00+00:00</published>
-  <updated>2015-09-26T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container-runtime/2015/09/27/docker-1-8-release/" />
+  <id>http://pixyll.com/container-runtime/2015/09/27/docker-1-8-release</id>
+  <published>2015-09-27T00:00:00+08:00</published>
+  <updated>2015-09-27T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;Docker公司宣布Docker 1.8发布，该版本包括工具的新增和更新，同时带来了新的引擎特性。Docker工具箱（Docker Toolbox）提供了打包的系统，目标是成为“获取和使用Docker开发环境运行的最快方式”，并替换Boot2Docker。Docker内容信任（Docker Content Trust）是Docker引擎最重大的变化，它提供了镜像签名和验证。&lt;/p&gt;
@@ -1154,21 +1137,21 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 &lt;p&gt;转帖：http://www.infoq.com/cn/news/2015/09/Docker-1-8
 原文：http://www.infoq.com/news/2015/08/Docker-1-8&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container-runtime/docker-1-8-release/&quot;&gt;Docker 1.8发布带来的新工具&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on September 26, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container-runtime/2015/09/27/docker-1-8-release/&quot;&gt;Docker 1.8发布带来的新工具&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on September 27, 2015.&lt;/p&gt;
   </content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[从Linux进程的角度看Docker]]></title>
- <link rel="alternate" type="text/html" href="http://martinliu.github.io//container-runtime/use-linux-eye-to-see-docker/" />
-  <id>http://martinliu.github.io//container-runtime/use-linux-eye-to-see-docker</id>
-  <published>2015-09-25T16:00:00+00:00</published>
-  <updated>2015-09-25T16:00:00+00:00</updated>
+ <link rel="alternate" type="text/html" href="http://pixyll.com/container-runtime/2015/09/26/use-linux-eye-to-see-docker/" />
+  <id>http://pixyll.com/container-runtime/2015/09/26/use-linux-eye-to-see-docker</id>
+  <published>2015-09-26T00:00:00+08:00</published>
+  <updated>2015-09-26T00:00:00+08:00</updated>
   <author>
-    <name>Martin Liu</name>
-    <uri>http://martinliu.github.io/</uri>
-    <email>67120666@qq.com</email>
+    <name></name>
+    <uri>http://pixyll.com</uri>
+    <email></email>
   </author>
   <content type="html">
     &lt;p&gt;整个分享过程中有以下几个关键词：Linux、Docker、fork、exec、task_struct、namespace 以及 dockerinit。分享内容可能比较底层，但对大家理解 Docker 的本质会很有帮助，大家要有耐心哦。&lt;/p&gt;
@@ -1323,7 +1306,7 @@ Host C &amp;lt;–(管控)—&lt;/p&gt;
 
 &lt;p&gt;dockerinit 的运行流程如下：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;初始化网络，也就是说把 Docker Daemon 通过同步管道传输来网络设备信息（veth）作为初始化自身 net namespace 的依据，完成配置，使得容器有独立的网络栈。
+&lt;pre&gt;&lt;code&gt;初始化网络，也就是说把 Docker Daemon 通过同步管道传输来网络设备信息（veth）作为初始化自身 net namespace 的依据，完成配置，使得容器有独立的网络栈。
 
 设置路由等，容器内部也会存在路由记录，dockerinit 会实现配置。
 
@@ -1337,7 +1320,6 @@ Entrypoint 在执行过程中，完成了执行命令之后，最后一步会实
 
 Cmd 一般就是用户指定的应用程序。这个时候，就是在运行用户的应用程序啦。Docker 容器的 init 进程（pid＝1）开始由用户指定的应用 Cmd 接管。
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
 &lt;p&gt;用户指定的应用，也就是 cmd，是容器的主进程，决定容器的存活。是不是很奇妙？&lt;/p&gt;
 
@@ -1395,7 +1377,7 @@ Cmd 一般就是用户指定的应用程序。这个时候，就是在运行用�
   &lt;/li&gt;
 &lt;/ol&gt;
 
-    &lt;p&gt;&lt;a href=&quot;http://martinliu.github.io//container-runtime/use-linux-eye-to-see-docker/&quot;&gt;从Linux进程的角度看Docker&lt;/a&gt; was originally published by Martin Liu at &lt;a href=&quot;http://martinliu.github.io/&quot;&gt;容器你好&lt;/a&gt; on September 25, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://pixyll.com/container-runtime/2015/09/26/use-linux-eye-to-see-docker/&quot;&gt;从Linux进程的角度看Docker&lt;/a&gt; was originally published by  at &lt;a href=&quot;http://pixyll.com&quot;&gt;Martin's Blog&lt;/a&gt; on September 26, 2015.&lt;/p&gt;
   </content>
 </entry>
 

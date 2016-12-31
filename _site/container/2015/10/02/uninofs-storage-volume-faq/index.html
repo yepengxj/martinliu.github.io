@@ -1,0 +1,267 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>FAQ： 关于 Union Filesystems, Storage 和 Volumes &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="docker">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQ： 关于 Union Filesystems, Storage 和 Volumes">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/">
+<link href="http://pixyll.com/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://pixyll.com/assets/css/main.css">
+<!-- Webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://pixyll.com/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://pixyll.com/">首页</a></li>
+		<li><a href="http://pixyll.com/posts/">归档</a></li>
+		<li><a href="http://pixyll.com/tags/">标签</a></li>
+		<li>
+			<a href="#">关于</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://pixyll.com/images/" alt=" photo" class="author-photo">
+					<h4></h4>
+					<p></p>
+				</li>
+				<li><a href="http://pixyll.com/about/"><span class="btn btn-inverse">了解本站</span></a></li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		
+	    
+	        
+	    
+	    <li><a href="http://pixyll.com/book/" >开源书</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/" rel="bookmark" title="FAQ： 关于 Union Filesystems, Storage 和 Volumes">FAQ： 关于 Union Filesystems, Storage 和 Volumes</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-10-02T00:00:00+08:00">October 02, 2015</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <h2 id="docker-image-">Docker image 是分层的意味着什么?</h2>
+
+<p>It literally means that a docker images is built on layers. Each layer represents a portion of the images file system that either adds to or replaces the layer below it. For instance you might start with a Debian image, and then add Emacs, and the Apache. Finally, when you instantiate a container a final read-write layer to capture any changes that are made to the container.</p>
+
+<h2 id="union-file-system-">Union file system 是什么?</h2>
+
+<p>A union file system is a file system that amalgamates a collection of different file systems and directories (called branches) into a single logical file system.</p>
+
+<h2 id="unionfs-">UnionFS 是分布式文件系统么？</h2>
+
+<p>No, it is not. </p>
+
+<h2 id="docker-storage-drivers--volumes-">Docker Storage Drivers 和 Volumes 是一回事么？</h2>
+
+<p>No, they are actually quite different.</p>
+
+<p>A storage driver is how docker implements a particular union file system. Keeping with are “batteries included, but replaceable” philosophy, Docker supports a number of different union file systems. For instance, Ubuntu’s default storage driver is AUFS, where for Red Hat and Centos it’s Device Mapper.</p>
+
+<p>A volume is subdirectory in a container’s file system that exists outside of the union file system.  Unless you explicitly commit changes made to a Docker container during run time to a new image, they are lost when the container is destroyed. Volumes, by contrast, will not be automatically deleted when a container is removed (you can, of course, tell Docker to remove any volumes when removing a container).</p>
+
+<h2 id="nfs">用NFS共享卷作为容器的卷有什么问题么？</h2>
+
+<p>Not really. This is a pretty common scenario. </p>
+
+<h2 id="dockerimage">如何将更新后的Docker容器导出为可以重用的新的Image？</h2>
+
+<p>You can do this by using docker commit. In an example where you have a container named “mywebsite” the following command would create a new image named “mikegcoleman\mynginx” from that container</p>
+
+<pre><code class="language-bash">docker commit mywebsite mikegcoleman\mynginx
+</code></pre>
+
+<h2 id="section">如何对容器做安全加固？</h2>
+
+<p>Visit the Docker Security resource center to get access to tools and best practices in securing your Docker implementation. </p>
+
+<h2 id="ram--cpu">如何配置容器对(RAM 和 CPU)资源的用量？</h2>
+
+<p>CPU and RAM can be configured via the docker run command. You can read about memory here, and CPU here.</p>
+
+<h2 id="rhel-based-image-">我想用 RHEL based image 怎么办？</h2>
+
+<p>Red Hat hosts a variety of docker images, but you must be a Red Hat subscriber to access them.</p>
+
+<h2 id="rhel-containers-vs-docker-containers-">RHEL containers vs. Docker containers 他们的区别？</h2>
+
+<p>The Docker engine that runs on Red Hat Enterprise Linux (RHEL), offers the same functionality as the Docker engine running on any other Linux distribution. Additionally, If you are a Red Hat subscriber, you can run RHEL inside of a container on any host running Docker engine.</p>
+
+<h2 id="solaris-os--docker--centos">如果，我用 Solaris OS 运行 Docker 是支持的, 这意味这我能用来跑CentOS的容器么？</h2>
+
+<p>We are working with Oracle to implement Docker with <a href="https://blog.docker.com/2015/08/docker-oracle-solaris-zones/">Solaris Zones</a>, but this funcitonaity is not yet generally available. When it does ship, however, it will allow Docker to run Solaris workloads on Solaris, but it won’t allow to run Linux workloads on Solaris. Similarly, the Docker Engine that will run on Windows when Microsoft ships its container support with Windows Server 2016 will run Windows workloads, not Linux workloads.</p>
+
+<p>That being said, the Illumos kernel has support for a feature called “BrandZ,” which allows running Linux binaries on the Illumos kernel. Joyent’s Triton product leverages on this feature to run Linux containers on their SmartDataCenter platform, which uses the Illumos kernel.</p>
+
+<h2 id="oracle-12g-rac---fencing-docker">少数象 Oracle 12g RAC 这样的应用需要动态的调整 内核参数，而且有 fencing 的概念，Docker将会支持么？</h2>
+
+<p>It might work, but it’s not something we advocate as  a good use case. Docker is designed for microservices or distributed applications. Each container should, ideally, perform a single function. You tie those containers together to create complex applications. Large monolithic applications like Oracle, are not a particularly good use case for containers.</p>
+
+<h2 id="web--glusterfs-">当运行10个Web容器，如何为他们设置共享文件系统数据，例如上传的文件？ 能用类似 GlusterFS 的文件系统么？</h2>
+
+<p>Without knowing more specifics on the use case, it’s hard to say exactly what the best approach would be. However, using a shared data-only container with volumes mounted to house the shared data would be a good place to start.</p>
+
+<p>As for Gluster, I’m not sure it’ll solve the problem you’re trying to solve by itself. That being said, customers have deployed Docker volumes to GlusterFS with success. Just make sure you understand the characteristics of the file system – in particular how to tune it appropriately.</p>
+
+<h2 id="section-1">如果你去配置和映射一个本地目录作为容器的一个卷，当你需要让这个应用上生产环境，最佳实践是什么？</h2>
+
+<p>The app code should be copied into the Docker image. The idea is that your Docker image includes everything the app needs to execute including the code and any libraries or dependencies.</p>
+
+<h2 id="data-only-containers--host-mounting-">由于 data-only containers 依然存储数据在运行的主机上，为什么这还是会比 host-mounting 方式要好？</h2>
+
+<p>Host mounting  ties the volume mount point to one specific Docker host. With data-only containers, the volume is mounted to a container, and that abstraction works across different Docker hosts.</p>
+
+<p>Wouldn’t a data container suffer from the same problem as writing data to a container over time? I.e. the build up of diffs may cause longer look up times due to folder traversal.</p>
+
+<p>When we talk about data-only containers, we talk about them in the context of hosting a volume in that container. Since we’re using a volume, it bypasses the union file system, and isn’t affected by some of the performance issues.</p>
+
+<h2 id="section-2">备份和版本控制的最佳实践是什么？</h2>
+
+<p>These are pretty broad topics, but I’ll give a couple quick answers with the fact that we’re doing a session on October 27th that will talk about backups in pretty good detail.</p>
+
+<p>Part of the reason for storing your data in volumes is it makes it fairly trivial to backup. Information on the hows and whats can be found in the Docker documentation.</p>
+
+<p>As for version control, I’m not exactly sure what you mean, but I’ll take a crack at it anyway. As a best practice we recommend using Dockerfiles to control the creation of new Docker images. Those Dockerfiles should be stored in GitHub, and treated like any other source code. Additionally, when images are pushed to a registry, they can be tagged with a version number so you can keep older versions around or be explicit about which version you wish to use in the future. </p>
+
+<p>来源：<a href="http://blog.docker.com/2015/10/docker-basics-webinar-qa/">http://blog.docker.com/2015/10/docker-basics-webinar-qa/</a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://pixyll.com/tags/#docker" title="Pages tagged docker" class="tag"><span class="term">docker</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=http://pixyll.com/container/2015/10/02/uninofs-storage-volume-faq/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+        <span class="entry-tags">  <a  href="https://github.com/martinliu/martinliu.github.io/blob/master/_posts/container/2015-10-02-uninofs-storage-volume-faq.md">[ 帮助修订这篇文章 ]</a></span>
+      </footer>
+
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://pixyll.com/container/2015/10/01/containers-101-bob-reselman/" class="read-more-btn">阅读全文</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box/" title="5月 Rancher 线上 Meetup 回顾">5月 Rancher 线上 Meetup 回顾</a></h3>
+      <p>本文是6月线上 meetup 的预热篇，想法是把 Rancher 官方的内容回顾一遍，并结合国情；看看有什么观点可以一起探讨的。## 5月 Rancher 线上 Meetup 回顾通过翻墙，我把视频和 ppt 都搬了回来。视频上传到了腾讯，ppt 进了百度盘。## 视频在这...&hellip; <a href="http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box/">继续阅读</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://pixyll.com/books/2016/05/03/test2/" title="Rancher 开源中文电子书征集参与者">Rancher 开源中文电子书征集参与者</a></h4>
+        <span>发布于 May 03, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://pixyll.com/cluster-management/2016/03/07/introducing-kubernetes-environments-in-rancher/" title="线上会议-Rancer中的Kubernetes技术预览">线上会议-Rancer中的Kubernetes技术预览</a></h4>
+        <span>发布于 March 07, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2016 . Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://pixyll.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://pixyll.com/assets/js/scripts.min.js"></script>
+
+
+
+
+
+</body>
+</html>

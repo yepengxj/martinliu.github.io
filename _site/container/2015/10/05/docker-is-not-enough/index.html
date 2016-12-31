@@ -1,0 +1,315 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>仅Docker还不够 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="docker, paas">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仅Docker还不够">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="http://pixyll.com/container/2015/10/05/docker-is-not-enough/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="http://pixyll.com/container/2015/10/05/docker-is-not-enough/">
+<link href="http://pixyll.com/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://pixyll.com/assets/css/main.css">
+<!-- Webfonts -->
+<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="http://pixyll.com/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="http://pixyll.com/">首页</a></li>
+		<li><a href="http://pixyll.com/posts/">归档</a></li>
+		<li><a href="http://pixyll.com/tags/">标签</a></li>
+		<li>
+			<a href="#">关于</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="http://pixyll.com/images/" alt=" photo" class="author-photo">
+					<h4></h4>
+					<p></p>
+				</li>
+				<li><a href="http://pixyll.com/about/"><span class="btn btn-inverse">了解本站</span></a></li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		
+	    
+	        
+	    
+	    <li><a href="http://pixyll.com/book/" >开源书</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="http://pixyll.com/container/2015/10/05/docker-is-not-enough/" rel="bookmark" title="仅Docker还不够">仅Docker还不够</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-10-05T00:00:00+08:00">October 05, 2015</time></span></h2>
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>If you’re here, you might know about docker, if you don’t know about docker, please refer to the following articles, videos and slides about docker, which might capture your interest [0].</p>
+
+<p>This article is not about docker, it’s more about the Co., the eCosystem around docker and dockerization of your apps, services and last but not least about bringing the DevOps style and a new way of thinking to your business.</p>
+
+<p><img src="/images/2015/10/docker-is-not-enough.png" alt="" /></p>
+
+<p>The following list below provides an overview of the Co., the eCosystem around docker, which for sure is not complete and is intended only as a reference for my own observation and research about these systems and why the eCosystem around docker is embracing and integrating docker and how we can use and combine them together for different use cases.</p>
+
+<p>So let’s have a look on this short list:</p>
+
+<pre><code>Ansible &amp; Docker
+Amazon EC2 &amp; Docker
+Apache Brooklyn &amp; Docker
+Apache Hadoop &amp; Docker
+Apache Storm &amp; Docker
+AppScale &amp; Docker
+Atomic Hosts &amp; Docker
+Chef &amp; Docker
+Clocker &amp; Docker
+Cloud &amp; Docker
+Cloud Foundry &amp; Docker
+CloudStack &amp; Docker
+CoreOS &amp; Docker
+Deis &amp; Docker
+Decker &amp; Docker
+Docker &amp; Docker
+Dokku &amp; Docker
+Eucalyptus &amp; Docker
+Flynn &amp; Docker
+Google Compute Platform &amp; Docker
+IBM Bluemix &amp; Docker
+Kubernetes &amp; Docker
+Mesos &amp; Docker
+Mesosphere &amp; Docker
+Microsoft Azure &amp; Docker
+OpenCamp &amp; Docker
+OpenShift &amp; Docker
+OpenStack &amp; Docker
+Panamax &amp; Docker
+Puppet &amp; Docker
+SaltStack &amp; Docker
+Shipyard &amp; Docker
+Stackato &amp; Docker
+Tsuru &amp; Docker
+VMware &amp; Docker
+</code></pre>
+
+<p>As we can see, these eCosystems have Docker in common, but you might ask if and how all these implement the integration and enhance their own system with Docker and play with others and which of them might be the right solution for different use cases, i.e. to build (web-) apps, services or a whole cloud platform to provide for instance SaaS offerings or to help to achieve higher density in data centers and control the VM sprawl, etc..</p>
+
+<p>Well, first I’m going to classify these eCosystems in the following categories:</p>
+
+<pre><code>Big Data
+Cloud Platform
+IaaS
+Data Center Operating System
+Docker Operating System
+Docker Management
+PaaS
+Orchestration and Configuration Management Engines
+</code></pre>
+
+<p>which leads to the following table matrix:</p>
+
+<p><img src="/images/2015/10/docker_and_co.png" alt="" /></p>
+
+<p>One row, one column and one cell might capture your eye here and someone might argue that “Docker &amp; Docker” doesn’t make any sense and why I’m classifying docker as IaaS, PaaS, Docker OS and as an Orchestration and Configuration Management Engine all together, well if we agree with the fact that we can build our IaaS and PaaS with docker and we can leverage the docker engine to orchestrate itself and run docker containers in docker containers, then I guess you’ll agree with this view.</p>
+
+<p>The other interesting point is the PaaS column, which shows that most of these eCosystems are trying to address the PaaS challenge in different ways with docker. But as Ben Gloub, CEO of Docker Inc. states in [15] “a lot of people are questioning whether they really need a full PaaS to build a flexible app environment” and exactly here enterprises need to re-think thier strategies, whether they need to use Macro PaaSes such as Cloud Foundry or OpenShift, or should they build more efficient lightweight custom PaaS solutions with docker and the ecosystem arround it, we refer to such a custom made PaaS solution as OpenCamp, the Open Cloud Application Management Platform.</p>
+
+<p>But what about the one cell, what is Mesos or Mesosphere and what is a “Data Center Operating System”? Well, that’s the new way of thinking, which I’m going to address in my next blog post.</p>
+
+<p>But for now, if you ask me which of these systems are my favorites, I’d say Docker followed by Mesosphere, OpenStack, Kubernetes, Panamax and Deis!</p>
+
+<p>Last but not least, I’d like to invite you to have a look on why “Docker Is Not Enough”.</p>
+
+<p>[0] Docker related articles</p>
+
+<p>[1] Introduction to Docker by Solomon Hykes, Docker Founder and CTO at Docker Inc.
+https://www.youtube.com/watch?v=Q5POuMHxW-0</p>
+
+<p>[2] What is Docker
+https://www.docker.com/whatisdocker/</p>
+
+<p>[3] WHAT IS DOCKER AND WHEN TO USE IT
+http://www.centurylinklabs.com/what-is-docker-and-when-to-use-it/</p>
+
+<p>[4] How Docker Was Born | Leanstack
+http://blog.leanstack.io/how-docker-was-born</p>
+
+<p>[5] How Docker Fits Into The Current DevOps Landscape
+http://blog.leanstack.io/how-docker-fits-into-the-current-devops-landscape</p>
+
+<p>[6] Crash Course: Next Generation Servers With Containers by Sébastien Han:
+http://www.sebastien-han.fr/blog/2014/02/03/crash-course-next-generation-servers-with-containers/</p>
+
+<p>[7] Docker drops LXC as default execution environment
+http://www.infoq.com/news/2014/03/docker_0_9</p>
+
+<p>[8] The key differentiators of Docker technology by Pethuru Raj
+http://thoughtsoncloud.com/2014/09/docker-managing-excitement/</p>
+
+<p>[9] Docker is the Heroku Killer
+http://www.brightball.com/devops/docker-is-the-heroku-killer</p>
+
+<p>[10] KVM and Docker LXC Benchmarking with OpenStack
+http://bodenr.blogspot.de/2014/05/kvm-and-docker-lxc-benchmarking-with.html</p>
+
+<p>[11] VMware buys into Docker containers
+http://www.zdnet.com/vmware-buys-into-docker-containers-7000032947/</p>
+
+<p>[12] 4 ways Docker fundamentally changes application development
+http://www.infoworld.com/article/2607128/application-development/4-ways-docker-fundamentally-changes-application-development.html</p>
+
+<p>[13] The Docker exploit and the security of containers
+https://blog.xenproject.org/2014/06/23/the-docker-exploit-and-the-security-of-containers/</p>
+
+<p>[14] OpenShift v3 Platform Combines Docker, Kubernetes, Atomic and More
+https://www.openshift.com/blogs/openshift-v3-platform-combines-docker-kubernetes-atomic-and-more</p>
+
+<p>[15] Simplifying and securing multicloud development</p>
+
+<p>http://www.pwc.com/en_US/us/technology-forecast/2014/issue1/interviews/interview-ben-golub-docker.jhtml</p>
+
+<p>[16]  OpenStack &amp; Docker</p>
+
+<p>https://wiki.openstack.org/wiki/Docker</p>
+
+<p>[17] Docker Jump Start by Andreaw Odewahn</p>
+
+<p>https://github.com/odewahn/docker-jumpstart-source</p>
+
+<p>From : https://www.cloudssky.com/en/blog/Docker-Is-Not-Enough/</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="http://pixyll.com/tags/#docker" title="Pages tagged docker" class="tag"><span class="term">docker</span></a><a href="http://pixyll.com/tags/#paas" title="Pages tagged paas" class="tag"><span class="term">paas</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://pixyll.com/container/2015/10/05/docker-is-not-enough/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://pixyll.com/container/2015/10/05/docker-is-not-enough/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=http://pixyll.com/container/2015/10/05/docker-is-not-enough/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+        <span class="entry-tags">  <a  href="https://github.com/martinliu/martinliu.github.io/blob/master/_posts/container/2015-10-05-docker-is-not-enough.md">[ 帮助修订这篇文章 ]</a></span>
+      </footer>
+
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="http://pixyll.com/container/2015/10/04/china-docker-service-product-overview/" class="read-more-btn">阅读全文</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box/" title="5月 Rancher 线上 Meetup 回顾">5月 Rancher 线上 Meetup 回顾</a></h3>
+      <p>本文是6月线上 meetup 的预热篇，想法是把 Rancher 官方的内容回顾一遍，并结合国情；看看有什么观点可以一起探讨的。## 5月 Rancher 线上 Meetup 回顾通过翻墙，我把视频和 ppt 都搬了回来。视频上传到了腾讯，ppt 进了百度盘。## 视频在这...&hellip; <a href="http://pixyll.com/devops/2016/06/02/rancher-may-online-meetup-rancher-dev-in-a-box/">继续阅读</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="http://pixyll.com/books/2016/05/03/test2/" title="Rancher 开源中文电子书征集参与者">Rancher 开源中文电子书征集参与者</a></h4>
+        <span>发布于 May 03, 2016</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="http://pixyll.com/cluster-management/2016/03/07/introducing-kubernetes-environments-in-rancher/" title="线上会议-Rancer中的Kubernetes技术预览">线上会议-Rancer中的Kubernetes技术预览</a></h4>
+        <span>发布于 March 07, 2016</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2016 . Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://pixyll.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://pixyll.com/assets/js/scripts.min.js"></script>
+
+
+
+
+
+</body>
+</html>
