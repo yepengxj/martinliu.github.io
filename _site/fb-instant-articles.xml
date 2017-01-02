@@ -2,15 +2,76 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title></title>
-    <link>http://martinliu.github.io</link>
+    <link>http://localhost:4000</link>
     <description>
       DevOps Coach &amp; Cloud Expert
     </description>
     
         
             <item>
+                <title>Nutanix CE All In One</title>
+                <link>http://localhost:4000/nutanix/2017/01/02/Nutanix-CE-all-in-one/</link>
+                <content:encoded>
+                    <![CDATA[
+                    <h2 id="nutanix-community-edition-">Nutanix Community Edition 社区版简介</h2>
+<p><img src="/images/Community_Edition_-_Nutanix.png" alt="Community_Edition_-_Nutanix" /></p>
+
+<p>这个产品目前的位置在 <a href="https://www.nutanix.com/products/community-edition/">https://www.nutanix.com/products/community-edition/</a>；目前这个页面还没有中文化，下面简单介绍以下。</p>
+
+<ul>
+  <li>Feature Rich Software  它是一个功能丰富的软件</li>
+  <li>Broad Hardware Support &amp; Available On-demand 很丰富的硬件支持，在网上可以按需体验</li>
+  <li>Zero Cost 零成本</li>
+</ul>
+
+<p>用Nutanix CE社区版体验，体验超融合技术的三个步骤。</p>
+
+<ol>
+  <li>注册 ： 这次Nutanix社区，下载安装镜像</li>
+  <li>部署 ： 在你的服务器上部署，或者在Ravello上在线开启体验；<a href="https://www.youtube.com/watch?v=xKtQRp6dcAc">官方安装部署视频点这里</a></li>
+  <li>玩耍 ： 安装完之后就可以开心地玩耍了，有问题请移步 <a href="http://next.nutanix.com/t5/Discussion-Forum/bd-p/Discussion">社区版论坛</a></li>
+</ol>
+
+<p>用物理机安装和体验的几点注意事项如下：</p>
+
+<ul>
+  <li>物理机安装支持1，3，4个节点的部署；推荐内存在32GB以上；由于版本CE 2016.12.22的CVM的内存需求是24GB，由于加入了自服务门户功能；建议使用SSD硬盘，最好能混搭一些普通硬盘。</li>
+  <li>安装后的首次启动需要系统能链接互联网，否则CVM会启动不了，首次启动成功之后就不用再联网了</li>
+  <li>用虚拟机安装，请注意本机的内存，和给虚拟机分配的内存，网上也有修改对内存和CPU限制修改的脚本</li>
+</ul>
+
+<p>产品在社区里的文档页面： <a href="http://next.nutanix.com/t5/Discussion-Forum/Download-Nutanix-CE-Docs-and-Guides/m-p/16442#U16442">点这里</a></p>
+
+<h2 id="section">参考配置</h2>
+<p>Intel NUC 最新版一台，i7处理器，两条16GB内存，两条512GB硬盘。它的好处是便携；然而内存还是有限，不能跑多少个虚拟机。</p>
+
+<h2 id="section-1">相关文档</h2>
+
+<ul>
+  <li><a href="http://huanwenli.blog.51cto.com/2848240/1749083">在VMware Workstation上安装Nutanix CE</a></li>
+  <li><a href="http://www.nextech.space/nextech/2016/06/nutanix-community-edition%E5%AE%89%E8%A3%85%E5%9C%A8vsphere%E7%8E%AF%E5%A2%83%E4%B8%AD/">Nutanix Community Edition安装在vSphere环境中</a></li>
+  <li><a href="http://nutanix.club/">http://nutanix.club/</a></li>
+  <li><a href="http://nutanixbible.com/">Nutanix圣经</a></li>
+</ul>
+
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/nutanix/2017/01/02/Nutanix-CE-all-in-one/</guid>
+                <description>
+                    
+                    Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。
+                    
+                </description>
+                <pubDate>Mon, 02 Jan 2017 00:00:00 +0800</pubDate>
+                <author>Martin Liu</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>美国西岸旧金山之行</title>
-                <link>http://martinliu.github.io/%E6%97%85%E8%A1%8C/2016/12/31/west-coast-SFO/</link>
+                <link>http://localhost:4000/%E6%97%85%E8%A1%8C/2016/12/31/west-coast-SFO/</link>
                 <content:encoded>
                     <![CDATA[
                     <h2 id="section">交通</h2>
@@ -134,10 +195,10 @@
         
             <item>
                 <title>Announcing Version 2.0</title>
-                <link>http://martinliu.github.io/jekyll/pixyll/2015/07/11/announcing-pixyll-version-2/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2015/07/11/announcing-pixyll-version-2/</link>
                 <content:encoded>
                     <![CDATA[
-                    <p>In an effort to make Pixyll easier to customize and more aesthetically pleasing, we’ve release version <code>2.0</code>.</p>
+                    <p>In an effort to make Pixyll easier to customize and more aesthetically pleasing, we’ve release version <code class="highlighter-rouge">2.0</code>.</p>
 
 <p>Pixyll now features:</p>
 
@@ -145,7 +206,7 @@
   <li>Line anchors in code blocks and new syntax highlighting</li>
   <li>A customizable variables file</li>
   <li>Modular, and lighter weight CSS</li>
-  <li>No more <code>max-width</code> media queries</li>
+  <li>No more <code class="highlighter-rouge">max-width</code> media queries</li>
 </ul>
 
                     ]]>
@@ -164,7 +225,7 @@
         
             <item>
                 <title>Hello, Pixyll</title>
-                <link>http://martinliu.github.io/jekyll/pixyll/2014/06/11/welcome-to-pixyll/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/11/welcome-to-pixyll/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>Hello.</p>
@@ -202,7 +263,7 @@
         
             <item>
                 <title>Pixyll in Action</title>
-                <link>http://martinliu.github.io/jekyll/pixyll/2014/06/10/see-pixyll-in-action/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>There is a significant amount of subtle, yet precisely calibrated, styling to ensure
@@ -217,51 +278,51 @@ works if <del>for some reason you need to update your post</del>. For consistenc
 
 <p>Here’s an example of some ruby code with line anchors.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="c1"># The most awesome of classes</span>
-<a name="True-2"></a><span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-<a name="True-3"></a>  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
-<a name="True-4"></a>
-<a name="True-5"></a>  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
-<a name="True-6"></a>  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format</span><span class="p">:</span> <span class="kp">true</span>
-<a name="True-7"></a>
-<a name="True-8"></a>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-<a name="True-9"></a>    <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
-<a name="True-10"></a>    <span class="nb">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">name</span>
-<a name="True-11"></a>    <span class="nb">self</span><span class="o">.</span><span class="n">favorite_number</span> <span class="o">=</span> <span class="mi">12</span>
-<a name="True-12"></a>    <span class="nb">puts</span> <span class="s1">&#39;created awesomeness&#39;</span>
-<a name="True-13"></a>  <span class="k">end</span>
-<a name="True-14"></a>
-<a name="True-15"></a>  <span class="k">def</span> <span class="nf">email_format</span>
-<a name="True-16"></a>    <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\S+@\S+\.\S+/</span>
-<a name="True-17"></a>  <span class="k">end</span>
-<a name="True-18"></a><span class="k">end</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># The most awesome of classes</span>
+<span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
+
+  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format: </span><span class="kp">true</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="n">email</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">favorite_number</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="nb">puts</span> <span class="s1">'created awesomeness'</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">email_format</span>
+    <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\S+@\S+\.\S+/</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
 
 <p>Here’s some CSS:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.foobar</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.foobar</span> <span class="p">{</span>
   <span class="c">/* Named colors rule */</span>
-  <span class="k">color</span><span class="o">:</span> <span class="nb">tomato</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">tomato</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>Here’s some JavaScript:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;is-present&#39;</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'is-present'</span><span class="p">)</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">doStuff</span><span class="p">(</span><span class="nx">things</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">isPresent</span><span class="p">(</span><span class="nx">things</span><span class="p">))</span> <span class="p">{</span>
     <span class="nx">doOtherStuff</span><span class="p">(</span><span class="nx">things</span><span class="p">)</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>Here’s some HTML:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;m0 p0 bg-blue white&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;h1&quot;</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m0 p0 bg-blue white"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h1"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <h1 id="headings">Headings!</h1>
 
-<p>They’re responsive, and well-proportioned (in <code>padding</code>, <code>line-height</code>, <code>margin</code>, and <code>font-size</code>).
+<p>They’re responsive, and well-proportioned (in <code class="highlighter-rouge">padding</code>, <code class="highlighter-rouge">line-height</code>, <code class="highlighter-rouge">margin</code>, and <code class="highlighter-rouge">font-size</code>).
 They also heavily rely on the awesome utility, <a href="http://www.basscss.com/">BASSCSS</a>.</p>
 
 <h5 id="they-draw-the-perfect-amount-of-attention">They draw the perfect amount of attention</h5>
@@ -298,12 +359,12 @@ of a <span class="red">post</span> <span class="mid-gray">with</span> <span clas
 
 <h3 id="footnotes">Footnotes!</h3>
 
-<p>Markdown footnotes are supported, and they look great! Simply put e.g. <code>[^1]</code> where you want the footnote to appear,<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> and then add
+<p>Markdown footnotes are supported, and they look great! Simply put e.g. <code class="highlighter-rouge">[^1]</code> where you want the footnote to appear,<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> and then add
 the reference at the end of your markdown.</p>
 
 <h3 id="stylish-blockquotes-included">Stylish blockquotes included</h3>
 
-<p>You can use the markdown quote syntax, <code>&gt;</code> for simple quotes.</p>
+<p>You can use the markdown quote syntax, <code class="highlighter-rouge">&gt;</code> for simple quotes.</p>
 
 <blockquote>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.</p>
@@ -352,7 +413,7 @@ or add, features.</p>
         
             <item>
                 <title>So, What is Jekyll?</title>
-                <link>http://martinliu.github.io/jekyll/pixyll/2014/06/09/so-what-is-jekyll/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/09/so-what-is-jekyll/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>Jekyll is a tool for transforming your plain text into static websites and 
@@ -381,7 +442,7 @@ and <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>
         
             <item>
                 <title>Pixyll has Pagination</title>
-                <link>http://martinliu.github.io/jekyll/pixyll/2014/06/08/pixyll-has-pagination/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/08/pixyll-has-pagination/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>This is an empty post to illustrate the pagination component with Pixyll.</p>

@@ -14,11 +14,11 @@
     <meta name="author" content="Martin Liu">
     
     <meta name="keywords" content="jekyll, pixyll">
-    <link rel="canonical" href="http://martinliu.github.io/jekyll/pixyll/2014/06/10/see-pixyll-in-action/">
+    <link rel="canonical" href="http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/">
     <link rel="alternate" type="application/rss+xml" title="RSS Feed for Martin's Blog" href="/feed.xml" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/pixyll.css?201701021932" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css?201701022304" type="text/css">
 
     <!-- Fonts -->
     
@@ -40,15 +40,15 @@
     <meta property="og:type" content="article">
     <meta property="og:title" content="Pixyll in Action">
     <meta property="og:description" content="DevOps Coach &amp; Cloud Expert">
-    <meta property="og:url" content="http://martinliu.github.io/jekyll/pixyll/2014/06/10/see-pixyll-in-action/">
-    <meta property="og:site_name" content="Martin&#39;s Blog">
+    <meta property="og:url" content="http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/">
+    <meta property="og:site_name" content="Martin's Blog">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary" />
     
     <meta name="twitter:title" content="Pixyll in Action" />
     <meta name="twitter:description" content="See what the different elements looks like. Your markdown has never looked better. I promise." />
-    <meta name="twitter:url" content="http://martinliu.github.io/jekyll/pixyll/2014/06/10/see-pixyll-in-action/" />
+    <meta name="twitter:url" content="http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/" />
 
     <!-- Icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
@@ -77,7 +77,7 @@
     <header class="site-header px2 px-responsive">
   <div class="mt2 wrap">
     <div class="measure">
-      <a href="http://martinliu.github.io" class="site-title">Martin's Blog</a>
+      <a href="http://localhost:4000" class="site-title">Martin's Blog</a>
       <nav class="site-nav">
         
     
@@ -155,51 +155,51 @@ works if <del>for some reason you need to update your post</del>. For consistenc
 
 <p>Here’s an example of some ruby code with line anchors.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><a name="True-1"></a><span class="c1"># The most awesome of classes</span>
-<a name="True-2"></a><span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
-<a name="True-3"></a>  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
-<a name="True-4"></a>
-<a name="True-5"></a>  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
-<a name="True-6"></a>  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format</span><span class="p">:</span> <span class="kp">true</span>
-<a name="True-7"></a>
-<a name="True-8"></a>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-<a name="True-9"></a>    <span class="nb">self</span><span class="o">.</span><span class="n">email</span> <span class="o">=</span> <span class="n">email</span>
-<a name="True-10"></a>    <span class="nb">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">name</span>
-<a name="True-11"></a>    <span class="nb">self</span><span class="o">.</span><span class="n">favorite_number</span> <span class="o">=</span> <span class="mi">12</span>
-<a name="True-12"></a>    <span class="nb">puts</span> <span class="s1">&#39;created awesomeness&#39;</span>
-<a name="True-13"></a>  <span class="k">end</span>
-<a name="True-14"></a>
-<a name="True-15"></a>  <span class="k">def</span> <span class="nf">email_format</span>
-<a name="True-16"></a>    <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\S+@\S+\.\S+/</span>
-<a name="True-17"></a>  <span class="k">end</span>
-<a name="True-18"></a><span class="k">end</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># The most awesome of classes</span>
+<span class="k">class</span> <span class="nc">Awesome</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="kp">include</span> <span class="no">EvenMoreAwesome</span>
+
+  <span class="n">validates_presence_of</span> <span class="ss">:something</span>
+  <span class="n">validates</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">email_format: </span><span class="kp">true</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="nb">name</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="n">email</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">name</span> <span class="o">=</span> <span class="nb">name</span>
+    <span class="nb">self</span><span class="p">.</span><span class="nf">favorite_number</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="nb">puts</span> <span class="s1">'created awesomeness'</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">email_format</span>
+    <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\S+@\S+\.\S+/</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
 
 <p>Here’s some CSS:</p>
 
-<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.foobar</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nc">.foobar</span> <span class="p">{</span>
   <span class="c">/* Named colors rule */</span>
-  <span class="k">color</span><span class="o">:</span> <span class="nb">tomato</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">tomato</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
 
 <p>Here’s some JavaScript:</p>
 
-<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;is-present&#39;</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'is-present'</span><span class="p">)</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">doStuff</span><span class="p">(</span><span class="nx">things</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">isPresent</span><span class="p">(</span><span class="nx">things</span><span class="p">))</span> <span class="p">{</span>
     <span class="nx">doOtherStuff</span><span class="p">(</span><span class="nx">things</span><span class="p">)</span>
   <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span></code></pre></figure>
 
 <p>Here’s some HTML:</p>
 
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;m0 p0 bg-blue white&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;h1&quot;</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h3&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"m0 p0 bg-blue white"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h1"</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
 
 <h1 id="headings">Headings!</h1>
 
-<p>They’re responsive, and well-proportioned (in <code>padding</code>, <code>line-height</code>, <code>margin</code>, and <code>font-size</code>).
+<p>They’re responsive, and well-proportioned (in <code class="highlighter-rouge">padding</code>, <code class="highlighter-rouge">line-height</code>, <code class="highlighter-rouge">margin</code>, and <code class="highlighter-rouge">font-size</code>).
 They also heavily rely on the awesome utility, <a href="http://www.basscss.com/">BASSCSS</a>.</p>
 
 <h5 id="they-draw-the-perfect-amount-of-attention">They draw the perfect amount of attention</h5>
@@ -236,12 +236,12 @@ of a <span class="red">post</span> <span class="mid-gray">with</span> <span clas
 
 <h3 id="footnotes">Footnotes!</h3>
 
-<p>Markdown footnotes are supported, and they look great! Simply put e.g. <code>[^1]</code> where you want the footnote to appear,<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> and then add
+<p>Markdown footnotes are supported, and they look great! Simply put e.g. <code class="highlighter-rouge">[^1]</code> where you want the footnote to appear,<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> and then add
 the reference at the end of your markdown.</p>
 
 <h3 id="stylish-blockquotes-included">Stylish blockquotes included</h3>
 
-<p>You can use the markdown quote syntax, <code>&gt;</code> for simple quotes.</p>
+<p>You can use the markdown quote syntax, <code class="highlighter-rouge">&gt;</code> for simple quotes.</p>
 
 <blockquote>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quis porta mauris.</p>
