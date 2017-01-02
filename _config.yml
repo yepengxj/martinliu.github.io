@@ -5,7 +5,7 @@ author:      Martin Liu
 description: "DevOps Coach & Cloud Expert"
 baseurl:     ""
 url:         "http://martinliu.github.io"
-date_format: "%Y %b %-d"
+date_format: "%b %-d, %Y"
 
 # Google services
 google_verification:
