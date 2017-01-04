@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title></title>
-    <link>https://martinliu.github.io</link>
+    <link>http://localhost:4000</link>
     <description>
       DevOps Coach &amp; Cloud Expert
     </description>
@@ -10,7 +10,7 @@
         
             <item>
                 <title>Nutanix AOS 5.0 新版本新特性</title>
-                <link>https://martinliu.github.io/nutanix/2017/01/04/Nutanix-AOS-5.0/</link>
+                <link>http://localhost:4000/nutanix/2017/01/04/Nutanix-AOS-5.0/</link>
                 <content:encoded>
                     <![CDATA[
                     <h2 id="section">主要功能清单</h2>
@@ -146,7 +146,7 @@
         
             <item>
                 <title>《看板方法-科技企業漸進變革成功之道》书评</title>
-                <link>https://martinliu.github.io/nutanix/2017/01/03/Kanban-Successful-Evolutionary-Change-for-Your-Technology-Business/</link>
+                <link>http://localhost:4000/nutanix/2017/01/03/Kanban-Successful-Evolutionary-Change-for-Your-Technology-Business/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>转自：<a href="https://ruddyblog.wordpress.com/2014/09/30/%E7%9C%8B%E6%9D%BF%E6%96%B9%E6%B3%95-%E7%A7%91%E6%8A%80%E4%BC%81%E6%A5%AD%E6%BC%B8%E9%80%B2%E8%AE%8A%E9%9D%A9%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93/"> Rubbyblog.wordpress.com</a></p>
@@ -197,16 +197,15 @@
     
         
             <item>
-                <title>HP的超融合产品线演进一览</title>
-                <link>https://martinliu.github.io/nutanix/2017/01/03/1/</link>
+                <title>HPE 分兵两路进军超融合市场</title>
+                <link>http://localhost:4000/nutanix/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</link>
                 <content:encoded>
                     <![CDATA[
-                    <h2 id="hpe-launches-two-pronged-attack-on-hyper-converged-market">HPE launches two-pronged attack on hyper-converged market</h2>
-<p>HC 250? HC 380? What are they actually for?
+                    <p>转帖：《HC 250? HC 380? What are they actually for?》
 <a href="http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/">http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/
 </a></p>
 
-<p>HP/HPE hyper-converged product lines progression
+<p>HP/HPE 超融合产品线发展如下图所示
 <img src="/images/hpe_hyperconverged_product_progression.jpg" alt="HP/HPE hyper-converged product lines progression" /></p>
 
 <h3 id="comment">+Comment</h3>
@@ -255,7 +254,7 @@
 
                     ]]>
                 </content:encoded>
-                <guid isPermaLink="false">/nutanix/2017/01/03/1/</guid>
+                <guid isPermaLink="false">/nutanix/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</guid>
                 <description>
                     
                     关于HP超融合产品家族的变迁简史和相关评论，本文转自 HC 250? HC 380? What are they actually for?。
@@ -269,7 +268,7 @@
         
             <item>
                 <title>Nutanix CE All In One</title>
-                <link>https://martinliu.github.io/nutanix/2017/01/02/Nutanix-CE-all-in-one/</link>
+                <link>http://localhost:4000/nutanix/2017/01/02/Nutanix-CE-all-in-one/</link>
                 <content:encoded>
                     <![CDATA[
                     <h2 id="nutanix-community-edition-">Nutanix Community Edition 社区版简介</h2>
@@ -330,7 +329,7 @@
         
             <item>
                 <title>美国西岸旧金山之行</title>
-                <link>https://martinliu.github.io/%E6%97%85%E8%A1%8C/2016/12/31/west-coast-SFO/</link>
+                <link>http://localhost:4000/%E6%97%85%E8%A1%8C/2016/12/31/west-coast-SFO/</link>
                 <content:encoded>
                     <![CDATA[
                     <h2 id="section">交通</h2>
@@ -454,7 +453,7 @@
         
             <item>
                 <title>Announcing Version 2.0</title>
-                <link>https://martinliu.github.io/jekyll/pixyll/2015/07/11/announcing-pixyll-version-2/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2015/07/11/announcing-pixyll-version-2/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>In an effort to make Pixyll easier to customize and more aesthetically pleasing, we’ve release version <code class="highlighter-rouge">2.0</code>.</p>
@@ -484,7 +483,7 @@
         
             <item>
                 <title>Hello, Pixyll</title>
-                <link>https://martinliu.github.io/jekyll/pixyll/2014/06/11/welcome-to-pixyll/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/11/welcome-to-pixyll/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>Hello.</p>
@@ -522,7 +521,7 @@
         
             <item>
                 <title>Pixyll in Action</title>
-                <link>https://martinliu.github.io/jekyll/pixyll/2014/06/10/see-pixyll-in-action/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/10/see-pixyll-in-action/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>There is a significant amount of subtle, yet precisely calibrated, styling to ensure
@@ -672,7 +671,7 @@ or add, features.</p>
         
             <item>
                 <title>So, What is Jekyll?</title>
-                <link>https://martinliu.github.io/jekyll/pixyll/2014/06/09/so-what-is-jekyll/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/09/so-what-is-jekyll/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>Jekyll is a tool for transforming your plain text into static websites and 
@@ -701,7 +700,7 @@ and <a href="http://en.wikipedia.org/wiki/Textile_(markup_language)">Textile</a>
         
             <item>
                 <title>Pixyll has Pagination</title>
-                <link>https://martinliu.github.io/jekyll/pixyll/2014/06/08/pixyll-has-pagination/</link>
+                <link>http://localhost:4000/jekyll/pixyll/2014/06/08/pixyll-has-pagination/</link>
                 <content:encoded>
                     <![CDATA[
                     <p>This is an empty post to illustrate the pagination component with Pixyll.</p>

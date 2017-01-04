@@ -18,8 +18,7 @@ tags: about
 * Twitter :  zliu
 * Google+  :  https://plus.google.com/+MartinLiu-cn/
 * Linkedin : http://www.linkedin.com/in/liuzheng
-* 微信： martinliu_cn  ，下面扫码加我
+* 微信： martinliu_cn  
 
 
 ![Martin Liu wechat ](/images/martinliu-weichat.jpg)
-
