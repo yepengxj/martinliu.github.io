@@ -7,6 +7,229 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Nutanix AOS 5.0 新版本新特性</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;主要功能清单&lt;/h2&gt;
+&lt;p&gt;myvirtualcloud.net网站用了4个blog，讲了下面的36项新特性：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Cisco UCS B-Series Blade Servers Support&lt;/li&gt;
+  &lt;li&gt;Acropolis Affinity and Anti-affinity&lt;/li&gt;
+  &lt;li&gt;Acropolis Dynamic Scheduling (DRS++)&lt;/li&gt;
+  &lt;li&gt;REST API 2.0 and 3.0&lt;/li&gt;
+  &lt;li&gt;Support for XenServer TechPreview&lt;/li&gt;
+  &lt;li&gt;Network Visualization&lt;/li&gt;
+  &lt;li&gt;What-if analysis for New workloads and Allocation-based forecasting&lt;/li&gt;
+  &lt;li&gt;Native Self-Service Portal&lt;/li&gt;
+  &lt;li&gt;Snapshots – Self Service Restore UI&lt;/li&gt;
+  &lt;li&gt;Network Partner Integration Framework&lt;/li&gt;
+  &lt;li&gt;Metro Availability Witness&lt;/li&gt;
+  &lt;li&gt;VM Flash Mode Improvements&lt;/li&gt;
+  &lt;li&gt;Acropolis File Services GA (ESXi and AHV)&lt;/li&gt;
+  &lt;li&gt;Acropolis Block Services (CHAP authentication)&lt;/li&gt;
+  &lt;li&gt;Oracle VM and Oracle Linux Certified for AHV&lt;/li&gt;
+  &lt;li&gt;SAP Netweaver stack Certified for AHV&lt;/li&gt;
+  &lt;li&gt;Prism Search Improvements (support for Boolean expressions)&lt;/li&gt;
+  &lt;li&gt;I/O Metrics Visualization&lt;/li&gt;
+  &lt;li&gt;1-Click Licensing&lt;/li&gt;
+  &lt;li&gt;LCM – Lifecycle Manager&lt;/li&gt;
+  &lt;li&gt;Additional Prism Improvements&lt;/li&gt;
+  &lt;li&gt;AHV Scale Improvements&lt;/li&gt;
+  &lt;li&gt;AHV CPU and Memory Hot Add (Tech Preview)&lt;/li&gt;
+  &lt;li&gt;Advanced Compression for Cold Data&lt;/li&gt;
+  &lt;li&gt;Acropolis Change Block Tracking (CBT) for Backup Vendors&lt;/li&gt;
+  &lt;li&gt;Predictable Performance with Autonomic QoS&lt;/li&gt;
+  &lt;li&gt;NCC 3.0 with Prism Integration&lt;/li&gt;
+  &lt;li&gt;1-Node Replication Target&lt;/li&gt;
+  &lt;li&gt;Improved Mixed Workload Support with QoS&lt;/li&gt;
+  &lt;li&gt;Simplified SATADOM Replacement Workflow&lt;/li&gt;
+  &lt;li&gt;Mixed Node Support with Adaptive Replica Selection&lt;/li&gt;
+  &lt;li&gt;Dynamically Decreased Erasure Coding Stripes – Node Removals&lt;/li&gt;
+  &lt;li&gt;Multi Metadata Disk Support for use available SSDs on the node for metadata&lt;/li&gt;
+  &lt;li&gt;Erasure Coding(EC) support for changing the Replication Factor (RF) on containers&lt;/li&gt;
+  &lt;li&gt;Inline Compression for OpLog&lt;/li&gt;
+  &lt;li&gt;Linux Kernel Upgrade&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://myvirtualcloud.net/nutanix-5-0-features-overview-beyond-marketing-part-1/&quot;&gt;Nutanix 5.0 Features Overview (Beyond Marketing) – Part 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://myvirtualcloud.net/nutanix-5-0-features-overview-beyond-marketing-part-2/&quot;&gt;Nutanix 5.0 Features Overview (Beyond Marketing) – Part 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://myvirtualcloud.net/nutanix-5-0-features-overview-beyond-marketing-part-3/&quot;&gt;Nutanix 5.0 Features Overview (Beyond Marketing) – Part 3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://myvirtualcloud.net/nutanix-5-0-features-overview-beyond-marketing-part-4/&quot;&gt;Nutanix 5.0 Features Overview (Beyond Marketing) – Part 4&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;nutanixblog&quot;&gt;Nutanix官方Blog新版本介绍&lt;/h2&gt;
+
+&lt;p&gt;Nutanix 官方Blog的新版本发布帖  &lt;a href=&quot;https://www.nutanix.com/2017/01/03/5-0-release/&quot;&gt;The 5.0 Release is Here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Nutanix AOS 5.0 is available now for you to download and will carry a huge payload of innovation across Acropolis – the data plane, Prism – the management plane and AHV – built-in hypervisor. Over the last couple of months we have spoken about different capabilities that will be part of this release. Before we get into details of the release, it is important to take a step back and understand how the core platform is evolving.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14835396530706.png&quot; alt=&quot;&quot; /&gt;
+* These services are announced but will be generally available in a subsequent product release&lt;/p&gt;
+
+&lt;p&gt;To deliver on the vision of Enterprise Cloud and offer public cloud-like services within the datacenter, it is important for us to provide infrastructure services similar to what the public cloud offers. Different workloads have different infrastructure needs and it is important to provide services that can be “turned-on” and “turned-off” based on applications needs – all without having to touch the underlying physical infrastructure. This is exactly what AWS does and that is what we are working towards with our Enterprise Cloud Platform as well.&lt;/p&gt;
+
+&lt;p&gt;Here is a comparison of some of these infrastructure services offered by AWS and Nutanix. The core tenets of the public cloud and the pay-as-you-grow economics are as applicable to Nutanix as it is to the public cloud.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14835397395341.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The 5.0 release adds new infrastructure services to the platform and enhances the ones that already exist; delivering greater flexibility and potential cost savings for IT organizations of all sizes. With over 45 new capabilities in the software and hundreds of feature enhancements, this release is definitely a huge milestone for us.&lt;/p&gt;
+
+&lt;p&gt;While it is impossible for us to cover all the capabilities in detail in one single blog, let me attempt to do a quick walk through of the ones we think you will love!&lt;/p&gt;
+
+&lt;h3 id=&quot;acropolis--data-plane-enhancements&quot;&gt;Acropolis – Data Plane Enhancements&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Acropolis File Services (AFS)Generally Available:&lt;/strong&gt;  AFS is a natively built file storage service that eliminates the need for standalone NAS solutions. This capability was in Tech Preview for the past several months and is generally available with the 5.0 release. With AFS, customers can consolidate their virtual machines and the file data they rely on within the same cluster. AFS will work on ESXi and AHV hypervisors for a wide variety of use cases such as user-profiles, home directories, archives and more. You can learn more about this capability in this blog. Here is a quick summary &lt;a href=&quot;https://next.nutanix.com/t5/Nutanix-Connect-Blog/Ten-Things-you-need-to-know-about-Nutanix-Acropolis-File/ba-p/14524&quot;&gt;blog on AFS.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Acropolis Block Services (ABS) Enhancements:&lt;/strong&gt; ABS, like AFS, is natively built to expose storage to non-virtualized workloads. This capability was introduced in the 4.7 release. We have significantly enhanced ABS in 5.0 with support for dynamic load balancing and flash pinning for better performance, improved security through CHAP for safer client-server conversations and online resizing for higher availability. Additionally, Oracle joins the list of certified workloads on ABS. Here is a quick summary &lt;a href=&quot;http://next.nutanix.com/t5/Nutanix-Connect-Blog/Ten-Things-you-need-to-know-about-Nutanix-Acropolis-Block/ba-p/14969&quot;&gt;blog on ABS.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14835399454618.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Metro Availability Witness:&lt;/strong&gt; Metro Availability is Nutanix’s synchronous replication solution for DR. Metro Availability Witness is a light-weight service that will be able to run anywhere to enable automatic failover from one site to another without service disruption by monitoring the status of both sites.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Compression Enhancements:&lt;/strong&gt; The compression algorithm used for capacity optimization has significantly improved in the 5.0 release resulting in more efficient data compression. Additionally, on All-flash systems, compression will be turned on by default. With compression, deduplication, erasure coding and other native capacity optimization capabilities, customers can achieve up to 4:1 savings (depending on data type).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Single-node Replication Target:&lt;/strong&gt; One of the common asks from Remote and Branch office/SMB customers was to have a single-node backup/replication target for smaller deployments of Nutanix. This enables customers to use native backup capabilities and replicate data to a storage heavy node of Nutanix that can be on the same site or a different remote site. With 5.0, this is possible with the single Nutanix node having ~40TB of raw capacity and act as a destination for backup/snapshot data.&lt;/p&gt;
+
+&lt;h3 id=&quot;ahv--hypervisor-enhancements&quot;&gt;AHV – Hypervisor Enhancements&lt;/h3&gt;
+
+&lt;p&gt;AHV, the native hypervisor solution from Nutanix, continues to grow leaps and bounds with several customers standardizing on AHV for all workloads. We have continued to add newer capabilities with every release of the product. 5.0 is no different and adds a couple of very important capabilities.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14835400613035.png&quot; alt=&quot;New AHV capabilities over the last few releases&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14835400780807.png&quot; alt=&quot;AHV Adoption over the last several quarters&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;AHV Affinity Rules:&lt;/strong&gt; Workloads such as Microsoft SQL or Oracle are often attached to a specific node for licensing, security or HW configuration related reasons. With affinity rules, virtual machines can now be “pinned” to a specific host or a set of hosts. Additionally AHV will also support VM VM anti-affinity rules to try ensure that specific VMs are never on the same host together.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Acropolis Dynamic Scheduling (ADS):&lt;/strong&gt; AHV has supported intelligent initial placement for a while now to make sure VMs are placed on the most optimal hosts when they are initially deployed. With ADS, the hypervisor can detect CPU, memory and storage controller hotspots and can move deployed VMs to a host that is ideal suited. Legacy hypervisor solutions factor in CPU and memory alone while making similar decisions. But with AHV, the VM placement algorithms will also factor in storage resources as well as storage controller bottlenecks before making a decision.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CPU/Memory Hot Add:&lt;/strong&gt; With this capability, administrators can add vCPU and memory to a running VM without any service impact. As applications evolve, it is important to dynamically adjust resources assigned to them so that there is no performance impact for the end user. This is what the hot add feature will enable. In the 5.0 release, this feature will be available in Tech preview and is expected to be generally available in a subsequent release.&lt;/p&gt;
+
+&lt;p&gt;With these capabilities, AHV is ready for all your production workloads and there is very little reason as to why any virtualized workload cannot be run on Nutanix and on AHV. Nutanix customers are already standardizing on AHV and are seeing significant savings in the overall cost of ownership across their entire infrastructure stack.&lt;/p&gt;
+
+&lt;h3 id=&quot;prism--management-plane-enhancements&quot;&gt;Prism – Management Plane Enhancements&lt;/h3&gt;
+
+&lt;p&gt;Over the last year Prism has evolved into a product suite of its own – with Prism Starter and Prism Pro, customers now have an option of choosing a one-click infrastructure management solution or a one-click infra management and operations management solution based on their needs.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14835402328470.png&quot; alt=&quot;5.0 brings enhancements to both Prism Starter and Prism Pro.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prism Self-Service:&lt;/strong&gt; Self-service will bring the goodness of AWS to enterprise datacenters. With this new capability, end-users can login to Prism with their own AD credentials and deploy and monitor applications whenever they want, based on Admin set policies. This removes common friction around developers and end users having to rely on IT admins for common tasks. Instead, administrators just assign resources for specific users or AD groups and end users have complete independence to perform actions that he/she is allowed to do. Here is a quick blog that summarizes this capability.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Network Visualization:&lt;/strong&gt; This is another key capability that is part of Prism. With Network Visualization, administrators will be able to get an end-to-end operational view of the infrastructure all the way down to the networking layer. With views that provide insight into how virtual machines are connected to the host, NICs, the top of rack switches, the VLANs they are part of as well as the health of these connections, administrators will be able to get all the information they want about their infrastructure in a single screen, without having to rely on separate tools. This will help isolating and fixing common networking issues that result in application downtimes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ESXi Management:&lt;/strong&gt; The simplicity of VM management with Prism will extend to ESXi as well with this release – common VM operations that customers relied on vCenter for will be performed from within Prism. One of the common asks from customers was to not go back and forth to vCenter and instead consolidate all operations on Prism. In the first release as part of 5.0, Prism will enable administrators to perform common VM operations such as VM create, update, delete, clone etc. from within Prism. Combining VM operations and the rich monitoring and analytics, vCenter is only needed for less common maintenance and configuration tasks. With the hypervisor becoming commodity, end users get greater simplicity at the management layer.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Just-in-time Capacity Forecasting (available in Prism Pro):&lt;/strong&gt; This is probably one of the most important additions to Prism. Just-in-time forecasting will enable IT to stay ahead of the game by modeling and understanding infrastructure needs based on application requirements even before applications are deployed. This way, IT not only understands application-centric capacity usage patterns and what can be done to optimize existing capacity, they can also plan their infrastructure needs for the future and deploy infrastructure if and only when they need them at “byte” sized granularity all based on recommendations from Prism.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Search Enhancements (Available in Prism Pro):&lt;/strong&gt; One of the core aspects to delivering a personalized and consumer-grade management experience is to enable administrators to perform actions the same way they would do it in their personal lives. Prism Search, a Google like search engine, was introduced earlier this year so that administrators can perform all administrative actions through a simple search query. With support for Boolean expressions, saved searches, auto correct, synonyms based search and more, the 5.0 release will take Prism Search to a whole new level. As an example, administrators can type in “vm iops &amp;lt;1500” and quickly see all the VMs across all the sites that have IOPS less than 1500.&lt;/p&gt;
+
+&lt;p&gt;西瓜哥的微信文章也介绍了部分上面的更新，&lt;a href=&quot;https://mp.weixin.qq.com/s?__biz=MjM5NDQyNDQ0Mw==&amp;amp;mid=2652388531&amp;amp;idx=1&amp;amp;sn=44f49e138cbebe8f1a70cb36e7ebaf89&amp;amp;chksm=bd6b6fa78a1ce6b1a38eac1e4c308fe884c002dec40c7af0c73b6b274302af02f99fa9b5f613&amp;amp;mpshare=1&amp;amp;scene=1&amp;amp;srcid=0104VgmkmVpxE0kSlIgn7V89&amp;amp;key=b43a3af60b96e11efa7e8bf122519516151d18bab4ca2fa3f7cf1902edfb954a06c0633b1df245e14db446d84260e066f2d9ec85061191375b314c56d2d7b962c9727f37051f72a5010ca075676292b8&amp;amp;ascene=0&amp;amp;uin=ODYyMzEyOTQw&amp;amp;devicetype=iMac+MacBookPro13%2C1+OSX+OSX+10.12.2+build(16C67)&amp;amp;version=12010210&amp;amp;nettype=WIFI&amp;amp;fontScale=100&amp;amp;pass_ticket=V632gZ8yDTJQ9PL42foZMyhmNQ%2BjF8QFSkTj2plVSn7%2FT1HC452ubIAxwDppYh%2BA&quot;&gt;点这里。&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 04 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/nutanix/2017/01/04/Nutanix-AOS-5.0/</link>
+        <guid isPermaLink="true">http://localhost:4000/nutanix/2017/01/04/Nutanix-AOS-5.0/</guid>
+      </item>
+    
+      <item>
+        <title>《看板方法-科技企業漸進變革成功之道》书评</title>
+        <description>&lt;p&gt;转自：&lt;a href=&quot;https://ruddyblog.wordpress.com/2014/09/30/%E7%9C%8B%E6%9D%BF%E6%96%B9%E6%B3%95-%E7%A7%91%E6%8A%80%E4%BC%81%E6%A5%AD%E6%BC%B8%E9%80%B2%E8%AE%8A%E9%9D%A9%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93/&quot;&gt; Rubbyblog.wordpress.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/kanban-book.png&quot; alt=&quot;kanban-book&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今天要介紹看板方法的由來， 上面這本書是由看板方法之父 David J. Anderson 於: 2010年 4月所著。簡字版是 2014 年2月出版。這篇文章在我上 TechDays 課程時就想登出來了，想把好書介紹給大家。但由於台灣的書商都沒有進口，所以一直等到我拿到第一批書後，肯定大家可以在坊間買到書時才把他登出來。原文書名: Kanban: Successful Evolutionary Change for Your Technology Business.&lt;/p&gt;
+
+&lt;p&gt;看板方法：它是敏捷陣營中實施起來阻力最小，生產力又能大幅提升、前置時間大幅下降，而可預測性又絕佳的敏捷解決方案之一。好神奇喔 … 哈哈! 確實如此，所以我才會這麼急切的推薦給大家。另一個原因是Kanban Method 現在在美國正熱烈風行中，而我們現在開始追正是時候。為此放下了許多手上正在做的工作(包括一本 Scrum的教本)，努力開始推廣希望大家能受用。首先說明: 為何他推廣起來阻力最小?&lt;/p&gt;
+
+&lt;p&gt;※ 實施起來阻力最小:&lt;/p&gt;
+
+&lt;p&gt;因為David J. Anderson 本身是一個微軟的 PM出身，他跟大家一樣知道變革會讓許多人害怕，人們會認為自己的技術是否落伍了，開始擔心害怕變革會對自己的工作事業帶來不利，這種恐懼常常會帶來一種莫名的對立，因此在還沒開始變革之前就已經採取抵制的態度了。所以他創始的看板方法選擇從哪裡開始實施呢? 就從現在既有的流程開始。由工作者本身最熟悉的地方開始。起步的秘訣是甚麼呢? 是精實精神中從豐田系統中學來的原則，先從不浪費開始，作法: 在識別浪費後消除浪費。&lt;/p&gt;
+
+&lt;p&gt;※ 如何能讓生產力大幅提升?&lt;/p&gt;
+
+&lt;p&gt;由審視既有流程，依據 Little’s law的最大產出方法，接著找出阻礙最大產能的瓶頸所在，然後正視這個造成瓶頸的問題，把它顯現在看板上面，讓大家一起站在看板前面討論如何解決它，解決之後再持續進行改善的作業。&lt;/p&gt;
+
+&lt;p&gt;※ 前置時間大幅下降&lt;/p&gt;
+
+&lt;p&gt;過去我們都以為唯有透過良好的規劃及配合才能夠讓前置作業時間下降，但豐田企業的及時(Just In Time)備料讓庫存降至最低，讓半成品減至最少改變了工作流程的前置時間(Lead time)，因此得到大幅下降。&lt;/p&gt;
+
+&lt;p&gt;看板還是看板方法 (Kanban or Kanban Method) 英文叫 Kanban，上網去搜尋會得到一大堆有關製造業的看板資料。所以請使用 Kanban Method去搜尋，因此中文就該叫做「看板方法」。簡體版的作者有用心在翻譯因此翻對了，值得買來閱讀。全書分成四部分:&lt;/p&gt;
+
+&lt;p&gt;※ 第一部分；導讀:  作者說出他的想法，以及創作看板方法的原由。&lt;/p&gt;
+
+&lt;p&gt;※ 第二部分；談使用看板方法的好處:  這裡有他個人做顧問時的經驗談，值得仔細閱讀。&lt;/p&gt;
+
+&lt;p&gt;※ 第三部分；開始談實施看板方法的步驟了。(由六到十五章，好長又夠完整)&lt;/p&gt;
+
+&lt;p&gt;※ 第四部分；談持續改進。在這裡你終於可以感受到精實軟體開發對作者的影響，以及作者由經濟學的角度來看精實軟體開發的第一原則: 消除浪費。&lt;/p&gt;
+
+&lt;p&gt;接下來我就不在多說了，請讀者自己去看吧!(透漏一下，為了共襄盛舉，我正在寫一本有關精實開發的書，內容除了看板方法之外會大幅談到精實軟體開發，在這裡不想打廣告，因此書名就等出版後再說了!)&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 03 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/nutanix/2017/01/03/Kanban-Successful-Evolutionary-Change-for-Your-Technology-Business/</link>
+        <guid isPermaLink="true">http://localhost:4000/nutanix/2017/01/03/Kanban-Successful-Evolutionary-Change-for-Your-Technology-Business/</guid>
+      </item>
+    
+      <item>
+        <title>HP的超融合产品线演进一览</title>
+        <description>&lt;h2 id=&quot;hpe-launches-two-pronged-attack-on-hyper-converged-market&quot;&gt;HPE launches two-pronged attack on hyper-converged market&lt;/h2&gt;
+&lt;p&gt;HC 250? HC 380? What are they actually for?
+&lt;a href=&quot;http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/&quot;&gt;http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HP/HPE hyper-converged product lines progression
+&lt;img src=&quot;/images/hpe_hyperconverged_product_progression.jpg&quot; alt=&quot;HP/HPE hyper-converged product lines progression&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;comment&quot;&gt;+Comment&lt;/h3&gt;
+&lt;p&gt;The positioning of these two hyper-converged systems is confusing. We observe that the physically larger and vSphere-only HC 380, with its brand number larger than the HC 250, is for use by operators requiring operational simplicity, whereas the physically smaller and denser HC 250 is for more complicated operations in both vSphere and Hyper-V environments, yet it covers ROBO needs where customers don’t have skilled IT staff.&lt;/p&gt;
+
+&lt;p&gt;Getting some ProLiant DL380 brand goodness in the HC 380 name, Apollo supercomputer brand messages in the HC 250 name, and not yet providing HCOE v2 to the HC 250, has provided confusing brand positioning.&lt;/p&gt;
+
+&lt;p&gt;It also seems that both systems should support Hyper-V and HCOE v2. That would make customers’ lives simpler. The HC 380 should have its scale-out limit go past 16 nodes. Thirty-two would be good and then it would match the non-standard and non-recommended 32-node limit of the HC 250. ®&lt;/p&gt;
+
+&lt;h2 id=&quot;nutanix-exec-cisco-hpe-vmware-cant-provide-aws-like-experience-for-hyper-converged-market&quot;&gt;Nutanix Exec: Cisco, HPE, VMware Can’t Provide AWS-Like Experience For Hyper-Converged Market&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.crn.com/news/data-center/300083025/nutanix-exec-cisco-hpe-vmware-cant-provide-aws-like-experience-for-hyper-converged-market.htm&quot;&gt;http://www.crn.com/news/data-center/300083025/nutanix-exec-cisco-hpe-vmware-cant-provide-aws-like-experience-for-hyper-converged-market.htm&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;One of Nutanix’s top executives said Cisco, Hewlett Packard Enterprise and VMware cannot provide a best-in-class experience for their hyper-converged products since they don’t own the entire software stack.&lt;/p&gt;
+
+&lt;p&gt;“Everybody and their dog is in this space right now,” said Sunil Potti, Nutanix’s chief product and development officer. “But unless you are owning most of the stack, you can’t provide that full experience with a single click.”&lt;/p&gt;
+
+&lt;p&gt;Potti told attendees of the Raymond James Technology Investors Conference on Monday that up until 18 months ago, much of the market felt that hyper-converged infrastructure – which combines compute, storage, networking and virtualization on server hardware - could be a good product, but questioned whether it would support all use cases.&lt;/p&gt;
+
+&lt;p&gt;But as end users became more adamant about having hyper-converged architectures deployed for their new workloads, Potti said the space has gone from being the exclusive domain of smaller IT vendors to attracting some of the biggest names in IT.&lt;/p&gt;
+
+&lt;p&gt;And while Potti said the big guys bring a lot of go-to-market muscle to the table, some of them don’t seem to grasp the importance of providing totally seamless functionality.&lt;/p&gt;
+
+&lt;p&gt;“Some of them are very formidable, but some of them are also sleeping giants because they are growing old,” Potti said at the conference at the Westin New York Grand Central. “You can’t just take a Nokia phone, slap on Windows and say ‘I won the smartphone war.’ There’s a reason why those things didn’t work.”&lt;/p&gt;
+
+&lt;p&gt;Potti pointed to the example of Cisco’s hyper-converged offering, which he said competes with VMware’s products, but is also dependent on VMware to properly function.&lt;/p&gt;
+
+&lt;p&gt;“None of them have their own virtualization experience,” Potti said. “When you go to Amazon, you don’t go buy VMWare for Amazon. It’s built in.”&lt;/p&gt;
+
+&lt;p&gt;A Cisco spokesman said its customers prefer having a hyperconverged product that integrates with existing converged infrastructure and traditional storage rather than having to create another infrastructure silo. More than 600 organizations have adopted Cisco’s HyperFlex since it was launched a few months ago, the spokesman said.&lt;/p&gt;
+
+&lt;p&gt;Paul Miller, VP of marketing for HPE’s converged data center infrastructure group, said HPE’s new hyperconverged offering is as easy as public cloud, allowing users adjust VMs from their cell phones with just a few clicks. And unlike the hyperconverged-only vendors, Miller said HPE’s hyperconverged offering won’t become and IT island since it can be managed across a large footprint of infrastructure.&lt;/p&gt;
+
+&lt;p&gt;VMware did not respond to a request for comment.&lt;/p&gt;
+
+&lt;p&gt;Potti said Nutanix, in contrast, evolved beyond simply being a storage technology company four years ago when it started building its own hypervisor and virtualization tools. As a result, Potti said, Nutanix has completely re-imagined how the software stack is built from the ground up.&lt;/p&gt;
+
+&lt;p&gt;“Nutanix is a platform player,” Potti said. “It’s not a product player … If you don’t provide the full stack, you can’t provide that Amazon-like experience.”&lt;/p&gt;
+
+&lt;p&gt;Nutanix’s prime objective is providing an AWS-like experience in the data center, Potti said, and the company isn’t trying to replicate the hyper-converged offerings Cisco and VMware are bringing to market.&lt;/p&gt;
+
+&lt;p&gt;The rising adoption of AWS and other public cloud services over the past five or six years has been tremendously helpful for Nutanix since many end users have already worked through departmental feuds and have grown accustomed to consuming a one-click service across the entire company, Potti said.&lt;/p&gt;
+
+&lt;p&gt;“It has emotionally built a cognitive bias toward an architecture like this,” Potti said. “We are looking to provide an Amazon-like experience for the global enterprise.”&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 03 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/nutanix/2017/01/03/1/</link>
+        <guid isPermaLink="true">http://localhost:4000/nutanix/2017/01/03/1/</guid>
+      </item>
+    
+      <item>
         <title>Nutanix CE All In One</title>
         <description>&lt;h2 id=&quot;nutanix-community-edition-&quot;&gt;Nutanix Community Edition 社区版简介&lt;/h2&gt;
 &lt;p&gt;&lt;img src=&quot;/images/Community_Edition_-_Nutanix.png&quot; alt=&quot;Community_Edition_-_Nutanix&quot; /&gt;&lt;/p&gt;

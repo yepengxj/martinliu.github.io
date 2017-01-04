@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://localhost:4000/nutanix/2017/01/04/Nutanix-AOS-5.0/</loc>
+<lastmod>2017-01-04T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/nutanix/2017/01/03/Kanban-Successful-Evolutionary-Change-for-Your-Technology-Business/</loc>
+<lastmod>2017-01-03T00:00:00+08:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/nutanix/2017/01/03/1/</loc>
+<lastmod>2017-01-03T00:00:00+08:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/nutanix/2017/01/02/Nutanix-CE-all-in-one/</loc>
 <lastmod>2017-01-02T00:00:00+08:00</lastmod>
 </url>
