@@ -4,7 +4,7 @@ email:       67120666@qq.com
 author:      Martin Liu
 description: "DevOps Coach & Cloud Expert"
 baseurl:     ""
-url:         "http://martinliu.github.io"
+url:         "https://martinliu.github.io"
 date_format: "%b %-d, %Y"
 
 # Google services
