@@ -250,7 +250,7 @@ ASIN: B0142EC7AA
 
 ## Implementing Lean Software Development: From Concept to Cash
 
-![](/images/14837758468347.jpg)
+![](/img/14837758468347.jpg)
 
 
 ### 基本信息
