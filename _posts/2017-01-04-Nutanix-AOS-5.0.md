@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Nutanix AOS 5.0 新版本新特性
-subtitle:   新看点快速一 
+subtitle:   新看点快速一览 
 tags: [Nutanix]
 bigimg: /img/RoyalBarge_ROW9071716647_1920x1080.jpg
 ---
