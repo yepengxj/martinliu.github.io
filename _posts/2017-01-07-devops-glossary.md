@@ -5,7 +5,8 @@ subtitle:   关键术语快速查询
 tags: [DevOps]
 bigimg: /img/pexels-photo.jpg
 ---
-本术语表主要来源于《DevOps Handbook》
+
+本术语表主要来源于DevOps相关书籍。
 
 | 英文 | 中文 |
 | --- | --- |
@@ -79,5 +80,5 @@ bigimg: /img/pexels-photo.jpg
 
 
 
-请帮忙改进本术语表，点这里。
+请帮忙改进本术语表，[点这里](https://github.com/martinliu/martinliu.github.io/blob/master/_posts/2017-01-07-devops-glossary.md)。
 
