@@ -79,4 +79,5 @@ bigimg: /img/pexels-photo.jpg
 
 
 
+请帮忙改进本术语表，点这里。
 
