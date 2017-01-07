@@ -1,10 +1,11 @@
 ---
 layout:     post
 title:      Nutanix AOS 5.0 新版本新特性
-subtitle:    Nutanix AOS 5.0 是一个很重要的功能更新大版本，它一气儿带来了46项之多的新功能；在您安装或者测试这个版本之前，先通过本文快速了解一下这些更新，可能是更加节省时间的方法。
+subtitle:   新看点快速一 
 tags: [Nutanix]
 bigimg: /img/RoyalBarge_ROW9071716647_1920x1080.jpg
 ---
+Nutanix AOS 5.0 是一个很重要的功能更新大版本，它一气儿带来了46项之多的新功能；在您安装或者测试这个版本>    之前，先通过本文快速了解一下这些更新，可能是更加节省时间的方法。
 
 ## 主要功能清单
 myvirtualcloud.net网站用了4个blog，讲了下面的36项新特性：
