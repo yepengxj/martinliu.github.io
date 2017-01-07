@@ -13,7 +13,7 @@ bigimg: /img/pexels-photo.jpg
 | artifacts  |  部署包 |
 | Telemetry | 告警数据 
 | process time | 处理时间
-| cycle time  | 循环时间
+| cycle time  | 周期时间
 | tightly-coupled  | 紧耦合
 | monolithic applications  | 单体应用
 | lead time  | 前置时间|
@@ -44,7 +44,7 @@ bigimg: /img/pexels-photo.jpg
 | Micro-service | 微服务
 | Minimum Viable Product | 最小可用产品
 | One-piece-flow |单件流
-| Operations Story | 运维场景
+| Operations Story | 运维故事
 | Organizational Learning | 组织级学习
 | Plan-Do-Check-Act cycle (PDCA cycle) | 计划-实施-检查-改进 （戴明环）
 | Post-Mortem | 事后剖析
@@ -57,7 +57,7 @@ bigimg: /img/pexels-photo.jpg
 | Service Deployment | 服务部署
 | Service Level Agreement (SLA) | 服务级别协议(SLA)
 | Sprint | 冲刺
-| Test Story | 测试场景
+| Test Story | 测试故事
 | Test-Driven Development | 测试驱动开发
 | Tools | 工具
 | Toyota Production System (TPS) | 丰田生产系统
@@ -75,10 +75,33 @@ bigimg: /img/pexels-photo.jpg
 | Value stream | 价值流
 | Staging | Staging
 | Card | 卡片
-|Ticketing System | 工单系统
-|batch size | 批次尺寸
-
-
+| Ticketing System | 工单系统
+| work center | 工作中心
+| downstream/upstream | 下游/上游
+| feature | 功能
+| Handoff | 交接
+| Feedback/feedback loop | 反馈/反馈回路
+| feedforward/feedforward loop | 前馈/前馈回路
+| organizational learning | 组织学习
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
 
 请帮忙改进本术语表，[点这里](https://github.com/martinliu/martinliu.github.io/blob/master/_posts/2017-01-07-devops-glossary.md)。
+
+注意事项：
+
+* 建议clone整个repo做批量更新，小批量可以直接在github网页上提交
+* 请不要完全删除之前的翻译，可以把旧翻译划横线（使用markdown），在右边添加新的中文意思。
 
