@@ -3,8 +3,8 @@
   <channel>
     <title>Martin's Blog</title>
     <description>DevOps Coach &amp; Cloud Expert!</description>
-    <link>https://martinliu.github.io</link>
-    <atom:link href="https://martinliu.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:4000</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>云计算时代的终结</title>
@@ -13,30 +13,30 @@
           天下事分久必合，合久必分，移动互联网代表了现在的云计算时代，很多企业还正在朝这个方向发展呢！革命还没有成功，怎么这个时代就要结束了。来听听XenSource前CEO怎么给你解读边缘计算时代的到来。 “I’m going to take you out to the edge to show you what the future looks like.” So begins a16z partner Peter Levine as he takes us on a “crazy” tour of the history and future of cloud computing — from the constant turns between centralized to distributed computing,...
         </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2017-01-05-The-End-of-Cloud-Computing/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2017-01-05-The-End-of-Cloud-Computing/</guid>
+        <link>http://localhost:4000/2017-01-05-The-End-of-Cloud-Computing/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-05-The-End-of-Cloud-Computing/</guid>
       </item>
     
       <item>
         <title>Nutanix AOS 5.0 新版本新特性</title>
         <description>
-          Nutanix AOS 5.0 是一个很重要的功能更新大版本，它一气儿带来了46项之多的新功能；在您安装或者测试这个版本之前，先通过本文快速了解一下这些更新，可能是更加节省时间的方法。 - 
-          主要功能清单 myvirtualcloud.net网站用了4个blog，讲了下面的36项新特性： Cisco UCS B-Series Blade Servers Support Acropolis Affinity and Anti-affinity Acropolis Dynamic Scheduling (DRS++) REST API 2.0 and 3.0 Support for XenServer TechPreview Network Visualization What-if analysis for New workloads and Allocation-based forecasting Native Self-Service Portal Snapshots – Self Service Restore UI Network Partner Integration Framework Metro Availability...
+          新看点快速一览 - 
+          Nutanix AOS 5.0 是一个很重要的功能更新大版本，它一气儿带来了46项之多的新功能；在您安装或者测试这个版本&amp;gt; 之前，先通过本文快速了解一下这些更新，可能是更加节省时间的方法。 主要功能清单 myvirtualcloud.net网站用了4个blog，讲了下面的36项新特性： Cisco UCS B-Series Blade Servers Support Acropolis Affinity and Anti-affinity Acropolis Dynamic Scheduling (DRS++) REST API 2.0 and 3.0 Support for XenServer TechPreview Network Visualization What-if analysis for New workloads and Allocation-based forecasting Native Self-Service Portal Snapshots – Self Service Restore UI Network...
         </description>
         <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2017-01-04-Nutanix-AOS-5.0/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2017-01-04-Nutanix-AOS-5.0/</guid>
+        <link>http://localhost:4000/2017-01-04-Nutanix-AOS-5.0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-04-Nutanix-AOS-5.0/</guid>
       </item>
     
       <item>
-        <title>精益相关的书籍推荐</title>
+        <title>DevOps相关的书单</title>
         <description>
           本清单来自于《DevOps Handbook》书中提到的参考和涉及的书籍。 - 
-          《看板方法-科技企業漸進變革成功之道》书评 转自： Rubbyblog.wordpress.com 今天要介紹看板方法的由來， 上面這本書是由看板方法之父 David J. Anderson 於: 2010年 4月所著。簡字版是 2014 年2月出版。這篇文章在我上 TechDays 課程時就想登出來了，想把好書介紹給大家。但由於台灣的書商都沒有進口，所以一直等到我拿到第一批書後，肯定大家可以在坊間買到書時才把他登出來。原文書名: Kanban: Successful Evolutionary Change for Your Technology Business. 看板方法：它是敏捷陣營中實施起來阻力最小，生產力又能大幅提升、前置時間大幅下降，而可預測性又絕佳的敏捷解決方案之一。好神奇喔 … 哈哈! 確實如此，所以我才會這麼急切的推薦給大家。另一個原因是Kanban Method 現在在美國正熱烈風行中，而我們現在開始追正是時候。為此放下了許多手上正在做的工作(包括一本 Scrum的教本)，努力開始推廣希望大家能受用。首先說明: 為何他推廣起來阻力最小? ※ 實施起來阻力最小: 因為David J. Anderson 本身是一個微軟的 PM出身，他跟大家一樣知道變革會讓許多人害怕，人們會認為自己的技術是否落伍了，開始擔心害怕變革會對自己的工作事業帶來不利，這種恐懼常常會帶來一種莫名的對立，因此在還沒開始變革之前就已經採取抵制的態度了。所以他創始的看板方法選擇從哪裡開始實施呢? 就從現在既有的流程開始。由工作者本身最熟悉的地方開始。起步的秘訣是甚麼呢? 是精實精神中從豐田系統中學來的原則，先從不浪費開始，作法: 在識別浪費後消除浪費。 ※ 如何能讓生產力大幅提升? 由審視既有流程，依據 Little’s law的最大產出方法，接著找出阻礙最大產能的瓶頸所在，然後正視這個造成瓶頸的問題，把它顯現在看板上面，讓大家一起站在看板前面討論如何解決它，解決之後再持續進行改善的作業。 ※ 前置時間大幅下降 過去我們都以為唯有透過良好的規劃及配合才能夠讓前置作業時間下降，但豐田企業的及時(Just In...
+          《看板方法-科技企業漸進變革成功之道》 转自： Rubbyblog.wordpress.com 今天要介紹看板方法的由來， 上面這本書是由看板方法之父 David J. Anderson 於: 2010年 4月所著。簡字版是 2014 年2月出版。這篇文章在我上 TechDays 課程時就想登出來了，想把好書介紹給大家。但由於台灣的書商都沒有進口，所以一直等到我拿到第一批書後，肯定大家可以在坊間買到書時才把他登出來。原文書名: Kanban: Successful Evolutionary Change for Your Technology Business. 看板方法：它是敏捷陣營中實施起來阻力最小，生產力又能大幅提升、前置時間大幅下降，而可預測性又絕佳的敏捷解決方案之一。好神奇喔 … 哈哈! 確實如此，所以我才會這麼急切的推薦給大家。另一個原因是Kanban Method 現在在美國正熱烈風行中，而我們現在開始追正是時候。為此放下了許多手上正在做的工作(包括一本 Scrum的教本)，努力開始推廣希望大家能受用。首先說明: 為何他推廣起來阻力最小? ※ 實施起來阻力最小: 因為David J. Anderson 本身是一個微軟的 PM出身，他跟大家一樣知道變革會讓許多人害怕，人們會認為自己的技術是否落伍了，開始擔心害怕變革會對自己的工作事業帶來不利，這種恐懼常常會帶來一種莫名的對立，因此在還沒開始變革之前就已經採取抵制的態度了。所以他創始的看板方法選擇從哪裡開始實施呢? 就從現在既有的流程開始。由工作者本身最熟悉的地方開始。起步的秘訣是甚麼呢? 是精實精神中從豐田系統中學來的原則，先從不浪費開始，作法: 在識別浪費後消除浪費。 ※ 如何能讓生產力大幅提升? 由審視既有流程，依據 Little’s law的最大產出方法，接著找出阻礙最大產能的瓶頸所在，然後正視這個造成瓶頸的問題，把它顯現在看板上面，讓大家一起站在看板前面討論如何解決它，解決之後再持續進行改善的作業。 ※ 前置時間大幅下降 過去我們都以為唯有透過良好的規劃及配合才能夠讓前置作業時間下降，但豐田企業的及時(Just In...
         </description>
         <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2017-01-03-lean-books/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2017-01-03-lean-books/</guid>
+        <link>http://localhost:4000/2017-01-03-devops-booklist/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-03-devops-booklist/</guid>
       </item>
     
       <item>
@@ -46,8 +46,8 @@
           转帖：《HC 250? HC 380? What are they actually for?》 http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/ HP/HPE 超融合产品线发展如下图所示 +Comment The positioning of these two hyper-converged systems is confusing. We observe that the physically larger and vSphere-only HC 380, with its brand number larger than the HC 250, is for use by operators requiring operational simplicity, whereas...
         </description>
         <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2017-01-03-HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2017-01-03-HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</guid>
+        <link>http://localhost:4000/2017-01-03-HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-03-HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</guid>
       </item>
     
       <item>
@@ -57,8 +57,8 @@
           Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。 Nutanix Community Edition 社区版简介 这个产品目前的位置在 https://www.nutanix.com/products/community-edition/；目前这个页面还没有中文化，下面简单介绍以下。 Feature Rich Software 它是一个功能丰富的软件 Broad Hardware Support &amp;amp; Available On-demand 很丰富的硬件支持，在网上可以按需体验 Zero Cost 零成本 用Nutanix CE社区版体验，体验超融合技术的三个步骤。 注册 ： 这次Nutanix社区，下载安装镜像 部署 ： 在你的服务器上部署，或者在Ravello上在线开启体验；官方安装部署视频点这里 玩耍 ： 安装完之后就可以开心地玩耍了，有问题请移步 社区版论坛 用物理机安装和体验的几点注意事项如下： 物理机安装支持1，3，4个节点的部署；推荐内存在32GB以上；由于版本CE 2016.12.22的CVM的内存需求是24GB，由于加入了自服务门户功能；建议使用SSD硬盘，最好能混搭一些普通硬盘。 安装后的首次启动需要系统能链接互联网，否则CVM会启动不了，首次启动成功之后就不用再联网了 用虚拟机安装，请注意本机的内存，和给虚拟机分配的内存，网上也有修改对内存和CPU限制修改的脚本 产品在社区里的文档页面： 点这里 参考配置 Intel NUC 最新版一台，i7处理器，两条16GB内存，两条512GB硬盘。它的好处是便携；然而内存还是有限，不能跑多少个虚拟机。 相关文档 在VMware Workstation上安装Nutanix CE Nutanix...
         </description>
         <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2017-01-02-Nutanix-CE-all-in-one/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2017-01-02-Nutanix-CE-all-in-one/</guid>
+        <link>http://localhost:4000/2017-01-02-Nutanix-CE-all-in-one/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-02-Nutanix-CE-all-in-one/</guid>
       </item>
     
       <item>
@@ -172,8 +172,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 
         </description>
         <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2016-12-31-west-coast-SFO/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2016-12-31-west-coast-SFO/</guid>
+        <link>http://localhost:4000/2016-12-31-west-coast-SFO/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-12-31-west-coast-SFO/</guid>
       </item>
     
       <item>
@@ -183,8 +183,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who...
         </description>
         <pubDate>Thu, 26 Feb 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-02-26-flake-it-till-you-make-it/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-02-26-flake-it-till-you-make-it/</guid>
+        <link>http://localhost:4000/2015-02-26-flake-it-till-you-make-it/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-02-26-flake-it-till-you-make-it/</guid>
       </item>
     
       <item>
@@ -194,8 +194,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           You can write regular markdown here and Jekyll will automatically convert it to a nice webpage. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc. Here is some bold text Here is a...
         </description>
         <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-02-20-test-markdown/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-02-20-test-markdown/</guid>
+        <link>http://localhost:4000/2015-02-20-test-markdown/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-02-20-test-markdown/</guid>
       </item>
     
       <item>
@@ -205,8 +205,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           To be, or not to be–that is the question: Whether ‘tis nobler in the mind to suffer The slings and arrows of outrageous fortune Or to take arms against a sea of troubles And by opposing end them. To die, to sleep– No more–and by a sleep to say we...
         </description>
         <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-02-13-hamlet-monologue/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-02-13-hamlet-monologue/</guid>
+        <link>http://localhost:4000/2015-02-13-hamlet-monologue/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-02-13-hamlet-monologue/</guid>
       </item>
     
       <item>
@@ -216,8 +216,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           What is it with that Mary girl? Dragging me to school every day. As if I had a choice. What you don’t hear in those nursery rhymes is that she starves me if I don’t go to school with her; it’s the only way I can stay alive! I’m thinking...
         </description>
         <pubDate>Tue, 27 Jan 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-01-27-dear-diary/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-01-27-dear-diary/</guid>
+        <link>http://localhost:4000/2015-01-27-dear-diary/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-01-27-dear-diary/</guid>
       </item>
     
       <item>
@@ -227,8 +227,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           From Wikipedia: Association football, more commonly known as football or soccer,[2] is a sport played between two teams of eleven players with a spherical ball. It is played by 250 million players in over 200 countries, making it the world’s most popular sport.[3][4][5][6] The game is played on a rectangular...
         </description>
         <pubDate>Mon, 19 Jan 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-01-19-soccer/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-01-19-soccer/</guid>
+        <link>http://localhost:4000/2015-01-19-soccer/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-01-19-soccer/</guid>
       </item>
     
       <item>
@@ -238,8 +238,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           Piracy is typically an act of robbery or criminal violence at sea. The term can include acts committed on land, in the air, or in other major bodies of water or on a shore. It does not normally include crimes committed against persons traveling on the same vessel as the...
         </description>
         <pubDate>Thu, 15 Jan 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-01-15-pirates/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-01-15-pirates/</guid>
+        <link>http://localhost:4000/2015-01-15-pirates/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-01-15-pirates/</guid>
       </item>
     
       <item>
@@ -250,8 +250,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 
         </description>
         <pubDate>Sun, 04 Jan 2015 00:00:00 +0000</pubDate>
-        <link>https://martinliu.github.io/2015-01-04-first-post/</link>
-        <guid isPermaLink="true">https://martinliu.github.io/2015-01-04-first-post/</guid>
+        <link>http://localhost:4000/2015-01-04-first-post/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-01-04-first-post/</guid>
       </item>
     
   </channel>

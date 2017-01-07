@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      精益相关的书籍推荐
+title:      DevOps相关的书单
 subtitle:    本清单来自于《DevOps Handbook》书中提到的参考和涉及的书籍。
 tags: [DevOps]
 bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 ---
 
-## 《看板方法-科技企業漸進變革成功之道》书评
+## 《看板方法-科技企業漸進變革成功之道》
 转自：[ Rubbyblog.wordpress.com](https://ruddyblog.wordpress.com/2014/09/30/%E7%9C%8B%E6%9D%BF%E6%96%B9%E6%B3%95-%E7%A7%91%E6%8A%80%E4%BC%81%E6%A5%AD%E6%BC%B8%E9%80%B2%E8%AE%8A%E9%9D%A9%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93/)
 
 
@@ -246,3 +246,96 @@ ASIN: B0142EC7AA
 注释
 参考文献
 译者后记
+
+
+## Implementing Lean Software Development: From Concept to Cash
+
+![](/images/14837758468347.jpg)
+
+
+### 基本信息
+
+出版社: Addison-Wesley Professional; 1 (2009年10月31日)
+丛书名: Addison-Wesley Signature Series (Beck)
+平装: 312页
+语种： 英语
+ISBN: 0321620704
+条形码: 9780321620705
+商品尺寸: 17.5 x 1.8 x 22.9 cm
+商品重量: 499 g
+品牌: Pearson
+ASIN: 0321620704
+用户评分: 分享我的评价
+亚马逊热销商品排名: 图书商品里排第1,441,726名 (查看图书商品销售排行榜)
+第64位 - 图书 > 进口原版书 > Computers & Technology（计算机与科技） > Business & Management（商业与管理） > Project Management
+第393位 - 图书 > 进口原版书 > Computers & Technology（计算机与科技） > Programming（编程） > Software Design, Testing & Engineering > Software Development
+
+### 作者简介
+
+Mary Poppendieck has led teams implementing various solutions ranging from enterprise supply chain management to digital media. Mary is the president of Poppendieck LLC, which specializes in bringing lean techniques to software development. 
+
+Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, currently assists organizations in applying lean principles and tools to software development processes. The Poppendiecks are authors of Lean Software Development, winner of the 2004 Jolt Software Development Productivity Award, and Implementing Lean Software Development (both from Addison-Wesley).
+
+## 目录
+
+Foreword        xi
+Introduction: Framing        xiii
+Acknowledgments        xxi
+
+Chapter 1: Systems Thinking        1 
+A Different Way to Run an Airline     2
+Frame 1: Customer Focus     6
+Frame 2: System Capability     13
+Frame 3: End-to-End Flow     19
+Frame 4: Policy-Driven Waste      24
+Portrait: Product Champion, Take 1     36
+Your Shot      42 
+
+Chapter 2: Technical Excellence        45 
+Facts, Fads, and Fallacies     46
+Frame 5: Essential Complexity      63
+Frame 6: Quality by Construction     70
+Frame 7: Evolutionary Development     83
+Frame 8: Deep Expertise      89
+Portrait: Competency Leader     95
+Your Shot     97 
+
+Chapter 3: Reliable Delivery        101 
+Race to the Sky     102
+Frame 9: Proven Experience     108
+Frame 10: Level Workflow     114
+Frame 11: Pull Scheduling     129
+Frame 12: Adaptive Control     143
+Portrait: Product Champion, Take 2     147
+Your Shot     150 
+
+Chapter 4: Relentless Improvement        153 
+Sick Hospitals     154
+Frame 13: Visualize Perfection     159
+Frame 14: Establish a Baseline     163
+Frame 15: Expose Problems      169
+Frame 16: Learn to Improve      173
+Portrait: Manager as Mentor      183
+Your Shot      185 
+
+Chapter 5: Great People        187 
+Cultural Assumptions     188
+Frame 17: Knowledge Workers     196
+Frame 18: The Norm of Reciprocity     200
+Frame 19: Mutual Respect      203
+Frame 20: Pride of Workmanship     209
+Portrait: Front-Line Leaders     212
+Your Shot     216 
+
+Chapter 6: Aligned Leaders        219 
+Agile@IBM     220
+Frame 21: From Theory to Practice     228
+Frame 22: Governance     230
+Frame 23: Alignment     236
+Frame 24: Sustainability     242
+Portrait: Leaders at All Levels     244 
+
+Bibliography        247
+Index        257
+
+
