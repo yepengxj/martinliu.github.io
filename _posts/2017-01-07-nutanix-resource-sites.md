@@ -5,6 +5,7 @@ subtitle:   做Nutanix的那些不可不知道的资源网站
 tags: [Nutanix,DevOps]
 bigimg: /img/google-earth-view-6043.jpg
 ---
+这里列出了常用的官方和非官方网站。
 
 ## Nutanix 官方站点
 
@@ -44,4 +45,17 @@ bigimg: /img/google-earth-view-6043.jpg
 
 ### Mark's Blog by Mark Lavi
 [http://mlavi.github.io/](http://mlavi.github.io/)
+
+### Jeremy Sallee -  Nutanix UI/Frontend 设计师
+
+[http://salleedesign.com/stuff/sdwip/home/](http://salleedesign.com/stuff/sdwip/home/)
+
+想知道Prism是怎么设计出来的：[点这里]( http://salleedesign.com/stuff/sdwip/blog/nutanix-case-study/)
+
+## 其他资源
+
+### Nutanix viso 图标下载
+
+[http://www.visiocafe.com/nutanix.htm](http://www.visiocafe.com/nutanix.htm)
+
 

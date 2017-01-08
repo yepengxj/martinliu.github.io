@@ -7,10 +7,21 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Nutanix资源站点清单</title>
+        <description>
+          做Nutanix的那些不可不知道的资源网站 - 
+          这里列出了常用的官方和非官方网站。 Nutanix 官方站点 http://portal.nutanix.com/ http://portal.nutanix.com/ 在线文档 在线技术支持，case查看和操作 产品和补丁下载 https://next.nutanix.com/ https://next.nutanix.com/ 产品网上论坛和社区 社区版论坛 博客， Nutanix Connect Blog 技术达人网站和博客 myvirtualcloud.net by Andre Leibovici http://myvirtualcloud.net/nutanix/ Virtual life style by Joep Piscaer https://www.virtuallifestyle.nl/ The Nutanix Bible by Steven Poitras http://nutanixbible.com/ Mark’s Blog by Mark Lavi http://mlavi.github.io/ curl -H “Content-Type: application/json” -X POST -d ‘{“your-email”:”martin.liu@nutanix.com”,”your-company”:”nutanix”,”Last...
+        </description>
+        <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2017-01-07-nutanix-resource-sites/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-07-nutanix-resource-sites/</guid>
+      </item>
+    
+      <item>
         <title>DevOps术语表</title>
         <description>
           关键术语快速查询 - 
-          本术语表主要来源于《DevOps Handbook》 英文 中文 artifacts 部署包 Telemetry 告警数据 process time 处理时间 cycle time 循环时间 tightly-coupled 紧耦合 monolithic applications 单体应用 lead time 前置时间 developer 开发人员 Exploratory test 探索测试 batch sizes 批次尺寸 Affinity 亲和 Agile 敏捷 Application Deployment 应用部署 Artifact Management 构件库管理 Automation 自动化 Blamelessness 免责 Cloud Computing 云计算 Collaboration 协作 Configuration...
+          本术语表主要来源于DevOps相关书籍。 英文 中文 artifacts 部署包 Telemetry 告警数据 process time 处理时间 cycle time 周期时间 tightly-coupled 紧耦合 monolithic applications 单体应用 lead time 前置时间 developer 开发人员 Exploratory test 探索测试 batch sizes 批次尺寸 Affinity 亲和 Agile 敏捷 Application Deployment 应用部署 Artifact Management 构件库管理 Automation 自动化 Blamelessness 免责 Cloud Computing 云计算 Collaboration 协作 Configuration Management...
         </description>
         <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2017-01-07-devops-glossary/</link>
@@ -76,7 +87,7 @@
         <title>美国西岸旧金山之行</title>
         <description>
           硅谷和旧金山周边游 - 
-          这次旅行的目的地是硅谷腹地圣何塞，属于商务出差，并没有太多时间游玩，可是趁着周末还是可以在旧金山简单游玩了两天。
+          这次旅行的目的地是硅谷腹地圣何塞，属于商务出差，周末在旧金山简单游玩了一下。
 
 交通
 从北京到硅谷（圣何塞）有了海航直飞的飞机还是很方便的，在淡季的时候票价也不错。如果你的目的地就在圣何塞市附近的话，乘坐这个航班无疑是最佳的选择。
@@ -179,6 +190,7 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 
 
 压轴的是这个早餐，点名叫“8 AM”；三藩市早餐分类在点评网站上排第五。吐司三吃。
+
 
 
         </description>
