@@ -83,13 +83,13 @@ bigimg: /img/pexels-photo.jpg
 | Feedback/feedback loop | 反馈/反馈回路
 | feedforward/feedforward loop | 前馈/前馈回路
 | organizational learning | 组织学习
-|  | 
-|  | 
-|  | 
-|  | 
-|  | 
-|  | 
-|  | 
+| value stream mapping | 价值流映射
+| pilot | 试点
+| technical debt | 技术债务
+| DevOps transformation | DevOps转型
+| systems of record | 记录系统
+| systems of engagement | 交互系统
+| compliance requirement | 合规性要求
 |  | 
 |  | 
 |  | 

@@ -3,7 +3,7 @@ layout:     post
 title:      美国西岸旧金山之行
 subtitle:   硅谷和旧金山周边游
 tags: [旅行, SFO]
-bigimg: /img/sfan-gate-park.png
+bigimg: /img/sfan-gate-park.jpg
 ---
 这次旅行的目的地是硅谷腹地圣何塞，属于商务出差，周末在旧金山简单游玩了一下。
 
