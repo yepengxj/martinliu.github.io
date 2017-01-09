@@ -97,6 +97,13 @@ bigimg: /img/pexels-photo.jpg
 |  | 
 |  | 
 |  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
 
 请帮忙改进本术语表，[点这里](https://github.com/martinliu/martinliu.github.io/blob/master/_posts/2017-01-07-devops-glossary.md)。
 
