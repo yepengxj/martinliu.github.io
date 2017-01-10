@@ -52,6 +52,14 @@ bigimg: /img/google-earth-view-6043.jpg
 
 想知道Prism是怎么设计出来的：[点这里]( http://salleedesign.com/stuff/sdwip/blog/nutanix-case-study/)
 
+### Virtual Dennis by Dennis Laube
+
+[http://www.virtualdennis.com/category/nutanix/](http://www.virtualdennis.com/category/nutanix/)
+
+* [如何ova格式的虚拟机导入Nutanix AHV](http://www.virtualdennis.com/importing-an-ovf-ova-into-nutanix-ahv-using-prism/)  镜像服务能够支持Web界面上传导入的格式包括：raw, vhd, vmdk, vdi, iso 和 qcow2 磁盘，导入为Disk后，即可用做模板
+* [如何在Nutanix中制作AHV虚拟机模板](http://www.virtualdennis.com/nutanix-acropolis-hypervisor-ahv-create-an-image-service-template-from-an-existing-vm/) 使用acli命令：vm.disk_get；image.create W2K12R2-Template clone_from_vmdisk=69df5abd-6570-4ce1-ba77-2d117c3df7e5 image_type=kDiskImage
+* 
+
 ## 其他资源
 
 ### Nutanix viso 图标下载
