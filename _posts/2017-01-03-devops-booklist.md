@@ -50,6 +50,7 @@ bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 《精益思想》于1996年秋季首次出版，历经20年，畅 销十多个国家，累计销量上百万册。本书的成功在于它对精益生产方式做了最 好的总结，为读者提供了精益的核心原则，实地考察了美国、德国、日本若干具有代表性的大小企业推行精益的实际情况和心得，为准备跨入精益之门和进一步学习、实施精益的人提供了最 好的指南，从而成为精益方面的经典著作。
 
 **基本信息**
+~~~
 出版社: 机械工业出版社; 第1版 (2015年8月1日)
 外文书名: Lean Thinking ：Banish Waste and Create Wealth in Your Corporation
 丛书名: 精益思想丛书
@@ -64,188 +65,10 @@ ISBN: 7111510712, 9787111510710
 ASIN: B0142EC7AA
 用户评分: 平均4.5 星  浏览全部评论 (82 条商品评论)
 亚马逊热销商品排名: 图书商品里排第7,694名
+~~~
 
-**目录**
 
-修订版前言
-第1版前言从精益生产到精益企业
-第一部分精益原则
-导论和浪费针锋相对的精益思想
-定义价值
-识别价值流
-流动
-拉动
-尽善尽美
-我们现在就能得到的好处
-停滞消除剂
-从头做起
-第1章价值
-是一所房子，还是一种没有麻烦的经历
-从向传统“价值”的定义挑战开始
-按整个产品来定义价值
-精益企业重新考虑价值时的关键所在
-价值定义的最后一个要素：目标成本
-第2章价值流
-从货架通道里观察
-一提盒可乐的价值流
-生产可乐
-引起浪费的根本原因
-订购可乐
-制成可乐
-让价值流分析发挥作用
-第3章流动
-批量生产的世界
-流动的技术
-自行车从批量生产到流动生产
-把流动思想用于任意活动
-工作中的流动；流动地工作
-只有流动是不够的
-第4章拉动
-过去糟糕的生产
-服务于拉动的精益生产方式
-过去糟糕的配送
-服务于拉动的精益配送
-从理论到实践
-精益配送技术
-均衡进度需要均衡销售
-过去糟糕的轿车维修服务
-从维修场地拉动
-从维修场地到原材料的拉动
-仅仅是开始
-混乱是真的吗
-是否真的必须有商业周期
-在追求尽善尽美中拉动价值
-第5章尽善尽美
-增长的途径
-捷径
-持续进行根本性的、不断的改善
-尽善尽美的蓝图
-集中精力消灭浪费
-去掉惰性，开始起步
-第二部分从思想到行动：精益的飞跃
-第6章简单事例
-精益革命
-最终结果
-如“流”的工作
-最后步骤
-超越简单事例
-第7章复杂事例
-“我们差点让自己‘准时’死亡”
-变革代理人
-理论知识
-线模公司的精益化
-首先处理过剩人员和“钉子户”
-教会人们如何去观察
-反复改善每一个价值流
-再造生产组织，为价值流开辟道路
-引进精益财务系统和“计分卡”
-降低库存
-创建一个“精益”部门
-为获得灵活性而提供铁的工作保证
-再造产品开发系统，为价值流开辟道路
-整改接单过程
-将工薪和利润联系起来
-改善供应商
-制定一项发展战略
-五年后的成绩记录
-对问题更严重的企业怎么样呢
-第8章严峻的考验
-从美国系统到批量生产
-鹰的起飞
-第二次世界大战是形成批量生产方式的动力
-喷气推动的鹰
-鹰的第一次坠落
-是较精益而非精益，是必需而非足够
-1991年创造出的危机
-从大到不太大，从“流程”到流动
-仅有精益知识是不够的
-第二个变革代理人
-拔掉钉子户
-调整两项主要活动
-10亿美元的房间
-超大装备的遗迹
-连续流动发动机
-同时发生的质量危机
-实际生产的最终结果
-不能倒退之点
-下一步飞跃
-教训和下一步骤
-精益思想对其他工业企业又如何呢
-第9章精益思想和德国技术
-从贫穷到富有的初步成功
-保时捷：一个典型的德国企业
-出现危机
-变革代理人
-进攻计划
-日本导师的到来
-处理就业问题
-工人和工会的反应
-整顿供货队伍
-整顿全盘管理
-整顿产品计划
-整顿产品开发系统
-业绩记录
-下一个挑战
-对德国传统的暗示
-德国和日本
-第10章大丰田，小昭和
-昭和的危机
-最初的努力
-一个思想矛盾
-支撑精益化的新型组织
-从硬改善到软改善
-最后因素：重新思考订单接收和生产计划
-最终结果：精益的成功
-日本的其他企业如何
-丰田的精益状况
-“不服输的好处”
-创造性的危机
-丰田的缓慢行进
-相应的改革
-完善生产环节改革
-完善平行化改革
-今日之丰田
-精益思想在丰田公司之外的传播
-小昭和，大丰田：日本今日面临的挑战
-一样的步骤
-第11章行动计划
-开始起步
-创建一个组织机构，引导你的价值流
-建立鼓励精益思想的业务系统
-完成转型
-五年承诺的必然结果
-下一个飞跃
-第三部分精益企业
-第12章流动的渠道，渠道的流域
-精益企业
-结束工业冷战
-轮换职务
-未来的职能
-企业的作用
-三种工业传统中的精益企业
-前面的路还很长
-第13章想象尽善尽美
-长途旅行
-医疗
-食品生产和配送
-建筑业
-短途内个人的出行机动性
-想象的力量
-我们马上就可以得到的好处
-第四部分新的发展
-第14章精益思想的稳步发展
-丰田的稳步发展
-保时捷的精益过程加卓越产品
-体现在大型货物包装机中的精益思想：兰开公司
-普惠：困难时期困难行业中的精益思想
-超越孤立的发展
-第15章使变革制度化
-充实后的行动计划
-机会就在眼前
-后记精益网络
-注释
-参考文献
-译者后记
+
 
 
 ## Implementing Lean Software Development: From Concept to Cash
@@ -276,66 +99,56 @@ Mary Poppendieck has led teams implementing various solutions ranging from enter
 
 Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, currently assists organizations in applying lean principles and tools to software development processes. The Poppendiecks are authors of Lean Software Development, winner of the 2004 Jolt Software Development Productivity Award, and Implementing Lean Software Development (both from Addison-Wesley).
 
-## 目录
 
-Foreword        xi
-Introduction: Framing        xiii
-Acknowledgments        xxi
 
-Chapter 1: Systems Thinking        1 
-A Different Way to Run an Airline     2
-Frame 1: Customer Focus     6
-Frame 2: System Capability     13
-Frame 3: End-to-End Flow     19
-Frame 4: Policy-Driven Waste      24
-Portrait: Product Champion, Take 1     36
-Your Shot      42 
+## The Fifth Discipline: The Art & Practice of The Learning Organization
 
-Chapter 2: Technical Excellence        45 
-Facts, Fads, and Fallacies     46
-Frame 5: Essential Complexity      63
-Frame 6: Quality by Construction     70
-Frame 7: Evolutionary Development     83
-Frame 8: Deep Expertise      89
-Portrait: Competency Leader     95
-Your Shot     97 
+![](/img/14840700653952.jpg)
 
-Chapter 3: Reliable Delivery        101 
-Race to the Sky     102
-Frame 9: Proven Experience     108
-Frame 10: Level Workflow     114
-Frame 11: Pull Scheduling     129
-Frame 12: Adaptive Control     143
-Portrait: Product Champion, Take 2     147
-Your Shot     150 
+![](/img/14840700772382.jpg)
 
-Chapter 4: Relentless Improvement        153 
-Sick Hospitals     154
-Frame 13: Visualize Perfection     159
-Frame 14: Establish a Baseline     163
-Frame 15: Expose Problems      169
-Frame 16: Learn to Improve      173
-Portrait: Manager as Mentor      183
-Your Shot      185 
+###基本信息
+~~~
 
-Chapter 5: Great People        187 
-Cultural Assumptions     188
-Frame 17: Knowledge Workers     196
-Frame 18: The Norm of Reciprocity     200
-Frame 19: Mutual Respect      203
-Frame 20: Pride of Workmanship     209
-Portrait: Front-Line Leaders     212
-Your Shot     216 
+出版社: 中信出版社; 第1版 (2009年10月1日)
+外文书名: The Fifth Discipline:The Art & Practice of The Learning Organization
+平装: 455页
+语种： 简体中文
+开本: 16
+ISBN: 7508616820, 9787508616827
+条形码: 9787508616827
+商品尺寸: 22.8 x 17 x 2.8 cm
+商品重量: 739 g
+品牌: 中信出版股份有限公司
+ASIN: B002QMKJ4C
+用户评分: 平均4.5 星  浏览全部评论 (322 条商品评论)
+亚马逊热销商品排名: 图书商品里排第1,333名 (查看图书商品销售排行榜)
+第6位 - 图书 > 经济管理 > 管理学理论与方法论 > 管理学基础理论
+第17位 - 图书 > 经济管理 > 企业经营与管理 > 管理指南
+第617位 - 图书 > 在线试读
 
-Chapter 6: Aligned Leaders        219 
-Agile@IBM     220
-Frame 21: From Theory to Practice     228
-Frame 22: Governance     230
-Frame 23: Alignment     236
-Frame 24: Sustainability     242
-Portrait: Leaders at All Levels     244 
+~~~
 
-Bibliography        247
-Index        257
+### 编辑推荐
+
+《第五项修炼:学习型组织的艺术与实践(新世纪全新扩充修订版)》由当代最杰出的新管理大师彼得•圣吉撰写的著作，被誉为21世纪的管理圣经、20世纪屈指可数的几本管理经典、世界上影响最深远的管理书籍之一，并被《哈佛商业评论》评为过去75年具有影响力的管理类图书，还荣获世界企业学会荣誉的开拓者奖！
+进入21世纪以来，全球经济的迅猛发展，使得全球企业管理趋势、管理理念也顺应发生了巨大的变化，作为新世纪全新扩充修订版，《第五项修炼:学习型组织的艺术与实践(新世纪全新扩充修订版)》其背后是15年来把原书理念付诸实践的经验和案例。圣吉明确指出，从长远来看，你的组织可持续的竞争优势，就是比对手更好更快的学习能力。15年前，许多《第五项修炼》的核心理念都曾显得很激进。但这些理念的许多应用方法，后来已经被融入到人们观察世界的方式中，也被整合到人们的管理实践中；《第五项修炼:学习型组织的艺术与实践(新世纪全新扩充修订版)》对前一版进行了全面修订，新版书中的领导力案例故事揭示了这些经历。并增添了新的内容：实践中的反思，为企业、个人读者更准确理解最新管理理念，对学习型组织进行了有效的反思，对建设学习型组织所面临的新疑惑提供了新的思维。
+
+### 名人推荐
+
+流行的管理体系很摧残人……教育界、工商界和政府机构的管理层的任务，应该是使系统最优化……彼得·圣吉的著作《第五项修炼》是帮助开始这项工作的好书，它让我学到了许多东西。 
+——爱德华·戴明博士，全面质量管理运动(TQM）的先驱。
+
+### 媒体推荐
+《第五项修炼》是过去75年来最有影响力的管理学著作之一。 
+——《哈佛商业评论》 
+圣吉的这本著作已经是一本不折不扣的管理学经典。 
+——《波士顿环球报》
+
+### 作者简介
+
+作者：（美国）彼得•圣吉 译者：张成林
+
+彼得•圣吉博士（Dr.Peter M. Senge），麻省理工学院斯隆管理学院的高级教授讲师，国际组织学习学会（SoL）和索奥中国（SoL China）的创始主席。除《第五项修炼》之外，他还与人合著了《第五项修炼实践篇》（1994）、《变革之舞》（1999）、《学习型学校》（Schools that Learn, 2000）、《体悟当下》（Presence, 2004），以及最近出版的《必要的革命》（The Necessary Revolution, 2008）等著作。圣吉被誉为最富创新精神的世界级管理学和领导学思想大师之一。他早年毕业于斯坦福大学工程专业，并获得麻省理工社会系统模型硕士和管理学博士，现家居美国马萨诸塞州。
 
 
