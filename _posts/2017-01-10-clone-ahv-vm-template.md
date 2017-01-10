@@ -11,6 +11,7 @@ tags: [Nutanix]
 
 使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称
 
+~~~
 <acropolis> vm.disk_get vm-fedora25
 ide.0 {
   addr {
@@ -30,11 +31,18 @@ scsi.0 {
   vmdisk_size: 10737418240
   vmdisk_uuid: "7476458e-7917-4df8-b830-a0df5a95dae9"
 }
+~~~
 
 ## 创建模板镜像
 
+使用从虚拟机磁盘克隆出镜像的命令。
+
+~~~
+
 <acropolis> image.create fedora25-Template clone_from_vmdisk=7476458e-7917-4df8-b830-a0df5a95dae9 image_type=kDiskImage annotation='Fedora 25 Server Template'
 fedora25-Template: complete
+
+~~~
 
 ## 模板测试
 
