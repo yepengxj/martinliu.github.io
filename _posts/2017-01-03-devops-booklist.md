@@ -99,7 +99,7 @@ Mary Poppendieck has led teams implementing various solutions ranging from enter
 
 Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, currently assists organizations in applying lean principles and tools to software development processes. The Poppendiecks are authors of Lean Software Development, winner of the 2004 Jolt Software Development Productivity Award, and Implementing Lean Software Development (both from Addison-Wesley).
 
-
+ 
 
 ## The Fifth Discipline: The Art & Practice of The Learning Organization
 
@@ -107,7 +107,7 @@ Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, cur
 
 ![](/img/14840700772382.jpg)
 
-###基本信息
+### 基本信息
 ~~~
 
 出版社: 中信出版社; 第1版 (2009年10月1日)
