@@ -25,8 +25,9 @@ description: DevOps Coach & Cloud Expert!
 navbar-links:
   About Me: "aboutme"
   Resources:
-    - My old blog: "http://martinliu.cn/"
-    - AWS-FAQ: "http://www.aws-faq.com/"
+    - martinliu.cn: "http://martinliu.cn/"
+    - AWS-FAQ.com: "http://www.aws-faq.com/"
+    - devopscoach.org: "http://devopscoach.org"
   
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
