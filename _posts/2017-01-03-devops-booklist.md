@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      DevOps相关的书单
-subtitle:    本清单来自于《DevOps Handbook》书中提到的参考和涉及的书籍。
+subtitle:   本清单来自于《DevOps Handbook》书中提到的书籍。
 tags: [DevOps]
 bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 ---
@@ -47,9 +47,11 @@ bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 ![](/img/14836204523398.jpg)
 
 **简介**
+
 《精益思想》于1996年秋季首次出版，历经20年，畅 销十多个国家，累计销量上百万册。本书的成功在于它对精益生产方式做了最 好的总结，为读者提供了精益的核心原则，实地考察了美国、德国、日本若干具有代表性的大小企业推行精益的实际情况和心得，为准备跨入精益之门和进一步学习、实施精益的人提供了最 好的指南，从而成为精益方面的经典著作。
 
 **基本信息**
+
 ~~~
 出版社: 机械工业出版社; 第1版 (2015年8月1日)
 外文书名: Lean Thinking ：Banish Waste and Create Wealth in Your Corporation
@@ -78,6 +80,7 @@ ASIN: B0142EC7AA
 
 ### 基本信息
 
+~~~
 出版社: Addison-Wesley Professional; 1 (2009年10月31日)
 丛书名: Addison-Wesley Signature Series (Beck)
 平装: 312页
@@ -92,6 +95,7 @@ ASIN: 0321620704
 亚马逊热销商品排名: 图书商品里排第1,441,726名 (查看图书商品销售排行榜)
 第64位 - 图书 > 进口原版书 > Computers & Technology（计算机与科技） > Business & Management（商业与管理） > Project Management
 第393位 - 图书 > 进口原版书 > Computers & Technology（计算机与科技） > Programming（编程） > Software Design, Testing & Engineering > Software Development
+~~~
 
 ### 作者简介
 
@@ -108,6 +112,7 @@ Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, cur
 ![](/img/14840700772382.jpg)
 
 ### 基本信息
+
 ~~~
 
 出版社: 中信出版社; 第1版 (2009年10月1日)
