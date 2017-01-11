@@ -90,7 +90,7 @@ bigimg: /img/pexels-photo.jpg
 | systems of record | 记录系统
 | systems of engagement | 交互系统
 | compliance requirement | 合规性要求
-|  | 
+| telemetry | 监控
 |  | 
 |  | 
 |  | 
