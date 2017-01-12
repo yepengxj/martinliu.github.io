@@ -91,7 +91,7 @@ bigimg: /img/pexels-photo.jpg
 | systems of engagement | 交互系统
 | compliance requirement | 合规性要求
 | telemetry | 监控
-|  | 
+| Andon cord | 安灯拉绳
 |  | 
 |  | 
 |  | 

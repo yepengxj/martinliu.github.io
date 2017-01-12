@@ -1,10 +1,11 @@
 ---
 layout:     post
-title:      DevOps相关的书单
-subtitle:   本清单来自于《DevOps Handbook》书中提到的书籍。
+title:      来自于《DevOps Handbook》的书单
+subtitle:   本清单来自于《DevOps Handbook》书中提到的书，更新到第五本
 tags: [DevOps]
 bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 ---
+《看板方法》、《精益思想》、《Implementing Lean Software Development: From Concept to Cash》、《第五项修炼:学习型组织的艺术与实践》、《探索吧!深入理解探索式软件测试》
 
 ## 《看板方法-科技企業漸進變革成功之道》
 转自：[ Rubbyblog.wordpress.com](https://ruddyblog.wordpress.com/2014/09/30/%E7%9C%8B%E6%9D%BF%E6%96%B9%E6%B3%95-%E7%A7%91%E6%8A%80%E4%BC%81%E6%A5%AD%E6%BC%B8%E9%80%B2%E8%AE%8A%E9%9D%A9%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93/)
