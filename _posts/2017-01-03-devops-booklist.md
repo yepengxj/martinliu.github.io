@@ -222,4 +222,95 @@ Sidney Dekker (PhD Ohio State University, USA, 1996) is currently professor at G
 
 
 
+## Lean IT: Enabling and Sustaining Your Lean Transformation
+
+![](/img/14844093662859.jpg)
+
+###Review
+
+This book will have a permanent place in my bookshelf. In my ten-year study of high performing IT organizations, I’ve found that businesses rely on IT far more than they think. The impacts of poor flow from application development into IT operations can be devastating: ever increasing cycle times and amounts of rework, and an ever increasing amount of heroics required in IT operations to preserve the illusion of stability and reliability.
+―Gene Kim, Chief Technology Officer, Tripwire, Inc.
+
+There has never been a more critical time to improve how IT integrates with the global business enterprise. This book provides an unprecedented look at the role that Lean will play in making this revolutionary shift and the critical steps for sustained success.
+―Steve Castellanos, Lean Enterprise Director; Nike, Inc.
+
+Twenty years from now the firms which dominate their industries will have fully embraced lean strategies throughout their IT organizations. Ten years from now those organizations will have started pulling ahead of their competitors as the result of lean IT. Today this book will show those organizations the path they need to start out on. Will your organization be one of them?
+―Scott W. Ambler, Chief Methodologist for Agile and Lean, IBM Rational
+
+... goes both wide and deep in its exploration of Lean … a great survival manual for those needing nimble and adaptive systems.
+―Dr. David Labby, MD, PhD, Medical Director and Director of Clinical Support and Innovation, CareOregon
+
+This book makes a major contribution in an often-ignored but much-needed area. It ranges over a huge area – including excellent cases – that will bring IT professionals into the Lean fold but will also enable Lean managers to reach out to IT.
+―John Bicheno, Program Director MS in Lean Operations, Cardiff University
+
+… a comprehensive view into the world of Lean IT, a must read!
+―Dave Wilson, Quality Management, Oregon Health & Science University
+
+
+###About the Author
+
+Steve Bell, CFPIM brings over twenty years' experience in finance, operations management and information systems. He is the author of Lean Enterprise Systems, Using IT for Continuous Improvement. (2006)
+
+Mike Orzen, CMA, CFPIM, PMP delivers a unique blend of IT, operations management, Lean, Six Sigma, and project management. With a BA from Stanford University in economics and an MBA from the University of Oregon, Mike has been consulting, coaching, and teaching for over 20 years.
+
+Steve and Mike are faculty members of the Lean Enterprise Institute. Together, the authors combine their experience in information systems and process improvement to share their lessons learned.
+
+### Product Details
+
+~~~
+Hardcover: 370 pages
+Publisher: Productivity Press; 1 edition (September 14, 2010)
+Language: English
+ISBN-10: 1439817561
+ISBN-13: 978-1439817568
+Product Dimensions: 6.1 x 1 x 9 inches
+Shipping Weight: 1.4 pounds (View shipping rates and policies)
+Average Customer Review: 4.9 out of 5 stars  See all reviews (20 customer reviews)
+Amazon Best Sellers Rank: #129,956 in Books (See Top 100 in Books)
+~~~
+
+
+## True North: Discover Your Authentic Leadership
+
+![](/img/14844095698595.jpg)
+
+###Review
+
+"With great clarity and insight, Bill George and Peter Sims make a persuasive argument that the journey toward authentic leadership—that finding and pursuing your own True North--is the key to leadership in all fields, whether in business, government, or the nonprofit arena."
+—From the Foreword by David Gergen 
+
+"In True North, Bill George once again provides a roadmap for leadership in the 21st Century. The future belongs to leaders who want to win, without ever losing track of their own values. We live in a day when the best people can work anywhere. They will follow only authenticity—a person who leads with passion and purpose."
+—Jeff Immelt, CEO, General Electric
+
+"True North is an awe-inspiring gift to the world. The 125 men and women whose leadership journeys are so beautifully rendered in this book show us that we can have enormous impact without compromising our values—indeed, that we are more successful when we stay true to our ideals. Every aspiring leader (or leader who aspires to become even better) will draw strength and wisdom from this wonderful book."
+—Rosabeth Moss Kanter, Harvard Business School professor and best-selling author of Confidence: How Winning Streaks & Losing Streaks Begin & End
+
+"True North is about the power of authentic leadership. Great leaders are defined by a sense of passion and purpose and by a profound desire to make a difference. Anyone can find their own True North, if you care deeply and love what you do. This book is a wonderful roadmap for how to get started on the journey."
+—Andrea Jung, chairman and CEO, Avon Products, Inc.
+
+"If you want to move your leadership in the right direction, read True North. Drawing on the personal stories of some of the world’s most effective leaders, the book shows that you become a successful leader when you stay on course with your highest self."
+—Ken Blanchard, coauthor of The One Minute Manager® and Leading at a Higher Level
+
+"True North provides a new leadership paradigm and a window into the stories and approaches of dozens of our nation’s best leaders.  It is an inspirational, invaluable source of guidance for those who want to make a significant impact."
+—Wendy Kopp, president and founder of Teach for America
+
+"True North reveals just how powerful authentic leadership can be and, best of all, how to achieve it."
+—Warren Bennis
+
+### Product Details
+
+~~~
+Hardcover: 251 pages
+Publisher: Jossey-Bass; 1 edition (March 9, 2007)
+Language: English
+ISBN-10: 0787987514
+ISBN-13: 978-0787987510
+Product Dimensions: 6.3 x 1 x 9.4 inches
+Shipping Weight: 1 pounds
+Average Customer Review: 4.5 out of 5 stars  See all reviews (129 customer reviews)
+Amazon Best Sellers Rank: #17,250 in Books (See Top 100 in Books)
+~~~
+
+
+
 
