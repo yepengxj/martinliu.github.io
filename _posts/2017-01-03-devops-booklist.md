@@ -311,6 +311,43 @@ Average Customer Review: 4.5 out of 5 stars  See all reviews (129 customer revie
 Amazon Best Sellers Rank: #17,250 in Books (See Top 100 in Books)
 ~~~
 
+## Gemba Walks
 
+![](/img/14844099928904.jpg)
+
+### Editorial Reviews
+In 12 new essays, ranging from the provocative to the practical and written specially for the second edition of Gemba Walks author and management expert Jim Womack reflects on the past 30 years of lean, and assesses the current state of lean today.
+He also shares thoughts on how lean thinking and practice can continue to make the world a better place by gaining traction in areas such as government and healthcare, provides practical guidance for how leaders everywhere can realize the full benefits of a lean management system, and shares hope for continued improvement on the path to better work and more value.
+Over the past 30 years, Womack has developed a method of going to visit the gemba at countless companies and keenly observing how people work together to create value. He has shared his thoughts and discoveries from these visits with the lean community through a monthly letter. With Gemba Walks second edition, Womack has selected and re-organized his key letters, as well as written 12 new essays.
+Gemba Walks shares his insights on topics ranging from the application of specific tools, to the role of management in sustaining lean, as well as the long-term prospects for this fundamental new way of creating value. Reading this book will reveal to readers a range of lean principles, as well as the basis for the critical lean practice of: go see, ask why, and show respect.
+Womack explains:
+• whatever happened to Toyota and what happens next to lean?
+• how lean got its name 25 years ago; a special essay co-authored by Jim and John Krafcik, president and CEO, Hyundai Motors America
+• work, management, and leadership -- what is the real work of the lean leader?
+• don’t offshore or reshore –leanshore
+• why companies need fewer heroes and more farmers (who work daily to improve the processes and systems needed for perfect work and who take the time and effort to produce long-term improvement)
+• how “good” people who work in “bad” processes become as “bad” as the process itself
+• how the real practice of showing respect comes down to helping workers frame and solve their own problems
+• how the short-term gains from lean tools can be translated to enduring change from lean management.
+• how the lean manager has a “restless desire to continually rethink the organization’s problems, probe their root causes, and lead experiments to test the best currently known countermeasures”
+By sharing his personal path of discovery, Womack sheds new light on the continued adoption and development of the most important new business system of the past fifty years. His journey will provide courage and inspiration for every lean practitioner today.
+
+
+
+###Product Details
+
+~~~
+Paperback: 311 pages
+Publisher: Lean Enterprise Institute, Inc.; 2nd ed. edition (January 1, 2013)
+Language: English
+ISBN-10: 193410938X
+ISBN-13: 978-1934109380
+Product Dimensions: 6 x 1 x 8.9 inches
+Shipping Weight: 1.6 pounds
+Average Customer Review: 3.7 out of 5 stars  See all reviews (10 customer reviews)
+Amazon Best Sellers Rank: #357,633 in Books (See Top 100 in Books)
+ 11799 in Books > Textbooks > Business & Finance
+ 39798 in Books > Business & Money
+~~~
 
 
