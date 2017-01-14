@@ -38,5 +38,11 @@ Intel NUC 最新版一台，i7处理器，两条16GB内存，两条512GB硬盘�
 
 * [在VMware Workstation上安装Nutanix CE](http://huanwenli.blog.51cto.com/2848240/1749083)
 * [Nutanix Community Edition安装在vSphere环境中](http://www.nextech.space/nextech/2016/06/nutanix-community-edition%E5%AE%89%E8%A3%85%E5%9C%A8vsphere%E7%8E%AF%E5%A2%83%E4%B8%AD/)
+* [浅尝超融合之Nutanix(上)介绍篇](http://www.onlyeric.com/2016/05/13/%E6%B5%85%E5%B0%9D%E8%B6%85%E8%9E%8D%E5%90%88%E4%B9%8BNutanix-%E4%B8%8A-%E4%BB%8B%E7%BB%8D%E7%AF%87/)
+* [浅尝超融合之Nutanix(下)安装篇](http://www.onlyeric.com/2016/05/15/%E6%B5%85%E5%B0%9D%E8%B6%85%E8%9E%8D%E5%90%88%E4%B9%8BNutanix-%E4%B8%8B-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E7%AF%87/)
+* [Nutanix超”容”合之ACS Acropolis Container Service(下)实战篇01](http://www.dockerinfo.net/1865.html)
+* [Nutanix超”容”合之ACS Docker Volume Plugin的使用和数据持久化测试](http://www.dockerinfo.net/1867.html)
 * [http://nutanix.club/](http://nutanix.club/)
 * [Nutanix圣经](http://nutanixbible.com/)
+
+

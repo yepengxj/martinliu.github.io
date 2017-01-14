@@ -92,12 +92,12 @@ bigimg: /img/pexels-photo.jpg
 | compliance requirement | 合规性要求
 | telemetry | 监控
 | Andon cord | 安灯拉绳
-|  | 
-|  | 
-|  | 
-|  | 
-|  | 
-|  | 
+| incident | 事件
+| accident | 意外
+| safety culture | 安全文化
+| just culture | 正义文化
+| blame | 问责
+| pipeline | 流水线
 |  | 
 |  | 
 |  | 

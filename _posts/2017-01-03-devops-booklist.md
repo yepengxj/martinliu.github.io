@@ -112,7 +112,7 @@ Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, cur
 
 ![](/img/14840700772382.jpg)
 
-### 基本信息
+### 基本信息  第五项修炼：学习型组织的艺术与实践
 
 ~~~
 
@@ -191,6 +191,34 @@ ASIN: B00IHQBQZC
 “这是我看到的最佳书籍之一。优良的测试设计源自优良的测试思路，这本书里满是各种优秀的测试思路，辅以故事情节烘托，涎玉沫珠。” 
 ——Alan Page 微软公司Principal SDEI《微软的软件测试之道》作者
 
+
+## The Field Guide to Understanding 'Human Error‘
+
+![](/img/14842313763902.jpg)
+
+This latest edition of The Field Guide to Understanding ‘Human Error' will help you understand how to move beyond 'human error'; how to understand accidents; how to do better investigations; how to understand and improve your safety work. You will be invited to think creatively and differently about the safety issues you and your organization face. In each, you will find possibilities for a new language, for different concepts, and for new leverage points to influence your own thinking and practice, as well as that of your colleagues and organization.
+
+
+### Product Details
+
+~~~
+File Size: 3149 KB
+Print Length: 247 pages
+Publisher: Ashgate; 3 edition (December 28, 2014)
+Publication Date: December 28, 2014
+Sold by: Amazon Digital Services LLC
+Language: English
+ASIN: B00Q8XCSFI
+Text-to-Speech: Enabled  
+X-Ray:
+Not Enabled  
+Word Wise: Enabled
+Lending: Not Enabled
+~~~
+
+### About the Author
+
+Sidney Dekker (PhD Ohio State University, USA, 1996) is currently professor at Griffith University in Brisbane, Australia, where he runs the Safety Science Innovation Lab. He is also Professor (Hon.) of psychology at The University of Queensland, and Professor (Hon.) of human factors and patient safety at the Royal Children's Hospital in Brisbane. Previously, Sidney was Professor of human factors and system safety at Lund University in Sweden. After becoming full professor, he learned to fly the Boeing 737, working part-time as an airline pilot out of Copenhagen. Sidney is the best-selling author of a multitude of human factors and safety books, including, most recently, Safety Differently (2014), Second Victim (2013), Just Culture (2012), Drift into Failure (2011), and Patient Safety (2011).
 
 
 
