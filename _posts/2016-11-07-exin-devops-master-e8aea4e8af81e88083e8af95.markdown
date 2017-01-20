@@ -29,9 +29,9 @@ DevOps这个词在去年参加红帽全球用户大会的时候就深深吸引�
 
 这些项目都殊途同归地指向了DevOps这个关键词，这让我不得不从去年开始就关注和学习这个最佳实践。当然，我对DevOps的前途非常看好，因此当我听说业内出现了相关认证考试之后，我毫不犹豫地报名参加了。经过2个多月的缜密的准备，我终于幸运地一次通过了这个考试。考试获得了两个证书。
 
-[caption id="attachment_54191" align="alignnone" width="500"]![exin-devops-master-cert-martin-liu](http://cdn1.martinliu.cn/wp-content/uploads/2016/11/EXIN-DevOps-Master-Cert-Martin-Liu.jpg) DevOps Master[/caption]
+![exin-devops-master-cert-martin-liu](http://cdn1.martinliu.cn/wp-content/uploads/2016/11/EXIN-DevOps-Master-Cert-Martin-Liu.jpg) DevOps Master
 
-[caption id="attachment_54190" align="alignnone" width="500"]![DevOps Master 认证自由讲师](http://cdn1.martinliu.cn/wp-content/uploads/2016/11/certificate-devops-freelance-trainer-Liu-Zheng.jpg) DevOps Master 认证自由讲师[/caption]
+![DevOps Master 认证自由讲师](http://cdn1.martinliu.cn/wp-content/uploads/2016/11/certificate-devops-freelance-trainer-Liu-Zheng.jpg) DevOps Master 认证自由讲师
 
 我参加的是讲师认证培训TTT，很高兴能成为Exin在国内的首批5个认证人员之一。在准备这个考试的过程中我学习了一些书籍，现在还在深度学习的书有两本。
 

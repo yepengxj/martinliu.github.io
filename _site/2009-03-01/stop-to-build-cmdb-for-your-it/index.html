@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Stop to build CMDB for your IT - CMS是怎样炼成的？</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Stop to build CMDB for your IT - CMS是怎样炼成的？" />
+  
+
+   
+  <meta property="og:description" content="ITIL在国内的实施也有8年之久，就我看过和做过的项目中：service desk是最多实施的工具，它包括IM/PM；还有Change Management；用户们还可能会常常认为，Release Management可以和变更流程可以混在一起搞。服务台一般先上，有的变更流程先上，服务台的共同特点还有PM一般形同虚设。就我所见所闻的项目和用户来说，CMDB没有那家能建的好用的好；CMDB的建设的缺失似乎成了所有ITIL用户的通病，应该也是想重点突破的瓶颈。ITIL v3发布后，CMDB成了CMS中的一个数据库；而且，CMS中包括不止像CMDB这样的配置信息数据库，其实任何保存配置信息的数据库都算在CMS系统内。既然是一个系统，所以它就不光包含数据还包含一套配套工具集合，通过这套工具，维护和使用配置信息。CMS为其他所有ITIL流程提供基础的配置信息。它的结构如下图所示：[caption id=”attachment_435” align=”alignnone” width=”658” caption=”配置管理系统”][/caption]如果说上面这幅图比较还是比较抽象的话，那么请见下图：[caption id=”attachment_436” align=”alignnone” width=”714” caption=”CMS is a set of tools based on all configuration data”][/caption]从上图中我们看到，CMS系统一共可以分为四层。上三层是核心CMDB数据库和相关配套工具，最低层Data层则是是所有配置信息的基础来源。从ITIL v3的角度来说，只建设一个集中的CMDB数据库来存储所有的CI信息是不够的，CMS系统中必须能够包含和处理所有企业已有的各个系统中的配置数据。换言之，CMDB建设的局限性在于，它只是配置信息数据化，或者说电子化的第一步。当前依然有很多企业雄心勃勃的上马CMDB项目，不过切记在规划时，一定先好好阅读一下ITIL v3中和CMS相关的内容，适当调整项目的目标和预期总是好的，也可以规避一些项目风险。
+
+CMDB不只是一个数据库那么简单，更不可能在服务台的数据库中建立几张表就可以搞定。从企业IT管理的全局出发，按照ITIL v3的规范，建设CMS应该是所有ITIL项目的当务之急。CMS系统决不能遗忘过去，必须有效整个现有的各个配置信息数据源，无论其以何种形式存在。它必须是一个开放的平台，能过最大限度的和其他任何配置信息的消费者（ITIL流程，以及任何需要获取配置信息的任何应用）整合，
+
+以上的一些是我对CMS建设的一些认识。如果要落地到项目上还不许经过一个痛苦的过程，那就是产品选型。选项的过程中可以注重一下几点：
+
+	
+  * 可视化：配置项和之间的关系按拓扑形式展现
+	
+  * 标准化：软件、硬件配置项都有完整标准的CTI信息
+	
+  * 归一化：与现有各种配置管理系统核心共存同时CMS保持一份完整的户口记录，任何CI都有ID
+	
+  * 集成化：CMS中的数据以图形或者裸数据等形式供其他相关消费者流程或者人员使用
+	
+  * 联邦化：CMS核心数据库中不保存动态变化的配置信息（DB的最大连接数，网络设备所使用的syslog服务器地址），这些信息通过联邦管理让用户从其他相关的工具系统中查看到最新的数据。
+最近可能还会接触一下CMDB的项目，其他经验总结待续。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2009-03-01/stop-to-build-cmdb-for-your-it/" />
+  <link rel="canonical" href="http://localhost:4000/2009-03-01/stop-to-build-cmdb-for-your-it/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Stop to build CMDB for your IT - CMS是怎样炼成的？" />
+  
+
+  
+  <meta name="twitter:description" content="ITIL在国内的实施也有8年之久，就我看过和做过的项目中：service desk是最多实施的工具，它包括IM/PM；还有Change Management；用户们还可能会常常认为，Release Management可以和变更流程可以混在一起搞。服务台一般先上，有的变更流程先上，服务台的共同特点还有PM一般形同虚设。就我所见所闻的项目和用户来说，CMDB没有那家能建的好用的好；CMDB的建设的缺失似乎成了所有ITIL用户的通病，应该也是想重点突破的瓶颈。ITIL v3发布后，CMDB成了CMS中的一个数据库；而且，CMS中包括不止像CMDB这样的配置信息数据库，其实任何保存配置信息的数据库都算在CMS系统内。既然是一个系统，所以它就不光包含数据还包含一套配套工具集合，通过这套工具，维护和使用配置信息。CMS为其他所有ITIL流程提供基础的配置信息。它的结构如下图所示：[caption id=”attachment_435” align=”alignnone” width=”658” caption=”配置管理系统”][/caption]如果说上面这幅图比较还是比较抽象的话，那么请见下图：[caption id=”attachment_436” align=”alignnone” width=”714” caption=”CMS is a set of tools based on all configuration data”][/caption]从上图中我们看到，CMS系统一共可以分为四层。上三层是核心CMDB数据库和相关配套工具，最低层Data层则是是所有配置信息的基础来源。从ITIL v3的角度来说，只建设一个集中的CMDB数据库来存储所有的CI信息是不够的，CMS系统中必须能够包含和处理所有企业已有的各个系统中的配置数据。换言之，CMDB建设的局限性在于，它只是配置信息数据化，或者说电子化的第一步。当前依然有很多企业雄心勃勃的上马CMDB项目，不过切记在规划时，一定先好好阅读一下ITIL v3中和CMS相关的内容，适当调整项目的目标和预期总是好的，也可以规避一些项目风险。
+
+CMDB不只是一个数据库那么简单，更不可能在服务台的数据库中建立几张表就可以搞定。从企业IT管理的全局出发，按照ITIL v3的规范，建设CMS应该是所有ITIL项目的当务之急。CMS系统决不能遗忘过去，必须有效整个现有的各个配置信息数据源，无论其以何种形式存在。它必须是一个开放的平台，能过最大限度的和其他任何配置信息的消费者（ITIL流程，以及任何需要获取配置信息的任何应用）整合，
+
+以上的一些是我对CMS建设的一些认识。如果要落地到项目上还不许经过一个痛苦的过程，那就是产品选型。选项的过程中可以注重一下几点：
+
+	
+  * 可视化：配置项和之间的关系按拓扑形式展现
+	
+  * 标准化：软件、硬件配置项都有完整标准的CTI信息
+	
+  * 归一化：与现有各种配置管理系统核心共存同时CMS保持一份完整的户口记录，任何CI都有ID
+	
+  * 集成化：CMS中的数据以图形或者裸数据等形式供其他相关消费者流程或者人员使用
+	
+  * 联邦化：CMS核心数据库中不保存动态变化的配置信息（DB的最大连接数，网络设备所使用的syslog服务器地址），这些信息通过联邦管理让用户从其他相关的工具系统中查看到最新的数据。
+最近可能还会接触一下CMDB的项目，其他经验总结待续。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Stop to build CMDB for your IT - CMS是怎样炼成的？</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 1, 2009</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>ITIL在国内的实施也有8年之久，就我看过和做过的项目中：service desk是最多实施的工具，它包括IM/PM；还有Change Management；用户们还可能会常常认为，Release Management可以和变更流程可以混在一起搞。服务台一般先上，有的变更流程先上，服务台的共同特点还有PM一般形同虚设。就我所见所闻的项目和用户来说，CMDB没有那家能建的好用的好；CMDB的建设的缺失似乎成了所有ITIL用户的通病，应该也是想重点突破的瓶颈。<br /><br />ITIL v3发布后，CMDB成了CMS中的一个数据库；而且，CMS中包括不止像CMDB这样的配置信息数据库，其实任何保存配置信息的数据库都算在CMS系统内。既然是一个系统，所以它就不光包含数据还包含一套配套工具集合，通过这套工具，维护和使用配置信息。CMS为其他所有ITIL流程提供基础的配置信息。它的结构如下图所示：<br /><br />[caption id=”attachment_435” align=”alignnone” width=”658” caption=”配置管理系统”]<img src="http://www.martinliu.cn/wp-content/uploads/2009/03/cms.jpg" alt="配置管理系统" />[/caption]<br /><br />如果说上面这幅图比较还是比较抽象的话，那么请见下图：<br /><br />[caption id=”attachment_436” align=”alignnone” width=”714” caption=”CMS is a set of tools based on all configuration data”]<img src="http://www.martinliu.cn/wp-content/uploads/2009/03/bmc-atrium1.jpg" alt="bmc-atrium1" /><br />[/caption]<br /><br />从上图中我们看到，CMS系统一共可以分为四层。上三层是核心CMDB数据库和相关配套工具，最低层Data层则是是所有配置信息的基础来源。从ITIL v3的角度来说，只建设一个集中的CMDB数据库来存储所有的CI信息是不够的，CMS系统中必须能够包含和处理所有企业已有的各个系统中的配置数据。换言之，CMDB建设的局限性在于，它只是配置信息数据化，或者说电子化的第一步。<br /><br />当前依然有很多企业雄心勃勃的上马CMDB项目，不过切记在规划时，一定先好好阅读一下ITIL v3中和CMS相关的内容，适当调整项目的目标和预期总是好的，也可以规避一些项目风险。<br /></p>
+
+<blockquote>CMDB不只是一个数据库那么简单，更不可能在服务台的数据库中建立几张表就可以搞定。从企业IT管理的全局出发，按照ITIL v3的规范，建设CMS应该是所有ITIL项目的当务之急。CMS系统决不能遗忘过去，必须有效整个现有的各个配置信息数据源，无论其以何种形式存在。它必须是一个开放的平台，能过最大限度的和其他任何配置信息的消费者（ITIL流程，以及任何需要获取配置信息的任何应用）整合，</blockquote>
+
+<p><br />以上的一些是我对CMS建设的一些认识。如果要落地到项目上还不许经过一个痛苦的过程，那就是产品选型。选项的过程中可以注重一下几点：<br /></p>
+
+<p><br />	
+  * 可视化：配置项和之间的关系按拓扑形式展现
+<br />	
+  * 标准化：软件、硬件配置项都有完整标准的CTI信息
+<br />	
+  * 归一化：与现有各种配置管理系统核心共存同时CMS保持一份完整的户口记录，任何CI都有ID
+<br />	
+  * 集成化：CMS中的数据以图形或者裸数据等形式供其他相关消费者流程或者人员使用
+<br />	
+  * 联邦化：CMS核心数据库中不保存动态变化的配置信息（DB的最大连接数，网络设备所使用的syslog服务器地址），这些信息通过联邦管理让用户从其他相关的工具系统中查看到最新的数据。
+<br /><br />最近可能还会接触一下CMDB的项目，其他经验总结待续。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            change management, ci, cmdb, cms, ITIL, reconciliation, service desk, service model, topology, v3
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Stop+to+build+CMDB+for+your+IT+-+CMS%E6%98%AF%E6%80%8E%E6%A0%B7%E7%82%BC%E6%88%90%E7%9A%84%EF%BC%9F+http://localhost:4000/2009-03-01/stop-to-build-cmdb-for-your-it/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2009-03-01/stop-to-build-cmdb-for-your-it/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2009-03-01/stop-to-build-cmdb-for-your-it/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2009-02-14/zt-e8-be-bd-e5-ae-81-e6-b5-b7-e5-9f-8e-e5-a4-a7-e6-82-b2-e5-af-ba-e5-83-a7-e5-9b-a2-e5-ae-9e-e5-bd-95/" data-toggle="tooltip" data-placement="top" title="[ZT]辽宁海城大悲寺僧团实录">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2009-07-04/free-wordpress-themes/" data-toggle="tooltip" data-placement="top" title="Free WordPress themes">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

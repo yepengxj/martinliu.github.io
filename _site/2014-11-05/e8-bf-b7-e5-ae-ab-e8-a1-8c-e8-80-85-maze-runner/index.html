@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>迷宫行者 The Maze Runner</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="迷宫行者 The Maze Runner" />
+  
+
+   
+  <meta property="og:description" content="在没有计划下，在偶然的空闲中，在一个大清早，居然看上电影了，不得不记录一下，为了最近疲惫的身心，为了留下一丁点的记忆和回味，为了首都这宝贵的蓝天。电影比较好看，最近思虑过甚，无力评论，且留下豆瓣链接。 导演: 韦斯·鲍尔 编剧: 诺亚·奥本海姆 / 格兰特·迈尔斯 / T·S·诺林 / 詹姆斯·达什纳 主演: 迪伦·欧布莱恩 / 阿梅尔·艾米恩 / 李基弘 / 布雷克·库珀 / 托马斯·桑斯特 / 威尔·保尔特 / 德克斯特·达登 / 卡雅·斯考达里奥 / 克里斯·谢菲尔德 / 乔·阿德勒 / 亚历山大·弗洛里斯 / 雅各布·拉提摩尔 / 兰德尔·D·坎宁安 / 派翠西娅·克拉克森 / 唐·麦克马纳斯 类型: 动作 / 科幻 / 悬疑 / 惊悚 官方网站:...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2014-11-05/e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/" />
+  <link rel="canonical" href="http://localhost:4000/2014-11-05/e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="迷宫行者 The Maze Runner" />
+  
+
+  
+  <meta name="twitter:description" content="在没有计划下，在偶然的空闲中，在一个大清早，居然看上电影了，不得不记录一下，为了最近疲惫的身心，为了留下一丁点的记忆和回味，为了首都这宝贵的蓝天。电影比较好看，最近思虑过甚，无力评论，且留下豆瓣链接。 导演: 韦斯·鲍尔 编剧: 诺亚·奥本海姆 / 格兰特·迈尔斯 / T·S·诺林 / 詹姆斯·达什纳 主演: 迪伦·欧布莱恩 / 阿梅尔·艾米恩 / 李基弘 / 布雷克·库珀 / 托马斯·桑斯特 / 威尔·保尔特 / 德克斯特·达登 / 卡雅·斯考达里奥 / 克里斯·谢菲尔德 / 乔·阿德勒 / 亚历山大·弗洛里斯 / 雅各布·拉提摩尔 / 兰德尔·D·坎宁安 / 派翠西娅·克拉克森 / 唐·麦克马纳斯 类型: 动作 / 科幻 / 悬疑 / 惊悚 官方网站:...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>迷宫行者 The Maze Runner</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on November 5, 2014</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>在没有计划下，在偶然的空闲中，在一个大清早，居然看上电影了，不得不记录一下，为了最近疲惫的身心，为了留下一丁点的记忆和回味，为了首都这宝贵的蓝天。电影比较好看，最近思虑过甚，无力评论，且留下豆瓣链接。</p>
+
+<p><a href="http://movie.douban.com/subject/21349345/photos?type=R"> <img src="http://img5.douban.com/view/movie_poster_cover/spst/public/p2201485029.jpg" alt="The Maze Runner" /> </a></p>
+
+<p>导演: <a href="http://movie.douban.com/celebrity/1332723/">韦斯·鲍尔</a>
+编剧: <a href="http://movie.douban.com/celebrity/1333683/">诺亚·奥本海姆</a> / <a href="http://movie.douban.com/celebrity/1040351/">格兰特·迈尔斯</a> / <a href="http://movie.douban.com/celebrity/1342902/">T·S·诺林</a> / <a href="http://movie.douban.com/celebrity/1333681/">詹姆斯·达什纳</a>
+主演: <a href="http://movie.douban.com/celebrity/1314963/">迪伦·欧布莱恩</a> / <a href="http://movie.douban.com/celebrity/1194285/">阿梅尔·艾米恩</a> / <a href="http://movie.douban.com/celebrity/1333684/">李基弘</a> / <a href="http://movie.douban.com/celebrity/1333686/">布雷克·库珀</a> / <a href="http://movie.douban.com/celebrity/1016669/">托马斯·桑斯特</a> / <a href="http://movie.douban.com/celebrity/1004692/">威尔·保尔特</a> / <a href="http://movie.douban.com/celebrity/1333688/">德克斯特·达登</a> / <a href="http://movie.douban.com/celebrity/1031178/">卡雅·斯考达里奥</a> / <a href="http://movie.douban.com/celebrity/1191404/">克里斯·谢菲尔德</a> / <a href="http://movie.douban.com/celebrity/1333689/">乔·阿德勒</a> / <a href="http://movie.douban.com/celebrity/1333691/">亚历山大·弗洛里斯</a> / <a href="http://movie.douban.com/celebrity/1273668/">雅各布·拉提摩尔</a> / <a href="http://movie.douban.com/celebrity/1333690/">兰德尔·D·坎宁安</a> / <a href="http://movie.douban.com/celebrity/1013791/">派翠西娅·克拉克森</a> / <a href="http://movie.douban.com/celebrity/1333685/">唐·麦克马纳斯</a>
+类型: 动作 / 科幻 / 悬疑 / 惊悚
+官方网站: <a href="http://themazerunnermovie.com">themazerunnermovie.com</a>
+制片国家/地区: 美国 / 加拿大 / 英国
+语言: 英语
+上映日期: 2014-10-28(中国大陆) / 2014-09-19(美国)
+片长: 113分钟
+又名: 迷宫行者
+IMDb链接: <a href="http://www.imdb.com/title/tt1790864">tt1790864</a></p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            runner
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E8%BF%B7%E5%AE%AB%E8%A1%8C%E8%80%85+The+Maze+Runner+http://localhost:4000/2014-11-05/e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2014-11-05/e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2014-11-05/e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-09-21/e5-a4-87-e6-88-98-e5-8c-97-e9-a9-ac/" data-toggle="tooltip" data-placement="top" title="备战 北马">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2014-11-13/e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/" data-toggle="tooltip" data-placement="top" title="我的11.11采购">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

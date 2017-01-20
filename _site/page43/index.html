@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -195,39 +183,7 @@
       <div class="posts-list">
   
   <article class="post-preview">
-    <a href="/2007-12-14-gsm-modem-alert-sms/">
-	  <h2 class="post-title">发送告警短信的方法，德国工艺服了</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on December 14, 2007
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        在OpenNMS的邮件组中偶然发现的这个解决方案，利用这个方案你可以用串口连接外置的GSM modem来发送短信。这个方案的名称叫做：SMS Server Tools 网址在－&amp;gt; http://www.meinemullemaus.de/smstools/index.html工作原理 －&amp;gt; http://www.meinemullemaus.de/smstools/slideshow/page1.html据说是可以运行在任何平台上，能支持很多设备，不过我没用试过，记录一下日后可能有用。
-
-        
-        
-      </div>
-    </div>
-
-    
-    <div class="blog-tags">
-      Tags:
-      
-        alert, GSM, SMS
-      
-    </div>
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/2007-12-14-opennms-monitoring-ms-windows/">
+    <a href="/2007-12-14/opennms-monitoring-ms-windows/">
 	  <h2 class="post-title">如何用通过OpenNMS监控Windows 服务器</h2>
 
 	  
@@ -243,7 +199,7 @@
         OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。第一种情况：Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动发现还会发现这个机器上的服务。ICMP是肯定会有的，还可能有http等其他的服务；这些服务也会被定时的轮询，如果某个服务停了，这个节点的整个的可用性受到影响。这种情况下该节点的所有服务的响应时间会被OpenNMS收集并保持历史数据。第二种情况：安装了SNMP服务。先说一下windows服务的安全性，默认情况下public是默认的只读密码；为了更加安全可以配置其他的只读密码，并指定某些特定的IP才能访问这个节点。这个策略在Windows的觉策略中很容易实现，或者说建议使用域控制器来管理这个策略，比较方便。假定OpenNMS能访问该节点的snmp服务的情况下。这些数据会增加：SNMP Attributes；在选择了资源图后，可以看到snmp的节点数据和接口数据。进入后可以看到，其实收集 的是一个tcp／ip接口上基本的信息：流量，连接数，丢包，错包等。个人认为流量是个最有用的数据，特别是对于一些简单的web/ftp服务器也就够用了。第三种情况：我们需要监控到操作系统的性能数据cpu/disk/RAM等。就需要安装一个snmp代理，这个代理可以提供这些信息，opennms才能通过snmp协议收集这些数据。需要到下面网址下载一个免费的snmp代理，当然这个产品也有收费版本：http://www.wtcs.org/informant/download.htm 这个代理很小需要在windows机器上安装一下。默认情况下OpenNMS的对windows采集模板中包含了对cpu/disk/ram等数据的采集，等到下一次OpenNMS在采集这个机器的时候相关数据就会被显示在节点snmp数据下面。这里是通过这个免费的snmp代理能采集到的数据：/Program Files/SNMP Informant/standard/mibs/informant-std-tree.txt–standard(1.3.6.1.4.1.9600.1.1) +–logicalDiskTable(1)   +–logicalDiskEntry(1) [lDiskInstance]   +– r-n InstanceName lDiskInstance(1) +– r-n Gauge32 lDiskPercentDiskReadTime(2) +– r-n Gauge32 lDiskPercentDiskTime(3) +– r-n Gauge32 lDiskPercentDiskWriteTime(4) +– r-n Gauge32 lDiskPercentFreeSpace(5) +– r-n Gauge32 lDiskPercentIdleTime(6) +– r-n Gauge32 lDiskAvgDiskQueueLength(7) +– r-n Gauge32 lDiskAvgDiskReadQueueLength(8) +– r-n Gauge32 lDiskAvgDiskWriteQueueLength(9) +– r-n Gauge32...
         
         
-          <a href="/2007-12-14-opennms-monitoring-ms-windows/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-12-14/opennms-monitoring-ms-windows/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -260,7 +216,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-12-13-opennms-yum-install/">
+    <a href="/2007-12-13/opennms-yum-install/">
 	  <h2 class="post-title">OpenNMS的Yum的安装方式，安装简单了很多</h2>
 
 	  
@@ -278,7 +234,7 @@
 
         
         
-          <a href="/2007-12-13-opennms-yum-install/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-12-13/opennms-yum-install/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -295,7 +251,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-12-07-zenoss-21-beta/">
+    <a href="/2007-12-07/zenoss-21-beta/">
 	  <h2 class="post-title">破门而入Zenoss总部–Break in at Zenoss HQ</h2>
 
 	  
@@ -327,7 +283,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-11-08-glpi-features-list/">
+    <a href="/2007-11-08/glpi-features-list/">
 	  <h2 class="post-title">GLPI资产管理系统－－功能列表</h2>
 
 	  
@@ -343,7 +299,7 @@
         常规* 多用户管理多种用户认证方式（local, LDAP, Active Directory, Pop/Imap, CAS)* 权限系统* 分页系统* 多语言支持（包括中文的14种语言支持）* 搜索模块显示字段列表配置* pdf和cvs格式导出数控* SQL格式保存和恢复* 数据XML格式导* 出可配置的下拉框系* 统更新检查* UTF8界面* HTML4.0.1兼容资产清单* 从OCS Inventory NG导入资产数据* 计算机资产清单管理以及与设备的连接关系，TOC总拥有成本* 管理显示器资产清单管理以及与计算机的关联关系* 网络设备资产清单管理以及和设备之间的连接(IP, Mac adresses, VLANs…).* 打印机资产清单管理以及和计算机的连接关系，耗材，以及耗材使用的阀值报警* 其他外设的资产清单(scanners, graphical tables…)，管理和计算机的连接关系* 软件资产清单管理，许可证和过期时间管理安装物理位置（房间，楼层、、）分配* 硬件商业和财务信息管理（采购，合同等、、）* 管理硬件的状态* 与外部其他应用的接口管理* 资产清单信息的更改历史管理跟踪* 跟踪资产清单中各种组件的故障请求单Final userFinal user frontend for intervention demand Mail tracking of the intervention demand feature...
         
         
-          <a href="/2007-11-08-glpi-features-list/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-11-08/glpi-features-list/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -360,7 +316,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-11-07-glpi-features-list2/">
+    <a href="/2007-11-07/glpi-features-list2/">
 	  <h2 class="post-title">GLPI资产管理系统－－系统简介</h2>
 
 	  
@@ -392,7 +348,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-09-06-zenoss-20-install/">
+    <a href="/2007-09-06/zenoss-20-install/">
 	  <h2 class="post-title">Zenoss 2.0 安装失败：）</h2>
 
 	  
@@ -412,7 +368,7 @@
 
         
         
-          <a href="/2007-09-06-zenoss-20-install/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-09-06/zenoss-20-install/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -429,7 +385,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-21-how-to-install-hyperic-hq-on-opensuse-102/">
+    <a href="/2007-06-21/how-to-install-hyperic-hq-on-opensuse-102/">
 	  <h2 class="post-title">How to install  hyperic-hq on openSuse 10.2</h2>
 
 	  
@@ -448,7 +404,7 @@
 
         
         
-          <a href="/2007-06-21-how-to-install-hyperic-hq-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-21/how-to-install-hyperic-hq-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -465,7 +421,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-15-ocsng-inventory-windows-linux/">
+    <a href="/2007-06-15/ocsng-inventory-windows-linux/">
 	  <h2 class="post-title">OCSNG 代理程序生成的清单扫描信息</h2>
 
 	  
@@ -481,7 +437,7 @@
         * Linux 硬件是下面的Windows机,软件是openSuse10.2运行在VMWare中.&amp;lt;table cellpadding=&quot;0&quot; width=&quot;95%&quot; style=&quot;color: #9894b5&quot; border=&quot;0&quot; align=&quot;center&quot; &amp;gt;&amp;lt;tr &amp;gt; ** Information ** ** Value ** &amp;lt;/tr&amp;gt;&amp;lt;tr &amp;gt; Tag LiuZheng &amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&amp;lt;table cellpadding=&quot;4&quot; width=&quot;100%&quot; align=&quot;center&quot; &amp;gt;&amp;lt;tr &amp;gt; **PROCESSOR(S)** &amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&amp;lt;table cellpadding=&quot;0&quot; width=&quot;95%&quot; style=&quot;color: #9894b5&quot; border=&quot;0&quot; align=&quot;center&quot; &amp;gt;&amp;lt;tr &amp;gt; ** Type ** ** Processor Speed (Mhz) ** ** Number** &amp;lt;/tr&amp;gt;&amp;lt;tr &amp;gt; Intel(R)...
         
         
-          <a href="/2007-06-15-ocsng-inventory-windows-linux/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-15/ocsng-inventory-windows-linux/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -498,7 +454,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-15-how-to-install-ocsng-101-on-opensuse-102/">
+    <a href="/2007-06-15/how-to-install-ocsng-101-on-opensuse-102/">
 	  <h2 class="post-title">How to install OCSNG 1.0.1 on OpenSuse 10.2</h2>
 
 	  
@@ -516,7 +472,7 @@
 
         
         
-          <a href="/2007-06-15-how-to-install-ocsng-101-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-15/how-to-install-ocsng-101-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -528,6 +484,33 @@
         OCSNG, opensuse
       
     </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-15/e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/">
+	  <h2 class="post-title">开源IT管理工具大全之All in one虚拟机</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 15, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        我做开源工具测试时,90%以上是在VMWare虚拟机中实现的,本人比较懒一直没有学习Xen虚拟机的用法,等下次吧,一等要彻底开源是我的一个梦想呵呵!说说这个All in One虚拟机的想法,我只是想把所有的我熟悉的工具都安装和配置在一个虚拟机里,这样当有人需要给做Demo的时候,我可以很快的做一个分享.如果有朋友感兴趣的话,我可以刻盘他.总的来讲希望能分享一下我的学习成果给大家.第一步:安装虚拟机这个虚拟机我不像使用很多的Snapshoot,我以前是这么做的,从一个基础的OS发出许多分支到不同的工具;这样做的缺点有二:1)特别占磁盘空间;2)不能同时访问多个系统.我选择的Linux是Open Suse Linux 10.2;Suse的包管理对我来说真的很方便,从安装DVD上用Yast可以方便安装各种软件,无须考虑包之间的依赖性问题.我选择的是最小图形化系统安装,安装完之后,vmdk文件的大小好像是2GB多.接下来安装的是所有的必须的包,大致如下:Apache,Perl,MySQL,PostgreSQL,rddtool,net-snmp,php,gcc,Kernel-source(for vmware tools)…等安装完之后用chkconfig on 命令设置需要自动启动的服务;然后把apache等服务逐个启动一下验证是否工作正常.然后安装的是VMWare tools,这个好像也不是必须,不过还是装上比较好,方便虚拟机和host机共享文件.我的虚拟机的版本是5.5.3workstation版本.第二步:安装各种开源软件下面可能会是一个很长的change log1. 安装OpenNMS 1.3.2 安装方法 设置了opennms的自动启动,还没有设置tomcat5.5.23的自动启动.2.安装Cacti **0.8.6j **安装方法, 使用的poller.php,尝试安装cactid,安装失败,原因可能是OpenSuse10.2好像没有net-snmp lib包. 暂时不安装cactid3.安装OCSNG 1.0.1 安装方法4.安装 hyperic-hq 3.0.4-389 安装方法, 2007-6-21th5.安装 OTRS 2.2.1-1 安装方法很简单，执行rpm安装既可, 2007-7-28th
+
+        
+        
+          <a href="/2007-06-15/e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
     
 
    </article>
@@ -610,7 +593,7 @@
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

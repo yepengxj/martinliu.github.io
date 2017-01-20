@@ -24,7 +24,7 @@ Serverless 不意味着没有服务器，而是从应用可以在一个抽象层
 但是 Serverless 里不意味着没有 Docker，事实上 ”Docker 就是 Serverless”。你可以用 Docker 来容器化这些功能，然后按需地运行在 Swarm 群集上。Serverless 是一种构建分布式计算的应用的方法，而 Docker 是完美的构建和运行他们的平台。
 
 
-## **从**** Server ****到**** Serverless**
+## 从Server 到 Serverless
 
 
 那么我们如何来编写 Serverless 的应用？让我们先看下这个例子：[“一个有5个子服务组成的投票应用”](https://github.com/docker/example-voting-app)：
@@ -32,21 +32,11 @@ Serverless 不意味着没有服务器，而是从应用可以在一个抽象层
 ![](https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAlaAAAAJGI5NTZjMjRkLTRkNmYtNDEyOC04OTNiLTBmY2I5M2QyOTZiMQ.png)
 
 它的结构如下：
-
-
-
 	
   * 两个 web 前端
-
-	
   * 一个后台的处理投票的 worker 服务
-
-	
   * 一个处理投票的消息队列
-
-	
   *  一个数据库
-
 
 那个后台处理投票的进程是非常容易成为转换为 Serverless 架构的目标。在投票应用内，我们可以运行一点类似于下面的代码，来执行后台任务：
 
@@ -71,7 +61,7 @@ Worker 和消息队列能用按需在 Swarm 上运行的容器来替换，并自
 其中红色的方块是需持续长期运行的服务，而绿色方块成了按需被调用的 Docker容器。这样这个应用变成了只有少数几个需要被管理的 long-running 服务，在相应请求的时候使用原生的 Swarm 扩容能力，处理能力的上限是 Swarm 群集的上限。
 
 
-## ** ****具体如何实现**
+## 具体如何实现
 
 
 这里有三个有用的技巧，可以在你的程序中使用：
@@ -80,11 +70,7 @@ Worker 和消息队列能用按需在 Swarm 上运行的容器来替换，并自
 
 	
   1. 把你代码中的 function 作为按需拉起的 Docker 容器
-
-	
   2. 使用 Swarm 在群集上运行这些容器
-
-	
   3. 从容器里面运行这些功能容器，绕过了一个 Docker API socket
 
 
@@ -92,14 +78,9 @@ Worker 和消息队列能用按需在 Swarm 上运行的容器来替换，并自
 
 	
   * 考虑到延迟，用启动一个容器来服务所有用户的 HTTP 请求可能是不现实的。可是你可以写一个内置的负载均衡逻辑，让它知道何时需要主动地自动扩容 Web 前端自身，通过在 Swarm 群集上运行更多 web 处理容器。
-
-	
   * 一个 MongoDB 容器可以在 Swarm 上成为一个具有自省能力的架构，它能自动地运行出正确数量的 shard 和 replica 容器。
 
-
-
-
-## **接下来**
+## 接下来
 
 
 我们已经得到了这些激进的新工具，用做构建应用的抽象层，我们隐约看到了如何深入下去的可能性。我们依然像长时间以来在一堆服务器上构建应用一样，而以后可以来利用 Swarm 能按需地在基础架构里的任何地方执行功能代码的能力。
@@ -109,3 +90,5 @@ Worker 和消息队列能用按需在 Swarm 上运行的容器来替换，并自
 [这个 Github 库有一些工具、库、代码和文章的链接。](https://github.com/bfirsh/serverless-docker)基于此，如果您想学习更多的话，请共享任何相关的链接，这样我们可以开始协作在一起。
 
 大家一起来搞，并祝 hacking 愉快！
+
+

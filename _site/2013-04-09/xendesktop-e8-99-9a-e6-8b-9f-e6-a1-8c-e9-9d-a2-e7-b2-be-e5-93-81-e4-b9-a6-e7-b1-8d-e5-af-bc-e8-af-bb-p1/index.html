@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>XenDesktop虚拟桌面精品书籍导读(part1)</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="XenDesktop虚拟桌面精品书籍导读(part1)" />
+  
+
+   
+  <meta property="og:description" content="[box color=”orange” icon=”flag”] 感谢 Eric Yao 的供稿，@老树皮Eric [/box] 桌面虚拟化项目的实施白皮书 《Citrix Virtual Desktop Handbook 5.x》，点击下载。该文档是由Citrix全球顶级Consultant系统架构师Daniel Feller, Thomas Berger, Rich Meesters, Matt Brooks, Ed Duncan 以及 Roger LaMarca等大牛合作完成，它介绍了桌面虚拟化架构设计、方法论、经验总结以及最佳实践等知识，更是包含了一步一步指导手册、真实案例分析以及模板手册等。 序言：关于方法论 一、 Access 二、 Design 三、 Deploy 四、 Manitain 五、 项目计划 第一部分：Access 一、 业务驱动力 二、 数据搜集 三、 用户数据搜集 四、 应用程序数据搜集 五、 用户分类 1. FlexCast模型比较 2....">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-04-09/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-p1/" />
+  <link rel="canonical" href="http://localhost:4000/2013-04-09/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-p1/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="XenDesktop虚拟桌面精品书籍导读(part1)" />
+  
+
+  
+  <meta name="twitter:description" content="[box color=”orange” icon=”flag”] 感谢 Eric Yao 的供稿，@老树皮Eric [/box] 桌面虚拟化项目的实施白皮书 《Citrix Virtual Desktop Handbook 5.x》，点击下载。该文档是由Citrix全球顶级Consultant系统架构师Daniel Feller, Thomas Berger, Rich Meesters, Matt Brooks, Ed Duncan 以及 Roger LaMarca等大牛合作完成，它介绍了桌面虚拟化架构设计、方法论、经验总结以及最佳实践等知识，更是包含了一步一步指导手册、真实案例分析以及模板手册等。 序言：关于方法论 一、 Access 二、 Design 三、 Deploy 四、 Manitain 五、 项目计划 第一部分：Access 一、 业务驱动力 二、 数据搜集 三、 用户数据搜集 四、 应用程序数据搜集 五、 用户分类 1. FlexCast模型比较 2....">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>XenDesktop虚拟桌面精品书籍导读(part1)</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 9, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>[box color=”orange” icon=”flag”]
+感谢 Eric Yao 的供稿，<a href="http://weibo.com/ericyaozhen">@老树皮Eric</a>
+[/box]</p>
+
+<p>桌面虚拟化项目的实施白皮书 《Citrix Virtual Desktop Handbook 5.x》，<a href="http://support.citrix.com/article/CTX136546">点击下载</a>。该文档是由Citrix全球顶级Consultant系统架构师Daniel Feller, Thomas Berger, Rich Meesters, Matt Brooks, Ed Duncan 以及 Roger LaMarca等大牛合作完成，它介绍了桌面虚拟化架构设计、方法论、经验总结以及最佳实践等知识，更是包含了一步一步指导手册、真实案例分析以及模板手册等。</p>
+
+<p>序言：关于方法论
+一、 Access
+二、 Design
+三、 Deploy
+四、 Manitain
+五、 项目计划</p>
+
+<p>第一部分：Access
+一、 业务驱动力
+二、 数据搜集
+三、 用户数据搜集
+四、 应用程序数据搜集
+五、 用户分类
+1. FlexCast模型比较
+2. FlexCast模型选择
+六、 应用程序评估
+七、 项目管理
+1. Roadmap
+2. 项目团队
+a) 业务角色
+b) 技术角色</p>
+
+<p>第二部分：Design
+一、 概况
+二、 用户层 User Layer
+1. 终端类型的选择
+2. Receiver的选择
+3. 资源需求
+三、 访问层 Access Layer</p>
+
+<p>序言：关于方法论</p>
+
+<p>Citrix Virtual Desktop handbook会紧密遵循Citrix顾问实施方法论，即如下图所示：</p>
+
+<p>一、 Access</p>
+
+<p>Access阶段主要提供Design阶段所需要的信息，包括：</p>
+
+<ol>
+  <li>
+    <p>业务驱动力；</p>
+  </li>
+  <li>
+    <p>数据搜集：包括用户、应用程序、设备以及基础架构；</p>
+  </li>
+  <li>
+    <p>用户的分类：用户要根据需要的分类而分成不同的组别，随之应对着不同的FlexCast方法论；</p>
+  </li>
+  <li>
+    <p>应用程序分类：旧的应用程序应该被删除、应用程序版本应该标准化、非公司程序应该删除，等等这些构成了应用程序的标准化和合理化；</p>
+  </li>
+  <li>
+    <p>计划：每个用户组都要根据对业务的影响程度指定不同的实施时间优先级，优先级实施进度结果应该随时更新项目进度和计划。</p>
+  </li>
+</ol>
+
+<p>二、 Design</p>
+
+<p>设计阶段主要聚焦在五层的一个方法论上：</p>
+
+<ol>
+  <li>
+    <p>用户层：描述推荐的终端以及所需要的用户功能体验；</p>
+  </li>
+  <li>
+    <p>访问层：描述用户层是如何连接到他们的桌面，例如本地桌面是直接连接StoreFront，而外界用户往往要通过Firewall层才能进来，这就涉及到了FW、VPN等技术；</p>
+  </li>
+  <li>
+    <p>桌面层：主要指用户的虚拟桌面实现技术，即FlexCast技术，主要好汉三个主要成分，分别是镜像文件、应用程序，以及个性化内容；</p>
+  </li>
+  <li>
+    <p>控制层：如何管理和维护其他层，又分为访问控制、桌面控制，以及基础架构控制；</p>
+  </li>
+  <li>
+    <p>硬件层：致力于支撑整个解决方案的硬件物理设备，包括了服务器、CPU、内存、存储设备等；</p>
+  </li>
+</ol>
+
+<p>三、 Deploy</p>
+
+<p>按照第二部分设计好的FlexCast方式实施。</p>
+
+<p>四、 Manitain</p>
+
+<p>主要包含三种不同的活动：</p>
+
+<ol>
+  <li>
+    <p>监控：在虚拟桌面环境设计和实施到生产环境以后，持续的监控是必需的。</p>
+  </li>
+  <li>
+    <p>技术支持；</p>
+  </li>
+  <li>
+    <p>测试和变更管理：以后会遇到不断的软件和产品更新；</p>
+  </li>
+</ol>
+
+<p>五、 项目计划</p>
+
+<p>一个设计详尽的项目计划对项目成功的实施时至关重要的。项目经理要通过项目计划来监控成本、管理项目组成员、跟进项目实施进度等。同时项目进度要及时通告项目组所有成员让大家都知道项目的进度。</p>
+
+<p>在项目的初期一般只需要做Access阶段的计划，这个时段需要多FlexCast模式、容量、用户分组等有更多的交接，所以无需做Design的计划。如下图所示就是一个计划表：</p>
+
+<p>第一部分：Access</p>
+
+<p>一、 业务驱动力</p>
+
+<p>桌面虚拟化项目的第一步应该是去了解对公司所造成的影响，并且将这些影响定一下来，然后对之以优先级排序。有了这些文字描述管理层和项目管理组才能制定出项目成功实施的标准，设计阶段才能有正确的方法论和架构设计。</p>
+
+<p>下图就定义了一个业务驱动力的优先级示例：</p>
+
+<p>二、 数据搜集</p>
+
+<p>数据搜集阶段负责搜集关键信息数据，包括用户、设备、应用程序，以及基础架构等在下一阶段需要使用的数据。</p>
+
+<p>有三种方法来搜集数据：</p>
+
+<ol>
+  <li>手动搜集</li>
+</ol>
+
+<p>小型企业有可能通过访问每台终端，或者是远程连接凡是来搜集数据。</p>
+
+<p>中大型企业一般般都有了ESD（Enterprise Software Deployment），例如微软的SCCM等。可以通过这些平台去搜集应用程序的使用情况等信息。但是ESD一般都不能提供应用程序性能需求和实际使用的信息。</p>
+
+<ol>
+  <li>调查表</li>
+</ol>
+
+<p>这也是一个好办法，可以通过管理层去通过行政命令来执行。也可以通过面对面的会议或者是电话沟通来进行；这种方式比手动搜集要显著减少了所花费的时间，但是完成率不高也是一个缺点，不够精确反应实际情况也是一个缺点。</p>
+
+<ol>
+  <li>自动化搜集</li>
+</ol>
+
+<p>这样的工具有很多，一般都能自动化生成报表。Citrix公司为了帮助用户节省实施成本，和LanDesk公司合作，为Project Accelerator用户提供了一个60天免费试用的LanDesk FastTack 软件License。LanDesk FastTack 软件是一个专门为Citrix实施方法论开发设计的一个专业信息搜集工具。</p>
+
+<p>上述三种方法的优势和劣势如下表所示：</p>
+
+<p>三、 用户数据搜集</p>
+
+<p>信息搜集表可以参考示例表格：Citrix Virtual Desktop Handbook - Assess Workbook.xlsx</p>
+
+<ol>
+  <li>业务特性</li>
+</ol>
+
+<p>业务特性必须通过业务层的管理人员来手动搜集，无法自动化搜集。包括</p>
+
+<p>A. 身份</p>
+
+<p>a) 用户名</p>
+
+<p>b) 部门；</p>
+
+<p>c) 角色</p>
+
+<p>d) 业务经理</p>
+
+<p>e) 所分配的用户组；</p>
+
+<p>B. 业务</p>
+
+<p>a) 主要的数据中心</p>
+
+<p>b) 移动性，下表是示例分类</p>
+
+<p>c) 个性化</p>
+
+<p>d) 安全性</p>
+
+<p>e) 关键性</p>
+
+<ol>
+  <li>技术特性</li>
+</ol>
+
+<p>a) 工作负荷</p>
+
+<ol>
+  <li>用户环境</li>
+</ol>
+
+<p>a) 用户Profile</p>
+
+<p>i. Profile类型：包括本地、漫游、强制、第三方、未知</p>
+
+<p>ii. Profile版本：Windows XP和Windows Vista/7</p>
+
+<p>iii. Profile位置：文件服务器在哪里</p>
+
+<p>iv. 大小：用户Profile的大小</p>
+
+<p>b) 用户数据主目录</p>
+
+<p>i. 主目录位置</p>
+
+<p>ii. 大小</p>
+
+<ol>
+  <li>客户端硬件，包括以下需要搜集的信息：</li>
+</ol>
+
+<p>o Number of CPUs/Cores</p>
+
+<p>o CPU Speed (GHz)</p>
+
+<p>o Memory (GB)</p>
+
+<p>o Disk Size (GB)</p>
+
+<p>o Operating System</p>
+
+<p>o Age of the System (years)</p>
+
+<p>o Peripherals</p>
+
+<ol>
+  <li>本地资源映射，包括以下需要搜集的信息：</li>
+</ol>
+
+<p>o Local Drives</p>
+
+<p>o Printing</p>
+
+<p>o Clipboard</p>
+
+<p>o Audio</p>
+
+<p>o COM Port</p>
+
+<p>o USB</p>
+
+<p>o LPT</p>
+
+<p>四、 应用程序数据搜集</p>
+
+<p>信息搜集表可以参考示例表格：Citrix Virtual Desktop Handbook - Assess Workbook.xlsx</p>
+
+<ol>
+  <li>身份信息</li>
+</ol>
+
+<p>a) 应用程序名称和版本</p>
+
+<p>b) 应用程序所有者</p>
+
+<p>c) 状态</p>
+
+<ol>
+  <li>应用程序技术特性</li>
+</ol>
+
+<p>a) 分配</p>
+
+<p>i. 使用者数量</p>
+
+<p>ii. 部门信息</p>
+
+<p>iii. 个别用户</p>
+
+<p>b) 工作负荷</p>
+
+<p>c) 业务特性</p>
+
+<p>d) 兼容性</p>
+
+<p>五、 用户分类</p>
+
+<p>一旦数据搜集工作完成之后，我们就可以开始准备将用户分成不同的组了，这个时候就要按照FlexCast模型的要求去分配不同的实现方式给不同的用户组了。</p>
+
+<p>我们一般都是按照人物性工作者、分支机构办公人员、移动工作者等方式去区分用户，但是实际上用户的分类远不止这几类，更有甚者，很多用户组都是同时属于上述几个组的。</p>
+
+<p>最快区分用户的方法就是按照用户的需求不同来分组，一旦将用户的需求区分之后，就可以将这些数据填入Citrix Virtual Desktop Handbook - Assess Workbook.xlsx 了。</p>
+
+<ol>
+  <li>FlexCast模型比较</li>
+</ol>
+
+<p>1) Hosted Shared</p>
+
+<p>2) Hosted VDI，又可以细分为</p>
+
+<p>a) Pooled-Random/Streaming</p>
+
+<p>b) Pooled-Static</p>
+
+<p>c) Pooled/Streamed with Personal vDisk</p>
+
+<p>d) Dedicated</p>
+
+<p>e) Existing</p>
+
+<p>f) Psysical/Remote PC</p>
+
+<p>3) Steamed VHD</p>
+
+<p>4) Local VM</p>
+
+<p>5) On-Demand Apps</p>
+
+<p>下表是关于FlexCast整体技术的一个概览：</p>
+
+<ol>
+  <li>FlexCast模型选择</li>
+</ol>
+
+<p>在XenApp和XenDesktop之间有很多技术上的区别，但是他们都是通过HDX来提供的最佳用户体验。他们的区别如下：</p>
+
+<p>六、 应用程序评估</p>
+
+<p>在用户分组完成之后，我们已经有了根据需求不同确定下来的不同的用户组，下一步就是向用户提供他们工作需要的应用程序。下面是建议的三部曲：</p>
+
+<ol>
+  <li>
+    <p>Rationalization 合理化</p>
+  </li>
+  <li>
+    <p>Business Characteristics 业务特性</p>
+  </li>
+  <li>
+    <p>兼容性</p>
+  </li>
+</ol>
+
+<p>七、 项目管理</p>
+
+<ol>
+  <li>
+    <p>Roadmap</p>
+  </li>
+  <li>
+    <p>项目团队</p>
+  </li>
+</ol>
+
+<p>下面的表格示例告诉我们在一个虚拟桌面项目中可以建议的业务角色和技术角色分类。虽然角色有很多种，但是很多角色的存在时间都很短，同时很多角色都由一个人同时完成。项目经理和Citrix架构师自然是贯穿整个项目的角色，其他就不一定了。</p>
+
+<p>a) 业务角色</p>
+
+<p>b) 技术角色</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Access, deploy, Design, FlexCast, Manitain, XenDesktop, 虚拟桌面
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=XenDesktop%E8%99%9A%E6%8B%9F%E6%A1%8C%E9%9D%A2%E7%B2%BE%E5%93%81%E4%B9%A6%E7%B1%8D%E5%AF%BC%E8%AF%BB%28part1%29+http://localhost:4000/2013-04-09/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-p1/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2013-04-09/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-p1/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-04-09/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-p1/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-04-07/xenserver-tools-not-installed/" data-toggle="tooltip" data-placement="top" title="解决XenServer tools not installed">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-04-15/xendesktop-e4-b8-ad-e5-a6-82-e4-bd-95-e9-87-8d-e5-ae-9a-e5-90-91usb-e8-ae-be-e5-a4-87/" data-toggle="tooltip" data-placement="top" title="XenDesktop中如何重定向USB设备">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

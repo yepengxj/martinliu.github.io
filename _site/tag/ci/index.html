@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -2442,10 +2430,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2011-01-12-bmc-atrium-cmdb-ci/">
+    <a href="/2011-01-12/bmc-atrium-cmdb-ci/">
       <h3 class="post-title">BMC Atrium CMDB CI数据迁移</h3>
 
       
@@ -2457,7 +2443,7 @@
 
     <div class="post-entry">
       在不同的CMDB服务器之间做数据迁移之前一定要注意两点：1）保持两边的CDM相同；2）先导入CI数据在导入CI相关的关系数据。另外就是每个类导入完毕之后要做数据完整性和正确性的抽检。以下使用的工具是cmdbdriver，该命令初始化和一般性的参数介绍请参考相关文档。 _**CI数据导出示例**_ Command: xexpdt XEXPORT DATA Export instance data from all classes? (F): Classes to export data from: Class and its subclasses, From namespace (1,2) (1): Namespace (): BMC.CORE Class name (): BMC_ComputerSystem Dataset ID (): BMC.ASSET Filename for exported data: C:\DEMO\cs-ci Exporting Class BMC_ComputerSystem i=0: namespaceName = BMC.CORE, className...
-      <a href="/2011-01-12-bmc-atrium-cmdb-ci/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-01-12/bmc-atrium-cmdb-ci/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2499,7 +2485,7 @@
   
   
   <article class="post-preview">
-    <a href="/2010-12-20-itil-v3-asset-configuration/">
+    <a href="/2010-12-20/itil-v3-asset-configuration/">
       <h3 class="post-title">[ZT]ITIL V3 服务转换篇 之 资产和配置管理</h3>
 
       
@@ -2511,7 +2497,7 @@
 
     <div class="post-entry">
       为了定义和控制服务和基础设施组件。维持当前计划中、历史的服务和基础设施状况配置信息的准确性 **一、先介绍几个基本概念 **1、配置项（CI） 配置项是正在或将要在配置管理控制下的资产、服务组件或其他。配置项在复杂性、大小、种类有很大不同，从整个服务或系统包括硬件、[软件](http://portal.vsharing.com/industry/1593.html)、文档、支持人员到单独软件模块或硬件组件。配置项可以集中或分组管理。配置项可以选择使用既定的选择标准、分组、分类和识别方式在整个生命周期中管理和追溯。其包括： A) 服务CI项：服务能力资产、服务资源资产、服务模式、服务包、发布包、验收标准等 B) 组织CI项 C) 内部CI项 D) 外部CI项：包括外部客户需求和协议、供应商发布、分包商及对外服务。 E) 接口CI项：端到端的服务，跨越服务提供者的接口 2、配置管理系统（CMS） 为了管理大型复杂的IT服务和基础设施，资产和配置管理需要使用配置管理系统CMS。在指定范围内CMS掌握着所有配置项信息。CMS为所有服务组件与相关事故、问题、已知错误、变更发布、文档、公司数据、供应商、客户信息做关联。 在数据层面CMS能使数据库存在多个物理CMDB中而后共同组成一个联合的CMDB。其他数据来源也可以加入CMS中。 3、配置管理数据库(CMDB) 所有配置项的信息都包括在配置管理数据库(CMDB)中。配置管理数据库(CMDB)对所有IT 组件、组件的不同版本和状态以及组件之间的相互关系进行跟踪。在其最基本的形式下，配置管理数据库(CMDB)可能仅由一些纸质表格或一套电子表格 (Spreadsheets)组成。 4、最终介质库(DML) DML是用来存储和保护所有已授权的被确认版本介质配置项。 他们存储经过质检的主拷贝版本。这个库可以有一个或多个软件库或存放区来存放开发、测试和实时存储文件。他们包含组织所有软件的主拷贝、购买软件的副本及 受控文件的电子版。DML包含物理的拷贝存储，DML是发布管理的基础。 **二、配置管理的目的： ** 1. 确定、控制、记录、报告、审计、验证服务资产和配置项包括版本、基线、组成成分、属性和相关关系。 2.通过服务[生命周期管理](http://plm.vsharing.com/)保护资产完整、配置项等账户。确保只有已授权的组件被使用和已授权变更被执行。 3.通过服务生命周期保护服务资产、配置项的完整性。为了建立和维持一个准确和完整的配置管理系统，确保资产和控制服务、IT基础设施的配置需求的完整性。 **三、资产、配置管理的活动** ![](http://blog.amteam.org/Uploads/UserDirs/3/1169/467255/b%281%29.jpg) [![点击查看原图](http://blog.amteam.org/Uploads/UserDirs/3/1169/467255/b%281%29.jpg)](http://blog.amteam.org/Uploads/UserDirs/3/1169/467255/b%281%29.jpg) 1、规划 2、识别 配置项识别过程： A) 定义和制定标准文件来选择配置项和他们的组件构成 B) 依据标准选择配置项及其组件并记录他们 C) 给配置项分配唯一的标识符 D) 指定每个配置项相关属性 E) 确认每个配置项是受配置项管理来管理 F) 确定每个配置项的责任人 3、控制 必须有效控制信息以维持配置管理数据库(CMDB)的及时更新。一旦某项活动改变了配置项已记录的特征或配置项之间的关系，则必须在配置管理数据库...
-      <a href="/2010-12-20-itil-v3-asset-configuration/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2010-12-20/itil-v3-asset-configuration/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2705,7 +2691,7 @@
   
   
   <article class="post-preview">
-    <a href="/2010-06-04-plan-cmdb-population-001/">
+    <a href="/2010-06-04/plan-cmdb-population-001/">
       <h3 class="post-title">规划CMDB数据填充-001</h3>
 
       
@@ -2755,7 +2741,7 @@
 
 在这一步里，您必须专注于CMDB所需要的范围，交付可实现的东西，而非可能的东西。在敲定最终的规划之前，你需要组织分析会议进行仔细地计划。
 
-      <a href="/2010-06-04-plan-cmdb-population-001/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2010-06-04/plan-cmdb-population-001/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2997,7 +2983,7 @@
   
   
   <article class="post-preview">
-    <a href="/2009-12-13-service-asset-ci-life-cycle/">
+    <a href="/2009-12-13/service-asset-ci-life-cycle/">
       <h3 class="post-title">资产CI的一生</h3>
 
       
@@ -3009,7 +2995,7 @@
 
     <div class="post-entry">
       在ITIL v3以后，配置管理进化为“服务资产和配置管理SACM”，换句话说，资产和配置管理不分家。两个流程应该是融合的。从微观上看资产管理设计到CI的所有生命周期状态，而这个服务资产在CMDB中出现的状态为整个生命周期中的一部分。 ![](http://www.butterfliesandart.com/Butterfly_Life_Cycle/Lifecycle3large.jpg) 最好能通过资产管理为统一入口，来完成对CMDB中资产的生命周期管理。例如：一台服务器在到货以后，完成资产入库后，就应该在CMDB中自动创建CI，在上架部署了软件后，有配置资产自动采集工具，采集回详细配置信息后，资产状态就自动变为“部署”，当在运行维护中服务器宕机或者维护时，在资产管理中也能看到更新的信息。下面是建议的服务资产的生命周期状态: 编号 状态名称 状态描述 1 到货 表示为CI的物品在采购以后，被相关部门签收。 2 组装 设备的组件在被组装的过程中 3 维护 该设备处于宕机后的维护状态 4 宕机 该设备处于宕机状态，还未对其进行维护 5 终止 不在处于被部署的状态 6 转移 该设备正在被转移到其它的地点或者机房途中 7 删除 配置项被标记为删除状态 8 库存 设备处于库存中，还没有被部署 9 借出 已被其他单位或者部门借走 10 处理 该设备已经被拆卸，其本身已经不可用 11 保留 该设备已经被某单位或者部门预订，已经不再库存中了 12 返厂 由于设备已经被损坏或者过保，必须被退回厂商 13 部署 CI的默认状态，表示设备处于正常的生产运行状态 14 订购 该设备已经被订购，还未到货，仍然不可用 配置项管理和资产管理的联系和区别。...
-      <a href="/2009-12-13-service-asset-ci-life-cycle/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2009-12-13/service-asset-ci-life-cycle/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -3165,7 +3151,7 @@
   
   
   <article class="post-preview">
-    <a href="/2009-10-05-what-does-cmdb-store/">
+    <a href="/2009-10-05/what-does-cmdb-store/">
       <h3 class="post-title">CMDB中存什么？</h3>
 
       
@@ -3178,7 +3164,7 @@
     <div class="post-entry">
       [caption id=&quot;&quot; align=&quot;alignnone&quot; width=&quot;406&quot; caption=&quot;dmtf.org&quot;]![dmtf.org](http://www.dmtf.org/home/Computer_stoxx.JPG)[/caption]当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据模型是DMTF的通用信息模型，它是以面相对象的方式来描述各类CI和关系。它是一个工具用来帮你对环境中的各种物理和逻辑的CI和关系进行分类，参考这个模型选择一些有用的类（广度），然后在参考它对每个类属性的描述（粒度）。这些类的选择只是一个初步的研究，每个CMDB厂商和工具对其实施和参考的力度都不同，也需要看您具体实施的是什么工具。例如：你需要描述银行基金业务系统，你可能选择的CI类包括：客户群、业务流程、业务活动、业务服务、IT服务、应用系统、应用、软件服务器、服务器、网络、存储等；关系包括：组件、依赖和影响。CI类和关系的选择也基本上遵循够用就好的原则；而且每个类对应的CI实例都需要有人负责管理维护，需遵循，谁负责、谁维护的原则保障其属性的精确性。对于整个CMDB来说如果存在没有Onwer的CI或者关系，如果它是由自动化配置发现工具来更新的；那么它可以存在，如果不是的话，它可能根本就不该存在。所以CMDB中保存的数据不是越多，越细越好；而是够用就好，能保证更新就好。由于数据根本就不是免费的，即使国内的人力成本低，也不应该雇用一帮专职更新CMDB的人。  综上所述：我们说明了CMDB中数据选取和存放的最基本原则和方法，在CMDB产品选型过程中需要着重考察产品的数据模型本身和其管理的能力，还包括其CI和关系的扩展和定制能力；包括数据类型的支持和界面定制的程度。那么CMDB中的CI和关系有该如何展现呢？这是CMDB系统的另外一个功能：可视化。下面是一个CI和关系展示的实例供参考：[http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf#swf&amp;width=320&amp;height=320][](http://martinliu.cn/2009/10/05/what-does-cmdb-store/s1-4-blog/)[全屏查看或者下载Flash文件](http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf)第一代的配置展示方式是，纯数据表格方式。第二代具有一种固定格式的图形展示方式，除了那几张视图外，别的需要单独开发。下一代的具有各种视图定制功能，并且支持关系和ci的过滤等等。
 
-      <a href="/2009-10-05-what-does-cmdb-store/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2009-10-05/what-does-cmdb-store/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -3368,7 +3354,7 @@
   
   
   <article class="post-preview">
-    <a href="/2009-03-01-stop-to-build-cmdb-for-your-it/">
+    <a href="/2009-03-01/stop-to-build-cmdb-for-your-it/">
       <h3 class="post-title">Stop to build CMDB for your IT - CMS是怎样炼成的？</h3>
 
       
@@ -3397,7 +3383,7 @@ CMDB不只是一个数据库那么简单，更不可能在服务台的数据库�
   * 联邦化：CMS核心数据库中不保存动态变化的配置信息（DB的最大连接数，网络设备所使用的syslog服务器地址），这些信息通过联邦管理让用户从其他相关的工具系统中查看到最新的数据。
 最近可能还会接触一下CMDB的项目，其他经验总结待续。
 
-      <a href="/2009-03-01-stop-to-build-cmdb-for-your-it/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2009-03-01/stop-to-build-cmdb-for-your-it/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4309,7 +4295,7 @@ CMDB不只是一个数据库那么简单，更不可能在服务台的数据库�
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

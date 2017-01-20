@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -2162,10 +2150,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2011-06-29-how-to-access-remedy-form-in-db/">
+    <a href="/2011-06-29/how-to-access-remedy-form-in-db/">
       <h3 class="post-title">如何读取Remedy中的数据</h3>
 
       
@@ -2177,7 +2163,7 @@
 
     <div class="post-entry">
       Remedy系统几乎是一个绿色软件，它的几乎所有业务数据、配置数据和工作流都是存储在数据库中，也就是说：只要能够保留一份完整的数据库备份，即可高枕无忧，需要的时候就可以把系统还原出来。业务数据在Remedy中大多存储在regular form中。多数的业务数据都是通过Join form进行访问和存取。在Remedy中的各种form构成了Remedy系统的所有数据结构和界面，有些类型的form是只做界面而创建的。 如何从数据库层面直接读取Remedy ARS系统中的业务数据？首先你需要在Remedy User中查询和确认你需要读取的form的名称，之后在用Remedy develop studio中确认你需要读取字段在数据库中的database ID，然后使用SQLPLUS 查询出form的数据库视图名称，最后编写一条sqlplus语句验证查询的结果。确认了表和字段在数据库中的ID之后，你就可以使用任何数据库客户端直接绕过Remedy应用系统来读取业务数据了。这样做比API的调用开发难度要小些。 下面是一个例子：用Remedy默认的用户名密码登录，查询BMC.CORE:BMC_ComputerSystem form在数据库中视图的名称为T517，在BMC Remedy Developer Studio中查询字段的ID[（点击查看大图）](http://cdn1.martinliu.cn/wp-content/uploads/2011/06/ars-forms.jpg)在此视图中查询CI名称里含有test-fc关键字的CI，并返回所有CI的name, inc id 和TotalPhysicMemory属性值。 [oracle@ars ~]$ sqlplus ARAdmin/AR#Admin#@remedy SQL*Plus: Release 11.2.0.1.0 Production on Wed Jun 29 21:51:39 2011 Copyright (c) 1982, 2009, Oracle. All rights reserved. Connected to: Oracle Database 11g Release 11.2.0.1.0 - 64bit Production...
-      <a href="/2011-06-29-how-to-access-remedy-form-in-db/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-06-29/how-to-access-remedy-form-in-db/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2253,7 +2239,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-05-27-remedy-ars-7-6-03-overlay/">
+    <a href="/2011-05-27/remedy-ars-7-6-03-overlay/">
       <h3 class="post-title">Remedy ARS 7.6.03 overlay</h3>
 
       
@@ -2265,7 +2251,7 @@
 
     <div class="post-entry">
       [![Remedy-ARS-7.6.04-Overlay](http://cdn1.martinliu.cn/wp-content/uploads/2011/05/Remedy-ARS-7.6.04-Overlay.png)](http://martinliu.cn/2011/05/remedy-ars-7-6-03-overlay.html/remedy-ars-7-6-04-overlay)一个Remedy产品史上较大的新功能正在被大多数人忽视和绕过，实在是不吐不快，也希望所有的Remedy开发人员能够关注一下这个功能，因为他可能真的对你的项目非常重要。 上图显示了Overloay对象的地位和功用，我们都是工作在BMC原厂的开箱即用的程序对象层面上，所有安装程序首次安装到系统上的应用的所有对象都是Base对象。在这个基础之上我们做定制和开发，定制和开发出来的对象有两种，一种是Overlay对象，中文翻译为叠加对象，这种叠加对象并不会对原有的Base对象进行修改，而是覆盖在其之上的，两者是和谐共存的。另外一种对象就是纯客户化的对象，即以前没有，开发人员新加入的对象，这种对象和其他两种对象是没有冲突的。 Overlay可以是Base对象保持原状有什么意义？最重要的一点就是对升级有好处，以前我们开发的所有Remedy应用系统，大家都不敢做升级，当客户或者BMC的support要求要升级的时候，我们都会抵制或反对，这里的原因相信大家心里都知道。那么以后大家就不必这样了，只要在开发定制的过程中合理的使用Overlay对象做定制开发，方能保证定制后的系统对补丁和升级来者不拒。 那么如何使用到Overlay对象呢？在Dev Studio中选中需要修改的对象，点右键选择create overlay，你就能在原厂的对象上做一个叠加对象了。这里提出一个7.6.04 Dev Studio的错误做法：默认登录到Dev Studio以后，你可能会发现在默认的最佳实践模式下，你不能向以前一样任意修改东西，发现在切换到另外一个模式（好像是经典模式）之后又什么都能修改了，所以你就认为找到了修改的方法，其实这种操作恰恰是绕过了Overlay功能。在这种模式等于在以前旧版本产品的模式下开发做。 老外如是说：What the overlay feature does is to simply allow you to do the following: 1) Add new items that are identified as custom items you have added.  They are flagged as custom items in the displays.  You can easily sort by...
-      <a href="/2011-05-27-remedy-ars-7-6-03-overlay/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-05-27/remedy-ars-7-6-03-overlay/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2325,7 +2311,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-05-18-how-to-deploy-mid-tier-to-tomcat-7/">
+    <a href="/2011-05-18/how-to-deploy-mid-tier-to-tomcat-7/">
       <h3 class="post-title">How to deploy mid-tier to tomcat 7</h3>
 
       
@@ -2337,7 +2323,7 @@
 
     <div class="post-entry">
       ![tomcat 7](http://tomcat.apache.org/images/tomcat.gif)Since Apache Tomcat 7.0.14 came out, I have not reason why I am not checking this out. And this is  the first time I deopy a .war file into tomcat instance. I am runing Remedy ITSM 7.6.04 in VMWare workstation on my laptop. It's a Dell e6400 with 8GB...
-      <a href="/2011-05-18-how-to-deploy-mid-tier-to-tomcat-7/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-05-18/how-to-deploy-mid-tier-to-tomcat-7/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2393,7 +2379,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-05-07-let-remedy-ars-fly-2/">
+    <a href="/2011-05-07/let-remedy-ars-fly-2/">
       <h3 class="post-title">让Remedy飞一会</h3>
 
       
@@ -2405,7 +2391,7 @@
 
     <div class="post-entry">
       ![](http://www.ibm.com/developerworks/cn/websphere/techjournal/0909_blythe/images/figure6.jpg)Remedy应用的性能优化是一个在系统建设过程中需要长期关注的问题，而不是在上线的前一天晚上去解决的问题，我也碰到过很棘手的性能问题，它确实爆发了，而且恰好在上线前夕爆发；之后感觉除了点背之外，感觉比较遗憾的是：为啥这个性能问题不早点爆发！ 那么如何持续改进Remedy的性能？首先是硬件环境的准备情况，是否能在项目开始的第一天，就把开发，测试，生产环境统一装好。而不是到上线的前夕才去动生产环境。甚至于有条件的情况下，可不可以直接在生产环境上做开发，这样做的好处：让生产环境上性能优化的时间周期和机会尽可能的多，尽可能的长。当然这种机会毕竟不多，那么是否可以做到生产环境和开发环境的尽早的同步，也就是说：在开发到了一个小的阶段的时候，生产环境就可能就绪，就可以使用，这样把未成型的系统先部署上去，以便有机会做多次的生产系统性能调优。比较生产系统的性能最优化是项目的一大目标，不能等到最后才去仓促应战。曾经听说某行流程平台上线的第二天就挂了一次，这都是血淋淋的教训。总结一下：尽早的建设生产系统，优化生产系统，把开发好的那部分程序尽早迁移到生产上，长期的追逐系统性能，甚至于在生产环境上对此系统做压力测试。这些工作如果能够做的话，我想在上线日我们一定不会紧张。 如何追逐测试系统的性能。可以使用Web profiling工具如Fiddler。使用这种工具对某些特定操作持续的测试，把每次的测试结果保存下来，把时间记录到一个表格中。可以考虑测试如下内容：用户登录、打开事件控制台、创建一个事件单、搜索事件单等等，其他流程也类似。保证每次点击的次数都相同。其实从Fildder的分析数据中也可能得到很有价值的数据，如：那个Web调用的时间消耗最长，那些Web资源的请求出错。找出时间消耗做多的调用，就可以有针对性的优化应用了。总之：使用一种工具，在开发的整个过程中持续测试和优化，记录所有测试结果，这样在上线前对系统的性就能有客观参考依据。 另外要注意Remedy系统是一个标准的3层架构应用，你需要在系统调优的时候，有这样几种人的帮助：压力测试工具高手、JVM调优专家、数据库调优专家和Remed性能调优专家。还需要参考下列的参数配置。 ## Mid-tier优化参数建议 关于Mid-tier的一点建议，目前普通使用的Java应用服务器都是Tomcat，我一向是开源软件的粉丝，但是，还是建议如果有条件的话，还是上商业的产品，如Weblogic或者Websphere。这样可以获得能多一点的支持。 鉴于大多数系统还都是用的BMC的产品自带的Tomcat，下面是一些建议的参数配置。 ### 1-HTTP keep-alive Keep-alive count: infinite (minimum 5000) Connection timeout:90000 ms (minimum 60000 ms) ### 2-JVM settings JVM heap：-Xms1024m –Xmx1024m MaxPermSize：-XX:MaxPermSize=256m 以Windows系统为例，可以使用Tomcat的配置界面工具，配置这两个参数。 ### 3-Threads configuration of the application server hosting the mid tier maxThreads：500 acceptCount：100 关于1和3的 参数文件：tomcat dir/conf/sever.xml 的实例代码： [xml] [/xml]...
-      <a href="/2011-05-07-let-remedy-ars-fly-2/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-05-07/let-remedy-ars-fly-2/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2441,7 +2427,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-05-04-remedy-itsm-7-6-04-quick-install-guide/">
+    <a href="/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/">
       <h3 class="post-title">Remedy ITSM 7.6.04 套件快速安装</h3>
 
       
@@ -2453,7 +2439,7 @@
 
     <div class="post-entry">
       ![](http://media.cms.bmc.com/images/box_services_trio_compass.png)自从Remedy ITSM 7.6.03版本发布以后，Remedy ITSM套件有了一种全新的安装方式“预配置堆栈式安装”，这种安装方法简化了以前从ARS开始一个部件罗一个部件的安装方法，它将ITSM套件中的所有组件一次性的安装上去。下面讲具体该如何操作。 ## 什么情况下使用这个安装方式？ A）POC的情况下 B）客户的生产环境满足下面的需求： • Microsoft Windows Server 2008 (64-bit) (Standard, Enterprise, or Datacenter) with Microsoft SQL Server 2008 (64-bit) (Standard or Enterprise) • Oracle Solaris 10 with Oracle 11g (64-bit) (Standard, Enterprise, or RAC) • Red Hat Enterprise Linux 5 (Update 5) (64-bit) with Oracle...
-      <a href="/2011-05-04-remedy-itsm-7-6-04-quick-install-guide/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2493,7 +2479,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-04-02-ars-start-issue-on-oracle/">
+    <a href="/2011-04-02/ars-start-issue-on-oracle/">
       <h3 class="post-title">ARS启动故障修复案例</h3>
 
       
@@ -2505,7 +2491,7 @@
 
     <div class="post-entry">
       ARS版本 7.6.04 数据库 Oracle11G 和ARS在同一台服务器上 错误现象： ARS服务不能正常启动 arerror.log报 390600 : SQL 数据库不可用 -- 将重试连接 (ARNOTE 590) Sat Apr 02 20:27:41 2011 : Action Request System(R) 服务器 x64 版本 7.6.04 Build 002 201101141059 (c) Copyright 1991-2010 BMC Software, Inc. Sat Apr 02 20:29:51 2011  390600 : SQL 数据库不可用 -- 将重试连接 (ARNOTE...
-      <a href="/2011-04-02-ars-start-issue-on-oracle/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-04-02/ars-start-issue-on-oracle/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2583,7 +2569,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-03-01-remedy-ars-open-source-tool/">
+    <a href="/2011-03-01/remedy-ars-open-source-tool/">
       <h3 class="post-title">Remedy ARS 开源工具知多少</h3>
 
       
@@ -2595,7 +2581,7 @@
 
     <div class="post-entry">
       Remedy ARS是全球最大市场份额的产品，是为业内广泛接受的成熟产品套件；虽然他始终是私有的软件产品，但是围绕其周围，还是不断有新的开源工具出现。下面就介绍几种这样的软件。 ARInside is a free open-source utility to create a static html documentation of your AR-Server. If you need something to quickly browse through your workflow, ARInside might be worth a try. ARInside 3.0.2 has some new features, lots of bugfixes and other improvements. Just to name a few: -...
-      <a href="/2011-03-01-remedy-ars-open-source-tool/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-03-01/remedy-ars-open-source-tool/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2649,7 +2635,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-02-14-backup-restore-remedy-ars-oracle-db/">
+    <a href="/2011-02-14/backup-restore-remedy-ars-oracle-db/">
       <h3 class="post-title">在Oracle上备份和恢复 Remedy ARS数据库</h3>
 
       
@@ -2661,7 +2647,7 @@
 
     <div class="post-entry">
       # Why ARS system need full backup and restore 众所周知_Remedy ARS_上运行的所有程序代码都是在数据库中存储的，几乎所有的程序代码和相关数据都是存储在后端的数据库里的。基于这种特性，我们可以很方便地从数据库层面实现对ARS系统的备份和恢复。所谓基于数据库的备份和恢复就是指数据库的全库导入和导出。在这方面_Oracle_做的很好，他所提供的imp和exp命令行工具能很好的完成此项任务。 ![](http://img.en25.com/Web/BMCSoftwareInc/eloqua_webform_banner_868w_arch07.jpg) # When you may backup BMC Remedy ARS system Database _Remedy ARS_系统数据库全备份可能会发生在下面的几个时间点： 1. ## 在安装过程中，_Remedy ITSM_套件的安装都是从ARS开始一个模块一个模块增加安装的，可以在安装每个新模块之前，做一个数据库备份，用于安装失败情况下的现场恢复 2. ## 在系统上线前，当系统需要做升级/代码更新等等大规模操作之前可以考虑做一次数据库的导出备份 3. ## 在做系统迁移的情况下，我们甚至可以生产库迁移到开发机上进行问题的重现，或者代码的修改，或者测试，完成之后再导回生产系统（如果生产系统再次期间处于维护状态的话） # How-to 下面是我总结的相关操作步骤参考。 ## 备份_ARSystem_数据库 exp aradmin/ar#admin@itil file=c:\before-patch7.dmp log=c:\exp.log compress=n statistics=none 参数解释： aradmin/ar#admin  是ARS系统默认的用户名和口令 @itil 是ARSystem数据库所在的数据库实例名...
-      <a href="/2011-02-14-backup-restore-remedy-ars-oracle-db/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-02-14/backup-restore-remedy-ars-oracle-db/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2729,7 +2715,7 @@
   
   
   <article class="post-preview">
-    <a href="/2011-02-10-64-windows-ars-75-install-tips/">
+    <a href="/2011-02-10/64-windows-ars-75-install-tips/">
       <h3 class="post-title">在64位Windows上安装ARS7.5</h3>
 
       
@@ -2766,7 +2752,7 @@
 
 ARS7.5本身是32位的可支持程序，所以它所需要的JDK和Oracle都需要是32位的版本。如果你安装的是7.6.04，就不需要考虑32位的问题，由于它本身就是64位的程序了，所以JDK和Oracle都需要使用相应的64为的程序。
 
-      <a href="/2011-02-10-64-windows-ars-75-install-tips/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-02-10/64-windows-ars-75-install-tips/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2832,7 +2818,7 @@ ARS7.5本身是32位的可支持程序，所以它所需要的JDK和Oracle都需
   
   
   <article class="post-preview">
-    <a href="/2010-09-22-install-remedy-ars-itsm-on-aix-oracle/">
+    <a href="/2010-09-22/install-remedy-ars-itsm-on-aix-oracle/">
       <h3 class="post-title">八月十五月儿圆，我和兄弟们装AR</h3>
 
       
@@ -2857,7 +2843,7 @@ Oracle上众多僵尸进程：如果在安装CMDB或者ITSM套件的时候，安
 
 Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还是非常绿色的软件，需要在安装完AR，CMDB，ITSM套件后各做一个Remedy安装文件目录的备份，在AIX上可以把这个文件夹tar起来备用。Oracle数据库还是非常容易备份的，使用imp和exp命了就可以搞定，具体语句咨询DBA。切忌在安装CMDB和ITSM之前一定要对Remedy系统的安装文件和数据库做备份，一旦安装失败，可以恢复文件，恢复数据库，排错后重新再来。
 
-      <a href="/2010-09-22-install-remedy-ars-itsm-on-aix-oracle/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2010-09-22/install-remedy-ars-itsm-on-aix-oracle/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2913,7 +2899,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
   
   
   <article class="post-preview">
-    <a href="/2010-08-09-remedy-lb-midtier-server-group-configure/">
+    <a href="/2010-08-09/remedy-lb-midtier-server-group-configure/">
       <h3 class="post-title">Remedy Server Group及负载均衡配置参考步骤</h3>
 
       
@@ -2925,7 +2911,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
 
     <div class="post-entry">
       [![](http://cdn1.martinliu.cn/wp-content/uploads/2010/08/RemedyITSMArch-253x300.jpg)](http://martinliu.cn/2010/08/remedy-lb-midtier-server-group-configure.html/remedyitsmarch)上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。 **第一步** 安装前的准备工作。 确定Remedy ARS的服务别名，例如“AtriumCMDB”。在所有的Web服务器（Mid-tier所安装的服务器）的host文件中加入一条Ip地址解析，例如： 192.168.10.11   AtriumCMDB 此ARS服务别名指向的是该Web服务器所对应的ARS服务器，例如：Web1中AtriumCMDB对应的ip为ARS1，Web2对应ARS2，Web3对应ARS3，以此类推。 **第二步**安装第一台ARS服务器 默认所有的ARS都安装了数据库客户端程序，如果是Oracle数据库，ARS上的客户端程序的大小版本号必须和远程数据库的大小版本号完全一致。Windows平台的Oracle客户端只支持32位的程序。在所有ARS服务器的host文件中加入一条Ip地址解析，例如： 192.168.10.11   AtriumCMDB 此IP地址为每台ARS自己的对外提供ARS服务的IP。ARS上安装完JDK之后，开始安装ARS，安装过程中服务器别名输入AtriumCMDB，其他的选项都按需要配置，所有有关服务器端组件、服务端口、密码、安装路径的信息都要做详细记录，用来安装Server Group中其他成员使用。安装完第一台服务器的ARS之后，申请Remedy License，打License，包括其他所有CMDB、ITSM相关应用模块的License，打完License后导出成文件备用。ARS安装成功之后，顺序安装其他应用，顺序时CMDB 》ITSM  其他。安装完毕后，通过Remedy User来确认所有应用功能是否正常。 **第三步 **配置第一台ARS服务器为Server Group中的管理服务器 配置方法参照，ARS Configuration Guide中的Server Group的相关章节。配置完毕之后打开Server Group的Log，从启动ARS服务之后，查看该Log看Server Group工作是否正常。 **第四步** 安装Server Group中的成员ARS服务器 准备工作参考第一台ARS服务器。运行ARS安装程序，选择Server Group，选择输入AtriumCMDB别名，选择共享的数据库，其他参数与第一台保持一致。安装完毕之后。使用ARS自带的Sample应用新增一个city，在ARS1上查询ARS2上新增的记录。同样参考的Server Group的相关章节，对ARS2进行配置。在ARS2上查看Server Group的日志，确认该ARS已经加入了以第一台ARS为管理服务器的群集中。为第二台ARS服务器打License。在确认第二台ARS服务器成功加入之后，安装CMDB应用。安装完毕之后，在第二台ARS服务器上，使用Remedy User客户端，打开CMDB的相关表单进行新增和查询操作；然后在ARS1上检查操作结果，保证两边一致。安装ITSM：直接把第一台ARS服务器的ar.cfg文件覆盖到第二台ARS的ar.cfg上，一定要修改第一台ARS服务器主机名的哪一行，把它修改为第二台ARS的主机名。复制第一台ARS的ITSM安装目录到第二台ARS的相同路径中，重启ARS服务。查看arerror.log文件看看ARS启动的是否正常。在第二台ARS上使用Remedy User确认ITSM应用是否工作正常，如果一切工作正常，则第二台ARS服务器安装完毕。按照相同的方式安装其他的ARS服务器。 **第五步** 配置每台ARS的ranking 按照ARS Configuration Guide中的Server Group的相关章节配置每台ARS服务器处理不同后台工作流的ranking。 **第六步** 安装配置所有Web服务器的Remedy Mid-tier 安装Remedy Mid-tier软件，都指向相同的ARS服务别名AtriumCMDB，当然该别名被解析为它所对应的ARS服务器的IP地址。使用浏览器测试每台Web服务器，保证Remedy Mid-tier都能正常工作。 **第七步**...
-      <a href="/2010-08-09-remedy-lb-midtier-server-group-configure/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2010-08-09/remedy-lb-midtier-server-group-configure/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2979,7 +2965,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
   
   
   <article class="post-preview">
-    <a href="/2010-07-30-bmc-training-schedule01/">
+    <a href="/2010-07-30/bmc-training-schedule01/">
       <h3 class="post-title">BMC课程通知: BMC Remedy AR 7.5 管理员培训</h3>
 
       
@@ -2991,7 +2977,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
 
     <div class="post-entry">
       [![](http://sabacert.bmc.com/images/education_banner_Adv.ITIL.jpg)](http://www.bmc.com/education/learning-paths/lp-itil.html) 课程适用于Remedy AR管理员和开发人员，讲授AR系统的功能、架构、日常运维和创建应用。 学员可以选择课后参加上机考试，获得[BMC Certified Administrator: BMC Remedy AR System 7.5](http://www.bmc.com/education/certification-programs/89788539-1956.html)认证。不参加考试的学员将会获得结课证书 **[点 击查看详情](http://inter.viewcentral.com/events/cust/catalog.aspx?event_id=359&amp;cid=bmc&amp;pid=1)** **课程目标** 认识AR System 7.5 的用途和优势 认识AR System 7.5的架构 使用Remedy User和Web浏览器创建和查询请求 使用Remedy User和Web浏览器创建AR系统报告 使用BMC Remedy Alert 和Web接收通知 描述BMC Remedy Administrator工具的基本维护任务 了解AR系统的访问控制概念 了解不同的AR System角色 理解 AR System 的系统架构 了解AR System 的开发工具 权限管理和 AR System许可管理 使用Administration Console执行统一的管理任务. 使用Developer Studio 创建AR...
-      <a href="/2010-07-30-bmc-training-schedule01/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2010-07-30/bmc-training-schedule01/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -3311,7 +3297,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
   
   
   <article class="post-preview">
-    <a href="/2009-12-24-is-that-a-joke-of-remedy-developer/">
+    <a href="/2009-12-24/is-that-a-joke-of-remedy-developer/">
       <h3 class="post-title">老美真的很扯，一个职位的帖子被顶了22次</h3>
 
       
@@ -3323,7 +3309,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
 
     <div class="post-entry">
       Remedy的开发人员或许熟悉这个邮件列表，ARSlist.org；如果没注册的话，一定需要注册一下啊，不为别的，学学英语，看看其他人都聊什么，有什么问题总是不错的。下面这个段子就是最近我看过的最扯的讨论。关键词：Remedy, 职位， OH州，辛辛那提，Developer，伊拉克，ARS 6.3, ARS 7.5, ITSM 7.5, 巴格达， AK 47，武器，活动链，过滤器，阿富汗，薪水，简历，顾问....... engoy！！！！![](http://moovik.com/m_pictures/thumbs/Funny-cat-with-orange-on-its-head.jpg)------------------------------------------------------------------Job: Permanent - Lead Remedy Developer - Cincinnati, OHDear List,---------------------------------------1----------------------Merry Christmas!Title: Lead Remedy DeveloperLocation: Cincinnati, OHDuration: Permanent (Relocation is offered)Start Date: 2-4 WeeksMust haves:- 5+ Years experience with Remedy- Experience with 7.x- Stable Resume (No Consultant Resume’s) (Client does...
-      <a href="/2009-12-24-is-that-a-joke-of-remedy-developer/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2009-12-24/is-that-a-joke-of-remedy-developer/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4537,7 +4523,7 @@ Remedy安装之备份：如果是在AIX+Oracle的数据库上安装。Remedy还�
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

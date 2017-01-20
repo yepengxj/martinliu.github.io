@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -195,34 +183,7 @@
       <div class="posts-list">
   
   <article class="post-preview">
-    <a href="/2007-06-15-e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/">
-	  <h2 class="post-title">开源IT管理工具大全之All in one虚拟机</h2>
-
-	  
-    </a>
-
-    <p class="post-meta">
-      Posted on June 15, 2007
-    </p>
-
-    <div class="post-entry-container">
-      
-      <div class="post-entry">
-        我做开源工具测试时,90%以上是在VMWare虚拟机中实现的,本人比较懒一直没有学习Xen虚拟机的用法,等下次吧,一等要彻底开源是我的一个梦想呵呵!说说这个All in One虚拟机的想法,我只是想把所有的我熟悉的工具都安装和配置在一个虚拟机里,这样当有人需要给做Demo的时候,我可以很快的做一个分享.如果有朋友感兴趣的话,我可以刻盘他.总的来讲希望能分享一下我的学习成果给大家.第一步:安装虚拟机这个虚拟机我不像使用很多的Snapshoot,我以前是这么做的,从一个基础的OS发出许多分支到不同的工具;这样做的缺点有二:1)特别占磁盘空间;2)不能同时访问多个系统.我选择的Linux是Open Suse Linux 10.2;Suse的包管理对我来说真的很方便,从安装DVD上用Yast可以方便安装各种软件,无须考虑包之间的依赖性问题.我选择的是最小图形化系统安装,安装完之后,vmdk文件的大小好像是2GB多.接下来安装的是所有的必须的包,大致如下:Apache,Perl,MySQL,PostgreSQL,rddtool,net-snmp,php,gcc,Kernel-source(for vmware tools)…等安装完之后用chkconfig on 命令设置需要自动启动的服务;然后把apache等服务逐个启动一下验证是否工作正常.然后安装的是VMWare tools,这个好像也不是必须,不过还是装上比较好,方便虚拟机和host机共享文件.我的虚拟机的版本是5.5.3workstation版本.第二步:安装各种开源软件下面可能会是一个很长的change log1. 安装OpenNMS 1.3.2 安装方法 设置了opennms的自动启动,还没有设置tomcat5.5.23的自动启动.2.安装Cacti **0.8.6j **安装方法, 使用的poller.php,尝试安装cactid,安装失败,原因可能是OpenSuse10.2好像没有net-snmp lib包. 暂时不安装cactid3.安装OCSNG 1.0.1 安装方法4.安装 hyperic-hq 3.0.4-389 安装方法, 2007-6-21th5.安装 OTRS 2.2.1-1 安装方法很简单，执行rpm安装既可, 2007-7-28th
-
-        
-        
-          <a href="/2007-06-15-e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/" class="post-read-more">[Read&nbsp;More]</a>
-        
-      </div>
-    </div>
-
-    
-
-   </article>
-  
-  <article class="post-preview">
-    <a href="/2007-06-14-how-to-install-cacti-on-opensuse-102/">
+    <a href="/2007-06-14/how-to-install-cacti-on-opensuse-102/">
 	  <h2 class="post-title">How to install Cacti on OpenSuse 10.2</h2>
 
 	  
@@ -238,7 +199,7 @@
         1.Download Extract the distribution tarballSuse:/opt # wget http://www.cacti.net/downloads/cacti-0.8.6j.tar.gzSuse:/opt # tar zxvf cacti-0.8.6j.tar.gz2.Create the MySQL database:Suse:/opt # mysqladmin –user=root create cacti3.Import the default cacti database:Suse:/opt/cacti-0.8.6j # mysql cacti &amp;lt; user=”root”&amp;gt; GRANT ALL ON cacti.* TO cactiuser@localhost IDENTIFIED BY ‘cacti’;Query OK, 0 rows affected (0.03 sec)mysql&amp;gt; flush privileges;Query OK, 0 rows affected...
         
         
-          <a href="/2007-06-14-how-to-install-cacti-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-14/how-to-install-cacti-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -255,7 +216,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-12-e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/">
+    <a href="/2007-06-12/e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/">
 	  <h2 class="post-title">建立一个开源企业</h2>
 
 	  
@@ -273,7 +234,7 @@
 
         
         
-          <a href="/2007-06-12-e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-12/e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -290,7 +251,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-09-go-open-sourcego-vyatta-network/">
+    <a href="/2007-06-09/go-open-sourcego-vyatta-network/">
 	  <h2 class="post-title">Go Open Source,GO! Vyatta开源软件挺进网络硬件领域</h2>
 
 	  
@@ -308,7 +269,7 @@
 
         
         
-          <a href="/2007-06-09-go-open-sourcego-vyatta-network/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-09/go-open-sourcego-vyatta-network/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -325,7 +286,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-07-core-business-hp-ibm/">
+    <a href="/2007-06-07/core-business-hp-ibm/">
 	  <h2 class="post-title">谁来关心核心业务系统</h2>
 
 	  
@@ -343,7 +304,7 @@
 
         
         
-          <a href="/2007-06-07-core-business-hp-ibm/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-07/core-business-hp-ibm/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -360,7 +321,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-01-there-is-the-easiest-way-to-run-it-management-tool/">
+    <a href="/2007-06-01/there-is-the-easiest-way-to-run-it-management-tool/">
 	  <h2 class="post-title">There is the easiest way to run IT management tool</h2>
 
 	  
@@ -376,7 +337,7 @@
         If you are not a Linux guru, windows is the OS you can use only. It does not matter. You could easily try it on your Windows Laptop probably. Since VMware Player is free for using, and there are lots of VMware applications on the internet. So, you just download...
         
         
-          <a href="/2007-06-01-there-is-the-easiest-way-to-run-it-management-tool/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-01/there-is-the-easiest-way-to-run-it-management-tool/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -393,7 +354,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-06-01-top-10-nsm-tools/">
+    <a href="/2007-06-01/top-10-nsm-tools/">
 	  <h2 class="post-title">[转]10大优秀开源网络管理工具</h2>
 
 	  
@@ -411,7 +372,7 @@
 
         
         
-          <a href="/2007-06-01-top-10-nsm-tools/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-01/top-10-nsm-tools/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -428,7 +389,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-05-30-hyperic-hq-testing/">
+    <a href="/2007-05-30/hyperic-hq-testing/">
 	  <h2 class="post-title">Hyperic HQ小测手记</h2>
 
 	  
@@ -460,7 +421,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-05-22-zabbix-key-features/">
+    <a href="/2007-05-22/zabbix-key-features/">
 	  <h2 class="post-title">ZABBIX特点介绍，转自它们的网站</h2>
 
 	  
@@ -478,7 +439,7 @@
 
         
         
-          <a href="/2007-05-22-zabbix-key-features/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-05-22/zabbix-key-features/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -495,7 +456,7 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2007-05-22-what-is-zabbix/">
+    <a href="/2007-05-22/what-is-zabbix/">
 	  <h2 class="post-title">What is ZABBIX?</h2>
 
 	  
@@ -513,7 +474,7 @@
 
         
         
-          <a href="/2007-05-22-what-is-zabbix/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-05-22/what-is-zabbix/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -523,6 +484,39 @@
       Tags:
       
         zabbix
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-13/install-opennms-132-on-opensuse-102-system-the-simplest-version/">
+	  <h2 class="post-title">Install OpenNMS 1.3.2 on OpenSuse 10.2 system (The simplest version  )</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 13, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        1&amp;gt;Install dependence packageszliu3:~yast -i rrdtoolzliu3:~yast -i postgresqlzliu3:~ # rpm -qa grep rrdtoolrrdtool-1.2.15-25zliu3:~ # rpm -qa grep postgresqlpostgresql-8.1.5-13postgresql-libs-8.1.5-13postgresql-contrib-8.1.5-13postgresql-pl-8.1.5-15postgresql-server-8.1.5-13rcpostgresql startcopy jdk/tomcat 5.5 package files to /optcd /opttar xzvf jdk1.5.tar.gztar xzvf tomcat5.5.tar.gzexport JAVA_HOME=/opt/jdk1.5.0_09export OPENNMS_HOME=/opt/opennmsexport CATALINA_HOME=/opt/apache-tomcat-5.5.20export PATH=$PATH:$JAVA_HOME/binjava -version$CATALINA_HOME/bin/startup.shTest Tomcat 5.5 http://Ip_address:8080/vi /var/lib/pgsql/data/postgresql.conf# - Connection Settings - max_connections = 256vi /var/lib/pgsql/data/pg_hba.conf[refer to install guide] #local...
+        
+        
+          <a href="/2007-05-13/install-opennms-132-on-opensuse-102-system-the-simplest-version/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        OpenNMS, opensuse
       
     </div>
     
@@ -607,7 +601,7 @@
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

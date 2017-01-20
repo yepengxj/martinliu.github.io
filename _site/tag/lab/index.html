@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -475,7 +463,7 @@
   
   
   <article class="post-preview">
-    <a href="/2015-03-27-e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/">
+    <a href="/2015-03-27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/">
       <h3 class="post-title">服务器虚拟化 RHEV</h3>
 
       
@@ -487,7 +475,7 @@
 
     <div class="post-entry">
       服务器虚拟在我的lab中是必选项，管理控制器端RHEVM安装在主服务的一个虚拟机里面。在主服务器上使用targetcli做了一个iscsi的共享存储。使用这个命令可以方便的实现iscsi设备。把最终的存储文件放在了SSD盘上的一个100GB的瘦制备文件上。 [bash] ╭─root@w540 ~ ╰─$ targetcli targetcli shell version 2.1.fb37 Copyright 2011-2013 by Datera, Inc and others. For help on commands, type 'help'. /&gt; ls o- / ......................................................................................................................... [...] o- backstores .............................................................................................................. [...] | o- block .................................................................................................. [Storage Objects: 0] | o- fileio ................................................................................................. [Storage Objects: 1] | | o-...
-      <a href="/2015-03-27-e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2015-03-27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -583,7 +571,7 @@
   
   
   <article class="post-preview">
-    <a href="/2015-03-08-e4-b8-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-90-ad-e5-bb-ba/">
+    <a href="/2015-03-08/e4-b8-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-90-ad-e5-bb-ba/">
       <h3 class="post-title">Martin's lab 主服务器搭建</h3>
 
       
@@ -595,7 +583,7 @@
 
     <div class="post-entry">
       ![Red-Hat-open-hybrid-cloud-1000x563_0](http://cdn1.martinliu.cn/wp-content/uploads/2015/05/Red-Hat-open-hybrid-cloud-1000x563_0.png) 上图是红帽产品和技术架构的全貌。来源是：[http://www.redhat.com/en/technologies/cloud-computing](http://www.redhat.com/en/technologies/cloud-computing) 这张图我用在了我的首次给公司内部的全体销售培训上。由于我是IT管理背景的，因此我很习惯从云管理层往下看云引擎的各个层面。但是管理层产品，其实是后来整合纳入的。红帽起家的旗舰产品还是在底层的RHEL。总之，我想在一个Lab里面实现以上所有的部分，所谓实现是让其每个部分都能在运行在假象的一个有意义的业务场景里。还好，红帽的产品全都是基于x86平台的，因此我用几个笔记本，再加上我家里的这台HP MicroServer G8服务器应该能够全部部署出来。 做这样的一个lab还是要一定的规划和设计的，这些初步的规划和设计都在我的本子里手写的，就不在这里敲字了，随后我会抽空上几张图。 ## 主服务器基本配置 硬件：Lenovo W540 CPU Intel i7, RAM 32 GB, SSD 512GB, HD 1TB OS : RHEL 7.1 订阅是红帽公司的业务模式，也是红帽认为最自豪的部分，红帽相信可以成为开源技术和用户之间的催化剂，它不断参与最优秀的开源技术创新，并为其用户提供最强有利的技术服务和支持。红帽技术员工可以申请一个红帽雇员订阅。我的订阅可以在网上查到如下图所示： [![employee-sub](http://cdn1.martinliu.cn/wp-content/uploads/2015/03/employee-sub-520x295.png)](http://cdn1.martinliu.cn/wp-content/uploads/2015/03/employee-sub.png) 红帽的服务必须是基于订阅的每一个节点（物理、虚拟）都需要有有效的订阅，否则红帽的支持服务不能生效。对于一个已经成功注册到红帽官网，并且状态正常的服务器，应该显示如下的注册状态： [bash] [root@w540 ~]# subscription-manager list +-------------------------------------------+ 安装的产品状态 +-------------------------------------------+ 产品名称： Red Hat Enterprise Linux Server 产品 ID： 69 版本： 7.0 构架： x86_64 状态： 已订阅...
-      <a href="/2015-03-08-e4-b8-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-90-ad-e5-bb-ba/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2015-03-08/e4-b8-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-90-ad-e5-bb-ba/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -750,10 +738,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2014-11-18-e7-a1-ac-e4-bb-b6-e5-b0-b1-e7-bb-aa-e5-8f-af-e5-bc-80-e5-b7-a5-e4-ba-86/">
+    <a href="/2014-11-18/e7-a1-ac-e4-bb-b6-e5-b0-b1-e7-bb-aa-e5-8f-af-e5-bc-80-e5-b7-a5-e4-ba-86/">
       <h3 class="post-title">硬件就绪可开工了</h3>
 
       
@@ -787,7 +773,7 @@
 
 开源的东西还好，基本上都是结构简洁的居多，我可能从配置管理相关的技术开始搞起来，如Formen，Puppet；再到Ceph&amp;gluster等存储应用，再到OpenStack这样较复杂的应用。
 
-      <a href="/2014-11-18-e7-a1-ac-e4-bb-b6-e5-b0-b1-e7-bb-aa-e5-8f-af-e5-bc-80-e5-b7-a5-e4-ba-86/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2014-11-18/e7-a1-ac-e4-bb-b6-e5-b0-b1-e7-bb-aa-e5-8f-af-e5-bc-80-e5-b7-a5-e4-ba-86/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -803,7 +789,7 @@
   
   
   <article class="post-preview">
-    <a href="/2014-11-13-e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/">
+    <a href="/2014-11-13/e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/">
       <h3 class="post-title">我的11.11采购</h3>
 
       
@@ -836,7 +822,7 @@ TO Do list：
 
 [/su_list]
 
-      <a href="/2014-11-13-e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2014-11-13/e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4208,7 +4194,7 @@ TO Do list：
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

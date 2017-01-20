@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -1268,10 +1256,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2013-02-21-tips-install-xenserver-on-mac-mini-6-1/">
+    <a href="/2013-02-21/tips-install-xenserver-on-mac-mini-6-1/">
       <h3 class="post-title">TIPS install XenServer on Mac Mini 6.1 </h3>
 
       
@@ -1283,7 +1269,7 @@
 
     <div class="post-entry">
       [caption id=&quot;attachment_52258&quot; align=&quot;aligncenter&quot; width=&quot;640&quot;]![mac-mini-2012-with-XenServer](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/mac-mini-2012-vs-old-mac-mini.jpg) mac-mini-2012-with-XenServer[/caption] 今天尝试在Mac Mini上安装XenServer，下面把经验共享一下。我遇到的问题有两个： 1. 网卡无法识别：使用默认安装盘安装，提示没有检测到网卡，安装无法继续 2. 网卡驱动植入失败：在按了F9加载驱动的时候，没有发现驱动程序，无法继续安装 3. 安装完毕之后，重启，屏幕上显示一个带问号的文件夹，一闪一闪无法正常启动XenServer 经过一番折腾，发现这些点主意一下，应该就没有问题。 [caption id=&quot;attachment_52255&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![启动Macmini](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot-300x224.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot.jpg) 启动Macmini[/caption] 在启动Mac Mini的时候，在“咚”的一声之前，就按住ALT键，否则没法出现上面的屏幕，我用的是USB盘启动，所以要选择右侧的图标。 [caption id=&quot;attachment_52256&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![进入menu.c32菜单](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot2-300x224.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot2.jpg) 进入menu.c32菜单[/caption] 我遵循前人的经验，乖乖到此来禁止gpt；首先在这里要迅速输入menu.c32，输入完了就过了，就必须重新关机，重启mac mini。 [caption id=&quot;attachment_52257&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![输入disable-gpt参数](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot3-300x224.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot3.jpg) 输入disable-gpt参数[/caption] 进入这个屏幕了，要快速按TAB键，否则启动参数无法编辑，输入disable-gpt参数的机会就失去了。编辑启动参数的时候，把参数加载第二个---（三个短横线）前即可，上图我为了拍照在参数之前加了很多空格，其实这个参数和前后要至少一个空格就够了。 在进入安装的屏幕后，如果是XenServer6.0.201的源安装盘，还必须下载tg3的网卡驱动，并且用工具打入iso文件，这样安装的时候，就可以选择到加载网卡启动，否则6.0.201的安装盘即不自带此网卡驱动，也无法正常识别附加的驱动。网卡驱动下载地址为：[http://support.citrix.com/article/CTX135328](http://support.citrix.com/article/CTX135328) 要把加压后的iso文件，再次加压到对应的目录里才行，直接把解压后的几个文件放入目录，安装程序是无法识别到网卡驱动的。如果能正常识别的话，会出现选择框，让你选择 Broadcom tg3。如果是XenServer6.1的安装盘，就不需要折腾驱动了，原盘自带了Broadcom tg3网卡驱动。下面有两张截图，供必须要使用XenServer 6.0.201的人参考。 [caption id=&quot;attachment_52250&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![XenServer 6.0.201 with driver](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/xenserver6.1-300x215.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/xenserver6.1.jpg) XenServer 6.0.201 with driver[/caption] [caption...
-      <a href="/2013-02-21-tips-install-xenserver-on-mac-mini-6-1/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2013-02-21/tips-install-xenserver-on-mac-mini-6-1/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1723,7 +1709,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-07-25-e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
+    <a href="/2012-07-25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
       <h3 class="post-title">如何把CloudStack的测试环境推到重来</h3>
 
       
@@ -1735,7 +1721,7 @@
 
     <div class="post-entry">
       感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。 第一部分：数据库的重新初始化 [bash] [root@cloudstack ~]# mysql -uroot -pcitrix Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 45 Server version: 5.1.52-log Source distribution Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved. This software comes with ABSOLUTELY NO WARRANTY. This is...
-      <a href="/2012-07-25-e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-07-25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4117,7 +4103,7 @@
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

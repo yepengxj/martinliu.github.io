@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>【ZT】 View和XenDesktop到底谁更简单 Part II</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="【ZT】 View和XenDesktop到底谁更简单 Part II" />
+  
+
+   
+  <meta property="og:description" content="FROM ： http://vdesk.blog.51cto.com/2969473/774669 望着这个标题发了半小时呆后，我就想抽自己！真的没法写，这两个东西丫的没一个简单的！如果你唯一目标就是奔着“简单”去的。So sorry，您找错对象了。         View和XenDesktop其实都是为大企业客户设计的解决方案，仅从版本命名上就可见一斑。View最低版本叫Enterprise Edition，高阶版叫Premier Edition。XenDesktop相似，叫做Enterprise Edition和Platinum Edition。        知道啥叫Enterprise吗？Enterprise就是大企业客户。大企业客户在生意对话中属于强势的一方，他们会定义自己的标准和架构，然后要求厂商的产品去支持和与之集成。另外大企业内用户众多，应用场景复杂，也要求桌面的方案足够灵活，能够定制不同策略以适应不同的标准和要求。因此为大企业客户设计的解决方案它压根就简单不了！ 在比较企业级的解决方案时，通常关注点不会放在“简单”上面。而是比较谁对大企业的要求适应性更强。国外有一个叫Burton Group的组织（now part of Gartner），花了5个多月时间做了一个桌面虚拟化的评估标准。标准覆盖甚广： -User experience -Service advertising and connection brokerage -Business continuity -Network -Storage -Back-end virtual infrastructure -Management -Security -Guest OS support -Licensing -Product support -Third-party vendor support 这个标准今天被看作是桌面虚拟化领域的权威定义。国内巨头企业在桌面虚拟化选型时，无一例外都会参考这个标准。这个标准将产品功能分成三级： Must to have，Need to have和Nice to...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2012-02-08/xendesktop-is-better-then-view-p2/" />
+  <link rel="canonical" href="http://localhost:4000/2012-02-08/xendesktop-is-better-then-view-p2/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="【ZT】 View和XenDesktop到底谁更简单 Part II" />
+  
+
+  
+  <meta name="twitter:description" content="FROM ： http://vdesk.blog.51cto.com/2969473/774669 望着这个标题发了半小时呆后，我就想抽自己！真的没法写，这两个东西丫的没一个简单的！如果你唯一目标就是奔着“简单”去的。So sorry，您找错对象了。         View和XenDesktop其实都是为大企业客户设计的解决方案，仅从版本命名上就可见一斑。View最低版本叫Enterprise Edition，高阶版叫Premier Edition。XenDesktop相似，叫做Enterprise Edition和Platinum Edition。        知道啥叫Enterprise吗？Enterprise就是大企业客户。大企业客户在生意对话中属于强势的一方，他们会定义自己的标准和架构，然后要求厂商的产品去支持和与之集成。另外大企业内用户众多，应用场景复杂，也要求桌面的方案足够灵活，能够定制不同策略以适应不同的标准和要求。因此为大企业客户设计的解决方案它压根就简单不了！ 在比较企业级的解决方案时，通常关注点不会放在“简单”上面。而是比较谁对大企业的要求适应性更强。国外有一个叫Burton Group的组织（now part of Gartner），花了5个多月时间做了一个桌面虚拟化的评估标准。标准覆盖甚广： -User experience -Service advertising and connection brokerage -Business continuity -Network -Storage -Back-end virtual infrastructure -Management -Security -Guest OS support -Licensing -Product support -Third-party vendor support 这个标准今天被看作是桌面虚拟化领域的权威定义。国内巨头企业在桌面虚拟化选型时，无一例外都会参考这个标准。这个标准将产品功能分成三级： Must to have，Need to have和Nice to...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>【ZT】 View和XenDesktop到底谁更简单 Part II</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on February 8, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>FROM ： <a href="http://vdesk.blog.51cto.com/2969473/774669">http://vdesk.blog.51cto.com/2969473/774669</a></p>
+
+<p>望着这个标题发了半小时呆后，我就想抽自己！真的没法写，这两个东西丫的没一个简单的！如果你唯一目标就是奔着“简单”去的。So sorry，您找错对象了。</p>
+
+<p>        View和XenDesktop其实都是为大企业客户设计的解决方案，仅从版本命名上就可见一斑。View最低版本叫Enterprise Edition，高阶版叫Premier Edition。XenDesktop相似，叫做Enterprise Edition和Platinum Edition。</p>
+
+<p>       知道啥叫Enterprise吗？Enterprise就是大企业客户。大企业客户在生意对话中属于强势的一方，他们会定义自己的标准和架构，然后要求厂商的产品去支持和与之集成。另外大企业内用户众多，应用场景复杂，也要求桌面的方案足够灵活，能够定制不同策略以适应不同的标准和要求。因此为大企业客户设计的解决方案它压根就简单不了！</p>
+
+<p>在比较企业级的解决方案时，通常关注点不会放在“简单”上面。而是比较谁对大企业的要求适应性更强。国外有一个叫Burton Group的组织（now part of Gartner），花了5个多月时间做了一个桌面虚拟化的评估标准。标准覆盖甚广：</p>
+
+<p>-User experience
+-Service advertising and connection brokerage
+-Business continuity
+-Network
+-Storage
+-Back-end virtual infrastructure
+-Management
+-Security
+-Guest OS support
+-Licensing
+-Product support
+-Third-party vendor support</p>
+
+<p>这个标准今天被看作是桌面虚拟化领域的权威定义。国内巨头企业在桌面虚拟化选型时，无一例外都会参考这个标准。这个标准将产品功能分成三级： Must to have，Need to have和Nice to have。随后Burton group对XenDesktop 4和View4.5按这个标准做了一个完整评估，评估结论如下：</p>
+
+<p><a href="http://martinliu.cn/2012/02/xendesktop-is-better-then-view-p2.html/attachment/124434949"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/02/124434949.png" alt="" /></a></p>
+
+<p>从上面的图表，你会发现View刚刚走完Must to have的开发阶段。与XenDesktop相比，在Need to have 和Nice to have的二，三级功能元上差距还很大。不要小看这些差距，它们对后期管理和运维至关重要。</p>
+
+<p>我举一个管理的例子，大家就明白了。如果有用户向你抱怨虚拟桌面很慢，你该怎么办？“慢”纯粹属于主观感受，每个人对“慢”的感受和容忍度是不一样的。用View，你可能就要去猜了，因为它的控制台不能提供重要度量数据的可视性，你需要借助第三方的工具去收集数据来验证自己的猜测。而使用XenDesktop，它的EdgeSight组件就可以帮你看见这个慢的原因在哪里。是不是真的慢了？具体慢了多少？是慢在网络上，还是服务器端，还是客户端？如果是客户端登录环节慢了，它又可以将登录过程分解成10几个步骤，看看你是慢在验证，还是慢在用户档案加载，还是慢在运行脚本上…….</p>
+
+<p>       简而言之，对于大企业而言，桌面虚拟化可不是简单发布出一个桌面就OK了。毕竟后期运维人员70%~80%的时间都要与这个虚拟化平台打交道，所以一些更灵活、更高阶的配置、管理、维护功能也同等重要。而能达到这个要求，您的方案就不可能“简单”！</p>
+
+<p>       中小企业的方案更倾向于“简单”。那么对于中小企业来讲，View和XenDesktop谁更适用呢？答案是都不适用。因为中小企业对桌面虚拟化的要求截然不同。中小企业没有足够的IT人员，没有足够的专业技能，没有足够的后端基础设施，也没有足够的IT预算。所以，无论是View还是XenDesktop对他们而言，都太复杂了，太昂贵了。</p>
+
+<p>中小企业期望的桌面虚拟化解决方案要比PC更便宜，比PC更易安装和管理，有着与PC相接近的用户体验，同时还能少花钱多办事，在重要的功能上没有缺失（如高可用， 随需扩展和动态负载均衡）。天啦！天下有这么便宜的事吗?</p>
+
+<p>       VMware目前肯定是没有的。而Citrix针对中小企业市场，特别推出了一款产品，叫做VDI-in-a-Box， 大家可以去下载体验一下。这个产品在1个小时内就可以安装完毕，零培训就可以上手。与传统企业级VDI方案相比，它削减掉超过60%的基础设施， 使得每个虚拟桌面的成本比新购PC还低。即使今后扩容，也仅需要简单的增加服务器，不需要重新设计和重新架构，没有任何隐形的成本。想要了解更多有关VDI-in-a-Box的信息，可以参考链接中的文档：<a href="https://citrix.sharefile.com/d-s7824ca9d0dd47479">https://citrix.sharefile.com/d-s7824ca9d0dd47479</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Citrix, View, VMWare, XenDesktop
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E3%80%90ZT%E3%80%91+View%E5%92%8CXenDesktop%E5%88%B0%E5%BA%95%E8%B0%81%E6%9B%B4%E7%AE%80%E5%8D%95+Part+II+http://localhost:4000/2012-02-08/xendesktop-is-better-then-view-p2/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2012-02-08/xendesktop-is-better-then-view-p2/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2012-02-08/xendesktop-is-better-then-view-p2/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012-01-31/personalization-ringcube/" data-toggle="tooltip" data-placement="top" title="Personalization RingCube">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012-02-28/e9-80-9a-e8-bf-87-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e6-8e-a7-e5-88-b6-e5-ae-89-e5-85-a8-e5-a8-81-e8-83-81/" data-toggle="tooltip" data-placement="top" title="通过桌面虚拟化控制安全威胁">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

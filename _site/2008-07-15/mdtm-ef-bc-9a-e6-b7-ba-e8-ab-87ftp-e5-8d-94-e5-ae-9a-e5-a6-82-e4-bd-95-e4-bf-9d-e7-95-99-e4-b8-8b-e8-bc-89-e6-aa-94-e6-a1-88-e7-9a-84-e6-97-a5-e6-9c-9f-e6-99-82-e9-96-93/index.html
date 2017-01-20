@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>MDTM：淺談FTP協定如何保留下載檔案的日期 / 時間</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="MDTM：淺談FTP協定如何保留下載檔案的日期 / 時間" />
+  
+
+   
+  <meta property="og:description" content="應該有很多朋友知道，用 FTP 下載檔案的時候，可以設定「保留下載檔案的日期 / 時間」。例如如果妳用的 FTP client 是 FileZilla 這個跨平台的自由軟體（以 2.2.32 版為例）：編輯 &amp;gt; 設定 &amp;gt; 檔案傳輸設定 &amp;gt; 保留下載檔案的日期 / 時間Edit &amp;gt; Settings &amp;gt; File transfer settings &amp;gt; Preserve date/time of downloaded files設定是很簡單，其他的 FTP client 軟體也都有這個設定，一般人知道怎麼設定（自己用的 FTP 軟體）也就夠了。但是，原理是什麼呢？我用 ftp preserve date/time of downloaded files 去 Google 撈過來撈過去……原來，這是取決於伺服器端的，如果妳連上的 FTP server 有支援 MDTM...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2008-07-15/mdtm-ef-bc-9a-e6-b7-ba-e8-ab-87ftp-e5-8d-94-e5-ae-9a-e5-a6-82-e4-bd-95-e4-bf-9d-e7-95-99-e4-b8-8b-e8-bc-89-e6-aa-94-e6-a1-88-e7-9a-84-e6-97-a5-e6-9c-9f-e6-99-82-e9-96-93/" />
+  <link rel="canonical" href="http://localhost:4000/2008-07-15/mdtm-ef-bc-9a-e6-b7-ba-e8-ab-87ftp-e5-8d-94-e5-ae-9a-e5-a6-82-e4-bd-95-e4-bf-9d-e7-95-99-e4-b8-8b-e8-bc-89-e6-aa-94-e6-a1-88-e7-9a-84-e6-97-a5-e6-9c-9f-e6-99-82-e9-96-93/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="MDTM：淺談FTP協定如何保留下載檔案的日期 / 時間" />
+  
+
+  
+  <meta name="twitter:description" content="應該有很多朋友知道，用 FTP 下載檔案的時候，可以設定「保留下載檔案的日期 / 時間」。例如如果妳用的 FTP client 是 FileZilla 這個跨平台的自由軟體（以 2.2.32 版為例）：編輯 &amp;gt; 設定 &amp;gt; 檔案傳輸設定 &amp;gt; 保留下載檔案的日期 / 時間Edit &amp;gt; Settings &amp;gt; File transfer settings &amp;gt; Preserve date/time of downloaded files設定是很簡單，其他的 FTP client 軟體也都有這個設定，一般人知道怎麼設定（自己用的 FTP 軟體）也就夠了。但是，原理是什麼呢？我用 ftp preserve date/time of downloaded files 去 Google 撈過來撈過去……原來，這是取決於伺服器端的，如果妳連上的 FTP server 有支援 MDTM...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>MDTM：淺談FTP協定如何保留下載檔案的日期 / 時間</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 15, 2008</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>應該有很多朋友知道，用 FTP 下載檔案的時候，可以設定「保留下載檔案的日期 / 時間」。例如如果妳用的 FTP client 是 <a href="http://filezilla-project.org/">FileZilla</a> 這個跨平台的自由軟體（以 2.2.32 版為例）：<br /><br />編輯 &gt; 設定 &gt; 檔案傳輸設定 &gt; 保留下載檔案的日期 / 時間<br />Edit &gt; Settings &gt; File transfer settings &gt; Preserve date/time of downloaded files<br /><br />設定是很簡單，其他的 FTP client 軟體也都有這個設定，一般人知道怎麼設定（自己用的 FTP 軟體）也就夠了。<br /><br />但是，原理是什麼呢？<br /><br />我用 ftp preserve date/time of downloaded files 去 Google 撈過來撈過去……<br /><br />原來，這是取決於伺服器端的，如果妳連上的 FTP server 有支援 MDTM 這個功能，那妳只要在 FTP client 端設定一下，就可以保留下載檔案的日期 / 時間囉。<br /><br />嗯，既然是通訊協定，一定在某一份 <a href="http://zh.wikipedia.org/w/index.php?title=RFC&amp;variant=zh-tw">RFC</a> 裡面有定義才是，這次改用 rfc ftp mdtm 撈，就撈到 <a href="http://tools.ietf.org/html/rfc3659">RFC 3659</a> ，其中就有 File Modification Time (MDTM) 的定義<br /><br />要怎麼知道妳連上的 FTP 伺服器有支援這個功能呢？很簡單，只要下 FEAT 指令，看看有沒有這個 FEATure 。底下是我用 MS Windows XP 的 command prompt ，連上某個 ftp 站之後，下指令的結果：<br /><br />ftp&gt; <strong>quote FEAT</strong><br />211-Features:<br />EPRT<br />EPSV<br />MDTM<br />PASV<br />REST STREAM<br />SIZE<br />TVFS<br />211 End<br />ftp&gt; <strong>quote SYST</strong><br />215 UNIX Type: L8<br />ftp&gt; <strong>quote HELP</strong><br />214-The following commands are recognized.<br />ABOR ACCT ALLO APPE CDUP CWD  DELE EPRT EPSV FEAT HELP LIST MDTM MKD<br />MODE NLST NOOP OPTS PASS PASV PORT PWD  QUIT REIN REST RETR RMD  RNFR<br />RNTO SITE SIZE SMNT STAT STOR STOU STRU SYST TYPE USER XCUP XCWD XMKD<br />XPWD XRMD<br />214 Help OK.<br />ftp&gt; <strong>quote MDTM welcome.msg</strong><br />213 20080613045501<br />ftp&gt;<br /><br /><br />嗯，所以我們可以這樣取得 welcome.msg 這個檔案的時間戳記 (timestamp) 。不過，微軟提供的 ftp.exe 比較陽春，並沒有內建保留下載檔案的日期 / 時間這樣的功能，所以妳可以考慮使用 <a href="http://filezilla-project.org/">FileZilla</a> 。如果一定要在命令列模式實現這樣的功能，可以考慮<a href="http://www.ncftp.com/download/">下載 NcFTP</a> 的 MS Windows 版本，或者寫個 script 來控制 ftp.exe 。<br /><br />==<br />喔，如果是 <a href="http://filezilla-project.org/">FileZilla</a> 3.X 的話，這個設定放在：<br />傳輸 &gt; 保留傳輸檔案的時間戳記<br />Transfer &gt; Preserve timestamps of transferred files<br /><br />======<br />有沒有發現，我們一直都在談「下載檔案」，那，用 FTP <strong>上傳</strong>檔案，能不能保留檔案的日期 / 時間呢？有一些軟體拿 MDTM 來做這個功能，其實是不符合 RFC 3659的。比較正式的規範，目前應該是要用 MFMT 來做：<br /><br />目前有份 <a href="http://tools.ietf.org/html/draft-somers-ftp-mfxx-03">IETF draft 提到</a> MFMT (Modify Fact: Modification Time)， FileZilla FTP server 0.9.25 有支援這個功能，如果妳用的 FTP client 也有這個功能，就可以實現「保留上傳檔案的日期 / 時間」<br /><br />FileZilla 團隊有整理了 <a href="http://wiki.filezilla-project.org/File_Transfer_Protocol">File Transfer Protocol</a> 相關的文件。<br /><br />==<br />為了答謝一直看到這裡的朋友，低調的提一下 <a href="http://www.devpro.it/filezilla_pr/">Filezilla Password Recover</a> :p<br /><br />（本文原載於 <a href="http://blog.roodo.com/ystuan/archives/6171547.html">http://blog.roodo.com/ystuan/archives/6171547.html</a>）</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            FileZilla, FTP
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=MDTM%EF%BC%9A%E6%B7%BA%E8%AB%87FTP%E5%8D%94%E5%AE%9A%E5%A6%82%E4%BD%95%E4%BF%9D%E7%95%99%E4%B8%8B%E8%BC%89%E6%AA%94%E6%A1%88%E7%9A%84%E6%97%A5%E6%9C%9F+%2F+%E6%99%82%E9%96%93+http://localhost:4000/2008-07-15/mdtm-ef-bc-9a-e6-b7-ba-e8-ab-87ftp-e5-8d-94-e5-ae-9a-e5-a6-82-e4-bd-95-e4-bf-9d-e7-95-99-e4-b8-8b-e8-bc-89-e6-aa-94-e6-a1-88-e7-9a-84-e6-97-a5-e6-9c-9f-e6-99-82-e9-96-93/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2008-07-15/mdtm-ef-bc-9a-e6-b7-ba-e8-ab-87ftp-e5-8d-94-e5-ae-9a-e5-a6-82-e4-bd-95-e4-bf-9d-e7-95-99-e4-b8-8b-e8-bc-89-e6-aa-94-e6-a1-88-e7-9a-84-e6-97-a5-e6-9c-9f-e6-99-82-e9-96-93/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2008-07-15/mdtm-ef-bc-9a-e6-b7-ba-e8-ab-87ftp-e5-8d-94-e5-ae-9a-e5-a6-82-e4-bd-95-e4-bf-9d-e7-95-99-e4-b8-8b-e8-bc-89-e6-aa-94-e6-a1-88-e7-9a-84-e6-97-a5-e6-9c-9f-e6-99-82-e9-96-93/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2008-07-04/running-linux-from-any-machine-without-installation/" data-toggle="tooltip" data-placement="top" title="Running Linux from any machine without installation">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2008-08-03/this-post-is-too-later/" data-toggle="tooltip" data-placement="top" title="This post is too later">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

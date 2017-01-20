@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -393,7 +381,7 @@
   
   
   <article class="post-preview">
-    <a href="/2015-06-16-e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/">
+    <a href="/2015-06-16/e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/">
       <h3 class="post-title">在 RHEL 7 上安装 Foreman 1.8</h3>
 
       
@@ -405,7 +393,7 @@
 
     <div class="post-entry">
       首先安装RHEL7使用光盘安装最小化系统，安装完成之后，关闭防火墙和SELinux（为了测试方便），配置主机名为FQDN格式，如 fm1.8.xenlab.com； 加本机的主机名解析到/etc/hosts 文集中。之后注册到RHN。 [bash] [root@fm18 ~]# subscription-manager register [root@fm18 ~]# subscription-manager attach  --auto [root@fm18 ~]# subscription-manager repos --disable=&quot;*&quot; [root@fm18 ~]# subscription-manager repos --enable=rhel-7-server-optional-rpms [root@fm18 ~]# subscription-manager repos --enable=rhel-server-rhscl-7-rpms [root@fm18 ~]# subscription-manager repos --enable=rhel-7-server-rpms [root@fm18 ~]# rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm [root@fm18 ~]# yum -y install http://yum.theforeman.org/releases/1.8/el7/x86_64/foreman-release.rpm [root@fm18 ~]# yum -y install...
-      <a href="/2015-06-16-e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2015-06-16/e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -3262,10 +3250,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2009-01-11-161-1-opennms-quick-install-guide/">
+    <a href="/2009-01-11/161-1-opennms-quick-install-guide/">
       <h3 class="post-title">opennms 1.6.1-1 quick start guide</h3>
 
       
@@ -3277,7 +3263,7 @@
 
     <div class="post-entry">
       ![](http://www.etproductions.com/images/start.jpg)本安装手册为纯命令版，如果有什么疑问清参考官方安装手册，或给本贴留言。[install yum on your Linux box]选择任意Linux系统，安装上yum工具，在命令行测试 yum -v[testing internet connection with those two URL]测试是否能上网，用浏览器分别打开这两个网址 1. [http://www.martinliu.cn/2007/12/13/opennms-yum-install/](http://www.martinliu.cn/2007/12/13/opennms-yum-install/) 2. [http://yum.opennms.org/repofiles/](http://http://yum.opennms.org/repofiles/) 先别关闭这两个网页。[Install opennms 开始安装: 1. yum install yum-fastestmirror 2. rpm -Uvh http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm 3. yum list opennms 4. yum install opennms [ post-install and config] 开始配置： 1. export OPENNMS_HOME=/opt/opennms 2. vi /var/lib/pgsql/data/pg_hba.conf 1. 注释掉其中所有可用的行，加入下面三行local...
-      <a href="/2009-01-11-161-1-opennms-quick-install-guide/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2009-01-11/161-1-opennms-quick-install-guide/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -3849,7 +3835,7 @@
   
   
   <article class="post-preview">
-    <a href="/2007-12-13-opennms-yum-install/">
+    <a href="/2007-12-13/opennms-yum-install/">
       <h3 class="post-title">OpenNMS的Yum的安装方式，安装简单了很多</h3>
 
       
@@ -3861,7 +3847,7 @@
 
     <div class="post-entry">
       OpenNMS网站的安装文档：[http://www.opennms.org/index.php/Installation:Yum](http://www.opennms.org/index.php/Installation:Yum) 下面是我在一个CentOS4的机器上按照上面文档安装的。 1. 先浏览一下这个页面 [http://yum.opennms.org/repofiles/](http://yum.opennms.org/repofiles/) 找到适合你的OS的那一行。 2. 我选择安装的是1.3.10-0.8030.snapshot 这是当前开发的最新版本的OpenNMS； 运行命令： rpm -Uvh [http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm](http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm) 3. 检查是否安装成功， 运行命令： yum list opennms ；我能看到如下输出结果 [root@jng-hkg-48-dyn3328831 ~]# yum list opennms Repository opennms-stable-common is listed more than once in the configuration Repository opennms-stable-rhel4 is listed more than once in the configuration Setting up repositories Reading repository...
-      <a href="/2007-12-13-opennms-yum-install/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2007-12-13/opennms-yum-install/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4045,7 +4031,7 @@
   
   
   <article class="post-preview">
-    <a href="/2007-02-16-install-smokeping-via-yum/">
+    <a href="/2007-02-16/install-smokeping-via-yum/">
       <h3 class="post-title">Install Smokeping via yum</h3>
 
       
@@ -4057,7 +4043,7 @@
 
     <div class="post-entry">
       From :[ http://ai.net.nz/horde/wicked/display.php?page=SmokePing](http://www2.blogger.com/img/gl.link.gif) ## Install needed packages **rrdtool** ``` `yum install rrdtool ``` ``` **perl-CGI-SpeedyCGI** ``` `yum install perl-CGI-SpeedyCGI ``` ``` **fping** ``` `yum install fping ``` ``` ** Or do them all together:** ``` `yum install rrdtool perl-CGI-SpeedyCGI fping ``` ``` **Smokeping** ``` `wget http://people.ee.ethz.ch/~oetiker/webtools/smokeping/pub/smokeping-2.0.9.tar.gztar xvzf smokeping-2.0.9.tar.gzmv smokeping-2.0.9 /usr/local/smokepingchown...
-      <a href="/2007-02-16-install-smokeping-via-yum/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2007-02-16/install-smokeping-via-yum/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4151,7 +4137,7 @@
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

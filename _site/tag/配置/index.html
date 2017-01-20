@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -1330,10 +1318,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/">
+    <a href="/2012-12-11/cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/">
       <h3 class="post-title">CloudStack 4.0 安装实例分析版</h3>
 
       
@@ -1345,7 +1331,7 @@
 
     <div class="post-entry">
       我之前的安装帖子，只讲了CloudStack的环境如何去搭建，并没讲为什么这么做？也没讲做出来的东西有什么用？也没讲做出来以后该如何去扩展这个系统？所以可能那些文档可能只是对于开发人有点意义，对于实际用户而言意义并不大。后面，我可能用几篇文章来描述和解答这些问题。 这里先讲一个应用实例，有需求的人应该能够看懂，并且能领会到系统设计和规划的原理。CS公司内网有大约50个研发人员，每个人为了开发和测试公司的产品至少需要2种操作系统环境（Windows2008+Ubuntu），每个操作系统至少需要2个虚拟机才能保证正常工作，有人还有编译代码的需求，所以平均每人需要4core/6GB的计算资源。总共需要200个虚拟机，总共需要200Core*300GB的计算资源。 [![](http://cdn1.martinliu.cn/wp-content/uploads/2012/12/Cloud-300x256.png)](http://cdn1.martinliu.cn/wp-content/uploads/2012/12/Cloud.png) CS公司的工程师做了这样的一个设计，首先申请了一个独立网段192.168.168.0用于该测试CloudStack。然后找来了两台服务器用于平台的初始化安装，IP地址的规划如下表。另外，CS公司的网管也给他们借了一个千兆网络交换机，这个交换机配置了网关和DNS解析，保证测试网段的机器既能够上网，并能够被公司内网连接。 IP地址 功能 192.168.168.1 网关和DNS解析的地址，通过它所有虚拟机可以被内网用户访问 192.168.168.2 CloudStack管理服务器，配置为2*4Core/16GB/1TB*2HD，安装RHEL6.2操作系统，安装NFS服务 192.168.168.3 XS-01为第一台Hypervisor服务器，用户运行虚拟机，这里使用XenServer，安装之后在网上申请免费许可证用来测试满足50人的配置为4*4Core(开超线程)/64GB/125GB*2HD的服务器7台；或者相当计算量的其他计算资源。 192.168.168.4～14 为后期系统扩展新增的XenServer服务器预留 192.168.168.15 为后期扩容的存储系统预留，如果开发编译的过程没有密集的磁盘读写操作的话，使用NFS或iSCSI存储即可。否则考虑使用FC存储。 92.168.168.16～20 CloudStack Private网段地址 92.168.168.21～25 CloudStack Storage网段地址 92.168.168.30～250 CloudStack Guest网段地址 图中左侧的两台服务器就是最小化的测试环境，足够满足CloudStack平台搭建，和虚拟机模板的测试工作。等到测试和配置足够了，就可以增加更多的服务器节点到CloudStack平台上来。增加的方法很简单，在服务器上安装XenServer之后，在CloudStack中添加host即可。 准备系统安装软件 根据以上的需求需要下载和刻录RHEL6.2的安装盘；需要下载ClouStack的安装包，http://cloudstack.apt-get.eu/rhel/4.0/ 。 CloudStack的安装包可以下载到本地，保持它的目录结构不变，回头放到装好的RHEL服务器的Apache目录中建立本机安装源。 系统安装 安装的过程已经在CloudStack官方文档上有了非常详细的描述。本次就不逐条命令解释了。 这里只想讲几点须注意的地方。根据CS公司的这个需求，建议使用的CloudStack管理服务器需要稍微大一点的本地磁盘和内存；根据我最近的测试发现管理服务器和NFS服务器混用的情况下，服务器内存的消耗还是蛮大的，为了保证速度16GB应该非常够用，我的测试机只有4GB还是虚拟机，速度也很快。本地磁盘最好是两块1TB的高速磁盘做Raid10，或者多块小盘也行，最好Raid做完之后有大约1TB的存储空间；以便存放测试初期的系统模板和虚拟机的磁盘和快照文件。 最后我想从系统配置文件的角度讲一下在RHEL操作系统里面都修改了那些文件。 安装源文件需要两个： rhel6.repo RHEL系统可以选择默认最小安装，这样装的最快，装好以后，把DVD mount上，在做成源，这样需要什么包，直接yum install就行了，非常方便快捷 cloudstack.repo CloudStack的所有安装包都可以放在CloudStack管理服务器本机的Apache服务器上，另外这个Apache服务器还可以作为上传系统模板的中转站。 [bash] [root@cs40 yum.repos.d]# pwd /etc/yum.repos.d [root@cs40 yum.repos.d]# ls cloudstack.repo...
-      <a href="/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-12-11/cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1739,7 +1725,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-07-25-e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
+    <a href="/2012-07-25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
       <h3 class="post-title">如何把CloudStack的测试环境推到重来</h3>
 
       
@@ -1751,7 +1737,7 @@
 
     <div class="post-entry">
       感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。 第一部分：数据库的重新初始化 [bash] [root@cloudstack ~]# mysql -uroot -pcitrix Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 45 Server version: 5.1.52-log Source distribution Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved. This software comes with ABSOLUTELY NO WARRANTY. This is...
-      <a href="/2012-07-25-e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-07-25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4119,7 +4105,7 @@
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

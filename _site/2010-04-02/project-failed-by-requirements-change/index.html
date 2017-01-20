@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>项目实施之鬼见愁@需求变更@</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="项目实施之鬼见愁@需求变更@" />
+  
+
+   
+  <meta property="og:description" content="[singlepic id=34 w=320 h=240 mode=watermark float=right]不经意间听到的让我深思的一段对话。
+甲：咦，这个功能是什么时候加的？
+乙：哦，我也不知道还有这个功能
+丙：那是我加的
+甲：需求是谁提的？
+丙：他们那天给我打了一个电话说需要这个功能
+
+都说ITSM项目是非常难实施的项目，成功率低；特别是CMDB项目，实施难度大，失败案例比比皆是。首先我觉得ITSM项目的实施有它的特殊性，特殊在于实施顾问对客户需求的理解，在于实施顾问对ITIL最佳实践的经验，在于对产品工具的把握。其中任何一个环节拿捏不准都会到导致需求的泛滥、需求混乱、需求的飘忽不定。
+
+可见需求管理是项目实施和执行的灵魂，失去了对灵魂的掌控，需求讨论会就将可能进入走火入魔的地步，需求各方争执不下，整个会议室炸开了锅，每个人都争抢着发言，我的脑也几乎要眩晕；我说的这一点也不夸张，没见过只能是你的幸运。
+
+需求管理包括需求的分析和整理，应该是有层次的，在不同的层次里讲不同的语言，达成共识的讨论结果。层次可以分为这样三层
+
+
+  
+    业务需求
+  
+  
+    用户需求
+  
+  
+    功能需求
+  
+
+
+所谓业务需求是说站在公司的高度，从最high level角度描述需求之所在。它的语言像是项目使命的宣言，指出为什么要做这个项目，项目的价值点落在哪里。最概况的项目范围。业务需求告诉我们：为什么会有这些需求。
+
+用户需求是指从项目利益相关人的角度出发。逐一描述各个业务操作环节，这些业务操作由每个可独立执行的条目为单位，每个业务操作中说明业务规则、输入和结果。切忌在这一阶段就进入详细的功能界面或者功能操作上细节的任何讨论。原因很简单：我们在这里还没有进入技术实现环节，依然在以客户或者系统使用者的角度来描述它的需求。系统用户和客户是不需要理解每一个页面跳转和鼠标点击的意义的。在我的经验看来客户在这里最容易陷入技术细节讨论的泥沼，反而可能浪费需求讨论的时间，可能导致项目的延期，需求点难以确定。用户需求告诉我们：用户的需要什么。
+
+功能需求则需要告诉我们：为了能满足用户需求，我们的系统是怎么做的。这里将用技术的语言，进入系统层面说明系统应该怎么做。功能需求最终将导出概要设计和详细设计。
+
+业务需求的满足=用户需求的满足+功能需求的满足；用户需求是能推倒出功能需求的，用户需求和功能需求可以是一对一、一对多和多对多的关系。
+
+以上三个需求是有层次的并与客户递进沟通的产物，既然是沟通，那么在每个层次上都伴随着矛盾、争论、妥协。在任一层次上理不出头绪时，一定要追溯到上一层，通过上一层来指导解决。但是这往往也是很难把握和执行的，最终最可能的结果是在以上三个沟通层次中都伴随着需求的变化、需求的扩大、需求的混乱。甚至于进入了测试阶段还能产生出新的需求和理解的偏差，谁人能不说“需求变更”是项目实施的鬼见愁呢？
+
+如何解决这个“鬼见愁”？一方面需要时刻对项目预算和时间资源保持清醒的头脑，项目实施比较是那时间和金钱换需求。还有就是通过项目变更委员会来控制需求变更。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2010-04-02/project-failed-by-requirements-change/" />
+  <link rel="canonical" href="http://localhost:4000/2010-04-02/project-failed-by-requirements-change/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="项目实施之鬼见愁@需求变更@" />
+  
+
+  
+  <meta name="twitter:description" content="[singlepic id=34 w=320 h=240 mode=watermark float=right]不经意间听到的让我深思的一段对话。
+甲：咦，这个功能是什么时候加的？
+乙：哦，我也不知道还有这个功能
+丙：那是我加的
+甲：需求是谁提的？
+丙：他们那天给我打了一个电话说需要这个功能
+
+都说ITSM项目是非常难实施的项目，成功率低；特别是CMDB项目，实施难度大，失败案例比比皆是。首先我觉得ITSM项目的实施有它的特殊性，特殊在于实施顾问对客户需求的理解，在于实施顾问对ITIL最佳实践的经验，在于对产品工具的把握。其中任何一个环节拿捏不准都会到导致需求的泛滥、需求混乱、需求的飘忽不定。
+
+可见需求管理是项目实施和执行的灵魂，失去了对灵魂的掌控，需求讨论会就将可能进入走火入魔的地步，需求各方争执不下，整个会议室炸开了锅，每个人都争抢着发言，我的脑也几乎要眩晕；我说的这一点也不夸张，没见过只能是你的幸运。
+
+需求管理包括需求的分析和整理，应该是有层次的，在不同的层次里讲不同的语言，达成共识的讨论结果。层次可以分为这样三层
+
+
+  
+    业务需求
+  
+  
+    用户需求
+  
+  
+    功能需求
+  
+
+
+所谓业务需求是说站在公司的高度，从最high level角度描述需求之所在。它的语言像是项目使命的宣言，指出为什么要做这个项目，项目的价值点落在哪里。最概况的项目范围。业务需求告诉我们：为什么会有这些需求。
+
+用户需求是指从项目利益相关人的角度出发。逐一描述各个业务操作环节，这些业务操作由每个可独立执行的条目为单位，每个业务操作中说明业务规则、输入和结果。切忌在这一阶段就进入详细的功能界面或者功能操作上细节的任何讨论。原因很简单：我们在这里还没有进入技术实现环节，依然在以客户或者系统使用者的角度来描述它的需求。系统用户和客户是不需要理解每一个页面跳转和鼠标点击的意义的。在我的经验看来客户在这里最容易陷入技术细节讨论的泥沼，反而可能浪费需求讨论的时间，可能导致项目的延期，需求点难以确定。用户需求告诉我们：用户的需要什么。
+
+功能需求则需要告诉我们：为了能满足用户需求，我们的系统是怎么做的。这里将用技术的语言，进入系统层面说明系统应该怎么做。功能需求最终将导出概要设计和详细设计。
+
+业务需求的满足=用户需求的满足+功能需求的满足；用户需求是能推倒出功能需求的，用户需求和功能需求可以是一对一、一对多和多对多的关系。
+
+以上三个需求是有层次的并与客户递进沟通的产物，既然是沟通，那么在每个层次上都伴随着矛盾、争论、妥协。在任一层次上理不出头绪时，一定要追溯到上一层，通过上一层来指导解决。但是这往往也是很难把握和执行的，最终最可能的结果是在以上三个沟通层次中都伴随着需求的变化、需求的扩大、需求的混乱。甚至于进入了测试阶段还能产生出新的需求和理解的偏差，谁人能不说“需求变更”是项目实施的鬼见愁呢？
+
+如何解决这个“鬼见愁”？一方面需要时刻对项目预算和时间资源保持清醒的头脑，项目实施比较是那时间和金钱换需求。还有就是通过项目变更委员会来控制需求变更。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>项目实施之鬼见愁@需求变更@</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 2, 2010</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>[singlepic id=34 w=320 h=240 mode=watermark float=right]不经意间听到的让我深思的一段对话。
+甲：咦，这个功能是什么时候加的？
+乙：哦，我也不知道还有这个功能
+丙：那是我加的
+甲：需求是谁提的？
+丙：他们那天给我打了一个电话说需要这个功能</p>
+
+<p>都说ITSM项目是非常难实施的项目，成功率低；特别是CMDB项目，实施难度大，失败案例比比皆是。首先我觉得ITSM项目的实施有它的特殊性，特殊在于实施顾问对客户需求的理解，在于实施顾问对ITIL最佳实践的经验，在于对产品工具的把握。其中任何一个环节拿捏不准都会到导致需求的泛滥、需求混乱、需求的飘忽不定。</p>
+
+<p>可见需求管理是项目实施和执行的灵魂，失去了对灵魂的掌控，需求讨论会就将可能进入走火入魔的地步，需求各方争执不下，整个会议室炸开了锅，每个人都争抢着发言，我的脑也几乎要眩晕；我说的这一点也不夸张，没见过只能是你的幸运。</p>
+
+<p>需求管理包括需求的分析和整理，应该是有层次的，在不同的层次里讲不同的语言，达成共识的讨论结果。层次可以分为这样三层</p>
+
+<ol>
+  <li>
+    <p>业务需求</p>
+  </li>
+  <li>
+    <p>用户需求</p>
+  </li>
+  <li>
+    <p>功能需求</p>
+  </li>
+</ol>
+
+<p>所谓业务需求是说站在公司的高度，从最high level角度描述需求之所在。它的语言像是项目使命的宣言，指出为什么要做这个项目，项目的价值点落在哪里。最概况的项目范围。业务需求告诉我们：为什么会有这些需求。</p>
+
+<p>用户需求是指从项目利益相关人的角度出发。逐一描述各个业务操作环节，这些业务操作由每个可独立执行的条目为单位，每个业务操作中说明业务规则、输入和结果。切忌在这一阶段就进入详细的功能界面或者功能操作上细节的任何讨论。原因很简单：我们在这里还没有进入技术实现环节，依然在以客户或者系统使用者的角度来描述它的需求。系统用户和客户是不需要理解每一个页面跳转和鼠标点击的意义的。在我的经验看来客户在这里最容易陷入技术细节讨论的泥沼，反而可能浪费需求讨论的时间，可能导致项目的延期，需求点难以确定。用户需求告诉我们：用户的需要什么。</p>
+
+<p>功能需求则需要告诉我们：为了能满足用户需求，我们的系统是怎么做的。这里将用技术的语言，进入系统层面说明系统应该怎么做。功能需求最终将导出概要设计和详细设计。</p>
+
+<p>业务需求的满足=用户需求的满足+功能需求的满足；用户需求是能推倒出功能需求的，用户需求和功能需求可以是一对一、一对多和多对多的关系。</p>
+
+<p>以上三个需求是有层次的并与客户递进沟通的产物，既然是沟通，那么在每个层次上都伴随着矛盾、争论、妥协。在任一层次上理不出头绪时，一定要追溯到上一层，通过上一层来指导解决。但是这往往也是很难把握和执行的，最终最可能的结果是在以上三个沟通层次中都伴随着需求的变化、需求的扩大、需求的混乱。甚至于进入了测试阶段还能产生出新的需求和理解的偏差，谁人能不说“需求变更”是项目实施的鬼见愁呢？</p>
+
+<p>如何解决这个“鬼见愁”？一方面需要时刻对项目预算和时间资源保持清醒的头脑，项目实施比较是那时间和金钱换需求。还有就是通过项目变更委员会来控制需求变更。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cmdb, ITIL, ITSM, project management
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD%E4%B9%8B%E9%AC%BC%E8%A7%81%E6%84%81%40%E9%9C%80%E6%B1%82%E5%8F%98%E6%9B%B4%40+http://localhost:4000/2010-04-02/project-failed-by-requirements-change/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2010-04-02/project-failed-by-requirements-change/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2010-04-02/project-failed-by-requirements-change/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2010-03-30/phase-roll-out-cmdb-implement/" data-toggle="tooltip" data-placement="top" title="掀起CMDB的盖头来">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2010-04-04/alice-wonderland/" data-toggle="tooltip" data-placement="top" title="Alice in Wonderland">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

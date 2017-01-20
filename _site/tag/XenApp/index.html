@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -1058,10 +1046,8 @@
   
   
   
-  
-  
   <article class="post-preview">
-    <a href="/2013-05-14-hide-windows-explorer-items/">
+    <a href="/2013-05-14/hide-windows-explorer-items/">
       <h3 class="post-title">隐藏Windows  Explorer中的各种东西</h3>
 
       
@@ -1073,7 +1059,7 @@
 
     <div class="post-entry">
       XenApp实施工具，隐藏Windows  Explorer中的各种东西。 HideLibraries Hide libraries icon in the navigation pane of Windows Explorer. HideFavorites Hide favorites icon in the navigation pane of Windows Explorer. HideNetwork Hide network icon in the navigation pane of Windows Explorer. HideComputer Hide computer icon in the navigation pane of Windows Explorer. HideHomeGroup Hide home group...
-      <a href="/2013-05-14-hide-windows-explorer-items/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2013-05-14/hide-windows-explorer-items/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1175,7 +1161,7 @@
   
   
   <article class="post-preview">
-    <a href="/2013-04-16-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart3/">
+    <a href="/2013-04-16/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart3/">
       <h3 class="post-title">XenDesktop虚拟桌面精品书籍导读(part3)</h3>
 
       
@@ -1187,7 +1173,7 @@
 
     <div class="post-entry">
       [box color=&quot;orange&quot; icon=&quot;flag&quot;] 感谢 Eric Yao 的供稿，[@老树皮Eric](http://weibo.com/ericyaozhen) [/box] 桌面虚拟化项目的实施白皮书 《Citrix Virtual Desktop Handbook 5.x》，[点击下载](http://support.citrix.com/article/CTX136546)。 智慧的积累靠一蹴而就很难实现，慢慢积累和温故而知新往往是最佳的手段。让我们继续开始《Citrix桌面虚拟化实施部署白皮书》，这晚我们开讲第二部分的第三单元：桌面层。 四、 桌面层 Desktop Layer 设计思想的第三层，也是和用户相关的最后一层，就是桌面层。用户是否能接受桌面虚拟化很多程度上就是在这一层实现的，例如包括个性化、应用程序，以及后台操作系统镜像文件的设计。 1. 应用程序交付 选择正确的应用程序交付方法会对整个系统设计的可扩展性、可管理性，以及用户感受起到非常大的帮助。基于我们在前几章节的“四、 应用程序数据搜集”，我们可以考虑以下几种交付方法： l 直接安装在操作系统镜像文件上：应用程序是基础操作系统镜像文件的一部分； l 安装在Personal vDisk上：物理是分离的，但是逻辑上是直接安装在基础操作系统镜像文件中； l 流化（Streaming）：应用程序被profiled（XenApp组件）后通过网络交付到桌面上。应用程序的文件和注册表键值在虚拟桌面的一个容器中保存，但是和基础操作系统镜像文件是分离的。 l Hosted：应用程序安装在XenApp服务器上，用户通过Citrix HDX协议远程访问。 1) 决断：应用程序交付方法 系统架构师应该在基于用户需求、应用程序兼容性，以及其他通过在前几章（“四、 应用程序数据搜集”）搜集上来的应用程序因素基础之上决定采用何种方法来进行应用程序的交付。通常单一的方法是无法满足用户全部的需求的，所以多种方法组合才是最佳答案。但是不管用什么方法，这些交付手段都应当对整个项目的交付复杂程度和后续跟进步骤与以最小的影响。 下面的表格就是不同的交付方法对系统不同层面的影响： 除了应用程序交付方法对系统不同层面的应用之外，系统架构师还应该考虑应用程序在不同交付手段上的适用性。下面的表格就是不同应用程序所推荐的部署方法示例： 上表中需要注意的是最后一种应用程序，我们往往会觉得这种复杂安装和配置的应用程序最好是安装在操作系统镜像文件中，但是最佳实践告诉我们应该安装在XenApp Server上，通过Hosted的方法发布给用户。 2) 兼容性 任何一个桌面虚拟化项目都会对一个公司的应用程序交付方法产生巨大的应用。举例来说，许多公司都希望通过在桌面虚拟化中使用流化的应用程序交付或者是XenApp交付应用程序来降低升级用户的桌面操作系统的劳动负荷以及提高管理效率。所以在设计阶段我们就要做很多兼容性测试以确定最正确的应用程序交付方法。最重要需要考虑的兼容性需求一般来说包括以下几点： l 桌面操作系统的版本：如果操作系统是通过流化安装或者是直接安装在操作系统中，那么应用程序需要考虑和操作系统的兼容性问题； l 服务器操作系统的版本：有一些应用程序可能会更合适通过XenApp的方式来交付，所以，应用程序是否能安装在服务器版本的操作系统平台上是要考虑的因素； l 应用程序本身的架构：应用程序本身的开发平台有可能是16位的，32位的，也可能是64位的。16位的应用程序就不能运行在64位的操作系统平台上，例如Windows...
-      <a href="/2013-04-16-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart3/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2013-04-16/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart3/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1267,7 +1253,7 @@
   
   
   <article class="post-preview">
-    <a href="/2013-04-07-e6-80-9d-e6-9d-b0-e8-a1-8c-e4-b8-9a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e8-a7-86-e9-a2-91-e6-94-be-e9-87-8f-e6-8e-a8-e8-8d-90/">
+    <a href="/2013-04-07/e6-80-9d-e6-9d-b0-e8-a1-8c-e4-b8-9a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e8-a7-86-e9-a2-91-e6-94-be-e9-87-8f-e6-8e-a8-e8-8d-90/">
       <h3 class="post-title">思杰行业解决方案视频放量推荐</h3>
 
       
@@ -1279,7 +1265,7 @@
 
     <div class="post-entry">
       [button type=&quot;big&quot; icon=&quot;sign-in&quot; url=&quot;http://i.youku.com/u/UMzU2OTI4MzY0/videos&quot;]点击本按钮，直达优酷视频专辑[/button] [line] * [汽车行业解决方案](http://v.youku.com/v_show/id_XNTMxOTE2MjMy.html) * [思杰制造行业解决方案](http://v.youku.com/v_show/id_XNDg1MjEyNzYw.html) * [金融行业解决方案](http://v.youku.com/v_show/id_XNDg1MTAzODA0.html) * [呼叫中心场景Citrix桌面云解决方案](http://v.youku.com/v_show/id_XNDgyNjc3NDAw.html) * [教育行业解决方案](http://v.youku.com/v_show/id_XNDgyNjY3NTgw.html) * [思杰政府行业解决方案](http://v.youku.com/v_show/id_XNDkxMjk5MjE2.html) * [医疗行业解决方案](http://v.youku.com/v_show/id_XNDgyNjU4NDUy.html) * [营业厅场景解决方案](http://v.youku.com/v_show/id_XNDgyNjQ5MDIw.html) * [Citrix集中运维监控解决方案](http://v.youku.com/v_show/id_XNDgyNjUxNTUy.html) * [OA解决方案](http://v.youku.com/v_show/id_XNDgyNjMxOTY4.html) * [思杰虚拟化助力翠微中学教育信息化建设](http://v.youku.com/v_show/id_XNDIzNTc0MzIw.html) * [思杰虚拟化为遍布全美的学校师生提供便](http://v.youku.com/v_show/id_XNDEzNzUzNzI4.html) [line] [box color=&quot;red&quot;] 合作伙伴们必看视频，你们不得不懂这些内容，否则跟不上形势：) [/box] 1. [PoC标准流程](http://v.youku.com/v_show/id_XNDgyNzk0MzQw.html) 2. [2013-03-29 14.02 Citrix MDM solution](http://v.youku.com/v_show/id_XNTM1MDQwNzM2.html) 3. [搞定虚拟环境下的USB设备](http://v.youku.com/v_show/id_XNDg2NzYxMjky.html) 4. [自由灵活办公【Work Shifting】](http://v.youku.com/v_show/id_XNDY5MDQ1MDg0.html) 5. [企业统一应用门户 【Unified...
-      <a href="/2013-04-07-e6-80-9d-e6-9d-b0-e8-a1-8c-e4-b8-9a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e8-a7-86-e9-a2-91-e6-94-be-e9-87-8f-e6-8e-a8-e8-8d-90/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2013-04-07/e6-80-9d-e6-9d-b0-e8-a1-8c-e4-b8-9a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e8-a7-86-e9-a2-91-e6-94-be-e9-87-8f-e6-8e-a8-e8-8d-90/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1311,7 +1297,7 @@
   
   
   <article class="post-preview">
-    <a href="/2013-03-28-netscaler-insight-center-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e5-92-8c-e5-ba-94-e7-94-a8-e7-9b-91-e6-8e-a7-e5-88-a9-e5-99-a8/">
+    <a href="/2013-03-28/netscaler-insight-center-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e5-92-8c-e5-ba-94-e7-94-a8-e7-9b-91-e6-8e-a7-e5-88-a9-e5-99-a8/">
       <h3 class="post-title">NetScaler Insight Center 虚拟桌面和应用监控利器</h3>
 
       
@@ -1323,7 +1309,7 @@
 
     <div class="post-entry">
       NetScaler Insight Center with HDX insight and Web Insight overcomes the limitations of traditional methods and technologies to fully address the application visibility challenges facing today’s enterprises. Featuring an approach that leverages NetScaler ADCs, Insight Center combines network-based instrumentation – that is both network and application-aware – with an efficient...
-      <a href="/2013-03-28-netscaler-insight-center-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e5-92-8c-e5-ba-94-e7-94-a8-e7-9b-91-e6-8e-a7-e5-88-a9-e5-99-a8/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2013-03-28/netscaler-insight-center-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e5-92-8c-e5-ba-94-e7-94-a8-e7-9b-91-e6-8e-a7-e5-88-a9-e5-99-a8/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1361,7 +1347,7 @@
   
   
   <article class="post-preview">
-    <a href="/2013-03-20-xenapp5-e8-a1-a5-e4-b8-81-e6-b8-85-e5-8d-95/">
+    <a href="/2013-03-20/xenapp5-e8-a1-a5-e4-b8-81-e6-b8-85-e5-8d-95/">
       <h3 class="post-title">XenApp5补丁清单</h3>
 
       
@@ -1373,7 +1359,7 @@
 
     <div class="post-entry">
       对于XenApp5的用户来说你至少需要知道下面两件事情： 1. EOF的时间是2013-3-31 2. 关键补丁清单如下 这意味着，你只能获得越来越有限的支持在这个版本；最好的办法是升级你的应用到XenApp6.5版本。如果实在要用，请起码打全了这些补丁。 Hotfix PSE450R07W2K3006 ([http://support.citrix.com/article/CTX130483](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX130483)) Hotfix PSE450R07W2K3027 ([http://support.citrix.com/article/CTX131874](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX131874)) Hotfix PSE450R07W2K3043 ([http://support.citrix.com/article/CTX132765](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX132765)) LIMITED RELEASE - Hotfix PSE450R07W2K3003 ([http://support.citrix.com/article/CTX130466](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX130466)) LIMITED RELEASE - Hotfix PSE450R07W2K3004 ([http://support.citrix.com/article/CTX130497](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX130497)) LIMITED RELEASE - Hotfix PSE450R07W2K3009 ([http://support.citrix.com/article/CTX130587](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX130587)) LIMITED RELEASE - Hotfix PSE450R07W2K3017 ([http://support.citrix.com/article/CTX131022](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX131022)) LIMITED RELEASE - Hotfix PSE450R07W2K3029 ([http://support.citrix.com/article/CTX132174](https://mail.citrix.com/owa/redir.aspx?C=Cmkhy-09SEi5zN8EywDMptfTu4np-M8IQCfS0HyPLOMu53xV_VuZ4WRUXsT2uF74JPA3o1_ybfw.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX132174)) LIMITED RELEASE - Hotfix PSE450R07W2K3033...
-      <a href="/2013-03-20-xenapp5-e8-a1-a5-e4-b8-81-e6-b8-85-e5-8d-95/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2013-03-20/xenapp5-e8-a1-a5-e4-b8-81-e6-b8-85-e5-8d-95/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1521,7 +1507,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-10-28-xenapp-xendesktop-receiver-3-3-e5-ba-94-e7-94-a8-e5-95-86-e5-ba-97-e6-9c-80-e4-bd-b3-e5-ae-9e-e8-b7-b5/">
+    <a href="/2012-10-28/xenapp-xendesktop-receiver-3-3-e5-ba-94-e7-94-a8-e5-95-86-e5-ba-97-e6-9c-80-e4-bd-b3-e5-ae-9e-e8-b7-b5/">
       <h3 class="post-title">Receiver 3.3+应用商店最佳实践</h3>
 
       
@@ -1533,7 +1519,7 @@
 
     <div class="post-entry">
       前一篇博客“[让用户畅游在云的大同世界里”](http://martinliu.cn/2012/09/让用户畅游在云的大同世界里.html)提到了提到了Receiver 3.3以及我所期望用到的最主要功能：同时连接并登陆多个虚拟化站点，让所有用户使用的虚拟应用（桌面）都汇聚（聚合）到用户终端上。这样做的需求源于：很多客户都有多个网络隔离的，多个地域隔离；用户的移动性决定了，做应用发布汇聚的必要性，这样也就奠定了CloudGateway的需求的根本。 [![](http://cdn1.martinliu.cn/wp-content/uploads/2012/09/cg-architecture-inpg_v2.png)](http://cdn1.martinliu.cn/wp-content/uploads/2012/09/cg-architecture-inpg_v2.png) 在Reciever 3.3让用户犹如登陆了自己的iTune，可以浏览已经购买的应用，这些应用的图标就在界面的首页上，如果需要使用按个常用应用可以随时点击启动它；对于那些还没有使用过的应用，可以点击左侧的分类，浏览添加，当然也可以使用应用商店的搜索，找到自己需要的应用。那么这些应用是哪里来的？它们的来源有两个：1）StoreFront 应用商店；2）AppControler 应用控制中心；StoreFront负责会不和对外发布XenDesktop和XenApp群集中的应用；AppControler主要负责发布SaaS和移动应用；这样用户从Receiver 3.3（电脑和各种移动设备）端，完整的获得企业要提供给用户的所有种类的应用服务，包括：XenDesk/XenApp后端的各种业务应用、SaaS应用、移动设备应用（IOS和Andriod app）和传统业务应用和内容。注意这是一种全新的应用交付方式，它新在：用户和IT的人都完全不用关心任何一个应用在客户端上的安装、需求、升级、补丁和支持的问题，这些问题全都交给了数据中IT团队在虚拟应用和桌面交付平台上统一管理。任何一种应用访问，对于用户来说就是一种IT服务，用户只需通过Receiver使用这种服务，而不需要对这个服务的数据安全、软件维护等任何技术问题操心。 到此为止，我已经说道了本文要讲的主线：Reciever 3.3 -&gt; AG -&gt; StoreFront -&gt; XenDesktop/XenApp ；在这条路径上AG运行在NetScaler上是前端和后台的分水岭，AG外侧是用户，AG内侧是数据中心内部。那么，老的Receiver，或者说叫做Online Plugin和非老的已存在的XenDesktop和XenApp到哪里去了，看下下面的图，你就明白了。 ![receiver33](http://martinliu.cn/wp-content/gallery/citrix/receiver33.png) 如上图所示，老的Receiver或者online plugin不能通过AG连接到应用商店里面，只能走以前的老路，那么也就不能享受到我上面所的所有的好处。New Receiver只的就是我所说的Reciever 3.3。但是它不能通过AG连接WI。说道这里不得不说，我上周在用户现场测试的辛苦经历。我要的其实只是New Receiver对应的这条路径。但是，没有向导Storefont是必须的，因此倒是吧上面的路径配通了，而迟迟无法实现Receiver 3.3所能达到的理想的状态。 上面全都是正确的废话，下面开始分享对工程师有用的干货。下面我按照上图的五个层次依次总结一下，我上周在一个政府项目实施案例中的经验和教训： [tab label=&quot;Receiver&quot; first=&quot;yes&quot;] Receiver的选择，能做到多账户同时登陆，聚合多个账户中后台系统虚拟资源的版本目前只有Receiver for windows 3.3 版本（Mac版和其它版本，我还没有测过）；而不是其它任何版本，如果你是初次玩Receiver的话，进到下载里面，一定会被搞晕掉，它不是：Receiver for windows的任何版本，包括3.2、 3.1 。也不是所有Online Plugin联机插件的各个版本，它们属于Existing Receiver这一类。 [box color=&quot;orange&quot; icon=&quot;flag&quot;] 分析一下你的实际需求，然后再决定该使用那个版本；这是一个重要的决定，它确定了你是否需要部署Storefront和AppControler这两个服务。 [/box] [/tab] [tab label=&quot;Access Gateway&quot;] AG的选择，如果涉及Receiver...
-      <a href="/2012-10-28-xenapp-xendesktop-receiver-3-3-e5-ba-94-e7-94-a8-e5-95-86-e5-ba-97-e6-9c-80-e4-bd-b3-e5-ae-9e-e8-b7-b5/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-10-28/xenapp-xendesktop-receiver-3-3-e5-ba-94-e7-94-a8-e5-95-86-e5-ba-97-e6-9c-80-e4-bd-b3-e5-ae-9e-e8-b7-b5/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1605,7 +1591,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-09-14-e8-ae-a9-e7-94-a8-e6-88-b7-e7-95-85-e6-b8-b8-e5-9c-a8-e4-ba-91-e7-9a-84-e5-a4-a7-e5-90-8c-e4-b8-96-e7-95-8c-e9-87-8c/">
+    <a href="/2012-09-14/e8-ae-a9-e7-94-a8-e6-88-b7-e7-95-85-e6-b8-b8-e5-9c-a8-e4-ba-91-e7-9a-84-e5-a4-a7-e5-90-8c-e4-b8-96-e7-95-8c-e9-87-8c/">
       <h3 class="post-title">让用户畅游在云的大同世界里</h3>
 
       
@@ -1656,7 +1642,7 @@
 
 [nggallery id=17]
 
-      <a href="/2012-09-14-e8-ae-a9-e7-94-a8-e6-88-b7-e7-95-85-e6-b8-b8-e5-9c-a8-e4-ba-91-e7-9a-84-e5-a4-a7-e5-90-8c-e4-b8-96-e7-95-8c-e9-87-8c/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-09-14/e8-ae-a9-e7-94-a8-e6-88-b7-e7-95-85-e6-b8-b8-e5-9c-a8-e4-ba-91-e7-9a-84-e5-a4-a7-e5-90-8c-e4-b8-96-e7-95-8c-e9-87-8c/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1700,7 +1686,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-09-10-citrix-e7-9f-a5-e8-af-86-e5-ba-93top10-e6-96-87-e5-ba-93-e5-85-ab-e6-9c-88/">
+    <a href="/2012-09-10/citrix-e7-9f-a5-e8-af-86-e5-ba-93top10-e6-96-87-e5-ba-93-e5-85-ab-e6-9c-88/">
       <h3 class="post-title">Citrix知识库Top10文库-八月</h3>
 
       
@@ -1712,7 +1698,7 @@
 
     <div class="post-entry">
       [![](http://cdn1.martinliu.cn/wp-content/uploads/2012/09/Citrix-Top-101.png)](http://cdn1.martinliu.cn/wp-content/uploads/2012/09/Citrix-Top-101.png) 好文章太多了，转贴自学一下。 **Top 10 Technical Articles** Article Number Article Title [CTX130002](http://support.citrix.com/article/CTX130002) How to Change the Registration Port for XenDesktop 5 Desktop Delivery Controller and VDA [CTX129229](http://support.citrix.com/article/CTX129229) Recommended Citrix and Microsoft Hotfixes for XenApp 6 and Windows Server 2008 R2 [CTX129082 ](http://support.citrix.com/article/CTX129082) Application Launch Fails with Web Interface using Internet Explorer...
-      <a href="/2012-09-10-citrix-e7-9f-a5-e8-af-86-e5-ba-93top10-e6-96-87-e5-ba-93-e5-85-ab-e6-9c-88/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-09-10/citrix-e7-9f-a5-e8-af-86-e5-ba-93top10-e6-96-87-e5-ba-93-e5-85-ab-e6-9c-88/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -1874,7 +1860,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-08-13-e9-98-b2-e6-ad-a2xenapp-e7-b3-bb-e7-bb-9f-e8-b5-84-e6-ba-90-e8-a2-ab-e4-bd-bf-e7-94-a8-e8-bf-87-e5-ba-a6-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-a1-88/">
+    <a href="/2012-08-13/e9-98-b2-e6-ad-a2xenapp-e7-b3-bb-e7-bb-9f-e8-b5-84-e6-ba-90-e8-a2-ab-e4-bd-bf-e7-94-a8-e8-bf-87-e5-ba-a6-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-a1-88/">
       <h3 class="post-title">防止XenApp系统资源被使用过度的三种方案</h3>
 
       
@@ -1917,7 +1903,7 @@
 
 致谢：SongYe提议WSRM方案；SimonQiu提供方案2的咨询；KevinCui提议AppSense方案；
 
-      <a href="/2012-08-13-e9-98-b2-e6-ad-a2xenapp-e7-b3-bb-e7-bb-9f-e8-b5-84-e6-ba-90-e8-a2-ab-e4-bd-bf-e7-94-a8-e8-bf-87-e5-ba-a6-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-a1-88/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-08-13/e9-98-b2-e6-ad-a2xenapp-e7-b3-bb-e7-bb-9f-e8-b5-84-e6-ba-90-e8-a2-ab-e4-bd-bf-e7-94-a8-e8-bf-87-e5-ba-a6-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-a1-88/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2085,7 +2071,7 @@
   
   
   <article class="post-preview">
-    <a href="/2012-07-11-e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/">
+    <a href="/2012-07-11/e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/">
       <h3 class="post-title">如何测试 XenApp Mobility Pack</h3>
 
       
@@ -2132,7 +2118,7 @@ XenApp的管理策略里面多了什么？如下图所示：
 
 
 
-      <a href="/2012-07-11-e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-07-11/e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2170,7 +2156,7 @@ XenApp的管理策略里面多了什么？如下图所示：
   
   
   <article class="post-preview">
-    <a href="/2012-07-09-e5-8e-8b-e5-8a-9b-e6-b5-8b-e8-af-95-e5-b7-a5-e5-85-b7/">
+    <a href="/2012-07-09/e5-8e-8b-e5-8a-9b-e6-b5-8b-e8-af-95-e5-b7-a5-e5-85-b7/">
       <h3 class="post-title">压力测试工具</h3>
 
       
@@ -2183,7 +2169,7 @@ XenApp的管理策略里面多了什么？如下图所示：
     <div class="post-entry">
       今天终于抽时间把Citrix的压力测试工具搞了一下，整理了一个安装和配置视频供大家参考。希望明天到客户现场的测试一切顺利。貌似Edgesight的数据管理和分析功能还是蛮强的，能够从底层和虚拟桌面中收集各种性能数据，从而对系统的整个容量和性能做评估；这真的是一个测试和生产环境中的必须的工具。往往上线后的一些性能问题，其实都是系统设计和规划导致的，必须有一定的测试，分析和的时间，从而避免上线后突发问题的状况。想当初386，286年代，每台电脑出厂前要烤机n小时，其实到虚拟桌面环境中来也是一样的。大家有空还需好好看下这个利器！
 
-      <a href="/2012-07-09-e5-8e-8b-e5-8a-9b-e6-b5-8b-e8-af-95-e5-b7-a5-e5-85-b7/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-07-09/e5-8e-8b-e5-8a-9b-e6-b5-8b-e8-af-95-e5-b7-a5-e5-85-b7/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2261,7 +2247,7 @@ XenApp的管理策略里面多了什么？如下图所示：
   
   
   <article class="post-preview">
-    <a href="/2012-07-04-e9-9d-92-e5-b2-9b-e7-9f-ad-e6-9a-82-e5-87-ba-e5-b7-ae/">
+    <a href="/2012-07-04/e9-9d-92-e5-b2-9b-e7-9f-ad-e6-9a-82-e5-87-ba-e5-b7-ae/">
       <h3 class="post-title">青岛短暂出差</h3>
 
       
@@ -2274,7 +2260,7 @@ XenApp的管理策略里面多了什么？如下图所示：
     <div class="post-entry">
       短暂的访问了青岛的客户，下午回到了北京。比较而言，北京像是个热锅，闷的人喘不过气，回想起海风的味道，真感觉在青岛逗留的时间太短了。客户是铁杆的XenApp的粉丝，给他们介绍了整个系统架构之后，用户感觉很好；原来我的这些需求你们都有解决方案，产品确实都有这些功能。遗憾的是不是每个客户都是从开始就意识到整个架构，意识到所有模块和功能，说白了，用了好几年了，还没有把系统的发展道路看清楚。作为一个实体而言，不同的单位平行独立建设的情况较多，缺乏统筹安排。
 
-      <a href="/2012-07-04-e9-9d-92-e5-b2-9b-e7-9f-ad-e6-9a-82-e5-87-ba-e5-b7-ae/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-07-04/e9-9d-92-e5-b2-9b-e7-9f-ad-e6-9a-82-e5-87-ba-e5-b7-ae/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2362,7 +2348,7 @@ XenApp的管理策略里面多了什么？如下图所示：
   
   
   <article class="post-preview">
-    <a href="/2012-06-06-xenapp-mobility-pack-and-mobile-sdk-faq/">
+    <a href="/2012-06-06/xenapp-mobility-pack-and-mobile-sdk-faq/">
       <h3 class="post-title">XenApp Mobility Pack And Mobile SDK FAQ</h3>
 
       
@@ -2387,7 +2373,7 @@ XenApp Mobile App SDK可以单独使用么？
 文档和演示程序在那里？
 答：Citrix维护了很好的在线文档 [http://www.citrix.com/mobilitysdk/docs/index.html ](http://www.citrix.com/mobilitysdk/docs/index.html)
 
-      <a href="/2012-06-06-xenapp-mobility-pack-and-mobile-sdk-faq/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-06-06/xenapp-mobility-pack-and-mobile-sdk-faq/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2411,7 +2397,7 @@ XenApp Mobile App SDK可以单独使用么？
   
   
   <article class="post-preview">
-    <a href="/2012-05-13-edgesight-for-load-testing3-8-1user-guide/">
+    <a href="/2012-05-13/edgesight-for-load-testing3-8-1user-guide/">
       <h3 class="post-title">EdgeSight for Load Testing3.8.1中文教程</h3>
 
       
@@ -2428,7 +2414,7 @@ XenApp Mobile App SDK可以单独使用么？
 
 这个中文帮助文档写的非常详细，相信任何合作伙伴的工程师都能够学会用这个工具做XenApp或者是XenDesk的压力测试。下面来讲几点需要注意的事情。最好找一个物理的服务器去安装本工具，物理服务器能够具有比较强的处理能力，能模拟出足够多的用户并发的压力，从而达到测试的目的，而且有不会因为自身的资源使用影响其它任何其它。千万不要把这个压力生成器放到你的XenApp系统内的某个虚拟机里面。另外注意网络连接情况，最好摸清楚从压力生成服务器到XenApp所在服务器的每一跳所经过的网络设备，千万不要经过10M或者100M的低级交换机，测试前先ping下，看看延迟和丢包如何。最后到XenApp服务器这一端了，不要想任何系统默认安装的配置就能达到理想的性能压力测试效果，做压力测试前一定要做优化，性能优化文档查查KB。在录制脚本的时候，要选择最短，最简单操作路径，避免任何无用或者无意义的操作，脚本天生不是完美的，也需要优化，删除掉那些不必要的指令。在跑压力脚本前，先检查被测试系统当前的资源使用情况，在跑的过程中使用监控工具全面监控，及时识别出被测试系统的各个服务器上在网络、内存、CPU和I/O等这些关键点上，是否出现性能瓶颈。尽可能的和客户沟通这些瓶颈，做出及时的参数或者配置硬件配置调整。
 
-      <a href="/2012-05-13-edgesight-for-load-testing3-8-1user-guide/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-05-13/edgesight-for-load-testing3-8-1user-guide/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2482,7 +2468,7 @@ XenApp Mobile App SDK可以单独使用么？
   
   
   <article class="post-preview">
-    <a href="/2012-03-05-xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/">
+    <a href="/2012-03-05/xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/">
       <h3 class="post-title">XenApp 6.5 Mobility Pack and Mobile App SDK v1 </h3>
 
       
@@ -2494,7 +2480,7 @@ XenApp Mobile App SDK可以单独使用么？
 
     <div class="post-entry">
       XenApp 6.5 Mobility Pack 是可以安装在XenApp服务器上的一个扩展包，它能够使企业应用调用到移动终端设备上的原生功能，包括：GPS，摄像头，原生的界面控件。这个扩展包增加的策略能够和终端设备交互，控制相关传感器和功能。 XenApp 6.5 Mobile Application SDK 是一个开发包，程序猿可以使用一个微软Virtual Studio的开发环境，使用C或者C++语言来开发出运行在移动设备上的企业应用。 百闻不如一见，下面是一个实例程序。 [singlepic id=1333 w=320 h=240 float=none] 此程序是一个供水设施的巡检系统，中间部分是告警事件，按时间先后顺序显示了出现故障的GPS坐标，告警设备类型等信息。左边显示的是这些告警的地点在gogle map上的位置，下面是设备的图片。屏幕的右侧是事件处理区域，可以让巡查人员编辑和处理每一条告警事件，右下角是使用移动摄像头拍照记录的部分。这个应用是透过Citrix Receiver连接到虚拟应用发布服务器上使用的，虚拟应用发布服务器上发布了此应用的客户端，次客户端在和后台的应用服务器交互，做信息的存储和处理等业务逻辑操作。以上是我对改应用的理解。原帖见：[http://blogs.citrix.com/2011/10/25/announcing-the-xenapp-6-5-mobile-application-sdk-mobility-pack/](http://blogs.citrix.com/2011/10/25/announcing-the-xenapp-6-5-mobile-application-sdk-mobility-pack/) 下面在举一个例子：对比一下使用了移动应用开发包优化过后的XenDesktop虚拟桌面和为优化的差异，细节下差异一目了然。  For example, with this pack, XenApp can intelligently recognize an Android or iOS tablet as the endpoint and render Tablet Optimized Desktops, making the experience much more natural for...
-      <a href="/2012-03-05-xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-03-05/xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2530,7 +2516,7 @@ XenApp Mobile App SDK可以单独使用么？
   
   
   <article class="post-preview">
-    <a href="/2012-03-05-e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/">
+    <a href="/2012-03-05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/">
       <h3 class="post-title">如何安装和使用Citrix XenApp 6.5 移动应用开发包SDK</h3>
 
       
@@ -2542,7 +2528,7 @@ XenApp Mobile App SDK可以单独使用么？
 
     <div class="post-entry">
       继续转帖自学，可惜我没有空自己搭这个开发环境。不过我最想开发的一个应用是：一个记录我做DDMD的应用，在每个DDMD现场我都拍一张照片，记录一下现场的人，记录一下做Demo的坐标。这样我可以看看，我一个月下来做了多少次DDMD。 From [http://www.jasonconger.com/](http://www.jasonconger.com/) In this post, we will go over the installation steps of the Citrix XenApp 6.5 Mobile Application SDK, explorer what is added to the XenApp 6.5 server during installation, and compile one of the samples given in the SDK. Now that we have [setting up an Android...
-      <a href="/2012-03-05-e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-03-05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2578,7 +2564,7 @@ XenApp Mobile App SDK可以单独使用么？
   
   
   <article class="post-preview">
-    <a href="/2012-03-05-e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/">
+    <a href="/2012-03-05/e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/">
       <h3 class="post-title">如何配置Android Emulator用于调试Citrix XenApp 6.5移动应用SDK</h3>
 
       
@@ -2590,7 +2576,7 @@ XenApp Mobile App SDK可以单独使用么？
 
     <div class="post-entry">
       [tip]本文转帖自国外的一个大拿，有余我朝是和谐社会，所以禁止访问该网站，特此转帖。 本文详细描述了如何配置一个XenApp 6.5 移动应用开发包的开发环境，写的非常使用。这个开发包是我每次交流必须讲的话题，往往是最后一个讲，可是每次都引起用户的强烈关注。从业务创新的角度讲，开发一个原生平板电脑界面的应用系统的诱惑力是在太大了，貌似我们无法阻挡程序猿去开发平板电脑业务应用；就像我们不能组织企业的老板们在iPad上使用移动办公系统一样。[/tip] From [http://www.jasonconger.com/](http://www.jasonconger.com/) One of the coolest SDKs I’ve seen come out in quite a while is the [Citrix XenApp 6.5 Mobile Application SDK](http://community.citrix.com/display/xa/XenApp+6.5+Mobile+Application+SDK). Citrix defines the XenApp 6.5 Mobile Application SDK as “… a rich tool kit for developers to write touch-friendly, mobilized applications that are hosted...
-      <a href="/2012-03-05-e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2012-03-05/e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -2684,7 +2670,7 @@ XenApp Mobile App SDK可以单独使用么？
   
   
   <article class="post-preview">
-    <a href="/2011-12-28-xendesktop-is-better-then-view-p1/">
+    <a href="/2011-12-28/xendesktop-is-better-then-view-p1/">
       <h3 class="post-title">[zt] View和XenDesktop,到底谁更简单 -- Part I</h3>
 
       
@@ -2711,7 +2697,7 @@ Citrix的做法是从File level来捕获data delta。在人可以理解和感知
 
 From [一周耀文](http://vdesk.blog.51cto.com/) : [http://vdesk.blog.51cto.com/2969473/744750](http://vdesk.blog.51cto.com/2969473/744750)
 
-      <a href="/2011-12-28-xendesktop-is-better-then-view-p1/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2011-12-28/xendesktop-is-better-then-view-p1/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -4771,7 +4757,7 @@ From [一周耀文](http://vdesk.blog.51cto.com/) : [http://vdesk.blog.51cto.
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>优化 WordPress 页面到一秒内</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="优化 WordPress 页面到一秒内" />
+  
+
+   
+  <meta property="og:description" content="本帖系技术贴，目的在于总结一下这次对本站点优化的经历。总之结果很重要，把基本上所有页面都优化到大约0.8秒左右的载入速度。如果你也是在独立LAMP服务器上运行WordPress的话，我想本文可能对你会有所帮助。  Wordpress 服务器配置 服务器是在阿里云上的主机，主机的配置比较低：1vCPU，1GB内存；后台数据库是RDS服务。 服务器的操作系统是Debian，安装的php的情况见 phpinfo.php 的输出。 WordPresss所安装的插件如下：akismet syntax-highlighter download-monitor update-twitter-php google-sitemap-generator use-google-libraries wordpress-popular-posts wordpress-seo jiathis wp-easyarchives kimili-flash-embed wpjam-qiniu memcached wp-pagenavi nextgen-gallery wp-postviews optimize-db wp-recentcomments regenerate-thumbnails wp-super-cache revslider wp_video-master shortcodes-ultimate yet-another-related-posts-plugin simple-google-analytics Wordpress 插件：WP Super Cache Super Cache 使用的是： mod_rewrite 缓存模式。 并开启了：使用对象缓存系统来存储缓存文件。 (实验室功能)  这个功能和memcached插件是相关的。在CDN的配置这里，开启了CDN的支持，并把off-site URL指向了 http://martinliu.qiniudn.com 七牛的空间。 现在很多页面查看源码的时候，都可以看到是0.8秒以内的速度，这个速度起码是本站点有史以来的最快速度。不光服务器速度快了，更重要的是所有静态文件也都是用的大陆的本土CDN站点了。 Wordpress 插件：**memcached...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2014-02-07/e4-bc-98-e5-8c-96wordpress-e9-a1-b5-e9-9d-a2-e5-88-b0-e4-b8-80-e7-a7-92-e5-86-85/" />
+  <link rel="canonical" href="http://localhost:4000/2014-02-07/e4-bc-98-e5-8c-96wordpress-e9-a1-b5-e9-9d-a2-e5-88-b0-e4-b8-80-e7-a7-92-e5-86-85/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="优化 WordPress 页面到一秒内" />
+  
+
+  
+  <meta name="twitter:description" content="本帖系技术贴，目的在于总结一下这次对本站点优化的经历。总之结果很重要，把基本上所有页面都优化到大约0.8秒左右的载入速度。如果你也是在独立LAMP服务器上运行WordPress的话，我想本文可能对你会有所帮助。  Wordpress 服务器配置 服务器是在阿里云上的主机，主机的配置比较低：1vCPU，1GB内存；后台数据库是RDS服务。 服务器的操作系统是Debian，安装的php的情况见 phpinfo.php 的输出。 WordPresss所安装的插件如下：akismet syntax-highlighter download-monitor update-twitter-php google-sitemap-generator use-google-libraries wordpress-popular-posts wordpress-seo jiathis wp-easyarchives kimili-flash-embed wpjam-qiniu memcached wp-pagenavi nextgen-gallery wp-postviews optimize-db wp-recentcomments regenerate-thumbnails wp-super-cache revslider wp_video-master shortcodes-ultimate yet-another-related-posts-plugin simple-google-analytics Wordpress 插件：WP Super Cache Super Cache 使用的是： mod_rewrite 缓存模式。 并开启了：使用对象缓存系统来存储缓存文件。 (实验室功能)  这个功能和memcached插件是相关的。在CDN的配置这里，开启了CDN的支持，并把off-site URL指向了 http://martinliu.qiniudn.com 七牛的空间。 现在很多页面查看源码的时候，都可以看到是0.8秒以内的速度，这个速度起码是本站点有史以来的最快速度。不光服务器速度快了，更重要的是所有静态文件也都是用的大陆的本土CDN站点了。 Wordpress 插件：**memcached...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>优化 WordPress 页面到一秒内</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on February 7, 2014</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>本帖系技术贴，目的在于总结一下这次对本站点优化的经历。总之结果很重要，把基本上所有页面都优化到大约0.8秒左右的载入速度。如果你也是在独立LAMP服务器上运行WordPress的话，我想本文可能对你会有所帮助。 <!-- more --></p>
+
+<h2 id="wordpress-">Wordpress 服务器配置</h2>
+
+<p>服务器是在阿里云上的主机，主机的配置比较低：1vCPU，1GB内存；后台数据库是RDS服务。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-003.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-003.jpg" alt="pic-003" /></a></p>
+
+<p>服务器的操作系统是Debian，安装的php的情况见 <a href="http://martinliu.cn/info.php">phpinfo.php</a> 的输出。</p>
+
+<p>WordPresss所安装的插件如下：akismet syntax-highlighter download-monitor update-twitter-php google-sitemap-generator use-google-libraries wordpress-popular-posts wordpress-seo jiathis wp-easyarchives kimili-flash-embed wpjam-qiniu memcached wp-pagenavi nextgen-gallery wp-postviews optimize-db wp-recentcomments
+regenerate-thumbnails wp-super-cache revslider wp_video-master shortcodes-ultimate yet-another-related-posts-plugin simple-google-analytics</p>
+
+<h2 id="wordpress-wp-super-cache">Wordpress 插件：<strong>WP Super Cache</strong></h2>
+
+<p>Super Cache 使用的是： mod_rewrite 缓存模式。 并开启了：使用对象缓存系统来存储缓存文件。 (实验室功能)  这个功能和memcached插件是相关的。在CDN的配置这里，开启了CDN的支持，并把off-site URL指向了 http://martinliu.qiniudn.com 七牛的空间。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-002.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-002.jpg" alt="pic-002" /></a></p>
+
+<p>现在很多页面查看源码的时候，都可以看到是0.8秒以内的速度，这个速度起码是本站点有史以来的最快速度。不光服务器速度快了，更重要的是所有静态文件也都是用的大陆的本土CDN站点了。</p>
+
+<h2 id="wordpress-memcached--memcached">Wordpress 插件：**memcached 和 MemCached服务</h2>
+<p>**</p>
+
+<p>这个插件我第一次用，真可谓是神器，它需要和操作系统的memcached服务配合起来使用；这个插件的安装比较反常规：不能在控制台里面启用，根本就启用不了，需要安装插件后，在未激活的状态下，把它的文件手工放到wp-content目录里面即可。操作系统的memcached的服务安装和配置也比较简单，总之运行基本全都靠默认的配置参数即可。另外php的memcached模块也要安装并启用。它们配合起来能够把页面的request次数降低到冰点。我的主页用这个组合之前需要30次左右的request，用了之后就3次了，它主要是靠内存做缓存，从而加速了网站。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-3.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-3.jpg" alt="pic-3" /></a></p>
+
+<p>上图是本站首页的测试结果，亮点在它只有3个请求，Web服务器只是做了三个响应就完事了，这个页面的内容就全都可以发给浏览器了。减少了20多次请求的处理，这些请求的结果都被memcached给缓存到内存里面了，目前只能够给memcached开80MB的缓存空间，也就这点内存常驻的网站缓存解决了大问题。加速页面的响应速度。不得不说memcached服务还是挺NB的。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-001.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2014/02/pic-001.jpg" alt="pic-001" /></a></p>
+
+<p>上图是一个常规的文章页面，请数量从以前的30左右降到10以内，我什么也不说了。当然上面这连个图里面也能看出本网站的一点问题，这里也不说了。</p>
+
+<h2 id="wordpress-wpjam-">Wordpress 插件：<strong>WPJAM 七牛镜像存储</strong></h2>
+
+<p>本次折腾主要冲着这个来的。CDN我是第一次玩，不过用一次之后，感觉也挺简单的。先要找一个免费的CDN服务商开一个空间，之后一般送1GB空间一个月1GB流量，对我的网站来说足够了。配置完之后就拿到了一个二级域名，然后还有几个重要的Key编码。安装了水煮鱼做的这个插件之后，配置完，什么也不用管，网站的哪些静态文件就在首次访问的时候，被自动传到CDN上面了，下次网页再被打开的时候就全都走CDN上下载了，从而把Apache的基本所有静态文件的请求都offload走了，从而降低了服务器的负荷，提升了它对动态内容的反应速度。我的服务器只有1GB内存，用了CDN之后，我也不是很担心内存不够用的问题了。</p>
+
+<h2 id="section">未尽事宜</h2>
+
+<p>由于时间仓促，有几个活也没有时间做。1）我的域名martinliu.cn的DNS查询的速度有时候挺慢的，快也要500ms，有时候甚至超过一两秒，不知道是DNSPod不给力还是我的服务器自身有问题。2）CDN的正规用法需要在服务器端写一个脚本，把wordpress里面需要CDN加速的文件都上传到自己CDN的空间里面，并且可以编写脚本定期增量传输。由于最近太忙，以后有时间在研究这个问题吧。3)wordpress-popular-posts此插件在每个页面上都占用一定的时间，不知道是否能把它消除到。4）Gravatar头像的加速，否则这些图标在评论多的帖子上从国外站点下载，实在是太慢了。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cache, cdn, memcached, wordpress
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E4%BC%98%E5%8C%96+WordPress+%E9%A1%B5%E9%9D%A2%E5%88%B0%E4%B8%80%E7%A7%92%E5%86%85+http://localhost:4000/2014-02-07/e4-bc-98-e5-8c-96wordpress-e9-a1-b5-e9-9d-a2-e5-88-b0-e4-b8-80-e7-a7-92-e5-86-85/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2014-02-07/e4-bc-98-e5-8c-96wordpress-e9-a1-b5-e9-9d-a2-e5-88-b0-e4-b8-80-e7-a7-92-e5-86-85/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2014-02-07/e4-bc-98-e5-8c-96wordpress-e9-a1-b5-e9-9d-a2-e5-88-b0-e4-b8-80-e7-a7-92-e5-86-85/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2014-01-08/e5-a4-a9-e7-b1-81-e4-b9-8b-e9-9f-b3-e6-97-a0-e8-a8-80-e5-8f-a4-e8-af-97-e8-9d-89/" data-toggle="tooltip" data-placement="top" title="天籁之音 五言古诗 蝉">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2014-02-08/e5-bc-80-e6-ba-90-e6-9c-8d-e5-8a-a1-e5-99-a8-e7-9a-84-e6-97-b6-e4-bb-a3-e7-9c-9f-e5-88-b0-e4-ba-86-ef-bc-9f/" data-toggle="tooltip" data-placement="top" title="开源服务器的时代真到了？">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

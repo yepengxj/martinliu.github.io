@@ -134,18 +134,6 @@
 
 
 
-<a href="http://martinliu.cn/">martinliu.cn</a>
-
-                
-              
-                
-                  
-            
-
-
-
-
-
 <a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
 
                 
@@ -387,7 +375,7 @@
   
   
   <article class="post-preview">
-    <a href="/2015-06-16-e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/">
+    <a href="/2015-06-16/e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/">
       <h3 class="post-title">在 RHEL 7 上安装 Foreman 1.8</h3>
 
       
@@ -399,7 +387,7 @@
 
     <div class="post-entry">
       首先安装RHEL7使用光盘安装最小化系统，安装完成之后，关闭防火墙和SELinux（为了测试方便），配置主机名为FQDN格式，如 fm1.8.xenlab.com； 加本机的主机名解析到/etc/hosts 文集中。之后注册到RHN。 [bash] [root@fm18 ~]# subscription-manager register [root@fm18 ~]# subscription-manager attach  --auto [root@fm18 ~]# subscription-manager repos --disable=&quot;*&quot; [root@fm18 ~]# subscription-manager repos --enable=rhel-7-server-optional-rpms [root@fm18 ~]# subscription-manager repos --enable=rhel-server-rhscl-7-rpms [root@fm18 ~]# subscription-manager repos --enable=rhel-7-server-rpms [root@fm18 ~]# rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm [root@fm18 ~]# yum -y install http://yum.theforeman.org/releases/1.8/el7/x86_64/foreman-release.rpm [root@fm18 ~]# yum -y install...
-      <a href="/2015-06-16-e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2015-06-16/e5-9c-a8-rhel-7-e4-b8-8a-e5-ae-89-e8-a3-85-foreman-1-8/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -437,7 +425,7 @@
   
   
   <article class="post-preview">
-    <a href="/2015-06-07-e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/">
+    <a href="/2015-06-07/e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/">
       <h3 class="post-title">在CentOS 7上安装部署Katello2.2</h3>
 
       
@@ -449,7 +437,7 @@
 
     <div class="post-entry">
       Katello的系统架构如下图： ![katello-arch-diagram](http://cdn1.martinliu.cn/wp-content/uploads/2015/06/katello-arch-diagram.png) Katell系统是一个复合型开源项目，是Pulp, Candlepin 和 Foreman的组合。Foreman默认使用Puppet作配置管理。 它的安装文档见官方手册：[http://www.katello.org/docs/2.2/installation/index.html](http://www.katello.org/docs/2.2/installation/index.html) 为了简化安装，请下在本站提供的CentOS7完美安装模板。使用它来创建一个虚拟机，6GB内存，2VCPU；网络上为了方便，请在virt-manger中新建如下所示的网络。 ![QEMU-KVM Connection Details_006](http://cdn1.martinliu.cn/wp-content/uploads/2015/06/QEMU-KVM-Connection-Details_006.png) 虚拟机启动之后，确保host能正常联网。启动刚才创建的虚拟机，配置好IP，ping 外网网站，确保它能正常联网即可。其它安装命令如下： [bash] yum -y localinstall http://fedorapeople.org/groups/katello/releases/yum/2.2/katello/RHEL/7Server/x86_64/katello-repos-latest.rpm yum -y localinstall http://yum.theforeman.org/releases/1.8/el7/x86_64/foreman-release.rpm yum -y localinstall http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm yum -y localinstall http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm yum -y install foreman-release-scl yum -y install katello katello-installer -v \ --foreman-admin-username admin \ --foreman-admin-password smartvm \ --capsule-dns true \...
-      <a href="/2015-06-07-e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/" class="post-read-more">[Read&nbsp;More]</a>
+      <a href="/2015-06-07/e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/" class="post-read-more">[Read&nbsp;More]</a>
     </div>
 
     <div class="blog-tags">
@@ -469,8 +457,6 @@
       
     </div>
   </article>
-  
-  
   
   
   
@@ -4107,7 +4093,7 @@
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  <a href="http://localhost:4000">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->

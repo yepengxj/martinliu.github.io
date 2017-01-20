@@ -35,7 +35,7 @@ Docker for Mac Version 1.12.0-rc2-beta17 (build: 9779)
 
 
 ```
-` $ docker version
+$ docker version
 Client:
  Version:      1.12.0-rc2
  API version:  1.24
@@ -64,7 +64,6 @@ docker-py version: 1.8.1
 CPython version: 2.7.9
 OpenSSL version: OpenSSL 1.0.2h  3 May 2016
 
-```
 
 ```
 
@@ -79,7 +78,15 @@ VirtualBox version 5.0.22r108108
 
 
 
-<blockquote>/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso ~/Downloads/rancher-all/rancher-agent-v1.0.1.tar ~/Downloads/rancher-all/rancher-agent-instance-v0.8.1.tar ~/Downloads/habitat-docker-registry.bintray.io-studio.tar ~/Downloads/rancher-all/rancher-server-stable.tar</blockquote>
+/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso 
+
+~/Downloads/rancher-all/rancher-agent-v1.0.1.tar 
+
+~/Downloads/rancher-all/rancher-agent-instance-v0.8.1.tar 
+
+~/Downloads/habitat-docker-registry.bintray.io-studio.tar 
+
+~/Downloads/rancher-all/rancher-server-stable.tar
 
 
 我本机还有一个 Docker Registry 的 vm，这里面提供了我需要积累以后用的镜像存储，想象一下你在飞机上的时候去哪里拉取镜像 ：）
@@ -107,9 +114,7 @@ https://github.com/habitat-sh/habitat-example-plans https://github.com/janeczku/
 
 
 ```
-`docker-machine create rancher --driver virtualbox --virtualbox-cpu-count "1" --virtualbox-disk-size "8000" --virtualbox-memory "1024" --virtualbox-boot2docker-url=/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso && eval $(docker-machine env rancher)
-
-```
+docker-machine create rancher --driver virtualbox --virtualbox-cpu-count "1" --virtualbox-disk-size "8000" --virtualbox-memory "1024" --virtualbox-boot2docker-url=/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso && eval $(docker-machine env rancher)
 
 ```
 
@@ -127,14 +132,11 @@ https://github.com/habitat-sh/habitat-example-plans https://github.com/janeczku/
 
 
 ```
-`docker load < ~/Downloads/rancher-all/rancher-server-stable.tar
+docker load < ~/Downloads/rancher-all/rancher-server-stable.tar
 docker run -d --restart=always --name rancher-srv -p 8080:8080 rancher/server:stable 
 docker logs -f rancher-srv
 
 ```
-
-```
-
 
 
 
@@ -148,7 +150,7 @@ docker logs -f rancher-srv
 
 
 ```
-`echo "ifconfig eth1 192.168.99.60 netmask 255.255.255.0 broadcast 192.168.99.255 up" | docker-machine ssh node1 sudo tee /var/lib/boot2docker/bootsync.sh > /dev/null
+echo "ifconfig eth1 192.168.99.60 netmask 255.255.255.0 broadcast 192.168.99.255 up" | docker-machine ssh node1 sudo tee /var/lib/boot2docker/bootsync.sh > /dev/null
 docker-machine regenerate-certs node1 -f
 docker-machine ssh ndoe1
 sudo mkdir /mnt/sda1/var/lib/rancher 
@@ -174,9 +176,6 @@ docker run -d -p 80:5000 --restart=always --name registry registry:2
 
 ```
 
-```
-
-
 
 
 
@@ -189,25 +188,17 @@ docker run -d -p 80:5000 --restart=always --name registry registry:2
 ### 创建 node1 虚拟机
 
 
-使用 
-```highlighter-rouge 
-docker-machine
-```
- 命令创建容器运行节点。
+使用 docker-machine  命令创建容器运行节点。
 
 
 
 
 ```
-`docker-machine create node1 --driver virtualbox --engine-insecure-registry 192.168.99.20:5000 --virtualbox-cpu-count "1" --virtualbox-disk-size "80000" --virtualbox-memory "1024" --virtualbox-boot2docker-url=/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso 
+docker-machine create node1 --driver virtualbox --engine-insecure-registry 192.168.99.20:5000 --virtualbox-cpu-count "1" --virtualbox-disk-size "80000" --virtualbox-memory "1024" --virtualbox-boot2docker-url=/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso 
 
 docker-machine create node2 --driver virtualbox --engine-insecure-registry 192.168.99.20:5000 --virtualbox-cpu-count "1" --virtualbox-disk-size "80000" --virtualbox-memory "1024" --virtualbox-boot2docker-url=/Users/martin/Downloads/1.12.0-rc2/boot2docker.iso 
 
 ```
-
-```
-
-
 
 
 在 node1 或者 node2 测试运行一个容器，使用 mirror 中的 busybox 镜像。如果你的笔记本内存小于8GB 的话，node2就别搞了。一个 node 也够用了。
@@ -216,13 +207,9 @@ docker-machine create node2 --driver virtualbox --engine-insecure-registry 192.1
 
 
 ```
-`docker pull 192.168.99.20:5000/busybox:latest 
+docker pull 192.168.99.20:5000/busybox:latest 
 
 ```
-
-```
-
-
 
 
 docker run 一下这个镜像，验证 node1工作正常。
@@ -237,21 +224,17 @@ docker run 一下这个镜像，验证 node1工作正常。
 
 
 ```
-`docker load < ~/Downloads/rancher-all/rancher-agent-v1.0.1.tar
+docker load < ~/Downloads/rancher-all/rancher-agent-v1.0.1.tar
 docker load < ~/Downloads/rancher-all/rancher-agent-instance-v0.8.1.tar
 docker load < ~/Downloads/habitat-docker-registry.bintray.io-studio.tar
 
 ```
 
-```
-
-
-
 
 你翻墙下载回来的habitat-docker-registry.bintray.io/studio镜像可能需要打标签，否则回头 hab 命令执行失败。 先用 docer images 看下是否所有 image 的标签信息正确。
 
 
-```highlighter-rouge 
+```
 docker tag fc27342e5e0e habitat-docker-registry.bintray.io/studio:latest
 ```
 
@@ -265,14 +248,9 @@ docker tag fc27342e5e0e habitat-docker-registry.bintray.io/studio:latest
 
 
 ```
-`docker run -d --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.0.1 http://192.168.99.100:8080/v1/scripts/33B68ED65CEF18F6D7BD:1466694000000:lug2KswoXOOQV4d09ZNMGTphVs0
+docker run -d --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.0.1 http://192.168.99.100:8080/v1/scripts/33B68ED65CEF18F6D7BD:1466694000000:lug2KswoXOOQV4d09ZNMGTphVs0
 
 ```
-
-```
-
-
-
 
 
 
@@ -305,7 +283,7 @@ habitat 的程序只有一个可执行程序， 目前支持 mac 和 linux 版�
 
 
 ```
-`martin@localhost ~/Documents                                                                                  $ hab setup
+martin@localhost ~/Documents                                                                                  $ hab setup
 
 Habitat CLI Setup
 =================
@@ -397,7 +375,6 @@ martin@localhost ~/Documents                                                    
 
 ```
 
-```
 
 
 
@@ -408,11 +385,9 @@ martin@localhost ~/Documents                                                    
 
 
 ```
-`$ cat ~/.hab/etc/cli.toml
+$ cat ~/.hab/etc/cli.toml
 auth_token = "martin-github-token"
 origin = "martin"
-
-```
 
 ```
 
@@ -422,16 +397,18 @@ origin = "martin"
 ### 调试 Habitat demo 应用
 
 
-```highlighter-rouge 
+```
 git clone https://github.com/habitat-sh/habitat-example-plans
 ```
 
 
 进入到 mytutorialapp 目录，修改 plan.sh 的 第二行代码，我改后的代码是
-```highlighter-rouge 
+
+```
 pkg_origin=martin
 ```
- martin 是我在 hab cli 里面配置的 origin。
+
+martin 是我在 hab cli 里面配置的 origin。
 
 其实下面的测试就执行了两个 hab 的命令，都是在 hab studi 的 shell里面执行的，这个 shell 其实就是一个studio 容器的 shell。
 
@@ -441,17 +418,13 @@ pkg_origin=martin
 
 
 ```
-`$ docker-machine ls                                                                                      NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
+$ docker-machine ls                                                                                      NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
 default   -        virtualbox   Running   tcp://192.168.99.100:2376           v1.11.1
 
 $ docker ps                                                                                              CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 
 
 ```
-
-```
-
-
 
 
 正常的意思是执行所有 docker 命令不报错。
@@ -466,7 +439,7 @@ $ docker ps                                                                     
 
 
 ```
-`martin@localhost ~/Documents/GitHub/habitat-example-plans/mytutorialapp                                      
+martin@localhost ~/Documents/GitHub/habitat-example-plans/mytutorialapp                                      
  $ hab studio enter                                                                                       [±master ●●]
    hab-studio: Creating Studio at /hab/studios/src (default)
    hab-studio: Importing martin secret origin key
@@ -566,12 +539,15 @@ nconf@0.8.4 node_modules/nconf
 
 ```
 
+
+
+检查结果，在代码的目录中可以看的 result 目录，关注一下这个目录，关键看 build 命令的最后一段。 
+
 ```
 
+mytutorialapp: hab-plan-build cleanup mytutorialapp: mytutorialapp: Source Cache: /hab/cache/src/mytutorialapp-0.1.0 mytutorialapp: Installed Path: /hab/pkgs/martin/mytutorialapp/0.1.0/20160701022725 mytutorialapp: Artifact: /src/results/martin-mytutorialapp-0.1.0-20160701022725-x86_64-linux.hart mytutorialapp: Build Report: /src/results/last_build.env mytutorialapp: SHA256 Checksum: d4bfb3a44989b8a5b1295eac2600d75f42dd2be6f537344312c8917cba47d05d mytutorialapp: Blake2b Checksum: fbff257eb36fffa61e6cbf5ec89fa3f507095f80f5cca610c2bb72685d758706 mytutorialapp: mytutorialapp: I love it when a plan.sh comes together. mytutorialapp: mytutorialapp: Build time: 1m3s
 
-
-
-检查结果，在代码的目录中可以看的 result 目录，关注一下这个目录，关键看 build 命令的最后一段。 > mytutorialapp: hab-plan-build cleanup mytutorialapp: mytutorialapp: Source Cache: /hab/cache/src/mytutorialapp-0.1.0 mytutorialapp: Installed Path: /hab/pkgs/martin/mytutorialapp/0.1.0/20160701022725 mytutorialapp: Artifact: /src/results/martin-mytutorialapp-0.1.0-20160701022725-x86_64-linux.hart mytutorialapp: Build Report: /src/results/last_build.env mytutorialapp: SHA256 Checksum: d4bfb3a44989b8a5b1295eac2600d75f42dd2be6f537344312c8917cba47d05d mytutorialapp: Blake2b Checksum: fbff257eb36fffa61e6cbf5ec89fa3f507095f80f5cca610c2bb72685d758706 mytutorialapp: mytutorialapp: I love it when a plan.sh comes together. mytutorialapp: mytutorialapp: Build time: 1m3s
+```
 
 
 ### 昨晚分享的高潮部分, habitat 导出 docker image
@@ -585,7 +561,7 @@ nconf@0.8.4 node_modules/nconf
 
 
 ```
-`[4][default:/src:0]#  hab pkg export docker martin/mytutorialapp
+[4][default:/src:0]#  hab pkg export docker martin/mytutorialapp
    hab-studio: Creating Studio at /tmp/hab-pkg-dockerize-XxsS/rootfs (baseimage)
  Using local package for martin/mytutorialapp
  Using local package for core/gcc-libs/5.2.0/20160612075020 via martin/mytutorialapp
@@ -662,18 +638,13 @@ Successfully built 8d5e0fe85395
 
 ```
 
-```
-
-
-
-
 查看 docker 镜像是否存在。推出 studio 容器，运行 docker images
 
 
 
 
 ```
-`[5][default:/src:0]# exit
+[5][default:/src:0]# exit
 logout
 
 martin@localhost ~/Documents/GitHub/habitat-example-plans/mytutorialapp                                       $ docker images                                                                                          [±master ●●]
@@ -683,11 +654,6 @@ martin/mytutorialapp                        latest                 8d5e0fe85395 
 
 
 ```
-
-```
-
-
-
 
 
 
@@ -726,12 +692,9 @@ https://github.com/martinliu/hab-catalog 以上代码是半成品，欢迎协助
 
 
 ```
-`git clone https://github.com/martinliu/example-voting-app.git
+git clone https://github.com/martinliu/example-voting-app.git
 
 ```
-
-```
-
 
 
 
@@ -743,7 +706,7 @@ https://github.com/martinliu/hab-catalog 以上代码是半成品，欢迎协助
 
 
 ```
-`ping facebook.com
+ping facebook.com
 64 bytes from 173.252.90.132: icmp_seq=0 ttl=79 time=4187.066 ms
 64 bytes from 173.252.90.132: icmp_seq=1 ttl=79 time=3186.904 ms
 64 bytes from 173.252.90.132: icmp_seq=2 ttl=79 time=2515.415 ms
@@ -759,14 +722,8 @@ docker-compose build
 
 ```
 
-```
-
-
-
 
 以上结果表明，翻墙成功，以上结果显示翻墙的效果比较差，延迟和丢包都比较严重，可能到只构建的时候下载软件包失败。
-
-构建投票应用成功的完整过程示例文件 [build.txt](http://yzd.io/devops/dev-in-a-box/build.txt) 。
 
 构建完毕之后，可以检查一下是否生产了目标镜像文件，如果输出如下所示，则表明本次本地的项目集成构建成功。
 
@@ -774,7 +731,7 @@ docker-compose build
 
 
 ```
-`$ docker images                                                                                                                            
+$ docker images                                                                                                                            
 REPOSITORY                            TAG                 IMAGE ID            CREATED             SIZE
 examplevotingapp_result               latest              9bb4126b0905        5 minutes ago       225.8 MB
 examplevotingapp_worker               latest              292396a5aba4        6 minutes ago       644.1 MB
@@ -783,10 +740,6 @@ examplevotingapp_vote                 latest              28052191beea        10
 
 ```
 
-```
-
-
-
 
 在当前 node1 节点上做本地的集成结果的功能测试，用 docker-compose 启动这个项目。先检查 compose 文件，然后运行 up。
 
@@ -794,7 +747,7 @@ examplevotingapp_vote                 latest              28052191beea        10
 
 
 ```
-`$ docker-compose config                                                                                                                      
+$ docker-compose config                                                                                                                      
 networks: {}
 services:
   db:
@@ -878,10 +831,6 @@ result_1  | Connected to db
 
 ```
 
-```
-
-
-
 
 打开浏览器测试 vote 应用。
 
@@ -889,13 +838,10 @@ result_1  | Connected to db
 
 
 ```
-`open http://192.168.99.114:5000
+open http://192.168.99.114:5000
 
 
 ```
-
-```
-
 
 
 
@@ -907,14 +853,10 @@ result_1  | Connected to db
 
 
 ```
-`open http://192.168.99.114:5001
+open http://192.168.99.114:5001
 
 
 ```
-
-```
-
-
 
 
 正常显示结果如下图所示： ![result](http://yzd.io/images/result-1.jpg)
@@ -927,14 +869,12 @@ result_1  | Connected to db
 
 
 ```
-`^CGracefully stopping... (press Ctrl+C again to force)
+^CGracefully stopping... (press Ctrl+C again to force)
 Stopping examplevotingapp_worker_1 ... done
 Stopping examplevotingapp_result_1 ... done
 Stopping examplevotingapp_vote_1 ... done
 Stopping examplevotingapp_db_1 ... done
 Stopping examplevotingapp_redis_1 ... done
-
-```
 
 ```
 

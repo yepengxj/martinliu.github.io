@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Remedy ARS 开源工具知多少</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Remedy ARS 开源工具知多少" />
+  
+
+   
+  <meta property="og:description" content="Remedy ARS是全球最大市场份额的产品，是为业内广泛接受的成熟产品套件；虽然他始终是私有的软件产品，但是围绕其周围，还是不断有新的开源工具出现。下面就介绍几种这样的软件。 ARInside is a free open-source utility to create a static html documentation of your AR-Server. If you need something to quickly browse through your workflow, ARInside might be worth a try. ARInside 3.0.2 has some new features, lots of bugfixes and other improvements. Just to name a few: -...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2011-03-01/remedy-ars-open-source-tool/" />
+  <link rel="canonical" href="http://localhost:4000/2011-03-01/remedy-ars-open-source-tool/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Remedy ARS 开源工具知多少" />
+  
+
+  
+  <meta name="twitter:description" content="Remedy ARS是全球最大市场份额的产品，是为业内广泛接受的成熟产品套件；虽然他始终是私有的软件产品，但是围绕其周围，还是不断有新的开源工具出现。下面就介绍几种这样的软件。 ARInside is a free open-source utility to create a static html documentation of your AR-Server. If you need something to quickly browse through your workflow, ARInside might be worth a try. ARInside 3.0.2 has some new features, lots of bugfixes and other improvements. Just to name a few: -...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Remedy ARS 开源工具知多少</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 1, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>Remedy ARS是全球最大市场份额的产品，是为业内广泛接受的成熟产品套件；虽然他始终是私有的软件产品，但是围绕其周围，还是不断有新的开源工具出现。下面就介绍几种这样的软件。</p>
+
+<p>ARInside is a  free open-source utility to create a static html documentation of your  AR-Server. If you need something to quickly browse through your workflow,  ARInside might be worth a try.
+ARInside 3.0.2 has  some new features, lots of bugfixes and other  improvements.
+Just to name a few:
+- documentation improvements
+- 64-bit platform support
+- experimental support for Solaris and AIX
+- basic ARS 7.6.x support
+- huge performance plus on big installations</p>
+
+<p>这是一个ARS服务器扫描的工具，可以形成一个静态的文档，能够作为一个状态的参考极限，这样方便你对当前的服务器上的所有对象和工作流有个全面的了解。最大的好处是能够统计和技术，而且不用登陆Dev Studio了。一图胜千言，下面大家看后就明白它能做什么。</p>
+
+<p><img src="http://arinside.org/screenshots/1?format=raw" alt="Front page of ARInside docs " /></p>
+
+<p>看后还闲着干嘛，赶紧去下载使用吧。</p>
+
+<p>其他的关于Remedy ARS 开源的项目我也在sf.net里面大致搜索了一下，下面是个简单的参考清单。</p>
+
+<h2 id="remedy-outlook-integrationhttpsourceforgenetprojectsroi-updated-2006-09-08"><a href="http://sourceforge.net/projects/roi/">Remedy Outlook Integration</a> Updated 2006-09-08</h2>
+
+<p>The Remedy Integration for Outlook (ROI) synchronizes tickets from any  Remedy AR System application to your Outlook task list or calendar.</p>
+
+<h2 id="remedy-arapi-php-extensionhttpsourceforgenetprojectsphp-arapi-updated-2009-07-19"><a href="http://sourceforge.net/projects/php-arapi/">Remedy ARAPI PHP extension</a> Updated 2009-07-19</h2>
+
+<p>Extension to PHP for integration to Remedy Action Request System. First  release will be focused on reading and manipulating data. Later version  will give access to arapi-application structure functions.</p>
+
+<h2 id="jasper-reports-data-provider-for-remedyhttpsourceforgenetprojectsjaspars-updated-2006-08-16"><a href="http://sourceforge.net/projects/jaspars/">Jasper Reports data provider for Remedy</a> Updated 2006-08-16</h2>
+
+<p>jaspars provides a Jasper Reports custom data source (JRDataSource)  compatible with the Remedy AR System. See  http://www.mypathworks.com/arslist/Public?id=8ae4b6940c259f32010c3707fbae01bf  for more information and usage instructions.</p>
+
+<h2 id="arsperlhttpsourceforgenetprojectsarsperl-updated-2008-05-06"><a href="http://sourceforge.net/projects/arsperl/">ARSperl</a> Updated 2008-05-06</h2>
+
+<p>ARSperl is an integration kit for Perl5 and Remedy ARSystem API. It  provides a large subset of the functionality found in the ARS C API</p>
+
+<h2 id="ar-cache-purgehttpsourceforgenetprojectsarcachepurge-updated-2009-05-27"><a href="http://sourceforge.net/projects/arcachepurge/">AR Cache Purge</a> Updated 2009-05-27</h2>
+
+<p>AR Cache Purge automates the process of clearing BMC Remedy user cache  on client machines. It first checks the registry for the Home folders(s)  and then removes the .arf and .arv files. It handles multiple users and  home folders on a single machine.</p>
+
+<h2 id="pyarshttpsourceforgenetprojectspyars-updated-2010-12-20"><a href="http://sourceforge.net/projects/pyars/">pyARS</a> Updated 2010-12-20</h2>
+
+<p>The pyARS python module allows developers to use BMC’s ARSystem (Remedy  ARS) and Atrium CMDB functions from within Python. Using Python’s  interactive shell, it is extremely easy to retrieve and modify data  entries as well as workflow objects.</p>
+
+<h2 id="com-objects-for-the-ar-systemhttpsourceforgenetprojectscoarse-updated-2006-01-10"><a href="http://sourceforge.net/projects/coarse/">COM Objects for the AR System</a> Updated 2006-01-10</h2>
+
+<p>Coarse (COM Objects for the AR System), provides an automation  compatible COM API to the AR System (Remedy only provides a C API and a  Java API).  It is compatible with VB6, VBA, VBScript, and JScript.   Based on the RTL Sourceforge project.</p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ARAPI, ARS, ARSperl, BMC, opensource, php, pyARS, remedy
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Remedy+ARS+%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7%E7%9F%A5%E5%A4%9A%E5%B0%91+http://localhost:4000/2011-03-01/remedy-ars-open-source-tool/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2011-03-01/remedy-ars-open-source-tool/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2011-03-01/remedy-ars-open-source-tool/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2011-02-21/itil-v3-bmc-training/" data-toggle="tooltip" data-placement="top" title="ITIL V3中级认证培训-服务生命周期模块">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2011-03-16/my-baby-girl-my-angel/" data-toggle="tooltip" data-placement="top" title="My baby girl, my angel">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

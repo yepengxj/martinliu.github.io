@@ -66,11 +66,11 @@ Ben Golub CEO 出场。 Today we are all docker blue. 欢迎所有人。 我们�
 
 
 演示者登台。 我是个开发者，今天第一天上班。 安装了 Docker for Mac 打开这个应用，启动它。 克隆 
-```highlighter-rouge 
+```
 git clone viting-app 
 ```
 运行 
-```highlighter-rouge 
+```
 docker-compose up
 ```
  打开投票应用的两个web界面。 我不知道这个应用是什么，但是一个命令就启动了所有5个服务。 我发现了程序的 bug。 是否我第一天上班就能修复它？ 分析了一下程序架构图。 查看 docker-compose.yml 文件。 找到了一个 debug 显示的的那一行。 在代码中加入了 live debug 的断点。 开始 review 代码，发现了奇怪的地方。 找到了 git 上的代码，增加了评论，提出源码结果计算方法有问题。 现在删除了有问题的哪一行代码。 删除了断点。 用 live debug 的方式修复代码。 回到程序界面，发现 bug 没了。 做 git commit 提交修正后的代码。 查看了该应用在 staging 环境的情况，发现也有相同的结果计算的问题。 进入该环境的 Docker Cloud界面，看到了这个运行环境。 查看 result 服务的构建策略是自动构建。 Docker Cloud 自动接收了新的代码，Staging 环境的构建完成并通过了测试脚本，程序正常了。 查看云里的 Staging 环境的 bug 也被除掉了。demo 结束。
@@ -122,15 +122,11 @@ Splice 的 CTO Matt；我们做的是个音乐服务的技术，我们构建的�
 
 
 ```
-`docker service create --name voting-app -p 5000 
+docker service create --name voting-app -p 5000 
 docker service ls
 
 
 ```
-
-```
-
-
 
 
 所有的服务只启动了一个容器，分布在三个节点上。
@@ -140,7 +136,7 @@ docker service ls
 浏览器访问了第一个节点的 ip:5000 ，然后第二个节点的 ip:5000 端口，发现实际上访问到了第一个节点上的的容器。这就是新的容器路由的功能。所有的节点访问这个服务的端口，都可以路由到该服务的容器里。
 
 
-```highlighter-rouge 
+```
 docker service scale 6
 ```
 
@@ -153,15 +149,10 @@ docker service scale 6
 
 
 ```
-`docker service update 
+docker service update 
 
 
 ```
-
-```
-
-
-
 
 演示容器镜像文件的更新 选择另外一个 tag 的镜像来升级 现在我们可以对电影投票了
 
@@ -207,12 +198,9 @@ Developer：我想赶紧回家。我还需要赶紧交货。
 
 
 ```
-`docker compose bundle 
+docker compose bundle 
 
 ```
-
-```
-
 
 
 
@@ -222,14 +210,10 @@ Developer：我想赶紧回家。我还需要赶紧交货。
 
 
 ```
-`docker deploy  voting-app  xxx.dab 
+docker deploy  voting-app  xxx.dab 
 
 
 ```
-
-```
-
-
 
 
 看这些所有服务都运行了
@@ -238,16 +222,13 @@ Developer：我想赶紧回家。我还需要赶紧交货。
 
 
 ```
-`docker service ls
+docker service ls
 docker service update -p 80:80  voting-app
 docker service update -p 8080:8080  result-app
 docker service scale 
 
 
 ```
-
-```
-
 
 
 
@@ -264,3 +245,5 @@ docker service scale
 
 
 我是 Maritn Liu 为您播报本次大会的各种信息，对以上内容有任何问题和疑问请加我微信咨询，我的微信号是 martinliu_cn ，这篇文章也会在我的微信公众号（aws-faq）和 ”刀客微播报“上发布。以上会议记录中所有命令的操作并不是准确的演示者输入，尽量参考这些命令来想想其可能的参数和语法，如果你安装了最新版本的 Docker for Mac 可以自己试一下。
+
+

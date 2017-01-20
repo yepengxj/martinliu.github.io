@@ -13,8 +13,8 @@
           首先使用ssh登录cvm，进入acropolis命令行。 找出模板对应的虚拟机 使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称 &amp;lt;acropolis&amp;gt; vm.disk_get vm-fedora25 ide.0 { addr { bus: &quot;ide&quot; index: 0 } cdrom: True empty: True } scsi.0 { addr { bus: &quot;scsi&quot; index: 0 } container_id: 4427 container_uuid: &quot;9279ba2c-8e8d-4aea-b00f-410df5a18a23&quot; vmdisk_size: 10737418240 vmdisk_uuid: &quot;7476458e-7917-4df8-b830-a0df5a95dae9&quot; } 创建模板镜像 使用从虚拟机磁盘克隆出镜像的命令。 &amp;lt;acropolis&amp;gt; image.create fedora25-Template clone_from_vmdisk=7476458e-7917-4df8-b830-a0df5a95dae9 image_type=kDiskImage annotation='Fedora 25 Server...
         </description>
         <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-10-clone-ahv-vm-template/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-10-clone-ahv-vm-template/</guid>
+        <link>http://localhost:4000/2017-01-10/clone-ahv-vm-template/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-10/clone-ahv-vm-template/</guid>
       </item>
     
       <item>
@@ -24,8 +24,8 @@
           这里列出了常用的官方和非官方网站。 Nutanix 官方站点 http://portal.nutanix.com/ http://portal.nutanix.com/ 在线文档 在线技术支持，case查看和操作 产品和补丁下载 https://next.nutanix.com/ https://next.nutanix.com/ 产品网上论坛和社区 社区版论坛 博客， Nutanix Connect Blog 技术达人网站和博客 myvirtualcloud.net by Andre Leibovici http://myvirtualcloud.net/nutanix/ Virtual life style by Joep Piscaer https://www.virtuallifestyle.nl/ The Nutanix Bible by Steven Poitras http://nutanixbible.com/ Mark’s Blog by Mark Lavi http://mlavi.github.io/ Jeremy Sallee - Nutanix UI/Frontend 设计师 http://salleedesign.com/stuff/sdwip/home/ 想知道Prism是怎么设计出来的：点这里...
         </description>
         <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-07-nutanix-resource-sites/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-07-nutanix-resource-sites/</guid>
+        <link>http://localhost:4000/2017-01-07/nutanix-resource-sites/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-07/nutanix-resource-sites/</guid>
       </item>
     
       <item>
@@ -35,8 +35,8 @@
           本术语表主要来源于DevOps相关书籍。 英文 中文 artifacts 部署包 Telemetry 告警数据 process time 处理时间 cycle time 周期时间 tightly-coupled 紧耦合 monolithic applications 单体应用 lead time 前置时间 developer 开发人员 Exploratory test 探索测试 batch sizes 批次尺寸 Affinity 亲和 Agile 敏捷 Application Deployment 应用部署 Artifact Management 构件库管理 Automation 自动化 Blamelessness 免责 Cloud Computing 云计算 Collaboration 协作 Configuration Management...
         </description>
         <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-07-devops-glossary/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-07-devops-glossary/</guid>
+        <link>http://localhost:4000/2017-01-07/devops-glossary/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-07/devops-glossary/</guid>
       </item>
     
       <item>
@@ -46,8 +46,8 @@
           天下事分久必合，合久必分，移动互联网代表了现在的云计算时代，很多企业还正在朝这个方向发展呢！革命还没有成功，怎么这个时代就要结束了。来听听XenSource前CEO怎么给你解读边缘计算时代的到来。 “I’m going to take you out to the edge to show you what the future looks like.” So begins a16z partner Peter Levine as he takes us on a “crazy” tour of the history and future of cloud computing — from the constant turns between centralized to distributed computing,...
         </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-05-The-End-of-Cloud-Computing/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-05-The-End-of-Cloud-Computing/</guid>
+        <link>http://localhost:4000/2017-01-05/The-End-of-Cloud-Computing/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-05/The-End-of-Cloud-Computing/</guid>
       </item>
     
       <item>
@@ -57,8 +57,8 @@
           Nutanix AOS 5.0 是一个很重要的功能更新大版本，它一气儿带来了46项之多的新功能；在您安装或者测试这个版本&amp;gt; 之前，先通过本文快速了解一下这些更新，可能是更加节省时间的方法。 主要功能清单 myvirtualcloud.net网站用了4个blog，讲了下面的36项新特性： Cisco UCS B-Series Blade Servers Support Acropolis Affinity and Anti-affinity Acropolis Dynamic Scheduling (DRS++) REST API 2.0 and 3.0 Support for XenServer TechPreview Network Visualization What-if analysis for New workloads and Allocation-based forecasting Native Self-Service Portal Snapshots – Self Service Restore UI Network...
         </description>
         <pubDate>Wed, 04 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-04-Nutanix-AOS-5.0/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-04-Nutanix-AOS-5.0/</guid>
+        <link>http://localhost:4000/2017-01-04/Nutanix-AOS-5.0/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-04/Nutanix-AOS-5.0/</guid>
       </item>
     
       <item>
@@ -68,8 +68,8 @@
           《看板方法》、《精益思想》、《Implementing Lean Software Development: From Concept to Cash》、《第五项修炼:学习型组织的艺术与实践》、《探索吧!深入理解探索式软件测试》 《看板方法-科技企業漸進變革成功之道》 转自： Rubbyblog.wordpress.com 今天要介紹看板方法的由來， 上面這本書是由看板方法之父 David J. Anderson 於: 2010年 4月所著。簡字版是 2014 年2月出版。這篇文章在我上 TechDays 課程時就想登出來了，想把好書介紹給大家。但由於台灣的書商都沒有進口，所以一直等到我拿到第一批書後，肯定大家可以在坊間買到書時才把他登出來。原文書名: Kanban: Successful Evolutionary Change for Your Technology Business. 看板方法：它是敏捷陣營中實施起來阻力最小，生產力又能大幅提升、前置時間大幅下降，而可預測性又絕佳的敏捷解決方案之一。好神奇喔 … 哈哈! 確實如此，所以我才會這麼急切的推薦給大家。另一個原因是Kanban Method 現在在美國正熱烈風行中，而我們現在開始追正是時候。為此放下了許多手上正在做的工作(包括一本 Scrum的教本)，努力開始推廣希望大家能受用。首先說明: 為何他推廣起來阻力最小? ※ 實施起來阻力最小: 因為David J. Anderson 本身是一個微軟的 PM出身，他跟大家一樣知道變革會讓許多人害怕，人們會認為自己的技術是否落伍了，開始擔心害怕變革會對自己的工作事業帶來不利，這種恐懼常常會帶來一種莫名的對立，因此在還沒開始變革之前就已經採取抵制的態度了。所以他創始的看板方法選擇從哪裡開始實施呢? 就從現在既有的流程開始。由工作者本身最熟悉的地方開始。起步的秘訣是甚麼呢? 是精實精神中從豐田系統中學來的原則，先從不浪費開始，作法: 在識別浪費後消除浪費。 ※...
         </description>
         <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-03-devops-booklist/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-03-devops-booklist/</guid>
+        <link>http://localhost:4000/2017-01-03/devops-booklist/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-03/devops-booklist/</guid>
       </item>
     
       <item>
@@ -79,8 +79,8 @@
           转帖：《HC 250? HC 380? What are they actually for?》 http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/ HP/HPE 超融合产品线发展如下图所示 +Comment The positioning of these two hyper-converged systems is confusing. We observe that the physically larger and vSphere-only HC 380, with its brand number larger than the HC 250, is for use by operators requiring operational simplicity, whereas...
         </description>
         <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-03-HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-03-HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</guid>
+        <link>http://localhost:4000/2017-01-03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/</guid>
       </item>
     
       <item>
@@ -90,8 +90,8 @@
           Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。 Nutanix Community Edition 社区版简介 这个产品目前的位置在 https://www.nutanix.com/products/community-edition/；目前这个页面还没有中文化，下面简单介绍以下。 Feature Rich Software 它是一个功能丰富的软件 Broad Hardware Support &amp;amp; Available On-demand 很丰富的硬件支持，在网上可以按需体验 Zero Cost 零成本 用Nutanix CE社区版体验，体验超融合技术的三个步骤。 注册 ： 这次Nutanix社区，下载安装镜像 部署 ： 在你的服务器上部署，或者在Ravello上在线开启体验；官方安装部署视频点这里 玩耍 ： 安装完之后就可以开心地玩耍了，有问题请移步 社区版论坛 用物理机安装和体验的几点注意事项如下： 物理机安装支持1，3，4个节点的部署；推荐内存在32GB以上；由于版本CE 2016.12.22的CVM的内存需求是24GB，由于加入了自服务门户功能；建议使用SSD硬盘，最好能混搭一些普通硬盘。 安装后的首次启动需要系统能链接互联网，否则CVM会启动不了，首次启动成功之后就不用再联网了 用虚拟机安装，请注意本机的内存，和给虚拟机分配的内存，网上也有修改对内存和CPU限制修改的脚本 产品在社区里的文档页面： 点这里 参考配置 Intel NUC 最新版一台，i7处理器，两条16GB内存，两条512GB硬盘。它的好处是便携；然而内存还是有限，不能跑多少个虚拟机。 相关文档 在VMware Workstation上安装Nutanix CE Nutanix...
         </description>
         <pubDate>Mon, 02 Jan 2017 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2017-01-02-Nutanix-CE-all-in-one/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017-01-02-Nutanix-CE-all-in-one/</guid>
+        <link>http://localhost:4000/2017-01-02/Nutanix-CE-all-in-one/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017-01-02/Nutanix-CE-all-in-one/</guid>
       </item>
     
       <item>
@@ -206,8 +206,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 
         </description>
         <pubDate>Sat, 31 Dec 2016 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2016-12-31-west-coast-SFO/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-12-31-west-coast-SFO/</guid>
+        <link>http://localhost:4000/2016-12-31/west-coast-SFO/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-12-31/west-coast-SFO/</guid>
       </item>
     
       <item>
@@ -226,9 +226,9 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 
 这些项目都殊途同归地指向了DevOps这个关键词，这让我不得不从去年开始就关注和学习这个最佳实践。当然，我对DevOps的前途非常看好，因此当我听说业内出现了相关认证考试之后，我毫不犹豫地报名参加了。经过2个多月的缜密的准备，我终于幸运地一次通过了这个考试。考试获得了两个证书。
 
-[caption id=”attachment_54191” align=”alignnone” width=”500”] DevOps Master[/caption]
+ DevOps Master
 
-[caption id=”attachment_54190” align=”alignnone” width=”500”] DevOps Master 认证自由讲师[/caption]
+ DevOps Master 认证自由讲师
 
 我参加的是讲师认证培训TTT，很高兴能成为Exin在国内的首批5个认证人员之一。在准备这个考试的过程中我学习了一些书籍，现在还在深度学习的书有两本。
 
@@ -243,34 +243,32 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 以上是我对DevOps的阶段性总结，跨度有半年之久。这半年中我逐渐看清了我的主要兴趣点，抛除所有其他主题，目前剩下的就是：云计算和DevOps。一方面觉得年纪不饶人，不能可能在和年轻人拼精力、体力和创意；我的背景和经验都让我感觉，在这两个话题上，我还是有很多年的经验和技术积累和总结的。云计算是（公有云＋私有云）未来企业IT基础架构的走向；DevOps是目前看比较正确的运作实践。一个便技术，一个便管理，正好完整覆盖了我的经验；在其对应的开源技术这个分支里，我想它们都还有这很多的为探索和研究的项目。
 
 
-
-
         </description>
         <pubDate>Mon, 07 Nov 2016 15:19:08 +0000</pubDate>
-        <link>http://localhost:4000/2016-11-07-exin-devops-master-e8-ae-a4-e8-af-81-e8-80-83-e8-af-95/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-11-07-exin-devops-master-e8-ae-a4-e8-af-81-e8-80-83-e8-af-95/</guid>
+        <link>http://localhost:4000/2016-11-07/exin-devops-master-e8-ae-a4-e8-af-81-e8-80-83-e8-af-95/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-11-07/exin-devops-master-e8-ae-a4-e8-af-81-e8-80-83-e8-af-95/</guid>
       </item>
     
       <item>
         <title>DevOps 的起点-入手微型数据中心</title>
         <description>
           
-          测试环境说明 我的笔记本电脑的环境描述如下。 OS MacBook Pro 2011 版， 2.3 GHz Intel Core i5， 8GB DDR3， 256 GB SSD。 OS X EI Capitan version 10.11.5 Docker Docker for Mac Version 1.12.0-rc2-beta17 (build: 9779) ` $ docker version Client: Version: 1.12.0-rc2 API version: 1.24 Go version: go1.6.2 Git commit: 906eacd Built: Fri Jun...
+          测试环境说明 我的笔记本电脑的环境描述如下。 OS MacBook Pro 2011 版， 2.3 GHz Intel Core i5， 8GB DDR3， 256 GB SSD。 OS X EI Capitan version 10.11.5 Docker Docker for Mac Version 1.12.0-rc2-beta17 (build: 9779) $ docker version Client: Version: 1.12.0-rc2 API version: 1.24 Go version: go1.6.2 Git commit: 906eacd Built: Fri Jun 17...
         </description>
         <pubDate>Fri, 01 Jul 2016 03:11:10 +0000</pubDate>
-        <link>http://localhost:4000/2016-07-01-devops-in-a-box/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-07-01-devops-in-a-box/</guid>
+        <link>http://localhost:4000/2016-07-01/devops-in-a-box/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-07-01/devops-in-a-box/</guid>
       </item>
     
       <item>
         <title>用 Docker 构建 Serverless 应用</title>
         <description>
           
-          Martin解读Serverless Serverless 不意味着没有服务器，而是从应用可以在一个抽象层上忽略它的存在，而只关注在功能实现上和自身的请求处理上；每一个功能实现在不是单纯的业务逻辑处理的代码，相反每个功能调用具有了 server 的特质，进化成为了一个具有自省、自知和自治的工作负载单元；他们更像是能够衍生出其它新功能单元的生物体。这样整个 Serverless 应用架构之内，每个生命可以衍生下去，子子孙孙无穷匮也。 本文编译了：https://blog.docker.com/2016/06/building-serverless-apps-with-docker/ 一下是正文内容。 处在这技术日新月异的时代里，新的技术浪潮经常对当前的技术产生着威胁和颠覆。在编写应用的时候我们目前经常谈论到“Serverless”技术。它的核心思想是把应用作为一系列的功能/function来部署，这些功能在需要的时候被按需部署。服务器管理应该是不需要去操心的事情，所有功能被按需调用，被运行在群集之上。 但是 Serverless 里不意味着没有 Docker，事实上 ”Docker 就是 Serverless”。你可以用 Docker 来容器化这些功能，然后按需地运行在 Swarm 群集上。Serverless 是一种构建分布式计算的应用的方法，而 Docker 是完美的构建和运行他们的平台。 从** Server **到** Serverless** 那么我们如何来编写 Serverless 的应用？让我们先看下这个例子：“一个有5个子服务组成的投票应用”： 它的结构如下： 两个 web 前端 一个后台的处理投票的 worker 服务 一个处理投票的消息队列  一个数据库 那个后台处理投票的进程是非常容易成为转换为 Serverless 架构的目标。在投票应用内，我们可以运行一点类似于下面的代码，来执行后台任务： import dockerrun client = dockerrun.from_env() client.run(&quot;bfirsh/serverless-record-vote-task&quot;, [voter_id, vote],...
+          Martin解读Serverless Serverless 不意味着没有服务器，而是从应用可以在一个抽象层上忽略它的存在，而只关注在功能实现上和自身的请求处理上；每一个功能实现在不是单纯的业务逻辑处理的代码，相反每个功能调用具有了 server 的特质，进化成为了一个具有自省、自知和自治的工作负载单元；他们更像是能够衍生出其它新功能单元的生物体。这样整个 Serverless 应用架构之内，每个生命可以衍生下去，子子孙孙无穷匮也。 本文编译了：https://blog.docker.com/2016/06/building-serverless-apps-with-docker/ 一下是正文内容。 处在这技术日新月异的时代里，新的技术浪潮经常对当前的技术产生着威胁和颠覆。在编写应用的时候我们目前经常谈论到“Serverless”技术。它的核心思想是把应用作为一系列的功能/function来部署，这些功能在需要的时候被按需部署。服务器管理应该是不需要去操心的事情，所有功能被按需调用，被运行在群集之上。 但是 Serverless 里不意味着没有 Docker，事实上 ”Docker 就是 Serverless”。你可以用 Docker 来容器化这些功能，然后按需地运行在 Swarm 群集上。Serverless 是一种构建分布式计算的应用的方法，而 Docker 是完美的构建和运行他们的平台。 从Server 到 Serverless 那么我们如何来编写 Serverless 的应用？让我们先看下这个例子：“一个有5个子服务组成的投票应用”： 它的结构如下： 两个 web 前端 一个后台的处理投票的 worker 服务 一个处理投票的消息队列  一个数据库 那个后台处理投票的进程是非常容易成为转换为 Serverless 架构的目标。在投票应用内，我们可以运行一点类似于下面的代码，来执行后台任务： import dockerrun client = dockerrun.from_env() client.run(&quot;bfirsh/serverless-record-vote-task&quot;, [voter_id, vote], detach=True)...
         </description>
         <pubDate>Wed, 22 Jun 2016 16:22:51 +0000</pubDate>
-        <link>http://localhost:4000/2016-06-22-building-serverless-apps-docker/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-06-22-building-serverless-apps-docker/</guid>
+        <link>http://localhost:4000/2016-06-22/building-serverless-apps-docker/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-06-22/building-serverless-apps-docker/</guid>
       </item>
     
       <item>
@@ -280,8 +278,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           Closing General Session 的主题是 Moby Dock‘s Cool Hacks ； 从字面意思上看，这个主题的意思是“超萌码头酷黑客”的意思。我已经看到了关于最后一天开幕主题演讲的评论，说是“剑指商业”什么的；而我认为 Docker 从开始的第一天，无论它是否开源，它都是为了商业利益而已。话在说回到开源，Docker 只是完美的应用了开源软件这种实践而已；而且docker 把开源这种模式应用的如此成功，并在商业上也如此让人眼红和侧目，这也算是开源软件商业化登峰造极的一种极端性个案。个人认为开源无疑是在软件行业中做出爆款技术当之无愧的首选的实践方式。我在红帽碰到很多参与开源十几二十年的老黑客，他们不乏会表达关于开源纯洁性沦丧的抱怨；我对此也非常理解和认同。而我更认同开源可以对软件技术带来无比活力的这个积极的方面。 言归正传，小编我还是“模拟现场”播报一下大会闭幕主题演讲的盛况。这是大会的结束的 session，现场的人数明显的少于第一天开幕式的人。在十几分钟内，人们稀稀拉拉的进入了会场。会场中的座位大约还有一部分空位。美女Mano 和 黑客Kristie 作为主要演讲人上台。美女上台后先用手机自拍了几下。两个人开始宣布，Docker 大会之后举行为期一个月的黑客大赛，这是我们的传统，Docker 大会虽然今天会结束，而docer 黑客大赛将从今天开始。我们来请大家欣赏三个非常酷的黑客项目演示。 本次大会的录音点这里 http://www.ximalaya.com/32280565/sound/17388272 黑客演示1：微服务自毁平台 Jeff 登场。Jeff 开始讲述微服务的故事，我们都在试图让基础架构做到冗余，容所有的服务都冗余，让群集能够自愈；但是故障，断网，宕机还是会发生。我们所做的这些真的能够保证业务不宕机么，服务不终端么？你怎么能确认这一点？因此回归到故障的发生上吧？如果服务要出故障，请让它有规律的发生。请程序猿和 ops 都投入到故障处理的战斗中，以此为契机来优化和改造应用，让应用变的更加强壮。我们都听说过混乱猴子，而 Jeff 团队正式帮人们构建一堆这样的工具的人。 有一个思路是：如何让我的系统的服务出故障，如何主动的在系统中注入故障。我们需要一种特殊的编排工具来在系统中模拟和触发故障的发生。我用容器做工具平台来触发故障注入的动作。当然这个故障是在容器架构的微服务系统中触发这个动作。 Jeff 开始做这个 Demo。说：如果你的”网络没有故障，天下太平。“其实这很无聊的说，有木有？有木有？我现在开始用工具来注入 网络延迟的网络故障吧！ 。用一个基于策略的工具。配置一个网络故障模拟的策略，故障什么时间发生，发生多久。这里设计一个每10秒钟注入一次网络延迟故障提高到600ms 的故障。然后配置故障影响的范围，这里使用 Docker 的 lable 来做故障发生节点的选择的条件。符合标签的系统将受到这次故障影响。我们的这个故障模拟编排系统，帮您提前体验故障的发生。现在你看故障发生了，从这些容器里面 ping google 的网络延迟比之前大多了， 目前延迟到了600ms。希望你们能开始体验和使用这个而工具。 黑客演示2：Serverless 架构的应用不是梦 Ben 是大家在 Docker...
         </description>
         <pubDate>Wed, 22 Jun 2016 02:35:39 +0000</pubDate>
-        <link>http://localhost:4000/2016-06-22-closing-general-session-moby-docks-cool-hacks/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-06-22-closing-general-session-moby-docks-cool-hacks/</guid>
+        <link>http://localhost:4000/2016-06-22/closing-general-session-moby-docks-cool-hacks/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-06-22/closing-general-session-moby-docks-cool-hacks/</guid>
       </item>
     
       <item>
@@ -291,8 +289,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           看点：开场乌龟引起了喵星人大战，首次有吉祥物开启的科技盛会。 和往常一样 CEO 和 CTO 挑大梁将首日 keynote。 所罗门提出了 Docker 技术发展的三个核心方向和着眼点，并在每个方向上做了新技术发布。 1. 开发者体验提升， 正式发布 Docker for Mac/Windws 2. 编排能力的提升，正式发布 Docker 1.12 ，其中有四项能力提升；这是要废掉所有其他编排器的节奏啊~ 3. 运维体验提升，正式发布 beta.docker.com ；这是和公有云深度结合的产品，分为 AWS 和 Azure 两个模块。 一共有三个实景演示，都没有出现问题，演示很成功。 现场录音 点上面的播放键，播放整场录音。请注意中间的数秒钟乃至数十秒的中断是正常，请快进收听。 开场 屏幕上出现了乌龟开始做 demo，运行了一个容器。 猫咪大战，混乱了，猫星人入侵了。猫叫~~乱作一团··· 发生了什么？ dockercon16 吹起了号角。 乌龟再次出现在电脑上，运行了另外一个容器惊喜，这次是美妙的音乐。 调皮的乌龟折腾完了之后，主题曲想起来。4000多人的场子，大家很期待。 CEO Ben Golub 演讲 Ben Golub CEO 出场。 Today...
         </description>
         <pubDate>Mon, 20 Jun 2016 19:30:33 +0000</pubDate>
-        <link>http://localhost:4000/2016-06-20-dockercon-2016-d1-keynote/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-06-20-dockercon-2016-d1-keynote/</guid>
+        <link>http://localhost:4000/2016-06-20/dockercon-2016-d1-keynote/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-06-20/dockercon-2016-d1-keynote/</guid>
       </item>
     
       <item>
@@ -306,8 +304,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
 
         </description>
         <pubDate>Tue, 12 Jan 2016 04:05:46 +0000</pubDate>
-        <link>http://localhost:4000/2016-01-12-e4-b8-8b-e4-b8-80-e4-bb-a3-e5-ba-94-e7-94-a8-e4-b8-ba-e4-b8-ad-e5-bf-83-e7-9a-84-e5-b9-b3-e5-8f-b0-openshift/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-01-12-e4-b8-8b-e4-b8-80-e4-bb-a3-e5-ba-94-e7-94-a8-e4-b8-ba-e4-b8-ad-e5-bf-83-e7-9a-84-e5-b9-b3-e5-8f-b0-openshift/</guid>
+        <link>http://localhost:4000/2016-01-12/e4-b8-8b-e4-b8-80-e4-bb-a3-e5-ba-94-e7-94-a8-e4-b8-ba-e4-b8-ad-e5-bf-83-e7-9a-84-e5-b9-b3-e5-8f-b0-openshift/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-01-12/e4-b8-8b-e4-b8-80-e4-bb-a3-e5-ba-94-e7-94-a8-e4-b8-ba-e4-b8-ad-e5-bf-83-e7-9a-84-e5-b9-b3-e5-8f-b0-openshift/</guid>
       </item>
     
       <item>
@@ -317,8 +315,8 @@ China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁�
           新建库 建立一个用户名开头的库，如我的github用户名是 martinliu， 新建的库的名字为 martinliu.github.io ; 这个库将是存放web页面的。包括该域名下的站点的所有相关页码代码文件和相关css,图片等文件。 更新并上传新库 参考的命令如下： [bash] git clone https://github.com/martinliu/martinliu.github.io cd martinliu.github.io echo “Martin Liu’s Github Homepage” &amp;gt; index.html git add –all git commit -m “Initial commit” git push -u origin master [/bash] 打开浏览器测试你的网站，访问网址： http://martinliu.github.io ， 你已经可以看到你的初始化页码了。 Jekyll博客系统 Github网站上推荐使用Jekyll创建和管理这个博客系统。它是支持Markdown语法，不需要使用数据库，纯文本的静态网站和博客系统。使用它可以建立和管理一个风格美观，容易管理的网站，生成的网页可以上传到以上生成的网站库中。 安装Jekyll系统 我的测试系统：Fedora 23。操作步骤如下。 安装依赖的包和ruby环境 [bash] dnf install ruby ...
         </description>
         <pubDate>Sun, 10 Jan 2016 01:01:25 +0000</pubDate>
-        <link>http://localhost:4000/2016-01-10-e7-94-a8-jekyll-github-e5-bb-ba-e7-ab-8b-e9-9d-99-e6-80-81-e7-ab-99-e7-82-b9/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-01-10-e7-94-a8-jekyll-github-e5-bb-ba-e7-ab-8b-e9-9d-99-e6-80-81-e7-ab-99-e7-82-b9/</guid>
+        <link>http://localhost:4000/2016-01-10/e7-94-a8-jekyll-github-e5-bb-ba-e7-ab-8b-e9-9d-99-e6-80-81-e7-ab-99-e7-82-b9/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-01-10/e7-94-a8-jekyll-github-e5-bb-ba-e7-ab-8b-e9-9d-99-e6-80-81-e7-ab-99-e7-82-b9/</guid>
       </item>
     
       <item>
@@ -339,8 +337,8 @@ Arduino Project 1 blink LED from Martin on Vimeo.
 
         </description>
         <pubDate>Mon, 04 Jan 2016 16:00:59 +0000</pubDate>
-        <link>http://localhost:4000/2016-01-04-my-arduino-project-status/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-01-04-my-arduino-project-status/</guid>
+        <link>http://localhost:4000/2016-01-04/my-arduino-project-status/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-01-04/my-arduino-project-status/</guid>
       </item>
     
       <item>
@@ -351,8 +349,8 @@ Arduino Project 1 blink LED from Martin on Vimeo.
 
         </description>
         <pubDate>Fri, 01 Jan 2016 14:21:11 +0000</pubDate>
-        <link>http://localhost:4000/2016-01-01-vimeo-video-sharing-vs-youku-com/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016-01-01-vimeo-video-sharing-vs-youku-com/</guid>
+        <link>http://localhost:4000/2016-01-01/vimeo-video-sharing-vs-youku-com/</link>
+        <guid isPermaLink="true">http://localhost:4000/2016-01-01/vimeo-video-sharing-vs-youku-com/</guid>
       </item>
     
       <item>
@@ -363,8 +361,8 @@ Arduino Project 1 blink LED from Martin on Vimeo.
 
         </description>
         <pubDate>Tue, 29 Dec 2015 14:39:25 +0000</pubDate>
-        <link>http://localhost:4000/2015-12-29-54083/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015-12-29-54083/</guid>
+        <link>http://localhost:4000/2015-12-29/54083/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-12-29/54083/</guid>
       </item>
     
       <item>
@@ -375,8 +373,8 @@ Arduino Project 1 blink LED from Martin on Vimeo.
 
         </description>
         <pubDate>Tue, 29 Dec 2015 14:08:24 +0000</pubDate>
-        <link>http://localhost:4000/2015-12-29-nino-rota-main-title-the-godfather-waltz/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015-12-29-nino-rota-main-title-the-godfather-waltz/</guid>
+        <link>http://localhost:4000/2015-12-29/nino-rota-main-title-the-godfather-waltz/</link>
+        <guid isPermaLink="true">http://localhost:4000/2015-12-29/nino-rota-main-title-the-godfather-waltz/</guid>
       </item>
     
   </channel>

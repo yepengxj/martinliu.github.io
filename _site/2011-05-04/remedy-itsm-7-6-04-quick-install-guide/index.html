@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Remedy ITSM 7.6.04 套件快速安装</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Remedy ITSM 7.6.04 套件快速安装" />
+  
+
+   
+  <meta property="og:description" content="自从Remedy ITSM 7.6.03版本发布以后，Remedy ITSM套件有了一种全新的安装方式“预配置堆栈式安装”，这种安装方法简化了以前从ARS开始一个部件罗一个部件的安装方法，它将ITSM套件中的所有组件一次性的安装上去。下面讲具体该如何操作。 什么情况下使用这个安装方式？ A）POC的情况下 B）客户的生产环境满足下面的需求： • Microsoft Windows Server 2008 (64-bit) (Standard, Enterprise, or Datacenter) with Microsoft SQL Server 2008 (64-bit) (Standard or Enterprise) • Oracle Solaris 10 with Oracle 11g (64-bit) (Standard, Enterprise, or RAC) • Red Hat Enterprise Linux 5 (Update 5) (64-bit) with Oracle 11g...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/" />
+  <link rel="canonical" href="http://localhost:4000/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Remedy ITSM 7.6.04 套件快速安装" />
+  
+
+  
+  <meta name="twitter:description" content="自从Remedy ITSM 7.6.03版本发布以后，Remedy ITSM套件有了一种全新的安装方式“预配置堆栈式安装”，这种安装方法简化了以前从ARS开始一个部件罗一个部件的安装方法，它将ITSM套件中的所有组件一次性的安装上去。下面讲具体该如何操作。 什么情况下使用这个安装方式？ A）POC的情况下 B）客户的生产环境满足下面的需求： • Microsoft Windows Server 2008 (64-bit) (Standard, Enterprise, or Datacenter) with Microsoft SQL Server 2008 (64-bit) (Standard or Enterprise) • Oracle Solaris 10 with Oracle 11g (64-bit) (Standard, Enterprise, or RAC) • Red Hat Enterprise Linux 5 (Update 5) (64-bit) with Oracle 11g...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Remedy ITSM 7.6.04 套件快速安装</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on May 4, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><img src="http://media.cms.bmc.com/images/box_services_trio_compass.png" alt="" />自从Remedy ITSM 7.6.03版本发布以后，Remedy ITSM套件有了一种全新的安装方式“预配置堆栈式安装”，这种安装方法简化了以前从ARS开始一个部件罗一个部件的安装方法，它将ITSM套件中的所有组件一次性的安装上去。下面讲具体该如何操作。</p>
+
+<h2 id="section">什么情况下使用这个安装方式？</h2>
+
+<p>A）POC的情况下
+B）客户的生产环境满足下面的需求：
+• Microsoft Windows Server 2008 (64-bit) (Standard, Enterprise, or Datacenter) with Microsoft SQL Server 2008 (64-bit) (Standard or Enterprise)
+• Oracle Solaris 10 with Oracle 11g (64-bit) (Standard, Enterprise, or RAC)
+• Red Hat Enterprise Linux 5 (Update 5) (64-bit) with Oracle 11g (64-bit) (Standard, Enterprise, or RAC)
+• Microsoft Windows Server 2008 (64-bit) (Standard, Enterprise, or Datacenter) with Oracle 11g (64-bit) (Standard or Enterprise)
+Note: The BMC Remedy ITSM Suite Precon gured Stack installer supports only Unicode database servers</p>
+
+<h2 id="section-1">这种方式安装了什么组件？</h2>
+
+<p>BMC Remedy AR System server version 7.6.04
+ AREA LDAP Directory Service Authentication
+ ARDBC LDAP Directory Service Data Access
+ Web Services Plugin
+ Simple Network Management Protocol (SNMP) Configuration
+ Full Text Search (FTS) Configuration
+ Approval Server
+ Assignment Engine
+ Email Engine
+ Flashboards
+ Mid-Tier
+ BMC Remedy AR System clients
+ BMC Remedy User
+ BMC Remedy Alert
+ BMC Remedy Developer Studio
+ BMC Remedy Data Import
+ BMC Remedy Migrator
+ Crystal Reports
+ ODBC
+ BMC Atrium Core
+ BMC Atrium CMDB version 7.6.04
+ Product Catalog version 7.6.04
+ Atrium Impact Simulator version 7.6.04
+ BMC Remedy ITSM Suite
+ BMC Remedy Asset Management version 7.6.04
+ BMC Remedy Change Management version 7.6.04
+ BMC Remedy Incident Management version 7.6.04
+ BMC Remedy Problem Management version 7.6.04
+ BMC Remedy Service Desk 7.6.04
+ BMC Service Level Management version 7.6.04
+ BMC Remedy Knowledge Management version 7.6.0
+如果你真的不需要安装以上所有组件，请不要使用此安装方法。</p>
+
+<h2 id="section-2">需要什么硬件？</h2>
+
+<p>System requirements for Microsoft Windows and UNIX®:
+• Minimum 12 GB free disk space for the installation directory
+• Minimum 8 GB free space for local database and remote database
+• (For Red Hat Enterprise Linux® only) Minimum of 2.5 GB free space in the /tmp directory or /tmp file system.
+• (For Oracle® Solaris only) Minimum of 2.5 GB free space in the /var/tmp directory or the file system.
+• 3 GHz dual processor
+• Minimum 3 GB RAM during installation; 8 GB RAM during runtime; 8 GB main memory for optimal performance
+• (When 6 GB UNIX systems are used) Make sure that a minimum of 6 GB Swap Space is configured within the system.
+如果您的硬件真的低于以上需要，请不要使用此安装方法，否则安装完之后系统可能不能正常运行。</p>
+
+<h2 id="section-3">需要什么人参与？</h2>
+
+<p>需要操作系统管理员和数据库管理员参与
+以Linux+Oracle为例，可能需要如下环境变量
+[bash]
+export ORACLE_BASE=/u01/app/oracle
+export ORACLE_SID=remedy
+export ORACLE_HOME=/u01/app/oracle/product/11.2.0/dbhome_1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
+export NLS_LANG=en_US.UTF8
+export LANG=en_US.utf8
+export PATH=$PATH:$ORACLE_HOME/bin
+[/bash]</p>
+
+<h2 id="section-4">需要什么安装文件？</h2>
+
+<p>以Linux+Oracle的安装为例，需要如下文件：</p>
+
+<p>linux.x64_11gR2_database_1of2.zip
+linux.x64_11gR2_database_2of2.zip
+jdk-6u25-ea-bin-b03-linux-amd64-27_feb_2011.bin
+BMCRemedyITSMSuitePreconfiguredStack7.6.04.Linux.tar.gz</p>
+
+<h2 id="section-5">需要安装多长时间？</h2>
+
+<p>大约1.5个小时左右，是的没有夸张，这个时间是在一个DELL E6400（64位，8GB内存）的笔记本上测得的，如果你有更好的硬件，相信可以更快，这应该是史上最快的Remedy ITSM套件安装速度，如果你也成功通过此方式安装，请留下评论留下下你的安装时间和系统配置情况。</p>
+
+<h2 id="section-6">参考以下操作步骤</h2>
+
+<p>安装之前需要根据网卡的MAC地址先申请一个Lic，接着基本上都是点Next，即可完成安装
+[imagebrowser id=8]</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ARS, ITSM, remedy, 安装
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Remedy+ITSM+7.6.04+%E5%A5%97%E4%BB%B6%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85+http://localhost:4000/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2011-05-04/remedy-itsm-7-6-04-quick-install-guide/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2011-04-10/let-ubuntu-fly/" data-toggle="tooltip" data-placement="top" title="让Ubuntu飞一会儿">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2011-05-07/let-remedy-ars-fly-2/" data-toggle="tooltip" data-placement="top" title="让Remedy飞一会">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
