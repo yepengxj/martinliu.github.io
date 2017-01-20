@@ -59,12 +59,12 @@
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://localhost:4000/page22/" />
-  <link rel="canonical" href="http://localhost:4000/page22/" />
+  <meta property="og:url" content="https://martinliu.github.io/page22/" />
+  <link rel="canonical" href="https://martinliu.github.io/page22/" />
   
 
   
-  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
   
   
 
@@ -82,7 +82,7 @@
   
 
   
-  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
   
 
 </head>
@@ -100,7 +100,7 @@
         <span class="icon-bar"></span>
       </button>
       
-        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
       
     </div>
 
@@ -160,7 +160,7 @@
 	
 	<div class="avatar-container">
 	  <div class="avatar-img-border">
-	    <a href="http://localhost:4000 ">
+	    <a href="https://martinliu.github.io ">
 	      <img class="avatar-img" src="/img/head-200-200.jpg" />
 		</a>
 	  </div>
@@ -183,25 +183,23 @@
       <div class="posts-list">
   
   <article class="post-preview">
-    <a href="/2012-07-25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
-	  <h2 class="post-title">如何把CloudStack的测试环境推到重来</h2>
+    <a href="/2007-12-14/opennms-monitoring-ms-windows/">
+	  <h2 class="post-title">如何用通过OpenNMS监控Windows 服务器</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 25, 2012
+      Posted on December 14, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。
-
-
+        OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。第一种情况：Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动发现还会发现这个机器上的服务。ICMP是肯定会有的，还可能有http等其他的服务；这些服务也会被定时的轮询，如果某个服务停了，这个节点的整个的可用性受到影响。这种情况下该节点的所有服务的响应时间会被OpenNMS收集并保持历史数据。第二种情况：安装了SNMP服务。先说一下windows服务的安全性，默认情况下public是默认的只读密码；为了更加安全可以配置其他的只读密码，并指定某些特定的IP才能访问这个节点。这个策略在Windows的觉策略中很容易实现，或者说建议使用域控制器来管理这个策略，比较方便。假定OpenNMS能访问该节点的snmp服务的情况下。这些数据会增加：SNMP Attributes；在选择了资源图后，可以看到snmp的节点数据和接口数据。进入后可以看到，其实收集 的是一个tcp／ip接口上基本的信息：流量，连接数，丢包，错包等。个人认为流量是个最有用的数据，特别是对于一些简单的web/ftp服务器也就够用了。第三种情况：我们需要监控到操作系统的性能数据cpu/disk/RAM等。就需要安装一个snmp代理，这个代理可以提供这些信息，opennms才能通过snmp协议收集这些数据。需要到下面网址下载一个免费的snmp代理，当然这个产品也有收费版本：http://www.wtcs.org/informant/download.htm 这个代理很小需要在windows机器上安装一下。默认情况下OpenNMS的对windows采集模板中包含了对cpu/disk/ram等数据的采集，等到下一次OpenNMS在采集这个机器的时候相关数据就会被显示在节点snmp数据下面。这里是通过这个免费的snmp代理能采集到的数据：/Program Files/SNMP Informant/standard/mibs/informant-std-tree.txt–standard(1.3.6.1.4.1.9600.1.1) +–logicalDiskTable(1)   +–logicalDiskEntry(1) [lDiskInstance]   +– r-n InstanceName lDiskInstance(1) +– r-n Gauge32 lDiskPercentDiskReadTime(2) +– r-n Gauge32 lDiskPercentDiskTime(3) +– r-n Gauge32 lDiskPercentDiskWriteTime(4) +– r-n Gauge32 lDiskPercentFreeSpace(5) +– r-n Gauge32 lDiskPercentIdleTime(6) +– r-n Gauge32 lDiskAvgDiskQueueLength(7) +– r-n Gauge32 lDiskAvgDiskReadQueueLength(8) +– r-n Gauge32 lDiskAvgDiskWriteQueueLength(9) +– r-n Gauge32...
         
         
-          <a href="/2012-07-25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-12-14/opennms-monitoring-ms-windows/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -210,7 +208,7 @@
     <div class="blog-tags">
       Tags:
       
-        3.02, 6.0.201, cloudstack, Hypervisor, KVM, xenserver, 安装, 手册, 配置
+        MS Windows, OpenNMS
       
     </div>
     
@@ -218,22 +216,25 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-15/what-are-zero-clients-and-how-are-they-different-from-thin-clients/">
-	  <h2 class="post-title">What are 'zero clients,' and how are they different from thin clients?</h2>
+    <a href="/2007-12-13/opennms-yum-install/">
+	  <h2 class="post-title">OpenNMS的Yum的安装方式，安装简单了很多</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 15, 2012
+      Posted on December 13, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        称之为“无状态”的零客户机即将袭来，可能占据主要市场地位。与瘦机相比主要是更节约管理成本。加入你用的是Windows嵌入式系统的话，那么你也会收到打补丁和操作系统配置变更的烦恼。加入你用Wyse Xenith的话，那么这个世界一下就变得如此简单了，由于它必然会用到一种虚拟桌面方案，那么XenDesktop就是首选了，其实XenDesktop里面早已经集成了Wyse零客户机的管理模块，所有的零客户机就在开机的过程中，就会自动做到系统底层可能有的升级或者补丁。
+        OpenNMS网站的安装文档：http://www.opennms.org/index.php/Installation:Yum
+
 
         
+        
+          <a href="/2007-12-13/opennms-yum-install/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -242,7 +243,7 @@
     <div class="blog-tags">
       Tags:
       
-        Wyse, XenDesktop, Xenith
+        OpenNMS, Yum
       
     </div>
     
@@ -250,25 +251,22 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-11/e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/">
-	  <h2 class="post-title">如何测试 XenApp Mobility Pack</h2>
+    <a href="/2007-12-07/zenoss-21-beta/">
+	  <h2 class="post-title">破门而入Zenoss总部–Break in at Zenoss HQ</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 11, 2012
+      Posted on December 7, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        安装XenApp6.5，下载XenApp6_5MobilityPack1_0.zip；解压缩之后是三个文件，我习惯于先打那个补丁包，然后在安装CitrixGroupPolicyManagement_x64.msi文件（我的测试系统是64位的）。
-
+        Zenoss 2.1 Beta版有什么新功能，看了这部三分钟的电影您就能知道了：http://content.screencast.com/media/c01d3364-2df0-4ccd-90f8-964f9268c326_ee342243-dec3-4aaf-bb9e-c82f06220438_static_0_0_Zenoss Beta 2_1 Compromised.wmv这部电影使用了碟中谍的背景音乐，和星际的片尾字幕显示。为了方便大家的观看，下面是片中部分台词赶快进入看看能找到什么？Zenoss在那，它在哪？就在这，打开门来看看是否有一Zenoss2.1 bate正在运行？快来看看这什么东西，干嘛的？这什么玩意？我不确定我能做这事！这是什么？看上去是一个地图么？Google Map，这是Google Map么？对啊，是Google Map～这些绿色的圆点是什么？来点击一下看看～看上去像是显示了一个数据中心之类的东西！Locations～哦!你可以拖拽这些东西？是的～这看上去，好像布局是可以配置的？哦 My god！哦你可以单击来选择一个最喜欢的布局？是啊，来看看～哇哦～～看这些黄色的按钮，他们是图标还是按钮？来点击一下看看先！这就来到了事件窗口了～来看看这个网络map怎么样？这些玩意还真的是浮动的！！非常cool！这个小企鹅是个啥？这个可能是个Linux服务器～哦，你可以告诉我windows服务器是啥，那个是windows服务器的图标？哦 My God！！！你可以点击之后看到一个小圈在上面。哇！！是在是cool！！我喜欢它！！在拍摄这个电影期间没有Zenoss的员工受伤，如需更多zenoss Beta 2.1的信息请联系我们www.zenoss.com观后感：一个貌似比较无知比较神经质傻哥们对Zenoes的新特色进行了一番探索，一个开发人员尝试给他做了一个演示。从一定程度上看出Zenoss开发人员比较兴奋，从侧面可以看出他们比较happy比较喜欢他们的工作，喜欢这个产品。我想这可能是一个产品创造性的主要源泉。开源软件人的创造性大于商业软件，商业软件是金钱驱动的，是商业；我觉得商业软件的开发人员很难把自己的创作性投入产品中，起码在中国是这样。关于Zenoss 2.1，废话少说最快的体验方法莫过于直接使用它。一种不需要安装的方式是直接下载安装好的VMWare虚拟机。你只需要到VMWare下载一个VMWare Player，在下载这个Zenoss的虚拟机压缩文件就成：http://nchc.dl.sourceforge.net/sourceforge/zenoss/zenoss-2.1.1-x86.vmware.zip下载并且解压缩后您就可以使用了。它是使用DHCP的在启动之后就能在root登录的console上看到登录的网址，请登录端口8080的那一个。登录密码是admin/zenoss，have fun～～～功能点评：先请看：http://www.zenoss.com/community/code/zenoss-2.1/zenoss-core-2-1 文中提到的电影下载自本页。我仅仅感受了一下界面并没有深入功能。就界面上讲，我觉得他们做的非常好。界面上的每一块基本上都是可以伸缩和隐藏的，好像在非IE的浏览器里显示的更好。主页上的Dashboard是可以配置的象MSN Space的页面一样的定制方式。Google Map的引入使人眼前一亮，我曾经在OpenNMS，Cacti，Unicenter中尝试Map功能;Zenoss在这个功能上创意和功能都大大超出了其他产品。他的网络地图怎一个cool字了得，做到这个份上对于3层网络拓扑图来说算是一种很高的境界了。我准备使用的是它的自动发现功能和对JXM监控的功能。如果您对这个软件有什么心得的话别告诉我。后记：我仔细看了一下Zenoss.com网站，发现两年之内变化还是蛮大的。最大的方面是在它提供的技术支持和服务上。Zenoss Enterprise Edition的 Zenoss Subscriptions定价从66$到150$不等，同时还提供了培训、实施和定制等服务。前一段时间看到的相关新闻中提到了Zenoss可以列入10大最赚钱的开源软件之一（网管类）。他们的Zenoss很happy，他们公司也很happy。还真是鱼和熊掌兼得。
 
         
-        
-          <a href="/2012-07-11/e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -277,7 +275,7 @@
     <div class="blog-tags">
       Tags:
       
-        6.5, Android, Citrix, IOS, Mobility, XenApp
+        Zenoss
       
     </div>
     
@@ -285,26 +283,23 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-10/32gb-xenserver-publish-28-xp-vd/">
-	  <h2 class="post-title">32GB测试笔记本电脑成功发布28个XP虚拟桌面</h2>
+    <a href="/2007-11-08/glpi-features-list/">
+	  <h2 class="post-title">GLPI资产管理系统－－功能列表</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 10, 2012
+      Posted on November 8, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        一直想搞清楚，这台强悍的测试机到底能够撑得住多少个虚拟桌面。今天终于测了一下，稍微满足了一下子好奇心。
-底层装的是最新版的XenServer6.02，模板机XP做了一些优化，调整为动态内存到1024~2048，其实可以调整到更小，如512~1024，下次在测试一下这个方案，不过那样可能登录速度和登陆后桌面点击的反应会有一定的折扣；本次不考虑那么多，只是想看看这个本本到底能够跑多少虚拟机。存储使用的是NAS存储，桌面是发布的专有模式桌面。有图有真相，下面的截屏供参考：
-
-
+        常规* 多用户管理多种用户认证方式（local, LDAP, Active Directory, Pop/Imap, CAS)* 权限系统* 分页系统* 多语言支持（包括中文的14种语言支持）* 搜索模块显示字段列表配置* pdf和cvs格式导出数控* SQL格式保存和恢复* 数据XML格式导* 出可配置的下拉框系* 统更新检查* UTF8界面* HTML4.0.1兼容资产清单* 从OCS Inventory NG导入资产数据* 计算机资产清单管理以及与设备的连接关系，TOC总拥有成本* 管理显示器资产清单管理以及与计算机的关联关系* 网络设备资产清单管理以及和设备之间的连接(IP, Mac adresses, VLANs…).* 打印机资产清单管理以及和计算机的连接关系，耗材，以及耗材使用的阀值报警* 其他外设的资产清单(scanners, graphical tables…)，管理和计算机的连接关系* 软件资产清单管理，许可证和过期时间管理安装物理位置（房间，楼层、、）分配* 硬件商业和财务信息管理（采购，合同等、、）* 管理硬件的状态* 与外部其他应用的接口管理* 资产清单信息的更改历史管理跟踪* 跟踪资产清单中各种组件的故障请求单Final userFinal user frontend for intervention demand Mail tracking of the intervention demand feature...
         
         
-          <a href="/2012-07-10/32gb-xenserver-publish-28-xp-vd/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-11-08/glpi-features-list/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -313,7 +308,7 @@
     <div class="blog-tags">
       Tags:
       
-        Citrix, XenDesktop, xenserver
+        GLPI
       
     </div>
     
@@ -321,20 +316,20 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-09/e5-8e-8b-e5-8a-9b-e6-b5-8b-e8-af-95-e5-b7-a5-e5-85-b7/">
-	  <h2 class="post-title">压力测试工具</h2>
+    <a href="/2007-11-07/glpi-features-list2/">
+	  <h2 class="post-title">GLPI资产管理系统－－系统简介</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 9, 2012
+      Posted on November 7, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        今天终于抽时间把Citrix的压力测试工具搞了一下，整理了一个安装和配置视频供大家参考。希望明天到客户现场的测试一切顺利。貌似Edgesight的数据管理和分析功能还是蛮强的，能够从底层和虚拟桌面中收集各种性能数据，从而对系统的整个容量和性能做评估；这真的是一个测试和生产环境中的必须的工具。往往上线后的一些性能问题，其实都是系统设计和规划导致的，必须有一定的测试，分析和的时间，从而避免上线后突发问题的状况。想当初386，286年代，每台电脑出厂前要烤机n小时，其实到虚拟桌面环境中来也是一样的。大家有空还需好好看下这个利器！
+        GLPI是一个信息资源管理器。你可以用它来给你公司建立一个资产清单（计算机，软件，打印机、、、）数据库。它的增强的功能可以是管理员的日常工作简单化，例如带有邮件提醒功能的工作跟踪系统等。它最首要的功能包括：1）所有技术资源精确的资产清单。资产的所有属性将被存储在同一个数据中。2）管理流程、维护工作的历史。这是一个动态的应用，它直接连把需要发出支持请求的用户和技术人员连接起来。（注：上文来自http://www.glpi-project.org/spip.php?article43）在ITpub上发过一个非常不错的帖子，请点击：http://www.itpub.net/762653.html 这个人是今年四月在他们公司使用的总结贴，对该项目的主要功能介绍的比较全面。本人同期发布的文章：GLPI –IT资源生命周期管理
 
         
         
@@ -345,7 +340,7 @@
     <div class="blog-tags">
       Tags:
       
-        Edgesight, Edgesight for load testing, XenApp, XenDesktop
+        GLPI
       
     </div>
     
@@ -353,27 +348,27 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-09/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85es-for-load-testing-e5-92-8c-e5-bd-95-e5-88-b6-e5-8e-8b-e5-8a-9b-e8-84-9a-e6-9c-ac/">
-	  <h2 class="post-title">如何安装ES for load-testing和录制压力脚本</h2>
+    <a href="/2007-09-06/zenoss-20-install/">
+	  <h2 class="post-title">Zenoss 2.0 安装失败：）</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 9, 2012
+      Posted on September 6, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        如何安装ES for load-testing和录制压力脚本
-[kml_flashembed movie=”http://cdn1.martinliu.cn/wp-content/uploads/2012/07/ES-for-loadtesting.swf” height=”400” width=”580” /]
-本视频内容包括：
+        今天是在没有心情搞了。快被Zenoss的网站给搞糊涂了。我准备好了一个Suse10的机器来装Zenoss。首先想到的是上http://zenoss.com在下载的页面，我有点差异了，怎么系统兼容表里命名写这有suse10的rpm包，而下载连接的列表里确只有redhat和centos的安装包，奇怪！！！！接着看看文档把，发现新的希望：http://www.zenoss.com/community/docs/install-guides/install-on-suse-10/ 看看这文档，乍一看很不错啊，写的步骤非常清晰，大喜。没看完我有纳闷了，他明明也说Zenoss-2.0.0-0.sles10.i386.rpm这样一个安装文件啊。算了去google搜一下把，看到的帖子都来自zenoss的论坛啊，发现满世界的人都在找这个文件，哦，地球人都知道啊 ！还是不死心，去sourceforge搜，结果一样，也没有。我昏啊，你们明明写这支持，还有安装文档，为啥就不提供一个下载的连接呢？？？Zenoss的人你们都脑子进水了么！！呵呵第一次这么说开源的人，这次真的是无奈得很，以前把这种信息的搜寻和troubleshooting做为一个乐趣，现在真的没这样耐心了。最终zenoss的安装，宣告失败！！ :-)
+
+一晃三个月都没更新这个blog了！！！～～～！！！！继续开源ing
 
 
         
         
-          <a href="/2012-07-09/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85es-for-load-testing-e5-92-8c-e5-bd-95-e5-88-b6-e5-8e-8b-e5-8a-9b-e8-84-9a-e6-9c-ac/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-09-06/zenoss-20-install/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -382,7 +377,7 @@
     <div class="blog-tags">
       Tags:
       
-        Citrix, Edgesight, XenDesktop, xenserver
+        Zenoss
       
     </div>
     
@@ -390,25 +385,26 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-06/e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/">
-	  <h2 class="post-title">自定义服务模板无法创建虚拟机</h2>
+    <a href="/2007-06-21/how-to-install-hyperic-hq-on-opensuse-102/">
+	  <h2 class="post-title">How to install  hyperic-hq on openSuse 10.2</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 6, 2012
+      Posted on June 21, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        今天测试发现，使用自定义的服务模板无法创建虚拟机实例。但是默认安装的两个服务模板能够正常创建虚拟机。
+        	
+  * 
 
 
         
         
-          <a href="/2012-07-06/e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-21/how-to-install-hyperic-hq-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -417,7 +413,7 @@
     <div class="blog-tags">
       Tags:
       
-        Citrix, cloudstack, xenserver, xentools
+        Hyperic HQ, opensuse
       
     </div>
     
@@ -425,25 +421,23 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">
-	  <h2 class="post-title">[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</h2>
+    <a href="/2007-06-15/ocsng-inventory-windows-linux/">
+	  <h2 class="post-title">OCSNG 代理程序生成的清单扫描信息</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 5, 2012
+      Posted on June 15, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud
-
-
+        * Linux 硬件是下面的Windows机,软件是openSuse10.2运行在VMWare中.&amp;lt;table cellpadding=&quot;0&quot; width=&quot;95%&quot; style=&quot;color: #9894b5&quot; border=&quot;0&quot; align=&quot;center&quot; &amp;gt;&amp;lt;tr &amp;gt; ** Information ** ** Value ** &amp;lt;/tr&amp;gt;&amp;lt;tr &amp;gt; Tag LiuZheng &amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&amp;lt;table cellpadding=&quot;4&quot; width=&quot;100%&quot; align=&quot;center&quot; &amp;gt;&amp;lt;tr &amp;gt; **PROCESSOR(S)** &amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt;&amp;lt;table cellpadding=&quot;0&quot; width=&quot;95%&quot; style=&quot;color: #9894b5&quot; border=&quot;0&quot; align=&quot;center&quot; &amp;gt;&amp;lt;tr &amp;gt; ** Type ** ** Processor Speed (Mhz) ** ** Number** &amp;lt;/tr&amp;gt;&amp;lt;tr &amp;gt; Intel(R)...
         
         
-          <a href="/2012-07-05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/" class="post-read-more">[Read&nbsp;More]</a>
+          <a href="/2007-06-15/ocsng-inventory-windows-linux/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -452,7 +446,7 @@
     <div class="blog-tags">
       Tags:
       
-        cisco, Citrix, Hyper-V, Microsoft, XenDesktop, xenserver
+        inventory
       
     </div>
     
@@ -460,22 +454,25 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-05/e4-bd-bf-e7-94-a8iso-e6-96-87-e4-bb-b6-e5-ae-89-e8-a3-85-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-ae-9e-e4-be-8b/">
-	  <h2 class="post-title">使用ISO文件安装虚拟机实例</h2>
+    <a href="/2007-06-15/how-to-install-ocsng-101-on-opensuse-102/">
+	  <h2 class="post-title">How to install OCSNG 1.0.1 on OpenSuse 10.2</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 5, 2012
+      Posted on June 15, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        CloudStack安装完毕之后，第一件事情就是安装虚拟机。使用Apache做为ISO虚拟机的下载站点，你可能会遇连接被拒绝的错误。这是由于Apache服务器默认没有iso这个mime类型，iso文件被复制到/var/www/html之后，往往权限不对，为了测试可以直接chomd 777一下。通过ISO作为启动模板安装虚拟机的时候也发现Ubuntu 10.04 server版创建虚拟失败，连卷都没有创建出来，创建windows xp虚拟正常，ubuntu的问题原因不祥。有空研究一下。
+        下面我将描述如何安装OCSNG服务器和客户端.服务器的安装在openSuse Linux中,文中将提到Linux和Windows代理的安装方法.最终能在界面中看到两个节点的清单信息,不过只有Linux的哪个会每天更新.This article is talking about how to install OCSNG 1.0.1 on a openSuSE 10.2 system.
+
 
         
+        
+          <a href="/2007-06-15/how-to-install-ocsng-101-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
         
       </div>
     </div>
@@ -484,7 +481,7 @@
     <div class="blog-tags">
       Tags:
       
-        Citrix, cloudsatck, iaas, xenserver
+        OCSNG, opensuse
       
     </div>
     
@@ -492,31 +489,253 @@
    </article>
   
   <article class="post-preview">
-    <a href="/2012-07-05/upload-iso-install-os/">
-	  <h2 class="post-title">在CloudStack上如何上传ISO和安装系统</h2>
+    <a href="/2007-06-15/e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/">
+	  <h2 class="post-title">开源IT管理工具大全之All in one虚拟机</h2>
 
 	  
     </a>
 
     <p class="post-meta">
-      Posted on July 5, 2012
+      Posted on June 15, 2007
     </p>
 
     <div class="post-entry-container">
       
       <div class="post-entry">
-        上传操作系统ISO到CloudStack服务器上，是一个简单的过程。为了图省事，我在管理服务器上搭了iso下载服务器。首先保证本机安装了httpd服务，这个apache的安装包，通常是操作系统自带的，没有的话yum install httpd 一下；之后 service httpd restart一下，保证http服务正常。之后要修改一下/etc/mime.types文件加入一行：
-[shell]
-# MIME type                                     Extensions
-none/none                                       iso
-[/shell]
-再次重启httpd服务。
-复制ISO文件到apache服务的默认路径下面/var/www/html/
-在浏览器里面测试一下看看上传的iso文件是否能够下载http://192.168.10.15/MS_zh-hans_windows_xp_professional_with_service_pack_3_x86_cd_x14-80404.iso
-CloudStack支持HTTP共享目录的方式复制ISO文件，ISO文件被管理服务器下载到它的secondary存储中。
-登录CloudStack界面，使用模板管理，添加一个ISO。如下图所示
+        我做开源工具测试时,90%以上是在VMWare虚拟机中实现的,本人比较懒一直没有学习Xen虚拟机的用法,等下次吧,一等要彻底开源是我的一个梦想呵呵!说说这个All in One虚拟机的想法,我只是想把所有的我熟悉的工具都安装和配置在一个虚拟机里,这样当有人需要给做Demo的时候,我可以很快的做一个分享.如果有朋友感兴趣的话,我可以刻盘他.总的来讲希望能分享一下我的学习成果给大家.第一步:安装虚拟机这个虚拟机我不像使用很多的Snapshoot,我以前是这么做的,从一个基础的OS发出许多分支到不同的工具;这样做的缺点有二:1)特别占磁盘空间;2)不能同时访问多个系统.我选择的Linux是Open Suse Linux 10.2;Suse的包管理对我来说真的很方便,从安装DVD上用Yast可以方便安装各种软件,无须考虑包之间的依赖性问题.我选择的是最小图形化系统安装,安装完之后,vmdk文件的大小好像是2GB多.接下来安装的是所有的必须的包,大致如下:Apache,Perl,MySQL,PostgreSQL,rddtool,net-snmp,php,gcc,Kernel-source(for vmware tools)…等安装完之后用chkconfig on 命令设置需要自动启动的服务;然后把apache等服务逐个启动一下验证是否工作正常.然后安装的是VMWare tools,这个好像也不是必须,不过还是装上比较好,方便虚拟机和host机共享文件.我的虚拟机的版本是5.5.3workstation版本.第二步:安装各种开源软件下面可能会是一个很长的change log1. 安装OpenNMS 1.3.2 安装方法 设置了opennms的自动启动,还没有设置tomcat5.5.23的自动启动.2.安装Cacti **0.8.6j **安装方法, 使用的poller.php,尝试安装cactid,安装失败,原因可能是OpenSuse10.2好像没有net-snmp lib包. 暂时不安装cactid3.安装OCSNG 1.0.1 安装方法4.安装 hyperic-hq 3.0.4-389 安装方法, 2007-6-21th5.安装 OTRS 2.2.1-1 安装方法很简单，执行rpm安装既可, 2007-7-28th
 
-上传iso文件成功之后，就可以使用实例管理，增加一个实例，开始安装操作系统了。安装操作系统的过程忽略。当看到你建立的实例为运行状态后，点击控制台图标， 在新弹出的console窗口中，我们就可以看到windows的安装画面了。
+        
+        
+          <a href="/2007-06-15/e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-14/how-to-install-cacti-on-opensuse-102/">
+	  <h2 class="post-title">How to install Cacti on OpenSuse 10.2</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 14, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        1.Download Extract the distribution tarballSuse:/opt # wget http://www.cacti.net/downloads/cacti-0.8.6j.tar.gzSuse:/opt # tar zxvf cacti-0.8.6j.tar.gz2.Create the MySQL database:Suse:/opt # mysqladmin –user=root create cacti3.Import the default cacti database:Suse:/opt/cacti-0.8.6j # mysql cacti &amp;lt; user=”root”&amp;gt; GRANT ALL ON cacti.* TO cactiuser@localhost IDENTIFIED BY ‘cacti’;Query OK, 0 rows affected (0.03 sec)mysql&amp;gt; flush privileges;Query OK, 0 rows affected...
+        
+        
+          <a href="/2007-06-14/how-to-install-cacti-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cacti, opensuse
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-12/e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/">
+	  <h2 class="post-title">建立一个开源企业</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 12, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        需求分析如果你开一个公司的话，如果你的公司需要提供人们某些在线服务的话，如果有的office 需要200人同时上网工作的话，如果您在在线业务需要三层结构的话，如果您的服务器需要7×24小时监控的话，如果您的ITsupport工程是需要同时 照顾50个服务器和200个最终用户的话，如果您的企业随时收到黑客的攻击的话、、、、、、挑战如果您是公司的总裁或者CTO的话，试想您将如何为公司节约成本？如果建立一个可管理的基础架构？如果保证IT满足业务的需求？如果相应各种IT维护需求？如果降低企业的运行维护成本？、、、、、、开源领域里的可选组件如下外界链接设备
+
+
+        
+        
+          <a href="/2007-06-12/e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Enterprise, opensource
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-09/go-open-sourcego-vyatta-network/">
+	  <h2 class="post-title">Go Open Source,GO! Vyatta开源软件挺进网络硬件领域</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 9, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        这是一个比较新的产品，提供开源的软件路由的解决方案；他们的目标直指Cisco这些大牌网络硬件厂商。它能简单的安装和运行在32bit的普通计算机硬件上，实现路由器的几乎所有功能；能支持的硬件平台和路由协议还真不少，请查看 Datasheet；下载 网址在VMWare中安装了一下发现它可以完全满足我需求：1）在公司中办公网络建立一个隔离的测试网。2）测试网中提供DHCP,DNS服务3）提供NAT,Firewall4）安装简单，硬件需求低准备在公司实际环境中安装测试，安装和配置信息待续。现在我正在Vyatta Router后面的小网内更新这个Blog。上午的安装过程如下：（硬件准备）测试机一台 Dell Gx620，主板上带Intel的内置网卡一块TP-LINK TG-3269C，网线若干（网络环境）在一台办公网的机器上，寻找一个未使用的IP地址，这个地址会分配给Router的Internet网卡上；然后运行 ipconfig /all 记录下默认网关、默认DNS和子网掩码，这些信息会配置到Router上。（安装过程）
+
+
+        
+        
+          <a href="/2007-06-09/go-open-sourcego-vyatta-network/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Network, swithch
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-07/core-business-hp-ibm/">
+	  <h2 class="post-title">谁来关心核心业务系统</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 7, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        注:本文是我的处女作呵呵,发布在”网管员世界” 三月B刊上,原文如下:
+
+
+        
+        
+          <a href="/2007-06-07/core-business-hp-ibm/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Enterprise
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-01/there-is-the-easiest-way-to-run-it-management-tool/">
+	  <h2 class="post-title">There is the easiest way to run IT management tool</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 1, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        If you are not a Linux guru, windows is the OS you can use only. It does not matter. You could easily try it on your Windows Laptop probably. Since VMware Player is free for using, and there are lots of VMware applications on the internet. So, you just download...
+        
+        
+          <a href="/2007-06-01/there-is-the-easiest-way-to-run-it-management-tool/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        VMWare
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-01/top-10-nsm-tools/">
+	  <h2 class="post-title">[转]10大优秀开源网络管理工具</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 1, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        转载ITmanagement的一个文章；全文的部分翻译。个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：click Here 
+
+
+        
+        
+          <a href="/2007-06-01/top-10-nsm-tools/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GroundWork, Hyperic HQ, Nagios, OpenNMS, OpenQRM, Zenoss
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-30/hyperic-hq-testing/">
+	  <h2 class="post-title">Hyperic HQ小测手记</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 30, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        HQ的网站是一个显的非常商业化的网站；看上去制作的比较精良也比较专业。从HQ的官方文档（好像没找到pdf手册）中看出它能监控的东西还真的非常多，无论是商业的软件还是开源的都有一大串的matrix；他们在被监控的及其上是需要安装和运行代理的。所以从这一点上讲和商业软件也没有什么区别，总之看的数据多应该比较好，不过数据收集的多有时候会给监控对象代理太重的workload。如何安装下载HQ\hyperic-hq-installer-3.0.4-389-x86-linux从HQ的网站。这个压缩文件包含：安装程序，服务器端程序（好像包括一个内嵌的PostgreSQL数据库），代理程序，服务期端shell程序，JRE。BTW:服务器端和代理都是Java程序，如果自己配置好JRE的话可以下载不包含JRE的安装包。Windows上的代理包是一个zip文件，为了方便我都下载的含有JRE的安装包。由于是纯Java的应用所以服务器端和代理端看似好像都没有任何依赖性要求，只是需要在服务器端安装xorg-x11-libs包，否则不能正常绘图，看不到图形。在Linux下的安装过程大致如下。mkdir /opt/hquseradd hq -G root -d /opt/hqsu hqtar zxvf hq.tgzcd hyperic-hq-installer/./setup.sh/opt/hq/server-3.0.4/bin/hq-server.sh start注意最好建立一个新的用户为HQ，服务期端本身需要被非root用户安装和启动。另外代理和服务器端都需要特殊的两个端口通信，所以安装完之后必须停止或者配置防火墙；否则不能访问服务器，服务器也不能和代理通信。启动代理之前需要配置好防火墙。试用：总体说HQ的安装和配置都是非常简单的，不过他的Web界面更是简洁。当代理启动了之后，会自动出现在Auto-Discovery下面，点击Add Resource按钮将它变成一个正式的监控对象。默认的情况下，代理会收集一定数量的监控指标；大概是可收集数量的20%左右。当在某个监控对象上（例如Memory Used）设置了收集间隔之后，服务器端就开始了定时的数据收集，所收集的数据默认情况下用折线图的形式展示。可以根据某个指标建立一个告警，告警的逻辑也相当的完整：逻辑判断，巅峰判断，升级处理；看似能想到的都有了。由于是第一次使用展示没有看的如何建立一个告警规则应用于所有监控对象的。我用HQ对我的一个服务器（iis,MS Sql,.net）做了监控，从数据收集和展现效果上来说，真的堪称可与商业软件媲美。使用结论：安装简单方便，在Linux下代理端完全无需关照包依赖性。代理配置的安装配置需要一定量的工作，必须配置服务器地址，通信端口等。代理程序对服务器的工作负担还是比较大的，特别是在启动的那几分钟内。代理进程对CPU的使用率可以达到50～80%，之后就比较低了。对内存的利用一般是30MB左右，当然这应该是可以通过降低收集数的数量和频率来降低的。用户界面的使用还真的是很方便，还支持告警信息的RSS访问。总之HQ是一个开源软件中的重量级选手：功能强，复杂性高，代理程序负担较重。其他使用小结，待续。
 
         
         
@@ -527,7 +746,110 @@ CloudStack支持HTTP共享目录的方式复制ISO文件，ISO文件被管理服
     <div class="blog-tags">
       Tags:
       
-        Citrix, cloudstack
+        Hyperic HQ
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-22/zabbix-key-features/">
+	  <h2 class="post-title">ZABBIX特点介绍，转自它们的网站</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 22, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        FROM：http://www.zabbix.com/features.phpZABBIX offers functionality that will make your IT resources look more transparent, and it will also help to easily identify performance and availability problems. ZABBIX greatly increases the productivity of system administrators by providing simple-to-use monitoring system.Key features
+
+
+        
+        
+          <a href="/2007-05-22/zabbix-key-features/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        zabbix
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-22/what-is-zabbix/">
+	  <h2 class="post-title">What is ZABBIX?</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 22, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        第一次看到这个软件是在OpenNMS的邮件讨论组中，他们计划做一个vmware的image放到VMTN上 。我在VMTN里哪里点击了一下监控管理这一类，一个叫OpenESM的项目进入了我的视线。它能引起我的注意是因为，它在项目的描述中说:我们理解ITSM、、、、Check it out! 大致浏览了一下他们的网站，发现他们的目的是在Zabbix的基础上作一下优化和开发，加入若干特色：GSM modem发短信、新报表、SLA监控等。现在很多项目都有迅速实施的解决方案。对于很多开源项目来说，它们对于新手的相同门槛就是安装。安装上了，不会配置；配置好了，不会用；用上了解决不了问题。我先下载了OpenESM ，一个不算太大的文件1.3GB。解压缩之后用VMWare打开运行，猜出root的用户名是openesm，登陆之后发现它是一个Fedora的虚拟机。登陆OpenESM的控制台， http://ip/ 接下来就需要去www.openesm.com上下载手册了，否则无法继续下去。照着手册安装代理，在我的两个Windows的机器上。安装需要先下子代理安装包，允许安装命令的时候需要制定自己的主机名和服务器的主机名。在控制台中加入这两个安装了代理的机器，由于是初次使用没用玩自动发现之类的功能。收集了一阵子数据之后，很快发现了很多有趣的数据。最终总结如下
+
+
+        
+        
+          <a href="/2007-05-22/what-is-zabbix/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        zabbix
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-13/install-opennms-132-on-opensuse-102-system-the-simplest-version/">
+	  <h2 class="post-title">Install OpenNMS 1.3.2 on OpenSuse 10.2 system (The simplest version  )</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 13, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        1&amp;gt;Install dependence packageszliu3:~yast -i rrdtoolzliu3:~yast -i postgresqlzliu3:~ # rpm -qa grep rrdtoolrrdtool-1.2.15-25zliu3:~ # rpm -qa grep postgresqlpostgresql-8.1.5-13postgresql-libs-8.1.5-13postgresql-contrib-8.1.5-13postgresql-pl-8.1.5-15postgresql-server-8.1.5-13rcpostgresql startcopy jdk/tomcat 5.5 package files to /optcd /opttar xzvf jdk1.5.tar.gztar xzvf tomcat5.5.tar.gzexport JAVA_HOME=/opt/jdk1.5.0_09export OPENNMS_HOME=/opt/opennmsexport CATALINA_HOME=/opt/apache-tomcat-5.5.20export PATH=$PATH:$JAVA_HOME/binjava -version$CATALINA_HOME/bin/startup.shTest Tomcat 5.5 http://Ip_address:8080/vi /var/lib/pgsql/data/postgresql.conf# - Connection Settings - max_connections = 256vi /var/lib/pgsql/data/pg_hba.conf[refer to install guide] #local...
+        
+        
+          <a href="/2007-05-13/install-opennms-132-on-opensuse-102-system-the-simplest-version/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        OpenNMS, opensuse
       
     </div>
     
@@ -612,7 +934,7 @@ CloudStack支持HTTP共享目录的方式复制ISO文件，ISO文件被管理服
 
 		  
 		  &nbsp;&bull;&nbsp;
-		  <a href="http://localhost:4000">martinliu.cn</a>
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
 		  
 	    </p>
 	        <!-- Please don't remove this, keep my open source work credited :) -->
