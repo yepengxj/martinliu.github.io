@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>CloudStack 4.0 安装实例分析版</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="CloudStack 4.0 安装实例分析版" />
+  
+
+   
+  <meta property="og:description" content="我之前的安装帖子，只讲了CloudStack的环境如何去搭建，并没讲为什么这么做？也没讲做出来的东西有什么用？也没讲做出来以后该如何去扩展这个系统？所以可能那些文档可能只是对于开发人有点意义，对于实际用户而言意义并不大。后面，我可能用几篇文章来描述和解答这些问题。 这里先讲一个应用实例，有需求的人应该能够看懂，并且能领会到系统设计和规划的原理。CS公司内网有大约50个研发人员，每个人为了开发和测试公司的产品至少需要2种操作系统环境（Windows2008+Ubuntu），每个操作系统至少需要2个虚拟机才能保证正常工作，有人还有编译代码的需求，所以平均每人需要4core/6GB的计算资源。总共需要200个虚拟机，总共需要200Core*300GB的计算资源。 CS公司的工程师做了这样的一个设计，首先申请了一个独立网段192.168.168.0用于该测试CloudStack。然后找来了两台服务器用于平台的初始化安装，IP地址的规划如下表。另外，CS公司的网管也给他们借了一个千兆网络交换机，这个交换机配置了网关和DNS解析，保证测试网段的机器既能够上网，并能够被公司内网连接。 IP地址 功能 192.168.168.1 网关和DNS解析的地址，通过它所有虚拟机可以被内网用户访问 192.168.168.2 CloudStack管理服务器，配置为2*4Core/16GB/1TB*2HD，安装RHEL6.2操作系统，安装NFS服务 192.168.168.3 XS-01为第一台Hypervisor服务器，用户运行虚拟机，这里使用XenServer，安装之后在网上申请免费许可证用来测试满足50人的配置为4*4Core(开超线程)/64GB/125GB*2HD的服务器7台；或者相当计算量的其他计算资源。 192.168.168.4～14 为后期系统扩展新增的XenServer服务器预留 192.168.168.15 为后期扩容的存储系统预留，如果开发编译的过程没有密集的磁盘读写操作的话，使用NFS或iSCSI存储即可。否则考虑使用FC存储。 92.168.168.16～20 CloudStack Private网段地址 92.168.168.21～25 CloudStack Storage网段地址 92.168.168.30～250 CloudStack Guest网段地址 图中左侧的两台服务器就是最小化的测试环境，足够满足CloudStack平台搭建，和虚拟机模板的测试工作。等到测试和配置足够了，就可以增加更多的服务器节点到CloudStack平台上来。增加的方法很简单，在服务器上安装XenServer之后，在CloudStack中添加host即可。 准备系统安装软件 根据以上的需求需要下载和刻录RHEL6.2的安装盘；需要下载ClouStack的安装包，http://cloudstack.apt-get.eu/rhel/4.0/ 。 CloudStack的安装包可以下载到本地，保持它的目录结构不变，回头放到装好的RHEL服务器的Apache目录中建立本机安装源。 系统安装 安装的过程已经在CloudStack官方文档上有了非常详细的描述。本次就不逐条命令解释了。 这里只想讲几点须注意的地方。根据CS公司的这个需求，建议使用的CloudStack管理服务器需要稍微大一点的本地磁盘和内存；根据我最近的测试发现管理服务器和NFS服务器混用的情况下，服务器内存的消耗还是蛮大的，为了保证速度16GB应该非常够用，我的测试机只有4GB还是虚拟机，速度也很快。本地磁盘最好是两块1TB的高速磁盘做Raid10，或者多块小盘也行，最好Raid做完之后有大约1TB的存储空间；以便存放测试初期的系统模板和虚拟机的磁盘和快照文件。 最后我想从系统配置文件的角度讲一下在RHEL操作系统里面都修改了那些文件。 安装源文件需要两个： rhel6.repo RHEL系统可以选择默认最小安装，这样装的最快，装好以后，把DVD mount上，在做成源，这样需要什么包，直接yum install就行了，非常方便快捷 cloudstack.repo CloudStack的所有安装包都可以放在CloudStack管理服务器本机的Apache服务器上，另外这个Apache服务器还可以作为上传系统模板的中转站。 [bash] [root@cs40 yum.repos.d]# pwd /etc/yum.repos.d [root@cs40 yum.repos.d]# ls cloudstack.repo redhat.repo...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/" />
+  <link rel="canonical" href="http://localhost:4000/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="CloudStack 4.0 安装实例分析版" />
+  
+
+  
+  <meta name="twitter:description" content="我之前的安装帖子，只讲了CloudStack的环境如何去搭建，并没讲为什么这么做？也没讲做出来的东西有什么用？也没讲做出来以后该如何去扩展这个系统？所以可能那些文档可能只是对于开发人有点意义，对于实际用户而言意义并不大。后面，我可能用几篇文章来描述和解答这些问题。 这里先讲一个应用实例，有需求的人应该能够看懂，并且能领会到系统设计和规划的原理。CS公司内网有大约50个研发人员，每个人为了开发和测试公司的产品至少需要2种操作系统环境（Windows2008+Ubuntu），每个操作系统至少需要2个虚拟机才能保证正常工作，有人还有编译代码的需求，所以平均每人需要4core/6GB的计算资源。总共需要200个虚拟机，总共需要200Core*300GB的计算资源。 CS公司的工程师做了这样的一个设计，首先申请了一个独立网段192.168.168.0用于该测试CloudStack。然后找来了两台服务器用于平台的初始化安装，IP地址的规划如下表。另外，CS公司的网管也给他们借了一个千兆网络交换机，这个交换机配置了网关和DNS解析，保证测试网段的机器既能够上网，并能够被公司内网连接。 IP地址 功能 192.168.168.1 网关和DNS解析的地址，通过它所有虚拟机可以被内网用户访问 192.168.168.2 CloudStack管理服务器，配置为2*4Core/16GB/1TB*2HD，安装RHEL6.2操作系统，安装NFS服务 192.168.168.3 XS-01为第一台Hypervisor服务器，用户运行虚拟机，这里使用XenServer，安装之后在网上申请免费许可证用来测试满足50人的配置为4*4Core(开超线程)/64GB/125GB*2HD的服务器7台；或者相当计算量的其他计算资源。 192.168.168.4～14 为后期系统扩展新增的XenServer服务器预留 192.168.168.15 为后期扩容的存储系统预留，如果开发编译的过程没有密集的磁盘读写操作的话，使用NFS或iSCSI存储即可。否则考虑使用FC存储。 92.168.168.16～20 CloudStack Private网段地址 92.168.168.21～25 CloudStack Storage网段地址 92.168.168.30～250 CloudStack Guest网段地址 图中左侧的两台服务器就是最小化的测试环境，足够满足CloudStack平台搭建，和虚拟机模板的测试工作。等到测试和配置足够了，就可以增加更多的服务器节点到CloudStack平台上来。增加的方法很简单，在服务器上安装XenServer之后，在CloudStack中添加host即可。 准备系统安装软件 根据以上的需求需要下载和刻录RHEL6.2的安装盘；需要下载ClouStack的安装包，http://cloudstack.apt-get.eu/rhel/4.0/ 。 CloudStack的安装包可以下载到本地，保持它的目录结构不变，回头放到装好的RHEL服务器的Apache目录中建立本机安装源。 系统安装 安装的过程已经在CloudStack官方文档上有了非常详细的描述。本次就不逐条命令解释了。 这里只想讲几点须注意的地方。根据CS公司的这个需求，建议使用的CloudStack管理服务器需要稍微大一点的本地磁盘和内存；根据我最近的测试发现管理服务器和NFS服务器混用的情况下，服务器内存的消耗还是蛮大的，为了保证速度16GB应该非常够用，我的测试机只有4GB还是虚拟机，速度也很快。本地磁盘最好是两块1TB的高速磁盘做Raid10，或者多块小盘也行，最好Raid做完之后有大约1TB的存储空间；以便存放测试初期的系统模板和虚拟机的磁盘和快照文件。 最后我想从系统配置文件的角度讲一下在RHEL操作系统里面都修改了那些文件。 安装源文件需要两个： rhel6.repo RHEL系统可以选择默认最小安装，这样装的最快，装好以后，把DVD mount上，在做成源，这样需要什么包，直接yum install就行了，非常方便快捷 cloudstack.repo CloudStack的所有安装包都可以放在CloudStack管理服务器本机的Apache服务器上，另外这个Apache服务器还可以作为上传系统模板的中转站。 [bash] [root@cs40 yum.repos.d]# pwd /etc/yum.repos.d [root@cs40 yum.repos.d]# ls cloudstack.repo redhat.repo...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>CloudStack 4.0 安装实例分析版</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on December 11, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>我之前的安装帖子，只讲了CloudStack的环境如何去搭建，并没讲为什么这么做？也没讲做出来的东西有什么用？也没讲做出来以后该如何去扩展这个系统？所以可能那些文档可能只是对于开发人有点意义，对于实际用户而言意义并不大。后面，我可能用几篇文章来描述和解答这些问题。</p>
+
+<p>这里先讲一个应用实例，有需求的人应该能够看懂，并且能领会到系统设计和规划的原理。CS公司内网有大约50个研发人员，每个人为了开发和测试公司的产品至少需要2种操作系统环境（Windows2008+Ubuntu），每个操作系统至少需要2个虚拟机才能保证正常工作，有人还有编译代码的需求，所以平均每人需要4core/6GB的计算资源。总共需要200个虚拟机，总共需要200Core*300GB的计算资源。</p>
+
+<!-- more -->
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2012/12/Cloud.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/12/Cloud-300x256.png" alt="" /></a></p>
+
+<p>CS公司的工程师做了这样的一个设计，首先申请了一个独立网段192.168.168.0用于该测试CloudStack。然后找来了两台服务器用于平台的初始化安装，IP地址的规划如下表。另外，CS公司的网管也给他们借了一个千兆网络交换机，这个交换机配置了网关和DNS解析，保证测试网段的机器既能够上网，并能够被公司内网连接。</p>
+<table cellpadding="0" cellspacing="0" border="1">
+<tbody>
+<tr>
+
+<td width="140" valign="top">IP地址
+</td>
+
+<td width="429" valign="top">功能
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">192.168.168.1
+</td>
+
+<td width="429" valign="top">网关和DNS解析的地址，通过它所有虚拟机可以被内网用户访问
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">192.168.168.2
+</td>
+
+<td width="429" valign="top">CloudStack管理服务器，配置为2*4Core/16GB/1TB*2HD，安装RHEL6.2操作系统，安装NFS服务
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">192.168.168.3
+</td>
+
+<td width="429" valign="top">XS-01为第一台Hypervisor服务器，用户运行虚拟机，这里使用XenServer，安装之后在网上申请免费许可证用来测试满足50人的配置为4*4Core(开超线程)/64GB/125GB*2HD的服务器7台；或者相当计算量的其他计算资源。
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">192.168.168.4～14
+</td>
+
+<td width="429" valign="top">为后期系统扩展新增的XenServer服务器预留
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">192.168.168.15
+</td>
+
+<td width="429" valign="top">为后期扩容的存储系统预留，如果开发编译的过程没有密集的磁盘读写操作的话，使用NFS或iSCSI存储即可。否则考虑使用FC存储。
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">92.168.168.16～20
+</td>
+
+<td width="429" valign="top">CloudStack Private网段地址
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">92.168.168.21～25
+</td>
+
+<td width="429" valign="top">CloudStack Storage网段地址
+</td>
+</tr>
+<tr>
+
+<td width="140" valign="top">92.168.168.30～250
+</td>
+
+<td width="429" valign="top">CloudStack Guest网段地址
+</td>
+</tr>
+</tbody>
+</table>
+<p>图中左侧的两台服务器就是最小化的测试环境，足够满足CloudStack平台搭建，和虚拟机模板的测试工作。等到测试和配置足够了，就可以增加更多的服务器节点到CloudStack平台上来。增加的方法很简单，在服务器上安装XenServer之后，在CloudStack中添加host即可。</p>
+
+<p>准备系统安装软件
+根据以上的需求需要下载和刻录RHEL6.2的安装盘；需要下载ClouStack的安装包，http://cloudstack.apt-get.eu/rhel/4.0/ 。 CloudStack的安装包可以下载到本地，保持它的目录结构不变，回头放到装好的RHEL服务器的Apache目录中建立本机安装源。</p>
+
+<p>系统安装
+安装的过程已经在CloudStack官方文档上有了非常详细的描述。本次就不逐条命令解释了。
+这里只想讲几点须注意的地方。根据CS公司的这个需求，建议使用的CloudStack管理服务器需要稍微大一点的本地磁盘和内存；根据我最近的测试发现管理服务器和NFS服务器混用的情况下，服务器内存的消耗还是蛮大的，为了保证速度16GB应该非常够用，我的测试机只有4GB还是虚拟机，速度也很快。本地磁盘最好是两块1TB的高速磁盘做Raid10，或者多块小盘也行，最好Raid做完之后有大约1TB的存储空间；以便存放测试初期的系统模板和虚拟机的磁盘和快照文件。</p>
+
+<p>最后我想从系统配置文件的角度讲一下在RHEL操作系统里面都修改了那些文件。</p>
+
+<p>安装源文件需要两个：
+rhel6.repo RHEL系统可以选择默认最小安装，这样装的最快，装好以后，把DVD mount上，在做成源，这样需要什么包，直接yum install就行了，非常方便快捷
+cloudstack.repo CloudStack的所有安装包都可以放在CloudStack管理服务器本机的Apache服务器上，另外这个Apache服务器还可以作为上传系统模板的中转站。
+[bash]
+[root@cs40 yum.repos.d]# pwd
+/etc/yum.repos.d
+[root@cs40 yum.repos.d]# ls
+cloudstack.repo redhat.repo rhel6.repo rhel-source.repo
+[root@cs40 yum.repos.d]# cat rhel6.repo
+[rhel6]
+name=rhel6
+baseurl=file:///media/
+enabled=1
+gpgcheck=0
+[root@cs40 yum.repos.d]# cat cloudstack.repo
+[cloudstack]
+name=cloudstack
+baseurl=http://127.0.0.1/4.0/
+enabled=1
+gpgcheck=0
+[root@cs40 yum.repos.d]#
+[/bash]
+主机hosts和network文件，RHEL服务器必须要能正确的解析出自己的fqdn
+[bash][root@cs40 yum.repos.d]# cat /etc/hosts
+127.0.0.1 localhost localhost.localdomain localhost4 localhost4.localdomain4
+192.168.168.2 cs40.cs-cloud.com cs40
+[root@cs40 sysconfig]# cat /etc/sysconfig/network
+NETWORKING=yes
+HOSTNAME=cs40.cs-cloud.com
+[/bash]
+Mysql数据库需启动服务之后，才能修改my.cnf配置文件，加入CloudStack所需要的参数之后重启服务，参数如下：
+[bash][mysqld]
+datadir=/var/lib/mysql
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0</p>
+
+<p>#CloudStack need them
+innodb_rollback_on_timeout=1
+innodb_lock_wait_timeout=600
+max_connections=350
+log-bin=mysql-bin
+binlog-format = ‘ROW’
+#CloudStack need theme</p>
+
+<p>[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+[/bash]</p>
+
+<p>其他相关的配置文件我已经打包了，有需要参考的，请到我下载，这里就不做逐一的解释。</p>
+
+<p>[download id=”16” format=”2”]</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cloudplatfrom, cloudstack, RHEL, xenserver, 安装, 实例, 配置
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=CloudStack+4.0+%E5%AE%89%E8%A3%85%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90%E7%89%88+http://localhost:4000/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012-12-05-cs40-e5-ae-89-e8-a3-85-e6-89-8b-e5-86-8c/" data-toggle="tooltip" data-placement="top" title="CS40安装手册">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012-12-13-e4-b8-89-e4-ba-9a-e5-8d-8a-e5-b1-b1-e5-8d-8a-e5-b2-9b-e6-b4-b2-e9-99-85-e9-85-92-e5-ba-975-e5-85-ac-e9-87-8c/" data-toggle="tooltip" data-placement="top" title="三亚半山半岛洲际酒店5公里">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

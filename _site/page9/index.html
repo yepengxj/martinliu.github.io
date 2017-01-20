@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page9/" />
+  <link rel="canonical" href="http://localhost:4000/page9/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2014-11-25-openstack-one/">
+	  <h2 class="post-title">openstack all in one</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 25, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        test
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-11-23-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e4-b9-8b-e6-88-91-e8-a7-81/">
+	  <h2 class="post-title">虚拟桌面 之我见</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 23, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        在还没有遗忘 虚拟桌面 的很多技术细节前，还是想整理一下在Citrix的一些思路。虚拟桌面是可以引起人们对云计算产生无限遐想的东西，在很多情况下可以说它就是云计算。以下从项目价值和关键技术点等几个方面回顾一下。
+        
+        
+          <a href="/2014-11-23-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e4-b9-8b-e6-88-91-e8-a7-81/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Citrix, ICA, PCoIP, RDP, VMWare
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-11-22-e5-81-b6-e9-81-87-e4-b8-80-e4-b8-aa-e4-b8-8d-e9-94-99-e4-b8-bb-e9-a2-98/">
+	  <h2 class="post-title">偶遇一个不错主题</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 22, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        无意中找到一个新的Wordpress主题 Mustang Lite 作者为WebMan。安装完之后觉得非常满意，本来这是一个多用途很复杂的主题现在让我给彻底精简了。感觉比较简洁，简洁的主题是我的最爱。
+
+
+        
+        
+          <a href="/2014-11-22-e5-81-b6-e9-81-87-e4-b8-80-e4-b8-aa-e4-b8-8d-e9-94-99-e4-b8-bb-e9-a2-98/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Mustang
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-11-18-e8-b7-91-e6-ad-a5-e4-b8-8d-e8-83-bd-e5-81-9c/">
+	  <h2 class="post-title">跑步不能停</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 18, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        在最近一段时间里面，兴趣和心情持续承受着巨大的挑战。一边是亘古不变的哪些发愁的思绪，一边是潮水般涌来的新事物；还有不断的适应和调整。总之心神俱疲的感觉越来越重，是该进入正常运行态了，该恢复状态了，跑步不能中断，业精于勤！跑起来！
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-11-18-e7-a1-ac-e4-bb-b6-e5-b0-b1-e7-bb-aa-e5-8f-af-e5-bc-80-e5-b7-a5-e4-ba-86/">
+	  <h2 class="post-title">硬件就绪可开工了</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 18, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        昨天晚上折腾了很晚，结果扩展的8GB内存条死活和系统不兼容，导致ESXi安装卡在内存检查哪里。在京东上直接退货，然后订货HP专用内存条。今天下午新条子火速送达。装上后系统在也卡了。ESXi安装顺利完成。下载了vClient后，导入了几个常用ISO，安装好了RHEL6和7的模板机。接下来可以开始方案的研究了。由于这台服务器有着巨大的折腾的空间，未来的硬件升级whish list包括：
+
+
+        
+        
+          <a href="/2014-11-18-e7-a1-ac-e4-bb-b6-e5-b0-b1-e7-bb-aa-e5-8f-af-e5-bc-80-e5-b7-a5-e4-ba-86/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        lab
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-11-13-e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/">
+	  <h2 class="post-title">我的11.11采购</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 13, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        难以置信我在11.11这一天也出手了。在过去的一年多里，烧过了跑步装备，烧过了跑步GPS手表之后；在光棍节那天，我毅然开始搭建home lab了。一直不想把家里也搞成工作的场所，但是来自大学时代攒机的冲动在此刻颠覆了我。
+
+
+        
+        
+          <a href="/2014-11-13-e6-88-91-e7-9a-8411-11-e9-87-87-e8-b4-ad/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        lab
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-11-05-e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/">
+	  <h2 class="post-title">迷宫行者 The Maze Runner</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 5, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        在没有计划下，在偶然的空闲中，在一个大清早，居然看上电影了，不得不记录一下，为了最近疲惫的身心，为了留下一丁点的记忆和回味，为了首都这宝贵的蓝天。电影比较好看，最近思虑过甚，无力评论，且留下豆瓣链接。
+
+
+        
+        
+          <a href="/2014-11-05-e8-bf-b7-e5-ae-ab-e8-a1-8c-e8-80-85-maze-runner/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        runner
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-09-21-e5-a4-87-e6-88-98-e5-8c-97-e9-a9-ac/">
+	  <h2 class="post-title">备战 北马</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on September 21, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        北马 是我今年的目标，是第一次挑战42.195千米，是第一次搞 全马。备战的训练计划就差一个月的十几次训练，目前的状态，感觉还是“不踏实”。主要有几个方面，目前的两次长距离训练，一次28公里，一次30公里，跑下来，都是咬牙跑完最后的将近10K。问题主要有：越往后感觉体力越不是很足，渐渐的会感到信心的缺失，渐渐的会感到脚底板和脚趾的疲劳和疼痛，这会传导至小腿到膝盖，特别是右膝盖，在15k以后总会感到有点不舒服。貌似右膝盖倒成了我最严重的挑战了，如果它老人家出了问题，就麻烦了。我可不想半途而废，更不想跑完后，让人抬着回家。心中只想着：能5小时内无伤痛顺利完赛。目前确定每天早晨起来锻炼，观察双腿的和膝盖的情况，非训练日在小区快走，一定要磨合出稳定发挥状态的感觉。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        marathon, 北马
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-09-21-start-rhel/">
+	  <h2 class="post-title">Start over from RHEL</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on September 21, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        RHEL 7是一个划时代的版本，比6有很多的重大改变，特别是系统底层的管理这块，很多命令集都发生了变化。对我而言需要在一个新的平台上提升linux的技能，还是很凑巧的事情。逐渐感觉到红帽从操作系统层面，向上往云的方向，向下往软件定义的XXX方向，横向直接积压其它服务器虚拟化技术的势头逐渐明显。传统数据中心转型在即，整个技术堆栈需要重新定义和规划；创新型小公司不断挑战传统巨头厂商的地位，市场在重新定义和分化，仿佛这是进入战国时代的节奏。
+
+
+        
+        
+          <a href="/2014-09-21-start-rhel/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        linux, RHEL, work
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-09-12-got-new-garmin-forerunner-220/">
+	  <h2 class="post-title">评测 Forerunner 220</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on September 12, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        随着北马的临近，备战的训练也越来越重要，由于始终没有试过30K的距离，逐渐对长距离感到焦虑，因此放弃了My Ascis以距离为目标的训练计划，转投Garmin训练计划中的全马训练计划。评测一只 forerunner 220 GPS 手表。
+        
+        
+          <a href="/2014-09-12-got-new-garmin-forerunner-220/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        220, Forerunner, garmin
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page8">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page10">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

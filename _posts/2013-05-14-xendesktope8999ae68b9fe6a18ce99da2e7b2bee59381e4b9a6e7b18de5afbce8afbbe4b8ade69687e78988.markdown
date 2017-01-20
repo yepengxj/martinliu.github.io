@@ -1,0 +1,25 @@
+---
+author: liuadmin
+comments: true
+date: 2013-05-14 05:59:11+00:00
+layout: post
+slug: xendesktop%e8%99%9a%e6%8b%9f%e6%a1%8c%e9%9d%a2%e7%b2%be%e5%93%81%e4%b9%a6%e7%b1%8d%e5%af%bc%e8%af%bb%e4%b8%ad%e6%96%87%e7%89%88
+title: XenDesktop虚拟桌面精品书籍导读(中文版)
+wordpress_id: 52417
+categories:
+- XenDesktop
+tags:
+- Citrix
+- PVS
+- XenDesktop
+---
+
+[box color="orange" icon="flag"]
+感谢 Eric Yao 的供稿，[@老树皮Eric](http://weibo.com/ericyaozhen)
+[/box]
+
+英文版：[《Citrix Virtual Desktop Handbook》](http://support.citrix.com/article/CTX136546)
+
+中文版：[download id="20"]
+
+本书是XD虚拟桌面实施工程师的必备读物，请相关人员仔细阅读。

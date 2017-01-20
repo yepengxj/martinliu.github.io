@@ -1,0 +1,17 @@
+---
+author: liuadmin
+comments: true
+date: 2014-07-02 07:16:05+00:00
+layout: post
+slug: mac-mini
+title: mac mini
+wordpress_id: 52989
+categories:
+- Apple
+post_format:
+- Aside
+tags:
+- mac mini
+---
+
+坐等Mac Mini的最新版本在秋季发布，还需要忍耐一个燥热的夏季，等不急了！这个机器适合用在Lab测试机。

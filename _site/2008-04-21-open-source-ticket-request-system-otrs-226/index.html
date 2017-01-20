@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Open Source Ticket Request System - OTRS 2.2.6</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Open Source Ticket Request System - OTRS 2.2.6" />
+  
+
+   
+  <meta property="og:description" content="I made a OTRS 2.2.6 virtual machine for anyone who wants to test both OTRS and OTRS::ITSM. It was built on OpenSUSE 10.2, including OTRS 2.2.6 and OTRS::ITSM 1.0.94. OTRS::ITSM implements ITIL (R) focused IT service management. OTRS::ITSM 1.0.94 is still on Beta, you might have some bugs when using...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2008-04-21-open-source-ticket-request-system-otrs-226/" />
+  <link rel="canonical" href="http://localhost:4000/2008-04-21-open-source-ticket-request-system-otrs-226/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Open Source Ticket Request System - OTRS 2.2.6" />
+  
+
+  
+  <meta name="twitter:description" content="I made a OTRS 2.2.6 virtual machine for anyone who wants to test both OTRS and OTRS::ITSM. It was built on OpenSUSE 10.2, including OTRS 2.2.6 and OTRS::ITSM 1.0.94. OTRS::ITSM implements ITIL (R) focused IT service management. OTRS::ITSM 1.0.94 is still on Beta, you might have some bugs when using...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Open Source Ticket Request System - OTRS 2.2.6</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 21, 2008</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>I made a OTRS 2.2.6 virtual machine for anyone who wants to test both OTRS and OTRS::ITSM. It was built on OpenSUSE 10.2, including OTRS 2.2.6 and OTRS::ITSM 1.0.94. OTRS::ITSM implements ITIL (R) focused IT service management. OTRS::ITSM 1.0.94 is still on Beta, you might have some bugs when using this virtual machine. Please download from my box.net, if you have an comment please just let me know. I’d like to invite you to improve this virtual machine if you have any good ideal.</p>
+
+<p><a href="http://demo.wholog.net/OSS.rar">Download it from here</a> <a href="http://demo.wholog.net/OSS.rar">点此下载。 </a><a href="http://demo.wholog.net/OSS.rar">This source is not available any longer. I will offer it by DVD.  这个地址已经无法下载，请关注我即将推出的DVD版虚机。</a></p>
+
+<p><strong>Thanks <a href="http://www.bigyue.com">BigYue.com</a> for donated upload space.  感谢</strong><strong><a href="http://www.bigyue.com">BigYue.com</a></strong><strong>的空间捐助。</strong></p>
+
+<p><strong>Credentials 登录密码如下</strong></p>
+
+<ul>
+  <li>
+    <p>OpenSuSE 10.2 : username / password is “root/ca1234”</p>
+  </li>
+  <li>
+    <p>MySQL : username / password is “root/ “</p>
+  </li>
+  <li>
+    <p>OTRS : admin username and password is <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#114;&#111;&#111;&#116;&#064;&#108;&#111;&#099;&#097;&#108;&#104;&#111;&#115;&#116;&#047;&#114;&#111;&#111;&#116;">&#114;&#111;&#111;&#116;&#064;&#108;&#111;&#099;&#097;&#108;&#104;&#111;&#115;&#116;&#047;&#114;&#111;&#111;&#116;</a></p>
+  </li>
+</ul>
+
+<p><strong>Run 运行压缩文件中的虚拟机</strong></p>
+
+<ol>
+  <li>
+    <p>Download and install VM Player, the machine should have 1GB RAM at least.</p>
+  </li>
+  <li>
+    <p>Un-zip OSS.rar in a partition, freespace must be 2.5+ GB.</p>
+  </li>
+  <li>
+    <p>Double MartinLiu.cn.vmx and power on this machine.</p>
+  </li>
+  <li>
+    <p>Click “keep” and OK button when you get a popup box。</p>
+  </li>
+  <li>
+    <p>The network connection of virtual machine is ‘bridged’. You will see the ip address of this virtual machine at 5th line one the top of boot screen. NOTE: you should have DHCP server on your network.</p>
+  </li>
+</ol>
+
+<p><strong>Access 访问虚拟机</strong></p>
+
+<ul>
+  <li>
+    <p>SSH to it.</p>
+  </li>
+  <li>
+    <p>Agent login page: <a href="http://ip_address/otrs/index.pl">http://ip_address/otrs/index.pl</a></p>
+  </li>
+  <li>
+    <p>Customer login page: <a href="http://ip_address/otrs/customer.pl">http://ip_address/otrs/customer.pl</a></p>
+  </li>
+</ul>
+
+<p><strong>Tips of OTRS installation 安装经验</strong></p>
+
+<ul>
+  <li>
+    <p>Apache should have perl mod, configure perl for apache before you install OTRS. 这是一个Perl写的程序，所以在安装之前最好吧apache上的perl配置好，确认apache能运行perl的东西</p>
+  </li>
+  <li>
+    <p>Make sure your database accepts packages over 5 MB in size. Increase max_allowed_packet in my.cnf to 20MB. 修改my.cnf中的max_allowed_packet 参数到20MB，否则ITSM的包安装有问题。</p>
+  </li>
+  <li>
+    <p>OTRS需要一写附件的perl包的支持，手头最好有操作系统的安装dvd或者直接从网上安装。</p>
+  </li>
+</ul>
+
+<p><strong>Usage 用途</strong></p>
+
+<ul>
+  <li>
+    <p>You can use it for any purpose, if you need any support you will contact OTRS。你可以用于任何用途，本博客不提供技术支持，请联系OTRS的邮件列表。</p>
+  </li>
+  <li>
+    <p>ITIL training, OTRS::ITSM implements ITIL (R) focused IT service management. 可以用于ITIL的培训，它能演示：incident management, problem management, configuration management 等。</p>
+  </li>
+  <li>
+    <p>This virtual machine comes with ABSOLUTELY NO WARRANTY. DO NOT USE it for production. 仅供测试使用，切勿用于生产环境。</p>
+  </li>
+</ul>
+
+<p>If you like OTRS, you may try <a href="http://www.bestpractical.com/rt/">Request Tracer</a></p>
+
+<p>今天一个网友告诉我另外一个开源的类似系统<a href="http://www.bestpractical.com/rt/">Request Tracer</a> ，有空的话回头也试试。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ITIL, ITSM, OTRS, Request Tracer
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Open+Source+Ticket+Request+System+-+OTRS+2.2.6+http://localhost:4000/2008-04-21-open-source-ticket-request-system-otrs-226/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2008-04-21-open-source-ticket-request-system-otrs-226/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2008-04-21-open-source-ticket-request-system-otrs-226/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2008-04-18-clouds-are-coming/" data-toggle="tooltip" data-placement="top" title="Clouds are coming">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2008-04-24-e5-a6-82-e4-bd-95-e8-8e-b7-e5-be-97oss-e6-94-af-e6-8c-81-ef-bc-9f/" data-toggle="tooltip" data-placement="top" title="如何获得OSS支持？">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

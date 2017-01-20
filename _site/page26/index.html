@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page26/" />
+  <link rel="canonical" href="http://localhost:4000/page26/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2011-09-10-e5-90-84-e5-9c-b0-e7-be-8e-e9-a3-9f/">
+	  <h2 class="post-title">各地美食</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on September 10, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+总的来说印度餐吃的不是很习惯，不过左上方的煎鸡块很嫩很好
+
+
+        
+        
+          <a href="/2011-09-10-e5-90-84-e5-9c-b0-e7-be-8e-e9-a3-9f/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        厦门, 小印度, 布尔津, 新加坡, 新疆
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-07-27-glpi-0-80-2-release/">
+	  <h2 class="post-title">GLPI 0.80.2 release</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 27, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        GLPI 0.80.2主要修复了几个重要的bug和安全的bug。GLPI推荐广大用户还是升级到这个最新版本。 Bug #2960: Use notif not set for auto users Bug #2961: Massive action : add actor Bug #2979: Add/delete a document not in the history Bug #2985: Crash in business rules Bug #2986: No value input for some criteria Bug #2992: Manage spare drive in ocs sync Bug...
+        
+        
+          <a href="/2011-07-27-glpi-0-80-2-release/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GLPI, 中文包, 升级, 发布, 安装, 简体中文
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-07-07-e4-ba-ac-e6-b2-aa-e9-ab-98-e9-93-81-e4-b9-98-e5-9d-90-e6-8a-80-e5-b7-a7/">
+	  <h2 class="post-title">京沪高铁乘坐技巧</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 7, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        技巧就是要查好列车时刻表，在可能的情况下选择4个多小时的那种快车，除了第一选择外，还需要至少有两个选择，免得第一选择没票了买错票（买上9小时的慢车就麻烦了）。不用提前订票买票，打电话只能定两天之后的，并定不到当天的。网上订票不可用。我做了一个excel版本的列车时刻表，按发车时间升序排列，需要做高铁的可以下载备用。
+[download id=”6” format=”1”]
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        上海虹桥站, 京沪高铁, 列车时刻表, 北京南站, 时刻表
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-07-06-openssh-5-2-aix5-3-bug/">
+	  <h2 class="post-title">openssh 5.2 Aix5.3 bug</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 6, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        本周在项目中发现openssh5.2不能在Aix5.3，包括它的所有小版本上有证书认证的问题。证书认证无论如何也不正常。 [bash][tideway@SHADDMD1 bk]$ ssh -i id_rsa 11.11.11.11 -vvv OpenSSH_4.3p2, OpenSSL 0.9.8e-fips-rhel5 01 Jul 2008 debug1: Reading configuration data /etc/ssh/ssh_config debug1: Applying options for * debug2: ssh_connect: needpriv 0 debug1: Connecting to 11.11.11.11 [11.11.11.11] port 22. debug1: Connection established. debug3: Not a RSA1 key file id_rsa. debug2: key_type_from_name: unknown key type...
+        
+        
+          <a href="/2011-07-06-openssh-5-2-aix5-3-bug/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ADDM, openssh, ssh
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-07-04-e4-ba-ac-e6-b2-aa-e9-ab-98-e9-93-81-e4-b9-8b-e6-97-85-e4-b8-8d-e8-bd-bb-e6-9d-be/">
+	  <h2 class="post-title">京沪高铁之旅不轻松</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 4, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        早晨5：40起床，打车去北京南站，有点没睡醒，其实不必这么赶，而且当天买票也赶趟，因为车不可能坐满；亏了我还提前一天买的票。
+
+
+        
+        
+          <a href="/2011-07-04-e4-ba-ac-e6-b2-aa-e9-ab-98-e9-93-81-e4-b9-8b-e6-97-85-e4-b8-8d-e8-bd-bb-e6-9d-be/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        上海, 北京, 高铁
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-07-02-glpi-8-e7-ae-80-e4-bd-93-e4-b8-ad-e6-96-87-e8-af-ad-e8-a8-80-e5-8c-85-e4-b8-8b-e8-bd-bd/">
+	  <h2 class="post-title">GLPI 8.0 简体中文语言包(100%)发布</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 2, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        [hr]
+[tip]这是第一个完全汉化的简体中文版语言包，点击下面的链接下载。[download id=”1” format=”f1”][/tip]
+本语言包已经包含于GLPI的项目中，从GLPI下载的最新版的安装包中应该包含了本翻译。
+本网站会持续优化此中文翻译，如果需要得到最新版的更新成果请关注本网站。
+站内其他GLPI相关文章列表，请点击查看
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GLPI, open source, 下载, 中文, 汉化, 简体中文, 翻译
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-06-29-how-to-access-remedy-form-in-db/">
+	  <h2 class="post-title">如何读取Remedy中的数据</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 29, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Remedy系统几乎是一个绿色软件，它的几乎所有业务数据、配置数据和工作流都是存储在数据库中，也就是说：只要能够保留一份完整的数据库备份，即可高枕无忧，需要的时候就可以把系统还原出来。业务数据在Remedy中大多存储在regular form中。多数的业务数据都是通过Join form进行访问和存取。在Remedy中的各种form构成了Remedy系统的所有数据结构和界面，有些类型的form是只做界面而创建的。
+
+
+        
+        
+          <a href="/2011-06-29-how-to-access-remedy-form-in-db/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ARS, arschema, BMC, oracle, remedy
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-06-28-e4-b8-96-e5-8d-9a-e5-9b-ad-e6-97-81-e4-bd-8f-e4-b8-80-e4-b8-8b/">
+	  <h2 class="post-title">世博园旁住一下</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 28, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2011-06-28-e4-b8-96-e5-8d-9a-e5-9b-ad-e6-97-81-e4-bd-8f-e4-b8-80-e4-b8-8b/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        上海, 世博园
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-06-27-milestone-this-is-no-200-post/">
+	  <h2 class="post-title">Milestone: this is post No.200th </h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 27, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2011-06-27-milestone-this-is-no-200-post/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        wordpress
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2011-06-16-addm-8-2-ssh-key-deploy/">
+	  <h2 class="post-title">ADDM 8.2 ssh key 生成和部署</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 16, 2011
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        生产密钥
+
+
+        
+        
+          <a href="/2011-06-16-addm-8-2-ssh-key-deploy/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ADDM, BMC, cmdb, keploy, key, ssh
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page25">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page27">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

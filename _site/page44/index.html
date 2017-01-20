@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page44/" />
+  <link rel="canonical" href="http://localhost:4000/page44/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2007-06-15-e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/">
+	  <h2 class="post-title">开源IT管理工具大全之All in one虚拟机</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 15, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        我做开源工具测试时,90%以上是在VMWare虚拟机中实现的,本人比较懒一直没有学习Xen虚拟机的用法,等下次吧,一等要彻底开源是我的一个梦想呵呵!说说这个All in One虚拟机的想法,我只是想把所有的我熟悉的工具都安装和配置在一个虚拟机里,这样当有人需要给做Demo的时候,我可以很快的做一个分享.如果有朋友感兴趣的话,我可以刻盘他.总的来讲希望能分享一下我的学习成果给大家.第一步:安装虚拟机这个虚拟机我不像使用很多的Snapshoot,我以前是这么做的,从一个基础的OS发出许多分支到不同的工具;这样做的缺点有二:1)特别占磁盘空间;2)不能同时访问多个系统.我选择的Linux是Open Suse Linux 10.2;Suse的包管理对我来说真的很方便,从安装DVD上用Yast可以方便安装各种软件,无须考虑包之间的依赖性问题.我选择的是最小图形化系统安装,安装完之后,vmdk文件的大小好像是2GB多.接下来安装的是所有的必须的包,大致如下:Apache,Perl,MySQL,PostgreSQL,rddtool,net-snmp,php,gcc,Kernel-source(for vmware tools)…等安装完之后用chkconfig on 命令设置需要自动启动的服务;然后把apache等服务逐个启动一下验证是否工作正常.然后安装的是VMWare tools,这个好像也不是必须,不过还是装上比较好,方便虚拟机和host机共享文件.我的虚拟机的版本是5.5.3workstation版本.第二步:安装各种开源软件下面可能会是一个很长的change log1. 安装OpenNMS 1.3.2 安装方法 设置了opennms的自动启动,还没有设置tomcat5.5.23的自动启动.2.安装Cacti **0.8.6j **安装方法, 使用的poller.php,尝试安装cactid,安装失败,原因可能是OpenSuse10.2好像没有net-snmp lib包. 暂时不安装cactid3.安装OCSNG 1.0.1 安装方法4.安装 hyperic-hq 3.0.4-389 安装方法, 2007-6-21th5.安装 OTRS 2.2.1-1 安装方法很简单，执行rpm安装既可, 2007-7-28th
+
+        
+        
+          <a href="/2007-06-15-e5-bc-80-e6-ba-90it-e7-ae-a1-e7-90-86-e5-b7-a5-e5-85-b7-e5-a4-a7-e5-85-a8-e4-b9-8ball-in-one-e8-99-9a-e6-8b-9f-e6-9c-ba/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-14-how-to-install-cacti-on-opensuse-102/">
+	  <h2 class="post-title">How to install Cacti on OpenSuse 10.2</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 14, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        1.Download Extract the distribution tarballSuse:/opt # wget http://www.cacti.net/downloads/cacti-0.8.6j.tar.gzSuse:/opt # tar zxvf cacti-0.8.6j.tar.gz2.Create the MySQL database:Suse:/opt # mysqladmin –user=root create cacti3.Import the default cacti database:Suse:/opt/cacti-0.8.6j # mysql cacti &amp;lt; user=”root”&amp;gt; GRANT ALL ON cacti.* TO cactiuser@localhost IDENTIFIED BY ‘cacti’;Query OK, 0 rows affected (0.03 sec)mysql&amp;gt; flush privileges;Query OK, 0 rows affected...
+        
+        
+          <a href="/2007-06-14-how-to-install-cacti-on-opensuse-102/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cacti, opensuse
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-12-e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/">
+	  <h2 class="post-title">建立一个开源企业</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 12, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        需求分析如果你开一个公司的话，如果你的公司需要提供人们某些在线服务的话，如果有的office 需要200人同时上网工作的话，如果您在在线业务需要三层结构的话，如果您的服务器需要7×24小时监控的话，如果您的ITsupport工程是需要同时 照顾50个服务器和200个最终用户的话，如果您的企业随时收到黑客的攻击的话、、、、、、挑战如果您是公司的总裁或者CTO的话，试想您将如何为公司节约成本？如果建立一个可管理的基础架构？如果保证IT满足业务的需求？如果相应各种IT维护需求？如果降低企业的运行维护成本？、、、、、、开源领域里的可选组件如下外界链接设备
+
+
+        
+        
+          <a href="/2007-06-12-e5-bb-ba-e7-ab-8b-e4-b8-80-e4-b8-aa-e5-bc-80-e6-ba-90-e4-bc-81-e4-b8-9a/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Enterprise, opensource
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-09-go-open-sourcego-vyatta-network/">
+	  <h2 class="post-title">Go Open Source,GO! Vyatta开源软件挺进网络硬件领域</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 9, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        这是一个比较新的产品，提供开源的软件路由的解决方案；他们的目标直指Cisco这些大牌网络硬件厂商。它能简单的安装和运行在32bit的普通计算机硬件上，实现路由器的几乎所有功能；能支持的硬件平台和路由协议还真不少，请查看 Datasheet；下载 网址在VMWare中安装了一下发现它可以完全满足我需求：1）在公司中办公网络建立一个隔离的测试网。2）测试网中提供DHCP,DNS服务3）提供NAT,Firewall4）安装简单，硬件需求低准备在公司实际环境中安装测试，安装和配置信息待续。现在我正在Vyatta Router后面的小网内更新这个Blog。上午的安装过程如下：（硬件准备）测试机一台 Dell Gx620，主板上带Intel的内置网卡一块TP-LINK TG-3269C，网线若干（网络环境）在一台办公网的机器上，寻找一个未使用的IP地址，这个地址会分配给Router的Internet网卡上；然后运行 ipconfig /all 记录下默认网关、默认DNS和子网掩码，这些信息会配置到Router上。（安装过程）
+
+
+        
+        
+          <a href="/2007-06-09-go-open-sourcego-vyatta-network/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Network, swithch
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-07-core-business-hp-ibm/">
+	  <h2 class="post-title">谁来关心核心业务系统</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 7, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        注:本文是我的处女作呵呵,发布在”网管员世界” 三月B刊上,原文如下:
+
+
+        
+        
+          <a href="/2007-06-07-core-business-hp-ibm/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Enterprise
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-01-there-is-the-easiest-way-to-run-it-management-tool/">
+	  <h2 class="post-title">There is the easiest way to run IT management tool</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 1, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        If you are not a Linux guru, windows is the OS you can use only. It does not matter. You could easily try it on your Windows Laptop probably. Since VMware Player is free for using, and there are lots of VMware applications on the internet. So, you just download...
+        
+        
+          <a href="/2007-06-01-there-is-the-easiest-way-to-run-it-management-tool/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        VMWare
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-06-01-top-10-nsm-tools/">
+	  <h2 class="post-title">[转]10大优秀开源网络管理工具</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 1, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        转载ITmanagement的一个文章；全文的部分翻译。个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：click Here 
+
+
+        
+        
+          <a href="/2007-06-01-top-10-nsm-tools/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GroundWork, Hyperic HQ, Nagios, OpenNMS, OpenQRM, Zenoss
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-30-hyperic-hq-testing/">
+	  <h2 class="post-title">Hyperic HQ小测手记</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 30, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        HQ的网站是一个显的非常商业化的网站；看上去制作的比较精良也比较专业。从HQ的官方文档（好像没找到pdf手册）中看出它能监控的东西还真的非常多，无论是商业的软件还是开源的都有一大串的matrix；他们在被监控的及其上是需要安装和运行代理的。所以从这一点上讲和商业软件也没有什么区别，总之看的数据多应该比较好，不过数据收集的多有时候会给监控对象代理太重的workload。如何安装下载HQ\hyperic-hq-installer-3.0.4-389-x86-linux从HQ的网站。这个压缩文件包含：安装程序，服务器端程序（好像包括一个内嵌的PostgreSQL数据库），代理程序，服务期端shell程序，JRE。BTW:服务器端和代理都是Java程序，如果自己配置好JRE的话可以下载不包含JRE的安装包。Windows上的代理包是一个zip文件，为了方便我都下载的含有JRE的安装包。由于是纯Java的应用所以服务器端和代理端看似好像都没有任何依赖性要求，只是需要在服务器端安装xorg-x11-libs包，否则不能正常绘图，看不到图形。在Linux下的安装过程大致如下。mkdir /opt/hquseradd hq -G root -d /opt/hqsu hqtar zxvf hq.tgzcd hyperic-hq-installer/./setup.sh/opt/hq/server-3.0.4/bin/hq-server.sh start注意最好建立一个新的用户为HQ，服务期端本身需要被非root用户安装和启动。另外代理和服务器端都需要特殊的两个端口通信，所以安装完之后必须停止或者配置防火墙；否则不能访问服务器，服务器也不能和代理通信。启动代理之前需要配置好防火墙。试用：总体说HQ的安装和配置都是非常简单的，不过他的Web界面更是简洁。当代理启动了之后，会自动出现在Auto-Discovery下面，点击Add Resource按钮将它变成一个正式的监控对象。默认的情况下，代理会收集一定数量的监控指标；大概是可收集数量的20%左右。当在某个监控对象上（例如Memory Used）设置了收集间隔之后，服务器端就开始了定时的数据收集，所收集的数据默认情况下用折线图的形式展示。可以根据某个指标建立一个告警，告警的逻辑也相当的完整：逻辑判断，巅峰判断，升级处理；看似能想到的都有了。由于是第一次使用展示没有看的如何建立一个告警规则应用于所有监控对象的。我用HQ对我的一个服务器（iis,MS Sql,.net）做了监控，从数据收集和展现效果上来说，真的堪称可与商业软件媲美。使用结论：安装简单方便，在Linux下代理端完全无需关照包依赖性。代理配置的安装配置需要一定量的工作，必须配置服务器地址，通信端口等。代理程序对服务器的工作负担还是比较大的，特别是在启动的那几分钟内。代理进程对CPU的使用率可以达到50～80%，之后就比较低了。对内存的利用一般是30MB左右，当然这应该是可以通过降低收集数的数量和频率来降低的。用户界面的使用还真的是很方便，还支持告警信息的RSS访问。总之HQ是一个开源软件中的重量级选手：功能强，复杂性高，代理程序负担较重。其他使用小结，待续。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Hyperic HQ
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-22-zabbix-key-features/">
+	  <h2 class="post-title">ZABBIX特点介绍，转自它们的网站</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 22, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        FROM：http://www.zabbix.com/features.phpZABBIX offers functionality that will make your IT resources look more transparent, and it will also help to easily identify performance and availability problems. ZABBIX greatly increases the productivity of system administrators by providing simple-to-use monitoring system.Key features
+
+
+        
+        
+          <a href="/2007-05-22-zabbix-key-features/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        zabbix
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007-05-22-what-is-zabbix/">
+	  <h2 class="post-title">What is ZABBIX?</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 22, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        第一次看到这个软件是在OpenNMS的邮件讨论组中，他们计划做一个vmware的image放到VMTN上 。我在VMTN里哪里点击了一下监控管理这一类，一个叫OpenESM的项目进入了我的视线。它能引起我的注意是因为，它在项目的描述中说:我们理解ITSM、、、、Check it out! 大致浏览了一下他们的网站，发现他们的目的是在Zabbix的基础上作一下优化和开发，加入若干特色：GSM modem发短信、新报表、SLA监控等。现在很多项目都有迅速实施的解决方案。对于很多开源项目来说，它们对于新手的相同门槛就是安装。安装上了，不会配置；配置好了，不会用；用上了解决不了问题。我先下载了OpenESM ，一个不算太大的文件1.3GB。解压缩之后用VMWare打开运行，猜出root的用户名是openesm，登陆之后发现它是一个Fedora的虚拟机。登陆OpenESM的控制台， http://ip/ 接下来就需要去www.openesm.com上下载手册了，否则无法继续下去。照着手册安装代理，在我的两个Windows的机器上。安装需要先下子代理安装包，允许安装命令的时候需要制定自己的主机名和服务器的主机名。在控制台中加入这两个安装了代理的机器，由于是初次使用没用玩自动发现之类的功能。收集了一阵子数据之后，很快发现了很多有趣的数据。最终总结如下
+
+
+        
+        
+          <a href="/2007-05-22-what-is-zabbix/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        zabbix
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page43">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page45">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

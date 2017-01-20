@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>安装完美 CentOS7 虚拟机模板</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="安装完美 CentOS7 虚拟机模板" />
+  
+
+   
+  <meta property="og:description" content="初始化安装 下载最新版CentOS7 DVD 选择mini安装。 网络配置 安装过程中设置了静态网络地址，如下： [bash] [root@centos7-tmp ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0 TYPE=Ethernet BOOTPROTO=none DEFROUTE=yes IPV4_FAILURE_FATAL=no IPV6INIT=no NAME=eth0 DEVICE=eth0 ONBOOT=yes DNS1=192.168.10.1 DOMAIN=xenlab.com IPADDR=192.168.10.8 PREFIX=24 GATEWAY=192.168.10.1 UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03 [/bash] 软件包 Change log:  yum install wget telnet perl perl-devel net-tools kernel-devel yum install vim-enhanced.x86_64 yum -y install git yum install acpid yum install tree...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2015-06-05-e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/" />
+  <link rel="canonical" href="http://localhost:4000/2015-06-05-e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="安装完美 CentOS7 虚拟机模板" />
+  
+
+  
+  <meta name="twitter:description" content="初始化安装 下载最新版CentOS7 DVD 选择mini安装。 网络配置 安装过程中设置了静态网络地址，如下： [bash] [root@centos7-tmp ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0 TYPE=Ethernet BOOTPROTO=none DEFROUTE=yes IPV4_FAILURE_FATAL=no IPV6INIT=no NAME=eth0 DEVICE=eth0 ONBOOT=yes DNS1=192.168.10.1 DOMAIN=xenlab.com IPADDR=192.168.10.8 PREFIX=24 GATEWAY=192.168.10.1 UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03 [/bash] 软件包 Change log:  yum install wget telnet perl perl-devel net-tools kernel-devel yum install vim-enhanced.x86_64 yum -y install git yum install acpid yum install tree...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>安装完美 CentOS7 虚拟机模板</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 5, 2015</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <h2 id="section">初始化安装</h2>
+
+<p>下载最新版CentOS7 DVD 选择mini安装。</p>
+
+<h2 id="section-1">网络配置</h2>
+
+<p>安装过程中设置了静态网络地址，如下：</p>
+
+<p>[bash]</p>
+
+<p>[root@centos7-tmp ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0
+TYPE=Ethernet
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=no
+NAME=eth0
+DEVICE=eth0
+ONBOOT=yes
+DNS1=192.168.10.1
+DOMAIN=xenlab.com
+IPADDR=192.168.10.8
+PREFIX=24
+GATEWAY=192.168.10.1
+UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03</p>
+
+<p>[/bash]</p>
+
+<h2 id="section-2">软件包</h2>
+
+<p>Change log:</p>
+
+<ol>
+  <li>
+    <p> yum install wget <a href="http://itgeeker.net/tag/telnet/">telnet</a> perl perl-devel net-tools kernel-devel</p>
+  </li>
+  <li>
+    <p>yum install vim-enhanced.x86_64</p>
+  </li>
+  <li>
+    <p>yum -y install git</p>
+  </li>
+  <li>
+    <p>yum install acpid</p>
+  </li>
+  <li>
+    <p>yum install tree</p>
+  </li>
+  <li>
+    <p>yum install ntp</p>
+  </li>
+  <li>
+    <p>yum install unzip</p>
+  </li>
+</ol>
+
+<h2 id="repo-">Repo 软件更新源</h2>
+
+<p>Change log:</p>
+
+<ol>
+  <li>
+    <p>初始化安装，添加了个几个国内的源</p>
+  </li>
+  <li></li>
+</ol>
+
+<p>rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</p>
+
+<ol>
+  <li>
+    <p>/etc/yum.repo/bk/dvd.repo ；这个是在用KVM虚拟机挂ISO文件光驱的时候用的，到时候 mount /dev/cdrom /media/dvd , 把该文件方的夫目录中即可使用iso文件中的repos</p>
+  </li>
+  <li></li>
+</ol>
+
+<p>当前的软件源如下：</p>
+
+<p>[bash]</p>
+
+<p>[root@centos7-tmp ~]# yum repolist
+Loaded plugins: fastestmirror
+Repository base is listed more than once in the configuration
+Repository updates is listed more than once in the configuration
+Repository extras is listed more than once in the configuration
+Repository centosplus is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+* base: mirrors.163.com
+* epel: mirrors.neusoft.edu.cn
+* extras: mirrors.btte.net
+* remi-safe: remi.kazukioishi.net
+* updates: mirrors.btte.net
+repo id                                 repo name                                                                          status
+base/7/x86_64                           CentOS-7 - Base                                                                    8,652
+epel/x86_64                             Extra Packages for Enterprise Linux 7 - x86_64                                     8,022
+extras/7/x86_64                         CentOS-7 - Extras                                                                    128
+remi-safe                               Safe Remi’s RPM repository for Enterprise Linux 7 - x86_64                           123
+updates/7/x86_64                        CentOS-7 - Updates                                                                   609
+repolist: 17,534
+[root@centos7-tmp ~]#</p>
+
+<p>[/bash]</p>
+
+<h2 id="section-3">系统服务配置</h2>
+
+<p>Change log:</p>
+
+<ol>
+  <li>
+    <p>关闭SELinux</p>
+  </li>
+  <li>
+    <p>关闭 NetworkManager</p>
+  </li>
+  <li>
+    <p>关闭 FirewallD</p>
+  </li>
+  <li>
+    <p>systemctl enable acpid.service</p>
+  </li>
+  <li>
+    <p>开启 truned-adm virtual-guest 服务模式</p>
+  </li>
+  <li>
+    <p>systemctl enable ntpd</p>
+  </li>
+</ol>
+
+<p>[bash]</p>
+
+<p>[root@centos7-tmp tuned]# tuned-adm  list
+Cannot talk to Tuned daemon via DBus.
+Available profiles:
+- balanced
+- desktop
+- latency-performance
+- network-latency
+- network-throughput
+- powersave
+- throughput-performance
+- virtual-guest
+- virtual-host
+Cannot talk to Tuned daemon via DBus.
+It seems that tuned daemon is not running, preset profile is not activated.
+Preset profile: virtual-guest</p>
+
+<p>[/bash]</p>
+
+<h2 id="section-4">模板文件封装</h2>
+
+<p>用sys-unconfig 关机。用 virt-sysprep,  virt-sparsify 去除不必要信息，压缩。</p>
+
+<p>[bash]</p>
+
+<p>[root@martin-fedora vm]# ll -h
+total 12G
+-rw-r–r–  1 qemu qemu  81G Jun  5 22:36 centos7-tmp.qcow2
+-rw-r–r–  1 root root  81G Jun  5 22:34 centos7-tmp.qcow2.bk
+-rw-r–r–  1 root root 2.9G Jun  5 07:56 rhel66-clone-1.qcow2
+-rw-r–r–  1 root root 1.6G Jun  3 15:01 rhel66-clone.qcow2
+-rw-r–r–  1 root root  81G Jun  3 13:03 rhel66.qcow2
+-rw-r–r–. 1 root root  81G Jun  1 00:59 rhel71.qcow2
+[root@martin-fedora vm]# export TMPDIR=/home/martin
+[root@martin-fedora vm]# virt-sparsify –compress centos7-tmp.qcow2 centos7-tmp-v1.qcow2
+Input disk virtual size = 85899345920 bytes (80.0G)
+Create overlay file in /home/martin to protect source disk …
+Examine source disk …
+Fill free space in /dev/centos/root with zero …
+100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+Clearing Linux swap on /dev/centos/swap …
+100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+Fill free space in /dev/sda1 with zero …
+Fill free space in volgroup centos with zero …
+Copy to destination and make sparse …</p>
+
+<p>Sparsify operation completed with no errors.  Before deleting the old disk,
+carefully check that the target disk boots and works correctly.
+[root@martin-fedora vm]# ll -h
+total 12G
+-rw-r–r–  1 qemu qemu  81G Jun  5 22:36 centos7-tmp.qcow2
+-rw-r–r–  1 root root  81G Jun  5 22:34 centos7-tmp.qcow2.bk
+-rw-r–r–  1 root root 520M Jun  5 23:11 centos7-tmp-v1.qcow2
+-rw-r–r–  1 root root 2.9G Jun  5 07:56 rhel66-clone-1.qcow2
+-rw-r–r–  1 root root 1.6G Jun  3 15:01 rhel66-clone.qcow2
+-rw-r–r–  1 root root  81G Jun  3 13:03 rhel66.qcow2
+-rw-r–r–. 1 root root  81G Jun  1 00:59 rhel71.qcow2</p>
+
+<p>[/bash]</p>
+
+<h2 id="yum-update--y">yum update -y</h2>
+
+<ul>
+  <li>
+    <p>2015-07-10 : Done yum updated. 删除了不需要的Kernel，安装了unzip, 修改启动过程为直接文字启动。</p>
+  </li>
+  <li>
+    <p>2015-11.15: update kernel to 7.1, set old kernel 1: package-cleanup –oldkernels –count=1</p>
+  </li>
+</ul>
+
+<h2 id="section-5">使用方法</h2>
+
+<p>root 密码 martinliu.cn 开机后记得一定要先修改。</p>
+
+<p>百度网盘下载地址 [su_button url=”http://pan.baidu.com/s/1pJurap9” target=”blank” style=”stroked” size=”6” icon=”icon: codepen”]centos7-tmp-v7[/su_button]</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            centos, linux, RHEL
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E5%AE%89%E8%A3%85%E5%AE%8C%E7%BE%8E+CentOS7+%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%A8%A1%E6%9D%BF+http://localhost:4000/2015-06-05-e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2015-06-05-e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2015-06-05-e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2015-06-04-achilles-e7-9a-84-e8-84-9a-e5-90-8e-e8-b7-9f/" data-toggle="tooltip" data-placement="top" title="Achilles的脚后跟">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2015-06-07-e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/" data-toggle="tooltip" data-placement="top" title="在CentOS 7上安装部署Katello2.2">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

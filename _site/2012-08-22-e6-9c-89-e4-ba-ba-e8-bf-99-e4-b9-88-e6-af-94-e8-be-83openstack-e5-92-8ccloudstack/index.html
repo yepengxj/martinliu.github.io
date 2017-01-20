@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>有人这么比较OpenStack和CloudStack</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="有人这么比较OpenStack和CloudStack" />
+  
+
+   
+  <meta property="og:description" content="
+
+
+•Started by a single vendor
+•Developed by a single vendor
+•Marketed by a single vendor
+•With the goal to create a veil of “no vendor lock-in”
+From: Mirantis OpenStack Apac summit PPT
+
+
+Mirantis 是谁？google it。 Mirantis貌似是最大的OpenStack服务提供商之一，上面原文是来自最近的OpenStack Apac峰会上Mirantis的ppt，所以很显然，你知道它为啥这么去鼓吹OpenStack了吧？我对此很不同意，如果他们在CloudStack上也有钱赚的话，还会这么说？所以有下面的话想说，想谈点我所知道的事实。
+
+CloudStack起源一些成功的数据中心IaaS项目实施，后来成功的转身为一个开源项目，后来向所有创业项目一样成功的获得风投，买下Cloud.com域名，后来被Citrix收购，后来被捐献给Apache，目前由Apache社区来运作开源版本。Citrix是一个提供商业支持的vendor，目前大多数开源软件的盈利模式都是这样，我没有看出来CloudStack是那个vendor开创和控制的。
+
+如果你深入CloudStack开发者社区邮件组的话，你会发现，有太多来自全球各种公司向这个项目做贡献的，非常多的个人贡献者。最近看见一个CloudStack架构重构的帖子，我看到n多的人提交他们的建议和想法，看到了私有软件厂商架构师不可能完成的工作量。而这些人是谁，你看看他们的邮箱地址就知道，他们大多数不是citrix.com邮箱地址。
+
+CloudStack在全球有最多的IaaS的大规模生产环境项目实施，它们各自在做自己的市场宣传；他们可能不会说底层是CloudStack，但是，大家都知道，有一种无法Marketing的东西叫做口碑，随着CloudStack的实施案例逐渐增多，我想CloudStack的用户社区就是它最好的宣传了。
+
+无厂商锁定不是一个面纱，而是用户的一真实需求，这不需要提醒用户，用户也能想到吧！
+
+CloudStack是一个目前市场上最成熟的IaaS软件，是一个用户最有价值的选择，是一个用户可以快速实践并积累经验的技术平台；我们已经进了云时代的门，没有必要做学术研究，没有必要务虚，但求尽快的能投产，尽快的能积累到IaaS的实战经验，它是一种全新的数据中心生产运作的方式，云平台管理经验来自正确的实践路径；道路曲折与否，时间长短，没人能替用户选择。
+
+我不会去攻击OpenStack，开源世界原本就是这样，多种选项并存，相互促进，相互学习，而且以后还会有很对Stack出现；我个人同时喜欢并且使用多个Linux版本，包括openSuse,Ubuntu,CentOS；你会发现Linux有n个发行版本，没有任何一家跳出来去攻击和贬低他人的。有空我一定会也研究下OpenStack，Why not？
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2012-08-22-e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/" />
+  <link rel="canonical" href="http://localhost:4000/2012-08-22-e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="有人这么比较OpenStack和CloudStack" />
+  
+
+  
+  <meta name="twitter:description" content="
+
+
+•Started by a single vendor
+•Developed by a single vendor
+•Marketed by a single vendor
+•With the goal to create a veil of “no vendor lock-in”
+From: Mirantis OpenStack Apac summit PPT
+
+
+Mirantis 是谁？google it。 Mirantis貌似是最大的OpenStack服务提供商之一，上面原文是来自最近的OpenStack Apac峰会上Mirantis的ppt，所以很显然，你知道它为啥这么去鼓吹OpenStack了吧？我对此很不同意，如果他们在CloudStack上也有钱赚的话，还会这么说？所以有下面的话想说，想谈点我所知道的事实。
+
+CloudStack起源一些成功的数据中心IaaS项目实施，后来成功的转身为一个开源项目，后来向所有创业项目一样成功的获得风投，买下Cloud.com域名，后来被Citrix收购，后来被捐献给Apache，目前由Apache社区来运作开源版本。Citrix是一个提供商业支持的vendor，目前大多数开源软件的盈利模式都是这样，我没有看出来CloudStack是那个vendor开创和控制的。
+
+如果你深入CloudStack开发者社区邮件组的话，你会发现，有太多来自全球各种公司向这个项目做贡献的，非常多的个人贡献者。最近看见一个CloudStack架构重构的帖子，我看到n多的人提交他们的建议和想法，看到了私有软件厂商架构师不可能完成的工作量。而这些人是谁，你看看他们的邮箱地址就知道，他们大多数不是citrix.com邮箱地址。
+
+CloudStack在全球有最多的IaaS的大规模生产环境项目实施，它们各自在做自己的市场宣传；他们可能不会说底层是CloudStack，但是，大家都知道，有一种无法Marketing的东西叫做口碑，随着CloudStack的实施案例逐渐增多，我想CloudStack的用户社区就是它最好的宣传了。
+
+无厂商锁定不是一个面纱，而是用户的一真实需求，这不需要提醒用户，用户也能想到吧！
+
+CloudStack是一个目前市场上最成熟的IaaS软件，是一个用户最有价值的选择，是一个用户可以快速实践并积累经验的技术平台；我们已经进了云时代的门，没有必要做学术研究，没有必要务虚，但求尽快的能投产，尽快的能积累到IaaS的实战经验，它是一种全新的数据中心生产运作的方式，云平台管理经验来自正确的实践路径；道路曲折与否，时间长短，没人能替用户选择。
+
+我不会去攻击OpenStack，开源世界原本就是这样，多种选项并存，相互促进，相互学习，而且以后还会有很对Stack出现；我个人同时喜欢并且使用多个Linux版本，包括openSuse,Ubuntu,CentOS；你会发现Linux有n个发行版本，没有任何一家跳出来去攻击和贬低他人的。有空我一定会也研究下OpenStack，Why not？
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>有人这么比较OpenStack和CloudStack</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 22, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2012/08/os-vs-cs.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/08/os-vs-cs.png" alt="" /></a></p>
+
+<blockquote>
+•Started by a single vendor
+•Developed by a single vendor
+•Marketed by a single vendor
+•With the goal to create a veil of “no vendor lock-in”
+From: Mirantis OpenStack Apac summit PPT
+</blockquote>
+
+<p>Mirantis 是谁？google it。 Mirantis貌似是最大的OpenStack服务提供商之一，上面原文是来自最近的OpenStack Apac峰会上Mirantis的ppt，所以很显然，你知道它为啥这么去鼓吹OpenStack了吧？我对此很不同意，如果他们在CloudStack上也有钱赚的话，还会这么说？所以有下面的话想说，想谈点我所知道的事实。</p>
+
+<p>CloudStack起源一些成功的数据中心IaaS项目实施，后来成功的转身为一个开源项目，后来向所有创业项目一样成功的获得风投，买下Cloud.com域名，后来被Citrix收购，后来被捐献给Apache，目前由Apache社区来运作开源版本。Citrix是一个提供商业支持的vendor，目前大多数开源软件的盈利模式都是这样，我没有看出来CloudStack是那个vendor开创和控制的。</p>
+
+<p>如果你深入CloudStack开发者社区邮件组的话，你会发现，有太多来自全球各种公司向这个项目做贡献的，非常多的个人贡献者。最近看见一个CloudStack架构重构的帖子，我看到n多的人提交他们的建议和想法，看到了私有软件厂商架构师不可能完成的工作量。而这些人是谁，你看看他们的邮箱地址就知道，他们大多数不是citrix.com邮箱地址。</p>
+
+<p>CloudStack在全球有最多的IaaS的大规模生产环境项目实施，它们各自在做自己的市场宣传；他们可能不会说底层是CloudStack，但是，大家都知道，有一种无法Marketing的东西叫做口碑，随着CloudStack的实施案例逐渐增多，我想CloudStack的用户社区就是它最好的宣传了。</p>
+
+<p>无厂商锁定不是一个面纱，而是用户的一真实需求，这不需要提醒用户，用户也能想到吧！</p>
+
+<p>CloudStack是一个目前市场上最成熟的IaaS软件，是一个用户最有价值的选择，是一个用户可以快速实践并积累经验的技术平台；我们已经进了云时代的门，没有必要做学术研究，没有必要务虚，但求尽快的能投产，尽快的能积累到IaaS的实战经验，它是一种全新的数据中心生产运作的方式，云平台管理经验来自正确的实践路径；道路曲折与否，时间长短，没人能替用户选择。</p>
+
+<p>我不会去攻击OpenStack，开源世界原本就是这样，多种选项并存，相互促进，相互学习，而且以后还会有很对Stack出现；我个人同时喜欢并且使用多个Linux版本，包括openSuse,Ubuntu,CentOS；你会发现Linux有n个发行版本，没有任何一家跳出来去攻击和贬低他人的。有空我一定会也研究下OpenStack，Why not？</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cloudstack, openstack
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E6%9C%89%E4%BA%BA%E8%BF%99%E4%B9%88%E6%AF%94%E8%BE%83OpenStack%E5%92%8CCloudStack+http://localhost:4000/2012-08-22-e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2012-08-22-e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2012-08-22-e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012-08-20-e9-97-ae-e4-b8-96-e9-97-b4-xenserver-ddk-e4-b8-ba-e4-bd-95-e7-89-a9/" data-toggle="tooltip" data-placement="top" title="问世间 XenServer DDK 为何物？">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012-08-22-e6-b9-96-e5-8d-97-e5-b2-b3-e9-98-b3/" data-toggle="tooltip" data-placement="top" title="湖南岳阳">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

@@ -1,0 +1,18 @@
+---
+author: liuadmin
+comments: true
+date: 2014-12-02 03:08:56+00:00
+layout: post
+slug: rdo
+title: rdo
+wordpress_id: 53313
+categories:
+- opensource
+- openstack
+post_format:
+- Link
+tags:
+- openstack
+---
+
+[https://openstack.redhat.com/Main_Page](https://openstack.redhat.com/)

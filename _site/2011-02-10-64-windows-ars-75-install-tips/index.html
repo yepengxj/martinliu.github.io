@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>在64位Windows上安装ARS7.5</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="在64位Windows上安装ARS7.5" />
+  
+
+   
+  <meta property="og:description" content="刚才终于把ARS装上了。费了我两天的力气终于搞定了。错误其实很简单的，现象很多人都见过，ARS在安装完所有的文件后，在系统中建完ARS的服务以后，会继续启动服务，才能做最后的程序文件导入的相关操作。
+
+错误的现象是：在启动服务的时，安装程序一直停止在“Starting Remedy ARS services….”的屏幕，去arerror日志里面可以看到无法连接到SQL数据库的错误。
+
+我的安装错误的原因其实很简单：
+
+
+  
+    如果是64为的Windows操作系统，默认的安装路径是C:\Program Files (x86)\目录
+  
+  
+    Oracle客户端没有正确的安装
+  
+
+
+解决的方法如下：
+
+
+  
+    修改ars默认的安装路径，尽量把它放在一个较短的而且没有特殊字符的路径里，如D:\bmc\
+  
+  
+    ARS 7.5 sp6支持的Oracle客户端是32位的，如果你在64位OS上安装的是64位的Oracle数据+客户端（sqlplus），那么默认的这个64为的客户端是不能用的，需要安装一个62位的客户端，而且需要时10g的，此版本也不支持11g的客户端；另外在安装32位的oracle客户端的时候最好也不要在路径中有特殊字符如符号和下划线之类的
+  
+
+
+ARS7.5本身是32位的可支持程序，所以它所需要的JDK和Oracle都需要是32位的版本。如果你安装的是7.6.04，就不需要考虑32位的问题，由于它本身就是64位的程序了，所以JDK和Oracle都需要使用相应的64为的程序。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2011-02-10-64-windows-ars-75-install-tips/" />
+  <link rel="canonical" href="http://localhost:4000/2011-02-10-64-windows-ars-75-install-tips/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="在64位Windows上安装ARS7.5" />
+  
+
+  
+  <meta name="twitter:description" content="刚才终于把ARS装上了。费了我两天的力气终于搞定了。错误其实很简单的，现象很多人都见过，ARS在安装完所有的文件后，在系统中建完ARS的服务以后，会继续启动服务，才能做最后的程序文件导入的相关操作。
+
+错误的现象是：在启动服务的时，安装程序一直停止在“Starting Remedy ARS services….”的屏幕，去arerror日志里面可以看到无法连接到SQL数据库的错误。
+
+我的安装错误的原因其实很简单：
+
+
+  
+    如果是64为的Windows操作系统，默认的安装路径是C:\Program Files (x86)\目录
+  
+  
+    Oracle客户端没有正确的安装
+  
+
+
+解决的方法如下：
+
+
+  
+    修改ars默认的安装路径，尽量把它放在一个较短的而且没有特殊字符的路径里，如D:\bmc\
+  
+  
+    ARS 7.5 sp6支持的Oracle客户端是32位的，如果你在64位OS上安装的是64位的Oracle数据+客户端（sqlplus），那么默认的这个64为的客户端是不能用的，需要安装一个62位的客户端，而且需要时10g的，此版本也不支持11g的客户端；另外在安装32位的oracle客户端的时候最好也不要在路径中有特殊字符如符号和下划线之类的
+  
+
+
+ARS7.5本身是32位的可支持程序，所以它所需要的JDK和Oracle都需要是32位的版本。如果你安装的是7.6.04，就不需要考虑32位的问题，由于它本身就是64位的程序了，所以JDK和Oracle都需要使用相应的64为的程序。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>在64位Windows上安装ARS7.5</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on February 10, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><img src="data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBggGBQkIBwgKCQkKDRYODQwMDRoTFBAWHxwhIB8cHh4jJzIqIyUvJR4eKzssLzM1ODg4ISo9QTw2QTI3ODUBCQoKDQsNGQ4OGTUkHiQ1NTU1NTU1LzU1NTU1NTU1NS41NCw1NTQ0NTU1NTU1LDUpNDQ1NDUsNSwsMDQsNDU1Nf/AABEIADAAMAMBIgACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAGBwMEBQIIAf/EADUQAAEDAwMCAwUFCQAAAAAAAAECAwQFERIAITEGEyJBYQdRcYGhFBUjMkJSYpGiscHR4fD/xAAYAQADAQEAAAAAAAAAAAAAAAACAwQFAf/EACERAAICAgICAwEAAAAAAAAAAAECABEDIRJBBDEiMnET/9oADAMBAAIRAxEAPwB4k2FzofqUqoyX1NMK+zRySEOJBzUoevAB9RqR6rOuVtbLOK47ACXEHZRXfe3vABB+R11VKolKMUfl/Sm/5/U/u/RQOjAqTu93uDU6miQ6vuEynl7d5RCSo/E2G3Hy1aV09TGFpXTmhElHxNvRiEqSPOxVcAEXFjvzqjKkqdRZZUEFJCUKbuL38h/HbXPUtb+6KO8+xHvitsIB8itaWx4rb2ve39L6qxKCCT1JAd0O5pR+oJlEdSJTxl0/LxLdBVISCd1EiwIA8gm+i+PIalx0Px3EuNLF0qSdjpXTejSlky01upLnIR3SpTy+x3LXI7OVsL/pva22q/sy60WquCG9kzCllTbLAOQQ8FWunjFKrLUQByfPnSWC5LKCqlqck0xubESuJEVUmSpTxeJcBSAApZFiSRYgW92q7lWQ5buEKxIOyj+nn/X11BFeEOnN0+UC1IintuoPiAI38uefI86ru1doKxTyFWOQvz/nz/tq5sAbYMzASNGWJE9CyVqUFeQSk/8AfM839NY3UNZiSGWaWAJDk5SQ1dRDYxOdyRvYY3G25Fjtqd6tuEfhWSpJuFWO/lcj04toUkSEOV2jOhfgL7hJKhz2zz6+vGhCfzIXptRuL5OIWTYnWSWEsOOQDHCcG5RWoOFJ2C8cMciN7cX0DxK6ilzFqh4wpkF3JFjmnPc5DK973JsRYE7bW005akntKBBSWUG99rW0lE06TWOr5UKA33pMh/FtGQTkbe8kDR5cS4FDKPcrykkfkbntMp0uhVs1aOw8unSUDvuJUSGnSoglQtsCMAL+eg1uroWpZ8ON7JCj7+Pjf+bXoaVFZnRXI8ptLrLqcVoUNiNJfq/2R1anyHpPT2MmCVfhxgSXkBR4FxuBsLlV9K8fOK4tE58BvksHXarhgoqzsb2SvG/qT5W4v5cawZT2cZlpSGwEvNhKsAlQuoA29222Pu+OvlRYqNInriVBtceS2QVNrSLjYEfQjUNPYnVeWxBgR1SpKlhSW0DxLCPGQPkkm+i8g/UxOPTi4wa9Rn6dTnXk1CXgG7ttB5WKU22HPAG1tQ+xHo+RUqz9/wA9h37Kxmph5RI7joXYEftAAKHxGuq71ZCqrBpLQcTVCBGMRQGfe/L2+ecttNP2dUGV0z0HTqZPLf2hnuKX2ySBm4pYG4G4CgD631zzXUheJmgFv3P/2Q==" alt="ARS 7.5 安装" />刚才终于把ARS装上了。费了我两天的力气终于搞定了。错误其实很简单的，现象很多人都见过，ARS在安装完所有的文件后，在系统中建完ARS的服务以后，会继续启动服务，才能做最后的程序文件导入的相关操作。</p>
+
+<p>错误的现象是：在启动服务的时，安装程序一直停止在“Starting Remedy ARS services….”的屏幕，去arerror日志里面可以看到无法连接到SQL数据库的错误。</p>
+
+<p>我的安装错误的原因其实很简单：</p>
+
+<ol>
+  <li>
+    <p>如果是64为的Windows操作系统，默认的安装路径是C:\Program Files (x86)\目录</p>
+  </li>
+  <li>
+    <p>Oracle客户端没有正确的安装</p>
+  </li>
+</ol>
+
+<p>解决的方法如下：</p>
+
+<ol>
+  <li>
+    <p>修改ars默认的安装路径，尽量把它放在一个较短的而且没有特殊字符的路径里，如D:\bmc\</p>
+  </li>
+  <li>
+    <p>ARS 7.5 sp6支持的Oracle客户端是32位的，如果你在64位OS上安装的是64位的Oracle数据+客户端（sqlplus），那么默认的这个64为的客户端是不能用的，需要安装一个62位的客户端，而且需要时10g的，此版本也不支持11g的客户端；另外在安装32位的oracle客户端的时候最好也不要在路径中有特殊字符如符号和下划线之类的</p>
+  </li>
+</ol>
+
+<p>ARS7.5本身是32位的可支持程序，所以它所需要的JDK和Oracle都需要是32位的版本。如果你安装的是7.6.04，就不需要考虑32位的问题，由于它本身就是64位的程序了，所以JDK和Oracle都需要使用相应的64为的程序。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ARS, BMC, remedy
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E5%9C%A864%E4%BD%8DWindows%E4%B8%8A%E5%AE%89%E8%A3%85ARS7.5+http://localhost:4000/2011-02-10-64-windows-ars-75-install-tips/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2011-02-10-64-windows-ars-75-install-tips/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2011-02-10-64-windows-ars-75-install-tips/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2011-01-12-bmc-atrium-cmdb-ci/" data-toggle="tooltip" data-placement="top" title="BMC Atrium CMDB CI数据迁移">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2011-02-12-book-service-modelling/" data-toggle="tooltip" data-placement="top" title="图书推荐《服务建模：原理与应用》">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

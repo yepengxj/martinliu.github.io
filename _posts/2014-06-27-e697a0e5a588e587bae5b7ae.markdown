@@ -1,0 +1,15 @@
+---
+author: liuadmin
+comments: true
+date: 2014-06-27 15:52:58+00:00
+layout: post
+slug: '%e6%97%a0%e5%a5%88%e5%87%ba%e5%b7%ae'
+title: 无奈出差
+wordpress_id: 52964
+categories:
+- life
+post_format:
+- Aside
+---
+
+今天是实在不应该出差！！

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>CMDB需求分析之最佳实践</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="CMDB需求分析之最佳实践" />
+  
+
+   
+  <meta property="og:description" content="[singlepic id=4 w=320 h=240 mode=watermark  float=right]今天终于移师厦门开发中心，这意味着我所经历的史上最长CMDB需求分析基本告一阶段，也意味着CMDB的构建、集成、定制和 测试工作也徐徐拉开了大幕。
+
+回忆前三个月所做的的需求分析工作，虽然各项调研和讨论工作进行的缓慢，不过细致的工作最终还是换回了令人满意的成果，起码我是这么认为。
+
+需求分析的过程是对需求的重新整理、重新定义和梳理。项目的立项并不意味着项目目标树立的精准，项目范围控制的合理。实际需求可以在实施的初期阶段来重定义，从新分析，着觉得不是浪费时间。而且这一点对于中国用户至关重要。国内很多项目都是资金或者预算驱动的，先有需求，通过需求推到出项目的价值，在通过项目的投资回报率申报项目预算的过程在国内是很少见得。国内的项目往往是有多少钱需要花，那么大家在来看，如何把需求花到极致，达到最大的产出。这也是很多需求分析做的贪多、贪大、求全的根源，这样做的好处是在一个项目周期内就把需求实现的尽善尽美（愿望是这样），坏处是：可能导致厂商和服务商的服务成本超支，从而造成的项目质量降低，从用户角度来说一次性接受一大堆的系统功能，负担重，接受度低，同时客户满意度低，项目满意度差。
+
+我认为较好的最佳实践还要抓项目的主要目标，抓需要实现的主要价值点，抓重点放弃那些可做可不做的功能。懂得放弃的人才懂得获得。把所有的功能需求做成能够分批、分期上线的成果；确保让系统用户能buy in每一个阶段性成果，不要奢望给用户带来革命性的提高，由于那样也意味着，你对他们当前工作方式的影响是巨大的，没有用户愿意接受巨变。
+
+需求分析时，从技术上讲，对会议组织人要求很高。需要此人能非常熟悉CMDB项目实施的方法论，需要此人能够非常熟悉产品的各个功能点，需要引导有效的需求分析会议。在白板上尽可能多的画图，用Visio或者ppt等工具尽量多的讲解各种架构图、功能图、流程图具有事半功倍的效果。不管会议上您可能收到怎样的抱怨、抵制、反对；stakeholder的反馈将是你最宝贵的收获。没有互动和反馈的需求分析会是相当无聊和浪费时间的。切忌在大型的企业中，要慎重地计划每一次需求分析会，理由也很简单，企业组织越大，沟通的成本也越高。需求分析沟通的效率和成功完全取决于CMDB项目执行的方法论，取决于分析引导人的各种项目背景经验，还取决于对客户状况了解和上手的速度。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2010-03-29-cmdb-requirement-analysis-practice/" />
+  <link rel="canonical" href="http://localhost:4000/2010-03-29-cmdb-requirement-analysis-practice/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="CMDB需求分析之最佳实践" />
+  
+
+  
+  <meta name="twitter:description" content="[singlepic id=4 w=320 h=240 mode=watermark  float=right]今天终于移师厦门开发中心，这意味着我所经历的史上最长CMDB需求分析基本告一阶段，也意味着CMDB的构建、集成、定制和 测试工作也徐徐拉开了大幕。
+
+回忆前三个月所做的的需求分析工作，虽然各项调研和讨论工作进行的缓慢，不过细致的工作最终还是换回了令人满意的成果，起码我是这么认为。
+
+需求分析的过程是对需求的重新整理、重新定义和梳理。项目的立项并不意味着项目目标树立的精准，项目范围控制的合理。实际需求可以在实施的初期阶段来重定义，从新分析，着觉得不是浪费时间。而且这一点对于中国用户至关重要。国内很多项目都是资金或者预算驱动的，先有需求，通过需求推到出项目的价值，在通过项目的投资回报率申报项目预算的过程在国内是很少见得。国内的项目往往是有多少钱需要花，那么大家在来看，如何把需求花到极致，达到最大的产出。这也是很多需求分析做的贪多、贪大、求全的根源，这样做的好处是在一个项目周期内就把需求实现的尽善尽美（愿望是这样），坏处是：可能导致厂商和服务商的服务成本超支，从而造成的项目质量降低，从用户角度来说一次性接受一大堆的系统功能，负担重，接受度低，同时客户满意度低，项目满意度差。
+
+我认为较好的最佳实践还要抓项目的主要目标，抓需要实现的主要价值点，抓重点放弃那些可做可不做的功能。懂得放弃的人才懂得获得。把所有的功能需求做成能够分批、分期上线的成果；确保让系统用户能buy in每一个阶段性成果，不要奢望给用户带来革命性的提高，由于那样也意味着，你对他们当前工作方式的影响是巨大的，没有用户愿意接受巨变。
+
+需求分析时，从技术上讲，对会议组织人要求很高。需要此人能非常熟悉CMDB项目实施的方法论，需要此人能够非常熟悉产品的各个功能点，需要引导有效的需求分析会议。在白板上尽可能多的画图，用Visio或者ppt等工具尽量多的讲解各种架构图、功能图、流程图具有事半功倍的效果。不管会议上您可能收到怎样的抱怨、抵制、反对；stakeholder的反馈将是你最宝贵的收获。没有互动和反馈的需求分析会是相当无聊和浪费时间的。切忌在大型的企业中，要慎重地计划每一次需求分析会，理由也很简单，企业组织越大，沟通的成本也越高。需求分析沟通的效率和成功完全取决于CMDB项目执行的方法论，取决于分析引导人的各种项目背景经验，还取决于对客户状况了解和上手的速度。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>CMDB需求分析之最佳实践</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on March 29, 2010</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>[singlepic id=4 w=320 h=240 mode=watermark  float=right]今天终于移师厦门开发中心，这意味着我所经历的史上最长CMDB需求分析基本告一阶段，也意味着CMDB的构建、集成、定制和 测试工作也徐徐拉开了大幕。</p>
+
+<p>回忆前三个月所做的的需求分析工作，虽然各项调研和讨论工作进行的缓慢，不过细致的工作最终还是换回了令人满意的成果，起码我是这么认为。</p>
+
+<p>需求分析的过程是对需求的重新整理、重新定义和梳理。项目的立项并不意味着项目目标树立的精准，项目范围控制的合理。实际需求可以在实施的初期阶段来重定义，从新分析，着觉得不是浪费时间。而且这一点对于中国用户至关重要。国内很多项目都是资金或者预算驱动的，先有需求，通过需求推到出项目的价值，在通过项目的投资回报率申报项目预算的过程在国内是很少见得。国内的项目往往是有多少钱需要花，那么大家在来看，如何把需求花到极致，达到最大的产出。这也是很多需求分析做的贪多、贪大、求全的根源，这样做的好处是在一个项目周期内就把需求实现的尽善尽美（愿望是这样），坏处是：可能导致厂商和服务商的服务成本超支，从而造成的项目质量降低，从用户角度来说一次性接受一大堆的系统功能，负担重，接受度低，同时客户满意度低，项目满意度差。</p>
+
+<p>我认为较好的最佳实践还要抓项目的主要目标，抓需要实现的主要价值点，抓重点放弃那些可做可不做的功能。懂得放弃的人才懂得获得。把所有的功能需求做成能够分批、分期上线的成果；确保让系统用户能buy in每一个阶段性成果，不要奢望给用户带来革命性的提高，由于那样也意味着，你对他们当前工作方式的影响是巨大的，没有用户愿意接受巨变。</p>
+
+<p>需求分析时，从技术上讲，对会议组织人要求很高。需要此人能非常熟悉CMDB项目实施的方法论，需要此人能够非常熟悉产品的各个功能点，需要引导有效的需求分析会议。在白板上尽可能多的画图，用Visio或者ppt等工具尽量多的讲解各种架构图、功能图、流程图具有事半功倍的效果。不管会议上您可能收到怎样的抱怨、抵制、反对；stakeholder的反馈将是你最宝贵的收获。没有互动和反馈的需求分析会是相当无聊和浪费时间的。切忌在大型的企业中，要慎重地计划每一次需求分析会，理由也很简单，企业组织越大，沟通的成本也越高。需求分析沟通的效率和成功完全取决于CMDB项目执行的方法论，取决于分析引导人的各种项目背景经验，还取决于对客户状况了解和上手的速度。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            best practice, cmdb, cms, ITIL, ITSM
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=CMDB%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90%E4%B9%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5+http://localhost:4000/2010-03-29-cmdb-requirement-analysis-practice/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2010-03-29-cmdb-requirement-analysis-practice/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2010-03-29-cmdb-requirement-analysis-practice/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2010-03-28-opennms-161-1610/" data-toggle="tooltip" data-placement="top" title="OpenNMS 1.6.1 to 1.6.10">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2010-03-30-phase-roll-out-cmdb-implement/" data-toggle="tooltip" data-placement="top" title="掀起CMDB的盖头来">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

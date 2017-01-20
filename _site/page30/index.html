@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page30/" />
+  <link rel="canonical" href="http://localhost:4000/page30/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2010-07-23-cacti-easier/">
+	  <h2 class="post-title">Make Cacti more easier</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 23, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Cacti是我最喜爱的一个网管软件之一。网站http://cactiez.cactiusers.org/ ；该网站的主人吧Cacti嵌入到了Linux的安装光盘中，实现了Cacti的一键式安装，这正是我所关注的关于开源应用的重要的一个步骤。我称之这是在解决开源软件应用的“last mile”问题。开源软件的潜在用户往往有这样几个特点：
+
+
+        
+        
+          <a href="/2010-07-23-cacti-easier/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cacti, cactiez, snmp
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-07-20-cmdb003/">
+	  <h2 class="post-title">规划CMDB数据填充-003</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 20, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        From 《Step by step to build a CMDB》步骤17-规划CMDB数据填充
+
+
+        
+        
+          <a href="/2010-07-20-cmdb003/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Atrium, cmdb, cms, ITIL, ITSM
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-07-20-plan-cmdb-population-002/">
+	  <h2 class="post-title">规划CMDB数据填充-002</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 20, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        From 《Step by step to build a CMDB》步骤17-规划CMDB数据填充
+
+
+        
+        
+          <a href="/2010-07-20-plan-cmdb-population-002/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Atrium, BMC, cmdb, cms, configuration management, ITIL, ITSM, v3
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-07-18-rt3-request-tracker/">
+	  <h2 class="post-title">RT3 Request Tacker或让你摆脱束缚</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 18, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+          
+What’s new in 3.8+?
+
+
+        
+        
+          <a href="/2010-07-18-rt3-request-tracker/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        help desk, ITIL, OTRS, request tacker, rt3
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-07-16-ocs-inventory-ng/">
+	  <h2 class="post-title">OCS inventory NG 两三事</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 16, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        头等大事是有关于OCSNG很快就要出UTF8多语言支持版的Windows采集代理程序。新闻如下：
+** 新版windows采集代理被彻底重写，它将包括下面的新特性：**
+- 全Unicode代理，多语言UTF-8支持
+- Native 32 and 64 bits agent
+- BIOS AssetTag 收集
+- 硬盘序列号收集
+- 部署返回码收集
+- 全 HTTPS 支持
+- Socks 4 、5 HTTP 代理支持
+- FTP, FTPS 和SMB 包部署支持
+- 二进制插件支持
+
+
+        
+        
+          <a href="/2010-07-16-ocs-inventory-ng/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GLPI, linux, OCSNG
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-06-20-upgraded-wordpress-30/">
+	  <h2 class="post-title">Upgraded to Wordpress 3.0</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 20, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2010-06-20-upgraded-wordpress-30/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        wordpress
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-06-07-bmc-remedy-ondemand/">
+	  <h2 class="post-title">BMC提供ITSM洋快餐</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 7, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        还有很多企业依然在寻找IT服务管理的方法论
+还有很多企业依然在让内部开发团队打造ITSM流程平台
+也还有很多企业在购买的成熟的ITSM管理平台套件上大搞研发和定制
+也还有很多外国企业在拼命保持使用ITSM产品开箱即用的功能来减少开支和加快投资回报
+也还有一些外国企业在尝试ITSM的KFC，BMC Remedy OnDemand，连系统也不建设了，直接拿标准的就来用吧。
+回顾国内的ITSM用户，往往在探索期里花的时间和金钱成本太大，推广标准化ITSM的理念需和ITSM系统平台建设同行；目前国外的工具和ITIL标准已经够标准、成熟和进化了，我们的标准化理念也争取迎头赶上吧
+Reduce Service Support Costs Quickly with BMC Remedy OnDemand
+
+
+        
+        
+          <a href="/2010-06-07-bmc-remedy-ondemand/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        BMC, cloud, Cloud Computing, ITIL, ITSM, remedy
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-06-04-plan-cmdb-population-001/">
+	  <h2 class="post-title">规划CMDB数据填充-001</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 4, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        From 《Step by step to build a CMDB》步骤17-规划CMDB数据填充
+
+
+        
+        
+          <a href="/2010-06-04-plan-cmdb-population-001/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        BMC, ci, class, cmdb, dataset, step by step to build a cmdb
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-06-01-itsm-implement-best-practice/">
+	  <h2 class="post-title">ITSM实施精要-只讲2分钟</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 1, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        下面是我在过去ITSM项目实施中的一些经验和体会：
+
+
+        
+        
+          <a href="/2010-06-01-itsm-implement-best-practice/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ITIL, ITSM
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2010-05-31-federation-cmdb/">
+	  <h2 class="post-title">联邦的CMDB–神话/现实/需求/还是策略？</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 31, 2010
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        来自：Jonathan Markworth（CompuCom Systems有限公司管理顾问，探讨联邦数据库的优点）
+
+
+        
+        
+          <a href="/2010-05-31-federation-cmdb/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Atrium, BMC, BSM, cmdb, federation, remedy
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page29">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page31">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

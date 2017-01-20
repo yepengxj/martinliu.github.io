@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page11/" />
+  <link rel="canonical" href="http://localhost:4000/page11/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2014-07-02-mac-mini/">
+	  <h2 class="post-title">mac mini</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 2, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        坐等Mac Mini的最新版本在秋季发布，还需要忍耐一个燥热的夏季，等不急了！这个机器适合用在Lab测试机。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        mac mini
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-07-01-e6-ad-a6-e6-98-8c-e4-bc-9a-e8-ae-ae-e4-b8-89-e6-ac-a1-e6-85-a2-e8-b7-91/">
+	  <h2 class="post-title">武昌会议三次慢跑</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 1, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        在东湖公园里面跑步绝对是一种享受，跑一圈大约是7公里左右。我这三天的会议跑了三条路线。
+
+
+        
+        
+          <a href="/2014-07-01-e6-ad-a6-e6-98-8c-e4-bc-9a-e8-ae-ae-e4-b8-89-e6-ac-a1-e6-85-a2-e8-b7-91/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        东湖, 武昌, 武汉大学
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-29-e6-b5-b8-e6-b3-a1-e5-bc-8f-e5-bc-80-e4-bc-9a/">
+	  <h2 class="post-title">浸泡式开会</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 29, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        武昌会议第二天，两天重复不换台，重复着：起床、跑步、吃饭、开会、吃饭、开会、吃饭。。。。。。。。
+手机被上收到会议桌最前方，没有break，不需使用手机。
+电脑必须关掉，所有记录只能用纸和笔。
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-27-e6-97-a0-e5-a5-88-e5-87-ba-e5-b7-ae/">
+	  <h2 class="post-title">无奈出差</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 27, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        今天是实在不应该出差！！
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-27-e6-ad-a6-e6-b1-89-e4-bc-9a-e8-ae-ae/">
+	  <h2 class="post-title">武汉 会议</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 27, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        今天是非常特殊的一天，发生了一件另外无奈的事情。真是不想在这天也出差，但是还要它是旅程；用了一个半小时才从三环爬到了西站。上车后，高铁4个小时准时的把我送到了武汉。
+
+到了酒店后，由于这里就在东湖旁边，因此先去跑一圈是最重要的。
+
+跑的过程中才知道，这里是著名的毛泽东下榻过的东湖宾馆。做讨厌的是，湖边被商业包裹着，没法入内。最终从一个工地进入，出来时就麻烦了，不想大摇大摆的，从被卫兵拒绝的门口跑出来，后来翻墙出来了。
+洗过澡后，和同时们一起去吃饭了。
+ 
+这是同事推荐的一家，非常火爆的店，6点半到店，排了一个多小时对，终于可以上桌了。
+ 
+口味太赞了，性价比超级高，我现在敲键盘的手指还有油闷大虾的香味。吃了很多，喝啤酒聊天，非常完美的一餐。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        小龙虾, 武汉
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-25-e7-94-b5-e6-b3-a2-e8-a1-a8-e5-af-b9-e6-97-b6-e6-8a-80-e5-b7-a7/">
+	  <h2 class="post-title">电波表 对时技巧</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 25, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        首先，确保自己所在的地点位于接受范围以内。如北京距离河南在距离商丘1000公里以内的范围，因此能够正常接受电波。
+
+
+        
+        
+          <a href="/2014-06-25-e7-94-b5-e6-b3-a2-e8-a1-a8-e5-af-b9-e6-97-b6-e6-8a-80-e5-b7-a7/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        6局, 电波
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-25-e5-a4-a9-e6-b4-a5-e7-9f-ad-e6-9a-82-e5-87-ba-e5-b7-ae/">
+	  <h2 class="post-title">天津 短暂出差</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 25, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        昨天中午去天津，下午完事了就会北京。经过天津站前广场，稍微观察了一下，这次发现天津站修的如此的高大上，广场非常的宽敞，河岸的风景也十分的靓丽。就是车站里面的秩序还是不行，售票厅里的自助售票机是坏的，进站派长队等着检查身份证和安检。
+
+
+
+        
+        
+          <a href="/2014-06-25-e5-a4-a9-e6-b4-a5-e7-9f-ad-e6-9a-82-e5-87-ba-e5-b7-ae/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        天津
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-23-e7-ba-af-e7-be-8e-e5-92-8c-e9-82-aa-e6-81-b6-e7-9a-84-e7-9b-b8-e4-ba-92-e8-bd-ac-e5-8c-96-maleficent/">
+	  <h2 class="post-title">纯美和邪恶的相互转化-Maleficent </h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 23, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2014-06-23-e7-ba-af-e7-be-8e-e5-92-8c-e9-82-aa-e6-81-b6-e7-9a-84-e7-9b-b8-e4-ba-92-e8-bd-ac-e5-8c-96-maleficent/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Maleficent, 沉睡魔咒
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-21-e6-89-8b-e5-8a-a8-e5-af-b9-e6-97-b6-e6-88-90-e5-8a-9f/">
+	  <h2 class="post-title">手动对时成功</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 21, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        12点刚过，还是担心表的最有价值功能是否能够正常工作；于是走向阳台，按下D键，几分钟后，出错，对时失败；不甘心，再次按下D键，看信号等级L3，惴惴不安等了几分钟后终于显示：Get 6:22 12:06
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        对时, 电波, 表
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2014-06-21-casio-g-shock-gw-6900-e5-a4-aa-e9-98-b3-e8-83-bd-e5-85-ad-e5-b1-80-e7-94-b5-e6-b3-a2/">
+	  <h2 class="post-title">CASIO G-SHOCK GW-6900 太阳能六局电波</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on June 21, 2014
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        在京东入手 GW-6900 这块6局电波表。主要的吸引我的就是六局电波功能，其它的太阳能、防水等等其它功能都是浮云，可惜的是目前还没有手动接受电波成功过。
+
+
+        
+        
+          <a href="/2014-06-21-casio-g-shock-gw-6900-e5-a4-aa-e9-98-b3-e8-83-bd-e5-85-ad-e5-b1-80-e7-94-b5-e6-b3-a2/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        casio, g-shock, GW-6900, 电波
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page10">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page12">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

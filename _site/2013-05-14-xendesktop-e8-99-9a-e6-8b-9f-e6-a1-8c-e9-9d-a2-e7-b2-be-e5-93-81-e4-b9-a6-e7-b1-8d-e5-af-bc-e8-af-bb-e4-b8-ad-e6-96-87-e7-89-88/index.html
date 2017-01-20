@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>XenDesktop虚拟桌面精品书籍导读(中文版)</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="XenDesktop虚拟桌面精品书籍导读(中文版)" />
+  
+
+   
+  <meta property="og:description" content="[box color=”orange” icon=”flag”]
+感谢 Eric Yao 的供稿，@老树皮Eric
+[/box]
+
+英文版：《Citrix Virtual Desktop Handbook》
+
+中文版：[download id=”20”]
+
+本书是XD虚拟桌面实施工程师的必备读物，请相关人员仔细阅读。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-05-14-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-e4-b8-ad-e6-96-87-e7-89-88/" />
+  <link rel="canonical" href="http://localhost:4000/2013-05-14-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-e4-b8-ad-e6-96-87-e7-89-88/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="XenDesktop虚拟桌面精品书籍导读(中文版)" />
+  
+
+  
+  <meta name="twitter:description" content="[box color=”orange” icon=”flag”]
+感谢 Eric Yao 的供稿，@老树皮Eric
+[/box]
+
+英文版：《Citrix Virtual Desktop Handbook》
+
+中文版：[download id=”20”]
+
+本书是XD虚拟桌面实施工程师的必备读物，请相关人员仔细阅读。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>XenDesktop虚拟桌面精品书籍导读(中文版)</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on May 14, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>[box color=”orange” icon=”flag”]
+感谢 Eric Yao 的供稿，<a href="http://weibo.com/ericyaozhen">@老树皮Eric</a>
+[/box]</p>
+
+<p>英文版：<a href="http://support.citrix.com/article/CTX136546">《Citrix Virtual Desktop Handbook》</a></p>
+
+<p>中文版：[download id=”20”]</p>
+
+<p>本书是XD虚拟桌面实施工程师的必备读物，请相关人员仔细阅读。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Citrix, PVS, XenDesktop
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=XenDesktop%E8%99%9A%E6%8B%9F%E6%A1%8C%E9%9D%A2%E7%B2%BE%E5%93%81%E4%B9%A6%E7%B1%8D%E5%AF%BC%E8%AF%BB%28%E4%B8%AD%E6%96%87%E7%89%88%29+http://localhost:4000/2013-05-14-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-e4-b8-ad-e6-96-87-e7-89-88/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2013-05-14-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-e4-b8-ad-e6-96-87-e7-89-88/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-05-14-xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bb-e4-b8-ad-e6-96-87-e7-89-88/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-05-14-hide-windows-explorer-items/" data-toggle="tooltip" data-placement="top" title="隐藏Windows  Explorer中的各种东西">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-05-21-e6-88-91-e6-83-b3-e8-b7-91-e9-81-8d-e5-85-a8-e4-b8-96-e7-95-8c/" data-toggle="tooltip" data-placement="top" title="我想跑遍全世界">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

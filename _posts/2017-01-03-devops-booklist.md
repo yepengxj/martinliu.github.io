@@ -351,3 +351,15 @@ Amazon Best Sellers Rank: #357,633 in Books (See Top 100 in Books)
 ~~~
 
 
+Continuous Delivery: Reliable Software Releases Through Build, Test, and Deployment Automation
+
+
+
+
+持续交付：发布可靠软件的系统方法
+
+
+http://item.jd.com/10843669.html
+
+
+

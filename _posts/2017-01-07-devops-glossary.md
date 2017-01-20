@@ -98,9 +98,9 @@ bigimg: /img/pexels-photo.jpg
 | just culture | 正义文化
 | blame | 问责
 | pipeline | 流水线
-|  | 
-|  | 
-|  | 
+| acceptance stage | 
+| commit stage | 
+| staging environments | 
 |  | 
 |  | 
 |  | 

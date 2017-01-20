@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>联邦的CMDB–神话/现实/需求/还是策略？</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="联邦的CMDB–神话/现实/需求/还是策略？" />
+  
+
+   
+  <meta property="og:description" content="来自：Jonathan Markworth（CompuCom Systems有限公司管理顾问，探讨联邦数据库的优点）
+
+使用一个具有单一的、全知的、万能的和自维护功能的工具，来管理IT基础架的方方面面信息，是否是最好的方案呢？使用一个能做所有工作的全集成平台，来替换您积累下来的所有管理工具是否是最佳方式？现实情况是，大多数组织都已经实施了几十种应用程序、工具、实用程序、数据存储、硬件平台和管理框架，它们一起运行着一个或更多的IT服务管理功能。它们中的每一个应用都有自己的数据库，对当前环境中的一些关键管理功能提供信息支持。在CMDB应用场景中，这些工具相关的数据库中，其实也包含了大量关键的CI属性，这些属性可以用于识别CI之间的关系。重要的问题是，如何利用现有的投资和资源来建立一个底层共享的数据库，比如一个CMDB。
+
+
+
+
+
+一种方法是“集中存储和管理”，从这些数据源中导出CI的唯一标识、属性、以及关系，然后都整合到一个数据库中。但在经过了一段很长的时间后，这种方案所产生的数据将很难维护，因为伴随着数据源数量的增长，整套系统的维护会变的愈来愈复杂。
+
+另一种方法是“建立联邦的CMDB”，建立一个核心CMDB，用来整合所有配置项的唯一标识、核心属性和关系数据，为所有需要它的IT流程随时提供配置数据，而不需要对所有数据进行集中式地复制。用联邦的模式，让CMDB持有所有CI及其核心属性数据，然后再连接到其他相关的数据源；如服务台事件单、服务水平协议、甚至其他监控的管理控制台界面。通过正确地部署，联邦模式可以使得企业的CMDB能横跨所有的个IT组织，如果需要的话可以对既有的相关系统进行分阶段的实施，这样不仅可以让IT组织能够继续日常业务，还不会带来什么干扰。
+
+
+
+摘自BMC软件公司公布的VIEWPOINT “CMDB的潜力—驾驭新的IT现实”，CMDB为主题的文章。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2010-05-31-federation-cmdb/" />
+  <link rel="canonical" href="http://localhost:4000/2010-05-31-federation-cmdb/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="联邦的CMDB–神话/现实/需求/还是策略？" />
+  
+
+  
+  <meta name="twitter:description" content="来自：Jonathan Markworth（CompuCom Systems有限公司管理顾问，探讨联邦数据库的优点）
+
+使用一个具有单一的、全知的、万能的和自维护功能的工具，来管理IT基础架的方方面面信息，是否是最好的方案呢？使用一个能做所有工作的全集成平台，来替换您积累下来的所有管理工具是否是最佳方式？现实情况是，大多数组织都已经实施了几十种应用程序、工具、实用程序、数据存储、硬件平台和管理框架，它们一起运行着一个或更多的IT服务管理功能。它们中的每一个应用都有自己的数据库，对当前环境中的一些关键管理功能提供信息支持。在CMDB应用场景中，这些工具相关的数据库中，其实也包含了大量关键的CI属性，这些属性可以用于识别CI之间的关系。重要的问题是，如何利用现有的投资和资源来建立一个底层共享的数据库，比如一个CMDB。
+
+
+
+
+
+一种方法是“集中存储和管理”，从这些数据源中导出CI的唯一标识、属性、以及关系，然后都整合到一个数据库中。但在经过了一段很长的时间后，这种方案所产生的数据将很难维护，因为伴随着数据源数量的增长，整套系统的维护会变的愈来愈复杂。
+
+另一种方法是“建立联邦的CMDB”，建立一个核心CMDB，用来整合所有配置项的唯一标识、核心属性和关系数据，为所有需要它的IT流程随时提供配置数据，而不需要对所有数据进行集中式地复制。用联邦的模式，让CMDB持有所有CI及其核心属性数据，然后再连接到其他相关的数据源；如服务台事件单、服务水平协议、甚至其他监控的管理控制台界面。通过正确地部署，联邦模式可以使得企业的CMDB能横跨所有的个IT组织，如果需要的话可以对既有的相关系统进行分阶段的实施，这样不仅可以让IT组织能够继续日常业务，还不会带来什么干扰。
+
+
+
+摘自BMC软件公司公布的VIEWPOINT “CMDB的潜力—驾驭新的IT现实”，CMDB为主题的文章。
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>联邦的CMDB–神话/现实/需求/还是策略？</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on May 31, 2010</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>来自：Jonathan Markworth（CompuCom Systems有限公司管理顾问，探讨联邦数据库的优点）</p>
+
+<p>使用一个具有单一的、全知的、万能的和自维护功能的工具，来管理IT基础架的方方面面信息，是否是最好的方案呢？使用一个能做所有工作的全集成平台，来替换您积累下来的所有管理工具是否是最佳方式？现实情况是，大多数组织都已经实施了几十种应用程序、工具、实用程序、数据存储、硬件平台和管理框架，它们一起运行着一个或更多的IT服务管理功能。它们中的每一个应用都有自己的数据库，对当前环境中的一些关键管理功能提供信息支持。在CMDB应用场景中，这些工具相关的数据库中，其实也包含了大量关键的CI属性，这些属性可以用于识别CI之间的关系。重要的问题是，如何利用现有的投资和资源来建立一个底层共享的数据库，比如一个CMDB。</p>
+
+<p><img src="http://www.jevotrust.com/Site/graphics/cmdb_config_management.jpg" alt="" /></p>
+
+<!-- more -->
+
+<p>一种方法是“集中存储和管理”，从这些数据源中导出CI的唯一标识、属性、以及关系，然后都整合到一个数据库中。但在经过了一段很长的时间后，这种方案所产生的数据将很难维护，因为伴随着数据源数量的增长，整套系统的维护会变的愈来愈复杂。</p>
+
+<p>另一种方法是“建立联邦的CMDB”，建立一个核心CMDB，用来整合所有配置项的唯一标识、核心属性和关系数据，为所有需要它的IT流程随时提供配置数据，而不需要对所有数据进行集中式地复制。用联邦的模式，让CMDB持有所有CI及其核心属性数据，然后再连接到其他相关的数据源；如服务台事件单、服务水平协议、甚至其他监控的管理控制台界面。通过正确地部署，联邦模式可以使得企业的CMDB能横跨所有的个IT组织，如果需要的话可以对既有的相关系统进行分阶段的实施，这样不仅可以让IT组织能够继续日常业务，还不会带来什么干扰。</p>
+
+<p><img src="http://farm1.static.flickr.com/131/398876934_548e99f7e0.jpg" alt="" /></p>
+
+<p>摘自BMC软件公司公布的VIEWPOINT “CMDB的潜力—驾驭新的IT现实”，CMDB为主题的文章。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Atrium, BMC, BSM, cmdb, federation, remedy
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E8%81%94%E9%82%A6%E7%9A%84CMDB%E2%80%93%E7%A5%9E%E8%AF%9D%2F%E7%8E%B0%E5%AE%9E%2F%E9%9C%80%E6%B1%82%2F%E8%BF%98%E6%98%AF%E7%AD%96%E7%95%A5%EF%BC%9F+http://localhost:4000/2010-05-31-federation-cmdb/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2010-05-31-federation-cmdb/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2010-05-31-federation-cmdb/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2010-04-26-cmdb-addm-tool-implement-good-practice/" data-toggle="tooltip" data-placement="top" title="CMDB配置采集工具部署之4大挑战">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2010-06-01-itsm-implement-best-practice/" data-toggle="tooltip" data-placement="top" title="ITSM实施精要-只讲2分钟">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

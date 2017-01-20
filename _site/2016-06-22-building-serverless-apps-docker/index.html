@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>用 Docker 构建 Serverless 应用</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="用 Docker 构建 Serverless 应用" />
+  
+
+   
+  <meta property="og:description" content="Martin解读Serverless Serverless 不意味着没有服务器，而是从应用可以在一个抽象层上忽略它的存在，而只关注在功能实现上和自身的请求处理上；每一个功能实现在不是单纯的业务逻辑处理的代码，相反每个功能调用具有了 server 的特质，进化成为了一个具有自省、自知和自治的工作负载单元；他们更像是能够衍生出其它新功能单元的生物体。这样整个 Serverless 应用架构之内，每个生命可以衍生下去，子子孙孙无穷匮也。 本文编译了：https://blog.docker.com/2016/06/building-serverless-apps-with-docker/ 一下是正文内容。 处在这技术日新月异的时代里，新的技术浪潮经常对当前的技术产生着威胁和颠覆。在编写应用的时候我们目前经常谈论到“Serverless”技术。它的核心思想是把应用作为一系列的功能/function来部署，这些功能在需要的时候被按需部署。服务器管理应该是不需要去操心的事情，所有功能被按需调用，被运行在群集之上。 但是 Serverless 里不意味着没有 Docker，事实上 ”Docker 就是 Serverless”。你可以用 Docker 来容器化这些功能，然后按需地运行在 Swarm 群集上。Serverless 是一种构建分布式计算的应用的方法，而 Docker 是完美的构建和运行他们的平台。 从** Server **到** Serverless** 那么我们如何来编写 Serverless 的应用？让我们先看下这个例子：“一个有5个子服务组成的投票应用”： 它的结构如下： 两个 web 前端 一个后台的处理投票的 worker 服务 一个处理投票的消息队列  一个数据库 那个后台处理投票的进程是非常容易成为转换为 Serverless 架构的目标。在投票应用内，我们可以运行一点类似于下面的代码，来执行后台任务： import dockerrun client = dockerrun.from_env() client.run(&quot;bfirsh/serverless-record-vote-task&quot;, [voter_id, vote],...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2016-06-22-building-serverless-apps-docker/" />
+  <link rel="canonical" href="http://localhost:4000/2016-06-22-building-serverless-apps-docker/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="用 Docker 构建 Serverless 应用" />
+  
+
+  
+  <meta name="twitter:description" content="Martin解读Serverless Serverless 不意味着没有服务器，而是从应用可以在一个抽象层上忽略它的存在，而只关注在功能实现上和自身的请求处理上；每一个功能实现在不是单纯的业务逻辑处理的代码，相反每个功能调用具有了 server 的特质，进化成为了一个具有自省、自知和自治的工作负载单元；他们更像是能够衍生出其它新功能单元的生物体。这样整个 Serverless 应用架构之内，每个生命可以衍生下去，子子孙孙无穷匮也。 本文编译了：https://blog.docker.com/2016/06/building-serverless-apps-with-docker/ 一下是正文内容。 处在这技术日新月异的时代里，新的技术浪潮经常对当前的技术产生着威胁和颠覆。在编写应用的时候我们目前经常谈论到“Serverless”技术。它的核心思想是把应用作为一系列的功能/function来部署，这些功能在需要的时候被按需部署。服务器管理应该是不需要去操心的事情，所有功能被按需调用，被运行在群集之上。 但是 Serverless 里不意味着没有 Docker，事实上 ”Docker 就是 Serverless”。你可以用 Docker 来容器化这些功能，然后按需地运行在 Swarm 群集上。Serverless 是一种构建分布式计算的应用的方法，而 Docker 是完美的构建和运行他们的平台。 从** Server **到** Serverless** 那么我们如何来编写 Serverless 的应用？让我们先看下这个例子：“一个有5个子服务组成的投票应用”： 它的结构如下： 两个 web 前端 一个后台的处理投票的 worker 服务 一个处理投票的消息队列  一个数据库 那个后台处理投票的进程是非常容易成为转换为 Serverless 架构的目标。在投票应用内，我们可以运行一点类似于下面的代码，来执行后台任务： import dockerrun client = dockerrun.from_env() client.run(&quot;bfirsh/serverless-record-vote-task&quot;, [voter_id, vote],...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>用 Docker 构建 Serverless 应用</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 22, 2016</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <h2 id="martinserverless">Martin解读Serverless</h2>
+
+<p>Serverless 不意味着没有服务器，而是从应用可以在一个抽象层上忽略它的存在，而只关注在功能实现上和自身的请求处理上；每一个功能实现在不是单纯的业务逻辑处理的代码，相反每个功能调用具有了 server 的特质，进化成为了一个具有自省、自知和自治的工作负载单元；他们更像是能够衍生出其它新功能单元的生物体。这样整个 Serverless 应用架构之内，每个生命可以衍生下去，子子孙孙无穷匮也。</p>
+
+<p>本文编译了：<a href="https://blog.docker.com/2016/06/building-serverless-apps-with-docker/">https://blog.docker.com/2016/06/building-serverless-apps-with-docker/</a> 一下是正文内容。</p>
+
+<p>处在这技术日新月异的时代里，新的技术浪潮经常对当前的技术产生着威胁和颠覆。在编写应用的时候我们目前经常谈论到“Serverless”技术。它的核心思想是把应用作为一系列的功能/function来部署，这些功能在需要的时候被按需部署。服务器管理应该是不需要去操心的事情，所有功能被按需调用，被运行在群集之上。</p>
+
+<p>但是 Serverless 里不意味着没有 Docker，事实上 ”Docker 就是 Serverless”。你可以用 Docker 来容器化这些功能，然后按需地运行在 Swarm 群集上。Serverless 是一种构建分布式计算的应用的方法，而 Docker 是完美的构建和运行他们的平台。</p>
+
+<h2 id="server--serverless"><strong>从</strong>** Server <strong>**到</strong>** Serverless**</h2>
+
+<p>那么我们如何来编写 Serverless 的应用？让我们先看下这个例子：<a href="https://github.com/docker/example-voting-app">“一个有5个子服务组成的投票应用”</a>：</p>
+
+<p><img src="https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAlaAAAAJGI5NTZjMjRkLTRkNmYtNDEyOC04OTNiLTBmY2I5M2QyOTZiMQ.png" alt="" /></p>
+
+<p>它的结构如下：</p>
+
+<ul>
+  <li>
+    <p>两个 web 前端</p>
+  </li>
+  <li>
+    <p>一个后台的处理投票的 worker 服务</p>
+  </li>
+  <li>
+    <p>一个处理投票的消息队列</p>
+  </li>
+  <li>
+    <p> 一个数据库</p>
+  </li>
+</ul>
+
+<p>那个后台处理投票的进程是非常容易成为转换为 Serverless 架构的目标。在投票应用内，我们可以运行一点类似于下面的代码，来执行后台任务：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+import dockerrun
+
+client = dockerrun.from_env()
+
+client.run("bfirsh/serverless-record-vote-task", [voter_id, vote], detach=True)
+
+</code></pre>
+</div>
+
+<p>Worker 和消息队列能用按需在 Swarm 上运行的容器来替换，并自动地按需扩容。</p>
+
+<p>我们甚至可以消除掉 web 前端。我们可以这么做：用 Docker 容器来相应每一个HTTP 请求，每个 HTTP 请求都用一个自生长的跑着轻量 HTTP 服务器的容器来处理。之前使用的是长时间持续运行的 HTTP 服务器，现在变成了具有 HTTP 相应和处理能力的按需跑起来的容器，而且他们能自动地扩容来支持所有访问请求。</p>
+
+<p>我们新的架构大概如下图所示：</p>
+
+<p><img src="https://media.licdn.com/mpr/mpr/shrinknp_800_800/AAEAAQAAAAAAAAjOAAAAJGQyYTVhZTFiLTRkZWQtNDE0Yi1iMzRkLWU4OWU5NjExZDc2OQ.png" alt="" /></p>
+
+<p>其中红色的方块是需持续长期运行的服务，而绿色方块成了按需被调用的 Docker容器。这样这个应用变成了只有少数几个需要被管理的 long-running 服务，在相应请求的时候使用原生的 Swarm 扩容能力，处理能力的上限是 Swarm 群集的上限。</p>
+
+<h2 id="section"><strong> </strong><strong>具体如何实现</strong></h2>
+
+<p>这里有三个有用的技巧，可以在你的程序中使用：</p>
+
+<ol>
+  <li>
+    <p>把你代码中的 function 作为按需拉起的 Docker 容器</p>
+  </li>
+  <li>
+    <p>使用 Swarm 在群集上运行这些容器</p>
+  </li>
+  <li>
+    <p>从容器里面运行这些功能容器，绕过了一个 Docker API socket</p>
+  </li>
+</ol>
+
+<p>使用以上技术的组合，程序执行负载发生的可能性将和您如何架构你的应用相关。运行后台任务就是一个非常适合的例子，但是整个应用中的其它工作负载也是有可能的，例如：</p>
+
+<ul>
+  <li>
+    <p>考虑到延迟，用启动一个容器来服务所有用户的 HTTP 请求可能是不现实的。可是你可以写一个内置的负载均衡逻辑，让它知道何时需要主动地自动扩容 Web 前端自身，通过在 Swarm 群集上运行更多 web 处理容器。</p>
+  </li>
+  <li>
+    <p>一个 MongoDB 容器可以在 Swarm 上成为一个具有自省能力的架构，它能自动地运行出正确数量的 shard 和 replica 容器。</p>
+  </li>
+</ul>
+
+<h2 id="section-1"><strong>接下来</strong></h2>
+
+<p>我们已经得到了这些激进的新工具，用做构建应用的抽象层，我们隐约看到了如何深入下去的可能性。我们依然像长时间以来在一堆服务器上构建应用一样，而以后可以来利用 Swarm 能按需地在基础架构里的任何地方执行功能代码的能力。</p>
+
+<p>希望这些能够给您一些如何构建应用的新思路，但是我们还需要你们的帮助。我们已经有的是一些构建 Serverless 应用的基础功能，然而他们依然不是很完备，我们需要更好的工具、库、样例程序，文档等等。</p>
+
+<p><a href="https://github.com/bfirsh/serverless-docker">这个 Github 库有一些工具、库、代码和文章的链接。</a>基于此，如果您想学习更多的话，请共享任何相关的链接，这样我们可以开始协作在一起。</p>
+
+<p>大家一起来搞，并祝 hacking 愉快！</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            serverless
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E7%94%A8+Docker+%E6%9E%84%E5%BB%BA+Serverless+%E5%BA%94%E7%94%A8+http://localhost:4000/2016-06-22-building-serverless-apps-docker/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2016-06-22-building-serverless-apps-docker/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2016-06-22-building-serverless-apps-docker/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2016-06-22-closing-general-session-moby-docks-cool-hacks/" data-toggle="tooltip" data-placement="top" title="DockerCon 2016 D2 超萌码头酷黑客 大会圆满闭幕">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2016-07-01-devops-in-a-box/" data-toggle="tooltip" data-placement="top" title="DevOps 的起点-入手微型数据中心">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>GroundWork和OTRS系统的集成问题</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="GroundWork和OTRS系统的集成问题" />
+  
+
+   
+  <meta property="og:description" content="为了节省服务器，我们可能不得不把所有的监控以及相关的系统都安装到一个物理的机器上。如果是从原代码安装，我相信一定有很多选项能避免它们之间的冲突。假如你是后安装的GroundWork，它会更改系统默认的Apache2的配置，导致以前安装的所有的Web应用都不能用。在我的测试机上，先安装的OTRS，rpm安装，后安装的GroundWork，也是rpm安装。GroundWork安装之后，OTRS不能登陆。根据GroundWork的一些文档我做了，如下的修复步骤。1）vi /etc/apache2/conf.d/otrs.conf 可以看到如下OTRS的web配置信息。# –# added for OTRS (http://otrs.org/)# –# agent, admin and customer frontendScriptAlias /otrs/ “/opt/otrs/bin/cgi-bin/”Alias /otrs-web/ “/opt/otrs/var/httpd/htdocs/”# load all otrs modulesPerlrequire /opt/otrs/scripts/apache2-perl-startup.pl# Apache::Reload - Reload Perl Modules when Changed on DiskPerlModule Apache2::ReloadPerlInitHandler Apache2::ReloadPerlModule Apache2::RequestRec# set mod_perl2 options# ErrorDocument 403 /otrs/customer.pl ErrorDocument 403 /otrs/index.pl SetHandler perl-script PerlResponseHandler ModPerl::Registry Options +ExecCGI...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2007-02-27-groundwork-and-otrs/" />
+  <link rel="canonical" href="http://localhost:4000/2007-02-27-groundwork-and-otrs/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="GroundWork和OTRS系统的集成问题" />
+  
+
+  
+  <meta name="twitter:description" content="为了节省服务器，我们可能不得不把所有的监控以及相关的系统都安装到一个物理的机器上。如果是从原代码安装，我相信一定有很多选项能避免它们之间的冲突。假如你是后安装的GroundWork，它会更改系统默认的Apache2的配置，导致以前安装的所有的Web应用都不能用。在我的测试机上，先安装的OTRS，rpm安装，后安装的GroundWork，也是rpm安装。GroundWork安装之后，OTRS不能登陆。根据GroundWork的一些文档我做了，如下的修复步骤。1）vi /etc/apache2/conf.d/otrs.conf 可以看到如下OTRS的web配置信息。# –# added for OTRS (http://otrs.org/)# –# agent, admin and customer frontendScriptAlias /otrs/ “/opt/otrs/bin/cgi-bin/”Alias /otrs-web/ “/opt/otrs/var/httpd/htdocs/”# load all otrs modulesPerlrequire /opt/otrs/scripts/apache2-perl-startup.pl# Apache::Reload - Reload Perl Modules when Changed on DiskPerlModule Apache2::ReloadPerlInitHandler Apache2::ReloadPerlModule Apache2::RequestRec# set mod_perl2 options# ErrorDocument 403 /otrs/customer.pl ErrorDocument 403 /otrs/index.pl SetHandler perl-script PerlResponseHandler ModPerl::Registry Options +ExecCGI...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>GroundWork和OTRS系统的集成问题</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on February 27, 2007</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>为了节省服务器，我们可能不得不把所有的监控以及相关的系统都安装到一个物理的机器上。如果是从原代码安装，我相信一定有很多选项能避免它们之间的冲突。假如你是后安装的GroundWork，它会更改系统默认的Apache2的配置，导致以前安装的所有的Web应用都不能用。<br /><br />在我的测试机上，先安装的OTRS，rpm安装，后安装的GroundWork，也是rpm安装。GroundWork安装之后，OTRS不能登陆。根据GroundWork的一些文档我做了，如下的修复步骤。<br />1）vi /etc/apache2/conf.d/otrs.conf  可以看到如下OTRS的web配置信息。<br /># –# added for OTRS (<a href="http://otrs.org/">http://otrs.org/</a>)# –# agent, admin and customer frontendScriptAlias /otrs/ “/opt/otrs/bin/cgi-bin/”Alias /otrs-web/ “/opt/otrs/var/httpd/htdocs/”# load all otrs modulesPerlrequire /opt/otrs/scripts/apache2-perl-startup.pl# Apache::Reload - Reload Perl Modules when Changed on DiskPerlModule Apache2::ReloadPerlInitHandler Apache2::ReloadPerlModule Apache2::RequestRec# set mod_perl2 options#  ErrorDocument 403 /otrs/customer.pl  ErrorDocument 403 /otrs/index.pl  SetHandler  perl-script  PerlResponseHandler ModPerl::Registry  Options +ExecCGI  PerlOptions +ParseHeaders  PerlOptions +SetupEnv  Order allow,deny  Allow from all# directory settings    AllowOverride None    Options +ExecCGI -Includes    Order allow,deny    Allow from all    AllowOverride None    Order allow,deny    Allow from all# MaxRequestsPerChild (so no apache child will be to big!)MaxRequestsPerChild 400<br />2）在GroundWork的主目录下其实也有一个Apache目录，它是原系统Apache的替代品。进入这个目录。<br />3）vi conf/httpd.conf 把otrs.conf文件中所有的内容都粘贴到这个文件中<br />4）GroundWork的apache好像没用用到perl模块，需要加入perl模块的支持；找到有很多“LoadModule”的地方加入下面这一行<br />LoadModule perl_module modules/mod_perl.so<br />5）Copy系统中的mod_perl.so文件到/usr/local/groundwork/apache2/modules<br />6）重新启动gwhttpd服务，也就是GroundWork系统的web服务<br />7）访问OTRS系统 <a href="http://ip/otrs/customer.pl">http://ip/otrs/customer.pl</a>   成功。<br /><br />下面需要做的是把OTRS的登陆也集成到GroundWork的单点登陆当中；如果在能把GroundWork的报警也自动的集成到OTRS那就是完美了，欲知后事如何，且听下回分解。：）<br /><br /></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            GroundWork, OTRS
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=GroundWork%E5%92%8COTRS%E7%B3%BB%E7%BB%9F%E7%9A%84%E9%9B%86%E6%88%90%E9%97%AE%E9%A2%98+http://localhost:4000/2007-02-27-groundwork-and-otrs/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2007-02-27-groundwork-and-otrs/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2007-02-27-groundwork-and-otrs/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2007-02-26-otrsitsm-itil/" data-toggle="tooltip" data-placement="top" title="OTRS::ITSM期待中的开源ITIL工具">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2007-02-28-groundwork-rpm-error/" data-toggle="tooltip" data-placement="top" title="GroundWork rpm 安装会导致原系统的一些改变">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

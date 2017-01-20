@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page7/" />
+  <link rel="canonical" href="http://localhost:4000/page7/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2015-02-20-test-markdown/">
+	  <h2 class="post-title">Test markdown</h2>
+
+	  
+	  <h3 class="post-subtitle">
+	    Each post also has a subtitle
+	  </h3>
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 20, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        You can write regular markdown here and Jekyll will automatically convert it to a nice webpage.  I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc.
+
+
+        
+        
+          <a href="/2015-02-20-test-markdown/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-15-e4-bd-a0-e8-bf-98-e5-9c-a8-e4-b8-ba-e5-a4-b1-e5-8e-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-84-9f-e5-88-b0-e7-84-a6-e8-99-91-ef-bc-9f/">
+	  <h2 class="post-title">你还在为失去服务器感到焦虑？</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 15, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        我耐心看了以下这篇文章《AWS Lambda Debuts for Running Code in the Cloud 》。我还没有来得及去测试一下这个服务，我只是对它感到新奇。有了它，业务应用可能就只需要Dev了，而不需要Ops了；更不用提什么DevOps了。当然这个观点稍微有点极端了。它的确实现了：程序代码可以基于事件在AWS的各种服务中运行。看完了那片文章我也没有察觉到它底层到底使用的是什么技术。只是说AWS再次走到了共有云服务的最前端。
+
+
+        
+        
+          <a href="/2015-02-15-e4-bd-a0-e8-bf-98-e5-9c-a8-e4-b8-ba-e5-a4-b1-e5-8e-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-84-9f-e5-88-b0-e7-84-a6-e8-99-91-ef-bc-9f/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Lambda
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-11-aws-e6-9c-8d-e5-8a-a1-e7-b4-a2-e5-bc-95-e5-9c-b0-e5-9b-be/">
+	  <h2 class="post-title">AWS 服务索引地图</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 11, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        以上图片用FreeMind软件生成，下载英文版原图点击这里：aws-service-map.mm
+
+
+        
+        
+          <a href="/2015-02-11-aws-e6-9c-8d-e5-8a-a1-e7-b4-a2-e5-bc-95-e5-9c-b0-e5-9b-be/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        aws
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-09-2014-red-hat-summit-paul-cormier-red-hat-keynote/">
+	  <h2 class="post-title">2014 Red Hat Summit- Paul Cormier, Red Hat keynote</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 9, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        2014 Red Hat Summit- Paul Cormier, Red Hat keynote
+
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        redhat
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-08-e9-a5-a5-e9-a5-bf-e6-b8-b8-e6-88-8f3-ef-bc-9a-e5-98-b2-e7-ac-91-e9-b8-9f-e4-b8-8a-hunger-games-mockingjay-part-1-2014/">
+	  <h2 class="post-title">饥饿游戏3：嘲笑鸟(上) The Hunger Games: Mockingjay - Part 1 (2014)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 8, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2015-02-08-e9-a5-a5-e9-a5-bf-e6-b8-b8-e6-88-8f3-ef-bc-9a-e5-98-b2-e7-ac-91-e9-b8-9f-e4-b8-8a-hunger-games-mockingjay-part-1-2014/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        饥饿游戏
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-08-2014-e5-b9-b4aws-e6-9c-8d-e5-8a-a1-e6-9b-b4-e6-96-b0-e6-80-bb-e7-bb-93/">
+	  <h2 class="post-title">2014年AWS服务更新总结</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 8, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        从去年新增的服务中可以看出，其中多半是管理和基础服务类型的更新。因此，我感觉这也预示着，公有云技术的领头羊的发展也上到一定的成熟度上了。相比而言，企业私有云的建设还是纠结在几个症结上：选择私有云平台软件难，选择部署实施的落地工具和服务难，市场上相关的人才难找，大多出人连试点的经验还没还有获得，云应用-无状态应用踪影难觅。这些事实下，我看到了私有云建设的广阔服务前景，特别是企业服务这块。感觉有技术的实力派大牛们，应该趁着国产化软件的浪潮，踏踏实施做两年企业级产品，踏踏试试走下企业服务的路。别惦记着风头的那些钱，别惦记着做个公有云服务出来走出国门走向世界。我朝企业不差钱的主，土豪的企业有的事。毕竟近水楼台先得月。
+        
+        
+          <a href="/2015-02-08-2014-e5-b9-b4aws-e6-9c-8d-e5-8a-a1-e6-9b-b4-e6-96-b0-e6-80-bb-e7-bb-93/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        公有云
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-07-aws-faq-post-aws-e4-b8-80-e6-9c-88-e6-9c-89-e4-bb-80-e4-b9-88-e5-8a-a8-e6-80-81/">
+	  <h2 class="post-title">AWS-FAQ post - AWS 一月有什么动态?</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 7, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        AWS-FAQ post - AWS 一月有什么动态?
+
+
+        
+        
+          <a href="/2015-02-07-aws-faq-post-aws-e4-b8-80-e6-9c-88-e6-9c-89-e4-bb-80-e4-b9-88-e5-8a-a8-e6-80-81/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        aws
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-02-02-e6-8f-90-e4-ba-a4-e6-8f-90-e4-ba-a4-e4-ba-86-e4-b8-80-e4-b8-aabz/">
+	  <h2 class="post-title">提交提交了一个BZ</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 2, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        用163邮箱注册了http://bugzilla.redhat.com/ ; 提交了一个satellite的bug。
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-01-27-fedora-21-server-e6-b5-8b-e8-af-95-cockpit-e7-af-87/">
+	  <h2 class="post-title">Fedora 21 Server测试 - Cockpit篇</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on January 27, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        从Cockpi的词义上看，它是飞机驾驶仓的意思。而且Fedora 21 server 默认就会安装这个组建。有了它领导再也不用担心你看不走飞机了。总体感觉这个功能非常简洁、实用，很期待早日能融入到RHEL7中来。
+        
+        
+          <a href="/2015-01-27-fedora-21-server-e6-b5-8b-e8-af-95-cockpit-e7-af-87/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cockpit
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2015-01-26-fedora-22-e6-9c-89-e4-bd-95-e5-80-bc-e5-be-97-e6-9c-9f-e5-be-85/">
+	  <h2 class="post-title">Fedora 22 有何值得期待</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on January 26, 2015
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        我使用这新安装的F21，连接着公司阿姆斯特丹的VPN，流畅的使用Firefox ， Chrome 上网，在没有墙的世界里顺利传行着。重返Linux世界，想起来很久没有用windows桌面了，渐渐适应和熟悉这感觉，且有些怀旧。
+
+
+        
+        
+          <a href="/2015-01-26-fedora-22-e6-9c-89-e4-bd-95-e5-80-bc-e5-be-97-e6-9c-9f-e5-be-85/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        fedora
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page6">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page8">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>怎么使您的MP/VP/ATP/DEF都无穷大</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="怎么使您的MP/VP/ATP/DEF都无穷大" />
+  
+
+   
+  <meta property="og:description" content="自学的能力让你的能力变得无穷大。所谓学无止境，能力上能否得到无止境的提升就是个人为题了。你学习的时间？学习的态度？学习的内容？学习的方法？都决定了你的学习效果。基本上要学习一种新的技术或者产品，大多数人一般都止步于如何操作和运用它；能更深入的理解它的架构和特性，甚至做出横向的比对，就是第二个阶段，这样的人很少。
+
+
+学习Citrix技术的几个途径如下，我们通常都用到那些？请在下面投票。
+
+[poll id=”3”]
+
+什么是您认为学习Citrix技术的好的方式方法？请于本帖留言。
+
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-08-01-e6-80-8e-e4-b9-88-e4-bd-bf-e6-82-a8-e7-9a-84mpvpatpdef-e9-83-bd-e6-97-a0-e7-a9-b7-e5-a4-a7/" />
+  <link rel="canonical" href="http://localhost:4000/2013-08-01-e6-80-8e-e4-b9-88-e4-bd-bf-e6-82-a8-e7-9a-84mpvpatpdef-e9-83-bd-e6-97-a0-e7-a9-b7-e5-a4-a7/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="怎么使您的MP/VP/ATP/DEF都无穷大" />
+  
+
+  
+  <meta name="twitter:description" content="自学的能力让你的能力变得无穷大。所谓学无止境，能力上能否得到无止境的提升就是个人为题了。你学习的时间？学习的态度？学习的内容？学习的方法？都决定了你的学习效果。基本上要学习一种新的技术或者产品，大多数人一般都止步于如何操作和运用它；能更深入的理解它的架构和特性，甚至做出横向的比对，就是第二个阶段，这样的人很少。
+
+
+学习Citrix技术的几个途径如下，我们通常都用到那些？请在下面投票。
+
+[poll id=”3”]
+
+什么是您认为学习Citrix技术的好的方式方法？请于本帖留言。
+
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>怎么使您的MP/VP/ATP/DEF都无穷大</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 1, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>自学的能力让你的能力变得无穷大。所谓学无止境，能力上能否得到无止境的提升就是个人为题了。你学习的时间？学习的态度？学习的内容？学习的方法？都决定了你的学习效果。基本上要学习一种新的技术或者产品，大多数人一般都止步于如何操作和运用它；能更深入的理解它的架构和特性，甚至做出横向的比对，就是第二个阶段，这样的人很少。<!-- more -->
+<a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/08/excalibur-architecture-xd7.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/08/excalibur-architecture-xd7.jpg" alt="XenDesktop 系统架构" /></a></p>
+
+<p>学习Citrix技术的几个途径如下，我们通常都用到那些？请在下面投票。</p>
+
+<p>[poll id=”3”]</p>
+
+<p>什么是您认为学习Citrix技术的好的方式方法？请于本帖留言。</p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Citrix, XenDesktop
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E6%80%8E%E4%B9%88%E4%BD%BF%E6%82%A8%E7%9A%84MP%2FVP%2FATP%2FDEF%E9%83%BD%E6%97%A0%E7%A9%B7%E5%A4%A7+http://localhost:4000/2013-08-01-e6-80-8e-e4-b9-88-e4-bd-bf-e6-82-a8-e7-9a-84mpvpatpdef-e9-83-bd-e6-97-a0-e7-a9-b7-e5-a4-a7/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2013-08-01-e6-80-8e-e4-b9-88-e4-bd-bf-e6-82-a8-e7-9a-84mpvpatpdef-e9-83-bd-e6-97-a0-e7-a9-b7-e5-a4-a7/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-08-01-e6-80-8e-e4-b9-88-e4-bd-bf-e6-82-a8-e7-9a-84mpvpatpdef-e9-83-bd-e6-97-a0-e7-a9-b7-e5-a4-a7/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-07-20-monthly-gallery-july/" data-toggle="tooltip" data-placement="top" title="My iPhone Monthly Gallery July">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-08-01-a-new-open-source-strategy-for-citrix-xenserver/" data-toggle="tooltip" data-placement="top" title="A new open source strategy for Citrix XenServer">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

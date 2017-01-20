@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>CloudStack+Swift 我心中的黄金搭档</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="CloudStack+Swift 我心中的黄金搭档" />
+  
+
+   
+  <meta property="og:description" content="迪斯尼是一个有魔力的组织，在它的电影里冤家可以变伙伴。甚至CloudStack和OpenStack两大私有云死对头来到迪斯尼这个神奇的地方也可以“在一起”。当迪斯尼决定建设自己的云计算基础设施时，与很多企业一样面临一个艰难的抉择，从众多云计算技术方案和产品中选择一条道路。如今的云计算市场规模已 达数百亿美元，水已经很深，领头的是亚马逊这样的公共云巨头，以及亚马逊的对手们：Rackspace、Google、CloudStack、 Eucalyptus、OpenNebula等多种私有云和公共云技术与服务，每家都有绝活和独到之处。
+
+
+
+对于身价上千亿美元的娱乐和媒体巨头迪斯尼来说，业界可供选择的云计算路线太多，到底是走公共云、私有云、混合云还是多重云的路子？
+
+迪斯尼的选择是走自己的路。（迪斯尼的系统架构师Lopez将9月9日在CloudBeat上介绍其云计算建设经验。）
+
+在概念验证阶段，迪斯尼更加青睐CloudStack，在私有云领域CloudStack吸引力很多大型用户，如Zynga和诺基亚都选择了 CloudStack。迪斯尼的系统架构师Lopez表示，相比OpenStack，CloudStack的部署和运行速度要快得多。迪斯尼可以在数天能 部署好CloudStack服务，而OpenStack则需要数周。当然，两大私有云服务部署周期相差如此之大的部分原因也与迪斯尼的特殊要求和原有技术 投资有关。
+
+不管怎样，迪斯尼目前对CloudStack非常满意，但迪斯尼的团队希望在私有云中增加对象存储技术。这一次迪斯尼倾向使用OpenStack阵 营的对象存储工具——Swift。事实上，开源的OpenStack之所以如此流行，与大量参与者提供的丰富功能密不可分，Swift就是一个很好的例 子。
+
+于是，迪斯尼的团队与Citrix合作，确保OpenStack的Swift技术能够与CloudStack搭建的私有云紧密集成。在迪斯尼这个神奇的地方，OpenStack和CloudStack之间的深沟裂隙被弥合了。
+
+在迪斯尼的案例中，CIO能够参考的经验是：云计算的实施方案并非黑白分明，非此即彼，随着云计算服务商提供越来越多的相对独立的云计算功能，CIO们可以不受“站队”的局限，从不同阵营选择最好的云计算工具进行整合。
+
+开源世界里面没有绝对的对手和敌人，只有融合和共荣 --Marti Liu
+
+How Disney built a giant cloud by bolting two together
+
+下面这个文章值得读一下。
+http://venturebeat.com/2013/08/30/how-disney-built-a-giant-cloud-by-bolting-two-together/
+
+转帖：迪斯尼云计算之路选择CloudStack
+
+原文链接： 文章来自IT经理网
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2013-09-03-cloudstack-swift/" />
+  <link rel="canonical" href="http://localhost:4000/2013-09-03-cloudstack-swift/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="CloudStack+Swift 我心中的黄金搭档" />
+  
+
+  
+  <meta name="twitter:description" content="迪斯尼是一个有魔力的组织，在它的电影里冤家可以变伙伴。甚至CloudStack和OpenStack两大私有云死对头来到迪斯尼这个神奇的地方也可以“在一起”。当迪斯尼决定建设自己的云计算基础设施时，与很多企业一样面临一个艰难的抉择，从众多云计算技术方案和产品中选择一条道路。如今的云计算市场规模已 达数百亿美元，水已经很深，领头的是亚马逊这样的公共云巨头，以及亚马逊的对手们：Rackspace、Google、CloudStack、 Eucalyptus、OpenNebula等多种私有云和公共云技术与服务，每家都有绝活和独到之处。
+
+
+
+对于身价上千亿美元的娱乐和媒体巨头迪斯尼来说，业界可供选择的云计算路线太多，到底是走公共云、私有云、混合云还是多重云的路子？
+
+迪斯尼的选择是走自己的路。（迪斯尼的系统架构师Lopez将9月9日在CloudBeat上介绍其云计算建设经验。）
+
+在概念验证阶段，迪斯尼更加青睐CloudStack，在私有云领域CloudStack吸引力很多大型用户，如Zynga和诺基亚都选择了 CloudStack。迪斯尼的系统架构师Lopez表示，相比OpenStack，CloudStack的部署和运行速度要快得多。迪斯尼可以在数天能 部署好CloudStack服务，而OpenStack则需要数周。当然，两大私有云服务部署周期相差如此之大的部分原因也与迪斯尼的特殊要求和原有技术 投资有关。
+
+不管怎样，迪斯尼目前对CloudStack非常满意，但迪斯尼的团队希望在私有云中增加对象存储技术。这一次迪斯尼倾向使用OpenStack阵 营的对象存储工具——Swift。事实上，开源的OpenStack之所以如此流行，与大量参与者提供的丰富功能密不可分，Swift就是一个很好的例 子。
+
+于是，迪斯尼的团队与Citrix合作，确保OpenStack的Swift技术能够与CloudStack搭建的私有云紧密集成。在迪斯尼这个神奇的地方，OpenStack和CloudStack之间的深沟裂隙被弥合了。
+
+在迪斯尼的案例中，CIO能够参考的经验是：云计算的实施方案并非黑白分明，非此即彼，随着云计算服务商提供越来越多的相对独立的云计算功能，CIO们可以不受“站队”的局限，从不同阵营选择最好的云计算工具进行整合。
+
+开源世界里面没有绝对的对手和敌人，只有融合和共荣 --Marti Liu
+
+How Disney built a giant cloud by bolting two together
+
+下面这个文章值得读一下。
+http://venturebeat.com/2013/08/30/how-disney-built-a-giant-cloud-by-bolting-two-together/
+
+转帖：迪斯尼云计算之路选择CloudStack
+
+原文链接： 文章来自IT经理网
+">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>CloudStack+Swift 我心中的黄金搭档</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on September 3, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>迪斯尼是一个有魔力的组织，在它的电影里冤家可以变伙伴。甚至CloudStack和OpenStack两大私有云死对头来到迪斯尼这个神奇的地方也可以“在一起”。当迪斯尼决定建设自己的云计算基础设施时，与很多企业一样面临一个艰难的抉择，从众多云计算技术方案和产品中选择一条道路。如今的云计算市场规模已 达数百亿美元，水已经很深，领头的是亚马逊这样的公共云巨头，以及亚马逊的对手们：Rackspace、Google、CloudStack、 Eucalyptus、OpenNebula等多种私有云和公共云技术与服务，每家都有绝活和独到之处。<!-- more --></p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/09/disney-cloudstack.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/09/disney-cloudstack.png" alt="disney-cloudstack" /></a></p>
+
+<p>对于身价上千亿美元的娱乐和媒体巨头迪斯尼来说，业界可供选择的云计算路线太多，到底是走公共云、私有云、混合云还是多重云的路子？</p>
+
+<p>迪斯尼的选择是走自己的路。（迪斯尼的系统架构师Lopez将9月9日在<a href="http://cloudbeat2013-intext.eventbrite.com/">CloudBeat</a>上介绍其云计算建设经验。）</p>
+
+<p>在概念验证阶段，迪斯尼更加青睐CloudStack，在私有云领域CloudStack吸引力很多大型用户，如Zynga和诺基亚都选择了 CloudStack。迪斯尼的系统架构师Lopez表示，相比OpenStack，CloudStack的部署和运行速度要快得多。迪斯尼可以在数天能 部署好CloudStack服务，而OpenStack则需要数周。当然，两大私有云服务部署周期相差如此之大的部分原因也与迪斯尼的特殊要求和原有技术 投资有关。</p>
+
+<p>不管怎样，迪斯尼目前对CloudStack非常满意，但迪斯尼的团队希望在私有云中增加对象存储技术。这一次迪斯尼倾向使用OpenStack阵 营的对象存储工具——Swift。事实上，开源的OpenStack之所以如此流行，与大量参与者提供的丰富功能密不可分，Swift就是一个很好的例 子。</p>
+
+<p>于是，迪斯尼的团队与Citrix合作，确保OpenStack的Swift技术能够与CloudStack搭建的私有云紧密集成。在迪斯尼这个神奇的地方，OpenStack和CloudStack之间的深沟裂隙被弥合了。</p>
+
+<p>在迪斯尼的案例中，CIO能够参考的经验是：云计算的实施方案并非黑白分明，非此即彼，随着云计算服务商提供越来越多的相对独立的云计算功能，CIO们可以不受“站队”的局限，从不同阵营选择最好的云计算工具进行整合。</p>
+
+<blockquote>开源世界里面没有绝对的对手和敌人，只有融合和共荣 --Marti Liu</blockquote>
+
+<h2 id="how-disney-built-a-giant-cloud-by-bolting-two-together">How Disney built a giant cloud by bolting two together</h2>
+
+<p>下面这个文章值得读一下。
+<a href="http://venturebeat.com/2013/08/30/how-disney-built-a-giant-cloud-by-bolting-two-together/">http://venturebeat.com/2013/08/30/how-disney-built-a-giant-cloud-by-bolting-two-together/</a></p>
+
+<h2 id="cloudstack">转帖：迪斯尼云计算之路选择CloudStack</h2>
+
+<p><a href="http://www.ctocio.com/ccnews/13420.html">原文链接</a>： 文章来自<a href="http://www.ctocio.com">IT经理网</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cloudstack, openstack, swift
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=CloudStack%2BSwift+%E6%88%91%E5%BF%83%E4%B8%AD%E7%9A%84%E9%BB%84%E9%87%91%E6%90%AD%E6%A1%A3+http://localhost:4000/2013-09-03-cloudstack-swift/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2013-09-03-cloudstack-swift/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2013-09-03-cloudstack-swift/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013-08-16-xendesktop-nvidia-k1-k2-best-3d-vdi/" data-toggle="tooltip" data-placement="top" title="XenDesktop + nVIDIA K1/K2 = BEST 3D VDI">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013-09-24-aws-e5-85-8d-e8-b4-b9-e5-a5-97-e9-a4-90-e6-88-aa-e6-ad-a2-e5-90-8e-e5-bf-85-e9-a1-bb-e7-bb-88-e6-ad-a2/" data-toggle="tooltip" data-placement="top" title="AWS 免费套餐截止后必须终止">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>RedHat互联网平台解决方案</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="RedHat互联网平台解决方案" />
+  
+
+   
+  <meta property="og:description" content="ppt点这里下载：[su_button target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]下载[/su_button] 参考文档： AS深圳2014演讲PPT最终稿  http://pan.baidu.com/s/1i3KQFRJ QCon北京2015（PPT） http://pan.baidu.com/s/1sj2t1yl 这两个目录里面干货还是不少，可以下载了慢慢看。 学习了一写文档后，逐渐对互联网公司的架构挑战需求和现状有了一些了解。下面先聊下这方面的一些理解。 中国规模交易量 什么叫中国规模交易量，以淘宝2014-11-11 双十一当天的数据举例： [su_list icon=”icon: rocket”] 交易创建    80000笔/秒 支付    38000笔/秒 24小时完成交易额 571亿元人民币 // 93 亿美元 [/su_list] 乍一看这个数字可能没什么感觉，可以比较一下美国的情况。全美所有的传统商场在“黑色星期五”一天的销售也仅为91亿美元，即使加上网络销售的24亿美元也比天猫“双十一”多不了太多。也就是说，美国黑五当天全网的电商是中国淘宝/天猫一家的四分之一。 因此中国人口基数大，网民数量大，假如您能激起大众的兴趣的话，你是不缺访问量的。对于意外的大规模的峰值访问量的处理，如果系统架构和应用没有提前经过特别的架构调整、优化；用膝盖都能想到系统挂掉、基础架构崩溃、交易数据出错是必然的事情。 理解到这个潜在的风险、需求和调整，我们所有设计和从事IT基础架构技术服务的人，可以想想，不向前看，不向BAT学习，不站在他们的肩膀上设计和调整自己的应用的话。想保证系统平安，除非业务是失败的业务（没有流量），否则没有平安可言。 架构特点 且不说马云家系统已经多么牛叉，我们看下京东的架构，我们也可以看到其架构设计在两个维度都非常清晰到位。业务架构维度上尽可能的松耦合，所有业务单元分解清晰，貌似莫名的遵循了分布式架构的要求；这样每个业务单元都可以对IT资源的消耗联动，弹性的供给必要的业务处理能力。IT架构维度上分解为三个层次：应用架构、数据架构、基础架构。基本上JD的这个PPT改变了我对这个企业的印象。从我的职业经验告诉我，这份PPT中规中矩，比较专业，堪称教科书式的架构设计。相对马云家的架构师的PPT图画的比较豪放，风格不同。JD这份PPT下载在这里。 [su_button url=”http://pan.baidu.com/s/1o6MI0t0” target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]AS深圳2014 京东架构设计-吴博[/su_button] 除了分层细致设计业务架构之外，我们还能看到，电商公司多使用多数据中心多活的模式并发处理海量交易量，每个数据中心都可以处理全业务，都能在灾备和并行处理上一石二鸟。这和我们高贵的传统企业不同，他们往往可以实现同城双中心运行，异地数据中心往往是灾备中心；有些灾备切换并不是全业务的切换，有些灾备中只用于灾备切换演练，并不真的运行业务；有些异地灾备中心也会和主数据中心中的一部分业务做周期性的切换运行。这些高贵的客户往往把核心的数据放在主机上，这在他们想扩展到3个或者更多个数据中心的时候，略显尴尬；新增的数据中心也要配置一套新主机系统么？新的主机上数据和应用怎样快速迁移过来？需要多长时间？数据同步的和其他两个数据中心一致么？这些问题的回答都不简单？主机硬件固然是贵？但是所有问题都解决周全的话，可能更贵。 全新的纯X86的架构就在面前，BAT已经证明了它和开源技术组合在一起就是多快好省的架构。因此，IT架构的转型也成了必然选择。试想转型之后的机房，每个机架都是标准化的工作单元，它可能是几种类型：纯物理机计算节点、纯虚拟机计算节点（服务器虚拟化或者OpenStack等）、纯物理机存储节点（软件定义存储）；或运行容器的物理机或者虚拟机。另外机架上的网络设备和核心网络设备必然有他们自己的设计。这是我的一个猜测，有机会还需要和BAT的人多了解。 开源技术 BAT用到的开源技术真的是不甚枚举，也没有必要逐一分析。基本上各个领域里从开发堆栈、到架构堆栈和运维管理堆栈；各个方面的前几位的项目都有实践和应用。 红帽 那么红帽的互联网平台解决方案是什么？红帽的定位是基础架构技术厂商，因此红帽的全套技术框架就是它的互联网解决方案。如下图所示。 有些产品模块需要稍微说明一下，方便和开源项目对应起来。 [su_list...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2015-05-17-redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" />
+  <link rel="canonical" href="http://localhost:4000/2015-05-17-redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="RedHat互联网平台解决方案" />
+  
+
+  
+  <meta name="twitter:description" content="ppt点这里下载：[su_button target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]下载[/su_button] 参考文档： AS深圳2014演讲PPT最终稿  http://pan.baidu.com/s/1i3KQFRJ QCon北京2015（PPT） http://pan.baidu.com/s/1sj2t1yl 这两个目录里面干货还是不少，可以下载了慢慢看。 学习了一写文档后，逐渐对互联网公司的架构挑战需求和现状有了一些了解。下面先聊下这方面的一些理解。 中国规模交易量 什么叫中国规模交易量，以淘宝2014-11-11 双十一当天的数据举例： [su_list icon=”icon: rocket”] 交易创建    80000笔/秒 支付    38000笔/秒 24小时完成交易额 571亿元人民币 // 93 亿美元 [/su_list] 乍一看这个数字可能没什么感觉，可以比较一下美国的情况。全美所有的传统商场在“黑色星期五”一天的销售也仅为91亿美元，即使加上网络销售的24亿美元也比天猫“双十一”多不了太多。也就是说，美国黑五当天全网的电商是中国淘宝/天猫一家的四分之一。 因此中国人口基数大，网民数量大，假如您能激起大众的兴趣的话，你是不缺访问量的。对于意外的大规模的峰值访问量的处理，如果系统架构和应用没有提前经过特别的架构调整、优化；用膝盖都能想到系统挂掉、基础架构崩溃、交易数据出错是必然的事情。 理解到这个潜在的风险、需求和调整，我们所有设计和从事IT基础架构技术服务的人，可以想想，不向前看，不向BAT学习，不站在他们的肩膀上设计和调整自己的应用的话。想保证系统平安，除非业务是失败的业务（没有流量），否则没有平安可言。 架构特点 且不说马云家系统已经多么牛叉，我们看下京东的架构，我们也可以看到其架构设计在两个维度都非常清晰到位。业务架构维度上尽可能的松耦合，所有业务单元分解清晰，貌似莫名的遵循了分布式架构的要求；这样每个业务单元都可以对IT资源的消耗联动，弹性的供给必要的业务处理能力。IT架构维度上分解为三个层次：应用架构、数据架构、基础架构。基本上JD的这个PPT改变了我对这个企业的印象。从我的职业经验告诉我，这份PPT中规中矩，比较专业，堪称教科书式的架构设计。相对马云家的架构师的PPT图画的比较豪放，风格不同。JD这份PPT下载在这里。 [su_button url=”http://pan.baidu.com/s/1o6MI0t0” target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]AS深圳2014 京东架构设计-吴博[/su_button] 除了分层细致设计业务架构之外，我们还能看到，电商公司多使用多数据中心多活的模式并发处理海量交易量，每个数据中心都可以处理全业务，都能在灾备和并行处理上一石二鸟。这和我们高贵的传统企业不同，他们往往可以实现同城双中心运行，异地数据中心往往是灾备中心；有些灾备切换并不是全业务的切换，有些灾备中只用于灾备切换演练，并不真的运行业务；有些异地灾备中心也会和主数据中心中的一部分业务做周期性的切换运行。这些高贵的客户往往把核心的数据放在主机上，这在他们想扩展到3个或者更多个数据中心的时候，略显尴尬；新增的数据中心也要配置一套新主机系统么？新的主机上数据和应用怎样快速迁移过来？需要多长时间？数据同步的和其他两个数据中心一致么？这些问题的回答都不简单？主机硬件固然是贵？但是所有问题都解决周全的话，可能更贵。 全新的纯X86的架构就在面前，BAT已经证明了它和开源技术组合在一起就是多快好省的架构。因此，IT架构的转型也成了必然选择。试想转型之后的机房，每个机架都是标准化的工作单元，它可能是几种类型：纯物理机计算节点、纯虚拟机计算节点（服务器虚拟化或者OpenStack等）、纯物理机存储节点（软件定义存储）；或运行容器的物理机或者虚拟机。另外机架上的网络设备和核心网络设备必然有他们自己的设计。这是我的一个猜测，有机会还需要和BAT的人多了解。 开源技术 BAT用到的开源技术真的是不甚枚举，也没有必要逐一分析。基本上各个领域里从开发堆栈、到架构堆栈和运维管理堆栈；各个方面的前几位的项目都有实践和应用。 红帽 那么红帽的互联网平台解决方案是什么？红帽的定位是基础架构技术厂商，因此红帽的全套技术框架就是它的互联网解决方案。如下图所示。 有些产品模块需要稍微说明一下，方便和开源项目对应起来。 [su_list...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>RedHat互联网平台解决方案</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on May 17, 2015</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>ppt点这里下载：[su_button target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]下载[/su_button]</p>
+
+<p>参考文档：
+AS深圳2014演讲PPT最终稿  <a href="http://pan.baidu.com/s/1i3KQFRJ">http://pan.baidu.com/s/1i3KQFRJ</a>
+QCon北京2015（PPT） <a href="http://pan.baidu.com/s/1sj2t1yl">http://pan.baidu.com/s/1sj2t1yl</a>
+这两个目录里面干货还是不少，可以下载了慢慢看。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/redhat-sulution.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/redhat-sulution.jpg" alt="redhat-sulution" /></a></p>
+
+<p>学习了一写文档后，逐渐对互联网公司的架构挑战需求和现状有了一些了解。下面先聊下这方面的一些理解。</p>
+
+<h1 id="section">中国规模交易量</h1>
+
+<p>什么叫中国规模交易量，以淘宝2014-11-11 双十一当天的数据举例：</p>
+
+<p>[su_list icon=”icon: rocket”]</p>
+
+<ul>
+  <li>
+    <p>交易创建    80000笔/秒</p>
+  </li>
+  <li>
+    <p>支付    38000笔/秒</p>
+  </li>
+  <li>
+    <p>24小时完成交易额 571亿元人民币 // 93 亿美元</p>
+  </li>
+</ul>
+
+<p>[/su_list]</p>
+
+<p>乍一看这个数字可能没什么感觉，可以比较一下美国的情况。全美所有的传统商场在“黑色星期五”一天的销售也仅为91亿美元，即使加上网络销售的24亿美元也比天猫“双十一”多不了太多。也就是说，美国黑五当天全网的电商是中国淘宝/天猫一家的四分之一。</p>
+
+<p>因此中国人口基数大，网民数量大，假如您能激起大众的兴趣的话，你是不缺访问量的。对于意外的大规模的峰值访问量的处理，如果系统架构和应用没有提前经过特别的架构调整、优化；用膝盖都能想到系统挂掉、基础架构崩溃、交易数据出错是必然的事情。</p>
+
+<p>理解到这个潜在的风险、需求和调整，我们所有设计和从事IT基础架构技术服务的人，可以想想，不向前看，不向BAT学习，不站在他们的肩膀上设计和调整自己的应用的话。想保证系统平安，除非业务是失败的业务（没有流量），否则没有平安可言。</p>
+
+<h1 id="section-1">架构特点</h1>
+
+<p>且不说马云家系统已经多么牛叉，我们看下京东的架构，我们也可以看到其架构设计在两个维度都非常清晰到位。业务架构维度上尽可能的松耦合，所有业务单元分解清晰，貌似莫名的遵循了分布式架构的要求；这样每个业务单元都可以对IT资源的消耗联动，弹性的供给必要的业务处理能力。IT架构维度上分解为三个层次：应用架构、数据架构、基础架构。基本上JD的这个PPT改变了我对这个企业的印象。从我的职业经验告诉我，这份PPT中规中矩，比较专业，堪称教科书式的架构设计。相对马云家的架构师的PPT图画的比较豪放，风格不同。JD这份PPT下载在这里。</p>
+
+<p>[su_button url=”http://pan.baidu.com/s/1o6MI0t0” target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]AS深圳2014 京东架构设计-吴博[/su_button]</p>
+
+<p>除了分层细致设计业务架构之外，我们还能看到，电商公司多使用多数据中心多活的模式并发处理海量交易量，每个数据中心都可以处理全业务，都能在灾备和并行处理上一石二鸟。这和我们高贵的传统企业不同，他们往往可以实现同城双中心运行，异地数据中心往往是灾备中心；有些灾备切换并不是全业务的切换，有些灾备中只用于灾备切换演练，并不真的运行业务；有些异地灾备中心也会和主数据中心中的一部分业务做周期性的切换运行。这些高贵的客户往往把核心的数据放在主机上，这在他们想扩展到3个或者更多个数据中心的时候，略显尴尬；新增的数据中心也要配置一套新主机系统么？新的主机上数据和应用怎样快速迁移过来？需要多长时间？数据同步的和其他两个数据中心一致么？这些问题的回答都不简单？主机硬件固然是贵？但是所有问题都解决周全的话，可能更贵。</p>
+
+<p>全新的纯X86的架构就在面前，BAT已经证明了它和开源技术组合在一起就是多快好省的架构。因此，IT架构的转型也成了必然选择。试想转型之后的机房，每个机架都是标准化的工作单元，它可能是几种类型：纯物理机计算节点、纯虚拟机计算节点（服务器虚拟化或者OpenStack等）、纯物理机存储节点（软件定义存储）；或运行容器的物理机或者虚拟机。另外机架上的网络设备和核心网络设备必然有他们自己的设计。这是我的一个猜测，有机会还需要和BAT的人多了解。</p>
+
+<h1 id="section-2">开源技术</h1>
+
+<p>BAT用到的开源技术真的是不甚枚举，也没有必要逐一分析。基本上各个领域里从开发堆栈、到架构堆栈和运维管理堆栈；各个方面的前几位的项目都有实践和应用。</p>
+
+<h1 id="section-3">红帽</h1>
+
+<p>那么红帽的互联网平台解决方案是什么？红帽的定位是基础架构技术厂商，因此红帽的全套技术框架就是它的互联网解决方案。如下图所示。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/Red-Hat-open-hybrid-cloud-1000x563_0.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/Red-Hat-open-hybrid-cloud-1000x563_0.png" alt="Red-Hat-open-hybrid-cloud-1000x563_0" /></a></p>
+
+<p>有些产品模块需要稍微说明一下，方便和开源项目对应起来。</p>
+
+<p>[su_list icon=”icon: linux”]</p>
+
+<ul>
+  <li>
+    <p>Red Hat Storage server / ICE : Gluster, Ceph</p>
+  </li>
+  <li>
+    <p>Red Hat Enterprise Linux : Fedora Linux</p>
+  </li>
+  <li>
+    <p>RHEV-M : Ovirt - 服务器虚拟化</p>
+  </li>
+  <li>
+    <p>RHELOSP ： OpenStack 企业版IaaS平台</p>
+  </li>
+  <li>
+    <p>OpenShift ：OpenShift社区</p>
+  </li>
+  <li>
+    <p>JBoss : JBoss 社区</p>
+  </li>
+  <li>
+    <p>Satellite ： Puppet + Foreman 等等其它配置管理工具</p>
+  </li>
+  <li>
+    <p>CloudForms ：CloudForms社区 - 混合云管理</p>
+  </li>
+</ul>
+
+<p>[/su_list]</p>
+
+<p>红帽的技术支持范围还包括很多操作系统内的功能组件，包括：HA-Proxy，LVS，MySQL等等。在技术面的广度上，并不限于以上框架图。不过那幅图是全堆栈的最简易的展示。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            BAT, 开源, 架构
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=RedHat%E4%BA%92%E8%81%94%E7%BD%91%E5%B9%B3%E5%8F%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88+http://localhost:4000/2015-05-17-redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2015-05-17-redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2015-05-17-redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2015-05-14-openstack-enterprise-ready/" data-toggle="tooltip" data-placement="top" title="OpenStack Enterprise Ready">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2015-05-24-fedora-22-e5-b0-86-e4-ba-8e5-e6-9c-8826-e6-97-a5-e5-8f-91-e5-b8-83/" data-toggle="tooltip" data-placement="top" title="Fedora 22 将于5月26日发布">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

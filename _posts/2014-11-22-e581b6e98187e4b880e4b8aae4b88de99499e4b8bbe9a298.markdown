@@ -1,0 +1,21 @@
+---
+author: liuadmin
+comments: true
+date: 2014-11-22 16:38:28+00:00
+layout: post
+slug: '%e5%81%b6%e9%81%87%e4%b8%80%e4%b8%aa%e4%b8%8d%e9%94%99%e4%b8%bb%e9%a2%98'
+title: 偶遇一个不错主题
+wordpress_id: 53242
+categories:
+- WordPress1
+post_format:
+- Status
+tags:
+- Mustang
+---
+
+无意中找到一个新的Wordpress主题 Mustang Lite 作者为[WebMan](http://www.webmandesign.eu/)。安装完之后觉得非常满意，本来这是一个多用途很复杂的主题现在让我给彻底精简了。感觉比较简洁，简洁的主题是我的最爱。
+
+[![screenshot-mustang-16x9](http://cdn1.martinliu.cn/wp-content/uploads/2014/11/screenshot-mustang-16x9-520x289.png)](http://cdn1.martinliu.cn/wp-content/uploads/2014/11/screenshot-mustang-16x9.png)
+
+Wordpress也升级到最新版本

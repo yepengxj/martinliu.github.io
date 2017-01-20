@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>ADDM 8.2 ssh key 生成和部署</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="ADDM 8.2 ssh key 生成和部署" />
+  
+
+   
+  <meta property="og:description" content="生产密钥 用tideway用户登录ADDM服务器，运行下面的命令 [bash] [tideway@localhost .ssh]$ ls [tideway@localhost .ssh]$ ssh-keygen -t rsa Generating public/private rsa key pair. Enter file in which to save the key (/usr/tideway/.ssh/id_rsa): “敲回车” Enter passphrase (empty for no passphrase): “敲回车” Enter same passphrase again: “敲回车” Your identification has been saved in /usr/tideway/.ssh/id_rsa. Your public key has been...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2011-06-16-addm-8-2-ssh-key-deploy/" />
+  <link rel="canonical" href="http://localhost:4000/2011-06-16-addm-8-2-ssh-key-deploy/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="ADDM 8.2 ssh key 生成和部署" />
+  
+
+  
+  <meta name="twitter:description" content="生产密钥 用tideway用户登录ADDM服务器，运行下面的命令 [bash] [tideway@localhost .ssh]$ ls [tideway@localhost .ssh]$ ssh-keygen -t rsa Generating public/private rsa key pair. Enter file in which to save the key (/usr/tideway/.ssh/id_rsa): “敲回车” Enter passphrase (empty for no passphrase): “敲回车” Enter same passphrase again: “敲回车” Your identification has been saved in /usr/tideway/.ssh/id_rsa. Your public key has been...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>ADDM 8.2 ssh key 生成和部署</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 16, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <h2 id="section">生产密钥</h2>
+
+<p>用tideway用户登录ADDM服务器，运行下面的命令
+[bash]
+[tideway@localhost .ssh]$ ls
+[tideway@localhost .ssh]$ ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/usr/tideway/.ssh/id_rsa):  “敲回车”
+Enter passphrase (empty for no passphrase):  “敲回车”
+Enter same passphrase again:  “敲回车”
+Your identification has been saved in /usr/tideway/.ssh/id_rsa.
+Your public key has been saved in /usr/tideway/.ssh/id_rsa.pub.
+The key fingerprint is:
+27:20:55:fc:f9:9a:41:35:11:ef:6d:b7:6c:4e:78:00 tideway@localhost.localdomain
+[tideway@localhost .ssh]$ ls
+id_rsa  id_rsa.pub
+[tideway@localhost .ssh]$
+[/bash]</p>
+
+<h2 id="key">下载和安装key文件部署工具</h2>
+
+<p>http://code.google.com/p/keploy/downloads/list
+下载 keploy-0.5.tgz 
+上传到ADDM服务器的/usr/tideway/.ssh目录中
+[bash]
+[tideway@localhost .ssh]$ ls
+id_rsa  id_rsa.pub  keploy-0.5.tgz
+[tideway@localhost .ssh]$ tar zxvf keploy-0.5.tgz
+keploy-0.5/
+keploy-0.5/keploy
+keploy-0.5/LICENSE
+keploy-0.5/README
+keploy-0.5/INSTALL
+keploy-0.5/CHANGELOG
+[tideway@localhost .ssh]$ ls
+id_rsa  id_rsa.pub  keploy-0.5  keploy-0.5.tgz
+[tideway@localhost .ssh]$ cd keploy-0.5
+[tideway@localhost keploy-0.5]$ ls
+CHANGELOG  INSTALL  keploy  LICENSE  README
+[tideway@localhost keploy-0.5]$ ./keploy -v</p>
+
+<p>NOTICE: You may be prompted for you password,
+NOTICE: this is directly from the ssh client, not keploy</p>
+
+<p>Preparing to deploy ssh key…
+ERROR: No targets defined.
+[tideway@localhost keploy-0.5]$ ./keploy -h
+Usage: keploy [options] [hosts]</p>
+
+<p>Options:
+  -i ID_FILE            specifies identity file
+  -l USERID, –login=USERID
+                        define userid for remote connections
+  -f TARGET_FILE, –file=TARGET_FILE
+                        read list of targets from file
+  -k, –use-known       read list of targets from known_hosts files
+  -r, –remove          remove primary identity from remote(s)
+  -c OLD_ID_FILE, –change=OLD_ID_FILE
+                        replace old identity with new one on remote(s)
+  -A                    enable/disable agent forwarding on remote
+  -v                    give verbose output
+  -q, –quiet           quiet the output
+  –version             show program’s version number and exit
+  -h, –help            show this help message and exit
+[tideway@localhost keploy-0.5]$
+[/bash]
+在keploy-0.5生成一个文件hostlist，里面每一行放一台机器的IP，回头让工具自动读取该文件</p>
+
+<h2 id="linux">Linux被采集帐号准备</h2>
+
+<p>建议直接把ADDM采集机的key文件部署到root用户上，如果用户觉得这个做法不安全的话，我们可以建立一个不普通用户，把特权命令用sudo处理一下，下面是具体的做法</p>
+
+<h3 id="ssh">运行ssh的证书认证</h3>
+
+<p>用root登录被采集机，修改/etc/ssh/sshd_config文件，将如下参数的注释符号（#）去掉，以启用这些参数：
+RSAAuthentication          yes
+PubkeyAuthentication     yes
+AuthorizedKeysFile         .ssh/authorized_keys
+重启sshd服务
+#/etc/init.d/sshd restart</p>
+
+<h3 id="sudo">配置sudo</h3>
+
+<p>Linux平台对采集账户需要配置sudo。以root用户登录被管服务器，修改/etc/sudoers文件，在文件末尾追加一行：
+tideway  ALL=(root) NOPASSWD:/usr/sbin/dmidecode,/usr/sbin/hwinfo, /usr/sbin/hbanyware/hbacmd,/usr/sbin/lsof,/sbin/ethtool,/sbin/mii-tool</p>
+
+<h3 id="tideway">增加采集帐号tideway</h3>
+
+<p>操作步骤如下（以root用户登录服务器）：
+[root@ars home]# useradd tideway
+[root@ars home]# passwd tideway
+Changing password for user tideway.
+New UNIX password: “使用tideway做密码，采集成功后可以修改掉”
+BAD PASSWORD: it is based on a dictionary word
+Retype new UNIX password: “使用tideway做密码，采集成功后可以修改掉”
+passwd: all authentication tokens updated successfully.
+[root@ars home]#</p>
+
+<h2 id="addm-ssh-">部署ADDM ssh 密钥到被采集机</h2>
+
+<h3 id="section-1">部署</h3>
+
+<p>在采集机部署前，查看/home/tideway 目录
+[bash]
+[root@ars home]# cd tideway/
+[root@ars tideway]# pwd
+/home/tideway
+[root@ars tideway]# ls -la
+total 36
+drwx—— 3 tideway tideway 4096 Jun 17 00:55 .
+drwxr-xr-x 4 root    root    4096 Jun 17 00:55 ..
+-rw-r–r– 1 tideway tideway   33 Jun 17 00:55 .bash_logout
+-rw-r–r– 1 tideway tideway  176 Jun 17 00:55 .bash_profile
+-rw-r–r– 1 tideway tideway  124 Jun 17 00:55 .bashrc
+-rw-r–r– 1 tideway tideway  515 Jun 17 00:55 .emacs
+drwxr-xr-x 4 tideway tideway 4096 Jun 17 00:55 .mozilla
+-rw-r–r– 1 tideway tideway  658 Jun 17 00:55 .zshrc
+[root@ars tideway]#
+[/bash]
+注意这里没有.ssh目录
+开始使用我们下载的工具部署，登录到ADDM采集机上
+[bash]
+[tideway@localhost keploy-0.5]$ vi hostlist
+[tideway@localhost keploy-0.5]$ cat hostlist
+192.168.189.154
+[tideway@localhost keploy-0.5]$ ./keploy -f hostlist</p>
+
+<p>NOTICE: You may be prompted for you password,
+NOTICE: this is directly from the ssh client, not keploy</p>
+
+<p>Preparing to deploy ssh key…
+Using user-defined host list from file: hostlist
+./keploy:164: DeprecationWarning: os.popen3 is deprecated.  Use the subprocess module.
+  si, so, se = os.popen3(execute)
+        Found host(s):
+                192.168.189.154
+        Found identity:
+                /usr/tideway/.ssh/id_rsa.pub
+        Working on host: 192.168.189.154
+The authenticity of host ‘192.168.189.154 (192.168.189.154)’ can’t be established.
+RSA key fingerprint is de:4e:f0:c8:9b:86:ee:25:af:a9:1c:19:8f:20:90:ad.
+Are you sure you want to continue connecting (yes/no)? yes
+tideway@192.168.189.154’s password:  “输入目标机上tideway用户的密码，我用的是tideway”
+                Public Identity Key: deployed
+[tideway@localhost keploy-0.5]$
+[/bash]
+可以到被采集机的/home/tideway/.ssh下面看看传过去的正式文件，这种方式极大的避免了，手工创建.ssh目录，设置它和key文件权限的工作量</p>
+
+<h3 id="section-2">验证</h3>
+
+<p>在采集机上，使用tideway用户登录被采集服务器。
+[bash]
+[tideway@localhost keploy-0.5]$ ssh 192.168.189.154
+Last login: Fri Jun 17 01:08:21 2011 from 192.168.189.147
+[tideway@ars ~]$
+[/bash]</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ADDM, BMC, cmdb, keploy, key, ssh
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=ADDM+8.2+ssh+key+%E7%94%9F%E6%88%90%E5%92%8C%E9%83%A8%E7%BD%B2+http://localhost:4000/2011-06-16-addm-8-2-ssh-key-deploy/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2011-06-16-addm-8-2-ssh-key-deploy/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2011-06-16-addm-8-2-ssh-key-deploy/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2011-06-02-a-shit-government-runs-a-beautiful-country/" data-toggle="tooltip" data-placement="top" title="A shit government runs a beautiful country">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2011-06-27-milestone-this-is-no-200-post/" data-toggle="tooltip" data-placement="top" title="Milestone: this is post No.200th ">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

@@ -1,0 +1,23 @@
+---
+author: liuadmin
+comments: true
+date: 2015-02-11 14:41:22+00:00
+layout: post
+slug: aws-%e6%9c%8d%e5%8a%a1%e7%b4%a2%e5%bc%95%e5%9c%b0%e5%9b%be
+title: AWS 服务索引地图
+wordpress_id: 53478
+categories:
+- Cloud Computing
+tags:
+- aws
+---
+
+以上图片用FreeMind软件生成，下载英文版原图点击这里：[aws-service-map.mm](http://cdn1.martinliu.cn/wp-content/uploads/2015/02/aws-service-map.mm_.zip)
+
+[![aws-service-map](http://cdn1.martinliu.cn/wp-content/uploads/2015/02/aws-service-map-1024x710.jpeg)](http://cdn1.martinliu.cn/wp-content/uploads/2015/02/aws-service-map.jpeg)
+
+
+
+下载中文版PDF全图点击这里：[aws-服务-脑图](http://cdn1.martinliu.cn/wp-content/uploads/2015/02/aws-服务-脑图.pdf)
+
+[![aws-服务-脑图](http://cdn1.martinliu.cn/wp-content/uploads/2015/02/aws-服务-脑图-1024x446.jpeg)](http://cdn1.martinliu.cn/wp-content/uploads/2015/02/aws-服务-脑图.jpeg)

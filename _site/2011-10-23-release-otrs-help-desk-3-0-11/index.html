@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Release: OTRS Help Desk 3.0.11</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Release: OTRS Help Desk 3.0.11" />
+  
+
+   
+  <meta property="og:description" content="[success]这是一个补丁修补版本。我的名字也第一次出现，感谢Michael的帮忙，没有你我可能迟迟发不上去这个翻译。完整的release notes见 http://otrs.org/releases/3.0.11[/success] +++++++++++++++++++++++++ Release Note ++++++++++++++++++++++++ Release:            OTRS Help Desk 3.0.11 Status:             stable Code Name:          Cancún Beach, México We are proud to announce that the latest patch level release of OTRS 3.0 (codename: Cancún Beach,...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2011-10-23-release-otrs-help-desk-3-0-11/" />
+  <link rel="canonical" href="http://localhost:4000/2011-10-23-release-otrs-help-desk-3-0-11/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Release: OTRS Help Desk 3.0.11" />
+  
+
+  
+  <meta name="twitter:description" content="[success]这是一个补丁修补版本。我的名字也第一次出现，感谢Michael的帮忙，没有你我可能迟迟发不上去这个翻译。完整的release notes见 http://otrs.org/releases/3.0.11[/success] +++++++++++++++++++++++++ Release Note ++++++++++++++++++++++++ Release:            OTRS Help Desk 3.0.11 Status:             stable Code Name:          Cancún Beach, México We are proud to announce that the latest patch level release of OTRS 3.0 (codename: Cancún Beach,...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Release: OTRS Help Desk 3.0.11</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on October 23, 2011</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <hr />
+
+<p>[success]这是一个补丁修补版本。我的名字也第一次出现，感谢Michael的帮忙，没有你我可能迟迟发不上去这个翻译。完整的release notes见 <a href="http://otrs.org/releases/3.0.11">http://otrs.org/releases/3.0.11</a>[/success]</p>
+<table cellpadding="0">
+<tbody>
+<tr>
+
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++ Release Note ++++++++++++++++++++++++
+
+Release:            OTRS Help Desk 3.0.11
+Status:             stable
+Code Name:          Cancún Beach, México
+
+We are proud to announce that the latest patch level release of OTRS 3.0
+(codename: Cancún Beach, México) has been released.
+
+Important for Upgrading
+=======================
+* From OTRS 3.0.x: Make sure you run bin/[otrs.RebuildConfig.pl](http://otrs.RebuildConfig.pl/) after
+the upgrade so that the configuration is refreshed. Otherwise the
+system may not work.
+
+* From OTRS 2.4.x: Please read the UPGRADING and INSTALL files for
+detailed instructions.
+
+Warning
+=======
+OTRS versions from 3.0.beta1 up to 3.0.2 were affected by a bug in the
+GenericAgent which could cause the "Ticket Delete" flag to be active
+by default for new GenericAgent jobs, depending on the locale. If you
+used one of the affected versions and have created new GenericAgent
+jobs with them, please review them to check if the "Ticket Delete"
+flag indeed has the correct value. Otherwise unwanted data loss might
+occur.
+
+Improvements
+============
+* Updated Simplified Chinese Translation, thanks to Martin Liu!
+* Updated Danish translation, thanks to Lars Jørgensen!
+<table cellpadding="0">
+<tbody>
+<tr>
+
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Software Download
+=================* [ [http://otrs.org/downloads/](http://otrs.org/downloads/) ] (Germany/Hamburg)
+* [ [ftp://ftp.otrs.org/pub/otrs/](ftp://ftp.otrs.org/pub/otrs/) ] (Germany/Hamburg)
+
+A complete list of all download mirrors is available at
+[ [http://otrs.org/downloads/](http://otrs.org/downloads/) ].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cmdb, ITIL, ITSM, open source, oss, 服务台
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Release%3A+OTRS+Help+Desk+3.0.11+http://localhost:4000/2011-10-23-release-otrs-help-desk-3-0-11/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2011-10-23-release-otrs-help-desk-3-0-11/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2011-10-23-release-otrs-help-desk-3-0-11/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2011-10-13-how-to-configure-nfs-on-lion/" data-toggle="tooltip" data-placement="top" title="苹果Lion系统做NFS文件夹共享">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2011-11-27-hypervisor-is-not-operationl-for-pc/" data-toggle="tooltip" data-placement="top" title="当Hypervisor成为服务器的标配">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

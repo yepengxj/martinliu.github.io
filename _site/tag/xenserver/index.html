@@ -1,0 +1,5200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Posts Tagged &ldquo;xenserver&rdquo;</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Posts Tagged &ldquo;xenserver&rdquo;" />
+  
+
+   
+  <meta property="og:description" content="Posts Tagged &amp;ldquo;xenserver&amp;rdquo;: XenServer 添加硬盘做本地存储 Posted on November 25, 2013 当您的 XenServer 测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。 下面的实例情况是： * 测试机有两块硬盘 * OCZ  SSD硬盘一块 * SATA 不通硬盘一块 * 还有一个U盘插在系统上 * SATA的硬盘是我需要加载的新硬盘 * 这个新的硬盘希望被处理成XenServer本地的SR 添加过程中主要需要使用这样几条指令： 1. 查看当前系统上的检查出来并且挂载中的分区： cat /proc/partitions 2. 详细查看这些存储和设备对应的情况： ls -l /dev/disk/by-id/ 3. 创建新的本地SR: xe sr-create content-type=user device-config:device=/dev/disk/by-id/scsi-SATA_ST9320325ASG_5VD7G964 host-uuid=3850317b-d23a-4ed0-87f9-2b27854319e5 name-label=&amp;quot;SATA320&amp;quot; shared=false type=lvm [bash] [root@XS62...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/tag/xenserver/" />
+  <link rel="canonical" href="http://localhost:4000/tag/xenserver/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Posts Tagged &ldquo;xenserver&rdquo;" />
+  
+
+  
+  <meta name="twitter:description" content="Posts Tagged &amp;ldquo;xenserver&amp;rdquo;: XenServer 添加硬盘做本地存储 Posted on November 25, 2013 当您的 XenServer 测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。 下面的实例情况是： * 测试机有两块硬盘 * OCZ  SSD硬盘一块 * SATA 不通硬盘一块 * 还有一个U盘插在系统上 * SATA的硬盘是我需要加载的新硬盘 * 这个新的硬盘希望被处理成XenServer本地的SR 添加过程中主要需要使用这样几条指令： 1. 查看当前系统上的检查出来并且挂载中的分区： cat /proc/partitions 2. 详细查看这些存储和设备对应的情况： ls -l /dev/disk/by-id/ 3. 创建新的本地SR: xe sr-create content-type=user device-config:device=/dev/disk/by-id/scsi-SATA_ST9320325ASG_5VD7G964 host-uuid=3850317b-d23a-4ed0-87f9-2b27854319e5 name-label=&amp;quot;SATA320&amp;quot; shared=false type=lvm [bash] [root@XS62...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <div class="intro-header"></div>
+
+<div role="main" class="container">
+  <h2 class="post_title">Posts Tagged &ldquo;xenserver&rdquo;:</h2>
+
+<div class="posts-list">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-11-25-xenserver-e6-b7-bb-e5-8a-a0-e7-a1-ac-e7-9b-98-e5-81-9a-e6-9c-ac-e5-9c-b0-e5-ad-98-e5-82-a8/">
+      <h3 class="post-title">XenServer 添加硬盘做本地存储</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on November 25, 2013
+    </p>
+
+    <div class="post-entry">
+      当您的 XenServer 测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。 下面的实例情况是： * 测试机有两块硬盘 * OCZ  SSD硬盘一块 * SATA 不通硬盘一块 * 还有一个U盘插在系统上 * SATA的硬盘是我需要加载的新硬盘 * 这个新的硬盘希望被处理成XenServer本地的SR 添加过程中主要需要使用这样几条指令： 1. 查看当前系统上的检查出来并且挂载中的分区： cat /proc/partitions 2. 详细查看这些存储和设备对应的情况： ls -l /dev/disk/by-id/ 3. 创建新的本地SR: xe sr-create content-type=user device-config:device=/dev/disk/by-id/scsi-SATA_ST9320325ASG_5VD7G964 host-uuid=3850317b-d23a-4ed0-87f9-2b27854319e5 name-label=&quot;SATA320&quot; shared=false type=lvm [bash] [root@XS62 ~]# cat /proc/partitions major minor #blocks name 7 0 52378...
+      <a href="/2013-11-25-xenserver-e6-b7-bb-e5-8a-a0-e7-a1-ac-e7-9b-98-e5-81-9a-e6-9c-ac-e5-9c-b0-e5-ad-98-e5-82-a8/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/featured">featured</a>
+      
+        <a href="/tag/hd">hd</a>
+      
+        <a href="/tag/local storage">local storage</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-08-01-the-xen-movie-part-1-the-first-ten-years-of-open-source-xen/">
+      <h3 class="post-title">The Xen Movie, Part 1: The first ten years of open source Xen.</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 1, 2013
+    </p>
+
+    <div class="post-entry">
+      http://brightcove.vo.llnwd.net/e1/uds/pd/13639319001/13639319001_2484626552001_Citrix-Open-Source--Public-Version-.mp4
+
+      <a href="/2013-08-01-the-xen-movie-part-1-the-first-ten-years-of-open-source-xen/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/xen">xen</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-08-01-citrix-xenserver-is-now-fully-open-source/">
+      <h3 class="post-title">Citrix XenServer is Now Fully Open Source</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 1, 2013
+    </p>
+
+    <div class="post-entry">
+      http://brightcove.vo.llnwd.net/e1/uds/pd/13639319001/13639319001_2488040716001_XenServer-OSS-Richard-Sharp-Final.mp4 With the release of Citrix XenServer 6.2, Citrix is pleased to announce that XenServer is now fully open source. In this video, Richard Sharp, Vice President of XenServer Product Development, explains why Citrix open sourced XenServer, what it means to our customers and how it will help the entire...
+      <a href="/2013-08-01-citrix-xenserver-is-now-fully-open-source/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-08-01-a-new-open-source-strategy-for-citrix-xenserver/">
+      <h3 class="post-title">A new open source strategy for Citrix XenServer</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 1, 2013
+    </p>
+
+    <div class="post-entry">
+      http://brightcove.vo.llnwd.net/e1/uds/pd/13639319001/13639319001_2503709704001_Sameer-Dholakia-v3.mp4
+
+Sameer Dholakia, Vice President and General Manager of the Citrix Cloud Division, talks about the full open source strategy for XenServer. Learn why Citrix made XenServer open source and how this will benefit our customers and ecosystem partners.
+
+      <a href="/2013-08-01-a-new-open-source-strategy-for-citrix-xenserver/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-05-24-microserver-lenovo-thinkcenter-m92m92p-tiny/">
+      <h3 class="post-title">Microserver Lenovo ThinkCenter M92/M92p Tiny</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on May 24, 2013
+    </p>
+
+    <div class="post-entry">
+      刚刚入手了一台 Lenovo ThinkCenter M92/M92p Tiny测试机，虽然配置不高但是出于geek习惯，还是要动动螺丝刀的。下面是拆机过程，供参考。 [gallery columns=&quot;2&quot; link=&quot;file&quot; ids=&quot;52429,52430,52431,52432,52433,52434,52435&quot;] 这款机器目前在国内好像还没有正式买，起码联想中国官网上连技术指标也查不到。美国网站上是有这个机器的介绍。 [caption id=&quot;&quot; align=&quot;alignnone&quot; width=&quot;960&quot;][![](http://www.lenovo.com/images/products/desktops/m-series/m92p-hero-ribbon.jpg)](http://www.lenovo.com/products/us/desktop/thinkcentre/desktops-towers-us-only/m92-m92p/) ThinkCenter M92P[/caption] ## At a Glance * Up to 3rd generation Intel® Core™ i7 * Up to Windows 8 Pro * Up to 1TB HDD, Up to 128GB SSD * Up to 32GB memory (4x8GB) *...
+      <a href="/2013-05-24-microserver-lenovo-thinkcenter-m92m92p-tiny/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/hadoop">hadoop</a>
+      
+        <a href="/tag/Lenovo">Lenovo</a>
+      
+        <a href="/tag/M92">M92</a>
+      
+        <a href="/tag/M92p">M92p</a>
+      
+        <a href="/tag/ThinkCenter">ThinkCenter</a>
+      
+        <a href="/tag/Tiny">Tiny</a>
+      
+        <a href="/tag/xenclient">xenclient</a>
+      
+        <a href="/tag/XenDesktop">XenDesktop</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-04-07-xenserver-tools-not-installed/">
+      <h3 class="post-title">解决XenServer tools not installed</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on April 7, 2013
+    </p>
+
+    <div class="post-entry">
+      [box color=&quot;orange&quot; icon=&quot;flag&quot;]
+鸣谢：Michael Zhang的经验分享，有需要的请收藏备用。
+[/box]
+
+刚刚搞定了POC环境中一个很诡异的问题。把过程写出来以供大家参考。建议可以把这个设置放到POC的实施手册中。
+刚开始做POC时，我们安装了XP的模板，并且安装了同版本的XenTools，此时XenCenter面板上显示虚机的IP地址没有问题。但是跑了一段时间后发现，所有的虚机的IP地址都显示不出来了，并且XenCenter面板上显示XenServer tools not installed，虚机的内存信息，Disk IO等信息，都没有显示：
+[![xentools1](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools1.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools1.png)
+
+[![xentools8](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools8.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools8.png)
+
+后来重装了模板，重新发布了虚机，一切就OK了，此时我认为是原先的模板有问题，所以导致了这个issue。
+但是后来跑了几天，某台虚机又出现了类似的症状，此时我意识到应该不是模板的问题了。然后我就检查了这台虚机的Service，发现：
+
+[![xentools2](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools2.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools2.png)
+
+这个Service就是XenTool的Service，因为没有启动，所以导致了上述的问题。
+但是当我用手工试图重启该Service的时候，系统报改Service启动时停止，没有给出任何原因。Windows Event Log里也没看到任何报错。
+后来上网查了下，原来是Windows Event Log的Application类的log满了以后，会导致该Service启动异常。
+看了下XP的Windows Event Log的Application类日志的属性，默认只有64K：
+
+[![xentools3](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools3.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools3.png)
+
+我把上面的日志文件大小阀值改成了1024K，清空Application类的log，重启上面的Service, 成功，问题解决。
+
+[![xentools5](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools5.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools5.png)
+[![xentools6](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools6.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools6.png)
+
+[![xentools7](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools7.png)](http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools7.png)
+
+上述类似的问题我记得也有兄弟曾经遇到过，发邮件出来问过，当时怀疑是XenServer跟VDA的时间不同步造成，现在感觉也许跟这个原因有关。
+
+[box color=&quot;gray&quot; icon=&quot;order-check&quot;]
+欢迎投稿，请发邮件到： liuzh66@gmail.com
+[/box]
+
+      <a href="/2013-04-07-xenserver-tools-not-installed/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/winxp">winxp</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/xentools">xentools</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-04-07-e6-80-9d-e6-9d-b0-e8-a1-8c-e4-b8-9a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e8-a7-86-e9-a2-91-e6-94-be-e9-87-8f-e6-8e-a8-e8-8d-90/">
+      <h3 class="post-title">思杰行业解决方案视频放量推荐</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on April 7, 2013
+    </p>
+
+    <div class="post-entry">
+      [button type=&quot;big&quot; icon=&quot;sign-in&quot; url=&quot;http://i.youku.com/u/UMzU2OTI4MzY0/videos&quot;]点击本按钮，直达优酷视频专辑[/button] [line] * [汽车行业解决方案](http://v.youku.com/v_show/id_XNTMxOTE2MjMy.html) * [思杰制造行业解决方案](http://v.youku.com/v_show/id_XNDg1MjEyNzYw.html) * [金融行业解决方案](http://v.youku.com/v_show/id_XNDg1MTAzODA0.html) * [呼叫中心场景Citrix桌面云解决方案](http://v.youku.com/v_show/id_XNDgyNjc3NDAw.html) * [教育行业解决方案](http://v.youku.com/v_show/id_XNDgyNjY3NTgw.html) * [思杰政府行业解决方案](http://v.youku.com/v_show/id_XNDkxMjk5MjE2.html) * [医疗行业解决方案](http://v.youku.com/v_show/id_XNDgyNjU4NDUy.html) * [营业厅场景解决方案](http://v.youku.com/v_show/id_XNDgyNjQ5MDIw.html) * [Citrix集中运维监控解决方案](http://v.youku.com/v_show/id_XNDgyNjUxNTUy.html) * [OA解决方案](http://v.youku.com/v_show/id_XNDgyNjMxOTY4.html) * [思杰虚拟化助力翠微中学教育信息化建设](http://v.youku.com/v_show/id_XNDIzNTc0MzIw.html) * [思杰虚拟化为遍布全美的学校师生提供便](http://v.youku.com/v_show/id_XNDEzNzUzNzI4.html) [line] [box color=&quot;red&quot;] 合作伙伴们必看视频，你们不得不懂这些内容，否则跟不上形势：) [/box] 1. [PoC标准流程](http://v.youku.com/v_show/id_XNDgyNzk0MzQw.html) 2. [2013-03-29 14.02 Citrix MDM solution](http://v.youku.com/v_show/id_XNTM1MDQwNzM2.html) 3. [搞定虚拟环境下的USB设备](http://v.youku.com/v_show/id_XNDg2NzYxMjky.html) 4. [自由灵活办公【Work Shifting】](http://v.youku.com/v_show/id_XNDY5MDQ1MDg0.html) 5. [企业统一应用门户 【Unified...
+      <a href="/2013-04-07-e6-80-9d-e6-9d-b0-e8-a1-8c-e4-b8-9a-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88-e8-a7-86-e9-a2-91-e6-94-be-e9-87-8f-e6-8e-a8-e8-8d-90/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/MDM">MDM</a>
+      
+        <a href="/tag/XenApp">XenApp</a>
+      
+        <a href="/tag/XenDesktop">XenDesktop</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2013-02-21-tips-install-xenserver-on-mac-mini-6-1/">
+      <h3 class="post-title">TIPS install XenServer on Mac Mini 6.1 </h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on February 21, 2013
+    </p>
+
+    <div class="post-entry">
+      [caption id=&quot;attachment_52258&quot; align=&quot;aligncenter&quot; width=&quot;640&quot;]![mac-mini-2012-with-XenServer](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/mac-mini-2012-vs-old-mac-mini.jpg) mac-mini-2012-with-XenServer[/caption] 今天尝试在Mac Mini上安装XenServer，下面把经验共享一下。我遇到的问题有两个： 1. 网卡无法识别：使用默认安装盘安装，提示没有检测到网卡，安装无法继续 2. 网卡驱动植入失败：在按了F9加载驱动的时候，没有发现驱动程序，无法继续安装 3. 安装完毕之后，重启，屏幕上显示一个带问号的文件夹，一闪一闪无法正常启动XenServer 经过一番折腾，发现这些点主意一下，应该就没有问题。 [caption id=&quot;attachment_52255&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![启动Macmini](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot-300x224.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot.jpg) 启动Macmini[/caption] 在启动Mac Mini的时候，在“咚”的一声之前，就按住ALT键，否则没法出现上面的屏幕，我用的是USB盘启动，所以要选择右侧的图标。 [caption id=&quot;attachment_52256&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![进入menu.c32菜单](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot2-300x224.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot2.jpg) 进入menu.c32菜单[/caption] 我遵循前人的经验，乖乖到此来禁止gpt；首先在这里要迅速输入menu.c32，输入完了就过了，就必须重新关机，重启mac mini。 [caption id=&quot;attachment_52257&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![输入disable-gpt参数](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot3-300x224.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/boot3.jpg) 输入disable-gpt参数[/caption] 进入这个屏幕了，要快速按TAB键，否则启动参数无法编辑，输入disable-gpt参数的机会就失去了。编辑启动参数的时候，把参数加载第二个---（三个短横线）前即可，上图我为了拍照在参数之前加了很多空格，其实这个参数和前后要至少一个空格就够了。 在进入安装的屏幕后，如果是XenServer6.0.201的源安装盘，还必须下载tg3的网卡驱动，并且用工具打入iso文件，这样安装的时候，就可以选择到加载网卡启动，否则6.0.201的安装盘即不自带此网卡驱动，也无法正常识别附加的驱动。网卡驱动下载地址为：[http://support.citrix.com/article/CTX135328](http://support.citrix.com/article/CTX135328) 要把加压后的iso文件，再次加压到对应的目录里才行，直接把解压后的几个文件放入目录，安装程序是无法识别到网卡驱动的。如果能正常识别的话，会出现选择框，让你选择 Broadcom tg3。如果是XenServer6.1的安装盘，就不需要折腾驱动了，原盘自带了Broadcom tg3网卡驱动。下面有两张截图，供必须要使用XenServer 6.0.201的人参考。 [caption id=&quot;attachment_52250&quot; align=&quot;aligncenter&quot; width=&quot;300&quot;][![XenServer 6.0.201 with driver](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/xenserver6.1-300x215.jpg)](http://cdn1.martinliu.cn/wp-content/uploads/2013/02/xenserver6.1.jpg) XenServer 6.0.201 with driver[/caption] [caption...
+      <a href="/2013-02-21-tips-install-xenserver-on-mac-mini-6-1/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/6.0.201">6.0.201</a>
+      
+        <a href="/tag/6.1">6.1</a>
+      
+        <a href="/tag/Apple">Apple</a>
+      
+        <a href="/tag/mac">mac</a>
+      
+        <a href="/tag/mac mini">mac mini</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/">
+      <h3 class="post-title">CloudStack 4.0 安装实例分析版</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on December 11, 2012
+    </p>
+
+    <div class="post-entry">
+      我之前的安装帖子，只讲了CloudStack的环境如何去搭建，并没讲为什么这么做？也没讲做出来的东西有什么用？也没讲做出来以后该如何去扩展这个系统？所以可能那些文档可能只是对于开发人有点意义，对于实际用户而言意义并不大。后面，我可能用几篇文章来描述和解答这些问题。 这里先讲一个应用实例，有需求的人应该能够看懂，并且能领会到系统设计和规划的原理。CS公司内网有大约50个研发人员，每个人为了开发和测试公司的产品至少需要2种操作系统环境（Windows2008+Ubuntu），每个操作系统至少需要2个虚拟机才能保证正常工作，有人还有编译代码的需求，所以平均每人需要4core/6GB的计算资源。总共需要200个虚拟机，总共需要200Core*300GB的计算资源。 [![](http://cdn1.martinliu.cn/wp-content/uploads/2012/12/Cloud-300x256.png)](http://cdn1.martinliu.cn/wp-content/uploads/2012/12/Cloud.png) CS公司的工程师做了这样的一个设计，首先申请了一个独立网段192.168.168.0用于该测试CloudStack。然后找来了两台服务器用于平台的初始化安装，IP地址的规划如下表。另外，CS公司的网管也给他们借了一个千兆网络交换机，这个交换机配置了网关和DNS解析，保证测试网段的机器既能够上网，并能够被公司内网连接。 IP地址 功能 192.168.168.1 网关和DNS解析的地址，通过它所有虚拟机可以被内网用户访问 192.168.168.2 CloudStack管理服务器，配置为2*4Core/16GB/1TB*2HD，安装RHEL6.2操作系统，安装NFS服务 192.168.168.3 XS-01为第一台Hypervisor服务器，用户运行虚拟机，这里使用XenServer，安装之后在网上申请免费许可证用来测试满足50人的配置为4*4Core(开超线程)/64GB/125GB*2HD的服务器7台；或者相当计算量的其他计算资源。 192.168.168.4～14 为后期系统扩展新增的XenServer服务器预留 192.168.168.15 为后期扩容的存储系统预留，如果开发编译的过程没有密集的磁盘读写操作的话，使用NFS或iSCSI存储即可。否则考虑使用FC存储。 92.168.168.16～20 CloudStack Private网段地址 92.168.168.21～25 CloudStack Storage网段地址 92.168.168.30～250 CloudStack Guest网段地址 图中左侧的两台服务器就是最小化的测试环境，足够满足CloudStack平台搭建，和虚拟机模板的测试工作。等到测试和配置足够了，就可以增加更多的服务器节点到CloudStack平台上来。增加的方法很简单，在服务器上安装XenServer之后，在CloudStack中添加host即可。 准备系统安装软件 根据以上的需求需要下载和刻录RHEL6.2的安装盘；需要下载ClouStack的安装包，http://cloudstack.apt-get.eu/rhel/4.0/ 。 CloudStack的安装包可以下载到本地，保持它的目录结构不变，回头放到装好的RHEL服务器的Apache目录中建立本机安装源。 系统安装 安装的过程已经在CloudStack官方文档上有了非常详细的描述。本次就不逐条命令解释了。 这里只想讲几点须注意的地方。根据CS公司的这个需求，建议使用的CloudStack管理服务器需要稍微大一点的本地磁盘和内存；根据我最近的测试发现管理服务器和NFS服务器混用的情况下，服务器内存的消耗还是蛮大的，为了保证速度16GB应该非常够用，我的测试机只有4GB还是虚拟机，速度也很快。本地磁盘最好是两块1TB的高速磁盘做Raid10，或者多块小盘也行，最好Raid做完之后有大约1TB的存储空间；以便存放测试初期的系统模板和虚拟机的磁盘和快照文件。 最后我想从系统配置文件的角度讲一下在RHEL操作系统里面都修改了那些文件。 安装源文件需要两个： rhel6.repo RHEL系统可以选择默认最小安装，这样装的最快，装好以后，把DVD mount上，在做成源，这样需要什么包，直接yum install就行了，非常方便快捷 cloudstack.repo CloudStack的所有安装包都可以放在CloudStack管理服务器本机的Apache服务器上，另外这个Apache服务器还可以作为上传系统模板的中转站。 [bash] [root@cs40 yum.repos.d]# pwd /etc/yum.repos.d [root@cs40 yum.repos.d]# ls cloudstack.repo...
+      <a href="/2012-12-11-cloudstack4-e5-ae-89-e8-a3-85-e5-ae-9e-e4-be-8b-e5-88-86-e6-9e-90-e7-89-88/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/cloudplatfrom">cloudplatfrom</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/RHEL">RHEL</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/安装">安装</a>
+      
+        <a href="/tag/实例">实例</a>
+      
+        <a href="/tag/配置">配置</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-11-15-e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/">
+      <h3 class="post-title">如何在命令行打XenServer的补丁</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on November 15, 2012
+    </p>
+
+    <div class="post-entry">
+      参考文献： [http://xmodulo.blogspot.com.au/2012/10/how-to-apply-xenserver-patch.html](http://xmodulo.blogspot.com.au/2012/10/how-to-apply-xenserver-patch.html) Installing the hotfix using the CLI on another host 1. Download the hotfix to the computer running the CLI or XenCenter, and extract the .xsupdate file from the ZIP file. 2. Open a Command Prompt window. On Windows computers, navigate to the XenCenter installation directory, typically located at...
+      <a href="/2012-11-15-e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/nfs">nfs</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-10-21-e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/">
+      <h3 class="post-title">上传XenServer虚机模板</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on October 21, 2012
+    </p>
+
+    <div class="post-entry">
+      目标：在XenServer上生成CloudStack所需要的操作系统模板，转换成CloudStack所需要的格式，上传模板，测试使用模板创建的虚拟机。
+
+在一个XenServer上安装目标操作系统，选择合适的版本，位数，安装xentools，安装需要的补丁，安装完毕之后关机待用。你建立的虚拟机是建在了NFS SR上的，那么就简单了，直接去NFS SR里面找到这个虚拟机的文件，文件应该是vhd文件，直接压缩为bz2格式的就ok了。如果虚拟机建立在了本地硬盘、iscsi或者FS等块存储上了，就稍微麻烦一点。一个最简单的方法，在www（如果是linux apache）下载服务器上建立一个nfs文件夹，用XenCenter建立一个新的SR，把这个nfs文件夹挂上。选择需要的模板虚拟机，选择Copy VM右键菜单，选择Full Copy，选中刚才建立的nfs SR；等待虚拟机复制完成，去nfs文件夹下面看看文件的大小是否正常，必要的话可以把这个copy出来的新虚拟机启动一下，看是否可以正常运行。
+
+在nfs文件夹下面看到vhd文件后，就可以使用tar jcf命令压缩模板了，tar的压缩能力蛮强的，win2008 r2 sp1虚拟机vhd文件大小是8个多GB，压缩之后只有3个多GB。把压缩后的vhd.bz2文件放到合适的地方，在浏览器里面测试一下这个文件的下载地址是否正常。
+
+登陆CloudStack，选择模板，选择注册新模板。这个过程一般可能10~20分钟和你的机器的速度有关，注册的过程是，先下载然后在辅助出差上解压模板的过程，在这个过程中，可以在辅助存储中的目录里面查看解压的过程，可以看到文件的大小从3。2GB的临时文件涨到8GB多的过程。等模板有变为vhd文件后，刷新模板的状态，最终状态为ready。
+
+下面可以测试模板了，创建一个实例，选择该模板，看测试vm在CloudStack是否能够正常运行。
+
+参考文章：
+
+[How to upload a OVA or XVA template](http://docs.cloudstack.org/Knowledge_Base/How_to_upload_a_OVA_or_XVA_template)
+[how to create and extract tar.gz and tar.bz2](http://linux.dsplabs.com.au/tar-how-to-create-and-extract-tar-gz-and-bz2-compressed-archives-under-linux-p39/)
+
+      <a href="/2012-10-21-e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/bz2">bz2</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/nfs">nfs</a>
+      
+        <a href="/tag/tar">tar</a>
+      
+        <a href="/tag/vhd">vhd</a>
+      
+        <a href="/tag/vhd.bz2">vhd.bz2</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-08-20-e9-97-ae-e4-b8-96-e9-97-b4-xenserver-ddk-e4-b8-ba-e4-bd-95-e7-89-a9/">
+      <h3 class="post-title">问世间 XenServer DDK 为何物？</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 20, 2012
+    </p>
+
+    <div class="post-entry">
+      我们都知道Citrix Receiver有一种特有的能力“Say Yes to any device！！！”；那么于此相同的DDK也是这样一种工具，让XenServer对各种扩展需求说Yes！！！ 我们都装过XenServer，是否都在加载supplemental packs的地方点击不装，接着做后面的安装；可是我们有没有问过什么是“supplemental packs”？ Supplemental packs consist of a number of packages along with information describing their relationship to other packs. Individual packages are in the Red Hat RPM file format, and must be able to install and uninstall cleanly on a fresh installation of...
+      <a href="/2012-08-20-e9-97-ae-e4-b8-96-e9-97-b4-xenserver-ddk-e4-b8-ba-e4-bd-95-e7-89-a9/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/CTX130425">CTX130425</a>
+      
+        <a href="/tag/ddk">ddk</a>
+      
+        <a href="/tag/driver">driver</a>
+      
+        <a href="/tag/kernel">kernel</a>
+      
+        <a href="/tag/rpm">rpm</a>
+      
+        <a href="/tag/supplemental pack">supplemental pack</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-08-18-cloudstack-quick-install-guide-english-mini-version/">
+      <h3 class="post-title">CloudStack Quick install guide (English mini version)</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 18, 2012
+    </p>
+
+    <div class="post-entry">
+      Testing environment: I have two hight spec laptop connecting to one wireless router, they all have internet access. Install process: step 1 install RHEL6 for management server; step 2 install CloudStack software on management server; step 3 install XenServer; step 4 CloudStack initialization and configure. Install RHEL6 64bit OS notes:...
+      <a href="/2012-08-18-cloudstack-quick-install-guide-english-mini-version/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/3.0">3.0</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/install">install</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/安装">安装</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-08-16-xenserver-san-boot-e5-ae-89-e8-a3-85/">
+      <h3 class="post-title">XenServer SAN Boot安装</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 16, 2012
+    </p>
+
+    <div class="post-entry">
+      **环境：**服务器--HP BL680 G7刀片服务器   存储--EMC CX480
+
+**故障描述：**
+从存储方面为主机分配作为San Boot引导Lun 60GB空间，作为HA独立Lun 40GB，用来存放虚拟机数据Lun
+安装过程中选择60GB的Lun并且在安装之前高级设置中打开了multipath开关。
+安装完成后，显示如下：attempling boot from hard drive (C:)
+![attemting-boot-from-hard-driver-c](http://martinliu.cn/wp-content/gallery/citrix/attemting-boot-from-hard-driver-c.png)
+**解决办法：**
+需要说明的是在EMC CX480存储在分配Lun空间时，会为Lun分配Lun ID和Host ID（这2个ID均可以进行修改）
+一般HBA默认Host ID为0的Lun作为San Boot的引导lun。因此，在实际生产中，如果之前Host ID 0的lun已经被其他Lun所使用，引导lun使用为其他Host ID时，需要在HBA卡设置中明确设置由该Host ID Lun引导。
+
+如：本项目中，主机的引导Lun Host ID为 1，我们就需要在HBA卡中设置Host ID1的Lun作为引导Lun。
+![select-adapter](http://martinliu.cn/wp-content/gallery/citrix/select-adapter.png)
+开启HBA的San Boot功能
+![qlogic-fast-util](http://martinliu.cn/wp-content/gallery/citrix/qlogic-fast-util.png)
+选择正确的作为引导的lun作为引导lun使用。完成后保存设置重启后故障解决
+
+**注意：**这里所看到的lun ID都是存储上面的Host ID，一定不要忽视。
+
+致谢：投稿人 王文博（北京网智瑞通信息技术服务有限公司）
+欢迎投稿，请发邮件到 liuzh66@gmail.com
+
+
+      <a href="/2012-08-16-xenserver-san-boot-e5-ae-89-e8-a3-85/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/boot">boot</a>
+      
+        <a href="/tag/cx480">cx480</a>
+      
+        <a href="/tag/emc">emc</a>
+      
+        <a href="/tag/HP BL680 G7">HP BL680 G7</a>
+      
+        <a href="/tag/lun">lun</a>
+      
+        <a href="/tag/san">san</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/光纤存储">光纤存储</a>
+      
+        <a href="/tag/安装">安装</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-08-16-xenserver-e6-9c-8d-e5-8a-a1-e5-99-a8-e5-88-b7raid-e5-8d-a1firmware/">
+      <h3 class="post-title">XenServer服务器刷RAID卡firmware</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on August 16, 2012
+    </p>
+
+    <div class="post-entry">
+      最近安装浪潮服务器，发现找不到本地硬盘的错误。这是RAID卡不兼容，导致不能够读取硬盘造成的。
+此主板上板载lsi 1068E raid芯片默认使用的是SoftWare Raid模式(MegaRaid)，这种模式不为xenserver所兼容，所以需要更改主板跳线，并刷新板载Raid芯片的firmware，更改raid模式为IR模式（Integrated Raid模式）使xenserver可以兼容。NF560D2更新后，可以顺利安装Xenserver。
+还有一台服务器的RAID卡在主板上控制死了工作模式，没有刷机的可能，这种情况下，只能使用DDK编译该RAID卡的驱动，在安装的过程中，进入高级模式，加载附加的驱动，之后就可以正常安装了。如何做DDK编译附加的设备驱动程序，待续。
+
+      <a href="/2012-08-16-xenserver-e6-9c-8d-e5-8a-a1-e5-99-a8-e5-88-b7raid-e5-8d-a1firmware/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/1068E">1068E</a>
+      
+        <a href="/tag/Integrated Raid模式">Integrated Raid模式</a>
+      
+        <a href="/tag/IR模式">IR模式</a>
+      
+        <a href="/tag/lsi">lsi</a>
+      
+        <a href="/tag/MegaRaid">MegaRaid</a>
+      
+        <a href="/tag/raid">raid</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/浪潮">浪潮</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-25-e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
+      <h3 class="post-title">如何把CloudStack的测试环境推到重来</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 25, 2012
+    </p>
+
+    <div class="post-entry">
+      感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。 第一部分：数据库的重新初始化 [bash] [root@cloudstack ~]# mysql -uroot -pcitrix Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 45 Server version: 5.1.52-log Source distribution Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved. This software comes with ABSOLUTELY NO WARRANTY. This is...
+      <a href="/2012-07-25-e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/3.02">3.02</a>
+      
+        <a href="/tag/6.0.201">6.0.201</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/Hypervisor">Hypervisor</a>
+      
+        <a href="/tag/KVM">KVM</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/安装">安装</a>
+      
+        <a href="/tag/手册">手册</a>
+      
+        <a href="/tag/配置">配置</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-10-32gb-xenserver-publish-28-xp-vd/">
+      <h3 class="post-title">32GB测试笔记本电脑成功发布28个XP虚拟桌面</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 10, 2012
+    </p>
+
+    <div class="post-entry">
+      一直想搞清楚，这台强悍的测试机到底能够撑得住多少个虚拟桌面。今天终于测了一下，稍微满足了一下子好奇心。
+底层装的是最新版的XenServer6.02，模板机XP做了一些优化，调整为动态内存到1024~2048，其实可以调整到更小，如512~1024，下次在测试一下这个方案，不过那样可能登录速度和登陆后桌面点击的反应会有一定的折扣；本次不考虑那么多，只是想看看这个本本到底能够跑多少虚拟机。存储使用的是NAS存储，桌面是发布的专有模式桌面。有图有真相，下面的截屏供参考：
+
+[nggallery id=15]
+
+      <a href="/2012-07-10-32gb-xenserver-publish-28-xp-vd/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/XenDesktop">XenDesktop</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-09-e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85es-for-load-testing-e5-92-8c-e5-bd-95-e5-88-b6-e5-8e-8b-e5-8a-9b-e8-84-9a-e6-9c-ac/">
+      <h3 class="post-title">如何安装ES for load-testing和录制压力脚本</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 9, 2012
+    </p>
+
+    <div class="post-entry">
+      如何安装ES for load-testing和录制压力脚本
+[kml_flashembed movie=&quot;http://cdn1.martinliu.cn/wp-content/uploads/2012/07/ES-for-loadtesting.swf&quot; height=&quot;400&quot; width=&quot;580&quot; /]
+本视频内容包括：
+
+
+
+	
+  1. 安装条件
+
+	
+  2. 安装过程
+
+	
+  3. 脚本建立过程
+
+	
+  4. 压力脚本运行和监控
+
+
+关于脚本的数据分析和报告，待续。 下载本视频：[download id=&quot;14&quot; format=&quot;1&quot;]
+
+      <a href="/2012-07-09-e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85es-for-load-testing-e5-92-8c-e5-bd-95-e5-88-b6-e5-8e-8b-e5-8a-9b-e8-84-9a-e6-9c-ac/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/Edgesight">Edgesight</a>
+      
+        <a href="/tag/XenDesktop">XenDesktop</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-06-e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/">
+      <h3 class="post-title">自定义服务模板无法创建虚拟机</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 6, 2012
+    </p>
+
+    <div class="post-entry">
+      今天测试发现，使用自定义的服务模板无法创建虚拟机实例。但是默认安装的两个服务模板能够正常创建虚拟机。
+
+目前还没要找到合理的解决方法。而且还有另外一个问题 ，使用ISO模式安装的xp，安装了xentools之后初始化的网络配置丢失了。这个问题容易理解原因，但是真的不应该发生这种问题的。
+
+      <a href="/2012-07-06-e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+        <a href="/tag/xentools">xentools</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-05-zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">
+      <h3 class="post-title">[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 5, 2012
+    </p>
+
+    <div class="post-entry">
+      今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：[Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud](http://blogs.citrix.com/2012/07/03/reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/) 下面是硬件的测试架构，使用的服务器是UCS 14刀，NatApp存储，Hyper-V，加载XenDesktop 5.6 [![](http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview-1024x743.png)](http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview.png) **_Test Results_** The reference implementation achieved impressive results in our test runs, especially in comparison to previous testing with earlier generation Cisco blades. As a matter of fact, the tested configuration reduced the rack...
+      <a href="/2012-07-05-zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/cisco">cisco</a>
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/Hyper-V">Hyper-V</a>
+      
+        <a href="/tag/Microsoft">Microsoft</a>
+      
+        <a href="/tag/XenDesktop">XenDesktop</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-05-e4-bd-bf-e7-94-a8iso-e6-96-87-e4-bb-b6-e5-ae-89-e8-a3-85-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-ae-9e-e4-be-8b/">
+      <h3 class="post-title">使用ISO文件安装虚拟机实例</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 5, 2012
+    </p>
+
+    <div class="post-entry">
+      CloudStack安装完毕之后，第一件事情就是安装虚拟机。使用Apache做为ISO虚拟机的下载站点，你可能会遇连接被拒绝的错误。这是由于Apache服务器默认没有iso这个mime类型，iso文件被复制到/var/www/html之后，往往权限不对，为了测试可以直接chomd 777一下。通过ISO作为启动模板安装虚拟机的时候也发现Ubuntu 10.04 server版创建虚拟失败，连卷都没有创建出来，创建windows xp虚拟正常，ubuntu的问题原因不祥。有空研究一下。
+
+      <a href="/2012-07-05-e4-bd-bf-e7-94-a8iso-e6-96-87-e4-bb-b6-e5-ae-89-e8-a3-85-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-ae-9e-e4-be-8b/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/cloudsatck">cloudsatck</a>
+      
+        <a href="/tag/iaas">iaas</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-07-01-cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/">
+      <h3 class="post-title">CloudStack 3.0.2安装心得</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on July 1, 2012
+    </p>
+
+    <div class="post-entry">
+      CloudStack3.0.2安装是非常简单容易的，安装的过程，所需要用到的命令，都已经被详细的记录在官方的 [English](http://download.cloud.com/releases/3.0.0/CloudStack3.0.0-3.0.2QuickInstallGuide.pdf) 版Quick Install Guide中了。最简洁的安装配置应该是：RHEL6.2 64bit的管理服务器+XenServer6.0.2；原因主是在XenServer这部分非常简单，CloudStack和XenServer使用API通信，只需要在XenServer上安装一个附件包即可。 安装过程中最精彩，可能也是最复杂的部分是在最后的CloudStack初始化向导那里。这个向导特别具有开源软件的风范，我接触过的很多OSS都是通过这样一个友好的向导，帮你做初始化设置的。它复杂在于，CloudStack的一些基本的概念，如果你对这些概念不是很理解可以会有点费劲。不过凭着基本的云计算常识和理解你也不会配置错到哪去，如果那个参数输入的不正确，在初始化的过程中，它还能停止在那个部分，在给你改正参数的机会，这些细节做的还是非常到位，不是傻傻的把你输入的参数直接写库，让你回头troubleshooting都找不到北。这个版本的CloudStack感觉非常不错，需要尝试的朋友，可以马上行动起来了。
+
+      <a href="/2012-07-01-cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/3.02">3.02</a>
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-06-30-magic-quadrant-for-x86-server-virtualization-infrastructure/">
+      <h3 class="post-title">[Gartner 2012-6-11] Magic Quadrant for x86 Server Virtualization Infrastructure</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on June 30, 2012
+    </p>
+
+    <div class="post-entry">
+      连接地址 ：[http://www.gartner.com/technology/reprints.do?id=1-1AVRXJO&amp;ct;=120612&amp;st;=sb](http://www.gartner.com/technology/reprints.do?id=1-1AVRXJO&amp;ct=120612&amp;st=sb)
+
+[caption id=&quot;attachment_51747&quot; align=&quot;alignnone&quot; width=&quot;400&quot;]![Magic Quadrant for x86 Server Virtualization Infrastructure](http://cdn1.martinliu.cn/wp-content/uploads/2012/07/Magic-Quadrant-for-x86-Server-Virtualization-Infrastructure.png) Magic Quadrant for x86 Server Virtualization Infrastructure[/caption]
+
+报告下载： [download id=&quot;11&quot; format=&quot;1&quot;]
+
+
+      <a href="/2012-06-30-magic-quadrant-for-x86-server-virtualization-infrastructure/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/Hyper-V">Hyper-V</a>
+      
+        <a href="/tag/KVM">KVM</a>
+      
+        <a href="/tag/Microsoft">Microsoft</a>
+      
+        <a href="/tag/Oracle VM">Oracle VM</a>
+      
+        <a href="/tag/Parallels">Parallels</a>
+      
+        <a href="/tag/redhat">redhat</a>
+      
+        <a href="/tag/v-shpere">v-shpere</a>
+      
+        <a href="/tag/VMWare">VMWare</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2012-06-29-cloudstack-quick-install-guide/">
+      <h3 class="post-title">CloudStack Quick install guide (中文精编版)</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on June 29, 2012
+    </p>
+
+    <div class="post-entry">
+      This post has a English version,[ click here](http://martinliu.cn/2012/08/cloudstack-quick-install-guide-english-mini-version.html) 测试环境描述： 两台硬件配置足够高的笔记本电脑，链接在一个交换机上，都能够上网。 [![](http://cdn1.martinliu.cn/wp-content/uploads/2012/06/IMG_0841.jpg)](http://martinliu.cn/2012/06/cloudstack-quick-install-guide.html/img_0841) 安装过程：第一步安装RHEL6管理服务器操作系统；第二部安装CloudStack软件；第三步安装Xenserver；第四步：初始化配置CloudStack 安装RHEL6 64bit操作系统的注意事项： 1. 使用全域名作为主机名，例如 ：cloudstack.xen.cn； 安装完后 hostname --fqdn 查一下 2. 使用ntp服务器 0~3.xenserver.pool.ntp.org 3. 选择桌面类型安装，同时安装Mysql server/client 4. 配置为静态ip地址，网关和DNS还要保证装完之后，能够上互联网 5. 关闭防火墙，这样可以省去安装文档中iptables相关的端口设置，加速安装过程 安装Cladestack的时候需要同时安装系统的几个依赖的软件包，所以要把本地的DVD设置为yum的源挂载DVD到/media目录，之前必须安装几个依赖的包 [shell] mount /dev/cdrom /media yum install deltarpm-3.5-0.5.20090913git.el6.x86_64.rpm yum install python-deltarpm-3.5-0.5.20090913git.el6.x86_64.rpm yum install createrepo-0.9.8-4.el6.noarch.rpm [/shell] 首先生成一个yum源的文件，如下所示： [shell] [root@cloudstack 1]...
+      <a href="/2012-06-29-cloudstack-quick-install-guide/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/cloudstack">cloudstack</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2011-12-28-master-image-mangement/">
+      <h3 class="post-title">[zt] 比较两大虚拟桌面厂商的系统镜像管理</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on December 28, 2011
+    </p>
+
+    <div class="post-entry">
+      虚拟桌面的出现，极大简化了桌面的管理。针对操作系统部分，VMware和Citrix两大厂商都推出了一对多方式的桌面镜像管理。VMware叫Link Clone技术。而Citrix有两种，一种与Link Clone技术对应，叫做MCS；另一种是其独有的，叫PVS。
+
+
+
+
+简而言之，就是IT管理员只需要维护少数操作系统模板，虚拟桌面都是从某一个母版派生出来的。只要保证母版的系统补丁是最新的，其派生出来的桌面就能同步到最新。于是打补丁的工作再也不需要针对数不清的桌面实例来进行了， 管理员得到极大的解脱。
+
+
+
+
+
+
+
+但是这种一对多方式的桌面镜像管理也带来了一个大的挑战。这个挑战不解决，“简化桌面管理”只能是一个伪命题。
+
+
+
+
+
+
+
+当所有虚拟桌面都跑在一个共享存储之上时，存储最可能成为性能的瓶颈。桌面系统产生的存储访问需求是随机的，不同的用户在以各种不可预测的方式对存储产生读写访问，所以很难做到精确计算。 如果存储子系统配置过低，则很容易过载，所有的用户都会感觉桌面运行很慢。如果配置过高，其成本又会爆炸式增长，彻底淹没桌面虚拟化所带来的好处。另外桌面上的行为往往又有一定的趋同性，如早8点同时开机， 中午空闲时防病毒自动扫描，同时观看某个紧急培训的视频片段，恶意病毒繁殖等等。当大量用户在同一时间开始并发存储读写任务时， 就会产生 “存储IO风暴”，最糟糕的情况下能瘫痪整个磁盘柜。为了解决这一问题，VMware和Citrix分别采取了不同的方法来应对。
+
+
+
+
+
+
+
+VMware提出分级存储的概念，提倡不同性质的数据应区别对待。简单理解就是花钱来买性能。 对于系统镜像模板这类高频访问的数据，他推荐用户放置在SSD，甚至Flash Memory Card之上。由于一个20G的系统模板最大能支持50~60个虚拟桌面开机，所以当虚拟桌面数量上规模时，高速存储的容量也要求越大。这类商用高速存储将是一笔不菲的开销，要知道其陡峭的性能增长曲线与成本曲线是成正比的关系。
+
+
+[![](http://img1.51cto.com/attachment/201112/174153343.jpg)](http://img1.51cto.com/attachment/201112/174153343.jpg)
+
+而Citrix采用了更廉价更聪明的做法。既然磁盘操作是计算环节中最慢的部分，那我就尽量避免它。Citrix在其两种镜像管理方法中都使用了镜像缓存技术来分担对共享存储的压力。例如PVS， 镜像不再是从共享存储上直接访问，而是由“Provisioning Server”来统一分发。“Provisioning Server”会将母版镜像缓存在内存中，通过网络流送给虚拟桌面。由于整个路径上都是电气信号的转换，所以性能比磁盘的机械操作要快得多。大家可以参考以下视频，更直观地了解PVS的开机性能（Ardence是Citrix收购前的名称）
+
+
+
+
+
+
+
+
+
+MCS+IntelliCache方法则是将集中于中央共享存储的压力分摊到每一个虚拟桌面宿主服务器上。一般宿主服务器上都配有本地硬盘，这些硬盘空间不用白不用。当宿主服务器加载第一个虚拟桌面时，系统镜像就被缓存在本地存储上，当后续虚拟桌面开机时，宿主服务器如果发现使用的是相同模板（通常就是），就直接从本地存储读取，不再访问共享存储了。如果桌面是可回收类型的，那么用户在桌面上的写操作也全部发生在服务器本地，不会写到共享存储上。因为当用户登出时，虚拟桌面上的临时改变都会被丢弃。
+
+[![](http://img1.51cto.com/attachment/201112/175224748.jpg)](http://img1.51cto.com/attachment/201112/175224748.jpg)
+
+
+
+
+
+
+
+
+
+
+
+无论是PVS还是MCS都是想方设法将共享存储上的IOPS卸载下来，从而降低虚拟桌面方案对高端共享存储的依赖性。有客户做了一个简单的测试，结论是VMware的Link Clone技术所需的IOPS大致是Citrix的1.5倍以上。VMware也认识到自己方案的不足，在其后期版本中也规划了类似于Citrix Intellicache技术的缓存方法。由于该技术尚未发布，本文暂不做评价。
+
+
+
+
+
+
+
+
+后记：这篇文章引起了很多的争论。有必要澄清一下。
+
+使用PVS时，既可以创建“个人专用桌面”，也可以创建“浮动分配桌面”。 PVS你可以把他简单理解成一个你“自制的IP-SAN的存储”。只不过这个“自制存储”仅用来分发系统镜像，是只读的。而你原有的共享存储主要用来保存用户数据，是可写的。很多人会质疑PVS的性能，通过网络流送OS image，会在网络中出现瓶颈。其实拿IP-SAN来做参照，大家都要对外提供基础镜像，都是走的IP协议，IP-SAN你就不担忧吗？PVS直接将OS Image 加载到内存中向外分发，它不会比IP-SAN从磁盘读还慢。引入PVS方案，会增加Server的数量，但它的好处就是让你有了突破传统存储瓶颈，具备横向扩展的能力。传统存储出现瓶颈，你只能Scale UP，大家都知道动存储是个很麻烦的事情，但是PVS出现瓶颈，你可以通过加网卡或者增加PVS Server的方式Scale out。以上比喻仅限于桌面虚拟化系统基础镜像场景。大家不要衍生到其他可横向扩展的存储技术领域。
+
+From [一周耀文](http://vdesk.blog.51cto.com/) :[ http://vdesk.blog.51cto.com/2969473/739351](http://vdesk.blog.51cto.com/2969473/739351)
+
+
+
+      <a href="/2011-12-28-master-image-mangement/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/IntelliCache">IntelliCache</a>
+      
+        <a href="/tag/IOPS">IOPS</a>
+      
+        <a href="/tag/Link Clone">Link Clone</a>
+      
+        <a href="/tag/MCS">MCS</a>
+      
+        <a href="/tag/PVS">PVS</a>
+      
+        <a href="/tag/SSD">SSD</a>
+      
+        <a href="/tag/VMWare">VMWare</a>
+      
+        <a href="/tag/XenDesktop">XenDesktop</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2011-11-27-hypervisor-is-not-operationl-for-pc/">
+      <h3 class="post-title">当Hypervisor成为服务器的标配</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on November 27, 2011
+    </p>
+
+    <div class="post-entry">
+      先声明一下，本文属于偷懒行为，意在证明本blog还没有关张大吉，只是在经历了一段时间的紧张学习之后，终于有时间发布文章了。这是一个开始相信后续又更多内容会陆续发表。
+最近搭建产品测试和学习环境都是用XenServer，在此虚拟化平台之上，导入若干个操作系统的模版后，其他的产品测试和学习工作就可以轻松地展开了。XenCenter集中地管理访问这些虚拟机也非常方便。用了一段时间后发现：免费版本对于没有什么特殊要求的软件测试和开发人员来说是完全够用，且非常简单易用，更不没有盗版的风险。
+
+
+
+
+![](http://xen.org/images/globals/xen_logo.gif)这次主要是推荐XenServer，它是我认为在开源和商业软件之间平衡的最好的软件。它起源于Xen.org的开源软件，现在用户可以使用到的基于Xen的主要版本又三个。1）Xen Source 4.1.2，这个版本为纯开放版本，是目前全球装机量做大的Hypervisor，可以说没有它就没有现在百花齐放的云世界；2）XenServer免费版本，是商业版本的入门级别，它的可执行文件和最高级收费版本的XenServer没有任何差别，只是少了很多高级功能（详见：[http://shenhj.blog.51cto.com/829152/420500](http://shenhj.blog.51cto.com/829152/420500)）即便如此，国内用户也非常多！但是往往用了免费版本的人都会发现，它的功能实惠，量又足!! 3）第三种当然是付费版本了，它也有几个档次的价位供你选择，能够随着你需求的升级，在过渡到高阶功能版本，最爽的是它是按照服务器硬件的台数计价，不在单独对CPU和内存的使用收钱；提醒各位看官，请尽量避免以下情况出现：有一天你从市场买了几头猪，拿回家后，姓卫的虚拟化厨师说，想吃右后腿的话，比必须给我另外在支付三千大洋；这里请一定想清楚到底猪是谁的。
+
+网上的学习资料太多了，我只选取部分我认为不错的视频学习材料与大家共享：
+[tip]
+[ 视频: Citrix 8步演示如何虚拟化服务器之一　XenServer 简介](http://v.youku.com/v_show/id_XMzAyMTg2NTky.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之二　安装XenServer](http://v.youku.com/v_show/id_XMzAyMTg5NTIw.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之三　安装XenCenter](http://v.youku.com/v_show/id_XMzAyMTkwMDE2.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之四　创建资源池](http://v.youku.com/v_show/id_XMzAyMTkwNTg0.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之五　连接共享存储](http://v.youku.com/v_show/id_XMzAyMTkxMjk2.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之六　新建虚拟机](http://v.youku.com/v_show/id_XMzAyMTk0NDg0.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之七　导入虚拟机](http://v.youku.com/v_show/id_XMzAyMTkzMjg4.html)
+[ 视频: Citrix 8步演示如何虚拟化服务器之八　迁移虚拟机](http://v.youku.com/v_show/id_XMzAyMTk0Nzcy.html)
+
+[/tip]
+
+
+      <a href="/2011-11-27-hypervisor-is-not-operationl-for-pc/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/Citrix">Citrix</a>
+      
+        <a href="/tag/Hypervisor">Hypervisor</a>
+      
+        <a href="/tag/xen">xen</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <article class="post-preview">
+    <a href="/2011-10-13-how-to-configure-nfs-on-lion/">
+      <h3 class="post-title">苹果Lion系统做NFS文件夹共享</h3>
+
+      
+    </a>
+
+    <p class="post-meta">
+    Posted on October 13, 2011
+    </p>
+
+    <div class="post-entry">
+      苹果系统和其它Unix系统之间使用其内置的NFS的方式共享文件应该是最容易配置的，下面是相关步骤。
+1. 编辑一个文件：编辑/etc/exports文件，加入目标需要导出的文件夹路径，例如：/Users/liumartin/Documents/Simon -alldirs -ro
+2. 使用一个命令：启用nfsd： sudo nfsd enable
+3. 测试一下结果
+[bash]
+liumartin@ showmount -e
+Exports list on localhost
+/Users/liumartin/Documents/Simon    Everyone
+[/bash]
+4. 文件夹已经使用NFS协议发布到局域网里了，可以使用其它任意NFS客户端来挂这个目录，以及这个目录中的子目录，下面的例子，使用XenCenter来为XenServer挂载Lion系统上的NFS共享文件夹，并读取其中的ISO文件
+[![mac-nfs](http://martinliu.cn/wp-content/gallery/citrix/mac-nfs.jpg)](http://martinliu.cn/wp-content/gallery/citrix/mac-nfs.jpg)
+
+      <a href="/2011-10-13-how-to-configure-nfs-on-lion/" class="post-read-more">[Read&nbsp;More]</a>
+    </div>
+
+    <div class="blog-tags">
+      Tags: 
+      
+        <a href="/tag/appple">appple</a>
+      
+        <a href="/tag/iso">iso</a>
+      
+        <a href="/tag/linux">linux</a>
+      
+        <a href="/tag/lion">lion</a>
+      
+        <a href="/tag/mac">mac</a>
+      
+        <a href="/tag/nfs">nfs</a>
+      
+        <a href="/tag/xen">xen</a>
+      
+        <a href="/tag/xenserver">xenserver</a>
+      
+    </div>
+  </article>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

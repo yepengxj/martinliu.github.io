@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/page21/" />
+  <link rel="canonical" href="http://localhost:4000/page21/" />
+  
+
+  
+  <meta property="og:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://martinliu.cn/">martinliu.cn</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="http://localhost:4000 ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2012-08-13-e9-98-b2-e6-ad-a2xenapp-e7-b3-bb-e7-bb-9f-e8-b5-84-e6-ba-90-e8-a2-ab-e4-bd-bf-e7-94-a8-e8-bf-87-e5-ba-a6-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-a1-88/">
+	  <h2 class="post-title">防止XenApp系统资源被使用过度的三种方案</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 13, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        本文是在今天方案1在用户现场测试基本有效的基础上总结的。用户的需求是这样的：假如我的应用使用XenApp发布，由于程序自身的原因，一个用户的虚拟应用进程在服务器端造成CPU，内存或者磁盘IO被过度使用，甚至达到100%的极限情况；这样其它同在一个XenApp服务器上的其它在线用户有可能被影响，甚至于导致这些用户都无法使用。首先这个情况并没有在任何用户的实施场景中听说出现过，个人认为是一个相当极限的情况。但是，既然用户有这个担心，那么还是需要提出一个分析控制的方法。研究了一番只有，我找到了3个解决问题的方案。
+
+
+        
+        
+          <a href="/2012-08-13-e9-98-b2-e6-ad-a2xenapp-e7-b3-bb-e7-bb-9f-e8-b5-84-e6-ba-90-e8-a2-ab-e4-bd-bf-e7-94-a8-e8-bf-87-e5-ba-a6-e7-9a-84-e4-b8-89-e7-a7-8d-e6-96-b9-e6-a1-88/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        AppSense, Citrix, windows system resource management, WSRM, XenApp
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-13-supper-monday/">
+	  <h2 class="post-title">Supper Monday</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 13, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        今天是Supper Monday，一上午有4个电话会议，而且我这周会很繁忙。
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-13-zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/">
+	  <h2 class="post-title">[ZT]不用虚拟机，也能桌面虚拟</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 13, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        转贴学习，FROM: http://vdesk.blog.51cto.com/2969473/959588
+
+
+        
+        
+          <a href="/2012-08-13-zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Citrix, Remote PC, XenDesktop, 桌面虚拟化
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-12-e5-84-bf-e7-ab-a5-e5-ae-89-e5-85-a8-e5-ba-a7-e6-a4-85/">
+	  <h2 class="post-title">儿童安全座椅</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 12, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        今天成功的完成了儿童安全座椅的部署安装，从实施的效果看，女儿还是非常喜欢的，上午第一次做不一会就睡去了。但最收益的是LP；她可以不必担心抱着孩子了，这小东西越来越皮，在车辆已经是上窜下跳的，LP天天抱怨说几乎要hould不住她。今天还带宝宝去看了刚出生的弟弟，可惜她只会叫妹妹；看她那么好奇的看着小弟弟，我觉得还是两个孩子的好啊！之后去吃了海底捞，之后去蓝色港湾遛弯！昨天怎么过的已然有点模糊了，总之好爸爸，好父母何其难当！目前还只是个开头而已。
+
+        
+        
+      </div>
+    </div>
+
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-12-xenserver-e5-ae-89-e8-a3-85-e6-9c-80-e4-bd-b3-e5-ae-9e-e8-b7-b5/">
+	  <h2 class="post-title">XenServer安装最佳实践</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 12, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        以上是XenServer的部分实施经验之总结，有不完整，或者不妥之处，请扶正。我想其实把XenServer经常遇到的安装错误和解决方法都整理一下也很好。如果你有类似的经验，请回帖记录一下。多谢观赏本文。
+        
+        
+          <a href="/2012-08-12-xenserver-e5-ae-89-e8-a3-85-e6-9c-80-e4-bd-b3-e5-ae-9e-e8-b7-b5/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        bios, Citrix, console, free, ibm, RAM, remote, scrubbing, Server, x3850, xen, XenSrever
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-08-theme-cakifo/">
+	  <h2 class="post-title">Theme Cakifo</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 8, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        今天把blog的Theme切换到了Cakifo上。这个界面更加简洁。我几乎去掉了所有的图片的装饰的元素。为的是能够突出blog本身信息传达的作用，我认为我写的post是有价值的文字，所以我愿意排除所有可能对读者造成干扰的元素，让人能更快捷的读取到有价值的文字。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cakifo, theme, wordpress
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-07-e5-a6-82-e4-bd-95-e5-bf-ab-e9-80-9f-e6-90-ad-e5-bb-bacloudstack-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/">
+	  <h2 class="post-title">如何快速搭建CloudStack开发环境</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 7, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        本文转自 cloudstack-dev@incubator.apache.org 邮件组：
+
+
+        
+        
+          <a href="/2012-08-07-e5-a6-82-e4-bd-95-e5-bf-ab-e9-80-9f-e6-90-ad-e5-bb-bacloudstack-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ant, Apache, Citrix, cloud, Cloud Computing, cloudstack, iaas, VirtualBox
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-05-e8-bf-90-e2-80-8b-e8-a1-8c-e2-80-8b-e6-89-8b-e2-80-8b-e5-86-8c-e2-80-8b-e9-83-a8-e2-80-8b-e7-bd-b2-e2-80-8bapache-cloudstack-e8-a7-84-e2-80-8b-e8-8c-83-e2-80-8b-e6-8c-87-e2-80-8b-e5-af-bc-e2-80-8b/">
+	  <h2 class="post-title">运​行​手​册​--部​署​Apache CloudStack规​范​指​导​</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 5, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        http://people.apache.org/~ke4qqq/runbook/zh_CN/
+
+
+        
+        
+          <a href="/2012-08-05-e8-bf-90-e2-80-8b-e8-a1-8c-e2-80-8b-e6-89-8b-e2-80-8b-e5-86-8c-e2-80-8b-e9-83-a8-e2-80-8b-e7-bd-b2-e2-80-8bapache-cloudstack-e8-a7-84-e2-80-8b-e8-8c-83-e2-80-8b-e6-8c-87-e2-80-8b-e5-af-bc-e2-80-8b/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cloudstack, iaas, runbook, 中文, 云计算, 安装, 手册, 部署
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-05-e5-ad-a6-e4-b9-a0-e7-a0-b4-e5-ad-90-e6-95-b0-e6-8d-ae-e4-b8-ad-e5-bf-83-e5-8f-af-e8-a7-86-e5-8c-96-e4-bd-93-e7-9b-b8-e7-94-a8-e6-9e-9c-e6-80-bb-e8-ae-ba/">
+	  <h2 class="post-title">[学习-破子]数据中心可视化---体相用果总论</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 5, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        http://blog.vsharing.com/xqscool/A1607258.html
+
+
+        
+        
+          <a href="/2012-08-05-e5-ad-a6-e4-b9-a0-e7-a0-b4-e5-ad-90-e6-95-b0-e6-8d-ae-e4-b8-ad-e5-bf-83-e5-8f-af-e8-a7-86-e5-8c-96-e4-bd-93-e7-9b-b8-e7-94-a8-e6-9e-9c-e6-80-bb-e8-ae-ba/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cmdb, cms
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2012-08-03-e5-ae-81-e6-b3-a2-e5-87-ba-e5-b7-ae/">
+	  <h2 class="post-title">宁波出差</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 3, 2012
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        宁波对我来说是一个陌生的城市，由于正好赶上台风登陆的时候；所以只好从南京绕道上海。从上海到宁波的火车是动车，车上很多人，只能坐在餐车里，还好没有站3个小时。这两天宁波一直在下着雨，感觉天上像是安装了水龙头一样，在下车、在等车时，冷不丁的就被老天爷打开，淋你一下，像是在故意调戏你。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        binbo
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page20">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page22">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="http://localhost:4000">martinliu.github.io</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
