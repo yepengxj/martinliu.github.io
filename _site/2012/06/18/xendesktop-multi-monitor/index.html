@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | XenDesktop多屏幕显示</title>
+    <meta name="description" content="[转帖] 说明：当客户端使用多个显示器时，连接XenDesktop默认只会使用主屏幕，不会使用扩展屏。如何使用扩展屏？">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2012/06/18/xendesktop-multi-monitor/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>XenDesktop多屏幕显示</h1>
+
+            <p>[转帖] 说明：当客户端使用多个显示器时，连接XenDesktop默认只会使用主屏幕，不会使用扩展屏。如何使用扩展屏？</p>
+
+<p>A.首先将Client端连接好多个显示器，并设置好是扩展屏还是Mirror方式1-手动实现：连接到XenDesktop桌面，退出全屏显示切换成窗口式，将调整XenDesktop窗口大小至多个屏幕中（通过鼠标拉窗口大小来完成），在点击全屏即可。方式2-自动实现：修改WI上的default.ica文件， default.ica文件位于C:\Inetpub\wwwroot\Citrix\DesktopWeb\conf for Web Interface clientC:\Inetpub\wwwroot\Citrix\PNAgent\conf for Program Neighborhood Agent。在[Application] 中添加 ConnectionBar=0
+BTW：如何限制Multi-monitor的数量？通过Display memory Limit来控制。</p>
+
+<p>目前我在一个项目中测试的效果如下，使用WYSE的瘦客户机，同时连接4个显示器。扩展显示桌面。</p>
+
+<p><a href="http://martinliu.cn/wp-content/gallery/citrix/img_0805.jpg"><img src="http://martinliu.cn/wp-content/gallery/citrix/thumbs/thumbs_img_0805.jpg" alt="img_0805" /></a></p>
+
+<p><a href="http://martinliu.cn/wp-content/gallery/citrix/img_0806.jpg"><img src="http://martinliu.cn/wp-content/gallery/citrix/thumbs/thumbs_img_0806.jpg" alt="img_0806" /></a></p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jun 18, 2012</span></p>
+                <p><a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/XenDesktop'>Xendesktop</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2012/06/18/xendesktop-multi-monitor/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2012/06/18/xendesktop-multi-monitor/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2012/06/18/xendesktop-multi-monitor/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

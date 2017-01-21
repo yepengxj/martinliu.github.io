@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 安装完美 CentOS7 虚拟机模板</title>
+    <meta name="description" content="CentOS7是最近似于 RHEL7的企业板Linux好处是不用多说的。在它上面做一些开原软件的测试是非常方便和稳定的。我可能会用它做后续的一些系列文档，先打个基础。希望它也能广泛地用于其它的KVM，OVirt和OpenStack的场景中。">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2015/06/05/e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/Linux'>Linux</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>安装完美 CentOS7 虚拟机模板</h1>
+
+            <h2 id="section">初始化安装</h2>
+
+<p>下载最新版CentOS7 DVD 选择mini安装。</p>
+
+<h2 id="section-1">网络配置</h2>
+
+<p>安装过程中设置了静态网络地址，如下：</p>
+
+<p>[bash]</p>
+
+<p>[root@centos7-tmp ~]# cat /etc/sysconfig/network-scripts/ifcfg-eth0
+TYPE=Ethernet
+BOOTPROTO=none
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=no
+NAME=eth0
+DEVICE=eth0
+ONBOOT=yes
+DNS1=192.168.10.1
+DOMAIN=xenlab.com
+IPADDR=192.168.10.8
+PREFIX=24
+GATEWAY=192.168.10.1
+UUID=5fb06bd0-0bb0-7ffb-45f1-d6edd65f3e03</p>
+
+<p>[/bash]</p>
+
+<h2 id="section-2">软件包</h2>
+
+<p>Change log:</p>
+
+<ol>
+  <li>
+    <p> yum install wget <a href="http://itgeeker.net/tag/telnet/">telnet</a> perl perl-devel net-tools kernel-devel</p>
+  </li>
+  <li>
+    <p>yum install vim-enhanced.x86_64</p>
+  </li>
+  <li>
+    <p>yum -y install git</p>
+  </li>
+  <li>
+    <p>yum install acpid</p>
+  </li>
+  <li>
+    <p>yum install tree</p>
+  </li>
+  <li>
+    <p>yum install ntp</p>
+  </li>
+  <li>
+    <p>yum install unzip</p>
+  </li>
+</ol>
+
+<h2 id="repo-">Repo 软件更新源</h2>
+
+<p>Change log:</p>
+
+<ol>
+  <li>
+    <p>初始化安装，添加了个几个国内的源</p>
+  </li>
+  <li></li>
+</ol>
+
+<p>rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm</p>
+
+<ol>
+  <li>
+    <p>/etc/yum.repo/bk/dvd.repo ；这个是在用KVM虚拟机挂ISO文件光驱的时候用的，到时候 mount /dev/cdrom /media/dvd , 把该文件方的夫目录中即可使用iso文件中的repos</p>
+  </li>
+  <li></li>
+</ol>
+
+<p>当前的软件源如下：</p>
+
+<p>[bash]</p>
+
+<p>[root@centos7-tmp ~]# yum repolist
+Loaded plugins: fastestmirror
+Repository base is listed more than once in the configuration
+Repository updates is listed more than once in the configuration
+Repository extras is listed more than once in the configuration
+Repository centosplus is listed more than once in the configuration
+Loading mirror speeds from cached hostfile
+* base: mirrors.163.com
+* epel: mirrors.neusoft.edu.cn
+* extras: mirrors.btte.net
+* remi-safe: remi.kazukioishi.net
+* updates: mirrors.btte.net
+repo id                                 repo name                                                                          status
+base/7/x86_64                           CentOS-7 - Base                                                                    8,652
+epel/x86_64                             Extra Packages for Enterprise Linux 7 - x86_64                                     8,022
+extras/7/x86_64                         CentOS-7 - Extras                                                                    128
+remi-safe                               Safe Remi’s RPM repository for Enterprise Linux 7 - x86_64                           123
+updates/7/x86_64                        CentOS-7 - Updates                                                                   609
+repolist: 17,534
+[root@centos7-tmp ~]#</p>
+
+<p>[/bash]</p>
+
+<h2 id="section-3">系统服务配置</h2>
+
+<p>Change log:</p>
+
+<ol>
+  <li>
+    <p>关闭SELinux</p>
+  </li>
+  <li>
+    <p>关闭 NetworkManager</p>
+  </li>
+  <li>
+    <p>关闭 FirewallD</p>
+  </li>
+  <li>
+    <p>systemctl enable acpid.service</p>
+  </li>
+  <li>
+    <p>开启 truned-adm virtual-guest 服务模式</p>
+  </li>
+  <li>
+    <p>systemctl enable ntpd</p>
+  </li>
+</ol>
+
+<p>[bash]</p>
+
+<p>[root@centos7-tmp tuned]# tuned-adm  list
+Cannot talk to Tuned daemon via DBus.
+Available profiles:
+- balanced
+- desktop
+- latency-performance
+- network-latency
+- network-throughput
+- powersave
+- throughput-performance
+- virtual-guest
+- virtual-host
+Cannot talk to Tuned daemon via DBus.
+It seems that tuned daemon is not running, preset profile is not activated.
+Preset profile: virtual-guest</p>
+
+<p>[/bash]</p>
+
+<h2 id="section-4">模板文件封装</h2>
+
+<p>用sys-unconfig 关机。用 virt-sysprep,  virt-sparsify 去除不必要信息，压缩。</p>
+
+<p>[bash]</p>
+
+<p>[root@martin-fedora vm]# ll -h
+total 12G
+-rw-r–r–  1 qemu qemu  81G Jun  5 22:36 centos7-tmp.qcow2
+-rw-r–r–  1 root root  81G Jun  5 22:34 centos7-tmp.qcow2.bk
+-rw-r–r–  1 root root 2.9G Jun  5 07:56 rhel66-clone-1.qcow2
+-rw-r–r–  1 root root 1.6G Jun  3 15:01 rhel66-clone.qcow2
+-rw-r–r–  1 root root  81G Jun  3 13:03 rhel66.qcow2
+-rw-r–r–. 1 root root  81G Jun  1 00:59 rhel71.qcow2
+[root@martin-fedora vm]# export TMPDIR=/home/martin
+[root@martin-fedora vm]# virt-sparsify –compress centos7-tmp.qcow2 centos7-tmp-v1.qcow2
+Input disk virtual size = 85899345920 bytes (80.0G)
+Create overlay file in /home/martin to protect source disk …
+Examine source disk …
+Fill free space in /dev/centos/root with zero …
+100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+Clearing Linux swap on /dev/centos/swap …
+100% ⟦▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒⟧ 00:00
+Fill free space in /dev/sda1 with zero …
+Fill free space in volgroup centos with zero …
+Copy to destination and make sparse …</p>
+
+<p>Sparsify operation completed with no errors.  Before deleting the old disk,
+carefully check that the target disk boots and works correctly.
+[root@martin-fedora vm]# ll -h
+total 12G
+-rw-r–r–  1 qemu qemu  81G Jun  5 22:36 centos7-tmp.qcow2
+-rw-r–r–  1 root root  81G Jun  5 22:34 centos7-tmp.qcow2.bk
+-rw-r–r–  1 root root 520M Jun  5 23:11 centos7-tmp-v1.qcow2
+-rw-r–r–  1 root root 2.9G Jun  5 07:56 rhel66-clone-1.qcow2
+-rw-r–r–  1 root root 1.6G Jun  3 15:01 rhel66-clone.qcow2
+-rw-r–r–  1 root root  81G Jun  3 13:03 rhel66.qcow2
+-rw-r–r–. 1 root root  81G Jun  1 00:59 rhel71.qcow2</p>
+
+<p>[/bash]</p>
+
+<h2 id="yum-update--y">yum update -y</h2>
+
+<ul>
+  <li>
+    <p>2015-07-10 : Done yum updated. 删除了不需要的Kernel，安装了unzip, 修改启动过程为直接文字启动。</p>
+  </li>
+  <li>
+    <p>2015-11.15: update kernel to 7.1, set old kernel 1: package-cleanup –oldkernels –count=1</p>
+  </li>
+</ul>
+
+<h2 id="section-5">使用方法</h2>
+
+<p>root 密码 martinliu.cn 开机后记得一定要先修改。</p>
+
+<p>百度网盘下载地址 [su_button url=”http://pan.baidu.com/s/1pJurap9” target=”blank” style=”stroked” size=”6” icon=”icon: codepen”]centos7-tmp-v7[/su_button]</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jun 5, 2015</span></p>
+                <p><a href=""></a> in <a href='/category/Linux'>Linux</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Linux'>Linux</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2015/06/05/e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2015/06/05/e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2015/06/05/e5-ae-89-e8-a3-85-e5-ae-8c-e7-be-8e-centos7-e8-99-9a-e6-8b-9f-e6-9c-ba-e6-a8-a1-e6-9d-bf/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

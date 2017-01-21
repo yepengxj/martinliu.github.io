@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 如何用通过OpenNMS监控Windows 服务器</title>
+    <meta name="description" content="            OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。第一种情况：Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>如何用通过OpenNMS监控Windows 服务器</h1>
+
+            <table>
+  <tbody>
+    <tr>
+      <td>OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。<br /><br />第一种情况：<br />Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动发现还会发现这个机器上的服务。ICMP是肯定会有的，还可能有http等其他的服务；这些服务也会被定时的轮询，如果某个服务停了，这个节点的整个的可用性受到影响。这种情况下该节点的所有服务的响应时间会被OpenNMS收集并保持历史数据。<br /><br />第二种情况：<br />安装了SNMP服务。先说一下windows服务的安全性，默认情况下public是默认的只读密码；为了更加安全可以配置其他的只读密码，并指定某些特定的IP才能访问这个节点。这个策略在Windows的觉策略中很容易实现，或者说建议使用域控制器来管理这个策略，比较方便。假定OpenNMS能访问该节点的snmp服务的情况下。这些数据会增加：SNMP Attributes；在选择了资源图后，可以看到snmp的节点数据和接口数据。进入后可以看到，其实收集 的是一个tcp／ip接口上基本的信息：流量，连接数，丢包，错包等。个人认为流量是个最有用的数据，特别是对于一些简单的web/ftp服务器也就够用了。<br /><br />第三种情况：<br />我们需要监控到操作系统的性能数据cpu/disk/RAM等。就需要安装一个snmp代理，这个代理可以提供这些信息，opennms才能通过snmp协议收集这些数据。需要到下面网址下载一个免费的snmp代理，当然这个产品也有收费版本：http://www.wtcs.org/informant/download.htm 这个代理很小需要在windows机器上安装一下。默认情况下OpenNMS的对windows采集模板中包含了对cpu/disk/ram等数据的采集，等到下一次OpenNMS在采集这个机器的时候相关数据就会被显示在节点snmp数据下面。<br /><br />这里是通过这个免费的snmp代理能采集到的数据：<br />/Program Files/SNMP Informant/standard/mibs/informant-std-tree.txt<br />–standard(1.3.6.1.4.1.9600.1.1)<br /></td>
+      <td><br />+–logicalDiskTable(1)<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+–logicalDiskEntry(1) [lDiskInstance]<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+– r-n InstanceName lDiskInstance(1)<br /></td>
+      <td>+– r-n Gauge32      lDiskPercentDiskReadTime(2)<br /></td>
+      <td>+– r-n Gauge32      lDiskPercentDiskTime(3)<br /></td>
+      <td>+– r-n Gauge32      lDiskPercentDiskWriteTime(4)<br /></td>
+      <td>+– r-n Gauge32      lDiskPercentFreeSpace(5)<br /></td>
+      <td>+– r-n Gauge32      lDiskPercentIdleTime(6)<br /></td>
+      <td>+– r-n Gauge32      lDiskAvgDiskQueueLength(7)<br /></td>
+      <td>+– r-n Gauge32      lDiskAvgDiskReadQueueLength(8)<br /></td>
+      <td>+– r-n Gauge32      lDiskAvgDiskWriteQueueLength(9)<br /></td>
+      <td>+– r-n Gauge32      lDiskAvgDiskSecPerRead(10)<br /></td>
+      <td>+– r-n Gauge32      lDiskAvgDiskSecPerTransfer(11)<br /></td>
+      <td>+– r-n Gauge32      lDiskAvgDiskSecPerWrite(12)<br /></td>
+      <td>+– r-n Gauge32      lDiskCurrentDiskQueueLength(13)<br /></td>
+      <td>+– r-n Gauge32      lDiskDiskBytesPerSec(14)<br /></td>
+      <td>+– r-n Gauge32      lDiskDiskReadBytesPerSec(15)<br /></td>
+      <td>+– r-n Gauge32      lDiskDiskReadsPerSec(16)<br /></td>
+      <td>+– r-n Gauge32      lDiskDiskTransfersPerSec(17)<br /></td>
+      <td>+– r-n Gauge32      lDiskDiskWriteBytesPerSec(18)<br /></td>
+      <td>+– r-n Gauge32      lDiskDiskWritesPerSec(19)<br /></td>
+      <td>+– r-n Gauge32      lDiskFreeMegabytes(20)<br /></td>
+      <td>+– r-n Gauge32      lDiskSplitIOPerSec(21)<br /></td>
+      <td><br />+–memory(2)<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+– r-n Gauge32   memoryAvailableBytes(1)<br /></td>
+      <td>+– r-n Gauge32   memoryAvailableKBytes(2)<br /></td>
+      <td>+– r-n Gauge32   memoryAvailableMBytes(3)<br /></td>
+      <td>+– r-n Gauge32   memoryCommittedBytes(4)<br /></td>
+      <td>+– r-n Gauge32   memoryCacheBytes(5)<br /></td>
+      <td>+– r-n Gauge32   memoryCacheBytesPeak(6)<br /></td>
+      <td>+– r-n Gauge32   memoryPageFaultsPerSec(7)<br /></td>
+      <td>+– r-n Gauge32   memoryPagesInputPerSec(8)<br /></td>
+      <td>+– r-n Gauge32   memoryPagesOutputPerSec(9)<br /></td>
+      <td>+– r-n Gauge32   memoryPagesPerSec(10)<br /></td>
+      <td>+– r-n Gauge32   memoryPoolNonpagedBytes(11)<br /></td>
+      <td>+– r-n Gauge32   memoryPoolPagedBytes(12)<br /></td>
+      <td>+– r-n Gauge32   memoryPoolPagedResidentBytes(13)<br /></td>
+      <td>+– r-n Gauge32   memorySystemCacheResidentBytes(14)<br /></td>
+      <td>+– r-n Gauge32   memorySystemCodeResidentBytes(15)<br /></td>
+      <td>+– r-n Gauge32   memorySystemCodeTotalBytes(16)<br /></td>
+      <td>+– r-n Gauge32   memorySystemDriverResidentBytes(17)<br /></td>
+      <td>+– r-n Gauge32   memorySystemDriverTotalBytes(18)<br /></td>
+      <td><br />+–networkInterfaceTable(3)<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+–networkInterfaceEntry(1) [netInstance]<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+– r-n InstanceName netInstance(1)<br /></td>
+      <td>+– r-n Gauge32      netBytesReceivedPerSec(2)<br /></td>
+      <td>+– r-n Gauge32      netBytesSentPerSec(3)<br /></td>
+      <td>+– r-n Gauge32      netBytesTotalPerSec(4)<br /></td>
+      <td>+– r-n Gauge32      netCurrentBandwidth(5)<br /></td>
+      <td>+– r-n Gauge32      netOutputQueueLength(6)<br /></td>
+      <td>+– r-n Gauge32      netPacketsOutboundDiscarded(7)<br /></td>
+      <td>+– r-n Gauge32      netPacketsOutboundErrors(8)<br /></td>
+      <td>+– r-n Gauge32      netPacketsReceivedDiscarded(9)<br /></td>
+      <td>+– r-n Gauge32      netPacketsReceivedErrors(10)<br /></td>
+      <td>+– r-n Gauge32      netPacketsReceivedUnknown(11)<br /></td>
+      <td>+– r-n Gauge32      netPacketsReceivedPerSec(12)<br /></td>
+      <td>+– r-n Gauge32      netPacketsSentPerSec(13)<br /></td>
+      <td>+– r-n Gauge32      netPacketsPerSec(14)<br /></td>
+      <td><br />+–objects(4)<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+– r-n Gauge32   objectsProcesses(1)<br /></td>
+      <td>+– r-n Gauge32   objectsThreads(2)<br /></td>
+      <td><br />+–processorTable(5)<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+–processorEntry(1) [cpuInstance]<br /></td>
+      <td> </td>
+      <td><br /></td>
+      <td>+– r-n InstanceName cpuInstance(1)<br /></td>
+      <td>+– r-n Gauge32      cpuPercentDPCTime(2)<br /></td>
+      <td>+– r-n Gauge32      cpuPercentInterruptTime(3)<br /></td>
+      <td>+– r-n Gauge32      cpuPercentPrivilegedTime(4)<br /></td>
+      <td>+– r-n Gauge32      cpuPercentProcessorTime(5)<br /></td>
+      <td>+– r-n Gauge32      cpuPercentUserTime(6)<br /></td>
+      <td>+– r-n Gauge32      cpuAPCBypassesPerSec(7)<br /></td>
+      <td>+– r-n Gauge32      cpuDPCBypassesPerSec(8)<br /></td>
+      <td>+– r-n Gauge32      cpuDPCRate(9)<br /></td>
+      <td>+– r-n Gauge32      cpuDPCsQueuedPerSec(10)<br /></td>
+      <td>+– r-n Gauge32      cpuInterruptsPerSec(11)<br /></td>
+      <td><br />+–system(6)<br /></td>
+      <td><br />+– r-n Gauge32   systemSystemUpTime(1)<br /><br />最后记得在看看这个许可证文件：<br />Program Files/SNMP Informant/standard/license.txt<br />LICENSE.TXT<br />———–<br />FREE OF CHARGE SOFTWARE PROGRAM LICENSE AGREEMENT for<br />SNMP INFORMANT STANDARD EDITION (The Software)<br /><br />——————————————————————————<br />Copyright(c) 2005, Informant Systems, Inc. (www.informant-systems.com), and<br />Copyright(c) 2003-2005, Williams Technology Consulting Services (www.wtcs.org)<br />——————————————————————————<br />Product names used in this document are trademarks of their respective owners.<br />* IMPORTANT-PLEASE READ CAREFULLY BEFORE INSTALLING THE SOFTWARE.<br />——————————————————————————<br />后面略….<br /><br />在安装了snmp代理之后，我们可以看到OpenNMS可以帮助我们完成windows服务器的可用性和性能管理。</td>
+    </tr>
+  </tbody>
+</table>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Dec 14, 2007</span></p>
+                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/NSM'>Nsm</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

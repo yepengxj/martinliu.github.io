@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | Nutanix AHV 虚拟机模板制作</title>
+    <meta name="description" content="首先使用ssh登录cvm，进入acropolis命令行。">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2017/01/10/clone-ahv-vm-template/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/google-earth-view-6043.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href="/author/michelle">Michelle jones</a> in <a href='/category/Nutanix'>Nutanix</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i> 12 minutes
+            </p>
+
+            <h1>Nutanix AHV 虚拟机模板制作</h1>
+
+            <p>首先使用ssh登录cvm，进入acropolis命令行。</p>
+
+<h2 id="section">找出模板对应的虚拟机</h2>
+
+<p>使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;acropolis&gt; vm.disk_get vm-fedora25
+ide.0 {
+  addr {
+    bus: "ide"
+    index: 0
+  }
+  cdrom: True
+  empty: True
+}
+scsi.0 {
+  addr {
+    bus: "scsi"
+    index: 0
+  }
+  container_id: 4427
+  container_uuid: "9279ba2c-8e8d-4aea-b00f-410df5a18a23"
+  vmdisk_size: 10737418240
+  vmdisk_uuid: "7476458e-7917-4df8-b830-a0df5a95dae9"
+}
+</code></pre>
+</div>
+
+<h2 id="section-1">创建模板镜像</h2>
+
+<p>使用从虚拟机磁盘克隆出镜像的命令。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+&lt;acropolis&gt; image.create fedora25-Template clone_from_vmdisk=7476458e-7917-4df8-b830-a0df5a95dae9 image_type=kDiskImage annotation='Fedora 25 Server Template'
+fedora25-Template: complete
+
+</code></pre>
+</div>
+
+<h2 id="section-2">模板测试</h2>
+
+<p>登录Prism界面，点击镜像服务，确认清单中刚才创建的虚拟机模板镜像；进入vm页面，创建虚拟机，使用 fedora25-Template 镜像做磁盘</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/michelle.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jan 10, 2017</span></p>
+                <p><a href="/author/michelle">Michelle jones</a> in <a href='/category/Nutanix'>Nutanix</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Nutanix'>Nutanix</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2017/01/10/clone-ahv-vm-template/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2017/01/10/clone-ahv-vm-template/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2017/01/10/clone-ahv-vm-template/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+        <div class="row read-another-section">
+    
+        
+        <a href="/2017/01/07/nutanix-resource-sites/"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/.jpg'>
+            <h3 class="read-another">Nutanix资源站点清单</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/07/devops-glossary/"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/.jpg'>
+            <h3 class="read-another">DevOps术语表</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/05/The-End-of-Cloud-Computing/"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/.jpg'>
+            <h3 class="read-another">云计算时代的终结</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/04/Nutanix-AOS-5.0/"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/.jpg'>
+            <h3 class="read-another">Nutanix AOS 5.0 新版本新特性</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/03/devops-booklist/"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/.jpg'>
+            <h3 class="read-another">来自于《DevOps Handbook》的书单</h3>
+        </div></a>
+        
+    
+        
+        <a href="/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/"><div class="col-sm-6 col-md-2 no-gutter read-another-container">
+            <div class="overlay"></div>
+            <img src='/img/.jpg'>
+            <h3 class="read-another">HPE 分兵两路进军超融合市场</h3>
+        </div></a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

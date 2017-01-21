@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | workshop redhat storage and splunk</title>
+    <meta name="description" content="Instance Details">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2014/12/04/workshop-redhat-storage-splunk/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/opensource'>Opensource</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>workshop redhat storage and splunk</h1>
+
+            <h2 id="instance-details">Instance Details</h2>
+
+<p>Replace userX with your user id. For example, user1 –&gt; user 30</p>
+<table border="1">
+<tbody>
+<tr>
+
+<td>Instance
+</td>
+
+<td>DNS
+</td>
+
+<td>IP
+</td>
+</tr>
+<tr>
+
+<td>**Internal**
+</td>
+</tr>
+<tr>
+
+<td>RHS 01
+</td>
+
+<td>rhs-01.userX.apac.red
+</td>
+
+<td>10.100.0.101
+</td>
+</tr>
+<tr>
+
+<td>RHS 02
+</td>
+
+<td>rhs-02.userX.apac.red
+</td>
+
+<td>10.100.0.102
+</td>
+</tr>
+<tr>
+
+<td>RHS 03
+</td>
+
+<td>rhs-03.userX.apac.red
+</td>
+
+<td>10.100.0.103
+</td>
+</tr>
+<tr>
+
+<td>RHS 04
+</td>
+
+<td>rhs-04.userX.apac.red
+</td>
+
+<td>10.100.0.104
+</td>
+</tr>
+<tr>
+
+<td>Splunk Master
+</td>
+
+<td>splunkmaster.userX.apac.red
+</td>
+
+<td>10.100.0.201
+</td>
+</tr>
+<tr>
+
+<td>Splunk Search
+</td>
+
+<td>splunksearch.userX.apac.red
+</td>
+
+<td>10.100.0.202
+</td>
+</tr>
+<tr>
+
+<td>Splunk Peer 01
+</td>
+
+<td>splunkpeer-01.userX.apac.red
+</td>
+
+<td>10.100.0.211
+</td>
+</tr>
+<tr>
+
+<td>Splunk Peer 01
+</td>
+
+<td>splunkpeer-02.userX.apac.red
+</td>
+
+<td>10.100.0.212
+</td>
+</tr>
+<tr>
+
+<td>Splunk Peer 01
+</td>
+
+<td>splunkpeer-03.userX.apac.red
+</td>
+
+<td>10.100.0.213
+</td>
+</tr>
+<tr>
+
+<td>**Public**
+</td>
+</tr>
+<tr>
+
+<td>Gateway
+</td>
+
+<td>gw-userX.apac.red
+</td>
+
+<td>gw-userX.apac.red
+</td>
+</tr>
+<tr>
+
+<td>Splunk Master
+</td>
+
+<td>splunk.userX.apac.red
+</td>
+
+<td>splunk.userX.apac.red
+</td>
+</tr>
+<tr>
+
+<td>Splunk Search
+</td>
+
+<td>search.userX.apac.red
+</td>
+
+<td>search.userX.apac.red
+</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="on-your-laptop">On your laptop</h3>
+
+<p>cd ~/.ssh
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhte-splunk-lab
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhte-splunk-lab.pub
+chmod 600 rhte-splunk-lab
+chmod 644 rhte-splunk-lab.pub</p>
+
+<p>ssh -i ~/.ssh/rhte-splunk-lab -l ec2-user gw-userX.apac.red</p>
+
+<h3 id="on-all-rhs-nodes">On all RHS Nodes</h3>
+
+<p>sudo su -
+subscription-manager attach –pool 8a85f9864675056e014684868378649c
+subscription-manager repos –disable=*
+subscription-manager repos –enable rhel-6-server-rpms –enable rhs-3-for-rhel-6-server-rpms –enable rhel-scalefs-for-rhel-6-server-rpms</p>
+
+<p>yum -y update</p>
+
+<p>cat /etc/redhat-* # should say Red Hat Enterprise Linux 6.6 (Santiago) and Red Hat Storage 3.0 Update 2</p>
+
+<p>/sbin/service glusterd restart</p>
+
+<h3 id="on-rhs-01">On RHS-01</h3>
+
+<p>gluster peer probe rhs-02.userX.apac.red
+gluster peer probe rhs-03.userX.apac.red
+gluster peer probe rhs-04.userX.apac.red</p>
+
+<p>gluster pool list</p>
+
+<p>gluster volume create splunk replica 2 rhs-01.userX.apac.red:/srv/brick1/splunk rhs-02.userX.apac.red:/srv/brick1/splunk rhs-03.userX.apac.red:/srv/brick1/splunk rhs-04.userX.apac.red:/srv/brick1/splunk</p>
+
+<p>gluster volume set splunk storage.owner-uid 1001
+gluster volume set splunk storage.owner-gid 1001
+gluster volume set splunk user.nfs disable</p>
+
+<p>gluster volume start splunk</p>
+
+<p>gluster volume info
+gluster volume status</p>
+
+<h3 id="on-splunk-master-and-splunk-search-nodes">On Splunk Master and Splunk Search Nodes</h3>
+
+<p>subscription-manager attach –pool 8a85f9864675056e014684868378649c
+subscription-manager repos –disable=*
+subscription-manager repos –enable rhel-7-server-rpms</p>
+
+<p>yum -y update</p>
+
+<p>wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/splunk-6.2.0-237341-linux-2.6-x86_64.rpm –no-check-certificate</p>
+
+<h3 id="on-all-splunk-nodes">On all Splunk Nodes</h3>
+
+<p>subscription-manager attach –pool 8a85f9864675056e014684868378649c
+subscription-manager repos –disable=*
+subscription-manager repos –enable rhel-7-server-rpms –enable rhel-7-server-openstack-5.0-rpms –enable rhel-7-server-rh-common-rpms</p>
+
+<p>yum -y update</p>
+
+<p>yum -y install wget lvm2</p>
+
+<p>wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/splunk-6.2.0-237341-linux-2.6-x86_64.rpm –no-check-certificate</p>
+
+<p>/bin/systemctl start lvm2-lvmetad.service
+/bin/systemctl start lvm2-monitor.service</p>
+
+<p>pvcreate –dataalignment 1024k /dev/xvdb1
+vgcreate splunkdb /dev/xvdb1
+/sbin/lvcreate -a y -l 100%VG -n splunkdb splunkdb
+mkfs.xfs -i size=512 /dev/mapper/splunkdb-splunkdb</p>
+
+<h3 id="on-all-splunk-nodes-1">On all Splunk Nodes</h3>
+
+<p>echo -e <code class="highlighter-rouge">blkid /dev/mapper/splunkdb-splunkdb | cut -d " " -f 2</code>“\t/opt/\txfs\tdefaults,inode64,noatime\t0\t0” » /etc/fstab
+mount /opt</p>
+
+<p>yum -y localinstall splunk-6.2.0-237341-linux-2.6-x86_64.rpm</p>
+
+<p>echo -e “splunk\t\tsoft\tnofile\t10240” » /etc/security/limits.conf
+echo -e “splunk\t\thard\tnofile\t20480” » /etc/security/limits.conf</p>
+
+<h3 id="on-splunk-master-and-splunk-search">On Splunk Master and Splunk Search</h3>
+
+<p>cd /lib/systemd/system
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/splunkd.service –no-check-certificate</p>
+
+<p>sed -i.bak ‘/^After|^Requires/d’ splunkd.service
+sed -i.bak ‘/Description/a After=network.target local-fs.target’ splunkd.service
+systemctl daemon-reload
+systemctl enable splunkd.service
+systemctl start splunkd.service</p>
+
+<p>runuser -l splunk -c ‘splunk status’
+q
+y
+systemctl restart splunkd.service
+runuser -l splunk -c ‘splunk status’</p>
+
+<h3 id="on-splunk-peer-nodes">On Splunk Peer Nodes</h3>
+
+<p>yum install -y glusterfs-fuse python-httplib2 attr</p>
+
+<p>mkdir /mnt/glusterfs
+echo -e “rhs-01.userX.apac.red:/splunk\t\t/mnt/glusterfs\t\tglusterfs\t\tdefaults,_netdev,backup-volfile-servers=rhs02.userX.apac.red:rhs-03.userX.apac.red:rhs-04.userX.apac.red\t0\t0” » /etc/fstab
+mount /mnt/glusterfs</p>
+
+<p>runuser -l splunk -c ‘mkdir -p /opt/splunk/var/lib/splunk/glusterfs’
+runuser -l splunk -c ‘mkdir -p /mnt/glusterfs/$(hostname -s)’</p>
+
+<p>cd /lib/systemd/system
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/splunkd-pre.service
+systemctl enable splunkd-pre.service
+systemctl start splunkd-pre.service</p>
+
+<p>echo OPTIMISTIC_ABOUT_FILE_LOCKING = 1 » /opt/splunk/etc/splunk-launch.conf</p>
+
+<p>wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/splunkd.service
+systemctl daemon-reload
+systemctl enable splunkd.service
+systemctl start splunkd.service
+runuser -l splunk -c ‘splunk status’
+q
+y
+systemctl start splunkd.service
+runuser -l splunk -c ‘splunk status’</p>
+
+<p>cd /opt/splunk/bin
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhsBucketMover.py
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhsBucketMover.sh
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhsLinkChecker.py</p>
+
+<p>chown splunk:splunk/rhs*</p>
+
+<h3 id="on-gw-userxapacred">on gw-userX.apac.red</h3>
+
+<p>iptables -t nat -A PREROUTING -p tcp –dport 8001 -j DNAT –to-destination 10.100.0.211:8000
+iptables -t nat -A PREROUTING -p tcp –dport 8002 -j DNAT –to-destination 10.100.0.212:8000
+iptables -t nat -A PREROUTING -p tcp –dport 8003 -j DNAT –to-destination 10.100.0.213:8000</p>
+
+<h3 id="web-gui-on-splunk-master-httpsplunkuserxapacred8000">Web GUI on Splunk Master (http://splunk.userX.apac.red:8000/)</h3>
+
+<p>Settings –&gt; Indexer Clustering
+Replication Factor 3
+Search Factor 2
+Enable Clustering - accept until restart and hit ok</p>
+
+<h3 id="on-each">on each</h3>
+<p>Web GUI on Splunk Peer 01 (http://gw-userX.apac.red:8001/)
+Web GUI on Splunk Peer 02 (http://gw-userX.apac.red:8002/)
+Web GUI on Splunk Peer 03 (http://gw-userX.apac.red:8003/)</p>
+
+<p>Settings –&gt; Indexer Clustering
+Enable Clustering
+Type - Peer
+host = https://splunkmaster.userX.apac.red
+port 8089
+replication port 8090</p>
+
+<h3 id="web-gui-on-splunk-search-httpsearchuserxapacred8000">Web GUI on Splunk Search (http://search.userX.apac.red:8000/)</h3>
+
+<p>Settings –&gt; Indexer Clustering
+Enable Clustering
+Type - Search
+host = https://splunkmaster.userX.apac.red
+port 8089
+replication port 8090</p>
+
+<h3 id="on-splunk-master-node">on Splunk Master Node</h3>
+
+<p>cd /opt/splunk/etc/master-apps/_cluster/local directory
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/indexes.conf
+runuser -l splunk -c ‘splunk apply cluster-bundle –answer-yes’
+admin
+password
+runuser -l splunk -c ‘splunk show cluster-bundle-status’</p>
+
+<h3 id="on-each-node">On each Node</h3>
+
+<p>runuser -l splunk -c ‘splunk search “| rest /services/data/indexes | table title, homePath, coldPath”‘|grep demo
+&lt; look for $SPLUNKDB/glusterfs/demo/colddb</p>
+
+<h3 id="on-splunk-master-node-1">on Splunk Master Node</h3>
+
+<p>su - ec2-user</p>
+
+<p>cd ~/.ssh
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhte-splunk-lab
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/rhte-splunk-lab.pub
+chmod 600 rhte-splunk-lab
+chmod 644 rhte-splunk-lab.pub</p>
+
+<p>cd /tmp
+wget https://s3-ap-southeast-1.amazonaws.com/splunk-lab/eventgen.tar.gz
+scp -i ~/.ssh/rhte-splunk-lab eventgen.tar.gz splunkpeer-01.userX.apac.red:eventgen.tar.gz
+scp -i ~/.ssh/rhte-splunk-lab eventgen.tar.gz splunkpeer-02.userX.apac.red:eventgen.tar.gz
+scp -i ~/.ssh/rhte-splunk-lab eventgen.tar.gz splunkpeer-03.userX.apac.red:eventgen.tar.gz</p>
+
+<h3 id="on-each-peer-node">On each Peer Node</h3>
+
+<p>cd /opt/splunk
+mv ~ec2-user/eventgen.tar.gz /opt/splunk
+chown splunk:splunk eventgen.tar.gz
+runuser -l splunk -c ‘splunk install app /opt/splunk/eventgen.tar.gz’
+runuser -l splunk -c ‘splunk restart’</p>
+
+<p>cd /opt/splunk/etc/apps/eventgen/samples
+cp sample.tutorial1 demo_data
+sed -i.bak s/main/demo/g demo_data
+cd /opt/splunk/etc/apps/eventgen/local
+cp ../README/eventgen.conf.tutorial1 eventgen.conf
+sed -i.bak ‘s/main/demo/g;s/sample.tutorial1/demo_data/g’ eventgen.conf</p>
+
+<p>runuser -l splunk -c ‘splunk restart’</p>
+
+<p>Log into WebUI on Splunk Master
+search “index = demo”
+timeframe = realtime &gt; 5 minutes</p>
+
+<p>check /opt/splunk/var/lib/splunk/demo/db</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Dec 4, 2014</span></p>
+                <p><a href=""></a> in <a href='/category/opensource'>Opensource</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/opensource'>Opensource</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2014/12/04/workshop-redhat-storage-splunk/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2014/12/04/workshop-redhat-storage-splunk/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2014/12/04/workshop-redhat-storage-splunk/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

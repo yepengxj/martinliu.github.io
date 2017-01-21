@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | CloudStack 3.0.2安装心得</title>
+    <meta name="description" content="CloudStack3.0.2安装是非常简单容易的，安装的过程，所需要用到的命令，都已经被详细的记录在官方的 English 版Quick Install Guide中了。最简洁的安装配置应该是：RHEL6.2 64bit的管理服务器+XenServer6.0.2；原因主是在XenServer这部分非常简单，Cl...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2012/07/01/cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/Cloud Computing'>Cloud computing</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>CloudStack 3.0.2安装心得</h1>
+
+            <p>CloudStack3.0.2安装是非常简单容易的，安装的过程，所需要用到的命令，都已经被详细的记录在官方的 <a href="http://download.cloud.com/releases/3.0.0/CloudStack3.0.0-3.0.2QuickInstallGuide.pdf">English</a> 版Quick Install Guide中了。最简洁的安装配置应该是：RHEL6.2 64bit的管理服务器+XenServer6.0.2；原因主是在XenServer这部分非常简单，CloudStack和XenServer使用API通信，只需要在XenServer上安装一个附件包即可。 安装过程中最精彩，可能也是最复杂的部分是在最后的CloudStack初始化向导那里。这个向导特别具有开源软件的风范，我接触过的很多OSS都是通过这样一个友好的向导，帮你做初始化设置的。它复杂在于，CloudStack的一些基本的概念，如果你对这些概念不是很理解可以会有点费劲。不过凭着基本的云计算常识和理解你也不会配置错到哪去，如果那个参数输入的不正确，在初始化的过程中，它还能停止在那个部分，在给你改正参数的机会，这些细节做的还是非常到位，不是傻傻的把你输入的参数直接写库，让你回头troubleshooting都找不到北。这个版本的CloudStack感觉非常不错，需要尝试的朋友，可以马上行动起来了。</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jul 1, 2012</span></p>
+                <p><a href=""></a> in <a href='/category/Cloud Computing'>Cloud computing</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Cloud Computing'>Cloud computing</a>
+                            ,
+                        </li>
+                        
+                        <li>
+                            <a href='/category/Cloud Computing'>Cloudstack</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2012/07/01/cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2012/07/01/cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2012/07/01/cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | OpenNMS 安装说明－精简版</title>
+    <meta name="description" content="Per-install Checklist:">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2007/04/26/opennms-install-sample/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>OpenNMS 安装说明－精简版</h1>
+
+            <p><strong>Per-install Checklist:</strong><br /></p>
+
+<p><br />	
+  1. SuSE 10.1 Linux install CD
+<br />	
+  2. OpenNMS rpm packages for SuSE Linux
+<br />	
+  3. JDK 1.5 package
+<br />	
+  4. Tomcat 5.5.20 package
+<br /><br /><strong>Here we go:</strong><br /></p>
+
+<p><br />	
+  * Insert install CD into Cd/Dvd rom
+<br />	
+  * Do SuSE Linux mini install
+<br />	
+  * Logon in OS, run ‘yast firewall’ to open 8080 tcp port on firewall
+<br />	
+  * upload all packages to /opt
+<br />	
+  * untar JDK
+<br />	
+  * untar Tomcat
+<br />	
+  * install postgresql through yast; run ‘rcpostgresql start’
+<br />	
+  * Export some variables
+<br /><br /><em>export JAVA_HOME=/opt/jdk1.5.0_09<br />export OPENNMS_HOME=/opt/opennms<br />export CATALINA_HOME=/opt/apache-tomcat-5.5.20<br />export PATH=$PATH:$JAVA_HOME/bin</em><br /></p>
+
+<p><br />	
+  * Test Java and Tomcat
+<br /><br /><em>java -version<br />$CATALINA_HOME/bin/startup.sh</em><br /></p>
+
+<p><br />	
+  * Modify this file, vi /var/lib/pgsql/data/pg_hba.conf , then run ‘rcpostgresql restart’
+<br /><br /><em>#local  all    all             ident   sameuser<br />local all all trus<br />thost all all 127.0.0.1 255.255.255.255 trust<br />host all all ::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff trust</em><br /></p>
+
+<p><br />	
+  * install OpenNMS rpm packages; rpm -ivh xxx.rpm
+<br />	
+  * $OPENNMS_HOME/bin/runjava -s
+<br />	
+  * $OPENNMS_HOME/bin/install -dis
+<br />	
+  * $OPENNMS_HOME/bin/install -y -w $CATALINA_HOME/conf/Catalina/localhost
+<br />	
+  * restart Tomcat
+<br />	
+  * start OpenNMS; $OPENNMS_HOME/bin/opennms start
+<br />	
+  * Check opennms status; $OPENNMS_HOME/bin/opennms -v status
+<br />	
+  * login web console
+<br /><br />以上仅仅是我一个偷懒的方法，可以比较快的部署运行OpenNMS。这种方式的好处如下：<br /><br />	
+  1. Mini安装可以是最快的安装，总共只有几百MB就得到一个Linux操作系统
+<br />	
+  2. SuSE的包管理比较好用，配合一张安装DVD，几乎所有软件招之即来，不需要下载任何东西
+<br />	
+  3. Java和Tomcat的安装包是从以前的机器上直接把安装目录tar出来的，这也直接解压来用速度比较快。
+<br /><br />这个安装方式的缺点：<br /><br />	
+  1. 并不是最优的安装，没用设置服务的自动重启
+<br />	
+  2. 没用优化PostgreSQL
+<br />	
+  3. 没用优化Java和Tomcat；ONMS是java应用，性能可能会是个问题
+<br />	
+  4. 没用对ONMS做任何配置
+<br /><br /><br />	
+  * <strong>Post-install Checklist:</strong><br /><em>Change Admin password for ONMS<br />customize ONMS per your requirements<br />optimize Tomcat/Postgresql/ONMS configuration</em>
+<br /></p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Apr 26, 2007</span></p>
+                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/NSM'>Nsm</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/04/26/opennms-install-sample/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/04/26/opennms-install-sample/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/04/26/opennms-install-sample/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

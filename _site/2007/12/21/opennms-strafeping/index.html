@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 如何使用OpenNMS中的StrafePing功能</title>
+    <meta name="description" content="自从1.3.7之后OpenNMS加入了Smokeping功能，取名为StrafePing。从此OpenNMS也成了Smokeping的银牌赞助商。">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2007/12/21/opennms-strafeping/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>如何使用OpenNMS中的StrafePing功能</h1>
+
+            <p>自从1.3.7之后OpenNMS加入了Smokeping功能，取名为StrafePing。从此OpenNMS也成了Smokeping的银牌赞助商。</p>
+
+<p><br /></p>
+
+<p><strong><em>安装：</em></strong></p>
+
+<p><br /></p>
+
+<p>StafePing做为一个Poller默认被安装在1.3.7后的软件中，不需要单独安装和配置。</p>
+
+<p><br /></p>
+
+<p><strong><em>配置：</em></strong></p>
+
+<p><br /></p>
+
+<p>没有单独的配置文件，相关的配置信息需要修改文件： poller-configuration.xml中的相关部分。需要在 标记中加入需要使用的Ip地址范围。启用之后StrafePing做为一个被监控的服务显示在这个节点上。</p>
+
+<p><br /></p>
+
+<p>默认安装OpenNMS并不使用这个服务，是为了减小网络流量；推荐根据OpenNMS硬件的能力只对部分节点做这种监控。</p>
+
+<p><br /></p>
+
+<p><strong><em>使用：</em></strong></p>
+
+<p><br /></p>
+
+<p>需要产品StrafePing的图形有两种方式。1）在OpenNMS首页上，点击右侧的Resources Graphs，选中产看的机器，在Response Time下面的列表中选中需要产看的Ip地址，点击Submit，即可产看到图形。2）在节点产看页面，选中Resources Graphs，在Response Time下面的列表中选中需要产看的Ip地址，点击Submit，即可产看到图形。</p>
+
+<p><br /></p>
+
+<p><strong>如何想看懂StafePing</strong><strong>的图</strong></p>
+
+<p><br /></p>
+
+<p>请参考我以前的blog <a href="http://lzheng.blogspot.com/2007/02/smokeping-rttround-trip-time-tcp-tcp.html">http://lzheng.blogspot.com/2007/02/smokeping-rttround-trip-time-tcp-tcp.html</a></p>
+
+<p><br /></p>
+
+<p>参考Smokeping的网站<a href="http://oss.oetiker.ch/smokeping/doc/reading.en.html">http://oss.oetiker.ch/smokeping/doc/reading.en.html</a></p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Dec 21, 2007</span></p>
+                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/NSM'>Nsm</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/12/21/opennms-strafeping/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/12/21/opennms-strafeping/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/12/21/opennms-strafeping/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | icinga2 企业级功能评测1</title>
+    <meta name="description" content="本评测从 icinga2 软件的功能使用和体验入手，详细验证了用户认证，权限管理，管理服务器的群集高可用和分布式部署架构。这些功能在企业用户中是普遍的需求。还涉及到了监控架构中，各个节点的通信加密的方式。">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2015/07/09/icinga2-e4-bc-81-e4-b8-9a-e7-ba-a7-e5-8a-9f-e8-83-bd-e8-af-84-e6-b5-8b1/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/Tools'>Tools</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>icinga2 企业级功能评测1</h1>
+
+            <h2 id="icingaweb-2-">Icingaweb 2 用户权限管理</h2>
+
+<p>icingaweb 2 是诸多GUI中最新的一种，也有替代其它之前所有GUI的趋势，目前看还比较新，只有最基本的功能。登陆Web界面的用户，用户和组的信息可以使用自己的数据库存储或者配置文件存储，也可以使用外部的LDAP集成，使用php-ldap模块集成外部的LDAP/MS AD服务器。
+具有完整的RBAC模式; User -&gt; Group -&gt; Role = Permission Set（操作 action） + monitoring/filter/objects(范围 scope)</p>
+
+<p><a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-create-group/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-create-group-1024x659.png" alt="Icinga Web - create group" /></a> <a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-create-role/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-create-role-1024x659.png" alt="Icinga Web - create role" /></a> <a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-create-user/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-create-user-1024x659.png" alt="Icinga Web - create user" /></a> <a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-assign-user-to-group/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-assign-user-to-group-1024x659.png" alt="Icinga Web - assign user to group" /></a></p>
+
+<h2 id="icinga2-">Icinga2 的联系人和联系人组</h2>
+
+<p>在icinga2服务器端，在配置文件中定义了组和用户，他们在Web GUI界面上叫做 Contacts / Contactgroups 。</p>
+
+<p>[bash]
+[root@icinga2-test conf.d]# cat users.conf
+/**
+* The example user ‘icingaadmin’ and the example
+* group ‘icingaadmins’.
+*/</p>
+
+<p>object User “icingaadmin” {
+import “generic-user”</p>
+
+<p>display_name = “Icinga 2 Admin”
+groups = [ “icingaadmins” ]</p>
+
+<p>email = “martin@aws-faq.com”
+}</p>
+
+<p>object UserGroup “icingaadmins” {
+display_name = “Icinga 2 Admin Group”
+}
+[/bash]</p>
+
+<p>User / UserGruop 是Icinga出发通知的对象，定义在这个配置文件中，使用规则把他们和监控对象（host/service/等）关联起来，在通知规则中实现不同的通知策略。如发邮件等。</p>
+
+<h2 id="icinga2ha">Icinga2的HA和分布式架构</h2>
+
+<p><a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-cluster/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/icinga-cluster-1024x288.png" alt="icinga-cluster" /></a></p>
+
+<p>icinga2的Cluster是通过多个运行的实例配置在一起的，有这样几个特性：实例之间使用SSL的加密通信；彼此之间是双向连接；用Zone来分隔不同租户的配置域；基于Hash的负载分配；系统的各种功能组件由Cluster来管理其分布。它可以实现某个节点宕机后的自动分布监控数据采集命令在其它节点上的执行。</p>
+
+<p><a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-zone/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/icinga-zone-1024x712.png" alt="icinga-zone" /></a></p>
+
+<p>icinga2 Client是远程执行的一种节点，它和Cluster中的所有节点形成群集，在数据中心的其它网段或者地点采集本地的监控状态数据，然后把结果传送回上级的Cluster群集节点。icinga2可以通过配置向导完成远程client/Satellite卫星节点的配置。它们之间的通行是基于证书的TLS加密，这个证书可以借用puppet的证书。远程Client/Satellite节点可以运行在三种模式下：具有本地监控配置，没有本地监控配置，靠上级群集发送监控配置。</p>
+
+<p>其它企业级功能在后续文章中继续评测，您可以通过下面的评论，来提出您所关注的待评测功能。</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jul 9, 2015</span></p>
+                <p><a href=""></a> in <a href='/category/Tools'>Tools</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Tools'>Tools</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2015/07/09/icinga2-e4-bc-81-e4-b8-9a-e7-ba-a7-e5-8a-9f-e8-83-bd-e8-af-84-e6-b5-8b1/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2015/07/09/icinga2-e4-bc-81-e4-b8-9a-e7-ba-a7-e5-8a-9f-e8-83-bd-e8-af-84-e6-b5-8b1/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2015/07/09/icinga2-e4-bc-81-e4-b8-9a-e7-ba-a7-e5-8a-9f-e8-83-bd-e8-af-84-e6-b5-8b1/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

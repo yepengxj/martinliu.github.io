@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 在CentOS 7上安装部署Katello2.2</title>
+    <meta name="description" content="Katello是红帽 Satellite 6 的开源社区项目，是最近我主推的标准化运维自动化运维的底层技术平台。希望使用本文，你可以快速的进入Katello的功能评估的过程中。">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2015/06/08/e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/Linux'>Linux</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>在CentOS 7上安装部署Katello2.2</h1>
+
+            <p>Katello的系统架构如下图：</p>
+
+<p><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/06/katello-arch-diagram.png" alt="katello-arch-diagram" /></p>
+
+<p>Katell系统是一个复合型开源项目，是Pulp, Candlepin 和 Foreman的组合。Foreman默认使用Puppet作配置管理。</p>
+
+<p>它的安装文档见官方手册：<a href="http://www.katello.org/docs/2.2/installation/index.html">http://www.katello.org/docs/2.2/installation/index.html</a></p>
+
+<p>为了简化安装，请下在本站提供的CentOS7完美安装模板。使用它来创建一个虚拟机，6GB内存，2VCPU；网络上为了方便，请在virt-manger中新建如下所示的网络。</p>
+
+<p><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/06/QEMU-KVM-Connection-Details_006.png" alt="QEMU-KVM Connection Details_006" /></p>
+
+<p>虚拟机启动之后，确保host能正常联网。启动刚才创建的虚拟机，配置好IP，ping 外网网站，确保它能正常联网即可。其它安装命令如下：</p>
+
+<p>[bash]</p>
+
+<p>yum -y localinstall http://fedorapeople.org/groups/katello/releases/yum/2.2/katello/RHEL/7Server/x86_64/katello-repos-latest.rpm
+yum -y localinstall http://yum.theforeman.org/releases/1.8/el7/x86_64/foreman-release.rpm
+yum -y localinstall http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
+yum -y localinstall http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+yum -y install foreman-release-scl</p>
+
+<p>yum -y install katello</p>
+
+<p>katello-installer -v \
+–foreman-admin-username admin \
+–foreman-admin-password smartvm \
+–capsule-dns true \
+–capsule-dns-interface eth0 \
+–capsule-dns-zone xenlab.com \
+–capsule-dns-forwarders 192.168.10.1 \
+–capsule-dns-reverse 10.168.192.in-addr.arpa \
+–capsule-dhcp true \
+–capsule-dhcp-interface eth0 \
+–capsule-dhcp-range “192.168.10.100 192.168.10.240” \
+–capsule-dhcp-gateway 192.168.10.1 \
+–capsule-dhcp-nameservers 192.168.10.10 \
+–capsule-tftp true \
+–capsule-tftp-servername $(hostname) \
+–capsule-puppet true \
+–capsule-puppetca true</p>
+
+<p>[/bash]</p>
+
+<p>以上的安装命令如果成功，katello服务器将具有一下功能：</p>
+
+<ol>
+  <li>
+    <p>Foreman 服务器：用于自动化网络安装linux系统</p>
+  </li>
+  <li>
+    <p>Puppet Master服务器</p>
+  </li>
+  <li>
+    <p>Repos管理服务器</p>
+  </li>
+  <li>
+    <p>DNS，DHCP，PXE服务器</p>
+  </li>
+</ol>
+
+<p>安装成功之后，使用默认的用户名和密码就可以登陆了。</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jun 8, 2015</span></p>
+                <p><a href=""></a> in <a href='/category/Linux'>Linux</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Linux'>Linux</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2015/06/08/e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2015/06/08/e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2015/06/08/e5-9c-a8centos-7-e4-b8-8a-e5-ae-89-e8-a3-85-e9-83-a8-e7-bd-b2katello2-2/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

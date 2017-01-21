@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | OpenNMS常问问题All-in-One</title>
+    <meta name="description" content="问：OpenNMS是什么？答： OpenNMS是第一个开发在开源模式下的企业级网络管理平台应用。OpenNMS的目标是成为一个真真的分布式、可升级的网络管理平台，尽管它看似一个 FCAPS网络管理模型，使之可用于开放源码和商业领域。目前：OpenNMS专注与以下三个方面：服务轮询 － 检查应用服务的可用性，产生可...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2007/05/08/opennms-faqs/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>OpenNMS常问问题All-in-One</h1>
+
+            <p><strong>问：OpenNMS是什么？<br /></strong>答： OpenNMS是第一个开发在开源模式下的企业级网络管理平台应用。OpenNMS的目标是成为一个真真的分布式、可升级的网络管理平台，尽管它看似一个 FCAPS网络管理模型，使之可用于开放源码和商业领域。目前：OpenNMS专注与以下三个方面：服务轮询 － 检查应用服务的可用性，产生可用性报表。数据收集 － 收集、保存和报表网络信息数据，并设定和触发门限值。事件和提示管理 － 接受事件系统内部的和外部的事件，将源事件提供给强大的故障告警和故障升级系统。OpenNMS Group是开发和支持OpenNMS应用的一个商业性的实体。<br /><br /><strong>问：为什么要开源？</strong><br />答： 我们坚信真真的创新不会来自规模巨大的企业。我们还相信网络管理软件领域比Linux操作系统更适合开源模式。不像Linux，网络管理要去监视和控制来 自不同厂商的很多的技术。考虑到每年都有很多新的网络设备面世。商业软件公司并不希望追赶这种更新产品的工作负荷，相反它们只能依赖与它们的通用管理技术 （最小化的通用性）。相反，对于一个开源项目中的每一个人－－厂商、用户或者技术顾问－－都能对项目做出自己的共享，从而保障了这个项目成功的几率。<br /><br /><strong>问：OpenNMS是用什么语言写的？<br /></strong>答： OpenNMS主要是用Java语言写的。OpenNMS2.0的目标是：让它成为一个以一堆.jar文件形式来安装的产品。还有一些非Java的部分： icmpd-Java1.4 API不能理解ICMP。因为ICMP回答请求（ping）是一个最简单的来测试基于Ip的网络设备是否可以服务的方法，没有那个网络管理应用程序不用的 它的。将ICMP功能分离为一个独立的守护进程的目标是，如果系统中有ICMP的功能那么OpenNMS就用，如果没有OpenNMS就率略它。 OpenNMS不需要ICMP来监控网络设备。数据库－OpenNMS现在使用PostgreSQL作为它的地层数据库，PostgreSQL 是用C写 的。OpenNMS2.0会使用几个能通过Hibernate适配器访问到的数据库。rrdtool－OpenNMS当前的版本实时的选择使用 RRDtool或jRobin（Java会使用RRDtool）。最终这个选项的默认使用jRobin，也可以选择使用RRDtool。<br /><br /><strong>问：OpenNMS有图形的显示么？<br /></strong>答： 这可能是一个对于OpenNMS新人来说最常问的问题：OpenNMS的图形监控界面在那？简单的问答是我们没有一个这样的地图，如果你想听听我们的解释 请继续往下看。OpenNMS是被一些经验丰富的网络管理技术顾问开发出来的。HP的Openvew NNM是一个很流行的商业软件，它能生产一个可定制化的网络监控图形。OpenNMS Screenshot<br /><br /><br /><br /></p>
+
+<p><br />&lt;table style="width: 194px" &gt;<br />&lt;tr &gt;<br /></p>
+<td style="height: 194px" align="center">[![](http://lh4.google.com/image/liuzh66/Rl19YgD97vE/AAAAAAAAAE8/hFVbteNWiR0/s160-c/OpenNMS.jpg)](http://picasaweb.google.com/liuzh66/OpenNMS)
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td style="text-align: center;font-family: arial,sans-serif;font-size: 11px">[OpenNMS](http://picasaweb.google.com/liuzh66/OpenNMS)
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br /><strong>原文地址</strong> <a href="http://www.opennms.org/index.php/FAQ-About">http://www.opennms.org/index.php/FAQ-About</a></p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>May 8, 2007</span></p>
+                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/NSM'>Nsm</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/05/08/opennms-faqs/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/05/08/opennms-faqs/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/05/08/opennms-faqs/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

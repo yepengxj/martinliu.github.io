@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | [项目更新] OTRS project news update</title>
+    <meta name="description" content="当OTRS遇到OpenNMS OTRS meets openNMS! **OTRS和OpenNMS发布了新的集成手册  http://www.opennms.org/index.php/OTRS_Integration 这个Web Service的接口应该能做方便的集成了，没有试过，总之OpenNMS+OTRS应...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2008/11/20/otrs-project-news-update/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/ITSM'>Itsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>[项目更新] OTRS project news update</h1>
+
+            <p><a href="http://www.otrs.org/"><img src="http://www.otrs.com/uploads/pics/otrs_download_01.jpg" alt="" /></a><br /><br /><strong>当OTRS遇到OpenNMS</strong> <strong>OTRS meets openNMS! **OTRS和OpenNMS发布了新的集成手册  <a href="http://www.opennms.org/index.php/OTRS_Integration">http://www.opennms.org/index.php/OTRS_Integration</a> 这个Web Service的接口应该能做方便的集成了，没有试过，总之OpenNMS+OTRS应该是不错的组合，黄金搭档送给你，到~~<br /><br /></strong>The SIRIOS 2.2 modules for OTRS 2.3 are released <em>*SIRIOS 2.2模块发布了。我一直以为<a href="http://www.otrs.com/en/produkte/sirios/">SIROS</a>是非开源的项目，今天才知道它也是开源的哦，有空试试看。这个是专门为安全管理定制的，主要是去管理企业的安全事件。<br /><br />自从2008-08-05   **OTRS 2.3.1 (Bora Bora) **发布之后，又发布了两个版本，2.3.2  和 2.3.3，这两个版本都是2.3.1的bug修复版，功能上没有增加。<br /><br />OTRS 2.3 中重大的改变如下：<br /><br /><!-- more --><br /><br /># “Performance, Performance, Performance!”  系统性能提高<br /></em> Data base- &amp; code-improvements increase lead to a general performance gain of up to 20%.<br />* The support of an indexed full text search has been added. The feature is disabled per default because additional disc space is needed. The expected performance gain is 50%.<br />* Reduced reloads by using AJAX technology<br />* Instead of an ongoing recalculating of the escalation time during the run time, it is only recalculated when it changes due to an event in OTRS. It is then being stored in the ticket object which allows a direct access of external reporting tools to the data base as well as a more efficient reporting on escalations. This will also lead into a substantial performance improvement.<br /><br /># Search Functionality 搜索功能<br />* Support of logical expressions: ticket-, customer- and FAQ- search supports logical expressions, utilizing the AND, OR and ! operators as well as structuring expressions with parentheses.<br />* Search for ticket numbers by using the Browser OpenSearch feature (OpenSearch format).<br />* Search for ticket titles in the agent ticket search form and in the generic agent.<br />* Search for ticket close time in the agent ticket search form and in the generic agent.<br /><br /># Ticket Zoom &amp; Ticket Move 工单伸缩和移动<br />* Expand/Collapse of articles: the article view can be expanded to display all articles at once. The current article will remain in focus, and the preceding, or following articles will be displayed.<br />* Structured article tree - The article tree has been changed to a table.<br />* Printing of articles has been realized.<br />* The ticket title of linked tickets are displayed in case of a mouse over action.<br />* Merged tickets are displayed crossed out.<br />* Multiple files can be attached while moving a ticket using the ticket move mask.<br /><br /># Ticket FreeText &amp; FreeTime opportunities<br />* When splitting a ticket, all FreeText and Free Time data will be copied to the new ticket.<br />* Ticket Free Time fields can be declared as mandatory.<br />* A URL can be configured that takes the value of a FreeText Field and displays it as an URL link in the ticket.<br />* Added X-OTRS-TicketTime and X-OTRS-FollowUp-TicketTime.<br /><br /># IMAP, IMAPS, POP3 &amp; POP3S support 对以上协议的支持<br />* With OTRS 2.3 IMAP, IMAPS, and POP3S is supported to fetch mails from your MTA.<br /><br /># Security 安全方面<br />* In case of a lost password, OTRS is sending an e-mail to the user with a “password reset link”. After clicking this link the new password is sent to the user in a second e-mail.<br /><br /># Notifications &amp; Escalations 通知和升级<br />* All agents that have a read permission on a certain queue can be selected for notification.<br />* An escalation view has been added that displays all tickets sorted by their remaining time to escalation.</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Nov 20, 2008</span></p>
+                <p><a href=""></a> in <a href='/category/ITSM'>Itsm</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/ITSM'>Itsm</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2008/11/20/otrs-project-news-update/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2008/11/20/otrs-project-news-update/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2008/11/20/otrs-project-news-update/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

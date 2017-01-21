@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | XenDesktop虚拟桌面精品书籍导读(part2)</title>
+    <meta name="description" content="[box color=”orange” icon=”flag”]感谢 Eric Yao 的供稿，@老树皮Eric[/box]">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2013/04/15/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart2/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>XenDesktop虚拟桌面精品书籍导读(part2)</h1>
+
+            <p>[box color=”orange” icon=”flag”]
+感谢 Eric Yao 的供稿，<a href="http://weibo.com/ericyaozhen">@老树皮Eric</a>
+[/box]</p>
+
+<p>桌面虚拟化项目的实施白皮书 《Citrix Virtual Desktop Handbook 5.x》，<a href="http://support.citrix.com/article/CTX136546">点击下载</a>。</p>
+
+<p>上周一我们介绍了《Citrix桌面虚拟化实施部署白皮书》的第二部分《设计篇 Design》的第一单元：用户层。今天我们继续往前进，开讲第二单元：访问层的部分。</p>
+
+<p>三、 访问层 Access Layer</p>
+
+<p>访问层的设计主要是基于每个用户组和终端设备的移动性需求。</p>
+
+<p>1) 决断：认证点</p>
+
+<p>让用户在什么地点做认证是管理员的决定，一般而言，有四个认证点：</p>
+
+<p>a) Web Interface：给XA和XD提供安全访问；</p>
+
+<p>b) StoreFront：为Receiver交付认证能力和资源；</p>
+
+<p>c) Secure Gateway (Web Interface): Secure Gateway是一个Windows的应用程序，她和WI配合工作；</p>
+
+<p>d) Access Gateway: 硬件</p>
+
+<p>具体采用哪种方式认证由用户组的移动需求来决定，推荐方案如下：</p>
+
+<p>2) 决断：预认证策略</p>
+
+<p>如果我们使用的是Access Gateway，我们就可以选择是否采用预认证策略，这些策略可以是确定终端是否满足某种接入网络前的扫描条件。</p>
+
+<p>我们可以配置的策略包括测试防病毒软件、防火墙软件、操作系统，甚至是注册表键值。XA和XD可以利用这些策略的检查结果确认后续的动作，包括剪贴板是否开启，打印机映射，甚至是否开启特定的应用程序访问权限。例如，如果用户没有安装防病毒软件，可以配置策略隐藏敏感的应用程序。</p>
+
+<p>下面的图标从流程上示例策略配置是如何流转的：</p>
+
+<p>3) 决断：认证策略</p>
+
+<p>l Web Interface, Secure Gateway (Web Interface), or StoreFront: StoreFront是未来的方向，而Web Interface已经是行将就木，所以下面的策略主要是用在StoreFront上，当然也适用于Web Interface</p>
+
+<p>n 用户名/密码</p>
+
+<p>n Domain Pass-Through：允许从用户设备上透传Domain登录信息，用户登录到加入域的电脑后自动登录到Store；</p>
+
+<p>n Access Gateway Pass-Through：用户登录到Access Gateway后自动登录到Store</p>
+
+<p>l Access Gateway：NetScaler支持几种不同的认证手段。下面分别列出了几种主要的认证方法，每种方法都可以单独使用，但是在实践中，我们进场组合起来以提供多因素认证。</p>
+
+<p>n LDAP：轻型目录访问协议是我们最为熟悉的认证方法了，它是一种基于TCP协议的目录访问服务，例如MS的活动目录就是其中一种实现形式。</p>
+
+<p>n Radius（aka Token）：Radius全名是Remote Authentication Dial In User Service，这是一种基于UDP传输协议的安全认证协议。除了认证外，它还提供授权和计费功能。Access Gateway转发用户输入的用户名和密码给Radius服务器，Radius服务器可以立即检查用户名和密码，也可以转发给目录服务器。</p>
+
+<p>n 客户端证书：用户登录到Access Gateway虚拟服务器后，可以通过本地的客户端证书的属性来做认证。客户端证书通常在用户端的形式是智能卡，或者是Common Access Cards (CACs)的形式，再通过客户端本地的读卡器来读取信息。</p>
+
+<p>采用什么认证形式通常都是取决于安全的需求，以及使用什么认证点。下表给出了一个基于安全需求级别的示例：</p>
+
+<p>4) 决断：会话策略</p>
+
+<p>采用Access Gateway作为认证点的用户必须有对应的会话策略来定义用户体验。会话策略的制定是基于Receiver在设计阶段制定的。一般而言，首先我们会将设备分为非移动设备和移动设备两种：</p>
+
+<p>l 移动设备：表达式定义为：“REQ.HTTP.HEADER User-Agent CONTAINS CitrixReceiver”，该语句将移动设备设置为比非移动设备更高优先级以保证移动设备的匹配性。</p>
+
+<p>l 非移动设备：表达式定义为：“ns_true”，即所有流量。</p>
+
+<p>更多信息，可以参考Citrix公开电子文档：Receiver and Plug-ins</p>
+
+<p>BTW，另外一种会话策略是采用终端的扫描方法。</p>
+
+<p>5) 决断：会话Profile（Session Profile）</p>
+
+<p>每个会话策略（Session Policy）都必须定义一个对应的Session Profile（姑且翻译成会话配置文件）。这个会话配置文件定义了用户去访问资源时的访问细节。有两种定义到虚拟桌面环境的访问方式的会话配置文件的形式：</p>
+
+<p>l SSL VPN：传统的VPN方式，将网络全部打通。这种方式并不一定十分安全，因为这能导致客户端到内网服务器的攻击访问。</p>
+
+<p>另外一种办法是考虑是否在SSL VPN中开辟一条给客户端网络流量的单独通道。这样通过receiver的流量智慧限制在指定的端口，只能访问指定的服务器资源等。</p>
+
+<p>上述两种方式各有利弊，第一种方式虽然安全性差了，但是可以做客户端流量可以被企业的网络过滤设备，例如入侵检测设备做监视和控制。</p>
+
+<p>l HDX Proxy：在HDX 代理方式下，用户是通过Access Gateway连接到他们的虚拟桌面和虚拟应用。这种方式下完全没有将内部资源暴露到公网上，此时Access Gateway充当了一个微型VPN的作用，它仅处理HDX的流量。其他的流量，例如电子邮件，又或者是使用者上网的流量都不经过Access Gateway。</p>
+
+<p>6) 决断：访问带宽</p>
+
+<p>最后的访问层决断就是要决定虚拟桌面所需要的最大并发网络带宽。其中很重要的一个关键环节就是决定采用NetScaler Access Gateway的哪一个平台。</p>
+
+<p>每个用户所需要的带宽关键还是要看计算的需求。一个时不时才用一下电脑的ERP使用者和一个在电脑前屁股都不挪窝的OA用户肯定带宽要求是不同的，如果是CAD画图的用户那就更不用说了。</p>
+
+<p>理想情况下带宽的使用情况是通过带宽分析工具来给出来，不过我们还是可以给出一些经验值：</p>
+
+<p>总带宽的的计算公式可以这样来定义：</p>
+
+<p>总带宽 = 平均带宽 × 最大并发用户值</p>
+
+<p>更多细节，可以参考Citrix的知识库文章：</p>
+
+<p>XenDesktop Planning Guide: User Bandwidth Requirements ： <a href="https://mail.citrix.com/owa/redir.aspx?C=5BdyIzIzrEOfoVxvpzfMxnn5HIs1DdAIlS0opaj6UrOPgSysoUakkdkru0zo0okQlYOGYaDEspc.&amp;URL=http%3a%2f%2fsupport.citrix.com%2farticle%2fCTX126191">XenDesktop Planning Guide: User Bandwidth Requirements</a></p>
+
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Apr 15, 2013</span></p>
+                <p><a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/XenDesktop'>Xendesktop</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2013/04/15/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart2/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2013/04/15/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart2/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2013/04/15/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart2/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

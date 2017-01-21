@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | opennms 1.6.1-1 quick start guide</title>
+    <meta name="description" content="本安装手册为纯命令版，如果有什么疑问清参考官方安装手册，或给本贴留言。[install yum on your Linux box]选择任意Linux系统，安装上yum工具，在命令行测试 yum -v[testing internet connection with those two URL]测试是否能上网，用...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2009/01/11/161-1-opennms-quick-install-guide/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/OpenNMS'>Opennms</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>opennms 1.6.1-1 quick start guide</h1>
+
+            <p><img src="http://www.etproductions.com/images/start.jpg" alt="" /><br /><br />本安装手册为纯命令版，如果有什么疑问清参考官方安装手册，或给本贴留言。<br /><br />[install yum on your Linux box]<br />选择任意Linux系统，安装上yum工具，在命令行测试 yum -v<br /><br />[testing internet connection with those two URL]<br />测试是否能上网，用浏览器分别打开这两个网址<br /></p>
+
+<p><br />	
+  1. <a href="http://www.martinliu.cn/2007/12/13/opennms-yum-install/">http://www.martinliu.cn/2007/12/13/opennms-yum-install/</a>
+<br />	
+  2. <a href="http://http://yum.opennms.org/repofiles/">http://yum.opennms.org/repofiles/</a>
+<br /><br />先别关闭这两个网页。<br /><br />[Install opennms   开始安装:<br /><br />	
+  1. yum install yum-fastestmirror
+<br />	
+  2. rpm -Uvh http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm
+<br />	
+  3. yum list opennms
+<br />	
+  4. yum install opennms
+<br /><br />[ post-install and config]  开始配置：<br /><br />	
+  1. export OPENNMS_HOME=/opt/opennms
+<br />	
+  2. vi /var/lib/pgsql/data/pg_hba.conf<br /><br />	
+    1. 注释掉其中所有可用的行，加入下面三行<br />local   all     all     trust<br />host    all     all     127.0.0.1/32 trust<br />host    all     all     ::1/128 trust
+<br /><br />
+<br />	
+  3. /sbin/service postgresql restart
+<br />	
+  4. /usr/java/jdk1.5.0_15/bin/java -version
+<br />	
+  5. $OPENNMS_HOME/bin/runjava -S  /usr/java/jdk1.5.0_15/bin/java
+<br />	
+  6. $OPENNMS_HOME/bin/install      -disU -l /usr/lib/jni:/usr/lib
+<br /><br />[ startup opennms and login ]启动登录：<br /><br />	
+  1. /etc/init.d/opennms start
+<br />	
+  2. http://localhost:8980/opennms
+<br />	
+  3. username and password are admin/admin
+<br />	
+  4. click Admin  / Add Interface, input a ipaddress and press Add button
+<br /><br />OK， I have get oepnnms 1.6.1-1 installed on my home pc, I hope you good luck and have fun.</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jan 11, 2009</span></p>
+                <p><a href=""></a> in <a href='/category/OpenNMS'>Opennms</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/OpenNMS'>Opennms</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2009/01/11/161-1-opennms-quick-install-guide/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2009/01/11/161-1-opennms-quick-install-guide/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2009/01/11/161-1-opennms-quick-install-guide/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

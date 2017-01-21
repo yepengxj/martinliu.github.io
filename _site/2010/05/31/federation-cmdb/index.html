@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 联邦的CMDB–神话/现实/需求/还是策略？</title>
+    <meta name="description" content="来自：Jonathan Markworth（CompuCom Systems有限公司管理顾问，探讨联邦数据库的优点）">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2010/05/31/federation-cmdb/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>联邦的CMDB–神话/现实/需求/还是策略？</h1>
+
+            <p>来自：Jonathan Markworth（CompuCom Systems有限公司管理顾问，探讨联邦数据库的优点）</p>
+
+<p>使用一个具有单一的、全知的、万能的和自维护功能的工具，来管理IT基础架的方方面面信息，是否是最好的方案呢？使用一个能做所有工作的全集成平台，来替换您积累下来的所有管理工具是否是最佳方式？现实情况是，大多数组织都已经实施了几十种应用程序、工具、实用程序、数据存储、硬件平台和管理框架，它们一起运行着一个或更多的IT服务管理功能。它们中的每一个应用都有自己的数据库，对当前环境中的一些关键管理功能提供信息支持。在CMDB应用场景中，这些工具相关的数据库中，其实也包含了大量关键的CI属性，这些属性可以用于识别CI之间的关系。重要的问题是，如何利用现有的投资和资源来建立一个底层共享的数据库，比如一个CMDB。</p>
+
+<p><img src="http://www.jevotrust.com/Site/graphics/cmdb_config_management.jpg" alt="" /></p>
+
+<!-- more -->
+
+<p>一种方法是“集中存储和管理”，从这些数据源中导出CI的唯一标识、属性、以及关系，然后都整合到一个数据库中。但在经过了一段很长的时间后，这种方案所产生的数据将很难维护，因为伴随着数据源数量的增长，整套系统的维护会变的愈来愈复杂。</p>
+
+<p>另一种方法是“建立联邦的CMDB”，建立一个核心CMDB，用来整合所有配置项的唯一标识、核心属性和关系数据，为所有需要它的IT流程随时提供配置数据，而不需要对所有数据进行集中式地复制。用联邦的模式，让CMDB持有所有CI及其核心属性数据，然后再连接到其他相关的数据源；如服务台事件单、服务水平协议、甚至其他监控的管理控制台界面。通过正确地部署，联邦模式可以使得企业的CMDB能横跨所有的个IT组织，如果需要的话可以对既有的相关系统进行分阶段的实施，这样不仅可以让IT组织能够继续日常业务，还不会带来什么干扰。</p>
+
+<p><img src="http://farm1.static.flickr.com/131/398876934_548e99f7e0.jpg" alt="" /></p>
+
+<p>摘自BMC软件公司公布的VIEWPOINT “CMDB的潜力—驾驭新的IT现实”，CMDB为主题的文章。</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>May 31, 2010</span></p>
+                <p><a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/CMS/CMDB'>Cms/cmdb</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2010/05/31/federation-cmdb/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2010/05/31/federation-cmdb/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2010/05/31/federation-cmdb/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

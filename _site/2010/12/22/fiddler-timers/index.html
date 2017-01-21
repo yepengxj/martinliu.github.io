@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | Fiddler Timers </title>
+    <meta name="description" content="Fiddler is a Web Debugging Proxy which logs all HTTP(S) traffic between your computer and the Internet. Fiddler allows you to inspect all HTTP(S) traffic, se...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2010/12/22/fiddler-timers/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>Fiddler Timers </h1>
+
+            <p><img src="http://www.fiddler2.com/Fiddler/images/FiddlerLogo.png" alt="Fiddler" />Fiddler is a Web Debugging Proxy which logs all HTTP(S) traffic between your computer and the Internet. Fiddler allows you to inspect all HTTP(S) traffic, set breakpoints, and “fiddle” with incoming or outgoing data. Fiddler includes a powerful event-based scripting subsystem, and can be extended using any .NET language.Fiddler is freeware and can debug traffic from virtually any application, including Internet Explorer, Mozilla Firefox, Opera, and thousands more.</p>
+
+<ul>
+  <li>
+    <p><strong>ClientConnected</strong>- Exact time that the client browser made a TCP/IP connection to Fiddler.</p>
+  </li>
+  <li>
+    <p><strong>ClientBeginRequest</strong>– Time at which this HTTP request began. May be much later than ClientConnected due to client connection reuse.</p>
+  </li>
+  <li>
+    <p><strong>ClientDoneRequest</strong> - Exact time that the client browser finished sending the HTTP request to Fiddler.</p>
+  </li>
+  <li>
+    <p><strong>DNSTime</strong> - # milliseconds Fiddler spent in DNS looking up the server’s IP address.</p>
+  </li>
+  <li>
+    <p><strong>GatewayDeterminationTime</strong> - # milliseconds Fiddler  spent determining the upstream gateway proxy to use (e.g. processing  autoproxy script). Mutually exclusive to DNSTime.</p>
+  </li>
+  <li>
+    <p><strong>TCPConnectTime</strong> - # milliseconds Fiddler spent TCP/IP connecting to that server’s IP address.</p>
+  </li>
+  <li>
+    <p><strong>HTTPSHandshakeTime</strong> – Amount of time spent in HTTPS handshake</p>
+  </li>
+  <li>
+    <p><strong>ServerConnected</strong> – Time at which this connection to  the server was made. May be much earlier than ClientConnected due to  server connection reuse.</p>
+  </li>
+  <li>
+    <p><strong>FiddlerBeginRequest</strong> – The time at which Fiddler began sending the HTTP request to the server.</p>
+  </li>
+  <li>
+    <p><strong>ServerGotRequest</strong> - Exact time that Fiddler finished (re)sending the HTTP request to the server.</p>
+  </li>
+  <li>
+    <p><strong>ServerBeginResponse</strong> - Exact time that Fiddler got the first bytes of the server’s HTTP response.</p>
+  </li>
+  <li>
+    <p><strong>ServerDoneResponse</strong> - Exact time that Fiddler got the last bytes of the server’s HTTP response.</p>
+  </li>
+  <li>
+    <p><strong>ClientBeginResponse</strong> - Exact time that Fiddler began transmitting the HTTP response to the client browser.</p>
+  </li>
+  <li>
+    <p><strong>ClientDoneResponse</strong>- Exact time that Fiddler finished transmitting the HTTP response to the client browser.</p>
+  </li>
+</ul>
+
+<p><strong>Can i find out how long the server needs to process my request ?</strong>
+(ServerBeginResponse - ServerGotRequest) is probably what you want.</p>
+
+<p><strong>Can i find out how long the request needs to pass through the network?</strong>
+I’m not sure that’s what you really want to know, but it would be:</p>
+
+<p>(ServerGotRequest - ClientDoneRequest) - (DNSTime + TCPConnectTime)</p>
+
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Dec 22, 2010</span></p>
+                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/NSM'>Nsm</a>
+                            ,
+                        </li>
+                        
+                        <li>
+                            <a href='/category/NSM'>Tools</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2010/12/22/fiddler-timers/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2010/12/22/fiddler-timers/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2010/12/22/fiddler-timers/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

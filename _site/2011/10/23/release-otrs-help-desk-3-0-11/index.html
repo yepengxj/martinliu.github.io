@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | Release: OTRS Help Desk 3.0.11</title>
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2011/10/23/release-otrs-help-desk-3-0-11/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>Release: OTRS Help Desk 3.0.11</h1>
+
+            <hr />
+
+<p>[success]这是一个补丁修补版本。我的名字也第一次出现，感谢Michael的帮忙，没有你我可能迟迟发不上去这个翻译。完整的release notes见 <a href="http://otrs.org/releases/3.0.11">http://otrs.org/releases/3.0.11</a>[/success]</p>
+<table cellpadding="0">
+<tbody>
+<tr>
+
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++ Release Note ++++++++++++++++++++++++
+
+Release:            OTRS Help Desk 3.0.11
+Status:             stable
+Code Name:          Cancún Beach, México
+
+We are proud to announce that the latest patch level release of OTRS 3.0
+(codename: Cancún Beach, México) has been released.
+
+Important for Upgrading
+=======================
+* From OTRS 3.0.x: Make sure you run bin/[otrs.RebuildConfig.pl](http://otrs.RebuildConfig.pl/) after
+the upgrade so that the configuration is refreshed. Otherwise the
+system may not work.
+
+* From OTRS 2.4.x: Please read the UPGRADING and INSTALL files for
+detailed instructions.
+
+Warning
+=======
+OTRS versions from 3.0.beta1 up to 3.0.2 were affected by a bug in the
+GenericAgent which could cause the "Ticket Delete" flag to be active
+by default for new GenericAgent jobs, depending on the locale. If you
+used one of the affected versions and have created new GenericAgent
+jobs with them, please review them to check if the "Ticket Delete"
+flag indeed has the correct value. Otherwise unwanted data loss might
+occur.
+
+Improvements
+============
+* Updated Simplified Chinese Translation, thanks to Martin Liu!
+* Updated Danish translation, thanks to Lars Jørgensen!
+<table cellpadding="0">
+<tbody>
+<tr>
+
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Software Download
+=================* [ [http://otrs.org/downloads/](http://otrs.org/downloads/) ] (Germany/Hamburg)
+* [ [ftp://ftp.otrs.org/pub/otrs/](ftp://ftp.otrs.org/pub/otrs/) ] (Germany/Hamburg)
+
+A complete list of all download mirrors is available at
+[ [http://otrs.org/downloads/](http://otrs.org/downloads/) ].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Oct 23, 2011</span></p>
+                <p><a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/CMS/CMDB'>Cms/cmdb</a>
+                            ,
+                        </li>
+                        
+                        <li>
+                            <a href='/category/CMS/CMDB'>Itil/itsm</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2011/10/23/release-otrs-help-desk-3-0-11/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2011/10/23/release-otrs-help-desk-3-0-11/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2011/10/23/release-otrs-help-desk-3-0-11/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

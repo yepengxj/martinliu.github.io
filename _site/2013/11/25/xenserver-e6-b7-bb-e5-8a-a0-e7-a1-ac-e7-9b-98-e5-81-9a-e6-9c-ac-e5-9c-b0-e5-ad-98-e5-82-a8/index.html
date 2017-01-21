@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | XenServer 添加硬盘做本地存储</title>
+    <meta name="description" content="当您的XenServer测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。下面的实例情况是：测试机有两块硬盘、OCZ  SSD硬盘一块、SATA 不通硬盘一块、还有一个U盘插在系统上、SATA的硬盘是我需要加载的新硬盘">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2013/11/25/xenserver-e6-b7-bb-e5-8a-a0-e7-a1-ac-e7-9b-98-e5-81-9a-e6-9c-ac-e5-9c-b0-e5-ad-98-e5-82-a8/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/XenServer'>Xenserver</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>XenServer 添加硬盘做本地存储</h1>
+
+            <p>当您的 XenServer 测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。</p>
+
+<p>下面的实例情况是：</p>
+
+<ul>
+  <li>
+    <p>测试机有两块硬盘</p>
+
+    <ul>
+      <li>
+        <p>OCZ  SSD硬盘一块</p>
+      </li>
+      <li>
+        <p>SATA 不通硬盘一块</p>
+      </li>
+      <li>
+        <p>还有一个U盘插在系统上</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>SATA的硬盘是我需要加载的新硬盘</p>
+  </li>
+  <li>
+    <p>这个新的硬盘希望被处理成XenServer本地的SR</p>
+  </li>
+</ul>
+
+<p>添加过程中主要需要使用这样几条指令：</p>
+
+<ol>
+  <li>
+    <p>查看当前系统上的检查出来并且挂载中的分区： cat /proc/partitions</p>
+  </li>
+  <li>
+    <p>详细查看这些存储和设备对应的情况： ls -l /dev/disk/by-id/</p>
+  </li>
+  <li>
+    <p>创建新的本地SR: xe sr-create content-type=user device-config:device=/dev/disk/by-id/scsi-SATA_ST9320325ASG_5VD7G964 host-uuid=3850317b-d23a-4ed0-87f9-2b27854319e5 name-label=”SATA320” shared=false type=lvm</p>
+  </li>
+</ol>
+
+<p>[bash]
+[root@XS62 ~]# cat /proc/partitions
+major minor #blocks name</p>
+
+<p>7 0 52378 loop0
+8 0 250059096 sda
+8 1 4193297 sda1
+8 2 4193297 sda2
+8 3 241669447 sda3
+8 16 312571224 sdb
+8 17 204800 sdb1
+8 18 312235312 sdb2
+8 32 4137984 sdc
+8 36 4137856 sdc4
+252 0 241655808 dm-0</p>
+
+<p>[root@XS62 ~]# ls /dev/disk/by-id/
+scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2 scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2-part3 scsi-SATA_ST9320325ASG_5VD7G964-part2
+scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2-part1 scsi-SATA_ST9320325ASG_5VD7G964 usb-Generic_Flash_Disk_4266F915
+scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2-part2 scsi-SATA_ST9320325ASG_5VD7G964-part1 usb-Generic_Flash_Disk_4266F915-part4</p>
+
+<p>[root@XS62 ~]# ll /dev/disk/by-id/
+total 0
+lrwxrwxrwx 1 root root 9 Nov 22 19:52 scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2 -&gt; ../../sda
+lrwxrwxrwx 1 root root 10 Nov 22 19:52 scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2-part1 -&gt; ../../sda1
+lrwxrwxrwx 1 root root 10 Nov 22 19:52 scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2-part2 -&gt; ../../sda2
+lrwxrwxrwx 1 root root 10 Nov 22 19:52 scsi-SATA_OCZ-AGILITY4_OCZ-DY4J9LY3615W5MF2-part3 -&gt; ../../sda3
+lrwxrwxrwx 1 root root 9 Nov 22 19:52 scsi-SATA_ST9320325ASG_5VD7G964 -&gt; ../../sdb
+lrwxrwxrwx 1 root root 10 Nov 22 19:52 scsi-SATA_ST9320325ASG_5VD7G964-part1 -&gt; ../../sdb1
+lrwxrwxrwx 1 root root 10 Nov 22 19:52 scsi-SATA_ST9320325ASG_5VD7G964-part2 -&gt; ../../sdb2
+lrwxrwxrwx 1 root root 9 Nov 22 19:52 usb-Generic_Flash_Disk_4266F915 -&gt; ../../sdc
+lrwxrwxrwx 1 root root 10 Nov 22 19:52 usb-Generic_Flash_Disk_4266F915-part4 -&gt; ../../sdc4</p>
+
+<p>[root@XS62 ~]# xe sr-create content-type=user device-config:device=/dev/disk/by-id/scsi-SATA_ST9320325ASG_5VD7G964 host-uuid=3850317b-d23a-4ed0-87f9-2b27854319e5 name-label=”SATA320” shared=false type=lvm
+cf0893c3-9398-d802-0706-66a8699c3a59
+[/bash]</p>
+
+<p>从上面的命令可以看到，最后一条命令完成后，系统返回了新SR的ID;然后在登录XenCenter就可以看到这个存储了，虚拟现在就可以使用这个存储了。</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Nov 25, 2013</span></p>
+                <p><a href=""></a> in <a href='/category/XenServer'>Xenserver</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/XenServer'>Xenserver</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2013/11/25/xenserver-e6-b7-bb-e5-8a-a0-e7-a1-ac-e7-9b-98-e5-81-9a-e6-9c-ac-e5-9c-b0-e5-ad-98-e5-82-a8/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2013/11/25/xenserver-e6-b7-bb-e5-8a-a0-e7-a1-ac-e7-9b-98-e5-81-9a-e6-9c-ac-e5-9c-b0-e5-ad-98-e5-82-a8/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2013/11/25/xenserver-e6-b7-bb-e5-8a-a0-e7-a1-ac-e7-9b-98-e5-81-9a-e6-9c-ac-e5-9c-b0-e5-ad-98-e5-82-a8/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

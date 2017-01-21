@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | [ZT]不用虚拟机，也能桌面虚拟</title>
+    <meta name="description" content="转贴学习，FROM: http://vdesk.blog.51cto.com/2969473/959588">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2012/08/13/zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>[ZT]不用虚拟机，也能桌面虚拟</h1>
+
+            <p>转贴学习，FROM: <a href="http://vdesk.blog.51cto.com/2969473/959588">http://vdesk.blog.51cto.com/2969473/959588</a></p>
+
+<p>最近Citrix在XenDesktop 5.6 Feature Pack 1版本中发布了一个新的功能“Remote PC”。这个功能是如此简单而又聪明！</p>
+
+<p>“从外网访问我办公桌面的PC”，其实是一个原始得不能再原始的需求。自VPN推广以来就不绝于耳。但从未有一个厂商能大范围的实现这个需求。Remote PC的出现终于彻底满足了这个需求，而且将它再向前推进了一大步，即“从任何设备上远程访问我办公桌面的PC”。</p>
+
+<p>我看好“Remote PC”不仅仅基于以上理由，更重要的一个原因是我认为它的出现会让桌面虚拟化更加容易推进和被广为接受！</p>
+
+<p>桌面虚拟化的好处不言而喻。但为什么桌面虚拟化项目推进起来还是会觉得困难？很重要的一个阻碍因素就是成本！要想获得桌面虚拟化所带来的那些好处，意味着你首先要投入巨额的资金，采购一堆的服务器，一堆的共享存储，然后将物理PC转换到虚拟PC。在经济危机的大背景下，CXO们确实踌躇不前，他们面临一个非常现实的问题就是，企业已经投资的这些桌面PC怎么办？ “Remote PC”让这个问题迎刃而解。企业只需要投入少量预算在Citrix基础管理架构上，就可以让所有办公桌面的PC获得远程移动办公的能力。很小的投入，不再是惠及几十、上百个点，而是立刻让企业所有的PC产生回报。而一旦人们慢慢适应了这种高效的移动办公方式，桌面的PC也渐渐折旧为零，他们可以很自然地迁移到真正桌面虚拟化（VDI）的模式。</p>
+
+<p>另外，只要是做过桌面虚拟化的人都知道，不可能让所有的桌面都被虚拟化，总会有一些潜在的障碍冒出来。一些明明唾手可得的桌面虚拟化项目，往往因为少数桌面不满足虚拟化的条件而被搁置。比如，奇奇怪怪的外设，老得掉渣的应用，特殊的硬件要求，甚至是不可理喻的借口等等都会让你赔上无数的时间，让整个项目组深陷其中，进退两难。比如我遇到过的两个极端例子，就是某要害部门的员工中午休息时间有打对战游戏的爱好，他要求的操作响应速度虚拟桌面根本达不到要求。还有就是高层领导总是担心桌面上收以后，他的个人数据无秘密可言，而坚持必须使用物理PC。当遇到这些情况出现时，桌面虚拟化项目的范围就会从100%的用户，缩减到80%，50%，甚至更糟。厂商和代理商前期投入了巨大的人力物力，但最后的收益却直线下降。Remote Pc的出现，立刻趟平了上面所列的这些障碍。只需要在用户的物理PC上安装一个Agent，他们一样能从任何地方，任何设备上访问自己的桌面和应用程序。于是项目组终于可以将精力放在可轻松实现的目标上，等到以后再折回来解决这些掉队的桌面。</p>
+
+<p>Remote PC的最大价值，就在于它给了我们一个选择！我们终于可以选择让一些棘手的事情变得简单！</p>
+
+<p>所以当你花了数周或者数月，试图解决当前技术上还不完美的场景时，请换个思路！ Remote their PC！</p>
+
+<p>讲了半天，你可能还不知道Remote PC到底是什么功能，那就看看下面的介绍吧：</p>
+
+<ul>
+  <li>
+    <p>不再需要专门的VPN通道访问你的个人PC；</p>
+  </li>
+  <li>
+    <p>认证通过DDC来进行，比如你可以实现双因素认证；</p>
+  </li>
+  <li>
+    <p>不需要记住你的个人PC的主机名和IP地址；</p>
+  </li>
+  <li>
+    <p>在物理PC上得到全部的HDX体验；</p>
+  </li>
+  <li>
+    <p>一个用户可以被分配多个桌面，而多个用户也能分配一个桌面；</p>
+  </li>
+  <li>
+    <p>提供新的WDDM显示驱动；</p>
+  </li>
+  <li>
+    <p>和本地显示驱动和平相处；</p>
+  </li>
+  <li>
+    <p>使用了ThinWire，可以支持任意设备，也能实现Aero效果啦；</p>
+  </li>
+  <li>
+    <p>电源管理功能：即使在远程PC关机时也能远程执行开机操作（必须要Intel AMT技术支持）；</p>
+  </li>
+</ul>
+
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Aug 13, 2012</span></p>
+                <p><a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/XenDesktop'>Xendesktop</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2012/08/13/zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2012/08/13/zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2012/08/13/zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

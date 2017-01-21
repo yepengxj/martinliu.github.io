@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 如何快速搭建CloudStack开发环境</title>
+    <meta name="description" content="本文转自 cloudstack-dev@incubator.apache.org 邮件组：">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2012/08/07/e5-a6-82-e4-bd-95-e5-bf-ab-e9-80-9f-e6-90-ad-e5-bb-bacloudstack-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/CloudStack'>Cloudstack</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>如何快速搭建CloudStack开发环境</h1>
+
+            <p>本文转自 cloudstack-dev@incubator.apache.org 邮件组：</p>
+
+<ol>
+  <li>
+    <p>download and Install VirtualBox,</p>
+  </li>
+  <li>
+    <p>download DevCloud image from <a href="http://download.cloud.com/templates/devcloud/DevCloud.ova">http://download.cloud.com/templates/devcloud/DevCloud.ova</a>,</p>
+  </li>
+  <li>
+    <p>import DevCloud image into VB,</p>
+  </li>
+  <li>
+    <p>checkout CloudStack code from Apache git repo into my machine,</p>
+  </li>
+  <li>
+    <p>execute commands “ant clean-all build-all”, “ant rdeploy -Drhost=172.168.56.1 -Dport=2222”,  ”ant rdeploydb -Drhost=172.168.56.1 -Dport=2222”,  ”ant rdebug -Drhost=172.168.56.1-Dport=2222”   all seems success</p>
+  </li>
+  <li>
+    <p>on browser <a href="http://192.168.56.1:8080/client/">http://192.168.56.1:8080/client/</a>, login as admin/password, continue with basic installation, use exactly the same</p>
+  </li>
+  <li>
+    <p>data for creating Zone, pod, cluster, etc that here <a href="http://wiki.cloudstack.org/display/comm/DevCloud">http://wiki.cloudstack.org/display/comm/DevCloud</a> - step8/f(Access CloudStack web UI: <a href="http://ip-address-of-your-machine:8080/client">http://ip-address-of-your-machine:8080/client</a>, create a new zone, add pod/cluster/host etc). Following install guide after add host I should add Primary storage (there is no that step on the Devcloud manual), so I set similar to the Secondary storage (path:/opt/storage/primary, server: 10.0.2.15), I don’t know if it makes a sense.</p>
+  </li>
+  <li>
+    <p>On the latest step I click “Launch” button</p>
+  </li>
+</ol>
+
+<p>转帖自学一下。如果你是Windows的桌面机</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Aug 7, 2012</span></p>
+                <p><a href=""></a> in <a href='/category/CloudStack'>Cloudstack</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/CloudStack'>Cloudstack</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2012/08/07/e5-a6-82-e4-bd-95-e5-bf-ab-e9-80-9f-e6-90-ad-e5-bb-bacloudstack-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2012/08/07/e5-a6-82-e4-bd-95-e5-bf-ab-e9-80-9f-e6-90-ad-e5-bb-bacloudstack-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2012/08/07/e5-a6-82-e4-bd-95-e5-bf-ab-e9-80-9f-e6-90-ad-e5-bb-bacloudstack-e5-bc-80-e5-8f-91-e7-8e-af-e5-a2-83/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 你还在为失去服务器感到焦虑？</title>
+    <meta name="description" content="我耐心看了以下这篇文章《AWS Lambda Debuts for Running Code in the Cloud 》。我还没有来得及去测试一下这个服务，我只是对它感到新奇。有了它，业务应用可能就只需要Dev了，而不需要Ops了；更不用提什么DevOps了。当然这个观点稍微有点极端了。它的确实现了：程序代码可...">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2015/02/15/e4-bd-a0-e8-bf-98-e5-9c-a8-e4-b8-ba-e5-a4-b1-e5-8e-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-84-9f-e5-88-b0-e7-84-a6-e8-99-91-ef-bc-9f/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/Cloud Computing'>Cloud computing</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>你还在为失去服务器感到焦虑？</h1>
+
+            <p>我耐心看了以下这篇文章<a href="http://www.serverwatch.com/server-trends/aws-lambda-debuts-for-running-code-in-the-cloud.html">《AWS Lambda Debuts for Running Code in the Cloud 》</a>。我还没有来得及去测试一下这个服务，我只是对它感到新奇。有了它，业务应用可能就只需要Dev了，而不需要Ops了；更不用提什么DevOps了。当然这个观点稍微有点极端了。它的确实现了：程序代码可以基于事件在AWS的各种服务中运行。看完了那片文章我也没有察觉到它底层到底使用的是什么技术。只是说AWS再次走到了共有云服务的最前端。</p>
+
+<p>传统的共有云服务里，大家还停留在虚拟机提供，网络隔离的认识阶段。数据库服务、大数据服务、配套的程序部署和管理监控服务，对于一般性的共有云提供商，也不尽完全。曾经和作共有云的人聊过，他们觉得：传统企业数据中心的拥有着和管理这依然有巨大的纠结“失去对服务器的管控，就会有事业的风险”。因此，可见对服务器的管理是多么的重要。但是，如果你拥有了服务器的控制，并坐拥巨大的私有云建设的资金，那么您能如何很快交付出靠谱的云服务呢？说实话，目前私有云的建设很缓慢，也就是作个大批量的服务器虚拟化。IaaS的建设案例还很少，即使有人说他们建成了新一代的云平台，近看一下大多还仅仅是增强版的虚拟机提供。当然这个虚拟机的提供是基本功，做不好这一客其它的云服务也面谈。我们详细观察以下AWS，它大量的服务，像是RDS，LB，Auto Scaling 等等功能，无处不见AWS EC2的扎实功底和无限变化。</p>
+
+<p>国内的广大用户，已经选择了私有云了；越大的企业，越有条件大赶快上云建设。只是却是道路艰辛，图省事的有钱人，可以上全套V公司的云计算，却是它的吸引力、炫耀力和安慰力都是无法阻挡的。底层上的技术的引用是至关重要的，越省事的套件，等同于越少的弹性和自由度，等同于更少的自由发挥的空间，和更少的创造。AWS是基于Xen的服务器虚拟化技术，和一堆的其他开源技术。入手这条路解决了启动费用高的问题，带来了无限的创新和发展自由空间。他们不需要商业化软件或者产品么，例如，AWS是重要的Citrix netscaler用户。</p>
+
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Feb 15, 2015</span></p>
+                <p><a href=""></a> in <a href='/category/Cloud Computing'>Cloud computing</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Cloud Computing'>Cloud computing</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2015/02/15/e4-bd-a0-e8-bf-98-e5-9c-a8-e4-b8-ba-e5-a4-b1-e5-8e-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-84-9f-e5-88-b0-e7-84-a6-e8-99-91-ef-bc-9f/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2015/02/15/e4-bd-a0-e8-bf-98-e5-9c-a8-e4-b8-ba-e5-a4-b1-e5-8e-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-84-9f-e5-88-b0-e7-84-a6-e8-99-91-ef-bc-9f/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2015/02/15/e4-bd-a0-e8-bf-98-e5-9c-a8-e4-b8-ba-e5-a4-b1-e5-8e-bb-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-84-9f-e5-88-b0-e7-84-a6-e8-99-91-ef-bc-9f/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

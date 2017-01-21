@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | 安全地简化了网页永久链接</title>
+    <meta name="description" content="如此调整之后，我的所有网页的网址链接都变成了： http://martinliu.cn/文章标题.html .html 其实可以去掉，换成一个/ 结尾，也有说这样可以让搜索引擎认为这个页面是一个静态页面的，但我个人更愿意把它作为很久很久以前我用notepad 编写html代码的回忆。(插件有问题，最后还是/结尾)">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2015/03/10/e5-ae-89-e5-85-a8-e7-9a-84-e7-ae-80-e5-8c-96-e4-ba-86-e7-bd-91-e9-a1-b5-e7-9a-84-e6-b0-b8-e4-b9-85-e9-93-be-e6-8e-a5/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/Blog'>Blog</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>安全地简化了网页永久链接</h1>
+
+            <p>网页的 永久链接 的配置是在：Settings –&gt; Permalink Settings； 通过这个设置把Wordpress默认的代码型网页网址 http://martinliu.cn/?p=123 变成了 搜索引擎更友好，而且人也更容易懂的网址。例如我目前的：http://martinliu.cn/文章标题/</p>
+
+<p>我之前的永久链接其实已经改过好多次了，期间多次是由于更新网站分类结构，还有是由于看了多篇纠结的wordpress SOE文章导致。前几次修改都是很粗暴的直接修改，并没有顾忌到对以前搜索引擎的已经抓取的网页做保护。这次我必须对当前已经纳入搜索引擎的网页做保护了，毕竟文章现在比较多了，非常有必要对搜索引擎用户做保护。</p>
+
+<p>本次修改主要参考了文章是：<a href="http://www.wpexplorer.com/change-permalinks-wordpress/">A Simple Guide to Changing Your Permalinks Without Breaking Your WordPress Website</a> 此文推荐了一个简洁的方法，使用插件： Simple 301 Redirects</p>
+
+<p>安装和激活插件后，我的配置过程如下。首先，更新永久链接到新的设置。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/customer-structure.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/customer-structure-520x286.jpg" alt="customer-structure" /></a></p>
+
+<p>然后再去Simple 301 Redirects 的配置做如下修改：(插件有bug，最后配置网址是 /%postname%/  .html 了发现301 重定向不成功。)</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/301.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/301.jpg" alt="301" /></a></p>
+
+<p>最后到搜索引擎里面看下是否所有的已有抓取的网页都可以正常访问。在搜索引擎中搜索： site:martinliu.cn</p>
+
+<p><a href="http://cn.bing.com/search?q=site%3Amartinliu.cn">bing 搜搜结果点这里 </a>在结果页面上点击任何一个文章，文章应该被正确加载出来了。</p>
+
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Mar 10, 2015</span></p>
+                <p><a href=""></a> in <a href='/category/Blog'>Blog</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/Blog'>Blog</a>
+                            ,
+                        </li>
+                        
+                        <li>
+                            <a href='/category/Blog'>Wordpress1</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2015/03/10/e5-ae-89-e5-85-a8-e7-9a-84-e7-ae-80-e5-8c-96-e4-ba-86-e7-bd-91-e9-a1-b5-e7-9a-84-e6-b0-b8-e4-b9-85-e9-93-be-e6-8e-a5/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2015/03/10/e5-ae-89-e5-85-a8-e7-9a-84-e7-ae-80-e5-8c-96-e4-ba-86-e7-bd-91-e9-a1-b5-e7-9a-84-e6-b0-b8-e4-b9-85-e9-93-be-e6-8e-a5/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2015/03/10/e5-ae-89-e5-85-a8-e7-9a-84-e7-ae-80-e5-8c-96-e4-ba-86-e7-bd-91-e9-a1-b5-e7-9a-84-e6-b0-b8-e4-b9-85-e9-93-be-e6-8e-a5/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>

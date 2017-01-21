@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Martin's Blog | BMC Atrium CMDB 类定义迁移</title>
+    <meta name="description" content="当对CDM做了定制，并且要在不同的服务器直接做类的迁移的时候，需要把定制过的类都导出，然后在目标机上导入。可以使用的CMDB自带的命令行cmdbdriver工具。">
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="canonical" href="http://localhost:4000/2011/01/12/bmc-atrium-cmdb-sync-cdm-class/">
+    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+
+    <!--[if lt IE 9]>
+        <script src="/js/vendor/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+
+  <body class="">
+    <!-- if the user has javascript disabled they can still use the menu -->
+<noscript>
+    <div class="no-js-menu clearfix">
+        <ul>
+            
+                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+            
+                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+            
+                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+            
+                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+            
+                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+            
+        </ul>
+    </div>
+</noscript>
+<!-- end no script -->
+
+    <header class="hero-image" style="background-image: url(/img/.jpg);">
+    <span class="menu-trigger animated fadeInDown">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </span>
+
+    <div id="menu-target">
+    <ul>
+        
+            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
+        
+            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+        
+            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
+        
+            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
+        
+            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
+        
+    </ul>
+</div>
+
+</header>
+
+<main class="container">
+    <div class="row">
+        <div class="col-xs-12 single-content">
+            <p class="meta">
+                <a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
+            </p>
+
+            <h1>BMC Atrium CMDB 类定义迁移</h1>
+
+            <p>当对CDM做了定制，并且要在不同的服务器直接做类的迁移的时候，需要把定制过的类都导出，然后在目标机上导入。可以使用的CMDB自带的命令行cmdbdriver工具。</p>
+
+<p><em><strong>cmdbdriver.exe能支持的参数</strong></em></p>
+
+<p>Options:
+-u<USER>
+-a<AUTHORSTRING>
+-p<PASSWORD>
+-l<LOCALE>
+-s<SERVER>
+-x<INPUTFILE_FULLPATH>
+-t<PORT_NUMBER>
+-q<QUIET_MODE_NUMBER></QUIET_MODE_NUMBER></PORT_NUMBER></INPUTFILE_FULLPATH></SERVER></LOCALE></PASSWORD></AUTHORSTRING></USER></p>
+
+<p>登录CMDBdriver 实例：   cmdbdriver -u Demo -p bmc@XXX -s atriumcmdb -t 9988</p>
+
+<p>登录之后在运行另外用于初始化的两个命令 init 和log</p>
+
+<p>Command: init
+INITIALIZATION</p>
+
+<p>CMDBInitialization  results
+ReturnCode:  OK
+Status List : 0 items</p>
+
+<p>Command: log
+Control record:
+Authentication string () :
+User name () : Demo
+Password () : <strong>**</strong><em>**</em>
+Locale[.charSet] () :
+TimeZone () :
+Server () : atriumcmdb</p>
+
+<p><em><strong>导出类定义的方法实例</strong></em>
+Command: xexpdf
+XEXPORT DEFINITION
+Export all classes? (F):
+Classes to export:
+Class and its subclasses, From namespace (1,2) (1):
+Namespace (): BMC.CORE
+Class name (): BMC_ComputerSystem
+Export all attributes with classes? (T):
+Filename for exported data: c:\demo\BMC_ComputerSystem.xml</p>
+
+<p>CMDBXExportDef  results
+ReturnCode:  OK
+Status List : 0 items</p>
+
+<p>使用文本编辑器查看c:\demo\BMC_ComputerSystem.xml的导出结果</p>
+
+<p><em><strong>导入类定义的方法：</strong></em>
+Command: impdf
+DEFINITION IMPORT
+Import Item List:
+Number of import items (0):
+Import option : Create/Overwrite (1-2) (1): 2
+Filename containing import data: c:\demo\cs.xml</p>
+
+<p>CMDBImportDef  results
+ReturnCode:  OK
+Status List : 0 items</p>
+
+<p>使用Remedy User，用Demo登录，把语言切换到英文，然后在查BMC_ComputerSystem表达，在custom 2 ～n的tab页面里面查看哪些导入的属性。或者使用class manager查看确认导入是否成功。</p>
+
+
+        </div><!-- main-content/col -->
+    </div> <!--/row -->
+
+</main> <!-- /container -->
+
+<footer class="single">
+    <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-2">
+            <img src="/img/.jpg" class="user-icon " alt="user-image">
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="category-list">
+                <p>Published <span>Jan 12, 2011</span></p>
+                <p><a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a></p>
+
+                <div class="other-catergories">
+                    <h3>Also found in</h3>
+
+                    <ul>
+                        
+                        <li>
+                            <a href='/category/CMS/CMDB'>Cms/cmdb</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+        </div><!-- end col -->
+        <div class="col-xs-12 col-sm-4">
+            <div class="social">
+                <p>Share this article</a>
+                <div class="social-links">
+                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2011/01/12/bmc-atrium-cmdb-sync-cdm-class/"><i class="fa fa-twitter"></i></a>
+
+                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2011/01/12/bmc-atrium-cmdb-sync-cdm-class/"><i class="fa fa-facebook-official"></i></a>
+                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2011/01/12/bmc-atrium-cmdb-sync-cdm-class/"><i class="fa fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </div><!-- end row -->
+</div>
+
+
+    
+</footer>
+
+
+    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
+    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
+    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+    
+    <script src=' /js/main.js'></script>
+  </body>
+
+</html>
