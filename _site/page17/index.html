@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/page17/" />
+  <link rel="canonical" href="https://martinliu.github.io/page17/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2009/11/19/how-to-select-a-cmdb/">
+	  <h2 class="post-title">CMDB选型解密</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 19, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        自打承接了《Step by Step Guide to Building a CMDB (Updated for ITIL V3)》的翻译工作之后，由于平时工作太忙，翻译工程只能在业余时间完成；现在渐渐感到了此项工作的压力，每每想到读者对英文翻译版本读物的高期望和要求时，就愈加感到此项工作责任之重。不过本书对我来说还是一剂很好的补品，对我最近的ITSM项目都有直接的借鉴和指导作用。说来此书有很多实用且精彩之处，相信读了英文原版的人更能有所体会。我忍不住想把其中的部分内容提前与你们探讨，这里想与你们分享如下两个内容。
+
+
+        
+        
+          <a href="/2009/11/19/how-to-select-a-cmdb/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        book, cmdb, cms, ITIL, ITSM, translation
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/11/10/e4-b8-8b-e9-9b-aa-e4-ba-86/">
+	  <h2 class="post-title">下雪了</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 10, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        二零零九年的第二场雪，比以往的都来的大一点。昨天晚上的大雪让我感到惊喜，今天早晨空气非常好，不过地铁里的人很多。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Blog, snow
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/11/09/knowing/">
+	  <h2 class="post-title">Knowing</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 9, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        这个电影的官方网站是很炫的，但是看后感觉真的不怎么样。http://www.knowing-themovie.com/ 看是感觉有点悬疑，接着又一点点的惊悚，然后算是带点科幻吧，地球被一个太阳的耀斑给毁灭。俩小屁孩被什么人/外星人接到了另外的一个星球上。难道这就是传说中的亚当与夏娃么？
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Movie
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/11/03/how-to-get-smart/">
+	  <h2 class="post-title">汝亦知射乎</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on November 3, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        康肃问曰：“汝亦知射乎？吾射不亦精乎？”翁曰：“无他，但手熟尔。”康肃忿然曰：“尔安敢轻吾射！”翁曰：“以我酌油知之。”乃取一葫芦置于地，以钱覆其口，徐以杓酌油沥之，自钱孔入，而钱不湿。因曰：“我亦无他，惟手熟尔。”康肃笑而遣之。ZT– 欧阳修《卖油翁》MY VIEWPOINT：IT管理的好坏与否，不是依靠个体的技术能力和熟悉程度。铜钱上的孔，是衡量能力和筛选智慧的重要工具。智慧获取数据抽取-&amp;gt;分析-&amp;gt;转化的能力和工具。这三个过程中越往后对工具的依赖程度越低。如图所示，“数据包”是从一个层次传递到下一个层次。“智慧”层次具有作出明智决策必需的所有组成部分 —数据、信息和知识。当然，可以在任意层次作出决策，这取决于现有的结果和条件。下面的例子用于说明在各个层次进行决策的过程：　　数据层：服务台经理发现有二十位客户等待打入电话。他可能会决定临时增加一线客户服务人员的数量，这是根据一条数据制定的决策。　　信息层：在另一类似的情况下，有 20 位客户等待打入电话，但这次经理掌握了更多的数据。他知道有一台目前已停机但马上将恢复正常的服务器。在这种情况下，经理可能决定稍后再增加一线客户服务人员的数量，因为他（或她）怀疑这两个问题是相关的。在拥有多个数据源的情况下，经理掌握的信息更多，并将根据可用信息作出决策。　　知识层：服务台经理发现等待打入电话的客户不断增多，而且某台服务器即将接近满负荷运转。因为她拥有用以说明如何应对此情况的信息，所以可以立即采取适当的行动隔离并解决问题。这个决策是基于知识作出的。　　智慧层：IT 执行官正在温习上个月的知识，并发现某一供应商提供的几台服务器出了问题。他们将决定要求供应商评估其所有服务器，以确定其他服务器是否会出现同样的问题。这个决策是基于智慧作出的。　　尽管这些例子可能过于简单，但它们可作为理解“智慧分层体系”的参考。来源：行业外网
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ITSM, Knowoledge Base, metric, ViewPoint
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/29/pick-a-book-name-for-step-by-step-guide-to-building-a-cmdb/">
+	  <h2 class="post-title">选书名</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 29, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        好消息《Step by Step Guide to Building a CMDB (Updated for ITIL V3)》即将翻译成中文出版。市场里ITIL的书越来越多，但是讲CMDB的书却一直很少，能讲解清楚CMDB建设过程的的书就更少。可是国内ITIL用户CMDB建设之瓶颈却越来越明显，我们希望有一本好的书作为这项重要工作的参考指南。给此书起一个好的名字是头等大事，目前能想到的书名如下：Step by Step Guide to Building a CMDB 中文书名？(polls)寻求前100名投票者，请对以上书名投票，并评论；如果您有更好的书名，欢迎推荐；请在下面留言，请正确填写邮箱，您推荐书名一旦被选用必有感谢送上。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        book, cmdb, cms, translation
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/22/small-person-big-hero/">
+	  <h2 class="post-title">小人物大英雄</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 22, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        又一个小人物大英雄的美国片。10-1前后红色电影充斥所有影院，这是近期看过的最好看的一部电影了。比较好的刻画了一个人物的多面性。影片中描写了很多耐人寻味的小概率事件。这个情节比较紧凑，高潮出现在主角被迫送钱。故事结尾他乘坐地铁，带着一加仑牛奶平安回家，看似一个小市民平常的一天。电影海报如下图所示。
+
+
+        
+        
+          <a href="/2009/10/22/small-person-big-hero/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Movie
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/21/what-is-cloud-computing/">
+	  <h2 class="post-title">何谓云？</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 21, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        下面是两个Youtube上的视频，短短5分钟的视频就把云计算的相关核心概念解释的很清楚。好像国内吧Youtube给屏蔽了，上面的视频可能看不到，Google真的应该和中国政府把关系搞好，哎~~
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        rPath, salesforce
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/20/how-dell-does-it/">
+	  <h2 class="post-title">DELL如何管理IT？</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 20, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Dell is a big company, if you wants to know how DELL does IT management with BMC, please check out this vide form Dell website.DELL是一个家喻户晓的公司，它是如何做IT管理的呢？请查看这段来自DELL网站的视频。视频中谈到DELL采用的是全套ITSM套件，提到很多的是相关流程是如何使用CMDB的配置信息的，从一个侧面我们可以看到配置管理的重要性。CMDB可以看着成熟客户的标志。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        BMC, cmdb, DELL, ITIL, ITSM
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/17/step-by-step-guide-to-building-a-cmdb/">
+	  <h2 class="post-title">手把手教您构建CMDB/CMS</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 17, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        If you have no idea about how to build a CMDB, you should check out this document. It come from http://www.bmc.com/products/product-listing/53556216-141391-2117.htmlDownload it: Step by Step Guide to Building a CMDB (Updated for ITIL  V3) (pdf)该《手把手CMDB/CMS构建指导手册》包括了配置管理数据库/系统建设的所有相关流程、技术和指导性建议。如果你有CMDB的建设意向，该手册非常值得仔细阅读。欢迎留下一个反馈，投票或者留言都行。[poll id=”8”]
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Atrium, BMC, cmdb, cms
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/05/what-does-cmdb-store/">
+	  <h2 class="post-title">CMDB中存什么？</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 5, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        [caption id=”” align=”alignnone” width=”406” caption=”dmtf.org”][/caption]当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据模型是DMTF的通用信息模型，它是以面相对象的方式来描述各类CI和关系。它是一个工具用来帮你对环境中的各种物理和逻辑的CI和关系进行分类，参考这个模型选择一些有用的类（广度），然后在参考它对每个类属性的描述（粒度）。这些类的选择只是一个初步的研究，每个CMDB厂商和工具对其实施和参考的力度都不同，也需要看您具体实施的是什么工具。例如：你需要描述银行基金业务系统，你可能选择的CI类包括：客户群、业务流程、业务活动、业务服务、IT服务、应用系统、应用、软件服务器、服务器、网络、存储等；关系包括：组件、依赖和影响。CI类和关系的选择也基本上遵循够用就好的原则；而且每个类对应的CI实例都需要有人负责管理维护，需遵循，谁负责、谁维护的原则保障其属性的精确性。对于整个CMDB来说如果存在没有Onwer的CI或者关系，如果它是由自动化配置发现工具来更新的；那么它可以存在，如果不是的话，它可能根本就不该存在。所以CMDB中保存的数据不是越多，越细越好；而是够用就好，能保证更新就好。由于数据根本就不是免费的，即使国内的人力成本低，也不应该雇用一帮专职更新CMDB的人。  综上所述：我们说明了CMDB中数据选取和存放的最基本原则和方法，在CMDB产品选型过程中需要着重考察产品的数据模型本身和其管理的能力，还包括其CI和关系的扩展和定制能力；包括数据类型的支持和界面定制的程度。那么CMDB中的CI和关系有该如何展现呢？这是CMDB系统的另外一个功能：可视化。下面是一个CI和关系展示的实例供参考：[http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf#swf&amp;amp;width=320&amp;amp;height=320]全屏查看或者下载Flash文件第一代的配置展示方式是，纯数据表格方式。第二代具有一种固定格式的图形展示方式，除了那几张视图外，别的需要单独开发。下一代的具有各种视图定制功能，并且支持关系和ci的过滤等等。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ci, cmdb, cms, relationship, 添加新标签
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/05/bo-ke-zai-ci-ban-jia-hui-guo/">
+	  <h2 class="post-title">博客再次搬家回国</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 5, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        趁着国庆长假，我有空吧Blog从国外的免费虚拟主机搬回国，搬到了yo2.cn。原因意外，不知道为啥，访问martinliu.cn首页时，总是被重定向到myfacebook.net上，访问其它二级页面没有问题。这个问题让我着实抓狂了好几周，国庆前的几周一直在上海出差，比较忙，基本上9月九荒废了，别说解决这个问题，就连一篇blog也没有时间写啊！想到现在还是没有想清楚，被重定向的原因到底为何？可能是被黑了，可能是被强制添加了广告。不过这个事件也不全是我搬回国的原因，其它原因：
+
+
+        
+        
+          <a href="/2009/10/05/bo-ke-zai-ci-ban-jia-hui-guo/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Blog, wordpress
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/10/05/guo-qing-l/">
+	  <h2 class="post-title">国庆掠影</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on October 5, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        [gallery link=”file” columns=”3” orderby=”ID”]图片说明：
+
+
+        
+        
+          <a href="/2009/10/05/guo-qing-l/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        北京, 国庆, 节日
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/08/29/martinmarks-for-29th-august/">
+	  <h2 class="post-title">MartinMarks for 29th August</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 29, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        New IT Job: CMDB Manager从此IT部门有多了一个职位CMDB经理，不过某人的工作量加倍了也没准哈哈，从这个文章中可以看出这并不是一个可有可无的职位，而且CMDB的建设和推广，以及管理和其他的ITIL流程没有区别，需要结合技术、流程和人老三样，而且要再次改造人们对于配置管理的行为方式和文化了。Role Overview: CMDB ManagerCMDB经理负责管理和维护您的CI，工作内容都有了，CIT/CTO招不招这个人由您。CMDBs reduce costs, automate tasksCMDB更多的不是一种技术，更多的是流程，联邦技术让您从一个集中的CMDB来访问这个多元化多变的世界。CMDB信息需要多种来源、产品和工具。Top 10 reasons NOT to implement CMDB不去实施CMDB的10个理由Top Ten Reasons to Implement a CMDB实施CMDB的10个理由The federated CMDB: Getting past the hype to the good stuff cmdbf标准的实施在各家产品中尚处于开始阶段，是否大家都会照着做呢。联邦让所有的配置数据更易访问。Logo Mark
+
+        
+        
+          <a href="/2009/08/29/martinmarks-for-29th-august/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cmdb, cms, ITIL, ITSM, 流程, 配置经理
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/08/29/csf-or-kpi-matrix-itsm/">
+	  <h2 class="post-title">IT服务管理考核向左走向右走: CSF OR KPI?</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 29, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        最近做的一个项目中需要帮用户设计一个CMDB的成熟度模型，能够从该模型中持续的检查CMDB的建设程度。所以我研究注意了一下的一些书籍，考虑有机会可以买回来研究一下：IT服务管理的持续改进需要一定的手段实现，这是ITIL V3中的一个重要流程。CSF是关键成功因素，KPI是关键性能指标，这些都是metrics管理过程中需要关注的手段。每个流程都可以找到相应的CSF和KPI。CSF算是V3的新生事物，我想它可能会对IT管理质量的衡量和改进带来新的方式。别的不说，我只想说说KPI管理方法可能带来的坏处。举个例子：有个公司想通过“事件单数”来考核服务台一线人员的工作。结果当他们在执行了一段时间后，他们发现服务台中有大量重复的事件单，实际上服务台对每个收到的电话都新建一个事件单，并没有做重复事件匹配查找的工作。进一步的也影响了通过重复事件来做进一步的问题管理。从考核管理的角度看，ITSM的考核指标和体系如何建立的合理，如何才能建立的正确的设计和实施的确是一件大事。否则会有什么后果，我们可以想想三鹿毒奶粉事件，奶粉的蛋白质含量是奶粉质量的重要指标KPI，营养健康是奶粉的终极CSF目标。三鹿真的给了我们一个血的教训啊，想让你的IT服务质量如何呢？可以想想三鹿。不过还是需要多多学习所有可能的CSF和KPI，从何设计出确实可行的管理方式。Implementing Metrics for IT Service Management (ITSM)ISBN: 9789087531140Author: David Smith, Micromation CanadaMetrics for IT Service Management (Paperback)by Peter Brooks (Author)Measuring ITIL: Measuring, Reporting and Modeling** ** - the IT Service Management Metrics That Matter Most to IT Senior Executives (Paperback)by Randy A. Steinberg**Step-by-Step Guide to Building a CMDB **by...
+        
+        
+          <a href="/2009/08/29/csf-or-kpi-matrix-itsm/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cmdb, csf, ITIL, ITSM, kpi, metric
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/08/07/51-to-chengdu/">
+	  <h2 class="post-title">今年5.1去成都休假</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 7, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        吃成都小吃，看国宝熊猫，成都茶馆喝茶，果然是去了就不想走的地方。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        chengdu
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/08/07/xinjiang-is-good-place-kanas-is-best/">
+	  <h2 class="post-title">我们新疆好地方，最美是喀纳斯</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 7, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        新疆之行照片集，路径北京  乌鲁木齐  喀什 乌鲁木齐 布尔津 喀纳斯 布尔津 乌鲁木齐 北京http://picasaweb.google.com/liuzh66/Xinjiang看不到的访问这个链接：http://www.flickr.com/photos/41222865@N03/
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        乌鲁木齐, 喀纳斯, 布尔津
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/08/01/got-martinli-dot-cn-icp-registered/">
+	  <h2 class="post-title">关于ICP备案申请审核通过的通知</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on August 1, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        尊敬的用户[]：您的ICP备案申请已通过审核,备案/许可证编号为: 京ICP备09073554号 ，审核通过日期：2009-07-28。
+
+
+        
+        
+          <a href="/2009/08/01/got-martinli-dot-cn-icp-registered/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Blog
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/07/16/bmc-and-cloud-computing/">
+	  <h2 class="post-title">BMC and Cloud computing</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 16, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        July 15, 2009 – BMC Software has announced that it is leveraging Amazon Web Services to provide a single, unified management solution meant to give customers control over existing internal IT assets and external cloud infrastructures, according to a company release.http://www.information-management.com/news/amazon_bmc_software_cloud_computing-10015748-1.htmlBTW: it seems the IT management is as important as...
+        
+        
+          <a href="/2009/07/16/bmc-and-cloud-computing/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        BMC, cloud, Cloud Computing
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/07/15/cms-cmdb-and-discovery-tools/">
+	  <h2 class="post-title">CMS/CMDB 配置管理系统和发现工具</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 15, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        最近的一些CMDB项目和测试中都用到和测到了自动发现工具，很多用户对此的理解和看法还不是很到位。首先：“自动化配置和关系发现工具是什么？” **它是CMS工具集当中的数据采集工具。 从产品名称上看，往外都带DDM，它是 Discovery Dependency Mapping的缩写。意思就是帮你发现CI和CI之间关系的工具。很多用户的各种IT管理工具都可以自动发现网络、服务器和应用的配置项以及之间的关系，那么为什么还需要在购买一个新的发现工具呢？其实发现工具解决的真实发现工具不统一和发现数据不统一的问题，更重要的是它可以发现配置项之间的依赖和影响关系。对于一个数据中心来说，变更会经常发生，那么一套应用运行了一段时间之后，你很难准确的说出它都连接了那些其他相关的设备，很难理解它当前的部署状态。我们希望发现工具能帮我们更好的洞察当前IT基础架构的构成，应用对设备的依赖，底层IT服务对业务的影响。其次：“它是如何工作的？” 它的工作原理和其他所有的管理软件也没什么太大的差异。基本上讲有两种技术：无代理发现和有代理发现；三种产品形式：纯粹无代理扫描方式、纯有代理方式和混合方式。无代理采集必须依赖被采集设备的开放协议，常用的采集协议有：snmp,wmi,telnet,ssh,jmx,http等。往往需要在被采集设备上配合一定的账号和权限。采集动作往往是定时、周期性或者触发式执行。扫描结果返回一个数据库中，准备向CMDB同步。再次：“它是CMDB必须的工具么？”对于下面几种情况我个人认为它是一个必的工具：1）数据中心用户，服务器和应用成百上千套，变更每周都会进行，新业务系统增长快。CMDB需要使用它来自动更新配置项信息。2）应用多是多层的复杂应用，CI之间依赖关系复杂，物理连接图已经不足够用来做影响分析，CMDB需要它来自动化维护配置自己的关联关系，通过它可以减少进70%的手工工作量。从国外的一些项目经验上来看，50%的CMDB用户并没有使用配置自动发现工具，他们使用的配置数据多是监控管理系统中已有的，CI间的关系靠手工维护。最后：“它是如何与CMDB同步的？”**有些厂商的CMDB是从发现工具上起家的，所以他们本来就使用的一个库，没有同步问题。有些厂商的发现工具是整合的其他产品工具或者收购的，他们自己的同步就需要一定得数据模型了。通过数据模型来解决数据字段映射的关系，一般来讲CMDB中会有数据模型CDM，发现工具同步的时候就以该模型为准，把CI和关系经过一定的过滤条件同步到CMDB中。不同厂商的发现工具和CMDB如果需要同步的话，需要满足起码这样几点需要：CMDB必须有标准的数据模型来做数据映射；需要有某种数据集成和同步的工具来连接两个数据库；CMDB中需要具有强大的数据调和功能来处理发现工具带来的数据。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ADDM, cmdb, cms, ITSM
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2009/07/14/cloud-computing-infrastructure-and-architecture-guide-from-sun/">
+	  <h2 class="post-title">Cloud Computing Infrastructure and Architecture Guide-From SUN</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on July 14, 2009
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2009/07/14/cloud-computing-infrastructure-and-architecture-guide-from-sun/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Apache, mysql, opensource, sun
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page16">&larr; Newer Posts</a>
+  </li>
+  
+  
+  <li class="next">
+    <a href="/page18">Older Posts &rarr;</a>
+  </li>
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

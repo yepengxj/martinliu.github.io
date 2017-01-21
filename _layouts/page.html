@@ -1,28 +1,18 @@
 ---
-layout: default
+layout: base
 ---
 
-<header class="hero-image" style='background-image: url({{"/img/" | append: page.feature_image | prepend: site.baseurl }}.jpg);'>
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+{% include header.html type="page" %}
 
-    {% include nav.html %}
-</header>
-
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-
-            <h1>{{ page.title }}</h1>
-
-            {{ content }}
-
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-{% include footer-page.html %}
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      {{ content }}
+	    {% if page.comments %}
+        <div class="disqus-comments">
+	        {% include disqus.html %}
+        </div>
+	    {% endif %}
+    </div>
+  </div>
+</div>

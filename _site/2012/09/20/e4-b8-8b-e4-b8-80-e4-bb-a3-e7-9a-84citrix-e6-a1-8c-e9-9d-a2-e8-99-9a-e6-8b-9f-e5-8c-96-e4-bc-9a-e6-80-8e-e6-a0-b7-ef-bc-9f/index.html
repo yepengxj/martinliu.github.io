@@ -1,147 +1,400 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog |  下一代的Citrix桌面虚拟化会怎样？</title>
-    <meta name="description" content="Want to participate in XenDesktop and XenApp tech preview programs? It just got a lot easier!">
+  <title> 下一代的Citrix桌面虚拟化会怎样？</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content=" 下一代的Citrix桌面虚拟化会怎样？" />
+  
+
+   
+  <meta property="og:description" content="Want to participate in XenDesktop and XenApp tech preview programs? It just got a lot easier!
+
+先保持神秘，我是装了，现发布一个安装截图。
+
+
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/" />
+  <link rel="canonical" href="https://martinliu.github.io/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content=" 下一代的Citrix桌面虚拟化会怎样？" />
+  
+
+  
+  <meta name="twitter:description" content="Want to participate in XenDesktop and XenApp tech preview programs? It just got a lot easier!
+
+先保持神秘，我是装了，现发布一个安装截图。
+
+
+">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1> 下一代的Citrix桌面虚拟化会怎样？</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on September 20, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1> 下一代的Citrix桌面虚拟化会怎样？</h1>
 
-            <h1 id="want-to-participate-in-xendesktop-and-xenapp-tech-preview-programs-it-just-got-a-lot-easierhttpblogscitrixcom20120619want-to-participate-in-xendesktop-and-xenapp-tech-preview-programs-it-just-got-a-lot-easier"><a href="http://blogs.citrix.com/2012/06/19/want-to-participate-in-xendesktop-and-xenapp-tech-preview-programs-it-just-got-a-lot-easier/">Want to participate in XenDesktop and XenApp tech preview programs? It just got a lot easier!</a></h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <h1 id="want-to-participate-in-xendesktop-and-xenapp-tech-preview-programs-it-just-got-a-lot-easierhttpblogscitrixcom20120619want-to-participate-in-xendesktop-and-xenapp-tech-preview-programs-it-just-got-a-lot-easier"><a href="http://blogs.citrix.com/2012/06/19/want-to-participate-in-xendesktop-and-xenapp-tech-preview-programs-it-just-got-a-lot-easier/">Want to participate in XenDesktop and XenApp tech preview programs? It just got a lot easier!</a></h1>
 
 <p>先保持神秘，我是装了，现发布一个安装截图。</p>
 
 <p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2012/09/Install.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/09/Install.png" alt="" /></a></p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            XenDesktop
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Sep 20, 2012</span></p>
-                <p><a href=""></a> in <a href='/category/XenDesktop'>Xendesktop</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/XenDesktop'>Xendesktop</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=+%E4%B8%8B%E4%B8%80%E4%BB%A3%E7%9A%84Citrix%E6%A1%8C%E9%9D%A2%E8%99%9A%E6%8B%9F%E5%8C%96%E4%BC%9A%E6%80%8E%E6%A0%B7%EF%BC%9F+https://martinliu.github.io/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2012/09/20/e4-b8-8b-e4-b8-80-e4-bb-a3-e7-9a-84citrix-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f-e5-8c-96-e4-bc-9a-e6-80-8e-e6-a0-b7-ef-bc-9f/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012/09/14/e8-ae-a9-e7-94-a8-e6-88-b7-e7-95-85-e6-b8-b8-e5-9c-a8-e4-ba-91-e7-9a-84-e5-a4-a7-e5-90-8c-e4-b8-96-e7-95-8c-e9-87-8c/" data-toggle="tooltip" data-placement="top" title="让用户畅游在云的大同世界里">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012/10/04/e4-b8-8a-e5-bc-80-e6-ba-90-e9-9c-80-e8-b0-a8-e6-85-8e-e9-80-89openstack-e9-98-b2-e5-bf-bd-e6-82-a0/" data-toggle="tooltip" data-placement="top" title="上开源需谨慎-选OpenStack防忽悠">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

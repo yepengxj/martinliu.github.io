@@ -1,85 +1,263 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | OTRS 3.0.0 beta1 发布</title>
-    <meta name="description" content="这个产品被重命名为OTRS Help Desk，从名字上看出它变的更加成熟，更加符合ITIL了。OTRS界面是很土的，比RT3差很多，一直以来我都被它完善的ITIL概念所吸引而无暇顾及它丑陋的界面，这个版本将在界面和新的功能上给我们更多惊喜。下面是3.0时代的第一个release notes，偷懒一下，英翻中的工...">
+  <title>OTRS 3.0.0 beta1 发布</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2010/08/03/otrs-300-beta1/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="OTRS 3.0.0 beta1 发布" />
+  
+
+   
+  <meta property="og:description" content="这个产品被重命名为OTRS Help Desk，从名字上看出它变的更加成熟，更加符合ITIL了。OTRS界面是很土的，比RT3差很多，一直以来我都被它完善的ITIL概念所吸引而无暇顾及它丑陋的界面，这个版本将在界面和新的功能上给我们更多惊喜。下面是3.0时代的第一个release notes，偷懒一下，英翻中的工作让google代劳了。
+
+RN原文：http://lists.otrs.org/pipermail/announce/2010/000133.html
+
+时间已经到了 一个全新的欢迎开放源码OTRS的世界领先的新一代帮助台解决方案。新的OTRS的帮助台3.0主要版本附带了一个全新的图形用户界面上完全重新设计信息的基 础
+架构。您将受益于更快获取相关信息，具有较高的透明度和增加在日常工作效率。 OTRS的帮助台3.0设计的基础 上与来自不同行业的电力用户访问种类繁多以及在与用户体验领先的专业机构密切合作。今天我们很自豪地介绍美妙的结果：
+
+最值得关注的新功能如下：
+
+（1）用户为中心的图形用户界面，在一个戏剧 性的转变从结果重新设计一个全面的，但一个更强大的静态和动态的应用程序使用的，类似的Ajax，XHTML和优化的最先进的技术状态的CSS。
+
+（2）新工单和文章指示器 - 这一新的功能已被两票和文章一级执行。它允许在一个表面上是为代理人在 票或任何更新的文章水平检查，以检查新的和未读文章。您将受益于增加透明度和减少响应时间。
+
+（3）优化全 文搜索 - 新的搜索功能，您可以灵活定制的方式来浏览信息库。选择新的搜索功能提供了从单一的搜索字符串的搜索范围，复杂的多字符串布尔搜索行动，包括 各经营者。您受益于完全可定制的搜索根据您的需要。
+
+（4）工单缩放视图 - 关于Ajax技术让代理商来显示实时链接的信息结构复杂，同时让代理商目前的工作环境为基础的重新设计。这些公司会受益于增加的方向，提高工 作流程效率。
+
+（5）全局工单一览 - 知名的OTRS2.4全局工单概述已经得到了优化，以达到增加跨活动。根据不同的使用情况和您的代理人的喜好，他们可以轻松地更改机票概览布局根据自己的特殊需要。期权是小型，中型和大型，每个细节提供了不同程度的信息。
+
+（6）可用性 - 包括重新设计的共同普及标准条WCAG和炜也让弱能ARIA的用户能够更好地互动与OTRS的服务台。美国康复法案第508条已经实现。
+
+（7）新客户界面 - 客户网络前端可集成到您的组织机构内部网，并充分考虑重新设计的桌面帮助系统集成。
+
+（8）存档功能  - OTRS的3.0现在提供一个新的归档功能。有了你分开存档受益于搜索，并增加结果显示花了时间却缩短。
+
+Google的翻译效果不佳，请直接看官方发布说明。另外此版本为beta版本，OTRS并不建议用于生产环境。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2010/08/03/otrs-300-beta1/" />
+  <link rel="canonical" href="https://martinliu.github.io/2010/08/03/otrs-300-beta1/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="OTRS 3.0.0 beta1 发布" />
+  
+
+  
+  <meta name="twitter:description" content="这个产品被重命名为OTRS Help Desk，从名字上看出它变的更加成熟，更加符合ITIL了。OTRS界面是很土的，比RT3差很多，一直以来我都被它完善的ITIL概念所吸引而无暇顾及它丑陋的界面，这个版本将在界面和新的功能上给我们更多惊喜。下面是3.0时代的第一个release notes，偷懒一下，英翻中的工作让google代劳了。
+
+RN原文：http://lists.otrs.org/pipermail/announce/2010/000133.html
+
+时间已经到了 一个全新的欢迎开放源码OTRS的世界领先的新一代帮助台解决方案。新的OTRS的帮助台3.0主要版本附带了一个全新的图形用户界面上完全重新设计信息的基 础
+架构。您将受益于更快获取相关信息，具有较高的透明度和增加在日常工作效率。 OTRS的帮助台3.0设计的基础 上与来自不同行业的电力用户访问种类繁多以及在与用户体验领先的专业机构密切合作。今天我们很自豪地介绍美妙的结果：
+
+最值得关注的新功能如下：
+
+（1）用户为中心的图形用户界面，在一个戏剧 性的转变从结果重新设计一个全面的，但一个更强大的静态和动态的应用程序使用的，类似的Ajax，XHTML和优化的最先进的技术状态的CSS。
+
+（2）新工单和文章指示器 - 这一新的功能已被两票和文章一级执行。它允许在一个表面上是为代理人在 票或任何更新的文章水平检查，以检查新的和未读文章。您将受益于增加透明度和减少响应时间。
+
+（3）优化全 文搜索 - 新的搜索功能，您可以灵活定制的方式来浏览信息库。选择新的搜索功能提供了从单一的搜索字符串的搜索范围，复杂的多字符串布尔搜索行动，包括 各经营者。您受益于完全可定制的搜索根据您的需要。
+
+（4）工单缩放视图 - 关于Ajax技术让代理商来显示实时链接的信息结构复杂，同时让代理商目前的工作环境为基础的重新设计。这些公司会受益于增加的方向，提高工 作流程效率。
+
+（5）全局工单一览 - 知名的OTRS2.4全局工单概述已经得到了优化，以达到增加跨活动。根据不同的使用情况和您的代理人的喜好，他们可以轻松地更改机票概览布局根据自己的特殊需要。期权是小型，中型和大型，每个细节提供了不同程度的信息。
+
+（6）可用性 - 包括重新设计的共同普及标准条WCAG和炜也让弱能ARIA的用户能够更好地互动与OTRS的服务台。美国康复法案第508条已经实现。
+
+（7）新客户界面 - 客户网络前端可集成到您的组织机构内部网，并充分考虑重新设计的桌面帮助系统集成。
+
+（8）存档功能  - OTRS的3.0现在提供一个新的归档功能。有了你分开存档受益于搜索，并增加结果显示花了时间却缩短。
+
+Google的翻译效果不佳，请直接看官方发布说明。另外此版本为beta版本，OTRS并不建议用于生产环境。
+">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>OTRS 3.0.0 beta1 发布</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 3, 2010</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/ITIL/ITSM'>Itil/itsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>OTRS 3.0.0 beta1 发布</h1>
 
-            <p><img src="http://www.otrs.com/uploads/tx_templavoila/products_overview_helpdesk.jpg" alt="" />这个产品被重命名为OTRS Help Desk，从名字上看出它变的更加成熟，更加符合ITIL了。OTRS界面是很土的，比RT3差很多，一直以来我都被它完善的ITIL概念所吸引而无暇顾及它丑陋的界面，这个版本将在界面和新的功能上给我们更多惊喜。下面是3.0时代的第一个release notes，偷懒一下，英翻中的工作让google代劳了。</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><img src="http://www.otrs.com/uploads/tx_templavoila/products_overview_helpdesk.jpg" alt="" />这个产品被重命名为OTRS Help Desk，从名字上看出它变的更加成熟，更加符合ITIL了。OTRS界面是很土的，比RT3差很多，一直以来我都被它完善的ITIL概念所吸引而无暇顾及它丑陋的界面，这个版本将在界面和新的功能上给我们更多惊喜。下面是3.0时代的第一个release notes，偷懒一下，英翻中的工作让google代劳了。</p>
 
 <p><a href="http://lists.otrs.org/pipermail/announce/2010/000133.html">RN原文：http://lists.otrs.org/pipermail/announce/2010/000133.html</a></p>
 
@@ -106,63 +284,180 @@
 
 <p>Google的翻译效果不佳，请直接看官方发布说明。另外此版本为beta版本，OTRS并不建议用于生产环境。</p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            help desk, ITIL, ITSM, opensource, OTRS, rt3
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Aug 3, 2010</span></p>
-                <p><a href=""></a> in <a href='/category/ITIL/ITSM'>Itil/itsm</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/ITIL/ITSM'>Itil/itsm</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2010/08/03/otrs-300-beta1/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2010/08/03/otrs-300-beta1/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2010/08/03/otrs-300-beta1/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=OTRS+3.0.0+beta1+%E5%8F%91%E5%B8%83+https://martinliu.github.io/2010/08/03/otrs-300-beta1/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2010/08/03/otrs-300-beta1/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2010/08/03/otrs-300-beta1/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2010/07/30/bmc-training-schedule01/" data-toggle="tooltip" data-placement="top" title="BMC课程通知: BMC Remedy AR 7.5 管理员培训">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2010/08/09/remedy-lb-midtier-server-group-configure/" data-toggle="tooltip" data-placement="top" title="Remedy Server Group及负载均衡配置参考步骤">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

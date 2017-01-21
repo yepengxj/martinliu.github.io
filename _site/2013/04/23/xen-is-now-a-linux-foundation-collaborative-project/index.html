@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | 让Xen Project回家</title>
-    <meta name="description" content="">
+  <title>让Xen Project回家</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="让Xen Project回家" />
+  
+
+   
+  <meta property="og:description" content="首先我们来回顾一下历史： 上周Citrix把经营和支持多年的开源项目Xen Project加入到了inux Foundation，可以说是Xen Project 的一个新家。可能您还不太了解“Linux Foundation”；访问 FAQ 可获得它的一些基本知识。到目前为止Linux Foundation总共支持了8个开源软件项目。 [![OpenDaylight](http://www.linuxfoundation.org/sites/main/files/logo_od_small_0.jpg)](http://www.opendaylight.org/) [![](http://www.linuxfoundation.org/sites/main/files/wlogo_caf.jpg)](https://www.codeaurora.org/) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_omam.jpg)](http://www.openmama.org) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_tize_0.jpg)](http://www.tizen.org) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_meeg.jpg)](http://www.meego.com) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_yoct.jpg)](http://yoctoproject.org/) [![](http://www.linuxfoundation.org/sites/main/files/xen_project_unicolor_0.jpg)](http://xenproject.org) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_fbaz.jpg)](http://fossbazaar.org/) 那么Linux foundation能给这些开源软件提供怎么呢？ With ten years of experience managing open source projects and support services, The Linux Foundation can provide the back-office, technical infrastructure and legal framework to get your collaborative project off...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/" />
+  <link rel="canonical" href="https://martinliu.github.io/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="让Xen Project回家" />
+  
+
+  
+  <meta name="twitter:description" content="首先我们来回顾一下历史： 上周Citrix把经营和支持多年的开源项目Xen Project加入到了inux Foundation，可以说是Xen Project 的一个新家。可能您还不太了解“Linux Foundation”；访问 FAQ 可获得它的一些基本知识。到目前为止Linux Foundation总共支持了8个开源软件项目。 [![OpenDaylight](http://www.linuxfoundation.org/sites/main/files/logo_od_small_0.jpg)](http://www.opendaylight.org/) [![](http://www.linuxfoundation.org/sites/main/files/wlogo_caf.jpg)](https://www.codeaurora.org/) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_omam.jpg)](http://www.openmama.org) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_tize_0.jpg)](http://www.tizen.org) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_meeg.jpg)](http://www.meego.com) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_yoct.jpg)](http://yoctoproject.org/) [![](http://www.linuxfoundation.org/sites/main/files/xen_project_unicolor_0.jpg)](http://xenproject.org) [![](https://www.linuxfoundation.org/sites/main/files/wlogo_fbaz.jpg)](http://fossbazaar.org/) 那么Linux foundation能给这些开源软件提供怎么呢？ With ten years of experience managing open source projects and support services, The Linux Foundation can provide the back-office, technical infrastructure and legal framework to get your collaborative project off...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>让Xen Project回家</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on April 23, 2013</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/Citrix'>Citrix</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>让Xen Project回家</h1>
 
-            <p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/collab_projects.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/collab_projects.png" alt="collab_projects" /></a></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/collab_projects.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/collab_projects.png" alt="collab_projects" /></a></p>
 
 <p>首先我们来回顾一下历史：
 <a href="http://xenproject.org/about/history.html"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/Xen-history.png" alt="Xen-history" /></a></p>
@@ -147,63 +273,180 @@ Xen Project 的新家：<a href="http://xenproject.org/">http://xenproject.org/<
 
 <p>arstechnica.comd的评论：<a href="http://arstechnica.com/information-technology/2013/04/linux-foundation-takes-over-xen-enlists-amazon-in-war-to-rule-the-cloud/">Linux Foundation takes over Xen, enlists Amazon in war to rule the cloud ///Xen virtualization gains support from Amazon, Cisco, Google, Intel, and more.</a></p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Apache, Citrix, cloudstack, iaas, linux, xen
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Apr 23, 2013</span></p>
-                <p><a href=""></a> in <a href='/category/Citrix'>Citrix</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/Citrix'>Citrix</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E8%AE%A9Xen+Project%E5%9B%9E%E5%AE%B6+https://martinliu.github.io/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2013/04/23/xen-is-now-a-linux-foundation-collaborative-project/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2013/04/16/xendesktop-e8-99-9a-e6-8b-9f-e6-a1-8c-e9-9d-a2-e7-b2-be-e5-93-81-e4-b9-a6-e7-b1-8d-e5-af-bc-e8-af-bbpart3/" data-toggle="tooltip" data-placement="top" title="XenDesktop虚拟桌面精品书籍导读(part3)">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2013/04/23/bad-thing-will-pass/" data-toggle="tooltip" data-placement="top" title="bad thing will pass">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

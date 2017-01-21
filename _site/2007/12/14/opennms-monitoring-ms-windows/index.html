@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | 如何用通过OpenNMS监控Windows 服务器</title>
-    <meta name="description" content="            OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。第一种情况：Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动...">
+  <title>如何用通过OpenNMS监控Windows 服务器</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="如何用通过OpenNMS监控Windows 服务器" />
+  
+
+   
+  <meta property="og:description" content="OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。第一种情况：Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动发现还会发现这个机器上的服务。ICMP是肯定会有的，还可能有http等其他的服务；这些服务也会被定时的轮询，如果某个服务停了，这个节点的整个的可用性受到影响。这种情况下该节点的所有服务的响应时间会被OpenNMS收集并保持历史数据。第二种情况：安装了SNMP服务。先说一下windows服务的安全性，默认情况下public是默认的只读密码；为了更加安全可以配置其他的只读密码，并指定某些特定的IP才能访问这个节点。这个策略在Windows的觉策略中很容易实现，或者说建议使用域控制器来管理这个策略，比较方便。假定OpenNMS能访问该节点的snmp服务的情况下。这些数据会增加：SNMP Attributes；在选择了资源图后，可以看到snmp的节点数据和接口数据。进入后可以看到，其实收集 的是一个tcp／ip接口上基本的信息：流量，连接数，丢包，错包等。个人认为流量是个最有用的数据，特别是对于一些简单的web/ftp服务器也就够用了。第三种情况：我们需要监控到操作系统的性能数据cpu/disk/RAM等。就需要安装一个snmp代理，这个代理可以提供这些信息，opennms才能通过snmp协议收集这些数据。需要到下面网址下载一个免费的snmp代理，当然这个产品也有收费版本：http://www.wtcs.org/informant/download.htm 这个代理很小需要在windows机器上安装一下。默认情况下OpenNMS的对windows采集模板中包含了对cpu/disk/ram等数据的采集，等到下一次OpenNMS在采集这个机器的时候相关数据就会被显示在节点snmp数据下面。这里是通过这个免费的snmp代理能采集到的数据：/Program Files/SNMP Informant/standard/mibs/informant-std-tree.txt–standard(1.3.6.1.4.1.9600.1.1) +–logicalDiskTable(1)   +–logicalDiskEntry(1) [lDiskInstance]   +– r-n InstanceName lDiskInstance(1) +– r-n Gauge32 lDiskPercentDiskReadTime(2) +– r-n Gauge32 lDiskPercentDiskTime(3) +– r-n Gauge32 lDiskPercentDiskWriteTime(4) +– r-n Gauge32 lDiskPercentFreeSpace(5) +– r-n Gauge32 lDiskPercentIdleTime(6) +– r-n Gauge32 lDiskAvgDiskQueueLength(7) +– r-n Gauge32 lDiskAvgDiskReadQueueLength(8) +– r-n Gauge32 lDiskAvgDiskWriteQueueLength(9) +– r-n Gauge32...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2007/12/14/opennms-monitoring-ms-windows/" />
+  <link rel="canonical" href="https://martinliu.github.io/2007/12/14/opennms-monitoring-ms-windows/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="如何用通过OpenNMS监控Windows 服务器" />
+  
+
+  
+  <meta name="twitter:description" content="OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。第一种情况：Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动发现还会发现这个机器上的服务。ICMP是肯定会有的，还可能有http等其他的服务；这些服务也会被定时的轮询，如果某个服务停了，这个节点的整个的可用性受到影响。这种情况下该节点的所有服务的响应时间会被OpenNMS收集并保持历史数据。第二种情况：安装了SNMP服务。先说一下windows服务的安全性，默认情况下public是默认的只读密码；为了更加安全可以配置其他的只读密码，并指定某些特定的IP才能访问这个节点。这个策略在Windows的觉策略中很容易实现，或者说建议使用域控制器来管理这个策略，比较方便。假定OpenNMS能访问该节点的snmp服务的情况下。这些数据会增加：SNMP Attributes；在选择了资源图后，可以看到snmp的节点数据和接口数据。进入后可以看到，其实收集 的是一个tcp／ip接口上基本的信息：流量，连接数，丢包，错包等。个人认为流量是个最有用的数据，特别是对于一些简单的web/ftp服务器也就够用了。第三种情况：我们需要监控到操作系统的性能数据cpu/disk/RAM等。就需要安装一个snmp代理，这个代理可以提供这些信息，opennms才能通过snmp协议收集这些数据。需要到下面网址下载一个免费的snmp代理，当然这个产品也有收费版本：http://www.wtcs.org/informant/download.htm 这个代理很小需要在windows机器上安装一下。默认情况下OpenNMS的对windows采集模板中包含了对cpu/disk/ram等数据的采集，等到下一次OpenNMS在采集这个机器的时候相关数据就会被显示在节点snmp数据下面。这里是通过这个免费的snmp代理能采集到的数据：/Program Files/SNMP Informant/standard/mibs/informant-std-tree.txt–standard(1.3.6.1.4.1.9600.1.1) +–logicalDiskTable(1)   +–logicalDiskEntry(1) [lDiskInstance]   +– r-n InstanceName lDiskInstance(1) +– r-n Gauge32 lDiskPercentDiskReadTime(2) +– r-n Gauge32 lDiskPercentDiskTime(3) +– r-n Gauge32 lDiskPercentDiskWriteTime(4) +– r-n Gauge32 lDiskPercentFreeSpace(5) +– r-n Gauge32 lDiskPercentIdleTime(6) +– r-n Gauge32 lDiskAvgDiskQueueLength(7) +– r-n Gauge32 lDiskAvgDiskReadQueueLength(8) +– r-n Gauge32 lDiskAvgDiskWriteQueueLength(9) +– r-n Gauge32...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>如何用通过OpenNMS监控Windows 服务器</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on December 14, 2007</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>如何用通过OpenNMS监控Windows 服务器</h1>
 
-            <table>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <table>
   <tbody>
     <tr>
       <td>OpenNMS可以监控可用性和性能参数。下面看看OpenNMS监控Windows服务器的三种情况。<br /><br />第一种情况：<br />Windows机器上没有安装SNMP服务，在自动发现了这个节点后，它会被加入节点列表，之后它被定期的轮询。如果这个节点断网了，OpenNMS会报警；同时这个节点的可用性被计算。自动发现还会发现这个机器上的服务。ICMP是肯定会有的，还可能有http等其他的服务；这些服务也会被定时的轮询，如果某个服务停了，这个节点的整个的可用性受到影响。这种情况下该节点的所有服务的响应时间会被OpenNMS收集并保持历史数据。<br /><br />第二种情况：<br />安装了SNMP服务。先说一下windows服务的安全性，默认情况下public是默认的只读密码；为了更加安全可以配置其他的只读密码，并指定某些特定的IP才能访问这个节点。这个策略在Windows的觉策略中很容易实现，或者说建议使用域控制器来管理这个策略，比较方便。假定OpenNMS能访问该节点的snmp服务的情况下。这些数据会增加：SNMP Attributes；在选择了资源图后，可以看到snmp的节点数据和接口数据。进入后可以看到，其实收集 的是一个tcp／ip接口上基本的信息：流量，连接数，丢包，错包等。个人认为流量是个最有用的数据，特别是对于一些简单的web/ftp服务器也就够用了。<br /><br />第三种情况：<br />我们需要监控到操作系统的性能数据cpu/disk/RAM等。就需要安装一个snmp代理，这个代理可以提供这些信息，opennms才能通过snmp协议收集这些数据。需要到下面网址下载一个免费的snmp代理，当然这个产品也有收费版本：http://www.wtcs.org/informant/download.htm 这个代理很小需要在windows机器上安装一下。默认情况下OpenNMS的对windows采集模板中包含了对cpu/disk/ram等数据的采集，等到下一次OpenNMS在采集这个机器的时候相关数据就会被显示在节点snmp数据下面。<br /><br />这里是通过这个免费的snmp代理能采集到的数据：<br />/Program Files/SNMP Informant/standard/mibs/informant-std-tree.txt<br />–standard(1.3.6.1.4.1.9600.1.1)<br /></td>
@@ -179,63 +305,180 @@
   </tbody>
 </table>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            MS Windows, OpenNMS
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Dec 14, 2007</span></p>
-                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/NSM'>Nsm</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/12/14/opennms-monitoring-ms-windows/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E5%A6%82%E4%BD%95%E7%94%A8%E9%80%9A%E8%BF%87OpenNMS%E7%9B%91%E6%8E%A7Windows+%E6%9C%8D%E5%8A%A1%E5%99%A8+https://martinliu.github.io/2007/12/14/opennms-monitoring-ms-windows/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2007/12/14/opennms-monitoring-ms-windows/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2007/12/14/opennms-monitoring-ms-windows/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2007/12/13/opennms-yum-install/" data-toggle="tooltip" data-placement="top" title="OpenNMS的Yum的安装方式，安装简单了很多">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2007/12/14/gsm-modem-alert-sms/" data-toggle="tooltip" data-placement="top" title="发送告警短信的方法，德国工艺服了">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

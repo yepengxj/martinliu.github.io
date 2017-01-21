@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Martin's Blog</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Martin's Blog" />
+  
+
+   
+  <meta property="og:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/page23/" />
+  <link rel="canonical" href="https://martinliu.github.io/page23/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Martin's Blog" />
+  
+
+  
+  <meta name="twitter:description" content="{% for post in paginator.posts %} {{ post.title }} {% if post.subtitle %} {{ post.subtitle }} {% endif %} Posted on {{ post.date | date: &quot;%B %-d, %Y&quot; }} {% if post.image %} {% endif %} {{ post.excerpt | strip_html | xml_escape | truncatewords: site.excerpt_length }} {% assign excerpt_word_count =...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="posts-list">
+  
+  <article class="post-preview">
+    <a href="/2007/05/08/what-is-opennms/">
+	  <h2 class="post-title">OpenNMS网络和系统管理简介</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 8, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        1.1  概述
+
+
+        
+        
+          <a href="/2007/05/08/what-is-opennms/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        OpenNMS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/05/08/opennms-faqs/">
+	  <h2 class="post-title">OpenNMS常问问题All-in-One</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on May 8, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        问：OpenNMS是什么？答： OpenNMS是第一个开发在开源模式下的企业级网络管理平台应用。OpenNMS的目标是成为一个真真的分布式、可升级的网络管理平台，尽管它看似一个 FCAPS网络管理模型，使之可用于开放源码和商业领域。目前：OpenNMS专注与以下三个方面：服务轮询 － 检查应用服务的可用性，产生可用性报表。数据收集 － 收集、保存和报表网络信息数据，并设定和触发门限值。事件和提示管理 － 接受事件系统内部的和外部的事件，将源事件提供给强大的故障告警和故障升级系统。OpenNMS Group是开发和支持OpenNMS应用的一个商业性的实体。问：为什么要开源？答： 我们坚信真真的创新不会来自规模巨大的企业。我们还相信网络管理软件领域比Linux操作系统更适合开源模式。不像Linux，网络管理要去监视和控制来 自不同厂商的很多的技术。考虑到每年都有很多新的网络设备面世。商业软件公司并不希望追赶这种更新产品的工作负荷，相反它们只能依赖与它们的通用管理技术 （最小化的通用性）。相反，对于一个开源项目中的每一个人－－厂商、用户或者技术顾问－－都能对项目做出自己的共享，从而保障了这个项目成功的几率。问：OpenNMS是用什么语言写的？答： OpenNMS主要是用Java语言写的。OpenNMS2.0的目标是：让它成为一个以一堆.jar文件形式来安装的产品。还有一些非Java的部分： icmpd-Java1.4 API不能理解ICMP。因为ICMP回答请求（ping）是一个最简单的来测试基于Ip的网络设备是否可以服务的方法，没有那个网络管理应用程序不用的 它的。将ICMP功能分离为一个独立的守护进程的目标是，如果系统中有ICMP的功能那么OpenNMS就用，如果没有OpenNMS就率略它。 OpenNMS不需要ICMP来监控网络设备。数据库－OpenNMS现在使用PostgreSQL作为它的地层数据库，PostgreSQL 是用C写 的。OpenNMS2.0会使用几个能通过Hibernate适配器访问到的数据库。rrdtool－OpenNMS当前的版本实时的选择使用 RRDtool或jRobin（Java会使用RRDtool）。最终这个选项的默认使用jRobin，也可以选择使用RRDtool。问：OpenNMS有图形的显示么？答： 这可能是一个对于OpenNMS新人来说最常问的问题：OpenNMS的图形监控界面在那？简单的问答是我们没有一个这样的地图，如果你想听听我们的解释 请继续往下看。OpenNMS是被一些经验丰富的网络管理技术顾问开发出来的。HP的Openvew NNM是一个很流行的商业软件，它能生产一个可定制化的网络监控图形。OpenNMS Screenshot
+
+
+        
+        
+          <a href="/2007/05/08/opennms-faqs/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        faq, OpenNMS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/04/30/glpi-it-asset-mgmt/">
+	  <h2 class="post-title">GLPI –IT资源生命周期管理</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on April 30, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+         GLPI是一个法国的开源项目，之所会了解到这个项目，是由于OCSNG的原因。当我安装并使用了一下它之后立刻产生了以下问题：1）它仅仅是一个对现有设备Inventory的工具，对新设备的采购和计划无法实现。2）它仅仅是一个技术工具，能提供CMDB相关的配置信息数据，相关的流程如何实现：计划，采购，使用，变更和报废。没想到在安装试用了GLPI之后着一切都疑问都散去了。那就先讲讲安装过程。环境准备，我的测是环境如下：Dell Inspiron 600M笔记本（70GB HD, 1GB RAM），由于硬件资源实在有限，所以我喜欢使用VMWare作为测试环境。在VMWere中安装SuSE 10.1，最小安装；安装apache,perl,php,mysql和其它相关的包，由于Yast的包管理实在好用，所以为整个安装过程带来了很多方便。如果您也想测试的这个软件系统的话，最简单的方式则是：找一个物理的机器做SuSE 10.1的全安装，这样的安装过程绝对不会有找不到那些依赖组建的问题。软件安装：OCSNG / GLPI的安装模式都是相同的基本相似的比较简单；再次就不多话了；我猜您可能会碰到的问题有：GLPI的登陆用户名和密码的问题。所有可以利用的相关文档里好像没用提到这个信息，昏！可能是我的运气不好，的确没找到，不过最终被我猜到：）[登录密码在安装向导的导数第二个页面上]OCSNG需要安装Agent，Agent会在目标设备上做清单扫描，上传Inventory信息；它的三层结构可能会是企业级用户的好消息，它还能方便的通过Windows 域的组策略部署代理，也就是说只要用户登陆域，代理就能顺利安装部署。OCSNG趋向做全面的客户端管理：inventory、license管理等方面。从上面的GPLI的screenshot可以看出和一个笔记本电脑相关的一切。先讲讲它的来由，GPLI解决的是OCSNG的上层问题：计划，购买，部署，跟踪，变更，维护，退休。它管理的是所有业务和流程层面的东西。GPLI的数据来自OSCNG的数据库，它能自动从OSCNG中定期更新inventory信息。截屏中的电脑是我在我的笔记本上安装了OSCNG后，做的首次扫描后的结果，在GPLI中配置了和OSCNG的集成后，它就变成了一个GPLI中的管理数据。可以看到，和一个电脑资产相关的所有硬件信息，软件信息，help desk请求，文档，链接，注释和变更历史记录等。GPLI中有对外的HelpDesk模块，这能方便最终用户对设备维护的请求。GPLI和OSCNG很好的结合可能做到“IT资源生命周期管理”，参考文档：http://glpi-project.org/wiki/doku.php?id=en:cyclevie如果对把它们所实现的功能和ITIL框架对应一下，或许IT服务财务管理，能力管理，配置管理和发布管理等流程能与之能有某些联系。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GLPI
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/04/29/ocsng-it-asset-management/">
+	  <h2 class="post-title">OCSNG － IT资产管理软件</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on April 29, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        最近在网上又发现了一个不错的开源软件，这就是OCSNG资产管理软件。他能提供非常好的Inventory功能，发现并、更新计算机系统上的软硬件清单信息。下面是从他们的网站上找到特色介绍的信息：
+
+
+        
+        
+          <a href="/2007/04/29/ocsng-it-asset-management/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        inventory, OCSNG
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/04/28/nmap-network-mappe/">
+	  <h2 class="post-title">Nmap — Network Mapper(网络映射器)</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on April 28, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Nmap (“Network Mapper(网络映射器)”) 是一款开放源代码的 网络探测和安全审核的工具。它的设计目标是快速地扫描大型网络，当然用它扫描单个 主机也没有问题。Nmap以新颖的方式使用原始IP报文来发现网络上有哪些主机，那些 主机提供什么服务(应用程序名和版本)，那些服务运行在什么操作系统(包括版本信息)， 它们使用什么类型的报文过滤器/防火墙，以及一堆其它功能。虽然Nmap通常用于安全审核， 许多系统管理员和网络管理员也用它来做一些日常的工作，比如查看整个网络的信息， 管理服务升级计划，以及监视主机和服务的运行。Nmap输出的是扫描目标的列表，以及每个目标的补充信息，至于是哪些信息则依赖于所使用的选项。 “所感兴趣的端口表格”是其中的关键。那张表列出端口号，协议，服务名称和状态。状态可能是 open(开放的)，filtered(被过滤的)， closed(关闭的)，或者unfiltered(未被过滤的)。 Open(开放的)意味着目标机器上的应用程序正在该端口监听连接/报文。 filtered(被过滤的) 意味着防火墙，过滤器或者其它网络障碍阻止了该端口被访问，Nmap无法得知 它是 open(开放的) 还是 closed(关闭的)。 closed(关闭的) 端口没有应用程序在它上面监听，但是他们随时可能开放。 当端口对Nmap的探测做出响应，但是Nmap无法确定它们是关闭还是开放时，这些端口就被认为是 unfiltered(未被过滤的) 如果Nmap报告状态组合 openfiltered 和 closedfiltered时，那说明Nmap无法确定该端口处于两个状态中的哪一个状态。 当要求进行版本探测时，端口表也可以包含软件的版本信息。当要求进行IP协议扫描时 (-sO)，Nmap提供关于所支持的IP协议而不是正在监听的端口的信息。除了所感兴趣的端口表，Nmap还能提供关于目标机的进一步信息，包括反向域名，操作系统猜测，设备类型，和MAC地址。摘自：nmap中文文档 nmap首页
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Nmap
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/04/26/opennms-install-sample/">
+	  <h2 class="post-title">OpenNMS 安装说明－精简版</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on April 26, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Per-install Checklist:
+
+
+        
+        
+          <a href="/2007/04/26/opennms-install-sample/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        OpenNMS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/04/23/otrs-itil-compatible/">
+	  <h2 class="post-title">OTRS的第一个ITIL兼容版本</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on April 23, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        从来没用这么期待过一个软件的问世，虽然工具和技术不能画等号，不过它应该是第一个主动与ITIL看起，并且靠拢的开源软件。1下载安装需要下载的软件是OTRS 2.2.0 BETA2 和OTRS:ITIL 1.0；后者只是一个压缩包，它包含了所有ITIL相关的软件包。此次安装并不顺利，归咎于很多Apach上perl的配置；安装之后的问题多是其它依赖的软件包不全造成的。2 CMDB说不上它是一个很好的CMDB，不过用起来到是很方便。在Admin里把所有CI的类都建立出来后，相关的工作人员就能登陆上来，把相关的CI添加尽量。你需要从车轮开始做起，在这里可以说是非常适用，它不想商业软件内置了一堆的预定义的东西。CI直接的联系关系也可以得到表达。3其它功能试用中待续
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ITIL, OTRS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/03/31/itil-faqs/">
+	  <h2 class="post-title">[转] 十问ITIL</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on March 31, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        想实现IT与业务融合的目标吗？想让IT部门踏上自我管理之路吗？想在IT规范的丛林里找到清晰的管理思路吗？在IT与业务战略融合的过程之中，ITIL（IT基础设施库）和ITSM（IT服务管理）规范将为企业用户提供实现诸多IT与业务管理目标的真实路径。1989年，英国政府商务部在发现企业对IT提供服务和自我管理的方式存在混乱认识的问题后，发布了长达44卷的ITIL规范。目前所实行的第二版于2001年发布，容量减至9卷。而最新的消息显示，ITIL第三版本有望于2007年4月正式发布。在ITIL诞生并成长的10余年间，ITIL及ITSM理念都经历了巨大的变化和发展，并有望在ISO 20000中成为全球标准。目前的ITIL既是一个词汇库，也是一系列旨在概括性描述IT最佳实践的概念性流程。对企业而言，要使IT更有效地实现自我组织和自我管理，兑现ITIL对于管理的承诺，是一项足以用“浩大”二字形容的工程。所以，您需要先确定一个起点，并了解目前与ITIL有关的10项核心内容。**    1. 我能够通过ITIL实现哪些过去无法实现的目标吗？如果实施得当，ITIL可以提高客户满意度、减少IT部门中的浪费，并降低运营成本。下面是两个简单的案例：● 在2000年，Caterpillar公司的IT部门解决Web事件的目标响应时间是30分钟，但是该部门达到这一目标的几率只有30%。实施ITIL后，其IT供应商达到该响应目标时间的几率提升至90%，而Caterpillar在过去5年实现了业务的几何级增长，IT预算只上升了1%。● 两年前，Liberty Mutual的IT管理员只有在用户打投诉电话后才能发现某个关键网络应用已停止工作。部署ITIL后，管理员可以在故障发生前对应用的运行速度和异常活动进行监视，并且通常可在用户感觉到异样之前解决问题。2. 是否需要通读ITIL全部9卷的内容，哪些是重点章节？《服务支持》和《服务交付》这两卷包含了ITIL的核心知识，其他几卷都是补充性的。《服务支持》卷介绍了5个关键流程：即事件管理、问题管理、变更管理、发布管理和配置管理。尽管服务桌面被认为是一项功能，而非流程，但它仍被包含其中，并且被认为是IT服务的客户报告事件、发出请求和与IT基础设施与业务部门进行沟通的重要接触点。事件管理的主要内容是，在发生事件（例如服务器崩溃）后尽可能快速地恢复正常的业务运营。问题管理将注意力集中在查找和消除事件的根源，防止其死灰复燃。ITIL的独特能力是它可以将“事件”与“问题”隔离开来。通常，支持人员在查找事件的根源时，IT部门的支持服务就会暂时处于停顿状态。ITIL优先考虑的是为业务部门提供服务，其次才是在后台修复问题的根源。变更管理是协调和控制IT基础设施自身变化的过程。ITIL将其视作实现适当批准、授权和质量保证步骤的一项协调工作。发布管理指的是IT变更的实际实施，包括人员、流程、技术、培训、推广、沟通和业务领域活动，以及设计的建立、测试和变更发布等内容。对大多数IT运营活动而言，将各种变更打包为发布单元，可以有效地降低业务所受到的影响。配置管理包括日志记录、跟踪、控制和验证基础设施信息的过程，这些信息用于描述IT基础设施中的每一个组件，以及各个组件之间的关系。这一过程的重点是这些项目，即所谓的CI（配置项）之间的相互关系。所有这些信息都保存在一个逻辑CMDB（配置管理数据库）中。3. CMDB到底有多重要？CMDB是建设整个IT基础设施的蓝图，它描述各个配置项（CI），包括硬件、软件、事件、协议、服务水平、文档等之间的相互关系，同时还用于描述整个元系统（metasystem）的工作情况。CMDB已经成为迅速查找IT基础设施信息的基础，同时也是实现有效管理决策的基础。在理想条件下，每个CI都有各自的可配置属性。如果可能，CMDB应该能够自动发现CI的相关信息，并在发生变化时对其进行跟踪，从而将维护配置项所需要的管理工作量降至最低。4.《服务交付》卷关注哪些内容，重要性如何？《服务交付》卷关注的是IT服务的交付和增强方式，该卷重点强调了5个关键的流程：即服务水平管理、可用性管理、容量管理、IT服务连续性管理和IT财务管理。服务水平管理涉及SLA（服务水平协议）的规划、协调、监视和报告。它会以连续的方式对服务进行评估，确保这些服务能够以高性价比的方式交付，同时还要满足用户的服务目标。可用性管理负责协调、设计、测量和管理IT基础设施的可用性，并会综合考虑基础设施和支持机构的各方面情况。它可以协调和集成各个松散结合的“孤岛”，确保IT能够按照必要的水平和成本提供所需的服务。这一过程会将一些关键原则结合在一起，其中包括每种服务的可靠性、可服务性、可管理性、安全性和响应性。容量管理考虑的是适应业务工作量和业务目标的IT容量、性能和吞吐量。从历史上看，大多数IT部门都会根据IT资源的使用方式来管理容量。ITIL则要求IT部门首先了解容量的业务驱动需求，并在将其实施到IT基础设施之前，通过建模和预测发展将其转化为服务工作量。IT服务连续性管理可以确保IT服务能够在发生重大灾难时得到恢复。它引入了关键业务功能概念，迫使IT部门将注意力放在服务的恢复上，不再仅仅关注技术的修复。IT财务管理可以提供IT成本和支出管理所需的预算、会计和收费服务。IT部门通常不了解其提供IT服务所发生的成本，这也是其总被公司董事会质疑的原因之一。IT部门必须开发出一种能力，来明确说明IT服务成本以及IT部门的贡献，IT财务管理将赋予他们这样的能力。        ITIL强调其参与业务活动的具体方法，这方面，服务台意义重大。在典型的业务部门中，业务用户和客户每天都会与服务台建立联系，而且这已经成为服务支持工作流程的一个必要组成部分。同时，行政和管理部门也需要与服务水平管理过程建立接口，从而实现新服务的部署，并调查服务提供工作流程所使用的服务质量。5. 其他7卷的作用和意义？在理解了基本概念后，您会对其余的7卷有更多的了解。例如，《ITIL简介》介绍了构成ITIL服务管理的基本概念；《实施ITIL服务的规划》解释了某个部门通过ITIL获得帮助的一些必要步骤；《ICT基础设施管理》涉及了一些关键问题，比如网络服务管理、运营管理、计算机安装和验收等；《应用管理》重点讨论了软件开发和支持周期，对要求和IT服务的测试进行了定义。        《业务展望》卷事实上是两本书，一本面向IT人员，另外一本适用于商业经理。这两本书讨论了业务连续性管理、伙伴关系、外包、生存几率、以及剧烈变化过程中随机应变的业务实践。《安全管理》以ITIL的视角对各项安全规范和标准进行了讨论。最后一本是《软件资产管理》，它提供了管理软件和软件授权的最佳实践。      6. 为什么在美国的部署远远落后于欧洲？美国在IT基础设施管理的规范化方面一直落后于欧洲。最近美国开始重视ITIL的原因之一是，许多在美国经营的欧洲和亚洲企业都在呼吁：在更大范围内让IT运营符合ITIL的要求。另外，很多美国企业发现，有超过2/3的IT预算被全新的、不可任意支配的运营成本所吞噬，而它们对此根本没有任何控制能力。        ITIL将改变这一现状，它可以针对具体的商业目标实施连续的小型项目，而且所有结果都是可测量的。典型的目标包括缩减IT成本、减少服务中断、为重大IT计划或商业变化做好准备，比方说企业兼并、搬迁或收购。 7. 除大型企业外，还有哪些企业需要ITIL？小型企业或个人是否也可使用ITIL？任何为企业提供IT服务的部门和/或为企业客户提供服务的部门都能从ITIL中受益。        例如，一家小型企业面临着网络经常中断的困扰，那么这家企业可以使用ITIL的问题管理流程来改善其网络环境。如果一家中型企业的IT基础设施非常复杂，那么这家企业就可以利用ITIL的配置管理解决方案，针对各类变更和新应用进行优化与评估，并为其实施绘制蓝图。8. 在对ITIL有了充分了解的前提下，该如何启动ITIL呢?首先要接受培训并获得认证。几乎所有的大型硬件/软件厂商和一些中小型企业都可以提供ITIL培训。您可以在网上搜索相关的ITIL培训机构。完成培训后，您需要利用书本、网络研讨会、图书馆材料和在线资源填补您的知识空白。比较好的ITIL资源包括：IT Service Success（itServiceSuccess.com）、服务水平管理（slminfo.org）和ITSM Watch（itsmwatch.com），以及美国IT服务管理论坛中主要的用户组站点（itsmfusa.org）。9. 是否应该聘用一些人员做ITIL实施？许多公司都提供ITIL咨询和实施服务，但这只是采用曲线中最初级的部分。目前的市场中尚不存在所谓的领导型企业。您可以根据他人的经验来选择适当的服务商。 ITIL告诉了我们“要做什么”，但有关“怎么做”的问题却涉及较少。目前，ITIL被称为“IT部门的ERP”，它需要结合企业自身情况将人员、流程和工具相互融合。因此，ITIL要在企业成功实施首先需要领导的积极推动，同时必须在企业中结合角色设置流程经理来落实设计的流程。在推动的过程中，企业应当考虑聘用顾问协助实施，让企业员工对ITIL有更为深刻的理解和认识，这对整个项目的成功帮助极大。 10. ISO 20000与ITIL的关系是什么？ **ITIL主要是一些流程，它并不提供任何衡量标准。而最近发布的ISO 20000是评测IT服务管理和改善IT服务的基础。它定义了针对服务商的要求，并且帮助您确定自己的工作是否符合可接受的IT服务管理标准。ISO 20000可以提供具体、可测量的标准，能够用于对范围、定义条款、规划和实施服务管理、管理系统要求、全新或变更服务规划及实施、服务提供过程、关系过程、控制过程、决议过程和发布过程等领域进行审查。ITIL资源站点■ 国外站点：
+
+
+        
+        
+          <a href="/2007/03/31/itil-faqs/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        faq, ITIL
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/03/21/ntop-web-based-network-traffic-monitor/">
+	  <h2 class="post-title">ntop ~ Web-based network traffic monitor</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on March 21, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        安装方法：最简单的安装方法应该是从Linux的安装光盘中安装，因为它比较小只有2～3MB；很多Linux都包含这个软件。在SuSE Linux 10.1中可以找到ntop-3.2-17。配置使用：安装之后参考说明文档做首次初始化运行，如果是通过rpm从Linux光盘中安装；相关的系统服务也已经帮你安装。在SuSE里运行rcntop start就可以启动后台进程。访问ntop的界面http://myserver:3000/。Tips：ntop会吃掉比较多的内存资源，不建议在生产机上安装。它工作在第二层，采用实时抓包的方式；ntop像是网络探针来捕获和分析网络活动，产生一些分析报表，部署时需要考虑它的部署位置。于其它系统的集成：该系统界面的访问比较的直接，没有用户认证过程。所有报表和分析结果的按两个方式保存和呈现：host和协议。它通过rdd存储数据，通过web页面展示图片；本身不需要依赖web server。准备尝试把它集成到Nagios和OpenNMS中。ntop的英文说明From: http://www.ntop.org/Monitoring.htmlNTOP is helpful as an “emergency” tool. When you are experiencing response time delays or you suspect that something is wrong with your network, NTOP allows you to easily monitor the protocols running on your LAN and to determine the utilization of each.NTOP comes very...
+        
+        
+          <a href="/2007/03/21/ntop-web-based-network-traffic-monitor/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Network, ntop, traffic
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/28/groundwork-rpm-error/">
+	  <h2 class="post-title">GroundWork rpm 安装会导致原系统的一些改变</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 28, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        GroundWork rpm安装对系统造成的改变有：
+
+
+        
+        
+          <a href="/2007/02/28/groundwork-rpm-error/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GroundWork, rpm
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/27/groundwork-and-otrs/">
+	  <h2 class="post-title">GroundWork和OTRS系统的集成问题</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 27, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        为了节省服务器，我们可能不得不把所有的监控以及相关的系统都安装到一个物理的机器上。如果是从原代码安装，我相信一定有很多选项能避免它们之间的冲突。假如你是后安装的GroundWork，它会更改系统默认的Apache2的配置，导致以前安装的所有的Web应用都不能用。在我的测试机上，先安装的OTRS，rpm安装，后安装的GroundWork，也是rpm安装。GroundWork安装之后，OTRS不能登陆。根据GroundWork的一些文档我做了，如下的修复步骤。1）vi /etc/apache2/conf.d/otrs.conf 可以看到如下OTRS的web配置信息。# –# added for OTRS (http://otrs.org/)# –# agent, admin and customer frontendScriptAlias /otrs/ “/opt/otrs/bin/cgi-bin/”Alias /otrs-web/ “/opt/otrs/var/httpd/htdocs/”# load all otrs modulesPerlrequire /opt/otrs/scripts/apache2-perl-startup.pl# Apache::Reload - Reload Perl Modules when Changed on DiskPerlModule Apache2::ReloadPerlInitHandler Apache2::ReloadPerlModule Apache2::RequestRec# set mod_perl2 options# ErrorDocument 403 /otrs/customer.pl ErrorDocument 403 /otrs/index.pl SetHandler perl-script PerlResponseHandler ModPerl::Registry Options +ExecCGI...
+        
+        
+          <a href="/2007/02/27/groundwork-and-otrs/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        GroundWork, OTRS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/26/otrsitsm-itil/">
+	  <h2 class="post-title">OTRS::ITSM期待中的开源ITIL工具</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 26, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        下个月就OTRS::ITSM 1.0 Beta1就发布了。OTRS是一不错的开源的帮助台程序。之所以说它还不错是由于以下几点：
+
+
+        
+        
+          <a href="/2007/02/26/otrsitsm-itil/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        ITIL, OTRS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/25/nagios-nagvis/">
+	  <h2 class="post-title">Nagios华丽的外衣NagVis</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 25, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        如果你用过Nagios的话，它的2D、3D Map一定会给你留下一些印象；2D Map的确能比较试用一点，不过看上去还是挺难看的。NagVis就是看到了这一点，它力求能让各种状态信息表达的更炫，更好看；它可以说是Nagios的一个不错的插件，直接copy到Nagios的相关目录下，配置一下就行了。它的效果如下图所示：说的在玄虚一点它可以是一个“业务流程管理视图”[CA Unicenter中的名词，OpenView里也有类似的概念]。其实就是把原子的监控对象：被监控节点和节点上的服务；和业务系统或者IT的逻辑关系相结合起来。例如：我的业务系统A的其中一个数据库服务器的数据库进程停了，这个可以影响到所有物理包含或者逻辑包含它的对象的状态。NagVis试图用漂亮的图标来表达这些状态和关系，是管理者能看的更加直观。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Nagios, nagvis
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/16/install-smokeping-via-yum/">
+	  <h2 class="post-title">Install Smokeping via yum</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 16, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        From : http://ai.net.nz/horde/wicked/display.php?page=SmokePing
+
+
+        
+        
+          <a href="/2007/02/16/install-smokeping-via-yum/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        smokeping, Yum
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/15/smokeping-chart/">
+	  <h2 class="post-title">如何看懂Smokeping图表</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 15, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        
+
+
+        
+        
+          <a href="/2007/02/15/smokeping-chart/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        chart, smokeping
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/02/01/opennms-discuss-nagios/">
+	  <h2 class="post-title">翻译[opennms-discuss]邮件组里的一个讨论“Nagios转变”</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on February 1, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        全文在＝》China OpenNMS ——————————————–我们已经在一个中等规模的企业实施了Nagios，用来监控一堆Cisco设备：交换机、路由器、防火墙，还有各种类型的服务器（Windows,Linux和Unix）。对我们来说Nagios工作的非常好。我们现在看OpenNMS，是由于她有好看的用户界面和集成的服务资源图。我喜欢Nagios是由于它的模块化。我能很容易的写一个插件来完成任何相关的事情。我看到OpenNMS有NRPE和NSCLIENT的能力，但是有一些邮件和资源图不能彻底的采集到。有人正打算用OpenNMS作为Nagios或者其他软件的替代品？我的答案是非常确定的，可是我也非常想听到一些关于OpenNMS的成功或者不很成功的故事。我正在测试环境中使用的是OpenNMS1.3.2。Thanks!Jon Christensen——————————————–我们也有一个和你类似的环境（路由器、交换机、各种服务器），目前有大约250个节点。使用一个CentOS4的服务器，我们已经在上面安装了OpenNMS1.2.9，Syslog-NG，Swatch, Logtool(http://xjack.org/logtool/)，在Windows上用Informant MIB，在几乎所有Linux/Unix上的是NET-SNMP，和它们一起的还有很多在客户端的自定义脚本；它们中的大多数都使用send-event.pl或者和它无关。应为所有这些，我们已经能完全替代了HP OpenView，虽然这是我的一面之词：这个架构是如此的模块化，以致于我们能做的比我们使用OpenView的还要多，因种种理由。Tim SelivanowNOC TechnicianEasyStreet Online Services, Inc.______________我的个人观点：从Nagios转到OpenNMS上，其实不太容易。由于一下因素：1）Nagios非常模块化，架构让人决定非常稳定可靠；它没有用到Java。2）它的文档非常好，包括它官方的使用手册和用户上传的文档；从文档可以看出这个欧洲Base的项目非常踏实，风格严谨。开发ONMS的那帮老米显得比较自作聪明一点。3）Nagios的论坛很好，有很多人可以互相帮助。
+
+        
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        Nagios, OpenNMS
+      
+    </div>
+    
+
+   </article>
+  
+  <article class="post-preview">
+    <a href="/2007/01/28/cisco-network-configure/">
+	  <h2 class="post-title">Cisco网络设备如何配置SNMP代理</h2>
+
+	  
+    </a>
+
+    <p class="post-meta">
+      Posted on January 28, 2007
+    </p>
+
+    <div class="post-entry-container">
+      
+      <div class="post-entry">
+        Cisco是网络设备的老大，它的设备以稳定、成熟和高性能著称。很多用户都以自己的网络设备是99％的Cisco设备而自豪。对于任何一个网络设备如果没有配置SNMP代理，就不能被任何管理工具管理。下面的这个连接就是关于如何配置Cisco的SNMP服务：http://www.cisco.com/univercd/cc/td/doc/product/software/ios122/122cgcr/ffun_c/fcfprt3/fcf014.htm可网管网络设备都内置有SNMP代理，很多网管不喜欢配置、enable SNMP服务的理由如下：不希望SNMP服务占用CPU、内存等资源；不信任SNMP服务的安全性；不认确认SNMP管理协议的价值。我个人认为：通过SNMP协议对网络设备管理的价值将远远高于它对设备造成的消耗和带来的风险。如果你同时面对和管理30台以上的网络设备，试想把它们的运行状况做一遍检查，您需要花的时间是多长。网络管理系统和网络设备的互动如下：
+
+
+        
+        
+          <a href="/2007/01/28/cisco-network-configure/" class="post-read-more">[Read&nbsp;More]</a>
+        
+      </div>
+    </div>
+
+    
+    <div class="blog-tags">
+      Tags:
+      
+        cisco, configure, snmp
+      
+    </div>
+    
+
+   </article>
+  
+</div>
+
+
+<ul class="pager main-pager">
+  
+  <li class="previous">
+    <a href="/page22">&larr; Newer Posts</a>
+  </li>
+  
+  
+</ul>
+
+
+	    
+    </div>
+  </div>
+</div>
+
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

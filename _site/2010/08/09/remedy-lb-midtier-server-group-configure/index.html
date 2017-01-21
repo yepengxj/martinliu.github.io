@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | Remedy Server Group及负载均衡配置参考步骤</title>
-    <meta name="description" content="上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。">
+  <title>Remedy Server Group及负载均衡配置参考步骤</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2010/08/09/remedy-lb-midtier-server-group-configure/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Remedy Server Group及负载均衡配置参考步骤" />
+  
+
+   
+  <meta property="og:description" content="上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。 第一步 安装前的准备工作。 确定Remedy ARS的服务别名，例如“AtriumCMDB”。在所有的Web服务器（Mid-tier所安装的服务器）的host文件中加入一条Ip地址解析，例如： 192.168.10.11   AtriumCMDB 此ARS服务别名指向的是该Web服务器所对应的ARS服务器，例如：Web1中AtriumCMDB对应的ip为ARS1，Web2对应ARS2，Web3对应ARS3，以此类推。 第二步安装第一台ARS服务器 默认所有的ARS都安装了数据库客户端程序，如果是Oracle数据库，ARS上的客户端程序的大小版本号必须和远程数据库的大小版本号完全一致。Windows平台的Oracle客户端只支持32位的程序。在所有ARS服务器的host文件中加入一条Ip地址解析，例如： 192.168.10.11   AtriumCMDB 此IP地址为每台ARS自己的对外提供ARS服务的IP。ARS上安装完JDK之后，开始安装ARS，安装过程中服务器别名输入AtriumCMDB，其他的选项都按需要配置，所有有关服务器端组件、服务端口、密码、安装路径的信息都要做详细记录，用来安装Server Group中其他成员使用。安装完第一台服务器的ARS之后，申请Remedy License，打License，包括其他所有CMDB、ITSM相关应用模块的License，打完License后导出成文件备用。ARS安装成功之后，顺序安装其他应用，顺序时CMDB 》ITSM  其他。安装完毕后，通过Remedy User来确认所有应用功能是否正常。 **第三步 **配置第一台ARS服务器为Server Group中的管理服务器 配置方法参照，ARS Configuration Guide中的Server Group的相关章节。配置完毕之后打开Server Group的Log，从启动ARS服务之后，查看该Log看Server Group工作是否正常。 第四步 安装Server Group中的成员ARS服务器 准备工作参考第一台ARS服务器。运行ARS安装程序，选择Server Group，选择输入AtriumCMDB别名，选择共享的数据库，其他参数与第一台保持一致。安装完毕之后。使用ARS自带的Sample应用新增一个city，在ARS1上查询ARS2上新增的记录。同样参考的Server Group的相关章节，对ARS2进行配置。在ARS2上查看Server Group的日志，确认该ARS已经加入了以第一台ARS为管理服务器的群集中。为第二台ARS服务器打License。在确认第二台ARS服务器成功加入之后，安装CMDB应用。安装完毕之后，在第二台ARS服务器上，使用Remedy User客户端，打开CMDB的相关表单进行新增和查询操作；然后在ARS1上检查操作结果，保证两边一致。安装ITSM：直接把第一台ARS服务器的ar.cfg文件覆盖到第二台ARS的ar.cfg上，一定要修改第一台ARS服务器主机名的哪一行，把它修改为第二台ARS的主机名。复制第一台ARS的ITSM安装目录到第二台ARS的相同路径中，重启ARS服务。查看arerror.log文件看看ARS启动的是否正常。在第二台ARS上使用Remedy User确认ITSM应用是否工作正常，如果一切工作正常，则第二台ARS服务器安装完毕。按照相同的方式安装其他的ARS服务器。 第五步 配置每台ARS的ranking 按照ARS Configuration Guide中的Server Group的相关章节配置每台ARS服务器处理不同后台工作流的ranking。 第六步 安装配置所有Web服务器的Remedy Mid-tier 安装Remedy Mid-tier软件，都指向相同的ARS服务别名AtriumCMDB，当然该别名被解析为它所对应的ARS服务器的IP地址。使用浏览器测试每台Web服务器，保证Remedy Mid-tier都能正常工作。 第七步...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2010/08/09/remedy-lb-midtier-server-group-configure/" />
+  <link rel="canonical" href="https://martinliu.github.io/2010/08/09/remedy-lb-midtier-server-group-configure/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="Remedy Server Group及负载均衡配置参考步骤" />
+  
+
+  
+  <meta name="twitter:description" content="上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。 第一步 安装前的准备工作。 确定Remedy ARS的服务别名，例如“AtriumCMDB”。在所有的Web服务器（Mid-tier所安装的服务器）的host文件中加入一条Ip地址解析，例如： 192.168.10.11   AtriumCMDB 此ARS服务别名指向的是该Web服务器所对应的ARS服务器，例如：Web1中AtriumCMDB对应的ip为ARS1，Web2对应ARS2，Web3对应ARS3，以此类推。 第二步安装第一台ARS服务器 默认所有的ARS都安装了数据库客户端程序，如果是Oracle数据库，ARS上的客户端程序的大小版本号必须和远程数据库的大小版本号完全一致。Windows平台的Oracle客户端只支持32位的程序。在所有ARS服务器的host文件中加入一条Ip地址解析，例如： 192.168.10.11   AtriumCMDB 此IP地址为每台ARS自己的对外提供ARS服务的IP。ARS上安装完JDK之后，开始安装ARS，安装过程中服务器别名输入AtriumCMDB，其他的选项都按需要配置，所有有关服务器端组件、服务端口、密码、安装路径的信息都要做详细记录，用来安装Server Group中其他成员使用。安装完第一台服务器的ARS之后，申请Remedy License，打License，包括其他所有CMDB、ITSM相关应用模块的License，打完License后导出成文件备用。ARS安装成功之后，顺序安装其他应用，顺序时CMDB 》ITSM  其他。安装完毕后，通过Remedy User来确认所有应用功能是否正常。 **第三步 **配置第一台ARS服务器为Server Group中的管理服务器 配置方法参照，ARS Configuration Guide中的Server Group的相关章节。配置完毕之后打开Server Group的Log，从启动ARS服务之后，查看该Log看Server Group工作是否正常。 第四步 安装Server Group中的成员ARS服务器 准备工作参考第一台ARS服务器。运行ARS安装程序，选择Server Group，选择输入AtriumCMDB别名，选择共享的数据库，其他参数与第一台保持一致。安装完毕之后。使用ARS自带的Sample应用新增一个city，在ARS1上查询ARS2上新增的记录。同样参考的Server Group的相关章节，对ARS2进行配置。在ARS2上查看Server Group的日志，确认该ARS已经加入了以第一台ARS为管理服务器的群集中。为第二台ARS服务器打License。在确认第二台ARS服务器成功加入之后，安装CMDB应用。安装完毕之后，在第二台ARS服务器上，使用Remedy User客户端，打开CMDB的相关表单进行新增和查询操作；然后在ARS1上检查操作结果，保证两边一致。安装ITSM：直接把第一台ARS服务器的ar.cfg文件覆盖到第二台ARS的ar.cfg上，一定要修改第一台ARS服务器主机名的哪一行，把它修改为第二台ARS的主机名。复制第一台ARS的ITSM安装目录到第二台ARS的相同路径中，重启ARS服务。查看arerror.log文件看看ARS启动的是否正常。在第二台ARS上使用Remedy User确认ITSM应用是否工作正常，如果一切工作正常，则第二台ARS服务器安装完毕。按照相同的方式安装其他的ARS服务器。 第五步 配置每台ARS的ranking 按照ARS Configuration Guide中的Server Group的相关章节配置每台ARS服务器处理不同后台工作流的ranking。 第六步 安装配置所有Web服务器的Remedy Mid-tier 安装Remedy Mid-tier软件，都指向相同的ARS服务别名AtriumCMDB，当然该别名被解析为它所对应的ARS服务器的IP地址。使用浏览器测试每台Web服务器，保证Remedy Mid-tier都能正常工作。 第七步...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Remedy Server Group及负载均衡配置参考步骤</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on August 9, 2010</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/ITIL/ITSM'>Itil/itsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>Remedy Server Group及负载均衡配置参考步骤</h1>
 
-            <p><a href="http://martinliu.cn/2010/08/remedy-lb-midtier-server-group-configure.html/remedyitsmarch"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2010/08/RemedyITSMArch-253x300.jpg" alt="" /></a>上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><a href="http://martinliu.cn/2010/08/remedy-lb-midtier-server-group-configure.html/remedyitsmarch"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2010/08/RemedyITSMArch-253x300.jpg" alt="" /></a>上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。</p>
 
 <p><strong>第一步</strong> 安装前的准备工作。
 确定Remedy ARS的服务别名，例如“AtriumCMDB”。在所有的Web服务器（Mid-tier所安装的服务器）的host文件中加入一条Ip地址解析，例如：</p>
@@ -110,63 +236,180 @@
 <p><strong>第七步</strong> 配置F5负载均衡
 配置F5的分发策略，按不同ARS服务器的用途，来分别不同的用户请求。考虑管理和接口功能的ARS负担少量的用户交互。开发一个jsp的程序部署在Mid-tier的shared目录中，用它来判断Web所对应的ARS的可用性，以此作为唯一判断条件来分发用户请求给可用的web服务器。</p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ARS, Atrium, BMC, cmdb, LB, Mid-tier, remedy
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Aug 9, 2010</span></p>
-                <p><a href=""></a> in <a href='/category/ITIL/ITSM'>Itil/itsm</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/ITIL/ITSM'>Itil/itsm</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2010/08/09/remedy-lb-midtier-server-group-configure/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2010/08/09/remedy-lb-midtier-server-group-configure/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2010/08/09/remedy-lb-midtier-server-group-configure/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Remedy+Server+Group%E5%8F%8A%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83%E6%AD%A5%E9%AA%A4+https://martinliu.github.io/2010/08/09/remedy-lb-midtier-server-group-configure/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2010/08/09/remedy-lb-midtier-server-group-configure/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2010/08/09/remedy-lb-midtier-server-group-configure/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2010/08/03/otrs-300-beta1/" data-toggle="tooltip" data-placement="top" title="OTRS 3.0.0 beta1 发布">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2010/09/15/open-source-software-box-dot-net-lunch/" data-toggle="tooltip" data-placement="top" title="Open source software box dot net launch">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

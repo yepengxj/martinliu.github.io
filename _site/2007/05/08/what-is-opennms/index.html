@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | OpenNMS网络和系统管理简介</title>
-    <meta name="description" content="1.1  概述">
+  <title>OpenNMS网络和系统管理简介</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2007/05/08/what-is-opennms/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="OpenNMS网络和系统管理简介" />
+  
+
+   
+  <meta property="og:description" content="1.1 概述 Opennms能够帮助IT管理部门持续的监控分布式的异构系统和网络设备的运行状态，它可以支持SNMP网络管理协议确保管理的扩展性，并且提供非常灵活的定制功能从而有利于管理范围的伸缩。它内置的故障事件管理以提供故障事件的记录和分析的能力，快速隔离非根源事件并迅速发现故障原因。Opennms良好的设计可以快速部署实施，简单友好的图形界面能够使得用户迅速掌握，从而降低操作的复杂度，提高IT管理效率。 1.2 体系架构 作为一个通用的网络系统故障监控平台，其体系架构应如下图所示：   附图1. ** **Opennms体系架构 我们从下至上对Opnnms体系架构作一一的介绍： u 被管理对象层，SNMP代理程序是数据采集和动作执行层。对应网络设备来讲，该层对应与网络设备本身的网络管理功能，不需要在设备上单独部署功能模块；对计算机来讲，该层是运行在目标计算机上的SNMP服务，负责采集该系统运行状况、性能等数据，并向管理层汇报。 u Opennms监控引擎是实现网络和系统可用性、故障管理的业务逻辑和策略的处理层。他利用特定的轮询策略：从代理程序层收集数据、更新和维护被管理对象状态、执行相关的报警事件通知。 u 管理对象数据库是网络和系统管理的数据存储层。其中以面向对象的方式保存着网络和系统资源的模型，记录着他们的配置、描述和状态等信息。这些模型和信息是通过Opennms网络扫描模块自动建立起来的，并由管理者层自动维护。 u 图形用户界面是网络和系统管理的数据表示层。他以各种直观、生动的用户界面向用户展示网络和系统中各种对象的关系、配置、状态和故障情况，是优秀的用户接口。 针对某企业简称user short name的环境，其IT故障监控子系统的管理框架为： u 被管理对象层——启动核心路由器和交换机的SNMP网管协议，作为网络设备故障的数据提供源；在所有需要管理的服务器上运行SNMP服务，作为监控操作系统故障的数据提供源。 u Opennms网络监控服务器——新增一台服务器，部署Opennms的监控引擎模块，由该模块对被管理对象层的数据源进行自动的数据采集和翻译采集的结果。并实时发送报警信息。 u 对象存储库——在和Opennms监控引擎安装的机器上安装PostgreSQL，作为Opennms监控模块的对象存储库。 u 图形用户界面——某企业简称user short name管理员可使用任何的WWW浏览器连接Opennms网络监控服务器的用户界面，使用合适的用户名，在某种适当的权限下查看和浏览网络监控信息、状态信息、可用性报表和性能报表。 1.3 功能介绍 1.3.1 网络节点自动发现 对象存储库中的信息并不是靠管理员手工输入和维护的，而是由Opennms网络监控引擎－自动扫描模块自动从用户的计算机系统中搜索发现出来的。 附图2. ** **网络节点自动发现 1.3.2 图形用户管理界面 在某企业简称user short name这 样的网络和系统中，需要一些友好的监控视图。目的是使得管理员能够通过直观的界面，迅速发现故障，从而在最短的时间内解决故障。该用户界面视图可使得管理 员通过管理工具看到现实世界对象的真实反映，而不是抽象的符号。使用户能够监控整个系统的概貌，系统的大体分布和总体运行状况等。并且决策适当的故障排除 方案，各种界面视图可通过Intranet进行浏览查看。 附图3. **...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2007/05/08/what-is-opennms/" />
+  <link rel="canonical" href="https://martinliu.github.io/2007/05/08/what-is-opennms/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="OpenNMS网络和系统管理简介" />
+  
+
+  
+  <meta name="twitter:description" content="1.1 概述 Opennms能够帮助IT管理部门持续的监控分布式的异构系统和网络设备的运行状态，它可以支持SNMP网络管理协议确保管理的扩展性，并且提供非常灵活的定制功能从而有利于管理范围的伸缩。它内置的故障事件管理以提供故障事件的记录和分析的能力，快速隔离非根源事件并迅速发现故障原因。Opennms良好的设计可以快速部署实施，简单友好的图形界面能够使得用户迅速掌握，从而降低操作的复杂度，提高IT管理效率。 1.2 体系架构 作为一个通用的网络系统故障监控平台，其体系架构应如下图所示：   附图1. ** **Opennms体系架构 我们从下至上对Opnnms体系架构作一一的介绍： u 被管理对象层，SNMP代理程序是数据采集和动作执行层。对应网络设备来讲，该层对应与网络设备本身的网络管理功能，不需要在设备上单独部署功能模块；对计算机来讲，该层是运行在目标计算机上的SNMP服务，负责采集该系统运行状况、性能等数据，并向管理层汇报。 u Opennms监控引擎是实现网络和系统可用性、故障管理的业务逻辑和策略的处理层。他利用特定的轮询策略：从代理程序层收集数据、更新和维护被管理对象状态、执行相关的报警事件通知。 u 管理对象数据库是网络和系统管理的数据存储层。其中以面向对象的方式保存着网络和系统资源的模型，记录着他们的配置、描述和状态等信息。这些模型和信息是通过Opennms网络扫描模块自动建立起来的，并由管理者层自动维护。 u 图形用户界面是网络和系统管理的数据表示层。他以各种直观、生动的用户界面向用户展示网络和系统中各种对象的关系、配置、状态和故障情况，是优秀的用户接口。 针对某企业简称user short name的环境，其IT故障监控子系统的管理框架为： u 被管理对象层——启动核心路由器和交换机的SNMP网管协议，作为网络设备故障的数据提供源；在所有需要管理的服务器上运行SNMP服务，作为监控操作系统故障的数据提供源。 u Opennms网络监控服务器——新增一台服务器，部署Opennms的监控引擎模块，由该模块对被管理对象层的数据源进行自动的数据采集和翻译采集的结果。并实时发送报警信息。 u 对象存储库——在和Opennms监控引擎安装的机器上安装PostgreSQL，作为Opennms监控模块的对象存储库。 u 图形用户界面——某企业简称user short name管理员可使用任何的WWW浏览器连接Opennms网络监控服务器的用户界面，使用合适的用户名，在某种适当的权限下查看和浏览网络监控信息、状态信息、可用性报表和性能报表。 1.3 功能介绍 1.3.1 网络节点自动发现 对象存储库中的信息并不是靠管理员手工输入和维护的，而是由Opennms网络监控引擎－自动扫描模块自动从用户的计算机系统中搜索发现出来的。 附图2. ** **网络节点自动发现 1.3.2 图形用户管理界面 在某企业简称user short name这 样的网络和系统中，需要一些友好的监控视图。目的是使得管理员能够通过直观的界面，迅速发现故障，从而在最短的时间内解决故障。该用户界面视图可使得管理 员通过管理工具看到现实世界对象的真实反映，而不是抽象的符号。使用户能够监控整个系统的概貌，系统的大体分布和总体运行状况等。并且决策适当的故障排除 方案，各种界面视图可通过Intranet进行浏览查看。 附图3. **...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>OpenNMS网络和系统管理简介</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on May 8, 2007</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>OpenNMS网络和系统管理简介</h1>
 
-            <h2 id="section">1.1  概述</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <h2 id="section">1.1  概述</h2>
 
 <p><br /></p>
 
@@ -389,63 +515,180 @@
 
 <p><br /><br /></p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            OpenNMS
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>May 8, 2007</span></p>
-                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/NSM'>Nsm</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/05/08/what-is-opennms/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/05/08/what-is-opennms/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/05/08/what-is-opennms/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=OpenNMS%E7%BD%91%E7%BB%9C%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E7%AE%80%E4%BB%8B+https://martinliu.github.io/2007/05/08/what-is-opennms/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2007/05/08/what-is-opennms/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2007/05/08/what-is-opennms/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2007/05/08/opennms-faqs/" data-toggle="tooltip" data-placement="top" title="OpenNMS常问问题All-in-One">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2007/05/13/install-opennms-132-on-opensuse-102-system-the-simplest-version/" data-toggle="tooltip" data-placement="top" title="Install OpenNMS 1.3.2 on OpenSuse 10.2 system (The simplest version  )">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

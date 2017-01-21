@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | 如何把CloudStack的测试环境推到重来</title>
-    <meta name="description" content="感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。">
+  <title>如何把CloudStack的测试环境推到重来</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="如何把CloudStack的测试环境推到重来" />
+  
+
+   
+  <meta property="og:description" content="感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。 第一部分：数据库的重新初始化 [bash] [root@cloudstack ~]# mysql -uroot -pcitrix Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 45 Server version: 5.1.52-log Source distribution Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved. This software comes with ABSOLUTELY NO WARRANTY. This is...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" />
+  <link rel="canonical" href="https://martinliu.github.io/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="如何把CloudStack的测试环境推到重来" />
+  
+
+  
+  <meta name="twitter:description" content="感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。 第一部分：数据库的重新初始化 [bash] [root@cloudstack ~]# mysql -uroot -pcitrix Welcome to the MySQL monitor. Commands end with ; or \g. Your MySQL connection id is 45 Server version: 5.1.52-log Source distribution Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved. This software comes with ABSOLUTELY NO WARRANTY. This is...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>如何把CloudStack的测试环境推到重来</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 25, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/CloudStack'>Cloudstack</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>如何把CloudStack的测试环境推到重来</h1>
 
-            <p>感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>感觉系统不对劲的时候，可能你会大动干戈把当前的系统铲掉重来。那么这些步骤可能值得参考一下。</p>
 
 <p>第一部分：数据库的重新初始化
 [bash]
@@ -144,63 +270,180 @@ wget http://download.cloud.com/releases/3.0.1/XS-6.0.2/xenserver-cloud-supp.tgz
 <p>第四部分：重新初始化管理服务器
 登录http：//192.168.10.15：8080/client 接下来熟悉的初始化向导再次出现在你面前，如果你的浏览器已经纪录了你以前的输入的话，这下连打字都不用了。轻松初始化测试环境。在这个过程中只有添加host，过程会稍微长一点，完了之后，在XenServer上可以看到两个虚拟机s-1-vm和v-2-vm；到此测试环境初始化过程完毕，登录之后，你发现整个世界清净了，世界一下子变得很美好，又可以开始接着折腾了。</p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            3.02, 6.0.201, cloudstack, Hypervisor, KVM, xenserver, 安装, 手册, 配置
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Jul 25, 2012</span></p>
-                <p><a href=""></a> in <a href='/category/CloudStack'>Cloudstack</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/CloudStack'>Cloudstack</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E5%A6%82%E4%BD%95%E6%8A%8ACloudStack%E7%9A%84%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%8E%A8%E5%88%B0%E9%87%8D%E6%9D%A5+https://martinliu.github.io/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2012/07/25/e5-a6-82-e4-bd-95-e6-8a-8acloudstack-e7-9a-84-e6-b5-8b-e8-af-95-e7-8e-af-e5-a2-83-e6-8e-a8-e5-88-b0-e9-87-8d-e6-9d-a5/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012/07/15/what-are-zero-clients-and-how-are-they-different-from-thin-clients/" data-toggle="tooltip" data-placement="top" title="What are 'zero clients,' and how are they different from thin clients?">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012/07/27/e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aecloudstack-e7-9a-84iso-e4-b8-8b-e8-bd-bd-e7-ab-99-e7-82-b9/" data-toggle="tooltip" data-placement="top" title="如何配置CloudStack的ISO下载站点">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

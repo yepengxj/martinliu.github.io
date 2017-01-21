@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | [转]10大优秀开源网络管理工具</title>
-    <meta name="description" content="转载ITmanagement的一个文章；全文的部分翻译。个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：click Here ">
+  <title>[转]10大优秀开源网络管理工具</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2007/06/01/top-10-nsm-tools/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="[转]10大优秀开源网络管理工具" />
+  
+
+   
+  <meta property="og:description" content="转载ITmanagement的一个文章；全文的部分翻译。个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：click Here “最高评分的管理管理工具不会使人不得不花未来的钱。来考虑一下这些自由且低成本的开源软件吧。”Leslie T. O’Neill May 24th, 2007 如果您的公司排名在Fortune 1000强和中小企业之间，那么您网络管理的选择形势看似比较严酷。你既不能在小市场上收集一堆拙劣的玩意来组成一个解决方案；你也不能花很多钱买一些真正不需要的高科技产品。这里有一个很好的选择：试用可一个开源的网络管理方案，加专业服务，包括开发和技术支持。 Open Source = Flexible **开源＝灵活性** 一个开源的解决方案对厂商来说也是非常灵活性的，他们很快地增加新技术的支持，比改进一个私有系统更快。例如：当Ubuntu 7.04 “Fiesty Fawn”四月份发布之后, Hyperic HQ在发布的第二天就宣布了对其提供技术支持。 当谈到开源的网络管理方案时，公司最需要也用的最多的技术莫过与监控功能。不过监控技术在很大程度上已经变成了日用品。通常的，专业化版本的开源IT管理软件平台集成多个其他开源项目在一个框架中，象Nagios网络监控等；并且加入统一的网络界面；并且提供技术支持服务。另外，他们都想通过强大的社区来提高和改进代码，跟踪bug等。 六个企业级平台 下面的六个开源IT管理都可能用作HP, IBM, CA 和 BMC大型管理套件的替代品。每一个都能提供低价的专业服务和免费软件下载。它们的不同支持在与所提供的功能和支持的操作系统 Quest Big Brother 这个Web-based系统和网络监控产品能支持 Windows, Unix 和Linux等操系统, 还有一个通过用户投稿形成的脚本知识库，利用它能容易地定制Big Brother取管理你的网络。它的GUI是一个不错的特色，使用相同的颜色代码；红色代表不好，绿色代表好。 GroundWork Open Source Monitor Professional 2004年发布，它是最早的企业级网络管理产品之一。它集成了超过100种最好的开源项目，包括Nagios, Apache 和 NMap, 在这个框架之上有添加了很多特有功能，例如Web-based用户界面等。Monitor提供了集中化的监控和管理，管理和监控你的企业网络，包括Linux, Unix 和Windows 服务器,...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2007/06/01/top-10-nsm-tools/" />
+  <link rel="canonical" href="https://martinliu.github.io/2007/06/01/top-10-nsm-tools/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="[转]10大优秀开源网络管理工具" />
+  
+
+  
+  <meta name="twitter:description" content="转载ITmanagement的一个文章；全文的部分翻译。个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：click Here “最高评分的管理管理工具不会使人不得不花未来的钱。来考虑一下这些自由且低成本的开源软件吧。”Leslie T. O’Neill May 24th, 2007 如果您的公司排名在Fortune 1000强和中小企业之间，那么您网络管理的选择形势看似比较严酷。你既不能在小市场上收集一堆拙劣的玩意来组成一个解决方案；你也不能花很多钱买一些真正不需要的高科技产品。这里有一个很好的选择：试用可一个开源的网络管理方案，加专业服务，包括开发和技术支持。 Open Source = Flexible **开源＝灵活性** 一个开源的解决方案对厂商来说也是非常灵活性的，他们很快地增加新技术的支持，比改进一个私有系统更快。例如：当Ubuntu 7.04 “Fiesty Fawn”四月份发布之后, Hyperic HQ在发布的第二天就宣布了对其提供技术支持。 当谈到开源的网络管理方案时，公司最需要也用的最多的技术莫过与监控功能。不过监控技术在很大程度上已经变成了日用品。通常的，专业化版本的开源IT管理软件平台集成多个其他开源项目在一个框架中，象Nagios网络监控等；并且加入统一的网络界面；并且提供技术支持服务。另外，他们都想通过强大的社区来提高和改进代码，跟踪bug等。 六个企业级平台 下面的六个开源IT管理都可能用作HP, IBM, CA 和 BMC大型管理套件的替代品。每一个都能提供低价的专业服务和免费软件下载。它们的不同支持在与所提供的功能和支持的操作系统 Quest Big Brother 这个Web-based系统和网络监控产品能支持 Windows, Unix 和Linux等操系统, 还有一个通过用户投稿形成的脚本知识库，利用它能容易地定制Big Brother取管理你的网络。它的GUI是一个不错的特色，使用相同的颜色代码；红色代表不好，绿色代表好。 GroundWork Open Source Monitor Professional 2004年发布，它是最早的企业级网络管理产品之一。它集成了超过100种最好的开源项目，包括Nagios, Apache 和 NMap, 在这个框架之上有添加了很多特有功能，例如Web-based用户界面等。Monitor提供了集中化的监控和管理，管理和监控你的企业网络，包括Linux, Unix 和Windows 服务器,...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>[转]10大优秀开源网络管理工具</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 1, 2007</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/NSM'>Nsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>[转]10大优秀开源网络管理工具</h1>
 
-            <p><a href="http://www.itmanagement.com/images/logo-itmanagement2.gif"><img src="http://www.itmanagement.com/images/logo-itmanagement2.gif" alt="" /></a>转载ITmanagement的一个文章；全文的部分翻译。<a href="http://www.itmanagement.com/images/logo-itmanagement2.gif"></a>个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：<a href="http://www.itmanagement.com/features/10-open-source-network-tools-052407">click Here </a><br /><br /></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><a href="http://www.itmanagement.com/images/logo-itmanagement2.gif"><img src="http://www.itmanagement.com/images/logo-itmanagement2.gif" alt="" /></a>转载ITmanagement的一个文章；全文的部分翻译。<a href="http://www.itmanagement.com/images/logo-itmanagement2.gif"></a>个人以为这个文章的把网管的开源工具做了一个小结，英文好的同志请直接访问原文地址：<a href="http://www.itmanagement.com/features/10-open-source-network-tools-052407">click Here </a><br /><br /></p>
 
 <p>“最高评分的管理管理工具不会使人不得不花未来的钱。来考虑一下这些自由且低成本的开源软件吧。”<br />Leslie T. O’Neill May 24th, 2007</p>
 
@@ -227,63 +353,180 @@
 
 <p><br /><br /></p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            GroundWork, Hyperic HQ, Nagios, OpenNMS, OpenQRM, Zenoss
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Jun 1, 2007</span></p>
-                <p><a href=""></a> in <a href='/category/NSM'>Nsm</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/NSM'>Nsm</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/06/01/top-10-nsm-tools/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/06/01/top-10-nsm-tools/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/06/01/top-10-nsm-tools/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%5B%E8%BD%AC%5D10%E5%A4%A7%E4%BC%98%E7%A7%80%E5%BC%80%E6%BA%90%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7+https://martinliu.github.io/2007/06/01/top-10-nsm-tools/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2007/06/01/top-10-nsm-tools/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2007/06/01/top-10-nsm-tools/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2007/05/30/hyperic-hq-testing/" data-toggle="tooltip" data-placement="top" title="Hyperic HQ小测手记">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2007/06/01/there-is-the-easiest-way-to-run-it-management-tool/" data-toggle="tooltip" data-placement="top" title="There is the easiest way to run IT management tool">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

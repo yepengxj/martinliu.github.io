@@ -2,16 +2,8 @@
 layout:     post
 title:      Nutanix AHV 虚拟机模板制作
 subtitle:   本文描述了AHV虚拟化的虚拟机模板的制作过程。
-categories: Nutanix
-author_name : Michelle Jones
-author_url : /author/michelle
-author_avatar: michelle
-show_avatar : true
-read_time : 12
-feature_image: google-earth-view-6043
-show_related_posts: true
-square_related: recommend-woods
----
+tags: [Nutanix]
+--- 
 
 首先使用ssh登录cvm，进入acropolis命令行。
 
@@ -55,3 +47,4 @@ fedora25-Template: complete
 ## 模板测试
 
 登录Prism界面，点击镜像服务，确认清单中刚才创建的虚拟机模板镜像；进入vm页面，创建虚拟机，使用 fedora25-Template 镜像做磁盘
+

@@ -1,143 +1,388 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | CMDB中存什么？</title>
-    <meta name="description" content="[caption id=”” align=”alignnone” width=”406” caption=”dmtf.org”][/caption]当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据...">
+  <title>CMDB中存什么？</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2009/10/05/what-does-cmdb-store/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="CMDB中存什么？" />
+  
+
+   
+  <meta property="og:description" content="[caption id=”” align=”alignnone” width=”406” caption=”dmtf.org”][/caption]当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据模型是DMTF的通用信息模型，它是以面相对象的方式来描述各类CI和关系。它是一个工具用来帮你对环境中的各种物理和逻辑的CI和关系进行分类，参考这个模型选择一些有用的类（广度），然后在参考它对每个类属性的描述（粒度）。这些类的选择只是一个初步的研究，每个CMDB厂商和工具对其实施和参考的力度都不同，也需要看您具体实施的是什么工具。例如：你需要描述银行基金业务系统，你可能选择的CI类包括：客户群、业务流程、业务活动、业务服务、IT服务、应用系统、应用、软件服务器、服务器、网络、存储等；关系包括：组件、依赖和影响。CI类和关系的选择也基本上遵循够用就好的原则；而且每个类对应的CI实例都需要有人负责管理维护，需遵循，谁负责、谁维护的原则保障其属性的精确性。对于整个CMDB来说如果存在没有Onwer的CI或者关系，如果它是由自动化配置发现工具来更新的；那么它可以存在，如果不是的话，它可能根本就不该存在。所以CMDB中保存的数据不是越多，越细越好；而是够用就好，能保证更新就好。由于数据根本就不是免费的，即使国内的人力成本低，也不应该雇用一帮专职更新CMDB的人。  综上所述：我们说明了CMDB中数据选取和存放的最基本原则和方法，在CMDB产品选型过程中需要着重考察产品的数据模型本身和其管理的能力，还包括其CI和关系的扩展和定制能力；包括数据类型的支持和界面定制的程度。那么CMDB中的CI和关系有该如何展现呢？这是CMDB系统的另外一个功能：可视化。下面是一个CI和关系展示的实例供参考：[http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf#swf&amp;amp;width=320&amp;amp;height=320]全屏查看或者下载Flash文件第一代的配置展示方式是，纯数据表格方式。第二代具有一种固定格式的图形展示方式，除了那几张视图外，别的需要单独开发。下一代的具有各种视图定制功能，并且支持关系和ci的过滤等等。
+">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2009/10/05/what-does-cmdb-store/" />
+  <link rel="canonical" href="https://martinliu.github.io/2009/10/05/what-does-cmdb-store/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="CMDB中存什么？" />
+  
+
+  
+  <meta name="twitter:description" content="[caption id=”” align=”alignnone” width=”406” caption=”dmtf.org”][/caption]当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据模型是DMTF的通用信息模型，它是以面相对象的方式来描述各类CI和关系。它是一个工具用来帮你对环境中的各种物理和逻辑的CI和关系进行分类，参考这个模型选择一些有用的类（广度），然后在参考它对每个类属性的描述（粒度）。这些类的选择只是一个初步的研究，每个CMDB厂商和工具对其实施和参考的力度都不同，也需要看您具体实施的是什么工具。例如：你需要描述银行基金业务系统，你可能选择的CI类包括：客户群、业务流程、业务活动、业务服务、IT服务、应用系统、应用、软件服务器、服务器、网络、存储等；关系包括：组件、依赖和影响。CI类和关系的选择也基本上遵循够用就好的原则；而且每个类对应的CI实例都需要有人负责管理维护，需遵循，谁负责、谁维护的原则保障其属性的精确性。对于整个CMDB来说如果存在没有Onwer的CI或者关系，如果它是由自动化配置发现工具来更新的；那么它可以存在，如果不是的话，它可能根本就不该存在。所以CMDB中保存的数据不是越多，越细越好；而是够用就好，能保证更新就好。由于数据根本就不是免费的，即使国内的人力成本低，也不应该雇用一帮专职更新CMDB的人。  综上所述：我们说明了CMDB中数据选取和存放的最基本原则和方法，在CMDB产品选型过程中需要着重考察产品的数据模型本身和其管理的能力，还包括其CI和关系的扩展和定制能力；包括数据类型的支持和界面定制的程度。那么CMDB中的CI和关系有该如何展现呢？这是CMDB系统的另外一个功能：可视化。下面是一个CI和关系展示的实例供参考：[http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf#swf&amp;amp;width=320&amp;amp;height=320]全屏查看或者下载Flash文件第一代的配置展示方式是，纯数据表格方式。第二代具有一种固定格式的图形展示方式，除了那几张视图外，别的需要单独开发。下一代的具有各种视图定制功能，并且支持关系和ci的过滤等等。
+">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>CMDB中存什么？</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on October 5, 2009</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
-
-            <h1>CMDB中存什么？</h1>
-
-            <p>[caption id=”” align=”alignnone” width=”406” caption=”dmtf.org”]<img src="http://www.dmtf.org/home/Computer_stoxx.JPG" alt="dmtf.org" />[/caption]<br /><br />当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据模型是DMTF的通用信息模型，它是以面相对象的方式来描述各类CI和关系。它是一个工具用来帮你对环境中的各种物理和逻辑的CI和关系进行分类，参考这个模型选择一些有用的类（广度），然后在参考它对每个类属性的描述（粒度）。这些类的选择只是一个初步的研究，每个CMDB厂商和工具对其实施和参考的力度都不同，也需要看您具体实施的是什么工具。例如：你需要描述银行基金业务系统，你可能选择的CI类包括：客户群、业务流程、业务活动、业务服务、IT服务、应用系统、应用、软件服务器、服务器、网络、存储等；关系包括：组件、依赖和影响。CI类和关系的选择也基本上遵循够用就好的原则；而且每个类对应的CI实例都需要有人负责管理维护，需遵循，谁负责、谁维护的原则保障其属性的精确性。对于整个CMDB来说如果存在没有Onwer的CI或者关系，如果它是由自动化配置发现工具来更新的；那么它可以存在，如果不是的话，它可能根本就不该存在。所以CMDB中保存的数据不是越多，越细越好；而是够用就好，能保证更新就好。由于数据根本就不是免费的，即使国内的人力成本低，也不应该雇用一帮专职更新CMDB的人。  综上所述：我们说明了CMDB中数据选取和存放的最基本原则和方法，在CMDB产品选型过程中需要着重考察产品的数据模型本身和其管理的能力，还包括其CI和关系的扩展和定制能力；包括数据类型的支持和界面定制的程度。那么CMDB中的CI和关系有该如何展现呢？这是CMDB系统的另外一个功能：可视化。下面是一个CI和关系展示的实例供参考：<br />[http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf#swf&amp;width=320&amp;height=320]<br /><a href="http://martinliu.cn/2009/10/05/what-does-cmdb-store/s1-4-blog/"></a><a href="http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf">全屏查看或者下载Flash文件</a><br />第一代的配置展示方式是，纯数据表格方式。第二代具有一种固定格式的图形展示方式，除了那几张视图外，别的需要单独开发。下一代的具有各种视图定制功能，并且支持关系和ci的过滤等等。</p>
 
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
 
-</main> <!-- /container -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      <article role="main" class="blog-post">
+        <p>[caption id=”” align=”alignnone” width=”406” caption=”dmtf.org”]<img src="http://www.dmtf.org/home/Computer_stoxx.JPG" alt="dmtf.org" />[/caption]<br /><br />当然是配置项和它们之间的关系，即：CI 和  Relationship。  那么如何规划那些类型的CI和Relationship需要保存到CMDB中呢？可以参考的数据模型是DMTF的通用信息模型，它是以面相对象的方式来描述各类CI和关系。它是一个工具用来帮你对环境中的各种物理和逻辑的CI和关系进行分类，参考这个模型选择一些有用的类（广度），然后在参考它对每个类属性的描述（粒度）。这些类的选择只是一个初步的研究，每个CMDB厂商和工具对其实施和参考的力度都不同，也需要看您具体实施的是什么工具。例如：你需要描述银行基金业务系统，你可能选择的CI类包括：客户群、业务流程、业务活动、业务服务、IT服务、应用系统、应用、软件服务器、服务器、网络、存储等；关系包括：组件、依赖和影响。CI类和关系的选择也基本上遵循够用就好的原则；而且每个类对应的CI实例都需要有人负责管理维护，需遵循，谁负责、谁维护的原则保障其属性的精确性。对于整个CMDB来说如果存在没有Onwer的CI或者关系，如果它是由自动化配置发现工具来更新的；那么它可以存在，如果不是的话，它可能根本就不该存在。所以CMDB中保存的数据不是越多，越细越好；而是够用就好，能保证更新就好。由于数据根本就不是免费的，即使国内的人力成本低，也不应该雇用一帮专职更新CMDB的人。  综上所述：我们说明了CMDB中数据选取和存放的最基本原则和方法，在CMDB产品选型过程中需要着重考察产品的数据模型本身和其管理的能力，还包括其CI和关系的扩展和定制能力；包括数据类型的支持和界面定制的程度。那么CMDB中的CI和关系有该如何展现呢？这是CMDB系统的另外一个功能：可视化。下面是一个CI和关系展示的实例供参考：<br />[http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf#swf&amp;width=320&amp;height=320]<br /><a href="http://martinliu.cn/2009/10/05/what-does-cmdb-store/s1-4-blog/"></a><a href="http://media-001.yo2cdn.com/wp-content/uploads/266/26670/2009/10/s1-4-blog.swf">全屏查看或者下载Flash文件</a><br />第一代的配置展示方式是，纯数据表格方式。第二代具有一种固定格式的图形展示方式，除了那几张视图外，别的需要单独开发。下一代的具有各种视图定制功能，并且支持关系和ci的过滤等等。</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            ci, cmdb, cms, relationship, 添加新标签
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Oct 5, 2009</span></p>
-                <p><a href=""></a> in <a href='/category/CMS/CMDB'>Cms/cmdb</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/CMS/CMDB'>Cms/cmdb</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2009/10/05/what-does-cmdb-store/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2009/10/05/what-does-cmdb-store/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2009/10/05/what-does-cmdb-store/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=CMDB%E4%B8%AD%E5%AD%98%E4%BB%80%E4%B9%88%EF%BC%9F+https://martinliu.github.io/2009/10/05/what-does-cmdb-store/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2009/10/05/what-does-cmdb-store/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2009/10/05/what-does-cmdb-store/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2009/10/05/bo-ke-zai-ci-ban-jia-hui-guo/" data-toggle="tooltip" data-placement="top" title="博客再次搬家回国">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2009/10/17/step-by-step-guide-to-building-a-cmdb/" data-toggle="tooltip" data-placement="top" title="手把手教您构建CMDB/CMS">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

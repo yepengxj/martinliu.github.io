@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>OCS inventory NG 两三事</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="OCS inventory NG 两三事" />
+  
+
+   
+  <meta property="og:description" content="头等大事是有关于OCSNG很快就要出UTF8多语言支持版的Windows采集代理程序。新闻如下： ** 新版windows采集代理被彻底重写，它将包括下面的新特性：** - 全Unicode代理，多语言UTF-8支持 - Native 32 and 64 bits agent - BIOS AssetTag 收集 - 硬盘序列号收集 - 部署返回码收集 - 全 HTTPS 支持 - Socks 4 、5 HTTP 代理支持 - FTP, FTPS 和SMB 包部署支持 - 二进制插件支持 另外，是一本新书的发布，这是我见到的第一本系统介绍OCSNG的图书。可能是由于我写过一些相关的post，该书的出版社发邮件给我，想请我review，并写写书评。处于对OCSNG和GLPI的喜爱，忍不住诱惑，就答应了。很快的我得到了这本书的电子版。虽然没有时间看完，浏览了几章后，还是可以说这本书写的是非常实用。特别是对系统的安装、配置、部署和使用都从系统管理员的角度写的非常到位。书上没什么废话，文字写的比较随意，很易懂的随意。可喜的是该书还捎带着把GLPI也给介绍了，包括如何与OCSNG做集成配置，以及GLPI的主要功能说明。对于这种偏门的开源软件系统能有如此细致使用的介绍实属难得，更何况我对OCSNG和GLPI的网站文档本身就不敢恭维。这里提供一个样章供参考 “Introduction to IT Inventory and Resource Management” 最后，还是期待新版OCSNG的Window采集代理程序能早点发布吧。期望它发布之时我有时间做这样一个虚机，以便分享给各位感兴趣的人。规划如下： 基于Fedora 10 安装OCSNG_UNIX_SERVER-1.3.2. +...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2010/07/16/ocs-inventory-ng/" />
+  <link rel="canonical" href="https://martinliu.github.io/2010/07/16/ocs-inventory-ng/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="OCS inventory NG 两三事" />
+  
+
+  
+  <meta name="twitter:description" content="头等大事是有关于OCSNG很快就要出UTF8多语言支持版的Windows采集代理程序。新闻如下： ** 新版windows采集代理被彻底重写，它将包括下面的新特性：** - 全Unicode代理，多语言UTF-8支持 - Native 32 and 64 bits agent - BIOS AssetTag 收集 - 硬盘序列号收集 - 部署返回码收集 - 全 HTTPS 支持 - Socks 4 、5 HTTP 代理支持 - FTP, FTPS 和SMB 包部署支持 - 二进制插件支持 另外，是一本新书的发布，这是我见到的第一本系统介绍OCSNG的图书。可能是由于我写过一些相关的post，该书的出版社发邮件给我，想请我review，并写写书评。处于对OCSNG和GLPI的喜爱，忍不住诱惑，就答应了。很快的我得到了这本书的电子版。虽然没有时间看完，浏览了几章后，还是可以说这本书写的是非常实用。特别是对系统的安装、配置、部署和使用都从系统管理员的角度写的非常到位。书上没什么废话，文字写的比较随意，很易懂的随意。可喜的是该书还捎带着把GLPI也给介绍了，包括如何与OCSNG做集成配置，以及GLPI的主要功能说明。对于这种偏门的开源软件系统能有如此细致使用的介绍实属难得，更何况我对OCSNG和GLPI的网站文档本身就不敢恭维。这里提供一个样章供参考 “Introduction to IT Inventory and Resource Management” 最后，还是期待新版OCSNG的Window采集代理程序能早点发布吧。期望它发布之时我有时间做这样一个虚机，以便分享给各位感兴趣的人。规划如下： 基于Fedora 10 安装OCSNG_UNIX_SERVER-1.3.2. +...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>OCS inventory NG 两三事</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 16, 2010</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p><img src="http://www.ocsinventory-ng.org/uploads/images/why-ocs.png" alt="" />头等大事是有关于OCSNG很快就要出UTF8多语言支持版的Windows采集代理程序。新闻如下：
+** 新版windows采集代理被彻底重写，它将包括下面的新特性：**
+- 全Unicode代理，多语言UTF-8支持
+- Native 32 and 64 bits agent
+- BIOS AssetTag 收集
+- 硬盘序列号收集
+- 部署返回码收集
+- 全 HTTPS 支持
+- Socks 4 、5 HTTP 代理支持
+- FTP, FTPS 和SMB 包部署支持
+- 二进制插件支持</p>
+
+<p>另外，是一本新书的发布，这是我见到的第一本系统介绍OCSNG的图书。<a href="http://www.packtpub.com/ocs-inventory-ng-1-02-it-inventory-and-resource-management/book?utm_source=martinliu.cn&amp;utm_medium=bookrev&amp;utm_content=blog&amp;utm_campaign=mdb_003818"><img src="https://www.packtpub.com/sites/default/files/imagecache/productview/1100_MockupCover_0.jpg" alt="" /></a>可能是由于我写过一些相关的post，该书的出版社发邮件给我，想请我review，并写写书评。处于对OCSNG和GLPI的喜爱，忍不住诱惑，就答应了。很快的我得到了这本书的电子版。虽然没有时间看完，浏览了几章后，还是可以说这本书写的是非常实用。特别是对系统的安装、配置、部署和使用都从系统管理员的角度写的非常到位。书上没什么废话，文字写的比较随意，很易懂的随意。可喜的是该书还捎带着把GLPI也给介绍了，包括如何与OCSNG做集成配置，以及GLPI的主要功能说明。对于这种偏门的开源软件系统能有如此细致使用的介绍实属难得，更何况我对OCSNG和GLPI的网站文档本身就不敢恭维。这里提供一个样章供参考 <a href="https://www.packtpub.com/sites/default/files/1100-chapter-1-introduction-to-it-inventory-and-resource%20.pdf">“Introduction to IT Inventory and Resource Management”</a></p>
+
+<p>最后，还是期待新版OCSNG的Window采集代理程序能早点发布吧。期望它发布之时我有时间做这样一个虚机，以便分享给各位感兴趣的人。规划如下：</p>
+
+<ul>
+  <li>
+    <p>基于Fedora 10</p>
+  </li>
+  <li>
+    <p>安装OCSNG_UNIX_SERVER-1.3.2. + glpi-0.78-RC2</p>
+  </li>
+  <li>
+    <p>做一定系统的基本优化，配置OCSNG和GPLI的集成</p>
+  </li>
+  <li>
+    <p>期望该虚机能应用于实际的网络环境中</p>
+  </li>
+</ul>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            GLPI, linux, OCSNG
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=OCS+inventory+NG+%E4%B8%A4%E4%B8%89%E4%BA%8B+https://martinliu.github.io/2010/07/16/ocs-inventory-ng/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2010/07/16/ocs-inventory-ng/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2010/07/16/ocs-inventory-ng/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2010/06/20/upgraded-wordpress-30/" data-toggle="tooltip" data-placement="top" title="Upgraded to Wordpress 3.0">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2010/07/18/rt3-request-tracker/" data-toggle="tooltip" data-placement="top" title="RT3 Request Tacker或让你摆脱束缚">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>

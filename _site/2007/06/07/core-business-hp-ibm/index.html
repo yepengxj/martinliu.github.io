@@ -1,85 +1,211 @@
 <!DOCTYPE html>
-<html class="no-js">
-
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>Martin's Blog | 谁来关心核心业务系统</title>
-    <meta name="description" content="注:本文是我的处女作呵呵,发布在”网管员世界” 三月B刊上,原文如下:">
+  <title>谁来关心核心业务系统</title>
 
-    <link rel="stylesheet" href="/css/main.css">
+  <meta name="author" content="Martin Liu" />
 
-    <link rel="canonical" href="http://localhost:4000/2007/06/07/core-business-hp-ibm/">
-    <link rel="alternate" type="application/rss+xml" title="Martin's Blog" href="http://localhost:4000/feed.xml" />
+  
 
-    <!--[if lt IE 9]>
-        <script src="/js/vendor/html5shiv.min.js"></script>
-    <![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="谁来关心核心业务系统" />
+  
+
+   
+  <meta property="og:description" content="注:本文是我的处女作呵呵,发布在”网管员世界” 三月B刊上,原文如下: 谁来关心核心业务系统——简要比较IBM Tivoli 与HP OpenView 导语：随着IT的快速发展，中国用户对先进技术的追逐和应用正日益高涨。回想我们已经建立的这些业务系统。我们不得不用如下几个词来形容：复杂、动态、故障多和管理难。在繁琐的日常运维工作中，来自各个部门的人，似乎又在默契地担负和实现着这样的同一个使命：保持关键核心业务系统正常运转。网络系统监控软件是用来帮助IT运维人员，缩短故障解决时间和提高工作效率的有力工具。选购网络系统监控软件的技巧在于对自己的IT系统深刻的理解和对管理需求深刻的理解。假设您的用户是通过这样的一个访问路径来查看客户信息：浏览器àInternetàWeb服务器à中间件服务器à数据库；首先标出在这个路径中的每个点上，开发、测试和运行维护等各部门人员是怎样分布的。假设在每一点都有这样的一个自底向上的技术堆栈：网络à服务器操作系统à数据库à中间件àWeb服务器à客户端。再让各部门的每个相关的人员标出在哪些区间所消耗的时间和遇到的故障是最多的；这些故障是什么？记住把这些信息记录下来，并打印出来，无论如何这样的原始数据都是IT管理优化非常好的参照。在得到这样一个管理需求的分布图后，接下来就可以按图索骥来挑选相关的管理平台以及相应管理模块。一个好的监控管理系统并不一定试图监控和管理到技术堆栈中的所有对象，而是在您最需要帮助的核心部分提供有利的支持，为您清晰呈现IT系统的这样几个关键因素：可用性、性能和故障状况。记录和分析核心业务系统在这些方面的变化情况是IT监控管理软件的主要功能。 IBM Tivoli和HP OpenView是主流IT监控管理套件中的两个重量级角色。它们是两个著名的市场品牌，旗下丰富的管理模块组成了非常全的产品线。选择标准如何确定呢？管理工具提供的管理功能永远超过其它因素，做单纯产品线长短的比较是没有意义的。一个清晰的管理需求定义可以使您能够非常轻松的考察和比较不同品牌的管理产品。由于它们都属于管理平台型产品，管理功能都非常的丰富和全面。本文对这两个产品的介绍和分析，无法面面俱到，所以只能对它们的工作方式、特性和原理等方面做粗略的比较；旨在抛砖引玉，引起读者注意，给您提供若干提示和思路。下面就网络管理和应用系统故障管理（操作系统、数据库、Web应用等）这两方面来做一个简要的分析和比较。这也是对核心业务系统监控管理的最基本内容。 网络管理方面：IBM NetView和HP OpenView Network Node Manager都是很好的产品，有很多可选的功能模块。众所周知NetView产品是当年IBM从HP购买的，NetView和OpenView NNM算是一对孪生兄弟。后来，它们在各自的家庭里慢慢的长大，成为个性不同的两个产品。如今的OpenView NNM在下面的一些方面可能比NetView做的更为出色一些：1）很好的支持多种行业标准的管理协议：多个版本的SNMP、ROMON、Netflow、Ipv6、OSPF、HRSP、CDP等；2）提供全面的网络管理视图，包括二层和三层的网络拓补图；以及VLAN和其它协议视图；3）有效的内嵌事件关联引擎和事件管理配置工具，对用户处理事件和相关事件非常有帮助。OpenView NNM毕竟是具历史悠久的成熟产品，不过在IBM收购了Micromuse后；今后可能在网络管理方面,IBM和HP也可以不相伯仲了。网络管理的特殊性在于：只能通过行业标准的管理协议来从这些硬件设备上获得所需要的信息。网络监控系统一般作为网络设备的数据收集器和网络设备SNMP Trap的目的地。在多厂商设备的网络环境中，监控系统需要的是对各种硬件设备的兼容性；从实际环境出发，选择更能反映真实运行环境，更易于理解，而且容易使用的产品。 应用系统故障管理：这个管理范畴中包含最多的管理功能和管理模块，它管理操作系统和操作系统之上运行的一切对象：各种数据库、Web应用、中间件、Web服务、邮件服务和标准商业应用等。它与实际业务应用系统同时运行在同一个网络环境当中，是它肩负着对核心业务系统的监控。由于这部分的功能最多最复杂，它往往被看作是管理监控的平台或者框架，是监控系统的核心部分。所有管理对象的故障告警事件都汇聚到里，其它各个功能模块都以它作为通讯平台和数据存储中心。Tivoli Monitoring和OpenView Operations就是这样的核心模块产品；它们都有很多其它相关的管理模块，这些模块大多数需要加载到这个核心框架上运行；部分模块是可以独立运行，同时和它们做故障事件集成。用户使用界面、管理策略定制、管理对象轮询、故障事件报警和管理报表等功能都关联到这里。下面将从四个不同角度简单比较一下Tivoli Monitoring和OpenView Operations的各种特性。 1、监控代理的差异 在监控主机上安装监控代理是各个厂商的相同做法，代理程序运行在被监控主机上和管理服务器通讯；执行各种数据收集任务和管理策略。操作系统代理是最基础的模块；有的厂商可以通过操作系统监控代理程序来实现对数据库、Web应用、中间件、Web服务和邮件服务等的监控，有些需要安装和配置多个代理监控程序。 &amp;lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;border: medium none&quot; border=&quot;1&quot; class=&quot;MsoTableGrid&quot; &amp;gt;&amp;lt;tr style=&quot;height: 18.55pt&quot; &amp;gt; IBM Tivoli Monitoring &amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt; 2、告警机制的差异 代理程序在采集和整理实时和历史的监控数据时，需要随时检查各种报警条件是否满足。监控最好能在故障状况发之前，将各种迹象以不同级别的事件精确地、及时地汇总到管理服务器端，以邮件，短信等方式通知到相关工作人员。 &amp;lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;border: medium...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2007/06/07/core-business-hp-ibm/" />
+  <link rel="canonical" href="https://martinliu.github.io/2007/06/07/core-business-hp-ibm/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="谁来关心核心业务系统" />
+  
+
+  
+  <meta name="twitter:description" content="注:本文是我的处女作呵呵,发布在”网管员世界” 三月B刊上,原文如下: 谁来关心核心业务系统——简要比较IBM Tivoli 与HP OpenView 导语：随着IT的快速发展，中国用户对先进技术的追逐和应用正日益高涨。回想我们已经建立的这些业务系统。我们不得不用如下几个词来形容：复杂、动态、故障多和管理难。在繁琐的日常运维工作中，来自各个部门的人，似乎又在默契地担负和实现着这样的同一个使命：保持关键核心业务系统正常运转。网络系统监控软件是用来帮助IT运维人员，缩短故障解决时间和提高工作效率的有力工具。选购网络系统监控软件的技巧在于对自己的IT系统深刻的理解和对管理需求深刻的理解。假设您的用户是通过这样的一个访问路径来查看客户信息：浏览器àInternetàWeb服务器à中间件服务器à数据库；首先标出在这个路径中的每个点上，开发、测试和运行维护等各部门人员是怎样分布的。假设在每一点都有这样的一个自底向上的技术堆栈：网络à服务器操作系统à数据库à中间件àWeb服务器à客户端。再让各部门的每个相关的人员标出在哪些区间所消耗的时间和遇到的故障是最多的；这些故障是什么？记住把这些信息记录下来，并打印出来，无论如何这样的原始数据都是IT管理优化非常好的参照。在得到这样一个管理需求的分布图后，接下来就可以按图索骥来挑选相关的管理平台以及相应管理模块。一个好的监控管理系统并不一定试图监控和管理到技术堆栈中的所有对象，而是在您最需要帮助的核心部分提供有利的支持，为您清晰呈现IT系统的这样几个关键因素：可用性、性能和故障状况。记录和分析核心业务系统在这些方面的变化情况是IT监控管理软件的主要功能。 IBM Tivoli和HP OpenView是主流IT监控管理套件中的两个重量级角色。它们是两个著名的市场品牌，旗下丰富的管理模块组成了非常全的产品线。选择标准如何确定呢？管理工具提供的管理功能永远超过其它因素，做单纯产品线长短的比较是没有意义的。一个清晰的管理需求定义可以使您能够非常轻松的考察和比较不同品牌的管理产品。由于它们都属于管理平台型产品，管理功能都非常的丰富和全面。本文对这两个产品的介绍和分析，无法面面俱到，所以只能对它们的工作方式、特性和原理等方面做粗略的比较；旨在抛砖引玉，引起读者注意，给您提供若干提示和思路。下面就网络管理和应用系统故障管理（操作系统、数据库、Web应用等）这两方面来做一个简要的分析和比较。这也是对核心业务系统监控管理的最基本内容。 网络管理方面：IBM NetView和HP OpenView Network Node Manager都是很好的产品，有很多可选的功能模块。众所周知NetView产品是当年IBM从HP购买的，NetView和OpenView NNM算是一对孪生兄弟。后来，它们在各自的家庭里慢慢的长大，成为个性不同的两个产品。如今的OpenView NNM在下面的一些方面可能比NetView做的更为出色一些：1）很好的支持多种行业标准的管理协议：多个版本的SNMP、ROMON、Netflow、Ipv6、OSPF、HRSP、CDP等；2）提供全面的网络管理视图，包括二层和三层的网络拓补图；以及VLAN和其它协议视图；3）有效的内嵌事件关联引擎和事件管理配置工具，对用户处理事件和相关事件非常有帮助。OpenView NNM毕竟是具历史悠久的成熟产品，不过在IBM收购了Micromuse后；今后可能在网络管理方面,IBM和HP也可以不相伯仲了。网络管理的特殊性在于：只能通过行业标准的管理协议来从这些硬件设备上获得所需要的信息。网络监控系统一般作为网络设备的数据收集器和网络设备SNMP Trap的目的地。在多厂商设备的网络环境中，监控系统需要的是对各种硬件设备的兼容性；从实际环境出发，选择更能反映真实运行环境，更易于理解，而且容易使用的产品。 应用系统故障管理：这个管理范畴中包含最多的管理功能和管理模块，它管理操作系统和操作系统之上运行的一切对象：各种数据库、Web应用、中间件、Web服务、邮件服务和标准商业应用等。它与实际业务应用系统同时运行在同一个网络环境当中，是它肩负着对核心业务系统的监控。由于这部分的功能最多最复杂，它往往被看作是管理监控的平台或者框架，是监控系统的核心部分。所有管理对象的故障告警事件都汇聚到里，其它各个功能模块都以它作为通讯平台和数据存储中心。Tivoli Monitoring和OpenView Operations就是这样的核心模块产品；它们都有很多其它相关的管理模块，这些模块大多数需要加载到这个核心框架上运行；部分模块是可以独立运行，同时和它们做故障事件集成。用户使用界面、管理策略定制、管理对象轮询、故障事件报警和管理报表等功能都关联到这里。下面将从四个不同角度简单比较一下Tivoli Monitoring和OpenView Operations的各种特性。 1、监控代理的差异 在监控主机上安装监控代理是各个厂商的相同做法，代理程序运行在被监控主机上和管理服务器通讯；执行各种数据收集任务和管理策略。操作系统代理是最基础的模块；有的厂商可以通过操作系统监控代理程序来实现对数据库、Web应用、中间件、Web服务和邮件服务等的监控，有些需要安装和配置多个代理监控程序。 &amp;lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;border: medium none&quot; border=&quot;1&quot; class=&quot;MsoTableGrid&quot; &amp;gt;&amp;lt;tr style=&quot;height: 18.55pt&quot; &amp;gt; IBM Tivoli Monitoring &amp;lt;/tr&amp;gt;&amp;lt;/table&amp;gt; 2、告警机制的差异 代理程序在采集和整理实时和历史的监控数据时，需要随时检查各种报警条件是否满足。监控最好能在故障状况发之前，将各种迹象以不同级别的事件精确地、及时地汇总到管理服务器端，以邮件，短信等方式通知到相关工作人员。 &amp;lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;border: medium...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
 </head>
 
 
-  <body class="">
-    <!-- if the user has javascript disabled they can still use the menu -->
-<noscript>
-    <div class="no-js-menu clearfix">
-        <ul>
-            
-                <li><i class="fa fa-home"></i><a href="/">Home</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
-            
-                <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
-            
-                <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
-            
-                <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-            
-                <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-            
-        </ul>
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
     </div>
-</noscript>
-<!-- end no script -->
 
-    <header class="hero-image" style="background-image: url(/img/.jpg);">
-    <span class="menu-trigger animated fadeInDown">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </span>
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
 
-    <div id="menu-target">
-    <ul>
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
         
-            <li><i class="fa fa-home"></i><a href="/">Home</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt">Home Alt</a></li>
         
-            <li><i class="fa fa-home"></i><a href="/home-alt-2/">Home Alt 2</a></li>
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
         
-            <li><i class="fa fa-anchor"></i><a href="/about">About</a></li>
         
-            <li><i class="fa fa-plane"></i><a href="/contact">Contact</a></li>
-        
-            <li><i class="fa fa-user"></i><a href="/author/michelle">Author</a></li>
-        
-    </ul>
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>谁来关心核心业务系统</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on June 7, 2007</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 </header>
 
-<main class="container">
-    <div class="row">
-        <div class="col-xs-12 single-content">
-            <p class="meta">
-                <a href=""></a> in <a href='/category/ITSM'>Itsm</a> <i class="link-spacer"></i> <i class="fa fa-bookmark"></i>  minutes
-            </p>
 
-            <h1>谁来关心核心业务系统</h1>
 
-            <p>注:本文是我的处女作呵呵,发布在”<a href="http://www.netadmin.com.cn/magazine/kt_magazine_search.php">网管员世界</a>” 三月B刊上,原文如下:<br /><br /><br /><br /></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>注:本文是我的处女作呵呵,发布在”<a href="http://www.netadmin.com.cn/magazine/kt_magazine_search.php">网管员世界</a>” 三月B刊上,原文如下:<br /><br /><br /><br /></p>
 
 <p>谁来关心核心业务系统<br />——简要比较IBM Tivoli 与HP OpenView<br /></p>
 
@@ -224,63 +350,180 @@ HP OpenView Operations
 
 <p>IT监控管理系统的复杂性和企业对业务应用系统管理需求的动态性，使我们很难简单的总结出一个管理秘笈或者产品技术宝典。IT管理工作的开展除了选择好用的管理监控工具外，还一定要遵循：“二分工具，八分流程”的二八管理原则。如果您机房中的电缆正像蜘蛛网一样蔓延；您的IT运维人员天天都在抱怨的电话中度过；您的硬件维护开支在漫无边际的增长；这是您可能需要学习借鉴一下ITIL最佳管理实践模型，对IT管理的优化和改革不仅需要各种监控工具的帮助，也需要通过改造管理流程来提高工作效率。总之：核心业务系统不仅需要好的IT监控管理工具，也需要CIO/CTO来设计和驾驭优良的管理流程。</p>
 
+      </article>
 
-        </div><!-- main-content/col -->
-    </div> <!--/row -->
-
-</main> <!-- /container -->
-
-<footer class="single">
-    <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-2">
-            <img src="/img/.jpg" class="user-icon " alt="user-image">
+      
+        <div class="blog-tags">
+          Tags:
+          
+            Enterprise
+          
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <div class="category-list">
-                <p>Published <span>Jun 7, 2007</span></p>
-                <p><a href=""></a> in <a href='/category/ITSM'>Itsm</a></p>
+      
 
-                <div class="other-catergories">
-                    <h3>Also found in</h3>
+      
+        <!-- Check if any share-links are active -->
 
-                    <ul>
-                        
-                        <li>
-                            <a href='/category/ITSM'>Itsm</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
 
-            </div>
-        </div><!-- end col -->
-        <div class="col-xs-12 col-sm-4">
-            <div class="social">
-                <p>Share this article</a>
-                <div class="social-links">
-                    <a class="social-icon" href="#" data-platform="twitter" data-message="" data-url="http://localhost:4000/2007/06/07/core-business-hp-ibm/"><i class="fa fa-twitter"></i></a>
 
-                    <a class="social-icon" href="#" data-platform="facebook" data-message="" data-url="http://localhost:4000/2007/06/07/core-business-hp-ibm/"><i class="fa fa-facebook-official"></i></a>
-                    <a class="social-icon" data-platform="mail"  href="mailto:67120666@qq.com?body=http://localhost:4000/2007/06/07/core-business-hp-ibm/"><i class="fa fa-envelope"></i></a>
-                </div>
-            </div>
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%E8%B0%81%E6%9D%A5%E5%85%B3%E5%BF%83%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E7%B3%BB%E7%BB%9F+https://martinliu.github.io/2007/06/07/core-business-hp-ibm/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2007/06/07/core-business-hp-ibm/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2007/06/07/core-business-hp-ibm/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2007/06/01/there-is-the-easiest-way-to-run-it-management-tool/" data-toggle="tooltip" data-placement="top" title="There is the easiest way to run IT management tool">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2007/06/09/go-open-sourcego-vyatta-network/" data-toggle="tooltip" data-placement="top" title="Go Open Source,GO! Vyatta开源软件挺进网络硬件领域">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
         </div>
-    </div><!-- end row -->
+      
+    </div>
+  </div>
 </div>
 
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
 
-    
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-    <script src='/js/vendor/modernizr.custom.32229-2.8-respondjs-1-4-2.js'></script>
-    <script src="/js/vendor/jquery-1.11.2.min.js"></script>
-    <script src='/js/vendor/jquery.jpanelmenu.min.js'></script>
-    <script type='application/javascript' src='/js/vendor/fastclick.min.js'></script>
+  
     
-    <script src=' /js/main.js'></script>
-  </body>
 
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
 </html>

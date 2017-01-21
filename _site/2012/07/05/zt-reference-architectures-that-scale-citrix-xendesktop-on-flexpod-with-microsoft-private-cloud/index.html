@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</title>
+
+  <meta name="author" content="Martin Liu" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Martin's Blog - DevOps Coach & Cloud Expert!" href="/feed.xml" />
+
+  
+    
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud" />
+  
+
+   
+  <meta property="og:description" content="今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud 下面是硬件的测试架构，使用的服务器是UCS 14刀，NatApp存储，Hyper-V，加载XenDesktop 5.6 Test Results The reference implementation achieved impressive results in our test runs, especially in comparison to previous testing with earlier generation Cisco blades. As a matter of fact, the tested configuration reduced the rack space...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://martinliu.github.io/2012/07/05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/" />
+  <link rel="canonical" href="https://martinliu.github.io/2012/07/05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/" />
+  
+
+  
+  <meta property="og:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@zliu" />
+  <meta name="twitter:creator" content="@zliu" />
+
+  
+  <meta name="twitter:title" content="[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud" />
+  
+
+  
+  <meta name="twitter:description" content="今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud 下面是硬件的测试架构，使用的服务器是UCS 14刀，NatApp存储，Hyper-V，加载XenDesktop 5.6 Test Results The reference implementation achieved impressive results in our test runs, especially in comparison to previous testing with earlier generation Cisco blades. As a matter of fact, the tested configuration reduced the rack space...">
+  
+
+  
+  <meta name="twitter:image" content="https://martinliu.github.io/img/head-200-200.jpg" />
+  
+
+</head>
+
+
+  <body>
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://martinliu.github.io">Martin's Blog</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Resources</a>
+            <div class="navlinks-children">
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://www.aws-faq.com/">AWS-FAQ.com</a>
+
+                
+              
+                
+                  
+            
+
+
+
+
+
+<a href="http://devopscoach.org">devopscoach.org</a>
+
+                
+              
+            </div>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://martinliu.github.io ">
+	      <img class="avatar-img" src="/img/head-200-200.jpg" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on July 5, 2012</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：<a href="http://blogs.citrix.com/2012/07/03/reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</a></p>
+
+<p>下面是硬件的测试架构，使用的服务器是UCS 14刀，NatApp存储，Hyper-V，加载XenDesktop 5.6</p>
+
+<p><a href="http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview.png"><img src="http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview-1024x743.png" alt="" /></a></p>
+
+<p><strong><em>Test Results</em></strong></p>
+
+<p>The reference implementation achieved impressive results in our test runs, especially in comparison to previous testing with earlier generation Cisco blades. As a matter of fact, the tested configuration reduced the rack space needed to support 2000 users, decreasing it from 30 Rack Units (RUs) to 12 RUs. This density can help to lower power use, which directly translates into energy savings.</p>
+
+<p>The results specifically showed that the Cisco UCS B230 M2 half-width blade (featuring dual-socket, 10-core processors and 256GB of memory) can support medium workloads up to 145 users per blade. A single FlexPod VDI design containing two Cisco UCS chassis units with 14 such blades can support at least 2000 virtual desktop workloads while maintaining acceptable response times. The results clearly demonstrated linear scalability of desktop workloads for this reference architecture.  Detailed metrics are given below.</p>
+
+<p>14片在12U的空间上，轻松的支撑了2000个Normal型工作负载的Win7虚拟桌面（1.5GB/8~12IOPS；所有虚拟机开机启动时间为半个小时。平均每个刀片上能够支持145个用户，而且维持了比较合理的用户相应速度。在这个架构中，证明了XenDeskTop可以实现横向扩展的特性。</p>
+
+<p>微软和思科的详细测试报告下载：</p>
+
+<p>[download id=”13” format=”1”]</p>
+
+<p>[download id=”12” format=”1”]</p>
+
+<h2 id="section">微软测试报告中的主要结论：</h2>
+
+<p>Microsoft, Citrix, Cisco, and NetApp successfully validated XenDesktop streaming 2,000 concurrent Windows 7 desktops to virtual machines hosted with Hyper-V. The deployment was built on a 16-node FlexPod with Microsoft Private Cloud infrastructure that comprises the hardware requirements in the Microsoft Private Cloud Fast Track program. The hardware, in conjunction with Windows Server 2008 R2 Enterprise SP1, Hyper-V, System Center 2012, and Citrix XenDesktop 5.6:</p>
+
+<blockquote>
+
+&gt; 
+&gt; 
+	
+&gt;   * Validated that a single instance of Virtual Machine Manager and a single instance of the XenDesktop delivery controller successfully hosted 2,000 VDI workloads.
+&gt; 
+	
+&gt;   * Verified single-server scalability: 143 Windows 7 desktops with 512 MB of dynamic memory (expandable to 2 GB) running knowledge worker load on a single Cisco UCS B230 M2 Blade Server with 20 cores and 256 GB of random access memory (RAM).
+&gt; 
+	
+&gt;   * Validated a fully virtualized environment where all VDI components (such as Active Directory Domain Services, Microsoft SQL Server, VMM, XenDesktop, and Provisioning Server) were run in virtual machines.
+&gt; 
+	
+&gt;   * _**Observed an 80 percent storage savings in comparison to a similar VDI environment without NetApp storage efficiencies.**_
+&gt; 
+
+</blockquote>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+            cisco, Citrix, Hyper-V, Microsoft, XenDesktop, xenserver
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=%5BZT%5D+Reference+Architectures+that+Scale%3A+Citrix+XenDesktop+on+FlexPod+with+Microsoft+Private+Cloud+https://martinliu.github.io/2012/07/05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://martinliu.github.io/2012/07/05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://martinliu.github.io/2012/07/05/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2012/07/05/e4-bd-bf-e7-94-a8iso-e6-96-87-e4-bb-b6-e5-ae-89-e8-a3-85-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-ae-9e-e4-be-8b/" data-toggle="tooltip" data-placement="top" title="使用ISO文件安装虚拟机实例">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2012/07/06/e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/" data-toggle="tooltip" data-placement="top" title="自定义服务模板无法创建虚拟机">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/martinliu" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+	  
+      
+          <li>
+            <a href="https://plus.google.com/+MartinLiu-cn" title="Google+">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="mailto:67120666@qq.com" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+      
+		  
+        </ul>
+        <p class="copyright text-muted">
+		  Martin Liu
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+		  &nbsp;&bull;&nbsp;
+		  <a href="https://martinliu.github.io">martinliu.cn</a>
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
