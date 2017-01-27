@@ -142,6 +142,32 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-07-11T00:27:14+08:00"><a href="/2012/07/11/32gb-xenserver-publish-28-xp-vd/">July 11, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2012/07/11/32gb-xenserver-publish-28-xp-vd/" rel="bookmark" title="32GB测试笔记本电脑成功发布28个XP虚拟桌面" itemprop="url">32GB测试笔记本电脑成功发布28个XP虚拟桌面</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>一直想搞清楚，这台强悍的测试机到底能够撑得住多少个虚拟桌面。今天终于测了一下，稍微满足了一下子好奇心。
+底层装的是最新版的XenServer6.02，模板机XP做了一些优化，调整为动态内存到1024~2048，其实可以调整到更小，如512~1024，下次在测试一下这个方案，不过那样可能登录速度和登陆后桌面点击的反应会有一定的折扣；本次不考虑那么多，只是想看看这个本本到底能够跑多少虚拟机。存储使用的是NAS存储，桌面是发布的专有模式桌面。有图有真相，下面的截屏供参考：</p>
+
+<p>[nggallery id=15]</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-07-09T20:09:12+08:00"><a href="/2012/07/09/e5-8e-8b-e5-8a-9b-e6-b5-8b-e8-af-95-e5-b7-a5-e5-85-b7/">July 09, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -292,29 +318,6 @@ Reading time ~1 minute
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-07-05T23:27:33+08:00"><a href="/2012/07/05/e4-bd-bf-e7-94-a8iso-e6-96-87-e4-bb-b6-e5-ae-89-e8-a3-85-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-ae-9e-e4-be-8b/">July 05, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2012/07/05/e4-bd-bf-e7-94-a8iso-e6-96-87-e4-bb-b6-e5-ae-89-e8-a3-85-e8-99-9a-e6-8b-9f-e6-9c-ba-e5-ae-9e-e4-be-8b/" rel="bookmark" title="使用ISO文件安装虚拟机实例" itemprop="url">使用ISO文件安装虚拟机实例</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>CloudStack安装完毕之后，第一件事情就是安装虚拟机。使用Apache做为ISO虚拟机的下载站点，你可能会遇连接被拒绝的错误。这是由于Apache服务器默认没有iso这个mime类型，iso文件被复制到/var/www/html之后，往往权限不对，为了测试可以直接chomd 777一下。通过ISO作为启动模板安装虚拟机的时候也发现Ubuntu 10.04 server版创建虚拟失败，连卷都没有创建出来，创建windows xp虚拟正常，ubuntu的问题原因不祥。有空研究一下。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -382,7 +385,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

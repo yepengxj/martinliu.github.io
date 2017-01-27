@@ -142,6 +142,35 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-07-04T13:41:06+08:00"><a href="/2009/07/04/some-useful-tools/">July 04, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2009/07/04/some-useful-tools/" rel="bookmark" title="Some useful tools" itemprop="url">Some useful tools</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I am just cleaning up my bookmarks. Some of them could not be deleted. I’d like to list here.</p>
+
+<p><a href="http://ensight.eos.nasa.gov/FlowViewer/FlowViewer.png"><img src="http://ensight.eos.nasa.gov/FlowViewer/FlowViewer.png" alt="" /></a>This is a netflow monitor tool, you can capture, graph and store data.</p>
+
+<p><a href="http://www.dmtf.org/images/headermain/logo_dmtf.gif"><img src="http://www.dmtf.org/images/headermain/logo_dmtf.gif" alt="" /></a>Founded in 1992, the Distributed Management Task Force, Inc. (DMTF) is the   industry organization leading the development of management standards and   integration technology for enterprise and Internet environments.</p>
+
+<p><a href="http://www.concursive.com/image/2008051215-10-7589-45x45/badge-concursivegroup.png"><img src="http://www.concursive.com/image/2008051215-10-7589-45x45/badge-concursivegroup.png" alt="" /></a>Social Networking Meets Business, Concursive have CRM, online communitie, collaboration tools.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-07-04T13:39:11+08:00"><a href="/2009/07/04/e5-be-b7-e5-85-8b-e8-99-8f-e4-bc-af-e5-a4-a7-e7-82-aevs-e6-b8-85-e7-ba-a2-e8-a1-a3-e5-a4-a7-e7-82-ae/">July 04, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -253,45 +282,6 @@ Reading time ~1 minute
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2009-03-01T21:40:16+08:00"><a href="/2009/03/01/stop-to-build-cmdb-for-your-it/">March 01, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2009/03/01/stop-to-build-cmdb-for-your-it/" rel="bookmark" title="Stop to build CMDB for your IT - CMS是怎样炼成的？" itemprop="url">Stop to build CMDB for your IT - CMS是怎样炼成的？</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>ITIL在国内的实施也有8年之久，就我看过和做过的项目中：service desk是最多实施的工具，它包括IM/PM；还有Change Management；用户们还可能会常常认为，Release Management可以和变更流程可以混在一起搞。服务台一般先上，有的变更流程先上，服务台的共同特点还有PM一般形同虚设。就我所见所闻的项目和用户来说，CMDB没有那家能建的好用的好；CMDB的建设的缺失似乎成了所有ITIL用户的通病，应该也是想重点突破的瓶颈。<br /><br />ITIL v3发布后，CMDB成了CMS中的一个数据库；而且，CMS中包括不止像CMDB这样的配置信息数据库，其实任何保存配置信息的数据库都算在CMS系统内。既然是一个系统，所以它就不光包含数据还包含一套配套工具集合，通过这套工具，维护和使用配置信息。CMS为其他所有ITIL流程提供基础的配置信息。它的结构如下图所示：<br /><br />[caption id=”attachment_435” align=”alignnone” width=”658” caption=”配置管理系统”]<img src="http://www.martinliu.cn/wp-content/uploads/2009/03/cms.jpg" alt="配置管理系统" />[/caption]<br /><br />如果说上面这幅图比较还是比较抽象的话，那么请见下图：<br /><br />[caption id=”attachment_436” align=”alignnone” width=”714” caption=”CMS is a set of tools based on all configuration data”]<img src="http://www.martinliu.cn/wp-content/uploads/2009/03/bmc-atrium1.jpg" alt="bmc-atrium1" /><br />[/caption]<br /><br />从上图中我们看到，CMS系统一共可以分为四层。上三层是核心CMDB数据库和相关配套工具，最低层Data层则是是所有配置信息的基础来源。从ITIL v3的角度来说，只建设一个集中的CMDB数据库来存储所有的CI信息是不够的，CMS系统中必须能够包含和处理所有企业已有的各个系统中的配置数据。换言之，CMDB建设的局限性在于，它只是配置信息数据化，或者说电子化的第一步。<br /><br />当前依然有很多企业雄心勃勃的上马CMDB项目，不过切记在规划时，一定先好好阅读一下ITIL v3中和CMS相关的内容，适当调整项目的目标和预期总是好的，也可以规避一些项目风险。<br /></p>
-
-<blockquote>CMDB不只是一个数据库那么简单，更不可能在服务台的数据库中建立几张表就可以搞定。从企业IT管理的全局出发，按照ITIL v3的规范，建设CMS应该是所有ITIL项目的当务之急。CMS系统决不能遗忘过去，必须有效整个现有的各个配置信息数据源，无论其以何种形式存在。它必须是一个开放的平台，能过最大限度的和其他任何配置信息的消费者（ITIL流程，以及任何需要获取配置信息的任何应用）整合，</blockquote>
-
-<p><br />以上的一些是我对CMS建设的一些认识。如果要落地到项目上还不许经过一个痛苦的过程，那就是产品选型。选项的过程中可以注重一下几点：<br /></p>
-
-<p><br />	
-  * 可视化：配置项和之间的关系按拓扑形式展现
-<br />	
-  * 标准化：软件、硬件配置项都有完整标准的CTI信息
-<br />	
-  * 归一化：与现有各种配置管理系统核心共存同时CMS保持一份完整的户口记录，任何CI都有ID
-<br />	
-  * 集成化：CMS中的数据以图形或者裸数据等形式供其他相关消费者流程或者人员使用
-<br />	
-  * 联邦化：CMS核心数据库中不保存动态变化的配置信息（DB的最大连接数，网络设备所使用的syslog服务器地址），这些信息通过联邦管理让用户从其他相关的工具系统中查看到最新的数据。
-<br /><br />最近可能还会接触一下CMDB的项目，其他经验总结待续。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -359,7 +349,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

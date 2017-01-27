@@ -142,6 +142,73 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-07-09T16:44:43+08:00"><a href="/2015/07/09/icinga2-e4-bc-81-e4-b8-9a-e7-ba-a7-e5-8a-9f-e8-83-bd-e8-af-84-e6-b5-8b1/">July 09, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2015/07/09/icinga2-e4-bc-81-e4-b8-9a-e7-ba-a7-e5-8a-9f-e8-83-bd-e8-af-84-e6-b5-8b1/" rel="bookmark" title="icinga2 企业级功能评测1" itemprop="url">icinga2 企业级功能评测1</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <h2 id="icingaweb-2-">Icingaweb 2 用户权限管理</h2>
+
+<p>icingaweb 2 是诸多GUI中最新的一种，也有替代其它之前所有GUI的趋势，目前看还比较新，只有最基本的功能。登陆Web界面的用户，用户和组的信息可以使用自己的数据库存储或者配置文件存储，也可以使用外部的LDAP集成，使用php-ldap模块集成外部的LDAP/MS AD服务器。
+具有完整的RBAC模式; User -&gt; Group -&gt; Role = Permission Set（操作 action） + monitoring/filter/objects(范围 scope)</p>
+
+<p><a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-create-group/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-create-group-1024x659.png" alt="Icinga Web - create group" /></a> <a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-create-role/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-create-role-1024x659.png" alt="Icinga Web - create role" /></a> <a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-create-user/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-create-user-1024x659.png" alt="Icinga Web - create user" /></a> <a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-web-assign-user-to-group/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/Icinga-Web-assign-user-to-group-1024x659.png" alt="Icinga Web - assign user to group" /></a></p>
+
+<h2 id="icinga2-">Icinga2 的联系人和联系人组</h2>
+
+<p>在icinga2服务器端，在配置文件中定义了组和用户，他们在Web GUI界面上叫做 Contacts / Contactgroups 。</p>
+
+<p>[bash]
+[root@icinga2-test conf.d]# cat users.conf
+/**
+* The example user ‘icingaadmin’ and the example
+* group ‘icingaadmins’.
+*/</p>
+
+<p>object User “icingaadmin” {
+import “generic-user”</p>
+
+<p>display_name = “Icinga 2 Admin”
+groups = [ “icingaadmins” ]</p>
+
+<p>email = “martin@aws-faq.com”
+}</p>
+
+<p>object UserGroup “icingaadmins” {
+display_name = “Icinga 2 Admin Group”
+}
+[/bash]</p>
+
+<p>User / UserGruop 是Icinga出发通知的对象，定义在这个配置文件中，使用规则把他们和监控对象（host/service/等）关联起来，在通知规则中实现不同的通知策略。如发邮件等。</p>
+
+<h2 id="icinga2ha">Icinga2的HA和分布式架构</h2>
+
+<p><a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-cluster/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/icinga-cluster-1024x288.png" alt="icinga-cluster" /></a></p>
+
+<p>icinga2的Cluster是通过多个运行的实例配置在一起的，有这样几个特性：实例之间使用SSL的加密通信；彼此之间是双向连接；用Zone来分隔不同租户的配置域；基于Hash的负载分配；系统的各种功能组件由Cluster来管理其分布。它可以实现某个节点宕机后的自动分布监控数据采集命令在其它节点上的执行。</p>
+
+<p><a href="http://martinliu.cn/icinga2-%e4%bc%81%e4%b8%9a%e7%ba%a7%e5%8a%9f%e8%83%bd%e8%af%84%e6%b5%8b1/icinga-zone/"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/07/icinga-zone-1024x712.png" alt="icinga-zone" /></a></p>
+
+<p>icinga2 Client是远程执行的一种节点，它和Cluster中的所有节点形成群集，在数据中心的其它网段或者地点采集本地的监控状态数据，然后把结果传送回上级的Cluster群集节点。icinga2可以通过配置向导完成远程client/Satellite卫星节点的配置。它们之间的通行是基于证书的TLS加密，这个证书可以借用puppet的证书。远程Client/Satellite节点可以运行在三种模式下：具有本地监控配置，没有本地监控配置，靠上级群集发送监控配置。</p>
+
+<p>其它企业级功能在后续文章中继续评测，您可以通过下面的评论，来提出您所关注的待评测功能。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2015-07-01T14:52:00+08:00"><a href="/2015/07/01/red-hat-summit-e4-b9-8bpaul-e7-9a-84-e5-bc-80-e6-ba-90-e9-80-bb-e8-be-91-e6-80-9d-e7-bb-b4/">July 01, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -526,49 +593,6 @@ Notice: Finished catalog run in 0.21 seconds
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-06-13T22:27:17+08:00"><a href="/2015/06/13/e7-94-a8-powertop-e7-bb-99-e7-ac-94-e8-ae-b0-e6-9c-ac-e7-94-b5-e8-84-91-e7-9c-81-e7-94-b5/">June 13, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2015/06/13/e7-94-a8-powertop-e7-bb-99-e7-ac-94-e8-ae-b0-e6-9c-ac-e7-94-b5-e8-84-91-e7-9c-81-e7-94-b5/" rel="bookmark" title="用 powertop 给笔记本电脑省电" itemprop="url">用 powertop 给笔记本电脑省电</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>如何安装：</p>
-
-<p>[bash]</p>
-
-<p>sudo dnf install powertop</p>
-
-<p>sudo powertop</p>
-
-<p>sudo systemctl start powertop.service</p>
-
-<p>sudo systemctl enable powertop.service</p>
-
-<p>[/bash]</p>
-
-<p>[gallery link=”file” ids=”53761,53762,53763,53764,53765”]</p>
-
-<p>使用Tab和shift + tab 键在以上屏幕直接切换。</p>
-
-<p>我发现我主要使用 Tunables 这个tab来找出可以安全关闭的设备服务。以上测试是在我目前的 Fedora 22 on Lenovo T440s上作的。</p>
-
-<p>本文参考：<a href="http://fedoramagazine.org/saving-laptop-power-with-powertop/">http://fedoramagazine.org/saving-laptop-power-with-powertop/</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -636,7 +660,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

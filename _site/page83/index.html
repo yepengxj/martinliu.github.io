@@ -142,6 +142,113 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-04-21T10:16:20+08:00"><a href="/2008/04/21/open-source-ticket-request-system-otrs-226/">April 21, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2008/04/21/open-source-ticket-request-system-otrs-226/" rel="bookmark" title="Open Source Ticket Request System - OTRS 2.2.6" itemprop="url">Open Source Ticket Request System - OTRS 2.2.6</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>I made a OTRS 2.2.6 virtual machine for anyone who wants to test both OTRS and OTRS::ITSM. It was built on OpenSUSE 10.2, including OTRS 2.2.6 and OTRS::ITSM 1.0.94. OTRS::ITSM implements ITIL (R) focused IT service management. OTRS::ITSM 1.0.94 is still on Beta, you might have some bugs when using this virtual machine. Please download from my box.net, if you have an comment please just let me know. I’d like to invite you to improve this virtual machine if you have any good ideal.</p>
+
+<p><a href="http://demo.wholog.net/OSS.rar">Download it from here</a> <a href="http://demo.wholog.net/OSS.rar">点此下载。 </a><a href="http://demo.wholog.net/OSS.rar">This source is not available any longer. I will offer it by DVD.  这个地址已经无法下载，请关注我即将推出的DVD版虚机。</a></p>
+
+<p><strong>Thanks <a href="http://www.bigyue.com">BigYue.com</a> for donated upload space.  感谢</strong><strong><a href="http://www.bigyue.com">BigYue.com</a></strong><strong>的空间捐助。</strong></p>
+
+<p><strong>Credentials 登录密码如下</strong></p>
+
+<ul>
+  <li>
+    <p>OpenSuSE 10.2 : username / password is “root/ca1234”</p>
+  </li>
+  <li>
+    <p>MySQL : username / password is “root/ “</p>
+  </li>
+  <li>
+    <p>OTRS : admin username and password is <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#114;&#111;&#111;&#116;&#064;&#108;&#111;&#099;&#097;&#108;&#104;&#111;&#115;&#116;&#047;&#114;&#111;&#111;&#116;">&#114;&#111;&#111;&#116;&#064;&#108;&#111;&#099;&#097;&#108;&#104;&#111;&#115;&#116;&#047;&#114;&#111;&#111;&#116;</a></p>
+  </li>
+</ul>
+
+<p><strong>Run 运行压缩文件中的虚拟机</strong></p>
+
+<ol>
+  <li>
+    <p>Download and install VM Player, the machine should have 1GB RAM at least.</p>
+  </li>
+  <li>
+    <p>Un-zip OSS.rar in a partition, freespace must be 2.5+ GB.</p>
+  </li>
+  <li>
+    <p>Double MartinLiu.cn.vmx and power on this machine.</p>
+  </li>
+  <li>
+    <p>Click “keep” and OK button when you get a popup box。</p>
+  </li>
+  <li>
+    <p>The network connection of virtual machine is ‘bridged’. You will see the ip address of this virtual machine at 5th line one the top of boot screen. NOTE: you should have DHCP server on your network.</p>
+  </li>
+</ol>
+
+<p><strong>Access 访问虚拟机</strong></p>
+
+<ul>
+  <li>
+    <p>SSH to it.</p>
+  </li>
+  <li>
+    <p>Agent login page: <a href="http://ip_address/otrs/index.pl">http://ip_address/otrs/index.pl</a></p>
+  </li>
+  <li>
+    <p>Customer login page: <a href="http://ip_address/otrs/customer.pl">http://ip_address/otrs/customer.pl</a></p>
+  </li>
+</ul>
+
+<p><strong>Tips of OTRS installation 安装经验</strong></p>
+
+<ul>
+  <li>
+    <p>Apache should have perl mod, configure perl for apache before you install OTRS. 这是一个Perl写的程序，所以在安装之前最好吧apache上的perl配置好，确认apache能运行perl的东西</p>
+  </li>
+  <li>
+    <p>Make sure your database accepts packages over 5 MB in size. Increase max_allowed_packet in my.cnf to 20MB. 修改my.cnf中的max_allowed_packet 参数到20MB，否则ITSM的包安装有问题。</p>
+  </li>
+  <li>
+    <p>OTRS需要一写附件的perl包的支持，手头最好有操作系统的安装dvd或者直接从网上安装。</p>
+  </li>
+</ul>
+
+<p><strong>Usage 用途</strong></p>
+
+<ul>
+  <li>
+    <p>You can use it for any purpose, if you need any support you will contact OTRS。你可以用于任何用途，本博客不提供技术支持，请联系OTRS的邮件列表。</p>
+  </li>
+  <li>
+    <p>ITIL training, OTRS::ITSM implements ITIL (R) focused IT service management. 可以用于ITIL的培训，它能演示：incident management, problem management, configuration management 等。</p>
+  </li>
+  <li>
+    <p>This virtual machine comes with ABSOLUTELY NO WARRANTY. DO NOT USE it for production. 仅供测试使用，切勿用于生产环境。</p>
+  </li>
+</ul>
+
+<p>If you like OTRS, you may try <a href="http://www.bestpractical.com/rt/">Request Tracer</a></p>
+
+<p>今天一个网友告诉我另外一个开源的类似系统<a href="http://www.bestpractical.com/rt/">Request Tracer</a> ，有空的话回头也试试。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-04-18T23:05:23+08:00"><a href="/2008/04/18/clouds-are-coming/">April 18, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -283,51 +390,6 @@ Reading time ~2 minutes
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-04-03T16:25:44+08:00"><a href="/2008/04/03/postsql-basic-admin/">April 03, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2008/04/03/postsql-basic-admin/" rel="bookmark" title="PostgreSQL基本操作指南" itemprop="url">PostgreSQL基本操作指南</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><strong>安装</strong><br /><br />我的安装环境是虚拟机下面安装的CentOS4.4；在安装的时候需要注意的是：在安装选择的时候PostgreSQL一共有十几个可选的包，把可能会用到的包都尽量选中，否则就要手工去安装了，手工解决包之间的依赖关系烦啊。从光盘上装的好处就是它自己帮你把用户和启动脚本建好了，安装后需要检查如下两个文件：1）/etc/init.d/postgresql是否存在；2）/etc/passwd里面有没有postgres用户。<br /><br /><strong>启动数据库</strong><br /><br />第一次启动，用root用户登录，运行命令：[root@RBA init.d]# service postgresql start ；如果需要数据库在系统启动是就启动的话需要运行：<br /></p>
-
-<blockquote>[root@RBA init.d]# chkconfig postgresql on ；</blockquote>
-
-<p><br />检查结果<br /></p>
-
-<blockquote>[root@RBA ~]# chkconfig --list postgresql<br />postgresql      0:off   1:off   2:on    3:on    4:on    5:on    6:off</blockquote>
-
-<p><br /><strong>数据库管理</strong><br /><br />先切到postgres用户  su postgres<br /><br />新建一个数据库 createdb amp<br /><br />新建一个超级用户，需要在shell下运行：<br /></p>
-
-<blockquote>bash-3.00$ createuser amp<br />Shall the new user be allowed to create databases? (y/n) y<br />Shall the new user be allowed to create more new users? (y/n) y</blockquote>
-
-<p><br />链接到数据库之后，确认以下：<br /></p>
-
-<blockquote>amp=# \du<br />List of database users<br />User name | User ID |         Attributes<br />-----------+---------+----------------------------<br />amp       |     100 | superuser, create database<br />postgres  |       1 | superuser, create database<br />(2 rows)</blockquote>
-
-<p><br />给用户加一个密码：<br /></p>
-
-<blockquote>amp=# ALTER USER amp with password 'amp';<br />ALTER USER</blockquote>
-
-<p><br /><strong>其他参考信息</strong><br /></p>
-
-<blockquote># Put your actual configuration here<br /># ----------------------------------<br />#<br /># CAUTION: The default configuration allows any local user to connect<br /># using any PostgreSQL user name, including the superuser, over either<br /># Unix-domain sockets or TCP/IP.  If you are on a multiple-user<br /># machine, the default configuration is probably too liberal for you.<br /># Change it to use something other than "trust" authentication.<br />#<br /># If you want to allow non-local connections, you need to add more<br /># "host" records.  Also, remember TCP/IP connections are only enabled<br /># if you enable "tcpip_socket" in postgresql.conf.<br /># TYPE  DATABASE    USER        IP-ADDRESS        IP-MASK           METHOD<br />#访问来源 数据库    用户        IP-地址           子网掩码          认证方式<br />local   typhoon     typhoon                                         md5<br />#对于来自本地的访问，数据库“typhoon”对用户“typhoon”采用“md5”加密口令认证<br />local   typhoon     all                                             reject<br />#对于来自本地的访问，数据库“typhoon”对上面没提到的所有用户无条件拒绝认证<br />host    typhoon     typhoon     255.255.255.255   127.0.0.1         md5<br />#对于来网络的访问，数据库“typhoon”对用户“typhoon”，如果提出访问的是本机，采用“md5”加密口令认证<br />host    typhoon     all         0.0.0.0           0.0.0.0           reject<br />#对于来网络的访问，数据库“typhoon”对上面没提到的所有用户，不管提出访问的哪台机器，也不管它来自哪个子网，无条件拒绝认证<br />local   all         all                                             md5<br />#对于来自本地的访问，上面没提到的数据库对上面没提到的所有用户采用“md5”加密口令认证<br />host    all         all         0.0.0.0           0.0.0.0           md5<br />#对于来网络的访问，数上面没提到的数据库对上面没提到的所有用户，不管提出访问的哪台机器，也不管它来自哪个子网，采用“md5”加密口令认证<br />########################################<br />#   Others are all denied   其他访问一概无条件拒绝<br />local   all         all                                             reject<br />host    all         all         0.0.0.0           0.0.0.0           teject<br />########################################<br />########################################<br />#   All denied permissed, not safe<br />#   对所有访问都信任，太不安全，被我禁止掉了，只作为参考<br />#local   all         all                                             trust<br />#host    all         all         0.0.0.0           0.0.0.0           trust<br />########################################<br />这些认证的规则是从上到下一条一条加载的，要注意的是，里面的“all”并不是真正意义上的“所有”，只是前面的规定中没有提到的那部分。个人感觉用“other”也许更恰当。<br />这样，最终的结果是：<br />所有用户都能通过加密口令访问“typhoon”以外的数据库，但是只有用户“typhoon”能以加密口令访问数据库“typhoon”。<br />操作篇<br />[客户端基本连接操作]====================<br />*查看PostgreSQL的系统表：<br />(摸索/查找中)<br />*终端登录：<br />psql -l[主机名/IP] -d[数据库名] -U[用户名]<br />*连接到另外一个数据库：<br />\c [数据库名]<br />*断开终端：<br />\q<br />========================================<br />[基本用户管理]==========================<br />*添加用户：<br />create user [用户名];<br />*修改用户密码：<br />alter user [用户名] with password [口令];<br />*删除用户：<br />drop user [用户名];<br />*查看用户信息：<br />(摸索/查找中)<br />========================================<br />[基本数据库操作]========================<br />*创建数据库：<br />create database [数据库名];<br />*查看数据库列表：<br />\d<br />*删除数据库：<br />drop database [数据库名];<br />*修改数据库的所有者：<br />(摸索/查找中)<br />========================================<br />[数据库内基本操作]======================<br />*给予某用户在某数据库创建表的授权：<br />(摸索/查找中)<br />*收回某用户在某数据库创建表的授权：<br />(摸索/查找中)<br />创建表：<br />create table ([字段名1] [类型1] &lt;references 关联表名(关联的字段名)&gt;,[字段名2] [类型2],......&lt;,primary key (字段名m,字段名n,...)&gt;);<br />*查看表名列表：<br />\d<br />*查看某个表的状况：<br />\d [表名]<br />*重命名一个表：<br />alter table [表名A] rename to [表名B];<br />*修改表的所有者：<br />(摸索/查找中)<br />*删除一个表：<br />drop table [表名];<br />========================================<br />[表内基本操作]==========================<br />*在已有的表里添加字段：<br />alter table [表名] add column [字段名] [类型];<br />*删除表中的字段：<br />alter table [表名] drop column [字段名];<br />*重命名一个字段：<br />alter table [表名] rename column [字段名A] to [字段名B];</blockquote>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -395,7 +457,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

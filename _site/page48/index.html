@@ -141,6 +141,41 @@
 <article class="hentry">
   <header>
     
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-06-06T17:19:10+08:00"><a href="/2012/06/06/xenapp-mobility-pack-and-mobile-sdk-faq/">June 06, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2012/06/06/xenapp-mobility-pack-and-mobile-sdk-faq/" rel="bookmark" title="XenApp Mobility Pack And Mobile SDK FAQ" itemprop="url">XenApp Mobility Pack And Mobile SDK FAQ</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>今天听了Citrix Lab 老大Anil上的课，感觉对这两个东西豁然开朗了很多。至少解答了我的很多疑问，我感觉我的这些问题有可能会是常见问题，下面就列出一部分吧？</p>
+
+<p>XenApp Mobility Pack 和 Mobile SDK 是安装在那的？
+答：前者是安装在XenApp6.5服务器上的；后者是安装在开发环境中的，开发环境是指Windows开发环境，在次环境中去开发一个用来在XenApp服务器上发布的Windows应用程序，它能够通过Receiver调用移动设备的所有功能，后台能够连接企业应用完成业务操作。</p>
+
+<p>XenApp Mobility Pack可以单独使用么？
+答：是的。其实把他安装在XenApp6.5服务器上，你立刻就能得到几个新的用户策略，启用这些策略之后，就能够实现两个非常有用的功能：1）输入法在文本框的自动弹出；2）下拉框变成移动设备原生的选择菜单。这两个功能就能够极大的提高XenApp用户在移动设备上的体验。</p>
+
+<p>XenApp Mobile App SDK可以单独使用么？
+答：不能。它必须和XenApp服务器端的组建联合使用。它主要用做创新应用的开发。例如：一个主要在Windows平台上的软件开发商，它的客户说我们要求你们的应用能够支持所有的移动设备。可是这个ISV不想投人力在IOS和安卓上开发，因此他们利用Mobile SDK给用户做了Windows客户端程序的改造。</p>
+
+<p>文档和演示程序在那里？
+答：Citrix维护了很好的在线文档 <a href="http://www.citrix.com/mobilitysdk/docs/index.html">http://www.citrix.com/mobilitysdk/docs/index.html </a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
       <div class="entry-image-index">
         <a href="/2012/05/22/readability-post/" title="Testing Readability with a Bunch of Text"><img src="/images/abstract-6.jpg" alt="Testing Readability with a Bunch of Text"></a>
       </div><!-- /.entry-image -->
@@ -443,101 +478,6 @@ Reading time ~4 minutes
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-03-05T22:24:50+08:00"><a href="/2012/03/05/e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/">March 05, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2012/03/05/e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/" rel="bookmark" title="如何配置Android Emulator用于调试Citrix XenApp 6.5移动应用SDK" itemprop="url">如何配置Android Emulator用于调试Citrix XenApp 6.5移动应用SDK</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>[tip]本文转帖自国外的一个大拿，有余我朝是和谐社会，所以禁止访问该网站，特此转帖。 本文详细描述了如何配置一个XenApp 6.5 移动应用开发包的开发环境，写的非常使用。这个开发包是我每次交流必须讲的话题，往往是最后一个讲，可是每次都引起用户的强烈关注。从业务创新的角度讲，开发一个原生平板电脑界面的应用系统的诱惑力是在太大了，貌似我们无法阻挡程序猿去开发平板电脑业务应用；就像我们不能组织企业的老板们在iPad上使用移动办公系统一样。[/tip]</p>
-
-<blockquote>From [http://www.jasonconger.com/](http://www.jasonconger.com/)</blockquote>
-
-<p>One of the coolest SDKs I’ve seen come out in quite a while is the <a href="http://community.citrix.com/display/xa/XenApp+6.5+Mobile+Application+SDK">Citrix XenApp 6.5 Mobile Application SDK</a>. Citrix defines the XenApp 6.5 Mobile Application SDK as “… a rich tool kit for developers to write touch-friendly, mobilized applications that are hosted on Citrix XenApp and delivered to any device with Citrix Receiver. These mobilized applications are able to leverage a wide set of mobile device functionality including GPS, sensors, cameras, and device buttons in the same way that locally running, native applications do.”</p>
-
-<p>As of this writing, only the Android version of the Citrix Receiver is supported (iOS is on the way).  Since I do not own any Android devices and I was anxious to get started, I had to set up an emulator and install the Citrix Receiver to get going with the SDK.  Here is how I did it.</p>
-
-<h2 id="install-the-android-sdk">Install the Android SDK</h2>
-
-<p>Go to the Android SDK download page (<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>) and pick the correct installer for your platform. I’m using Windows, so I chose the .exe installer file.  After you run this .exe, you still do not have the emulator.  The reason for this is the Android SDK archive initially contains only the basic SDK tools. It does not contain an Android platform or any third-party libraries. You must install the Platform-tools and at least one version of the Android platform using the SDK Manager.</p>
-
-<p>[singlepic id=1335 w=320 h=240 float=none]</p>
-
-<p>I installed the Android SDK Platform-tools and all options for Android 4.0.3.</p>
-
-<p>After the install completes, be sure to add <strong>%ProgramFiles%\Android\android-sdk\platform-tools</strong> to your PATH environment variable.  This will be handy later for installing the Citrix Receiver.</p>
-
-<h2 id="create-an-android-virtual-device">Create an Android Virtual Device</h2>
-
-<p>After the installs complete, you can launch Android Virtual Device Manager (AVD Manager). This can be found in the Windows start menu under Android SDK Tools \ AVD Manager. AVD Manager is used to create various virtual devices running the Android OS.</p>
-
-<p><img src="http://martinliu.cn/wp-content/gallery/citrix/create-new-android-vd.png" alt="create-new-android-vd" />
-As you can see, I created an Android 4.0.3 device with 100 MiB of local storage. The more storage you add to your AVD, the longer it will take to boot. Since this AVD is only being used for XenApp 6.5 testing, I only allocated 100 MiB. The first boot of your AVD will take a little longer than subsequent boots.</p>
-
-<h2 id="download-the-citrix-receiver-for-android">Download the Citrix Receiver for Android</h2>
-
-<p>Now that we have a functioning Android emulator, we need to get the Citrix Receiver installed. The first thing we need to do is download the .apk (Android Package) file. Normally, I would just go to <a href="http://www.citrix.com/receiver">http://www.citrix.com/receiver</a> and choose “Android”. But, as of this writing, when you do that, you are redirected to the Android Marketplace. Unfortunately, Android Marketplace does not work on the Android Emulator. So, here is what you can do instead:
-Go to <a href="http://www.citrix.com/downloads">http://www.citrix.com/downloads</a> and choose “Receiver for Android” from the drop down list. From there, you can select the Android client and download the .apk.</p>
-
-<h2 id="install-the-citrix-receiver-for-android">Install the Citrix Receiver for Android</h2>
-
-<p>Ok, so now we have a functioning Android emulator and the Citrix Receiver downloaded. The final step is to install the Citrix Receiver onto the emulator. Here’s how:</p>
-
-<ol>
-  <li>
-    <p>Copy the .apk file to %ProgramFiles%\Android\android-sdk\tools</p>
-  </li>
-  <li>
-    <p>Open a command prompt and change the directory to %ProgramFiles%\Android\android-sdk\tools</p>
-  </li>
-  <li>
-    <p>With the AVD you created running, execute the following command:</p>
-  </li>
-</ol>
-
-<table>
-<tbody>
-<tr>
-
-<td>`1
-```
-
-</td>
-
-<td>`adb install <name of="" Citrix="" Receiver="">.apk
-```
-
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-[singlepic id=1339 w=320 h=240 float=none]
-
-
-
-
-
-
-
-
- You now have a fully functional Citrix Receiver running on an Android emulator.  My next post shows you [how to set up a development environment to utilize the Mobile Application SDK and compile some of the examples](http://www.jasonconger.com/post/installing-and-using-the-citrix-xenapp-6-5-mobile-application-sdk/).
-</name></td></tr></tbody></table>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -605,7 +545,7 @@ Go to <a href="http://www.citrix.com/downloads">http://www.citrix.com/downloads<
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

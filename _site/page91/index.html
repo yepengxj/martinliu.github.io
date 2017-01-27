@@ -142,6 +142,37 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2007-05-08T12:35:00+08:00"><a href="/2007/05/08/opennms-faqs/">May 08, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2007/05/08/opennms-faqs/" rel="bookmark" title="OpenNMS常问问题All-in-One" itemprop="url">OpenNMS常问问题All-in-One</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><strong>问：OpenNMS是什么？<br /></strong>答： OpenNMS是第一个开发在开源模式下的企业级网络管理平台应用。OpenNMS的目标是成为一个真真的分布式、可升级的网络管理平台，尽管它看似一个 FCAPS网络管理模型，使之可用于开放源码和商业领域。目前：OpenNMS专注与以下三个方面：服务轮询 － 检查应用服务的可用性，产生可用性报表。数据收集 － 收集、保存和报表网络信息数据，并设定和触发门限值。事件和提示管理 － 接受事件系统内部的和外部的事件，将源事件提供给强大的故障告警和故障升级系统。OpenNMS Group是开发和支持OpenNMS应用的一个商业性的实体。<br /><br /><strong>问：为什么要开源？</strong><br />答： 我们坚信真真的创新不会来自规模巨大的企业。我们还相信网络管理软件领域比Linux操作系统更适合开源模式。不像Linux，网络管理要去监视和控制来 自不同厂商的很多的技术。考虑到每年都有很多新的网络设备面世。商业软件公司并不希望追赶这种更新产品的工作负荷，相反它们只能依赖与它们的通用管理技术 （最小化的通用性）。相反，对于一个开源项目中的每一个人－－厂商、用户或者技术顾问－－都能对项目做出自己的共享，从而保障了这个项目成功的几率。<br /><br /><strong>问：OpenNMS是用什么语言写的？<br /></strong>答： OpenNMS主要是用Java语言写的。OpenNMS2.0的目标是：让它成为一个以一堆.jar文件形式来安装的产品。还有一些非Java的部分： icmpd-Java1.4 API不能理解ICMP。因为ICMP回答请求（ping）是一个最简单的来测试基于Ip的网络设备是否可以服务的方法，没有那个网络管理应用程序不用的 它的。将ICMP功能分离为一个独立的守护进程的目标是，如果系统中有ICMP的功能那么OpenNMS就用，如果没有OpenNMS就率略它。 OpenNMS不需要ICMP来监控网络设备。数据库－OpenNMS现在使用PostgreSQL作为它的地层数据库，PostgreSQL 是用C写 的。OpenNMS2.0会使用几个能通过Hibernate适配器访问到的数据库。rrdtool－OpenNMS当前的版本实时的选择使用 RRDtool或jRobin（Java会使用RRDtool）。最终这个选项的默认使用jRobin，也可以选择使用RRDtool。<br /><br /><strong>问：OpenNMS有图形的显示么？<br /></strong>答： 这可能是一个对于OpenNMS新人来说最常问的问题：OpenNMS的图形监控界面在那？简单的问答是我们没有一个这样的地图，如果你想听听我们的解释 请继续往下看。OpenNMS是被一些经验丰富的网络管理技术顾问开发出来的。HP的Openvew NNM是一个很流行的商业软件，它能生产一个可定制化的网络监控图形。OpenNMS Screenshot<br /><br /><br /><br /></p>
+
+<p><br />&lt;table style="width: 194px" &gt;<br />&lt;tr &gt;<br /></p>
+<td style="height: 194px" align="center">[![](http://lh4.google.com/image/liuzh66/Rl19YgD97vE/AAAAAAAAAE8/hFVbteNWiR0/s160-c/OpenNMS.jpg)](http://picasaweb.google.com/liuzh66/OpenNMS)
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td style="text-align: center;font-family: arial,sans-serif;font-size: 11px">[OpenNMS](http://picasaweb.google.com/liuzh66/OpenNMS)
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br /><strong>原文地址</strong> <a href="http://www.opennms.org/index.php/FAQ-About">http://www.opennms.org/index.php/FAQ-About</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2007-04-30T11:49:00+08:00"><a href="/2007/04/30/glpi-it-asset-mgmt/">April 30, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -322,29 +353,6 @@ Reading time ~1 minute
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2007-04-23T18:51:00+08:00"><a href="/2007/04/23/otrs-itil-compatible/">April 23, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2007/04/23/otrs-itil-compatible/" rel="bookmark" title="OTRS的第一个ITIL兼容版本" itemprop="url">OTRS的第一个ITIL兼容版本</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>从来没用这么期待过一个软件的问世，虽然工具和技术不能画等号，不过它应该是第一个主动与ITIL看起，并且靠拢的开源软件。<br /><br />1下载安装<br />需要下载的软件是OTRS 2.2.0 BETA2 和OTRS:ITIL 1.0；后者只是一个压缩包，它包含了所有ITIL相关的软件包。此次安装并不顺利，归咎于很多Apach上perl的配置；安装之后的问题多是其它依赖的软件包不全造成的。<br /><br />2 CMDB<br />说不上它是一个很好的CMDB，不过用起来到是很方便。在Admin里把所有CI的类都建立出来后，相关的工作人员就能登陆上来，把相关的CI添加尽量。你需要从车轮开始做起，在这里可以说是非常适用，它不想商业软件内置了一堆的预定义的东西。CI直接的联系关系也可以得到表达。<br /><br />3其它功能试用中待续</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -398,12 +406,19 @@ Reading time ~1 minute
         <li><a href="/page92/">92</a></li>
       
     
+      
+        
+        
+        
+        <li><a href="/page93/">93</a></li>
+      
+    
 
     
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

@@ -142,6 +142,207 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2007-12-13T18:14:00+08:00"><a href="/2007/12/13/opennms-yum-install/">December 13, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2007/12/13/opennms-yum-install/" rel="bookmark" title="OpenNMS的Yum的安装方式，安装简单了很多" itemprop="url">OpenNMS的Yum的安装方式，安装简单了很多</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>OpenNMS网站的安装文档：<br /><a href="http://www.opennms.org/index.php/Installation:Yum">http://www.opennms.org/index.php/Installation:Yum</a><br /></p>
+
+<p>下面是我在一个CentOS4的机器上按照上面文档安装的。</p>
+
+<p><br /><br /></p>
+
+<p><br />
+  1. 先浏览一下这个页面      <a href="http://yum.opennms.org/repofiles/">http://yum.opennms.org/repofiles/</a>      找到适合你的OS的那一行。
+<br />
+  2. 我选择安装的是1.3.10-0.8030.snapshot 这是当前开发的最新版本的OpenNMS； 运行命令： rpm -Uvh <a href="http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm">http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm</a>
+<br />
+  3. 检查是否安装成功，      运行命令： yum list opennms ；我能看到如下输出结果
+<br /><br /></p>
+
+<p>[root@jng-hkg-48-dyn3328831 ~]# yum list opennms</p>
+
+<p><br /></p>
+
+<p>Repository opennms-stable-common is listed more than once in the configuration</p>
+
+<p><br /></p>
+
+<p>Repository opennms-stable-rhel4 is listed more than once in the configuration</p>
+
+<p><br /></p>
+
+<p>Setting up repositories</p>
+
+<p><br /></p>
+
+<p>Reading repository metadata in from local files</p>
+
+<p><br /></p>
+
+<p>Available Packages</p>
+
+<p><br /></p>
+
+<p>opennms.noarch                           1.3.10-0.8030.snapshot opennms-snapshot</p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<p><br />
+  4. 安装这个版本的OpenNMS，运行命令： yum install opennms      ; yum会处理包的依赖关系，把需要安装的包都从网络下载并安装上，所以我按y键开始安装，根据网络快慢的情况不同，您需要等待～～
+<br /><br /></p>
+
+<p>Dependencies Resolved</p>
+
+<p><br /></p>
+
+<p>=============================================================================</p>
+
+<p><br /></p>
+
+<p>Package                 Arch       Version          Repository        Size</p>
+
+<p><br /></p>
+
+<p>=============================================================================</p>
+
+<p><br /></p>
+
+<p>Installing:</p>
+
+<p><br /></p>
+
+<p>opennms                 noarch     1.3.10-0.8030.snapshot  opennms-snapshot-common  5.0 k</p>
+
+<p><br /></p>
+
+<p>Installing for dependencies:</p>
+
+<p><br /></p>
+
+<p>iplike                  i386       1.0.6-1          opennms-snapshot-rhel4   10 k</p>
+
+<p><br /></p>
+
+<p>jdk                     i586       2000:1.5.0_13-fcs  opennms-snapshot-common   46 M</p>
+
+<p><br /></p>
+
+<p>jicmp                   i386       1.0.4-1          opennms-snapshot-rhel4   43 k</p>
+
+<p><br /></p>
+
+<p>opennms-core            noarch     1.3.10-0.8030.snapshot  opennms-snapshot-common   47 M</p>
+
+<p><br /></p>
+
+<p>opennms-webapp-jetty    noarch     1.3.10-0.8030.snapshot  opennms-snapshot-common   27 M</p>
+
+<p><br /></p>
+
+<p>postgresql              i386       7.4.17-1.RHEL4.1  update            2.0 M</p>
+
+<p><br /></p>
+
+<p>postgresql-server       i386       7.4.17-1.RHEL4.1  update            3.0 M</p>
+
+<p><br /></p>
+
+<p>Transaction Summary</p>
+
+<p><br /></p>
+
+<p>=============================================================================</p>
+
+<p><br /></p>
+
+<p>Install      8 Package(s)</p>
+
+<p><br /></p>
+
+<p>Update       0 Package(s)</p>
+
+<p><br /></p>
+
+<p>Remove       0 Package(s)</p>
+
+<p><br /></p>
+
+<p>Total download size: 125 M</p>
+
+<p><br /></p>
+
+<p>Is this ok [y/N]: y</p>
+
+<p><br /><br /></p>
+
+<p><br />
+  5. 建立/opt/opennms目录；导出到环境变量 export OPENNMS_HOME=/opt/opennms
+<br />
+  6. 配置数据库；启动数据库，第一次启动之后才能得到相关的配置文件； 运行命令： /sbin/service postgresql start
+<br />
+  7. 修改/var/lib/pgsql/data/pg_hba.conf      文件；内容如下。
+<br /><br /></p>
+
+<p>local   all         all                               trust</p>
+
+<p><br /></p>
+
+<p>host    all         all         127.0.0.1/32          trust</p>
+
+<p><br /></p>
+
+<p>host    all         all         ::1/128               trust</p>
+
+<p><br /><br /></p>
+
+<p><br />
+  8. 修改 /var/lib/pgsql/data/postgresql.conf文件；内容如下
+<br /><br /></p>
+
+<p>tcpip_socket = true</p>
+
+<p><br /></p>
+
+<p>isten_addresses = ‘localhost’ (这一行加入了好些数据库启动不了了，去掉就行了，不知原因)</p>
+
+<p><br /><br /></p>
+
+<p><br />
+  9. 重新启动数据库服务；运行命令： /sbin/service postgresql restart
+<br />
+  10. 告诉OpenNMS JDK在那里； 运行命令：$OPENNMS_HOME/bin/runjava      -S /usr/java/jdk1.5.0_13/bin/java
+<br />
+  11. 初始化OpenNMS的数据库；运行命令：$OPENNMS_HOME/bin/install      -disU -l /usr/lib/jni:/usr/lib
+<br />
+  12. 启动OpenNMS；运行命令：/etc/init.d/opennms start
+<br />
+  13. 访问OpenNMS； <a href="http://ip:8980/opennms">http://ip:8980/opennms</a> 用户名和密码都是admin
+<br />
+  14. 进入管理部门，配置自动发现的ip范围，配置提示邮件。
+<br />
+  15. Enjoy      open source software, have fun.
+<br /></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2007-12-07T11:01:00+08:00"><a href="/2007/12/07/zenoss-21-beta/">December 07, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -234,53 +435,6 @@ Reading time ~1 minute
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2007-06-21T16:58:00+08:00"><a href="/2007/06/21/how-to-install-hyperic-hq-on-opensuse-102/">June 21, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~3 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2007/06/21/how-to-install-hyperic-hq-on-opensuse-102/" rel="bookmark" title="How to install  hyperic-hq on openSuse 10.2" itemprop="url">How to install  hyperic-hq on openSuse 10.2</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><br />	
-  * <br /></p>
-
-<h4 id="make-the-hq-and-group"><strong>**Make the hq and group</strong>**</h4>
-
-<p><br />
-<br /><br />groupadd hq useradd -c ‘hyperic hq’ -d /home/hq -g hq -s /bin/bash  hq mkdir /home/hq chown -R hq.hq /home/hq<br /><br />	
-  * <br /></p>
-
-<h4 id="untar-installer-package-and-install-"><strong>**Untar installer package and install **</strong></h4>
-
-<p><br />
-<br /><br />cd /home/hq tar zxf hyperic-hq-installer-3.0.4-389-x86-linux.tgz chown -R hq.hq . su hq  hq@Suse:~&gt; cd hyperic-hq-installer/ hq@Suse:~/hyperic-hq-installer&gt; ls LICENSES.txt  agent-3.0.4.tgz  installer-3.0.4  server-3.0.4.tgz  setup.bat  setup.sh  shell-3.0.4.tgz hq@Suse:~/hyperic-hq-installer&gt; ./setup.sh Unpacking JRE to temporary directory /tmp/jre Initializing Hyperic HQ 3.0.4 Installation… Loading taskdefs… Taskdefs loaded Choose which software to install: 1: Hyperic HQ Server 2: Hyperic HQ Shell 3: Hyperic HQ Agent You may enter multiple choices, separated by commas. 1,2,3 HQ server installation path [default ‘/home/hyperic’]: /home/hq HQ shell installation path [default ‘/home/hq’]:  HQ agent installation path [default ‘/home/hq’]:  Loading install configuration… Install configuration loaded. Preparing to install… Validating agent install configuration… Validating shell install configuration… Validating server install configuration… Checking server webapp port… Checking server secure webapp port… Checking server JRMP port… Checking server JNP port… Verifying admin user properties Validating server DB configuration… Installing the agent… Looking for previous installation Unpacking agent to: /home/hq/agent-3.0.4… Installing the JRE … Unpacking JRE x86-linux-glibc2-jre.tar.gz to: /home/hq/agent-3.0.4… Setting permissions on agent binaries… Fixing line endings on text files… ——————————————————————————– Installation Complete: Agent successfully installed to: /home/hq/agent-3.0.4 ——————————————————————————–  You can now start your HQ agent by running this command:  /home/hq/agent-3.0.4/hq-agent.sh start  Installing the shell… Unpacking shell to: /home/hq/shell-3.0.4… Installing the JRE … Unpacking JRE x86-linux-glibc2-jre.tar.gz to: /home/hq/shell-3.0.4… Setting permissions on shell binaries… Fixing line endings on text files… ——————————————————————————– Installation Complete: Command shell successfully installed to: /home/hq/shell-3.0.4 ——————————————————————————– You can now start the HQ shell by running this command:  /home/hq/shell-3.0.4/hq-shell.sh  Installing the server… Unpacking server to: /home/hq/server-3.0.4… Creating server configuration files… Copying binaries and libraries to server installation… Copying server configuration file… Copying server control file… Copying server binaries… Copying server libs… Setting up server database…  Now login to another terminal as root and execute this script:  /home/hq/hyperic-hq-installer/installer-3.0.4/data/hqdb/tune-os.sh  This script sets up the proper shared memory settings to run the built-in database.  Press Enter after you run the script to continue this installation.  Setting up JDBC driver… Copying database files… Configuring database… Starting repopulation of configuration table… Waiting for built-in database to start (on port 9432)… Starting built-in database… Preparing database… Vacuuming database… Waiting for server to stop… Stopping built-in database… Built-in database stopped. Installing the JRE … Unpacking JRE x86-linux-glibc2-jre.tar.gz to: /home/hq/server-3.0.4… Setting permissions on server binaries… Fixing line endings on text files… ——————————————————————————– Installation Complete: Server successfully installed to: /home/hq/server-3.0.4 ——————————————————————————–  You can now start your HQ server by running this command:  /home/hq/server-3.0.4/bin/hq-server.sh start  Note that the first time the HQ server starts up it may take several minutes to initialize.  Subsequent startups will be much faster.  Once the HQ server reports that it has successfully started, you can log in to your HQ server at:  http://Suse.opensource.org:7080/ username: hqadmin password: hqadmin  To change your password, log in to the HQ server, click the “Administration” link, choose “List Users”, then click on the “hqadmin” user.  Setup completed. A copy of the output shown above has been saved to: /home/hq/hyperic-hq-installer/installer-3.0.4/hq-install.log  Deleting temporary JRE hq@Suse:~/hyperic-hq-installer&gt; hq@Suse:~/hyperic-hq-installer&gt; /home/hq/server-3.0.4/bin/hq-server.sh start Starting HQ server… Initializing HQ server configuration… Checking jboss jndi port… Checking jboss mbean port… Starting HQ built-in database… HQ built-in database started. Booting the HQ server… HQ server booted. Login to HQ at: http://127.0.0.1:7080/ hq@Suse:~/hyperic-hq-installer&gt;<br /><br />	
-  * <br /></p>
-
-<h4 id="startup-a-linux-agent-"><strong>**Startup a Linux agent **</strong></h4>
-
-<p><br />
-<br /><br />login as: hq Using keyboard-interactive authentication. Password: Have a lot of fun… hq@Suse:~&gt; pwd /home/hq hq@Suse:~&gt; ls agent-3.0.4           hyperic-hq-installer-3.0.4-389-x86-linux.tgz  shell-3.0.4 hyperic-hq-installer  server-3.0.4 hq@Suse:~&gt; cd agent-3.0.4/ hq@Suse:~/agent-3.0.4&gt; ls agent.properties  hq-agent.exe  jre  pdk                 README.txt background.bat    hq-agent.sh   lib  product_connectors  tmp background.sh     jaas.config   log  rcfiles hq@Suse:~/agent-3.0.4&gt; ./hq-agent.sh Syntax: ./hq-agent.sh hq@Suse:~/agent-3.0.4&gt; ./hq-agent.sh start Starting agent - Unable to load agent token file.  Generating a new one … Done - Invoking agent - Starting agent process Agent successfully started  [ Running agent setup ] What is the HQ server IP address: 127.0.0.1 Should Agent communications to HQ always be secure [default=no]: What is the HQ server port     [default=7080]: - Testing insecure connection … Success What is your HQ login [default=hqadmin]: What is your HQ password: What IP should HQ use to contact the agent [default=127.0.0.2]: What port should HQ use to contact the agent [default=2144]: - Received temporary auth token from agent - Registering agent with HQ - HQ gave us the following agent token 1182416897800-4295885070579017509-616515886345923858 - Informing agent of new HQ server - Validating - Successfully setup agent hq@Suse:~/agent-3.0.4&gt;  Note: this agent and server are same machine.<br /><br />	
-  * <br /></p>
-
-<h4 id="access-to-web-console-"><strong>**Access to Web console **</strong></h4>
-
-<p><br />
-<br /><br />http://Ip_address:7080/ default username and password [hqadmin/hqadmin]</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -348,7 +502,7 @@ Reading time ~3 minutes
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     

@@ -142,6 +142,242 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2011-10-23T23:52:27+08:00"><a href="/2011/10/23/release-otrs-help-desk-3-0-11/">October 23, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/2011/10/23/release-otrs-help-desk-3-0-11/" rel="bookmark" title="Release: OTRS Help Desk 3.0.11" itemprop="url">Release: OTRS Help Desk 3.0.11</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <hr />
+
+<p>[success]这是一个补丁修补版本。我的名字也第一次出现，感谢Michael的帮忙，没有你我可能迟迟发不上去这个翻译。完整的release notes见 <a href="http://otrs.org/releases/3.0.11">http://otrs.org/releases/3.0.11</a>[/success]</p>
+<table cellpadding="0">
+<tbody>
+<tr>
+
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++++++++++++++++++++++++++ Release Note ++++++++++++++++++++++++
+
+Release:            OTRS Help Desk 3.0.11
+Status:             stable
+Code Name:          Cancún Beach, México
+
+We are proud to announce that the latest patch level release of OTRS 3.0
+(codename: Cancún Beach, México) has been released.
+
+Important for Upgrading
+=======================
+* From OTRS 3.0.x: Make sure you run bin/[otrs.RebuildConfig.pl](http://otrs.RebuildConfig.pl/) after
+the upgrade so that the configuration is refreshed. Otherwise the
+system may not work.
+
+* From OTRS 2.4.x: Please read the UPGRADING and INSTALL files for
+detailed instructions.
+
+Warning
+=======
+OTRS versions from 3.0.beta1 up to 3.0.2 were affected by a bug in the
+GenericAgent which could cause the "Ticket Delete" flag to be active
+by default for new GenericAgent jobs, depending on the locale. If you
+used one of the affected versions and have created new GenericAgent
+jobs with them, please review them to check if the "Ticket Delete"
+flag indeed has the correct value. Otherwise unwanted data loss might
+occur.
+
+Improvements
+============
+* Updated Simplified Chinese Translation, thanks to Martin Liu!
+* Updated Danish translation, thanks to Lars Jørgensen!
+<table cellpadding="0">
+<tbody>
+<tr>
+
+<td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Software Download
+=================* [ [http://otrs.org/downloads/](http://otrs.org/downloads/) ] (Germany/Hamburg)
+* [ [ftp://ftp.otrs.org/pub/otrs/](ftp://ftp.otrs.org/pub/otrs/) ] (Germany/Hamburg)
+
+A complete list of all download mirrors is available at
+[ [http://otrs.org/downloads/](http://otrs.org/downloads/) ].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td>
+</tr>
+</tbody>
+</table>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2011-10-14T00:30:50+08:00"><a href="/2011/10/14/how-to-configure-nfs-on-lion/">October 14, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -294,42 +530,6 @@ Reading time ~1 minute
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2011-09-14T22:59:34+08:00"><a href="/2011/09/14/e5-a6-82-e4-bd-95-e5-af-bc-e5-85-a5ci-e5-92-8c-e5-85-b3-e7-b3-bb-e5-88-b0atrium-cmdb/">September 14, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/2011/09/14/e5-a6-82-e4-bd-95-e5-af-bc-e5-85-a5ci-e5-92-8c-e5-85-b3-e7-b3-bb-e5-88-b0atrium-cmdb/" rel="bookmark" title="如何导入CI和关系到Atrium CMDB" itemprop="url">如何导入CI和关系到Atrium CMDB</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>本帖主要是上传了一些不舍得删除的flash，这些东西是关于如何向cmdb中导入CI和关系的录像。有此特殊需要的可以收藏备用。</p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2011/09/00-模型数据准备.swf">00-模型数据准备</a></p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2011/09/01-导入CI数据.swf">01 导入CI数据</a></p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2011/09/02-导出CI的名称和ID.swf">02-导出CI的名称和ID</a></p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2011/09/03-准备关系数据.swf">03-准备关系数据</a></p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2011/09/04-导入影响关系.swf">04-导入影响关系</a></p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2011/09/05-查看和验证模型.swf">05-查看和验证模型</a></p>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
 
 
 <div class="pagination">
@@ -397,7 +597,7 @@ Reading time ~1 minute
     
 
     
-      <li><a href="/page93/">93</a></li>
+      <li><a href="/page94/">94</a></li>
     
 
     
