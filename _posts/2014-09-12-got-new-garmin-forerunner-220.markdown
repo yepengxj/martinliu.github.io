@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2014-09-12 15:32:36+00:00
-excerpt: 随着北马的临近，备战的训练也越来越重要，由于始终没有试过30K的距离，逐渐对长距离感到焦虑，因此放弃了My Ascis以距离为目标的训练计划，转投Garmin训练计划中的全马训练计划。评测一只
+description:  随着北马的临近，备战的训练也越来越重要，由于始终没有试过30K的距离，逐渐对长距离感到焦虑，因此放弃了My Ascis以距离为目标的训练计划，转投Garmin训练计划中的全马训练计划。评测一只
   forerunner 220 GPS 手表。
 layout: post
 slug: got-new-garmin-forerunner-220

@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-04-07 10:27:38+00:00
-excerpt: WinXP在XenServer上显示"XenServer tools not installed"的解决办法
+description:  WinXP在XenServer上显示"XenServer tools not installed"的解决办法
 layout: post
 slug: xenserver-tools-not-installed
 title: 解决XenServer tools not installed

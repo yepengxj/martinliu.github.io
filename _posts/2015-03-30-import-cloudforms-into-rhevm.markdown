@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-03-30 03:13:47+00:00
-excerpt: 下载CloudForms最新版本的rhev的虚拟机，导入到rhevm的nfs export存储中。从模板生成虚拟机。运行和配置CloudForms虚拟机，这样它就可以管理这个rhevm的环境了。
+description:  下载CloudForms最新版本的rhev的虚拟机，导入到rhevm的nfs export存储中。从模板生成虚拟机。运行和配置CloudForms虚拟机，这样它就可以管理这个rhevm的环境了。
 layout: post
 slug: import-cloudforms-into-rhevm
 title: Import CloudForms  into rhevm

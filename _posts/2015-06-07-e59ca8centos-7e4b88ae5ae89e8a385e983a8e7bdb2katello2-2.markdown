@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-06-07 16:35:05+00:00
-excerpt: Katello是红帽 Satellite 6 的开源社区项目，是最近我主推的标准化运维自动化运维的底层技术平台。希望使用本文，你可以快速的进入Katello的功能评估的过程中。
+description:  Katello是红帽 Satellite 6 的开源社区项目，是最近我主推的标准化运维自动化运维的底层技术平台。希望使用本文，你可以快速的进入Katello的功能评估的过程中。
 layout: post
 slug: '%e5%9c%a8centos-7%e4%b8%8a%e5%ae%89%e8%a3%85%e9%83%a8%e7%bd%b2katello2-2'
 title: 在CentOS 7上安装部署Katello2.2

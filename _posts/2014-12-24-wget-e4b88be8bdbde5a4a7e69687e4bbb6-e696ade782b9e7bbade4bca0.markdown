@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2014-12-24 01:43:03+00:00
-excerpt: wget 下载大文件-断点续传\r<br />wget -c -b -t 0 -O CentOS-7.0-1406-x86_64-Everything.iso  http://mirrors.sohu.com/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso
+description:  wget 下载大文件-断点续传\r<br />wget -c -b -t 0 -O CentOS-7.0-1406-x86_64-Everything.iso  http://mirrors.sohu.com/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso
   -o centos.log\r<br />
 layout: post
 slug: wget-%e4%b8%8b%e8%bd%bd%e5%a4%a7%e6%96%87%e4%bb%b6-%e6%96%ad%e7%82%b9%e7%bb%ad%e4%bc%a0

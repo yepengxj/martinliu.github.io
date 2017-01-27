@@ -1,17 +1,18 @@
 ---
 layout:     post
 title:      来自于《DevOps Handbook》的书单
-subtitle:   本清单来自于《DevOps Handbook》书中提到的书，更新到第五本
+description:     本清单来自于《DevOps Handbook》书中提到的书，更新到第五本
 tags: [DevOps]
-bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
+image:
+    feature: ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 ---
-《看板方法》、《精益思想》、《Implementing Lean Software Development: From Concept to Cash》、《第五项修炼:学习型组织的艺术与实践》、《探索吧!深入理解探索式软件测试》
+本清单来自于《DevOps Handbook》书中提到的书，更新到第五本；《看板方法》、《精益思想》、《Implementing Lean Software Development: From Concept to Cash》、《第五项修炼:学习型组织的艺术与实践》、《探索吧!深入理解探索式软件测试》
 
 ## 《看板方法-科技企業漸進變革成功之道》
-转自：[ Rubbyblog.wordpress.com](https://ruddyblog.wordpress.com/2014/09/30/%E7%9C%8B%E6%9D%BF%E6%96%B9%E6%B3%95-%E7%A7%91%E6%8A%80%E4%BC%81%E6%A5%AD%E6%BC%B8%E9%80%B2%E8%AE%8A%E9%9D%A9%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93/)
+转自：[ Rubbyblog.wordpress.com](https://ruddyblog.wordpress.com/2014/09/30/%E7%9C%8B%E6%9D%BF%E6%96%B9%E6%B3%95-%E7%A7%91%E6%8A%80%E4%BC%81%E6%A5%AD%E6%BC%B8%E9%80%B2%E8%AE%8A%E9%9D%A9%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93/)/images/
 
 
-![kanban-book](/img/kanban-book.png)
+![kanban-book](/images/kanban-book.png)
 
 
 今天要介紹看板方法的由來， 上面這本書是由看板方法之父 David J. Anderson 於: 2010年 4月所著。簡字版是 2014 年2月出版。這篇文章在我上 TechDays 課程時就想登出來了，想把好書介紹給大家。但由於台灣的書商都沒有進口，所以一直等到我拿到第一批書後，肯定大家可以在坊間買到書時才把他登出來。原文書名: Kanban: Successful Evolutionary Change for Your Technology Business.
@@ -45,7 +46,7 @@ bigimg: /img/ZellerHorn_ZH-CN7123868469_1920x1080.jpg
 ## 精益思想(白金版)
 
 这本书在亚马逊中国有售：[https://www.amazon.cn/精益思想-詹姆斯P-沃麦克](https://www.amazon.cn/精益思想-詹姆斯P-沃麦克)
-![](/img/14836204523398.jpg)
+![](/images/14836204523398.jpg)
 
 **简介**
 
@@ -76,7 +77,7 @@ ASIN: B0142EC7AA
 
 ## Implementing Lean Software Development: From Concept to Cash
 
-![](/img/14837758468347.jpg)
+![](/images/14837758468347.jpg)
 
 
 ### 基本信息
@@ -108,9 +109,9 @@ Tom Poppendieck, an enterprise analyst, architect, and agile process mentor, cur
 
 ## The Fifth Discipline: The Art & Practice of The Learning Organization
 
-![](/img/14840700653952.jpg)
+![](/images/14840700653952.jpg)
 
-![](/img/14840700772382.jpg)
+![](/images/14840700772382.jpg)
 
 ### 基本信息  第五项修炼：学习型组织的艺术与实践
 
@@ -160,9 +161,9 @@ ASIN: B002QMKJ4C
 
 ## Explore It!: Reduce Risk and Increase Confidence with Exploratory Testing
 
-![](/img/14841498198916.jpg)
+![](/images/14841498198916.jpg)
 
-![](/img/14841498461381.jpg)
+![](/images/14841498461381.jpg)
 
 ### 探索吧!深入理解探索式软件测试 
 
@@ -194,7 +195,7 @@ ASIN: B00IHQBQZC
 
 ## The Field Guide to Understanding 'Human Error‘
 
-![](/img/14842313763902.jpg)
+![](/images/14842313763902.jpg)
 
 This latest edition of The Field Guide to Understanding ‘Human Error' will help you understand how to move beyond 'human error'; how to understand accidents; how to do better investigations; how to understand and improve your safety work. You will be invited to think creatively and differently about the safety issues you and your organization face. In each, you will find possibilities for a new language, for different concepts, and for new leverage points to influence your own thinking and practice, as well as that of your colleagues and organization.
 
@@ -224,7 +225,7 @@ Sidney Dekker (PhD Ohio State University, USA, 1996) is currently professor at G
 
 ## Lean IT: Enabling and Sustaining Your Lean Transformation
 
-![](/img/14844093662859.jpg)
+![](/images/14844093662859.jpg)
 
 ###Review
 
@@ -272,7 +273,7 @@ Amazon Best Sellers Rank: #129,956 in Books (See Top 100 in Books)
 
 ## True North: Discover Your Authentic Leadership
 
-![](/img/14844095698595.jpg)
+![](/images/14844095698595.jpg)
 
 ###Review
 
@@ -313,7 +314,7 @@ Amazon Best Sellers Rank: #17,250 in Books (See Top 100 in Books)
 
 ## Gemba Walks
 
-![](/img/14844099928904.jpg)
+![](/images/14844099928904.jpg)
 
 ### Editorial Reviews
 In 12 new essays, ranging from the provocative to the practical and written specially for the second edition of Gemba Walks author and management expert Jim Womack reflects on the past 30 years of lean, and assesses the current state of lean today.

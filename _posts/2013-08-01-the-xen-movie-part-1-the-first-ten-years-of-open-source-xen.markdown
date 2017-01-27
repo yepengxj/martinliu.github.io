@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-08-01 09:29:20+00:00
-excerpt: On April 15, 2013 Xen (which has always been open source) became the Linux
+description:  On April 15, 2013 Xen (which has always been open source) became the Linux
   Foundation Xen Project. This video explains how Xen has always been a place where
   industry players collaborate to create value, and how the Linux Foundation move
   is good for the Xen Project,Citrix and our customers.

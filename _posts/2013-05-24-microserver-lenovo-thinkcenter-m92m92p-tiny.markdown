@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-05-24 01:32:28+00:00
-excerpt: 刚刚入手了一台 Lenovo ThinkCenter M92/M92p Tiny测试机，虽然配置不高但是出于geek习惯，还是要动动螺丝刀的。下面是拆机过程，供参考。
+description:  刚刚入手了一台 Lenovo ThinkCenter M92/M92p Tiny测试机，虽然配置不高但是出于geek习惯，还是要动动螺丝刀的。下面是拆机过程，供参考。
 layout: post
 slug: microserver-lenovo-thinkcenter-m92m92p-tiny
 title: Microserver Lenovo ThinkCenter M92/M92p Tiny

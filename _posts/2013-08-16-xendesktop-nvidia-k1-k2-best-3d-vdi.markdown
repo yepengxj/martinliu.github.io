@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-08-16 11:52:58+00:00
-excerpt: Citrix + nVIDIA K1 k2 + XenServer （GPU 直通） + HDX 3D Pro = 业内最好的3D虚拟桌面平台方案；而且这个方案里还能具有，其它全部的使用场景，包括：vdi，共享桌面，虚拟应用，流桌面，远程物理桌面等等方式。可以说这是一举多得，面面俱到的解决方案。
+description:  Citrix + nVIDIA K1 k2 + XenServer （GPU 直通） + HDX 3D Pro = 业内最好的3D虚拟桌面平台方案；而且这个方案里还能具有，其它全部的使用场景，包括：vdi，共享桌面，虚拟应用，流桌面，远程物理桌面等等方式。可以说这是一举多得，面面俱到的解决方案。
 layout: post
 slug: xendesktop-nvidia-k1-k2-best-3d-vdi
 title: XenDesktop + nVIDIA K1/K2 = BEST 3D VDI

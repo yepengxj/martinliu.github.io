@@ -1,12 +1,12 @@
 ---
 layout:     post
 title:      Nutanix资源站点清单
-subtitle:   做Nutanix的那些不可不知道的资源网站
+description:     做Nutanix的那些不可不知道的资源网站
 tags: [Nutanix,DevOps]
 image:
-  background: google-earth-view-6043.jpg
+  feature: google-earth-view-6043.jpg
 ---
-这里列出了常用的官方和非官方网站。
+ 做Nutanix的那些不可不知道的资源网站，这里列出了常用的官方和非官方网站。
 
 ## Nutanix 官方站点
 
@@ -66,3 +66,5 @@ image:
 ### Nutanix viso 图标下载
 
 [http://www.visiocafe.com/nutanix.htm](http://www.visiocafe.com/nutanix.htm)
+
+

@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-12-31 11:36:27+00:00
-excerpt: This document helps you set up a simplified lab to review hardware-accelerated
+description:  This document helps you set up a simplified lab to review hardware-accelerated
   GPU virtualization for  Windows desktop VDI workloads on Citrix XenServer. True
   GPU virtualization (a.k.a vGPU) on NVIDIA GRID  cards is supported since Service
   Pack 1 of Citrix XenServer 6.2. It extends high-performance GPU sharing capabilities

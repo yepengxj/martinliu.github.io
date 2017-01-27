@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-08-14 15:38:07+00:00
-excerpt: 桌面虚拟化中的高精尖场景，成本高、技术高、效果精益求精 Citrix XenDesktop + nVidia = 业内最好3D设计虚拟桌面平台 Citrix可以兼顾
+description:  桌面虚拟化中的高精尖场景，成本高、技术高、效果精益求精 Citrix XenDesktop + nVidia = 业内最好3D设计虚拟桌面平台 Citrix可以兼顾
   VDI+独占GPU和 共享桌面+共享GPU两种模式
 layout: post
 slug: xendesktop-7-hdx-3d-pro

@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2014-01-08 05:19:28+00:00
-excerpt: '我今天在Garmin Connect上面的群搜索哪里，那么一搜：北京、Beijing；居然什么也没用；我就不信了，北京用Garmin的表的跑友应该也不少，何不大家都聚集起来，互相分享互相激励。热烈欢迎大家参加！我在Garmin网站上建立了一个”长跑俱乐部群“
+description:  '我今天在Garmin Connect上面的群搜索哪里，那么一搜：北京、Beijing；居然什么也没用；我就不信了，北京用Garmin的表的跑友应该也不少，何不大家都聚集起来，互相分享互相激励。热烈欢迎大家参加！我在Garmin网站上建立了一个”长跑俱乐部群“
   Beijing LSD Club ； 欢迎各位爱好者加入。 群的地址： http://connect.garmin.com/group/514228 '
 layout: post
 slug: garmin-beijing-lsd-club

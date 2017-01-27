@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-01-27 16:22:18+00:00
-excerpt: 从Cockpi的词义上看，它是飞机驾驶仓的意思。而且Fedora 21 server 默认就会安装这个组建。有了它领导再也不用担心你看不走飞机了。总体感觉这个功能非常简洁、实用，很期待早日能融入到RHEL7中来。
+description:  从Cockpi的词义上看，它是飞机驾驶仓的意思。而且Fedora 21 server 默认就会安装这个组建。有了它领导再也不用担心你看不走飞机了。总体感觉这个功能非常简洁、实用，很期待早日能融入到RHEL7中来。
 layout: post
 slug: fedora-21-server-%e6%b5%8b%e8%af%95-cockpit%e7%af%87
 title: Fedora 21 Server测试 - Cockpit篇

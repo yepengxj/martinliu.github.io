@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-06-05 15:44:52+00:00
-excerpt: CentOS7是最近似于 RHEL7的企业板Linux好处是不用多说的。在它上面做一些开原软件的测试是非常方便和稳定的。我可能会用它做后续的一些系列文档，先打个基础。希望它也能广泛地用于其它的KVM，OVirt和OpenStack的场景中。
+description:  CentOS7是最近似于 RHEL7的企业板Linux好处是不用多说的。在它上面做一些开原软件的测试是非常方便和稳定的。我可能会用它做后续的一些系列文档，先打个基础。希望它也能广泛地用于其它的KVM，OVirt和OpenStack的场景中。
 layout: post
 slug: '%e5%ae%89%e8%a3%85%e5%ae%8c%e7%be%8e-centos7-%e8%99%9a%e6%8b%9f%e6%9c%ba%e6%a8%a1%e6%9d%bf'
 title: 安装完美 CentOS7 虚拟机模板

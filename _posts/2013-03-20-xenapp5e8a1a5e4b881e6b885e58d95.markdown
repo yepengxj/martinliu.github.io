@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-03-20 10:12:43+00:00
-excerpt: 对于XenApp5的用户来说你至少需要知道下面两件事情：\r<br />\r<br />EOF的时间是2013-3-31\r<br />关键补丁清单如下\r<br />这意味着，你只能获得越来月有限的支持在这个版本；最好的办法是升级你的应用到XenApp6.5版本。如果实在要用，请起码大全了这些补丁。
+description:  对于XenApp5的用户来说你至少需要知道下面两件事情：\r<br />\r<br />EOF的时间是2013-3-31\r<br />关键补丁清单如下\r<br />这意味着，你只能获得越来月有限的支持在这个版本；最好的办法是升级你的应用到XenApp6.5版本。如果实在要用，请起码大全了这些补丁。
 layout: post
 slug: xenapp5%e8%a1%a5%e4%b8%81%e6%b8%85%e5%8d%95
 title: XenApp5补丁清单

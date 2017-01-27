@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-03-19 03:23:37+00:00
-excerpt: 在容器技术正如日中天的现在，大家应该了解和关注一下Atomic Project，由于这是运行、运维和管理容器的基础。它是一组技术的集合。\r<br />本站将用一些列文章，介绍和分享关于容器技术相关的知识。
+description:  在容器技术正如日中天的现在，大家应该了解和关注一下Atomic Project，由于这是运行、运维和管理容器的基础。它是一组技术的集合。\r<br />本站将用一些列文章，介绍和分享关于容器技术相关的知识。
 layout: post
 slug: '%e5%a6%82%e4%bd%95%e5%8f%82%e4%b8%8e-project-atomic'
 title: 如何参与 Project Atomic

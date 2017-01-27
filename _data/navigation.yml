@@ -1,7 +1,7 @@
 # Menu navigation links
 
-- title: About
-  url: /about/
+- title: AWS-FAQ
+  url: http://www.aws-faq.com
 
-- title: Ex site
-  url: http://mademistakes.com
+- title: DevOps教练
+  url: http://devopscoach.org

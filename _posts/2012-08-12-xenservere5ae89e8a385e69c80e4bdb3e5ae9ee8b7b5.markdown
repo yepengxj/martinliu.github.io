@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2012-08-12 15:16:53+00:00
-excerpt: 以上是XenServer的部分实施经验之总结，有不完整，或者不妥之处，请扶正。我想其实把XenServer经常遇到的安装错误和解决方法都整理一下也很好。如果你有类似的经验，请回帖记录一下。多谢观赏本文。
+description:  以上是XenServer的部分实施经验之总结，有不完整，或者不妥之处，请扶正。我想其实把XenServer经常遇到的安装错误和解决方法都整理一下也很好。如果你有类似的经验，请回帖记录一下。多谢观赏本文。
 layout: post
 slug: xenserver%e5%ae%89%e8%a3%85%e6%9c%80%e4%bd%b3%e5%ae%9e%e8%b7%b5
 title: XenServer安装最佳实践

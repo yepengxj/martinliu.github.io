@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-07-12 11:16:44+00:00
-excerpt: ovirt 是服务虚拟化管理器程序，类似于VMWare的vCenter，管理模式和类型和vCenter完全相同。用于管理由开源hypervisor
+description:  ovirt 是服务虚拟化管理器程序，类似于VMWare的vCenter，管理模式和类型和vCenter完全相同。用于管理由开源hypervisor
   组成的资源池群集，管理资源池里的共享网络和存储资源，管理虚拟机的生命周期和状态。本文记录了在Fedora 22笔记本上，安装的ovirt测试环境。使用KVM跑两个虚拟机，一个是ovirt服务器，另外一个虚拟机，配置为嵌套型kvm，用来跑虚拟机。
 layout: post
 slug: ovirt-%e6%9c%8d%e5%8a%a1%e5%99%a8%e8%99%9a%e6%8b%9f%e5%8c%96%e6%b5%8b%e8%af%95

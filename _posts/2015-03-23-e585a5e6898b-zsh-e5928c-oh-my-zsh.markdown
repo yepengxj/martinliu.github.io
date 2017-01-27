@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-03-23 02:47:45+00:00
-excerpt: 昨天晚上还不知道何谓zsh，自从看了一个如何增加Mac OS的工作效率的视频之后，开始折腾这个shell。后来还发现它可以安装和配置在Linux，而且效果基本是一样的。所谓要装13，就装的像一点把。入手zsh应该可以增加Demo的绚丽程度，不仅工作方便了，而且观众YY的空间更大了一点：）哈哈
+description:  昨天晚上还不知道何谓zsh，自从看了一个如何增加Mac OS的工作效率的视频之后，开始折腾这个shell。后来还发现它可以安装和配置在Linux，而且效果基本是一样的。所谓要装13，就装的像一点把。入手zsh应该可以增加Demo的绚丽程度，不仅工作方便了，而且观众YY的空间更大了一点：）哈哈
 layout: post
 slug: '%e5%85%a5%e6%89%8b-zsh-%e5%92%8c-oh-my-zsh'
 title: 入手 zsh 和 oh-my-zsh

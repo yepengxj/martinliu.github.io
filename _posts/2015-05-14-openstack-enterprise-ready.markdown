@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-05-14 16:36:27+00:00
-excerpt: 不巧我开会期间出差了，真没亲自听同事们的session。本着不想跟人较劲，只辩驳观点的目的，批一批这篇刷我屏的文章。下面全文是原作者的，>>>>>这些大于号之后是我的一些观点。
+description:  不巧我开会期间出差了，真没亲自听同事们的session。本着不想跟人较劲，只辩驳观点的目的，批一批这篇刷我屏的文章。下面全文是原作者的，>>>>>这些大于号之后是我的一些观点。
 layout: post
 slug: openstack-enterprise-ready
 title: OpenStack Enterprise Ready

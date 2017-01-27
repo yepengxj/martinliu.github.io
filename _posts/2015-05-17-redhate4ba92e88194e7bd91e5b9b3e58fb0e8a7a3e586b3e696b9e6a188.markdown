@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-05-17 06:29:33+00:00
-excerpt: 昨天很累，下午参加了两个重要的活动，一个是某行业客户会，另一个是CCB CIO来访公司。针对这个特殊意义的客户会，我准备了ppt，为了准备这个ppt我学习并总结了一些互联网公司数据中心应用和架构的特点。
+description:  昨天很累，下午参加了两个重要的活动，一个是某行业客户会，另一个是CCB CIO来访公司。针对这个特殊意义的客户会，我准备了ppt，为了准备这个ppt我学习并总结了一些互联网公司数据中心应用和架构的特点。
 layout: post
 slug: redhat%e4%ba%92%e8%81%94%e7%bd%91%e5%b9%b3%e5%8f%b0%e8%a7%a3%e5%86%b3%e6%96%b9%e6%a1%88
 title: RedHat互联网平台解决方案

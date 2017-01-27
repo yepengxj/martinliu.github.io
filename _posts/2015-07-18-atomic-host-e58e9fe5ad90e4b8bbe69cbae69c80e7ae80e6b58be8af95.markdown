@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-07-18 13:29:45+00:00
-excerpt: Atomic Host 是一个定制版本的Linux操作系统，用来运行容器，容器中可以装Docker镜像。本文用地球人都知道的世界你好，来讲述如何在容器中跑一个httpd服务器，并且里面有定制的主页内容。整个过程涵盖了，Atomic
+description:  Atomic Host 是一个定制版本的Linux操作系统，用来运行容器，容器中可以装Docker镜像。本文用地球人都知道的世界你好，来讲述如何在容器中跑一个httpd服务器，并且里面有定制的主页内容。整个过程涵盖了，Atomic
   Host的测试机安装和配置，容器服务器基本操作命令，docker命令基本操作。不包含对原子主机的存储配置和网络配置，这些都是使用默认安装后的配置。
 layout: post
 slug: atomic-host-%e5%8e%9f%e5%ad%90%e4%b8%bb%e6%9c%ba%e6%9c%80%e7%ae%80%e6%b5%8b%e8%af%95

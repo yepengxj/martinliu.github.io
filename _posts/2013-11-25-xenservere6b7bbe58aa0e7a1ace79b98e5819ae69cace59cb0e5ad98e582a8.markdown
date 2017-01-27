@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-11-25 10:39:00+00:00
-excerpt: 当您的XenServer测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。下面的实例情况是：测试机有两块硬盘、OCZ  SSD硬盘一块、SATA
+description:  当您的XenServer测试机需要增加硬盘的时候，你需要通过简单的几条指令把新硬盘添加为本地存储。下面的实例情况是：测试机有两块硬盘、OCZ  SSD硬盘一块、SATA
   不通硬盘一块、还有一个U盘插在系统上、SATA的硬盘是我需要加载的新硬盘
 layout: post
 slug: xenserver%e6%b7%bb%e5%8a%a0%e7%a1%ac%e7%9b%98%e5%81%9a%e6%9c%ac%e5%9c%b0%e5%ad%98%e5%82%a8

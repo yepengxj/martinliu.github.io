@@ -1,9 +1,10 @@
 ---
 layout:     post
 title:      Nutanix AOS 5.0 新版本新特性
-subtitle:   新看点快速一览 
+description:     新看点快速一览 
 tags: [Nutanix]
-bigimg: /img/RoyalBarge_ROW9071716647_1920x1080.jpg
+image:
+    feature: RoyalBarge_ROW9071716647_1920x1080.jpg
 ---
 Nutanix AOS 5.0 是一个很重要的功能更新大版本，它一气儿带来了46项之多的新功能；在您安装或者测试这个版本>    之前，先通过本文快速了解一下这些更新，可能是更加节省时间的方法。
 
@@ -131,3 +132,5 @@ Over the last year Prism has evolved into a product suite of its own – with Pr
 * [Nutanix Cluster Check 3.0 release notes](https://portal.nutanix.com/#/page/docs/details?targetId=Release-Notes-NCC-v3:rel-Release-Notes-NCC-v30.html)
 * [Nutanix Cluster Check 3.0 download](https://portal.nutanix.com/#/page/static/supportTools)
 * [PRISM Central 5.0 release notes](https://portal.nutanix.com/#/page/docs/details?targetId=Release-Notes-Prism-Central-v50:rel-Release-Notes-Prism-Central-v50.html)
+
+

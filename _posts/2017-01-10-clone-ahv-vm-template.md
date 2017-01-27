@@ -1,13 +1,11 @@
 ---
 layout:     post
 title:      Nutanix AHV 虚拟机模板制作
-subtitle:   本文描述了AHV虚拟化的虚拟机模板的制作过程。
+description:     本文描述了AHV虚拟化的虚拟机模板的制作过程。
 tags: [Nutanix]
-image:
-  background: triangular.png
 ---
 
-首先使用ssh登录cvm，进入acropolis命令行。
+本文描述了AHV虚拟化的虚拟机模板的制作过程。首先使用ssh登录cvm，进入acropolis命令行。
 
 ## 找出模板对应的虚拟机
 

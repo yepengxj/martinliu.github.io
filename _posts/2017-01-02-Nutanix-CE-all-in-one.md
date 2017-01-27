@@ -1,9 +1,10 @@
 ---
 layout:     post
 title:      Nutanix CE All In One
-subtitle:   关于路坦力社区版软件一贴搞定
+description:     关于路坦力社区版软件一贴搞定
 tags: [Nutanix]
-bigimg: /img/HongKongEye_ZH-CN12285832688_1920x1080.jpg
+image:
+    feature: HongKongEye_ZH-CN12285832688_1920x1080.jpg
 ---
 Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。
 

@@ -1,9 +1,10 @@
 ---
 layout:     post
 title:      DevOps术语表
-subtitle:   关键术语快速查询 
+description:     关键术语快速查询 
 tags: [DevOps]
-bigimg: /img/pexels-photo.jpg
+image:
+    feature: pexels-photo.jpg
 ---
 
 本术语表主要来源于DevOps相关书籍。

@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2011-02-10 17:12:30+00:00
-excerpt: 在64位windows服务器上安装ARS7.5所需要了解的一些注意事项和技巧
+description:  在64位windows服务器上安装ARS7.5所需要了解的一些注意事项和技巧
 layout: post
 slug: 64-windows-ars-75-install-tips
 title: 在64位Windows上安装ARS7.5

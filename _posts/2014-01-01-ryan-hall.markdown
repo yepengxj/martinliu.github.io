@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2014-01-01 09:56:27+00:00
-excerpt: I run because I believe that God has created me to run. When I run, I feel
+description:  I run because I believe that God has created me to run. When I run, I feel
   like I am fulfilling the purpose for which I was created. I know that I may not
   always run, but that God has used running as a part of my life to lead me down a
   path that I would not have taken otherwise. If I had never run, I would have never

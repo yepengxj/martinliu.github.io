@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-07-14 14:20:24+00:00
-excerpt: 今天参加了红帽媒体日。听了几遍Pual在最近一次的Red Hat Analyst Day 对媒体的演讲录音，斗胆拿他的slide，照葫芦画瓢，讲讲
+description:  今天参加了红帽媒体日。听了几遍Pual在最近一次的Red Hat Analyst Day 对媒体的演讲录音，斗胆拿他的slide，照葫芦画瓢，讲讲
   Red Hat's Vision。这个演讲和Summit上Pual的keynote是不同的演讲。其中的内容，逻辑和观点不相同。其中还是透露这对私有软件厂商的火药味，很有霸气和内涵。
 layout: post
 slug: '%e7%ba%a2%e5%b8%bd%e5%aa%92%e4%bd%93%e6%97%a5'

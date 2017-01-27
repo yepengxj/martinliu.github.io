@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2014-02-10 11:09:21+00:00
-excerpt: 以上视频从YouTube转载。是Citrix给自己的拍摄的生日礼物。真正的25岁生日那天在今年四月份。下面是维基百科上对Citrix的介绍。\r<br />\r<br />Citrix
+description:  以上视频从YouTube转载。是Citrix给自己的拍摄的生日礼物。真正的25岁生日那天在今年四月份。下面是维基百科上对Citrix的介绍。\r<br />\r<br />Citrix
   Systems, Inc. is an American multinationalsoftware company founded in 1989 that
   provides server, application and desktop virtualization, networking, software-as-a-service
   (SaaS), and cloud computing technologies, including Xen open-source products. Citrix

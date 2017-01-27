@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2013-08-01 09:21:01+00:00
-excerpt: Sameer Dholakia, Vice President and General Manager of the Citrix Cloud Division,
+description:  Sameer Dholakia, Vice President and General Manager of the Citrix Cloud Division,
   talks about the full open source strategy for XenServer. Learn why Citrix made XenServer
   open source and how this will benefit our customers and ecosystem partners.
 layout: post

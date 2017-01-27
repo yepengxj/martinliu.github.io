@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2015-03-10 02:34:45+00:00
-excerpt: 等了很久，终于出12寸的MacBook，还以为会把它放在MacBook Air系列的，没想到，把Air也省了，直接叫MacBook，可见Apple在市场上的造诣，大道至简，简化一切是他们遵循的原则
+description:  等了很久，终于出12寸的MacBook，还以为会把它放在MacBook Air系列的，没想到，把Air也省了，直接叫MacBook，可见Apple在市场上的造诣，大道至简，简化一切是他们遵循的原则
 layout: post
 slug: '%e6%96%b0macbook%e6%98%af%e4%b8%aa%e6%80%8e%e6%a0%b7%e9%80%89%e6%8b%a9'
 title: 新MacBook是个怎样的选择 ？

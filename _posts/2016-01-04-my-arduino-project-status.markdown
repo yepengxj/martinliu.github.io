@@ -2,7 +2,7 @@
 author: liuadmin
 comments: true
 date: 2016-01-04 16:00:59+00:00
-excerpt: Arduino学习进度贴，调试了几个程序。
+description:  Arduino学习进度贴，调试了几个程序。
 layout: post
 slug: my-arduino-project-status
 title: My Arduino Project status
