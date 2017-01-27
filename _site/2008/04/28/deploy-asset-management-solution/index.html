@@ -1,0 +1,284 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Deploy asset management solution &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="asset, configuration, GLPI, OCSNG">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="Deploy asset management solution">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy asset management solution">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2008/04/28/deploy-asset-management-solution/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2008/04/28/deploy-asset-management-solution/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2008/04/28/deploy-asset-management-solution/" rel="bookmark" title="Deploy asset management solution">Deploy asset management solution</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2008-04-28T10:01:06+08:00">April 28, 2008</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~2 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><a href="http://www.ocsinventory-ng.org/uploads/images/poster-eng.png"><img src="http://www.ocsinventory-ng.org/uploads/images/poster-eng.png" alt="" /></a></p>
+
+<p>This is my second virtual appliance, it suppose to work for production. This is a 100% open source solution for inventory/asset management, it including OCS Inventory NG and GLPI. I encourage you to deploy it in your school or company.</p>
+
+<p><strong>About virtual appliance / 关于此虚拟应用</strong></p>
+
+<ul>
+  <li>
+    <p>OpenSuSE 10.2 (root password is martinliu)</p>
+  </li>
+  <li>
+    <p>LAMP+Perl</p>
+  </li>
+  <li>
+    <p>OCS Inventory v1.02 RC1</p>
+  </li>
+  <li>
+    <p>GLPI v0.70.2</p>
+  </li>
+  <li>
+    <p>bridged network</p>
+  </li>
+</ul>
+
+<p>You can download it from below.</p>
+
+<p><a href="http://demo.wholog.net/AssetMgmt.rar">Download it 下载</a> This source is not available any longer. I will offer it by DVD. 这个地址已经无法下载，请关注我即将推出的DVD版虚机。</p>
+
+<p><strong>Thanks <a href="http://www.bigyue.com/">BigYue.com</a> for donated upload space.  感谢</strong><strong><a href="http://www.bigyue.com/">BigYue.com</a></strong><strong>的空间。</strong></p>
+
+<p><strong>Run Server / 运行管理服务器（&gt;=2GB RAM）</strong></p>
+
+<ol>
+  <li>
+    <p>un-zip the image on a computer which will be network with for any managed nodes to upload inventory information. This host machine should have at least 2GB RAM.</p>
+  </li>
+  <li>
+    <p>Download a wm player and install it.</p>
+  </li>
+  <li>
+    <p>Open virtual machine and power on.</p>
+  </li>
+  <li>
+    <p>At top of boot screen, you will find the ip address of this vm I assume you have a  DHCP server on network. Otherwise you have to configure network manually for this vm.</p>
+  </li>
+  <li>
+    <p>Access to the home page (<a href="http://IP_address_Of_vm/">http://IP_address_Of_vm/</a>) which I made it for you. On this page, there are login information and entry points.</p>
+  </li>
+</ol>
+
+<p>Now you have a full function asset management solution up an running. You will configure security for the whole system before you do more work with it. You should change the password for root and mysql. Mysql have a blank password. After you done this, you must re-configure database connection for both OCS Inventory NG and GLPI accordingly. Please refer to administration guide.</p>
+
+<p><strong>Deploy Agent / 安装部署代理</strong></p>
+
+<ul>
+  <li>
+    <p>For any Unix-like system : you will manually install on each of target computer. Following the installation guide from OCS inventory NG.</p>
+  </li>
+  <li>
+    <p>For MS windows system: You can do manually installation too. Also you could distribute agent via AD domain policy automatically, all target machines must logon the AD domain at least once in order to get agent package installed. Agent is running as a windows service if it is installed properly; inventory information will update timely to  the server. The Agent package can be copied to a USB key. You can use it for collecting inventory information for off-line computers, or a computer which you wont have any piece of OSS installed on it. I’m kidding, I guess you love to run OSS on any of your computers, PS: the more the better.</p>
+  </li>
+</ul>
+
+<p><strong>Management Asset / 管理IT资产</strong></p>
+
+<ul>
+  <li>
+    <p>Synchronize inventory data from OCS Inventory NG to GLPI. GLPI can do it at interval that you set hourly or daily.</p>
+  </li>
+  <li>
+    <p>Those two OSS are just easy to use. You will still read some necessary documents on their web. <strong>请阅读尽可能多的使用手册</strong></p>
+  </li>
+  <li>
+    <p>As long as you use this virtual appliance, I can see your smile face. Don’t forget give me comment below and let me know how many nodes do you manage.</p>
+  </li>
+  <li>
+    <p>Enjoy and have a lot of fun.</p>
+  </li>
+</ul>
+
+<p><strong>Support / 支持</strong> This virtual appliance comes with ABSOLUTELY NO SUPPORT. I will try my best to support you, but questions are not guaranteed for a quick answer. I strongly recommend you will go to open source community when you run into any error. I believe you can get support and might help others too.  If you improved this virtual appliance, I am looking forward to see your share. I’d like to hear any good idea from you.</p>
+
+<p><strong>Notes:</strong></p>
+
+<h3 id="from-wikipedia-comparison-of-open-source-configuration-management-softwarehttpenwikipediaorgwikicomparisonofopensourceconfigurationmanagementsoftware">From wikipedia: <a href="http://en.wikipedia.org/wiki/Comparison_of_open_source_configuration_management_software">Comparison of open source configuration management software</a></h3>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#asset" title="Pages tagged asset" class="tag"><span class="term">asset</span></a><a href="/tags/#configuration" title="Pages tagged configuration" class="tag"><span class="term">configuration</span></a><a href="/tags/#GLPI" title="Pages tagged GLPI" class="tag"><span class="term">GLPI</span></a><a href="/tags/#OCSNG" title="Pages tagged OCSNG" class="tag"><span class="term">OCSNG</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2008/04/28/deploy-asset-management-solution/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2008/04/28/deploy-asset-management-solution/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2008/04/28/deploy-asset-management-solution/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2008/04/25/e5-a6-82-e4-bd-95-e8-8e-b7-e5-be-97oss-e6-94-af-e6-8c-81-ef-bc-9f/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

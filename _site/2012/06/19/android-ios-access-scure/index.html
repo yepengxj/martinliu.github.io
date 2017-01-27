@@ -1,0 +1,243 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>[Citrix白皮书] 通过 Android 和 Apple iOS 设备安全地访问企业信息 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="Android, citrix receiver, IOS">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="[Citrix白皮书] 通过 Android 和 Apple iOS 设备安全地访问企业信息">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[Citrix白皮书] 通过 Android 和 Apple iOS 设备安全地访问企业信息">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2012/06/19/android-ios-access-scure/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2012/06/19/android-ios-access-scure/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/06/19/android-ios-access-scure/" rel="bookmark" title="[Citrix白皮书] 通过 Android 和 Apple iOS 设备安全地访问企业信息">[Citrix白皮书] 通过 Android 和 Apple iOS 设备安全地访问企业信息</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2012-06-19T12:18:59+08:00">June 19, 2012</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>无论是在家里还是在公司，智能电话和平板电脑等个人设备已大大延展了我们生活工作的范围。其灵活性和移动性满足了人们随时随地办公的需要，与此同时给 IT 部门提出了新的安全挑战。思杰技术支持企业允许员工使用个人的<a href="http://edm.orioncreative.com.au/t/y-l-jlhikjt-sdrqujhr-i/"> Android 和 Apple iOS </a>移动设备办公，同时有效地管控并确保企业信息安全。</p>
+
+<p>设计安全的思杰虚拟化解决方案使 IT 部门可以安全无忧地将企业办公应用系统从数据中心安全地交付至个人设备，满足员工移动办公的需求，而 IT 部门只需：</p>
+<table cellpadding="0" cellspacing="0" border="0">
+<tbody>
+<tr>
+
+<td width="25" align="right" valign="top">•
+</td>
+
+<td align="left" valign="top">将桌面和应用集中部署在数据中心，然后安全地按需交付到任何设备上
+</td>
+</tr>
+<tr>
+
+<td width="25" align="right" valign="top">•
+</td>
+
+<td align="left" valign="top">通过基于策略的接入控制和 SSL 身份验证保护信息
+</td>
+</tr>
+<tr>
+
+<td width="25" align="right" valign="top">•
+</td>
+
+<td align="left" valign="top">随时随地通过任何设备实现安全的文件共享和同步
+</td>
+</tr>
+<tr>
+
+<td width="25" align="right" valign="top">•
+</td>
+
+<td align="left" valign="top">在设备被盗或丢失的情况下通过远程数据擦除功能确保信息安全
+</td>
+</tr>
+</tbody>
+</table>
+<p><a href="http://martinliu.cn/2012/06/android-ios-access-scure.html/edm-header_0"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/06/edm-header_0.jpg" alt="" /></a></p>
+
+<p>了解如何确保 Android 、 Apple iOS 的平板电脑、智能电话等个人移动设备安全访问企业办公系统，满足员工办公对灵活性和移动性需求，提升办公效率，同时帮助 IT 部门实现有效的管控，确保企业信息安全。</p>
+
+<p><a href="http://edm.orioncreative.com.au/t/y-l-jlhikjt-sdrqujhr-d/"><strong>立即下载《通过 Android 和 Apple iOS 设备安全地访问企业信息》。</strong></a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#Android" title="Pages tagged Android" class="tag"><span class="term">Android</span></a><a href="/tags/#citrix receiver" title="Pages tagged citrix receiver" class="tag"><span class="term">citrix receiver</span></a><a href="/tags/#IOS" title="Pages tagged IOS" class="tag"><span class="term">IOS</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2012/06/19/android-ios-access-scure/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2012/06/19/android-ios-access-scure/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2012/06/19/android-ios-access-scure/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2012/06/18/xendesktop-multi-monitor/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

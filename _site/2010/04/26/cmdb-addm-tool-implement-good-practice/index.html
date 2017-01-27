@@ -1,0 +1,210 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>CMDB配置采集工具部署之4大挑战 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="asset, cmdb, cms, inventory, ITIL, ITSM">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="CMDB配置采集工具部署之4大挑战">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMDB配置采集工具部署之4大挑战">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2010/04/26/cmdb-addm-tool-implement-good-practice/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2010/04/26/cmdb-addm-tool-implement-good-practice/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2010/04/26/cmdb-addm-tool-implement-good-practice/" rel="bookmark" title="CMDB配置采集工具部署之4大挑战">CMDB配置采集工具部署之4大挑战</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2010-04-26T20:24:24+08:00">April 26, 2010</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>[singlepic id=84 w=320 h=240 mode=watermark float=left] <em><strong>挑战1：沟通成本大</strong></em>
+项目的参与沟通方可能很多，最多的情况下，可能包括：网络部门、系统部门、安全部门和各个业务部门。沟通的内容主要是配置采集的实施技术方式。其中采集的安全性，风险分析是最重要的部分；在部门多的情况下，面对多种选择的时候，逐一给项目各方说清所有方案，特别是讲清楚利弊是非常耗时的。在充分沟通了所有技术可能性之后，才能做出倾向性选择。逐一这是第一轮沟通，搞清楚了倾向性而已。</p>
+
+<p><strong><em>挑战2：决策成本大</em></strong>
+特别是银行等金融企业，安全性要求特别高。安全风险方面的建议往往是最重要的，他们的建议对配置采集工具的实施具有决定性意义。在各方都充分理解了配置采集工具的架构和安全性之后，就是拍板定夺了。这种逐级的审批和决策是需要较长的周期。</p>
+
+<p><strong><em>挑战3：前导时间成本太大</em></strong>
+在前导时间里，可能还没有部署正式的ADDM采集服务器。在这个阶段里，要配置网络，让以后的采集服务器能够处于能够扫描到所有目标服务器设备。还可能需要在每台服务器上配置相关的准备工作，主要是坚持主机的操作系统的账户、采集协议和安全配置等是否满足配置采集工具的要求。这写工作是一个群众性运动，需要让所有的系统管理员配合。此项工作的设计人员设备多，最好能尽早的开始。<!-- more --></p>
+
+<p><strong><em>挑战4：用户的期望太大</em></strong>
+用户对配置工具的期望主要是集中在深度和细度方面。其实这也不为过，只是在实施的过程中，最好还能把发现工具的一下特有的功能和特殊推广给用户。如软件和硬件的EOL信息，一些开合即用的报表和图形化展示功能，全文搜索等等功能其实都可以给客户带去意想不到的价值 。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#asset" title="Pages tagged asset" class="tag"><span class="term">asset</span></a><a href="/tags/#cmdb" title="Pages tagged cmdb" class="tag"><span class="term">cmdb</span></a><a href="/tags/#cms" title="Pages tagged cms" class="tag"><span class="term">cms</span></a><a href="/tags/#inventory" title="Pages tagged inventory" class="tag"><span class="term">inventory</span></a><a href="/tags/#ITIL" title="Pages tagged ITIL" class="tag"><span class="term">ITIL</span></a><a href="/tags/#ITSM" title="Pages tagged ITSM" class="tag"><span class="term">ITSM</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2010/04/26/cmdb-addm-tool-implement-good-practice/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2010/04/26/cmdb-addm-tool-implement-good-practice/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2010/04/26/cmdb-addm-tool-implement-good-practice/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2010/04/18/naya_cat_weekend/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

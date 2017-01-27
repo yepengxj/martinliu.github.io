@@ -1,0 +1,200 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>IT服务管理考核向左走向右走: CSF OR KPI? &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="cmdb, csf, ITIL, ITSM, kpi, metric">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="IT服务管理考核向左走向右走: CSF OR KPI?">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IT服务管理考核向左走向右走: CSF OR KPI?">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2009/08/29/csf-or-kpi-matrix-itsm/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2009/08/29/csf-or-kpi-matrix-itsm/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2009/08/29/csf-or-kpi-matrix-itsm/" rel="bookmark" title="IT服务管理考核向左走向右走: CSF OR KPI?">IT服务管理考核向左走向右走: CSF OR KPI?</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2009-08-29T22:18:33+08:00">August 29, 2009</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>最近做的一个项目中需要帮用户设计一个CMDB的成熟度模型，能够从该模型中持续的检查CMDB的建设程度。所以我研究注意了一下的一些书籍，考虑有机会可以买回来研究一下：<br /><br />IT服务管理的持续改进需要一定的手段实现，这是ITIL V3中的一个重要流程。CSF是关键成功因素，KPI是关键性能指标，这些都是metrics管理过程中需要关注的手段。每个流程都可以找到相应的CSF和KPI。CSF算是V3的新生事物，我想它可能会对IT管理质量的衡量和改进带来新的方式。<br /><br />别的不说，我只想说说KPI管理方法可能带来的坏处。举个例子：有个公司想通过“事件单数”来考核服务台一线人员的工作。结果当他们在执行了一段时间后，他们发现服务台中有大量重复的事件单，实际上服务台对每个收到的电话都新建一个事件单，并没有做重复事件匹配查找的工作。进一步的也影响了通过重复事件来做进一步的问题管理。<br /><br />从考核管理的角度看，ITSM的考核指标和体系如何建立的合理，如何才能建立的正确的设计和实施的确是一件大事。否则会有什么后果，我们可以想想三鹿毒奶粉事件，奶粉的蛋白质含量是奶粉质量的重要指标KPI，营养健康是奶粉的终极CSF目标。三鹿真的给了我们一个血的教训啊，想让你的IT服务质量如何呢？可以想想三鹿。不过还是需要多多学习所有可能的CSF和KPI，从何设计出确实可行的管理方式。<br /><br /><strong>Implementing Metrics for IT Service Management (ITSM)</strong><br />ISBN: 9789087531140<br />Author: David Smith, Micromation Canada<br /><img src="http://ecx.images-amazon.com/images/I/41QQV4NN6EL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg" alt="" /><br /><br /><strong>Metrics for IT Service Management (Paperback)</strong><br />by Peter Brooks (Author)<br /><img src="http://ecx.images-amazon.com/images/I/51G2GFVEZZL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg" alt="" /><br /><br /><strong>Measuring ITIL: Measuring, Reporting and Modeling</strong><br /><br />** ** - the IT Service Management Metrics That Matter Most to IT Senior Executives (Paperback)<br />by Randy A. Steinberg<br /><img src="http://ecx.images-amazon.com/images/I/41QQV4NN6EL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA240_SH20_OU01_.jpg" alt="" /><br /><br />**Step-by-Step Guide to Building a CMDB **<br />by BMC Software; Inc (Author)<br /><img src="http://ecx.images-amazon.com/images/I/41obkAD85tL._SL500_AA240_.jpg" alt="" /><br /><br />后来发现了这个ITSM metrics modeling tools ，觉得这个真的不错。可行性很高。<br /><a href="http://www.itsmcommunity.org/resources/tool/itsm_metrics_modeling_tool/">ITSM Metrics Modeling Tool</a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#cmdb" title="Pages tagged cmdb" class="tag"><span class="term">cmdb</span></a><a href="/tags/#csf" title="Pages tagged csf" class="tag"><span class="term">csf</span></a><a href="/tags/#ITIL" title="Pages tagged ITIL" class="tag"><span class="term">ITIL</span></a><a href="/tags/#ITSM" title="Pages tagged ITSM" class="tag"><span class="term">ITSM</span></a><a href="/tags/#kpi" title="Pages tagged kpi" class="tag"><span class="term">kpi</span></a><a href="/tags/#metric" title="Pages tagged metric" class="tag"><span class="term">metric</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2009/08/29/csf-or-kpi-matrix-itsm/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2009/08/29/csf-or-kpi-matrix-itsm/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2009/08/29/csf-or-kpi-matrix-itsm/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2009/08/07/51-to-chengdu/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

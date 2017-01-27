@@ -1,0 +1,414 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Install Smokeping via yum &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="smokeping, Yum">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="Install Smokeping via yum">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Install Smokeping via yum">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2007/02/17/install-smokeping-via-yum/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2007/02/17/install-smokeping-via-yum/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2007/02/17/install-smokeping-via-yum/" rel="bookmark" title="Install Smokeping via yum">Install Smokeping via yum</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2007-02-17T00:38:00+08:00">February 17, 2007</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~4 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>From :<a href="http://www2.blogger.com/img/gl.link.gif"> http://ai.net.nz/horde/wicked/display.php?page=SmokePing</a><br /></p>
+
+<h2 id="install-needed-packages">Install needed packages</h2>
+
+<p><br /><strong>rrdtool</strong><br />
+<code class="highlighter-rouge">
+`yum install rrdtool
+</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;**perl-CGI-SpeedyCGI**&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">yum install perl-CGI-SpeedyCGI
+</code>``</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;**fping**&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">yum install fping
+</code>``</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;** Or do them all together:**&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">yum install rrdtool perl-CGI-SpeedyCGI fping
+</code>``</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;**Smokeping**&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">wget http://people.ee.ethz.ch/~oetiker/webtools/smokeping/pub/smokeping-2.0.9.tar.gztar xvzf smokeping-2.0.9.tar.gzmv smokeping-2.0.9 /usr/local/smokepingchown -R root:root /usr/local/smokeping&lt;br /&gt;&lt;br /&gt;cd /usr/local/smokeping/binfor foo in *.dist; do cp $foo </code>basename $foo .dist<code class="highlighter-rouge">; done&lt;br /&gt;&lt;br /&gt;cd  /usr/local/smokeping/etc/for foo in *.dist; do cp $foo </code>basename $foo .dist<code class="highlighter-rouge">; done&lt;br /&gt;&lt;br /&gt;cd /usr/local/smokeping/htdocsfor foo in *.dist; do cp $foo </code>basename $foo .dist<code class="highlighter-rouge">; done
+</code>``</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;**pico /usr/local/smokeping/bin/smokeping**&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_**Default**_
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_**New**_
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt; #!/usr/sepp/bin/perl-5.8.4 -w
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt; #!/usr/bin/perl -w
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/pack/rrdtool-1.0.49-to/lib/perl);
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/lib64/perl5/vendor_perl/5.8.5/x86_64-linux-thread-multi/auto/RRDs);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;** or if a i386 system use**
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/pack/rrdtool-1.0.49-to/lib/perl);
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/lib/perl5/vendor_perl/5.8.5/i386-linux-thread-multi/auto/RRDs);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(lib);
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/local/smokeping/lib);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;use Smokeping 2.000008;
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;Smokeping::main("etc/config.dist");
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;Smokeping::main("/usr/local/smokeping/etc/config");
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;**pico /usr/local/smokeping/htdocs/smokeping.cgi**&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_**Default**_
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_**New**_
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;#!/usr/sepp/bin/speedy -w
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;#!/usr/bin/speedy -w
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/pack/rrdtool-1.0.33-to/lib/perl);
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/lib64/perl5/vendor_perl/5.8.5/x86_64-linux-thread-multi/auto/RRDs);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;** or if a i386 system use**
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/pack/rrdtool-1.0.49-to/lib/perl);
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/lib/perl5/vendor_perl/5.8.5/i386-linux-thread-multi/auto/RRDs);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/home/oetiker/data/projects/AADJ-smokeping/dist/lib);
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;use lib qw(/usr/local/smokeping/lib);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;use CGI::Carp qw(fatalsToBrowser);
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;use Smokeping 2.000008;
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;Smokeping::cgi("/home/oetiker/data/projects/AADJ-smokeping/dist/etc/config");
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;Smokeping::cgi("/usr/local/smokeping/etc/config");
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">cp /usr/local/smokeping/htdocs/smokeping.cgi /var/www/cgi-bin&lt;br /&gt;&lt;br /&gt;pico /usr/local/smokeping/etc/config
+</code>``</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;**etc/config**&lt;br /&gt;*** General ***&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_**Default**_
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_**New**_
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;owner = Joe Random
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;owner = Tony Someone
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;contact = joe@some.place.xyz
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;contact = tony@somehhere
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;mailhost = smtp.mailhost.abc
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;mailhost = smtp.somewhere
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;sendmail = /usr/lib/sendmail
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;imgcache = /home/oetiker/public_html/.simg
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;imgcache = /var/www/html/smokeping/img
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;imgurl = ../.simg
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;imgurl = http://mail.somewhere.net/smokeping/img
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;datadir = /home/oetiker/data/projects/AADJ-smokeping/dist/var
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;datadir = /usr/local/smokeping/var
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;piddir = /home/oetiker/data/projects/AADJ-smokeping/dist/var
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;piddir = /usr/local/smokeping/var
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;cgiurl = http://people.ee.ethz.ch/~oetiker/smokeping/smokeping.cgi
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;cgiurl = http://mail.somewhere.net/cgi-bin/smokeping.cgi
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;smokemail = /home/oetiker/data/projects/AADJ-smokeping/dist/etc/smokemail.dist
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;smokemail = /usr/local/smokeping/etc/smokemail
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;tmail = /home/oetiker/data/projects/AADJ-smokeping/dist/etc/tmail.dist
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;tmail = /usr/local/smokeping/etc/tmail
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td colspan="2" class="table-cell" &gt;syslogfacility = local0
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;*** Alerts ***&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;to = 
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;to = someone@your.place
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;from = smokealert@ 
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;from = smokealert@your.smoke.server
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;*** Presentation ***&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;template = /home/oetiker/data/projects/AADJ-smokeping/dist/etc/basepage.html.dist
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;template = /usr/local/smokeping/etc/basepage.html
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;*** Probes ***&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;binary = /usr/sepp/bin/fping 
+&lt;/td&gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;binary = /usr/sbin/fping
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;For some strange reason I had to make this change to /usr/sbin/fping&lt;br /&gt;chown apache /usr/sbin/fping&lt;br /&gt;&lt;br /&gt;*** Targets ***&lt;br /&gt;&lt;table class="table" &gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;+ World
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;menu = World Connectivity
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;title= World Connectivity
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;++ New Zealand
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;menu = New Zealand Servers
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;title = New Zealand Server
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;_ _
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;+++ a Server
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;menu = My Server
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;title = My Server
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;tr &gt;&lt;br /&gt;
+&lt;td class="table-cell" &gt;host = something.newskies.net
+&lt;/td&gt;&lt;br /&gt;&lt;/tr&gt;&lt;br /&gt;&lt;/table&gt;&lt;br /&gt;_ _&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">mkdir -p /var/www/html/smokeping/imgchown -R apache:apache /var/www/html/smokeping/img&lt;br /&gt;&lt;br /&gt;mkdir /usr/local/smokeping/var&lt;br /&gt;&lt;br /&gt;/usr/local/smokeping/bin/smokeping &amp;&lt;br /&gt;&lt;br /&gt;#ps aux | grep smokeroot      8384  0.0  2.5  14976  3272 ?        Ss   May24   0:01 /usr/local/smokeping/bin/smokeping [FPing]apache    8435  0.0  1.7  11100  2168 ?        Ss   May24   0:02 /usr/bin/speedy_backend -w /var/www/cgi-bin/smokeping.cgiapache    8436  0.3  3.9  12648  5036 ?        S    May24   2:04 /usr/bin/speedy_backend -w /var/www/cgi-bin/smokeping.cgi
+</code>``</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;br /&gt;
+</code></pre>
+</div>
+<p><code class="highlighter-rouge">vi /etc/rc.d/rc.local/usr/local/smokeping/bin/smokeping &amp;
+</code>``</p>
+
+<p>```
+<br /></p>
+
+<hr />
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#smokeping" title="Pages tagged smokeping" class="tag"><span class="term">smokeping</span></a><a href="/tags/#Yum" title="Pages tagged Yum" class="tag"><span class="term">Yum</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2007/02/17/install-smokeping-via-yum/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2007/02/17/install-smokeping-via-yum/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2007/02/17/install-smokeping-via-yum/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2007/02/15/smokeping-chart/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

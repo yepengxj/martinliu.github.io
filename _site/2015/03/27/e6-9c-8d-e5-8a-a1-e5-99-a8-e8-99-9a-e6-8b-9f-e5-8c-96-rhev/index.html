@@ -1,0 +1,434 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>服务器虚拟化 RHEV &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="cloudforms, lab, ovit, puppet, rhev, rhevm, satellite6">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="服务器虚拟化 RHEV">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务器虚拟化 RHEV">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2015/03/27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2015/03/27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2015/03/27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/" rel="bookmark" title="服务器虚拟化 RHEV">服务器虚拟化 RHEV</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-03-27T10:11:40+08:00">March 27, 2015</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>服务器虚拟在我的lab中是必选项，管理控制器端RHEVM安装在主服务的一个虚拟机里面。在主服务器上使用targetcli做了一个iscsi的共享存储。使用这个命令可以方便的实现iscsi设备。把最终的存储文件放在了SSD盘上的一个100GB的瘦制备文件上。
+[bash]
+╭─root@w540 ~
+╰─$ targetcli
+targetcli shell version 2.1.fb37
+Copyright 2011-2013 by Datera, Inc and others.
+For help on commands, type ‘help’.</p>
+
+<p>/&gt; ls
+o- / …………………………………………………………………………………………………………. […]
+o- backstores ……………………………………………………………………………………………….. […]
+| o- block …………………………………………………………………………………….. [Storage Objects: 0]
+| o- fileio ……………………………………………………………………………………. [Storage Objects: 1]
+| | o- iscsi1 ………………………………………………………. [/root/iscsi01.img (100.0GiB) write-back activated]
+| o- pscsi …………………………………………………………………………………….. [Storage Objects: 0]
+| o- ramdisk …………………………………………………………………………………… [Storage Objects: 0]
+o- iscsi ……………………………………………………………………………………………… [Targets: 1]
+| o- iqn.2003-01.org.linux-iscsi.w540.x8664:sn.82939fa1cd49 …………………………………………………… [TPGs: 1]
+| o- tpg1 ………………………………………………………………………………….. [no-gen-acls, no-auth]
+| o- acls ……………………………………………………………………………………………. [ACLs: 0]
+| o- luns ……………………………………………………………………………………………. [LUNs: 1]
+| | o- lun0 …………………………………………………………………… [fileio/iscsi1 (/root/iscsi01.img)]
+| o- portals ………………………………………………………………………………………. [Portals: 1]
+| o- 0.0.0.0:3260 ……………………………………………………………………………………….. [OK]
+o- loopback …………………………………………………………………………………………… [Targets: 0]
+/&gt;
+[/bash]</p>
+
+<p>以上iscsi的存储配置参考：<a href="https://access.redhat.com/solutions/894163">https://access.redhat.com/solutions/894163</a></p>
+
+<p>如果需要让所有的节点都能无障碍访问iscsi存储，就需要把acl设置为允许所有节点访问。使用下面这个命令</p>
+
+<p>[bash]
+/&gt; iscsi/iqn.2003-01.org.setup.lun.test/tpg1/ set attribute authentication=0 demo_mode_write_protect=0 generate_node_acls=1 cache_dynamic_acls=1</p>
+
+<p>Parameter demo_mode_write_protect is now ‘0’.</p>
+
+<p>Parameter authentication is now ‘0’.</p>
+
+<p>Parameter generate_node_acls is now ‘1’.</p>
+
+<p>Parameter cache_dynamic_acls is now ‘1’.</p>
+
+<p>/&gt; ls</p>
+
+<p>o- / ……………………………………………………………………… […]</p>
+
+<p>o- backstores ……………………………………………………………. […]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- block …………………………………………………. [Storage Objects: 0]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- fileio ………………………………………………… [Storage Objects: 0]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- pscsi …………………………………………………. [Storage Objects: 0]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- ramdisk ……………………………………………….. [Storage Objects: 1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- test1 ……………………………………….. [nullio (100.0MiB) activated]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>o- iscsi ………………………………………………………….. [Targets: 1]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- iqn.2003-01.org.setup.lun.test …………………………………….. [TPGs: 1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- tpg1 …………………………………………………. [gen-acls, no-auth]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- acls ………………………………………………………… [ACLs: 0]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- luns ………………………………………………………… [LUNs: 1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>o- lun0 …………………………………………………. [ramdisk/test1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- portals …………………………………………………… [Portals: 1]</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <td>o- 12.12.12.1:3260 ……………………………………………….. [iser]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>o- loopback ……………………………………………………….. [Targets: 0]</p>
+
+<p>o- srpt …………………………………………………………… [Targets: 0]</p>
+
+<p>/&gt; saveconfig</p>
+
+<p>Last 10 configs saved in /etc/target/backup.</p>
+
+<p>Configuration saved to /etc/target/saveconfig.json</p>
+
+<p>/&gt; exit</p>
+
+<p>Global pref auto_save_on_exit=true</p>
+
+<p>Last 10 configs saved in /etc/target/backup.</p>
+
+<p>Configuration saved to /etc/target/saveconfig.json
+[/bash]</p>
+
+<p>RHEVM的安装过程非常简洁，基本用Satellite配置了一下它所需要的repos，做好视图，然后就推送给了一个kvm虚拟机，使用pxe安装好之后就行了。</p>
+
+<p>RHEVM需要的repos 和基本的安装命令：
+[bash]
+# subscription-manager repos –enable=rhel-6-server-rpms
+# subscription-manager repos –enable=rhel-6-server-supplementary-rpms
+# subscription-manager repos –enable=rhel-6-server-rhevm-3.5-rpms
+# subscription-manager repos –enable=jb-eap-6-for-rhel-6-server-rpms
+# subscription-manager repos –enable=rhel-6-server-rhevh-rpms
+# yum install rhevm rhevm-dwh rhevm-reports
+# engine-setup
+[/bash]</p>
+
+<p>回答完engine-setup的所有问题就可以登录风格统一的黑底色的RHEM界面了。实际上有三个登录界面：用户的，管理员，和报表的。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhevm-web-admin.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhevm-web-admin-520x293.jpg" alt="rhevm-web-admin" /></a></p>
+
+<p>下面需要安装跑虚拟机的Hypervisor了，RHEV的Hypervisor有两种，一种是精简话的裁剪rhel版本叫做RHEVH（偏向vshpere的做法），还有一种就是rhel的标准版，然后安装Hypervisor相关的包（偏向OpenStack的做法）。下面我会安装第二种做法。目的是：我有两台相同配置的计算节点，我希望把动态的变更他们的功能；一会做RHEV虚拟机的演示，一会做OpenStack nova的演示。</p>
+
+<p>用了一个组合视图安装了这两个服务器虚拟化节点。组合视图里如下所示：
+<a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhev-view-compose.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhev-view-compose-520x286.jpg" alt="rhev-view-compose" /></a>
+如上图所示：1）视图1是基础的RHEL操作系统repo；2）视图2是RHEV相关的repos视图，其中包括了安装RHEVM和host的所有需要的repo。考激活秘钥控制每个repo的默认是否开启，它们对安装后的os可见，但是默认并不是开启的，因此，我设置rhevm和jboss为默认关闭的，由于安装rhev host的情况比较多，需要安装rhevm的话，可以手动enable这需要的repos即可。</p>
+
+<p>安装和配置完存储之后的RHEVM控制台：
+<a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhevm-hosts.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhevm-hosts-520x286.jpg" alt="rhevm-hosts" /></a></p>
+
+<p>目前由于没有安装OpenStack环境，所以没有Glance服务，因此iso镜像只能暂时放在了dis06的一个服务器虚拟化Hypervisor节点上，目前是临时的方案，回头一定把iso放到Glance服务上host。</p>
+
+<p>下面上传一个iso之后就可以创建虚拟机了。
+[bash]
+[root@rhevm03 ~]# engine-iso-uploader –iso-domain=iso-dis06 upload /tmp/turnkey-jenkins-13.0-wheezy-amd64.iso
+Please provide the REST API password for the admin@internal oVirt Engine user (CTRL+D to abort):
+Uploading, please wait…
+ERROR: mount.nfs: Connection timed out</p>
+
+<p>[/bash]</p>
+
+<p>由于这个命令上传不成功，也不想排错了；到目前这个状态其实就可以在Satellite里面使用RHEV的资源提供者的方式来安装虚拟机了，如下图所示：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/sat6-built-vm-via-rhev-1.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/sat6-built-vm-via-rhev-1-520x286.jpg" alt="sat6-built-vm-via-rhev-1" /></a></p>
+
+<p>手动创建RHEV虚拟机1：通过New Host设置相关参数。选择Deploy on 为 rhevm03（rhevm），这个配置让sat6去联系RHEVM，rhevm的配置信息必须提前输入到sat6中。然后还要在sat6中设置虚拟机的三种规格，就是Computer profile中的选项，这个选项确定了cpu，ram，磁盘和网络等信息。剩下的就是最重要的Lifecycle Evn和Puppet Env了，这两个选项确定把系统安装为标准的rhel6的核心最小化安装。当然可以一次性完成某种应用的全套安装和配置。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/sat6-built-vm-via-rhev-2.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/sat6-built-vm-via-rhev-2-520x286.jpg" alt="sat6-built-vm-via-rhev-2" /></a></p>
+
+<p>手动创建RHEV虚拟机2：通过Virtual Machine参数可以看到1，2，3都来自标准的规格配置，如果需要手动修改的话，可以在这里修改，这里可以看到默认的存储是w540-iscsi-lun0这个之前在RHEVM里面配置好的iscsi存储。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/sat6-built-vm-via-rhev-3.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/sat6-built-vm-via-rhev-3-520x286.jpg" alt="sat6-built-vm-via-rhev-3" /></a></p>
+
+<p>手动创建RHEV虚拟机3：点击提交之后，sat6就开始了实时创建rhev虚拟机的过程，sat6使用REST API告诉RHEVM这些信息，然后RHEVM再确定使用哪个Hypervisor来建立并运行虚拟机。</p>
+
+<p>问题来了：如果需要在RHEV资源池里建立n个相同配置的虚拟机，管理员该如何操作？</p>
+
+<p>在sat6里面，管理员重复以上操作，当然需要手动操作n次。这样是不是很麻烦，确实很麻烦！！如何解决？这就需要一种能够实现Orchestration功能的工具来做，也就是自动化编排工具。这种工具最好是统一的能够跨异构资源池的，能够满足如下需求：今天企业可能是纯的vshpere的虚拟化环境，接下来企业有可能引入其他服务器虚拟化资源池技术，如：RHEV，Hyper-V；在以后还可能引入OpenStack资源池。那么这种自动化编排工具和底层的类似satellite6的（标准化部署工具）必须形成一个统一的平台来操作所有异构的资源池。也就是说：在Orchestration工具中统一管理异构资源池，并配合标准化部署工具，实现workload的标准化自动化部署。红帽的Orchestration工具是CloudForms。它能够对接业内所有流行的资源池，如下图所示：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/cfme-cloud-provides.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/cfme-cloud-provides-520x292.jpg" alt="cfme-cloud-provides" /></a> <a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/cfme-infra-provides.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/cfme-infra-provides-520x293.jpg" alt="cfme-infra-provides" /></a></p>
+
+<p>上图是Satellite的上层Orchestration的能力，底层必须还有标准化的部署工具支持，也就是Satellite6，它对以上基础架构类型的支持情况，如下图所示：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/satellite6-provider.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/satellite6-provider-520x286.jpg" alt="satellite6-provider" /></a></p>
+
+<p>使用CloudForms做上层Orchestration的调度，必须依赖于底层的workload的标准化，标准化到什么程度，从虚拟机供给的角度可以参考Amazon AWS 的EC2的实际案例。如下图所示：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/ec2-types.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/ec2-types-520x258.jpg" alt="ec2-types" /></a></p>
+
+<p>AWS服务的我曾研究过一点，上图的全图下载点这里 –&gt; <a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/aws-服务-脑图.pdf">aws-服务-脑图</a></p>
+
+<p>以上所有是Martin’s Lab的搭建的一部分，下周可能去一个银行客户演示。需要做的优化还很多，请关注后续更新。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#cloudforms" title="Pages tagged cloudforms" class="tag"><span class="term">cloudforms</span></a><a href="/tags/#lab" title="Pages tagged lab" class="tag"><span class="term">lab</span></a><a href="/tags/#ovit" title="Pages tagged ovit" class="tag"><span class="term">ovit</span></a><a href="/tags/#puppet" title="Pages tagged puppet" class="tag"><span class="term">puppet</span></a><a href="/tags/#rhev" title="Pages tagged rhev" class="tag"><span class="term">rhev</span></a><a href="/tags/#rhevm" title="Pages tagged rhevm" class="tag"><span class="term">rhevm</span></a><a href="/tags/#satellite6" title="Pages tagged satellite6" class="tag"><span class="term">satellite6</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2015/03/27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2015/03/27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2015/03/27/e6-9c-8d-e5-8a-a1-e5-99-a8-e8-99-9a-e6-8b-9f-e5-8c-96-rhev/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

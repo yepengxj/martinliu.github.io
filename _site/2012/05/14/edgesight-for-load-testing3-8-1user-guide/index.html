@@ -1,0 +1,204 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>EdgeSight for Load Testing3.8.1中文教程 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="Edgesight, load testing, XenApp, XenDesktop, 中文, 压力测试, 手册, 教程, 虚拟应用, 虚拟桌面">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="EdgeSight for Load Testing3.8.1中文教程">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EdgeSight for Load Testing3.8.1中文教程">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2012/05/14/edgesight-for-load-testing3-8-1user-guide/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2012/05/14/edgesight-for-load-testing3-8-1user-guide/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/05/14/edgesight-for-load-testing3-8-1user-guide/" rel="bookmark" title="EdgeSight for Load Testing3.8.1中文教程">EdgeSight for Load Testing3.8.1中文教程</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2012-05-14T00:31:45+08:00">May 14, 2012</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><a href="http://martinliu.cn/2012/05/edgesight-for-load-testing3-8-1user-guide.html/%e6%9e%b6%e6%9e%84"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/05/架构.png" alt="" /></a></p>
+
+<p>点击此处下载本中文教程：[download id=”10”] ； 本文件在XenApp6.5的安装光盘中有，用一个中文的操作系统找到“EDGESIGHT FOR LOAD TESTING.MSI” 安装完之后，就能在程序打开后按F1查看此文件了。</p>
+
+<p>这个中文帮助文档写的非常详细，相信任何合作伙伴的工程师都能够学会用这个工具做XenApp或者是XenDesk的压力测试。下面来讲几点需要注意的事情。最好找一个物理的服务器去安装本工具，物理服务器能够具有比较强的处理能力，能模拟出足够多的用户并发的压力，从而达到测试的目的，而且有不会因为自身的资源使用影响其它任何其它。千万不要把这个压力生成器放到你的XenApp系统内的某个虚拟机里面。另外注意网络连接情况，最好摸清楚从压力生成服务器到XenApp所在服务器的每一跳所经过的网络设备，千万不要经过10M或者100M的低级交换机，测试前先ping下，看看延迟和丢包如何。最后到XenApp服务器这一端了，不要想任何系统默认安装的配置就能达到理想的性能压力测试效果，做压力测试前一定要做优化，性能优化文档查查KB。在录制脚本的时候，要选择最短，最简单操作路径，避免任何无用或者无意义的操作，脚本天生不是完美的，也需要优化，删除掉那些不必要的指令。在跑压力脚本前，先检查被测试系统当前的资源使用情况，在跑的过程中使用监控工具全面监控，及时识别出被测试系统的各个服务器上在网络、内存、CPU和I/O等这些关键点上，是否出现性能瓶颈。尽可能的和客户沟通这些瓶颈，做出及时的参数或者配置硬件配置调整。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#Edgesight" title="Pages tagged Edgesight" class="tag"><span class="term">Edgesight</span></a><a href="/tags/#load testing" title="Pages tagged load testing" class="tag"><span class="term">load testing</span></a><a href="/tags/#XenApp" title="Pages tagged XenApp" class="tag"><span class="term">XenApp</span></a><a href="/tags/#XenDesktop" title="Pages tagged XenDesktop" class="tag"><span class="term">XenDesktop</span></a><a href="/tags/#中文" title="Pages tagged 中文" class="tag"><span class="term">中文</span></a><a href="/tags/#压力测试" title="Pages tagged 压力测试" class="tag"><span class="term">压力测试</span></a><a href="/tags/#手册" title="Pages tagged 手册" class="tag"><span class="term">手册</span></a><a href="/tags/#教程" title="Pages tagged 教程" class="tag"><span class="term">教程</span></a><a href="/tags/#虚拟应用" title="Pages tagged 虚拟应用" class="tag"><span class="term">虚拟应用</span></a><a href="/tags/#虚拟桌面" title="Pages tagged 虚拟桌面" class="tag"><span class="term">虚拟桌面</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2012/05/14/edgesight-for-load-testing3-8-1user-guide/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2012/05/14/edgesight-for-load-testing3-8-1user-guide/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2012/05/14/edgesight-for-load-testing3-8-1user-guide/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2012/03/05/xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

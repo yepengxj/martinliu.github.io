@@ -1,0 +1,51 @@
+---
+author: liuadmin
+comments: true
+date: 2011-07-27 14:00:48+00:00
+layout: post
+slug: glpi-0-80-2-release
+title: GLPI 0.80.2 release
+wordpress_id: 51428
+categories:
+- Asset Mgmt
+tags:
+- GLPI
+- 中文包
+- 升级
+- 发布
+- 安装
+- 简体中文
+---
+
+GLPI 0.80.2主要修复了几个重要的bug和安全的bug。GLPI推荐广大用户还是升级到这个最新版本。
+    Bug #2960: Use notif not set for auto users
+    Bug #2961: Massive action : add actor
+    Bug #2979: Add/delete a document not in the history
+    Bug #2985: Crash in business rules
+    Bug #2986: No value input for some criteria
+    Bug #2992: Manage spare drive in ocs sync
+    Bug #2993: Ldap import with quote in user_dn
+    Bug #2994: Rights check on ldap_mass_sync.php
+    Bug #2995: SQL error for post-only with validation right
+    Bug #3001: Error on asign to group from SLA
+    Bug #3003: ##ticket.observerusers## for ticket notif
+    Bug #3005: Field Unicity update fields
+    Bug #3017: Security fix on autocompletion
+    Bug #3020: No history for satisfaction
+    Feature #2973: Add observer from rule
+    Feature #2983: Add member to recursive group
+    Feature #3008: include fa_IR lang
+    Task #2984: Deport supplier dropdown with others dropdown on ticket modification
+以上是详细的变更记录。主要是bug修复，仅有3处功能增强，和一个改进的地方。
+好消息是，我所翻译的中文包最新版已经包含在此版本中。下面是新版语言文件的版本信息：
+/*
+ * @version $Id: zh_CN.php 14949 2011-07-20 06:25:24Z moyo $ 
+ -------------------------------------------------------------------------
+ GLPI - Gestionnaire Libre de Parc Informatique
+ Copyright (C) 2003-2011 by the INDEPNET Development Team.
+ 
+ http://indepnet.net/   http://glpi-project.org
+ -------------------------------------------------------------------------
+从这可以看出是Moyo在2011-07-20从翻译工具中抽取的中文文件，然后加入到新版安装包中的。
+如果你是使用此版本升级安装的话，你可能会觉得新版的中文界面应该较以前有较大提升。特别是在首页和票单的页面上有不少的改进。
+

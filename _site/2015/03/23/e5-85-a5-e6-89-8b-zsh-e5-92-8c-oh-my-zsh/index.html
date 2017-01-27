@@ -1,0 +1,273 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>入手 zsh 和 oh-my-zsh &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="bash, shell, zsh">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="入手 zsh 和 oh-my-zsh">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="入手 zsh 和 oh-my-zsh">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/" rel="bookmark" title="入手 zsh 和 oh-my-zsh">入手 zsh 和 oh-my-zsh</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-03-23T10:47:45+08:00">March 23, 2015</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/zsh.gif" alt="zsh" /></p>
+
+<p>安装zsh在任何系统上几乎都是差不多。Zsh 是一款功能强大的交互式 shell，与 Bash 相比，Zsh 下面几点表现令人印象深刻：</p>
+
+<p>[wm_list bullet=”icon-linux” class=””]</p>
+
+<ul>
+  <li>
+    <p>自动补全</p>
+  </li>
+  <li>
+    <p>拼写纠错</p>
+  </li>
+  <li>
+    <p>定制性强</p>
+  </li>
+  <li>
+    <p>美观的命令提示符（这点吸引力最大）</p>
+  </li>
+</ul>
+
+<p>[/wm_list]</p>
+
+<p>相信你安装之后，对上面几点会有更加真切的感受！</p>
+
+<p>下面是RHEL 7 上的安装过程。</p>
+
+<p>[bash]</p>
+
+<p>[root@w540]~# yum install git
+[root@w540]~# curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+[root@w540]~# cat .zshrc
+# Path to your oh-my-zsh installation.
+export ZSH=/root/.oh-my-zsh</p>
+
+<h1 id="set-name-of-the-theme-to-load">Set name of the theme to load.</h1>
+<p># Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to “random”, it’ll load a random theme each
+# time that oh-my-zsh is loaded.
+#ZSH_THEME=”robbyrussell”
+ZSH_THEME=”bira” # 后面的文字都省略，我就修改了这个文件的这一个参数，bira的提示符感觉比较新颖和实用
+[root@w540]~# zsh
+╭─root@w540 ~
+╰─$ ls
+anaconda-ks.cfg Desktop Documents Downloads initial-setup-ks.cfg ist Music Pictures Public Templates Videos
+╭─root@w540 ~
+╰─$
+[/bash]</p>
+
+<p>下面是装完之后的截图，以后我的测试机的默认shell应该都是这个样子了：）</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhel7-zsh-ohmyzsh.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/rhel7-zsh-ohmyzsh.jpg" alt="rhel7-zsh-ohmyzsh" /></a></p>
+
+<p>zsh的功能还是比较强大的，然后再加上ohmyzsh这套配置参数文件和工具插件，shell下地工作效率应该可以提高了。下面是一下参考网站：</p>
+
+<p>[wm_list bullet=”icon-linux” class=””]</p>
+
+<ul>
+  <li>
+    <p>oh-my-zsh入手中文参考：<a href="http://tuhaihe.com/2013/05/17/oh-my-zsh.html">http://tuhaihe.com/2013/05/17/oh-my-zsh.html</a></p>
+  </li>
+  <li>
+    <p>oh-my-zsh 官网（作者认为这是他此生做的最有意义的一件事）：<a href="http://ohmyz.sh/">http://ohmyz.sh/</a></p>
+  </li>
+  <li>
+    <p>zsh 官网：<a href="http://www.zsh.org/">http://www.zsh.org/</a></p>
+  </li>
+</ul>
+
+<p>[/wm_list]</p>
+
+<p>Mac OS X用户则建议实用iTerm2来替换原声的terminal。下载item2在这里：<a href="http://iterm2.com/">http://iterm2.com/</a></p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/iterm2-logo.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/iterm2-logo.jpg" alt="iterm2-logo" /></a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#bash" title="Pages tagged bash" class="tag"><span class="term">bash</span></a><a href="/tags/#shell" title="Pages tagged shell" class="tag"><span class="term">shell</span></a><a href="/tags/#zsh" title="Pages tagged zsh" class="tag"><span class="term">zsh</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2015/03/23/e5-85-a5-e6-89-8b-zsh-e5-92-8c-oh-my-zsh/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2015/03/20/impact-mapping/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

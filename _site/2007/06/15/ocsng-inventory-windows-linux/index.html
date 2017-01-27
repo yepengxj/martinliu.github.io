@@ -1,0 +1,1921 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>OCSNG 代理程序生成的清单扫描信息 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="inventory">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="OCSNG 代理程序生成的清单扫描信息">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCSNG 代理程序生成的清单扫描信息">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2007/06/15/ocsng-inventory-windows-linux/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2007/06/15/ocsng-inventory-windows-linux/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2007/06/15/ocsng-inventory-windows-linux/" rel="bookmark" title="OCSNG 代理程序生成的清单扫描信息">OCSNG 代理程序生成的清单扫描信息</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2007-06-15T18:17:00+08:00">June 15, 2007</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~9 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><br />	
+  * Linux
+<br /><br />硬件是下面的Windows机,软件是openSuse10.2运行在VMWare中.<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Information **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Value **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Tag
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">LiuZheng
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**PROCESSOR(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Processor Speed (Mhz) **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Number**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) Core(TM)2 CPU          6400  @ 2.13GHz
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">2126
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">1
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**MEMORY**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Caption  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Capacity (MB)  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Purpose    **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Speed  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Slot number      **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DIMM
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">512
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DRAM
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Unknown
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DIMM
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">No
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DRAM
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Unknown
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DIMM
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">No
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DRAM
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Unknown
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DIMM
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">No
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DRAM
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Unknown
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**STORAGE**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufacturer   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Model         **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type         **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Disk size (MB) **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMwareVirtual S
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">SCSI
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">disk
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">83886
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">??
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">VMware Virtual IDE CDROM Drive
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">IDE
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">removable
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">3789
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**DISK(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Letter     **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type       **
+</td>
+<p><br /></p>
+<td align="center" height="20">** File System  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Total (MB) **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Free (MB)   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Designation**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">/dev/sda2
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">ext3
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">20157
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">16308
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">/
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">udev
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">tmpfs
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">252
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">251
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">/dev
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">/dev/sda3
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">ext3
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">58449
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">55142
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">/home
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**BIOS**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Serial number  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufacturer  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Model   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** BIOS Manufacturer  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** BIOS Version  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** BIOS Date  **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware-56 4d b2 4c 00 88 78 67-4c 69 00 04 0f 38 74 e7
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware, Inc.
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware Virtual Platform
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Phoenix Technologies LTD
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">6.00
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">12/03/2005
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**SOUND**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Manufacturer **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Name **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Ensoniq ES1371 [AudioPCI-97]
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Multimedia audio controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">rev 02
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**VIDEO CARD**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Chipset **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Memory (MB)**
+</td>
+<p><br /></p>
+<td align="center" height="20">** Resolution**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware Inc [VMware SVGA II] PCI Display Adapter
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VGA compatible controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**INPUT DEVICES**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Type   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufacturer   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Caption   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Interface **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">kbd
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Keyboard[0]
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Standard
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">mouse
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Mouse[1]
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">IMPS/2
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**MONITOR(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Manufacturer **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Caption  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufactured on (week/year) **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Serial number **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware, Inc
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">vmware
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**NETWORK(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" align="center">**Description   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Speed        **
+</td>
+<p><br /></p>
+<td align="center" height="20">** MAC address **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Status     **
+</td>
+<p><br /></p>
+<td align="center" height="20">** IP address        **
+</td>
+<p><br /></p>
+<td align="center" height="20">** mask**
+</td>
+<p><br /></p>
+<td align="center" height="20">** Gateway **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Network number     **
+</td>
+<p><br /></p>
+<td align="center" height="20">** DHCP IP     **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" style="color: #f0f0f0" align="center">eth0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Ethernet
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">00:0C:29:38:74:E7<br />(Vmware, Inc.)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Up
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.113.174
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">255.255.252.0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.112.3
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.112.0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**PORT(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Type   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Name   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Free   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description   **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Serial Port 16550A Compatible
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">J19
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DB-9 male
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">9 Pin Dual Inline (pin 10 cut)
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Parallel Port ECP/EPP
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">J23
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DB-25 female
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">25 Pin Dual Inline (pin 26 cut)
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Keyboard Port
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">J11
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Circular DIN-8 male
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">None
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Keyboard Port
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">J12
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Circular DIN-8 male
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">None
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**CONTROLLER(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Manufacturer **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Name **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX Host bridge
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Host bridge
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">rev 01
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel Corporation 440BX/ZX/DX - 82443BX/ZX/DX AGP bridge
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">PCI bridge
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">rev 01
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel Corporation 82371AB/EB/MB PIIX4 ISA
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">ISA bridge
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">rev 08
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel Corporation 82371AB/EB/MB PIIX4 IDE
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">IDE interface
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">rev 01
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel Corporation 82371AB/EB/MB PIIX4 USB
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">USB Controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel Corporation 82371AB/EB/MB PIIX4 ACPI
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Bridge
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">rev 08
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VMware Inc [VMware SVGA II] PCI Display Adapter
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">VGA compatible controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">LSI Logic / Symbios Logic 53c1030 PCI-X Fusion-MPT Dual Ultra320 SCSI
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">SCSI storage controller
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">rev 01
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Advanced Micro Devices [AMD] 79c970 [PCnet32 LANCE]
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Ethernet controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">rev 10
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Ensoniq ES1371 [AudioPCI-97]
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Multimedia audio controller
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">rev 02
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**SLOT(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Designation **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">ISA Slot J8
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">16-bit ISA
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">ISA Slot J9
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">16-bit ISA
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">ISA Slot J10
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">16-bit ISA
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">PCI Slot J11
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">32-bit PCI
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">1
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">PCI Slot J12
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">32-bit PCI
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">2
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">PCI Slot J13
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">32-bit PCI
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">3
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">PCI Slot J14
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">32-bit PCI
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">4
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />**SOFTWARE **<br />软件部分省略.<br /></p>
+
+<p><br />	
+  * Windows XP
+<br /><br />硬件是Dell optiplex 745<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Information **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Value **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Tag
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">assetid3456
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**PROCESSOR(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Processor Speed (Mhz) **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Number**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) Core(TM)2 CPU          6400  @ 2.13GHz
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">2126
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">2
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**MEMORY**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Caption  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Capacity (MB)  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Purpose    **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Speed  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Slot number      **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Physical Memory Array
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Physical Memory Array
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">System Memory
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Empty slot
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">N/A
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">3
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Physical Memory Array
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Physical Memory Array
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">System Memory
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Empty slot
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">N/A
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">4
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Physical Memory
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DIMM_1 (Single-bit ECC)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">1024
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">System Memory
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Unknown
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">667
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">1
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Physical Memory
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DIMM_2 (Single-bit ECC)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">1024
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">System Memory
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Unknown
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">667
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">2
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**STORAGE**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufacturer   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Model         **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type         **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Disk size (MB) **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Floppy disk drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">(Standard floppy disk drives)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Floppy disk drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Floppy disk drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">ST3160812SV
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">(Standard disk drives)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">//./PHYSICALDRIVE1
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Disk drive
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Fixedxhard disk media
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">152625
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">WDC WD2500JS-75NCB1
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">(Standard disk drives)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">//./PHYSICALDRIVE0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Disk drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Fixedxhard disk media
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">238417
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">TSSTcorp DVD+-RW TS-H653A
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">(Standard CD-ROM drives)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">TSSTcorp DVD+-RW TS-H653A
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">CD-ROM Drive
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">CD-ROM
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Generic DVD-ROM SCSI CdRom Device
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">(Standard CD-ROM drives)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Generic DVD-ROM SCSI CdRom Device
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">CD-ROM Drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">CD-ROM
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">3535
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**DISK(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Letter     **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type       **
+</td>
+<p><br /></p>
+<td align="center" height="20">** File System  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Total (MB) **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Free (MB)   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Designation**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">A:/
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Removable Drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">N/A
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">N/A
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">C:/
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Hard Drive
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">NTFS
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">20512
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">9390
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">D:/
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Hard Drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">NTFS
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">217897
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">75686
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DOCs
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">E:/
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">CD-Rom Drive
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">N/A
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">N/A
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">F:/
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">CD-Rom Drive
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">N/A
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">N/A
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">G:/
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Hard Drive
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">NTFS
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">129999
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">34610
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">New Volume
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**BIOS**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Serial number  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufacturer  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Model   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** BIOS Manufacturer  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** BIOS Version  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** BIOS Date  **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">JB5152X
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Dell Inc.
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">OptiPlex 745
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Dell Inc.
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">DELL - 14;Phoenix ROM BIOS PLUS Version 1.10 2.2.0 ;Phoenix ROM BIOS PLUS Version 1.10 2.2.0 ;Phoenix ROM BIOS PLUS Version 1.10 2.2.0 - SMBiosVersion: 2.2.0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">N/A
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**SOUND**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Manufacturer **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Name **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Analog Devices
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">SoundMAX Integrated Digital HD Audio Driver
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">SoundMAX Integrated Digital HD Audio Driver
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**VIDEO CARD**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Chipset **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Memory (MB)**
+</td>
+<p><br /></p>
+<td align="center" height="20">** Resolution**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">256MB ATI Radeon X1300PRO
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Radeon X1300 Series (0x7183)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">256
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">1280 x 1024
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">256MB ATI Radeon X1300PRO Secondary
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Radeon X1300 Series Secondary (0x71A3)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">256
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0 x 0
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**INPUT DEVICES**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Type   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufacturer   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Caption   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Interface **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Keyboard
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Enhanced (101- or 102-key)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">USB Human Interface Device
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">N/A
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Pointing
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">(Standard system devices)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB Human Interface Device
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB Human Interface Device
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**MONITOR(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Manufacturer **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Caption  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Manufactured on (week/year) **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Serial number **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Dell Computer Corp.
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">DELL 1908FP
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">22/2007
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">RGB color
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">KU79075SGDLD
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**NETWORK(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" align="center">**Description   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Speed        **
+</td>
+<p><br /></p>
+<td align="center" height="20">** MAC address **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Status     **
+</td>
+<p><br /></p>
+<td align="center" height="20">** IP address        **
+</td>
+<p><br /></p>
+<td align="center" height="20">** mask**
+</td>
+<p><br /></p>
+<td align="center" height="20">** Gateway **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Network number     **
+</td>
+<p><br /></p>
+<td align="center" height="20">** DHCP IP     **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" style="color: #f0f0f0" align="center">VMware Virtual Ethernet Adapter for VMnet8
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Ethernet
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">100 Mb/s
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">00:50:56:C0:00:08<br />(Vmware, Inc.)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Up
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">192.168.110.1
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">255.255.255.0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">192.168.110.0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">255.255.255.255
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" style="color: white" align="center">VMware Virtual Ethernet Adapter for VMnet1
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Ethernet
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">100 Mb/s
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">00:50:56:C0:00:01<br />(Vmware, Inc.)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Up
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">192.168.190.1
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">255.255.255.0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">192.168.190.0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">255.255.255.255
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" style="color: #f0f0f0" align="center">Broadcom NetXtreme 57xx Gigabit Controller #2 - Packet Scheduler Miniport
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Ethernet
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">1 Gb/s
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">00:19:B9:43:E3:0F<br />(Dell Inc.)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Up
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.113.171
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">255.255.252.0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.112.3
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.112.0
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">10.100.112.27
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td width="20%" style="color: white" align="center">VCD VNC Adapter - Packet Scheduler Miniport
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Ethernet
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">100 Mb/s
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">02:50:F2:3D:00:01
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Down
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0.0.0.0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0.0.0.0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">0.0.0.0
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**PORT(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Type   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Name   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Free   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description   **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Serial
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Communications Port (COM1)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Communications Port (COM1)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Communications Port
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Parallel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">LPT1
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">LPT1
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">LPT1
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**PRINTER(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name   **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Driver **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Port   **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">HP LaserJet 2200 Series PCL 5e
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">HP LaserJet 2200 Series PCL 5e
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">IP_10.100.98.10
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**CONTROLLER(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Manufacturer **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Name **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Type **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">(Standard floppy disk controllers)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Standard floppy disk controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Floppy Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) ICH8 4 port Serial ATA Storage Controller - 2820
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">IDE Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">(Standard IDE ATA/ATAPI controllers)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Primary IDE Channel
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">IDE Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">(Standard IDE ATA/ATAPI controllers)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Secondary IDE Channel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">IDE Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel(R) ICH8 2 port Serial ATA Storage Controller - 2825
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">IDE Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">(Standard IDE ATA/ATAPI controllers)
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Primary IDE Channel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">IDE Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">(Standard mass storage controllers)
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">D347PRT SCSI Controller
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">SCSI Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) ICH8 Family USB Universal Host Controller - 2834
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel(R) ICH8 Family USB Universal Host Controller - 2835
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) ICH8 Family USB2 Enhanced Host Controller - 283A
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel(R) ICH8 Family USB Universal Host Controller - 2830
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) ICH8 Family USB Universal Host Controller - 2831
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">Intel(R) ICH8 Family USB Universal Host Controller - 2832
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">Intel
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">Intel(R) ICH8 Family USB2 Enhanced Host Controller - 2836
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">USB Controller
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**SLOT(S)**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="0" width="95%" style="color: #9894b5" border="0" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td align="center" height="20">** Name  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Description  **
+</td>
+<p><br /></p>
+<td align="center" height="20">** Designation **
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">SLOT1
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">SLOT2
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="#f0f0f0" align="center" height="20">SLOT3
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;tr &gt;<br /></p>
+<td bgcolor="white" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">System Slot
+</td>
+<p><br /></p>
+<td bgcolor="white" align="center" height="20">SLOT4
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />&lt;table cellpadding="4" width="100%" align="center" &gt;<br />&lt;tr &gt;<br /></p>
+<td width="100%" align="center">**SOFTWARE 软件部分信息省略<br />**
+</td>
+<p><br />&lt;/tr&gt;<br />&lt;/table&gt;<br />OCSNG使用总结:<br /></p>
+
+<p><br />	
+  * 安装难度是中
+<br />	
+  * 使用简单
+<br />	
+  * 能支持中文和多种语言
+<br /></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#inventory" title="Pages tagged inventory" class="tag"><span class="term">inventory</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2007/06/15/ocsng-inventory-windows-linux/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2007/06/15/ocsng-inventory-windows-linux/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2007/06/15/ocsng-inventory-windows-linux/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2007/06/15/how-to-install-ocsng-101-on-opensuse-102/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

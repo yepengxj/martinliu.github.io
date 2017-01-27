@@ -1,0 +1,222 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>[網播] Born to MISrepresent 第二集：當 OpenNMS 遇上 SFLC ，催生了 Moglen Ravicher LLC &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="linux, Moglen Ravicher LLC, OpenNMS, SFLC">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="[網播] Born to MISrepresent 第二集：當 OpenNMS 遇上 SFLC ，催生了 Moglen Ravicher LLC">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[網播] Born to MISrepresent 第二集：當 OpenNMS 遇上 SFLC ，催生了 Moglen Ravicher LLC">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2009/02/04/e7-b6-b2-e6-92-ad-born-to-misrepresent-e7-ac-ac-e4-ba-8c-e9-9b-86-ef-bc-9a-e7-95-b6-opennms-e9-81-87-e4-b8-8a-sflc-ef-bc-8c-e5-82-ac-e7-94-9f-e4-ba-86-moglen-ravicher-llc/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2009/02/04/e7-b6-b2-e6-92-ad-born-to-misrepresent-e7-ac-ac-e4-ba-8c-e9-9b-86-ef-bc-9a-e7-95-b6-opennms-e9-81-87-e4-b8-8a-sflc-ef-bc-8c-e5-82-ac-e7-94-9f-e4-ba-86-moglen-ravicher-llc/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2009/02/04/e7-b6-b2-e6-92-ad-born-to-misrepresent-e7-ac-ac-e4-ba-8c-e9-9b-86-ef-bc-9a-e7-95-b6-opennms-e9-81-87-e4-b8-8a-sflc-ef-bc-8c-e5-82-ac-e7-94-9f-e4-ba-86-moglen-ravicher-llc/" rel="bookmark" title="[網播] Born to MISrepresent 第二集：當 OpenNMS 遇上 SFLC ，催生了 Moglen Ravicher LLC">[網播] Born to MISrepresent 第二集：當 OpenNMS 遇上 SFLC ，催生了 Moglen Ravicher LLC</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2009-02-04T12:52:02+08:00">February 04, 2009</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>（原文於 2008-04-08 發表於 <a href="http://blog.roodo.com/ystuan/archives/5830995.html">http://blog.roodo.com/ystuan/archives/5830995.html</a>）</p>
+
+<p>這個音檔的授權是<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/tw/">姓名標示-非商業性-相同方式分享 2.5 台灣</a>，跟我的網誌一樣。</p>
+
+<p>下載ogg格式：<a href="http://www.archive.org/download/BornToMisrepresentEp2/Born_to_MISrepresent_EP2.ogg">Born_to_MISrepresent_EP2.ogg</a>
+下載mp3格式：<a href="http://www.archive.org/download/BornToMisrepresentEp2/Born_to_MISrepresent_EP2.mp3">Born_to_MISrepresent_EP2.mp3</a>
+前往存放在 Archive.org 上的頁面：<a href="http://www.archive.org/details/BornToMisrepresentEp2">Born to MISrepresent EP2</a>，有更多資訊以及格式。</p>
+
+<p>內容摘要：</p>
+
+<p>OpenNMS 1.3.11 版發佈，並宣佈與 Hyperic 就雙方的產品進行合作。這項合作的推手是一個雙方的共同客戶。Hyperic 的 agent 預料將可和擁有強大平台但是拙於 agent (agent-less)的 OpenNMS 形成良好互補。（自 1.3.10 版就開始跟 Hyperic Agent進行整合，最近 OpenNMS 版本號已跳升至 1.5.90 ） Tarus 的 blog 有更多細節：<a href="http://blogs.opennms.org/?p=175">The Year of Integration</a></p>
+
+<p>Hyperic 跟 OpenNMS 的初步整合，可線上收看 <a href="http://download.hyperic.com/swf/HyperCAST10/playback.html">Integrating Hyperic HQ and OpenNMS</a>（瀏覽器需支援 flash 格式播放）</p>
+
+<p>當 OpenNMS 遇上 SFLC ：前一陣子 Tarus 跑去 <a href="http://ask.slashdot.org/article.pl?sid=08/03/04/0023245">Ask Slashdot</a> ，嚷嚷說 <a href="http://www.cittio.com/">Cittio Watchtower</a> 使用 OpenNMS 的程式碼當然可以，但是使用的方式違反了（程式碼採用的）GPL授權。</p>
+
+<p>想也知道，跑去 Slashdot 一定會引來關注，他也尋求軟體自由法律中心（Software Freedom Law Center，SFLC）的協助。但是，SFLC服務對象僅限於非營利機構，結果呢，SFLC決定以成立一間新的律師事務所(<a href="http://www.moglenravicher.com/">Moglen Ravicher LLC</a>)的方式，來服務支持自由軟體的營利機構， OpenNMS Group 因此成了 Moglen Ravicher LLC 的第一個客戶。</p>
+
+<p>喔，不用猜， SFLC 的<a href="http://www.softwarefreedom.org/news/2008/mar/26/moglen-ravicher/">新聞稿</a>直接告訴大家，兩塊招牌底下都是同一群律師，事務所的所有利潤會回饋給 SFLC 。（嗯，其實我們也可以說 OpenNMS 有兩種，一種是 opennms.org - 社群，一種則是 opennms.com - 主要參與者所開的公司 OpenNMS Group。）</p>
+
+<p>筆者已經在 FLOSS Weekly 聽過 <a href="http://twit.tv/floss13">Eben Moglen 談 GPL 3.0</a> ，這次為多瞭解另一位大咖 Dan Ravicher （其實只是想搞清楚他的姓怎麼唸……），找到了 Dan 談 <a href="http://www.ip.qut.edu.au/2006-08-innovation-ravicher">GPL 3, Patents and Other Current Issues</a> ，都很棒，推薦給大家，尤其是後者，其實 Dan 還回顧了 GPL 的誕生，解釋了 RHEL 的 subscription model 為何不違反 GPL 但又可以約束客戶（超意外收穫！解答了筆者幾百年前的疑惑）</p>
+
+<p>照例 Tarus 也在他的 blog 提到整件事：<a href="http://blogs.opennms.org/?p=181">OpenNMS, Eben Moglen and Cittio</a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#linux" title="Pages tagged linux" class="tag"><span class="term">linux</span></a><a href="/tags/#Moglen Ravicher LLC" title="Pages tagged Moglen Ravicher LLC" class="tag"><span class="term">Moglen Ravicher LLC</span></a><a href="/tags/#OpenNMS" title="Pages tagged OpenNMS" class="tag"><span class="term">OpenNMS</span></a><a href="/tags/#SFLC" title="Pages tagged SFLC" class="tag"><span class="term">SFLC</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2009/02/04/e7-b6-b2-e6-92-ad-born-to-misrepresent-e7-ac-ac-e4-ba-8c-e9-9b-86-ef-bc-9a-e7-95-b6-opennms-e9-81-87-e4-b8-8a-sflc-ef-bc-8c-e5-82-ac-e7-94-9f-e4-ba-86-moglen-ravicher-llc/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2009/02/04/e7-b6-b2-e6-92-ad-born-to-misrepresent-e7-ac-ac-e4-ba-8c-e9-9b-86-ef-bc-9a-e7-95-b6-opennms-e9-81-87-e4-b8-8a-sflc-ef-bc-8c-e5-82-ac-e7-94-9f-e4-ba-86-moglen-ravicher-llc/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2009/02/04/e7-b6-b2-e6-92-ad-born-to-misrepresent-e7-ac-ac-e4-ba-8c-e9-9b-86-ef-bc-9a-e7-95-b6-opennms-e9-81-87-e4-b8-8a-sflc-ef-bc-8c-e5-82-ac-e7-94-9f-e4-ba-86-moglen-ravicher-llc/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2009/02/02/it-just-looks-like-a-mac-desktop/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

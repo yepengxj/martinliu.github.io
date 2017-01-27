@@ -1,0 +1,222 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>有人这么比较OpenStack和CloudStack &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="cloudstack, openstack">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="有人这么比较OpenStack和CloudStack">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有人这么比较OpenStack和CloudStack">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2012/08/22/e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2012/08/22/e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/08/22/e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/" rel="bookmark" title="有人这么比较OpenStack和CloudStack">有人这么比较OpenStack和CloudStack</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2012-08-22T21:18:39+08:00">August 22, 2012</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2012/08/os-vs-cs.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/08/os-vs-cs.png" alt="" /></a></p>
+
+<blockquote>
+•Started by a single vendor
+•Developed by a single vendor
+•Marketed by a single vendor
+•With the goal to create a veil of “no vendor lock-in”
+From: Mirantis OpenStack Apac summit PPT
+</blockquote>
+
+<p>Mirantis 是谁？google it。 Mirantis貌似是最大的OpenStack服务提供商之一，上面原文是来自最近的OpenStack Apac峰会上Mirantis的ppt，所以很显然，你知道它为啥这么去鼓吹OpenStack了吧？我对此很不同意，如果他们在CloudStack上也有钱赚的话，还会这么说？所以有下面的话想说，想谈点我所知道的事实。</p>
+
+<p>CloudStack起源一些成功的数据中心IaaS项目实施，后来成功的转身为一个开源项目，后来向所有创业项目一样成功的获得风投，买下Cloud.com域名，后来被Citrix收购，后来被捐献给Apache，目前由Apache社区来运作开源版本。Citrix是一个提供商业支持的vendor，目前大多数开源软件的盈利模式都是这样，我没有看出来CloudStack是那个vendor开创和控制的。</p>
+
+<p>如果你深入CloudStack开发者社区邮件组的话，你会发现，有太多来自全球各种公司向这个项目做贡献的，非常多的个人贡献者。最近看见一个CloudStack架构重构的帖子，我看到n多的人提交他们的建议和想法，看到了私有软件厂商架构师不可能完成的工作量。而这些人是谁，你看看他们的邮箱地址就知道，他们大多数不是citrix.com邮箱地址。</p>
+
+<p>CloudStack在全球有最多的IaaS的大规模生产环境项目实施，它们各自在做自己的市场宣传；他们可能不会说底层是CloudStack，但是，大家都知道，有一种无法Marketing的东西叫做口碑，随着CloudStack的实施案例逐渐增多，我想CloudStack的用户社区就是它最好的宣传了。</p>
+
+<p>无厂商锁定不是一个面纱，而是用户的一真实需求，这不需要提醒用户，用户也能想到吧！</p>
+
+<p>CloudStack是一个目前市场上最成熟的IaaS软件，是一个用户最有价值的选择，是一个用户可以快速实践并积累经验的技术平台；我们已经进了云时代的门，没有必要做学术研究，没有必要务虚，但求尽快的能投产，尽快的能积累到IaaS的实战经验，它是一种全新的数据中心生产运作的方式，云平台管理经验来自正确的实践路径；道路曲折与否，时间长短，没人能替用户选择。</p>
+
+<p>我不会去攻击OpenStack，开源世界原本就是这样，多种选项并存，相互促进，相互学习，而且以后还会有很对Stack出现；我个人同时喜欢并且使用多个Linux版本，包括openSuse,Ubuntu,CentOS；你会发现Linux有n个发行版本，没有任何一家跳出来去攻击和贬低他人的。有空我一定会也研究下OpenStack，Why not？</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#cloudstack" title="Pages tagged cloudstack" class="tag"><span class="term">cloudstack</span></a><a href="/tags/#openstack" title="Pages tagged openstack" class="tag"><span class="term">openstack</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2012/08/22/e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2012/08/22/e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2012/08/22/e6-9c-89-e4-ba-ba-e8-bf-99-e4-b9-88-e6-af-94-e8-be-83openstack-e5-92-8ccloudstack/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2012/08/20/e9-97-ae-e4-b8-96-e9-97-b4-xenserver-ddk-e4-b8-ba-e4-bd-95-e7-89-a9/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+---
+author: liuadmin
+comments: true
+date: 2012-08-05 15:42:24+00:00
+layout: post
+slug: '%e8%bf%90%e2%80%8b%e8%a1%8c%e2%80%8b%e6%89%8b%e2%80%8b%e5%86%8c%e2%80%8b-%e9%83%a8%e2%80%8b%e7%bd%b2%e2%80%8bapache-cloudstack%e8%a7%84%e2%80%8b%e8%8c%83%e2%80%8b%e6%8c%87%e2%80%8b%e5%af%bc%e2%80%8b'
+title: 运​行​手​册​--部​署​Apache CloudStack规​范​指​导​
+wordpress_id: 51835
+categories:
+- Cloud Computing
+tags:
+- cloudstack
+- iaas
+- runbook
+- 中文
+- 云计算
+- 安装
+- 手册
+- 部署
+---
+
+[http://people.apache.org/~ke4qqq/runbook/zh_CN/](http://people.apache.org/~ke4qqq/runbook/zh_CN/)
+
+以前一直没有仔细看过某个开源软件的研发人员邮件列表，即使是订阅了，也就是放在一边不去看。自从订阅了CloudStack Dev邮件之后，坚持看了一段。发现收益匪浅。众所周知CloudStack的创始人梁盛，但是你知道么，CloudStack的核心开发社区中也有很多的中国人。上周我才注册了Transifex，准备闲了帮忙翻译点界面或者文档。没成想，刚想动手搞Runbook，结果在邮件组中就看到Mice Xia一夜之间把它搞定了。这可真是简体中文用户的福音啊！如果你也有时间想帮助CloudStack改善中文文档和界面翻译，可以参与一下Transifex下面的这些项目。
+
+
+
+	
+  * [Apache CloudStack Runbook](https://www.transifex.com/projects/p/ACS-Runbook/) project
+
+	
+  * [Apache CloudStack UI](https://www.transifex.com/projects/p/CloudStack_UI/) project
+
+	
+  * [CloudStack QIG](https://www.transifex.com/projects/p/CloudStack_Quick_Install_Guide/) project
+
+	
+  * [Fedora Install Guide](https://www.transifex.com/projects/p/fedora-install-guide/) project
+
+
+

@@ -1,0 +1,200 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>CMDB实施的几种误区 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="cmdb, cms">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="CMDB实施的几种误区">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CMDB实施的几种误区">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2009/07/04/cmdb-e5-ae-9e-e6-96-bd-e7-9a-84-e5-87-a0-e7-a7-8d-e8-af-af-e5-8c-ba/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2009/07/04/cmdb-e5-ae-9e-e6-96-bd-e7-9a-84-e5-87-a0-e7-a7-8d-e8-af-af-e5-8c-ba/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2009/07/04/cmdb-e5-ae-9e-e6-96-bd-e7-9a-84-e5-87-a0-e7-a7-8d-e8-af-af-e5-8c-ba/" rel="bookmark" title="CMDB实施的几种误区">CMDB实施的几种误区</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2009-07-04T13:44:02+08:00">July 04, 2009</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p><img src="http://cdn1.martinliu.cn/wp-content/uploads/266/26670/2008/11/itilv3model.jpg" alt="itilv3model" /><br /><br />上面是ITIL v3的定义，CMDB的定义和v2没有变化。可以看出CMDB是一个存储配置记录的数据库，非常多的用户一拍脑门“不就是一个数据库么！我们也可以自己开发一个的。”。这样的情况下，IT组织的不同部门都可能会各自立门户，开发自己的配置管理信息库；例如：资产管理、终端分发和管理、机房管理等等。数据重复、数据不一致、配置信息不对称；无法得到跨部门和系统的报告。所以V3提出了CMS系统，它是CMDB系统的下一代管理系统。CMS系统需要 具有对现有信息资料的兼容性，CMS的建立不能忘记过去；一定要集成已有配置信息。<br /><a href="http://lh6.ggpht.com/_KU0istEHv9w/Sb5fe4XU89I/AAAAAAAABWA/gqfJomNUHhM/snap008.jpg"><img src="http://lh6.ggpht.com/_KU0istEHv9w/Sb5fe4XU89I/AAAAAAAABWA/gqfJomNUHhM/snap008.jpg" alt="" /></a>错误一：配置信息是一个独立的配置管理系统，由专人负责数据的更新和维护，手工的管理和维护所有数据。<br /><br /><a href="http://lh6.ggpht.com/_KU0istEHv9w/Sb5feqLlKaI/AAAAAAAABV4/rmdsoBoBuiA/snap007.jpg"><img src="http://lh6.ggpht.com/_KU0istEHv9w/Sb5feqLlKaI/AAAAAAAABV4/rmdsoBoBuiA/snap007.jpg" alt="" /></a>错误二：最配置管理就是要做的细，我要管理到机房中的每一根网线，CI的属性需要设计的非常多，越细致越好。<br /><br /><a href="http://lh6.ggpht.com/_KU0istEHv9w/Sb5feHYTZVI/AAAAAAAABVw/4Ns9PAPzrJw/snap006.jpg"><img src="http://lh6.ggpht.com/_KU0istEHv9w/Sb5feHYTZVI/AAAAAAAABVw/4Ns9PAPzrJw/snap006.jpg" alt="" /></a>错误三：我们自己有开发人员，我们有CMDB的需求，那就开始做吧，先看法着看看，不就是一个数据的增删改查么！！<br /><br />配置管理或者说CMDB的建设可以说是目前，国内ITIL用户共同的瓶颈。ITIL项目中实施最多的三个流程是：Incident Management、Problem Management 和 Change Management。已经实施完毕以上三个流程的用户问的最多的一个问题是：一个故障单、问题单或者变更单一定要和CI想关联么？在解决处理的时候寻找目标CI或者根源CI是必须的么？<br /><br />如果ITIL是一种公共语言的话，那么Incident Management、Problem Management 和 Change Management等所有流程都是句式或者时态。而CI则是主语或者宾语，您觉得没有主语或者缺少宾语的句子，会传递怎么的信息呢？</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#cmdb" title="Pages tagged cmdb" class="tag"><span class="term">cmdb</span></a><a href="/tags/#cms" title="Pages tagged cms" class="tag"><span class="term">cms</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2009/07/04/cmdb-e5-ae-9e-e6-96-bd-e7-9a-84-e5-87-a0-e7-a7-8d-e8-af-af-e5-8c-ba/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2009/07/04/cmdb-e5-ae-9e-e6-96-bd-e7-9a-84-e5-87-a0-e7-a7-8d-e8-af-af-e5-8c-ba/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2009/07/04/cmdb-e5-ae-9e-e6-96-bd-e7-9a-84-e5-87-a0-e7-a7-8d-e8-af-af-e5-8c-ba/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2009/07/04/itil-v3-e6-9c-af-e8-af-ad-e8-a1-a8/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

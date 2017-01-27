@@ -1,0 +1,19 @@
+---
+author: liuadmin
+comments: true
+date: 2012-08-19 16:28:51+00:00
+layout: post
+slug: '%e5%81%b6%e9%81%87mindnode'
+title: 偶遇MindNode
+wordpress_id: 51921
+categories:
+- Apple
+post_format:
+- Status
+tags:
+- mac
+- MindNode
+- OS X
+---
+
+![](http://mindnode.com/style/img/logo.png)之前常用些Maind Map之类的工具，有些工具功能还相当的复杂和强大；今天偶遇MindNode，装上之后发现风格极为简约，功能包括建立节点、子节点、创建连接等；我目前还想不到有什么功能是必须的，而这个软件没有的，推荐一下，Mac用户可以尝试一下。

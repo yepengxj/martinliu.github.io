@@ -1,0 +1,331 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>如何安装和使用Citrix XenApp 6.5 移动应用开发包SDK &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="6.5, Android, Citrix, Mobility, SDK, XenApp">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="如何安装和使用Citrix XenApp 6.5 移动应用开发包SDK">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何安装和使用Citrix XenApp 6.5 移动应用开发包SDK">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/" rel="bookmark" title="如何安装和使用Citrix XenApp 6.5 移动应用开发包SDK">如何安装和使用Citrix XenApp 6.5 移动应用开发包SDK</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2012-03-05T22:38:20+08:00">March 05, 2012</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~4 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>继续转帖自学，可惜我没有空自己搭这个开发环境。不过我最想开发的一个应用是：一个记录我做DDMD的应用，在每个DDMD现场我都拍一张照片，记录一下现场的人，记录一下做Demo的坐标。这样我可以看看，我一个月下来做了多少次DDMD。</p>
+
+<blockquote>From [http://www.jasonconger.com/](http://www.jasonconger.com/)</blockquote>
+
+<p>In this post, we will go over the installation steps of the Citrix XenApp 6.5 Mobile Application SDK, explorer what is added to the XenApp 6.5 server during installation, and compile one of the samples given in the SDK.</p>
+
+<p>Now that we have <a href="http://www.jasonconger.com/post/setting-up-an-android-emulator-for-use-with-citrix-xenapp-mobile-application-sdk/">setting up an Android emulator</a>out of the way, let’s take a look at installing the Citrix XenApp 6.5 Mobile Application SDK and what the install does to a XenApp 6.5 server.There are 2 parts that you need in order to develop applications that utilize mobile capabilities on a XenApp 6.5 server:</p>
+
+<ol>
+  <li>
+    <p>The <a href="http://citrix.com/English/ss/downloads/details.asp?downloadId=2317077&amp;productId=186">XenApp 6.5 Mobility Pack</a> – this is the part that goes on the XenApp 6.5 server.</p>
+  </li>
+  <li>
+    <p>The <a href="http://citrix.com/English/ss/downloads/details.asp?downloadId=2317078&amp;productId=186">Citrix XenApp 6.5 Mobile Application SDK</a> – this is the part you use to develop mobile applications. </p>
+  </li>
+</ol>
+
+<h2 id="xenapp-65-mobility-pack">XenApp 6.5 Mobility Pack</h2>
+
+<p>When you install the Mobility Pack, 2 new services are added to your XenApp server:</p>
+
+<ol>
+  <li>
+    <p>Citrix Location and Sensor Virtual Channel Service – this service enables a server side application to leverage Location and Sensor capabilities.</p>
+  </li>
+  <li>
+    <p>Citrix Mobile Receiver Virtual Channel Service – this service enables a server side application to use mobile device capabilities.</p>
+  </li>
+</ol>
+
+<p>These 2 virtual channels are kept separate for security reasons.  Maybe you want to have mobile device capabilities available, but you cannot enable GPS features due to security compliance.  Location services are disabled on the Citrix Receiver by default. The way to enable the location capabilities is via Citrix policies.  In order to use these policies, you will need to install the Citrix Group Policy Client-Side Extensions.  These extensions are part of the XenApp Mobility Pack .zip file.</p>
+
+<p>This policy is located under ICA\Client Sensors\Location. Notice that by default, location is disabled.</p>
+
+<p> [singlepic id=1337 w=320 h=240 float=none]</p>
+
+<h2 id="citrix-xenapp-65-mobile-application-sdk">Citrix XenApp 6.5 Mobile Application SDK</h2>
+
+<p>So, the <a href="http://community.citrix.com/display/xa/XenApp+6.5+Mobile+Application+SDK+-+Requirements">requirements for the Citrix XenApp 6.5 Mobile Application SDK</a> state that you need Windows 7 64 bit (and the MSI is even named XenApp65MobileApplicationSdk64), but it installs to ..\Program Files (x86)\Citrix\MobilitySDK.  I tried installing the SDK on a Windows 7 32 bit system as well and it worked, so I’m not sure if something absolutely will not work on 32 bit.</p>
+
+<p>I’m using Visual Studio for the examples.  It appears that Visual Studio Express (free) will work as well, but I haven’t tested that myself.</p>
+
+<p>Anyway, the documentation that comes with the SDK is pretty comprehensive so I’m not going to rehash it here.  Since I will be showing you some of the examples using .Net, I do want to point out that you will need to run one of the following commands on your development machine in order for things to work:</p>
+
+<table>
+<tbody>
+<tr>
+
+<td>`Regsvr32 cmpcom.dll
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<tbody>
+<tr>
+
+<td>`Regsvr32 cmpcom64.dll
+```
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<p>Notice that there is a 32 bit or a 64 bit DLL register. So again, not sure why Windows 7 64bit is a requirement for development. Anyway, make sure you run the appropriate command above as administrator, otherwise you may receive an error stating “The module was loaded but the call to DllRegisterServer failed with error code 0×80070005” (which is a permissions error).</p>
+
+<h2 id="compiling-examples">Compiling Examples</h2>
+
+<p>The final part of this article will focus on compiling and using the examples that come with the SDK.  The one I’m going to point out here is the picker example.  This example uses the native device’s UI to display a list of options.  The example is actually a console application that has no graphics, so it is actually using the local device’s display mechanisms rather than trying to do some trickery on the XenApp server side.  So, here we go…</p>
+
+<ol>
+  <li>
+    <p>Browse to \Program Files (x86)\Citrix\MobilitySDK\samples<br />ative\showpicker</p>
+  </li>
+  <li>
+    <p>Double click on showpicker.sln to open the solution in Visual Studio</p>
+  </li>
+  <li>
+    <p>Build the solution by pressing F6</p>
+  </li>
+  <li>
+    <p>This will create an executable in \Program Files (x86)\Citrix\MobilitySDK\samples<br />ative\Win32\Debug\showpicker.exe</p>
+  </li>
+  <li>
+    <p>Copy this showpicker.exe to your XenApp 6.5 server (I copied mine to \Program Files (x86)\Mobility\picker\showpicker.exe)</p>
+  </li>
+  <li>
+    <p>Publish the application via Citrix AppCenter</p>
+  </li>
+  <li>
+    <p>Launch the published application using an Android device (or <a href="http://www.jasonconger.com/post/setting-up-an-android-emulator-for-use-with-citrix-xenapp-mobile-application-sdk/">emulator</a>) with the latest Citrix Receiver installed.</p>
+  </li>
+</ol>
+
+<p>NOTE: You may receive an error message that states “The program can’t start because MSVCR100D.dll is missing from your computer…”  Here’s why – the solution was built in debug mode.  Thus, debug DLL’s (notice the “D” in the DLL name) need to be on the XenApp 6.5 server.  Here is what you can do:</p>
+
+<p>Copy:</p>
+
+<ul>
+  <li>
+    <p>From:** \Program Files (x86)\Microsoft Visual Studio 10.0\VC\redist\Debug_NonRedist\x86\Microsoft.VC100.DebugCRT\msvcr100d.dll** on your development machine</p>
+  </li>
+  <li>
+    <p>To:** \Windows\SysWOW64\msvcr100d.dll** on your XenApp 6.5 server</p>
+  </li>
+</ul>
+
+<p>You could technically build the solution in Release mode instead of Debug mode and be okay, but to perform remote debugging, you will want to have the debug DLL on your remote machine.  Speaking of debugging, here are 2 great write-ups on how to debug the mobile applications:</p>
+
+<ul>
+  <li>
+    <p>Jeff Muir - <a href="http://citrixblogger.org/2011/12/19/debugging-xama-sdk-applications/">Debugging XAMA SDK Applications</a></p>
+  </li>
+  <li>
+    <p>Andrew Borzycki - <a href="http://forums.citrix.com/thread.jspa?threadID=300244&amp;tstart=0">Debugging applications remotely with Visual Studio</a></p>
+  </li>
+</ul>
+
+<h2 id="the-result">The Result</h2>
+
+<p>Here is what the end result looks like.</p>
+
+<p>[singlepic id=1338 w=320 h=240 float=none]</p>
+
+<p>Once you pick one of the colors, the console application will give you feedback on the chosen item.  When the appropriate receiver is available for iOS, then the native iOS selector would be shown with no code changes on the developer’s part.  That is pretty cool!</p>
+
+<p>In the next article on this topic, I will show you how to use mobile device orientation to change what is displayed to an end user.  The example will include data and graphics.  Stay tuned…</p>
+
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#6.5" title="Pages tagged 6.5" class="tag"><span class="term">6.5</span></a><a href="/tags/#Android" title="Pages tagged Android" class="tag"><span class="term">Android</span></a><a href="/tags/#Citrix" title="Pages tagged Citrix" class="tag"><span class="term">Citrix</span></a><a href="/tags/#Mobility" title="Pages tagged Mobility" class="tag"><span class="term">Mobility</span></a><a href="/tags/#SDK" title="Pages tagged SDK" class="tag"><span class="term">SDK</span></a><a href="/tags/#XenApp" title="Pages tagged XenApp" class="tag"><span class="term">XenApp</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2012/03/05/e5-a6-82-e4-bd-95-e9-85-8d-e7-bd-aeandroid-emulator-e7-94-a8-e4-ba-8e-e8-b0-83-e8-af-95citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8sdk/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

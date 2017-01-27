@@ -1,0 +1,342 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>如何在命令行打XenServer的补丁 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="Citrix, nfs, xenserver">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="如何在命令行打XenServer的补丁">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在命令行打XenServer的补丁">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2012/11/15/e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2012/11/15/e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/11/15/e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/" rel="bookmark" title="如何在命令行打XenServer的补丁">如何在命令行打XenServer的补丁</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2012-11-15T15:38:29+08:00">November 15, 2012</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~3 minutes
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>参考文献：</p>
+
+<p><a href="http://xmodulo.blogspot.com.au/2012/10/how-to-apply-xenserver-patch.html">http://xmodulo.blogspot.com.au/2012/10/how-to-apply-xenserver-patch.html</a>
+Installing the hotfix using the CLI on another host</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1. Download the hotfix to the computer running the CLI or XenCenter, and extract the .xsupdate file from the ZIP file.
+
+
+2. Open a Command Prompt window. On Windows computers, navigate to the XenCenter installation directory, typically located at C:\Program Files (x86)\Citrix\XenCenter
+
+
+3. Upload the hotfix to the pool master by entering the following command.
+</code></pre>
+</div>
+
+<blockquote>xe patch-upload -s `<hostname>
+```
+ -u root -pw `<password>
+```
+ file-name=`<updatefilepath>
+```
+ XS55EU2012.xsupdate&lt;/blockquote&gt;
+
+
+Where <hostname> is the IP address or DNS name of the pool master, <password> is the root account password, and <updatefilepath> is the path to the .xsupdate file.
+
+The UUID of the hotfix is displayed. XenServer assigns the UUID to the .xsupdate file.
+
+	
+    4. Type the following command to apply the hotfix to all hosts in the pool.
+
+
+<blockquote>xe patch-pool-apply uuid=d632016d-352d-4fd9-8829-5a74ef0625db</blockquote>
+
+
+
+
+	
+    5. Verify that the update was applied using the following command.
+
+
+<blockquote>xe patch-list -s `<hostname>
+```
+ -u root -pw `<password>
+```
+ name-label=XS55EU2012&lt;/blockquote&gt;
+
+
+Where <hostname> is the IP address or DNS name of the pool master and <password> is the root account password.
+
+The hosts field contains the UUIDs of the hosts to which the hotfix was successfully applied. If the update is successful, all the hosts in the pool are listed.
+
+	
+    6. For each host, migrate any VMs that you want to keep running and shut down the remaining VMs before restarting the host.The hotfix is applied to all hosts in the pool, but does not take effect until each host is restarted.
+
+
+
+To verify in XenCenter that the update was applied correctly, select the pool in the resources pane and then click the **General** tab in the properties pane. Expand the **Updates** section of the pool properties and ensure that the update is listed as **Fully applied**.
+
+我的测试过程如下：
+
+建立了一个NFS共享，上传了所有下载并且压缩所有补丁文件，积累了一堆的.xsupdate文件；在master上mount这个nfs文件共享。进去之后我所使用的命令如下：
+
+[bash]
+[root@xs-04 602patch]# xe patch-upload file-name =XS602E003.xsupdate
+26b72ceb-759c-4de3-b007-e2a5fc30a93a
+[root@xs-04 602patch]# xe patch-upload file-name =XS602E004.xsupdate
+7f363047-46f2-41b7-8ff2-141d88e7b4ec
+[root@xs-04 602patch]# xe patch-upload file-name =XS602E005.xsupdate
+9b84b5c0-a027-11e1-a8b1-0800200c9a66
+[root@xs-04 602patch]# xe patch-upload  file-name =XS602E006.xsupdate
+b6f7bfe0-b969-11e1-afa6-0800200c9a66
+[root@xs-04 602patch]# xe patch-upload  file-name =XS602E008.xsupdate
+7c04fd30-9a0a-4894-9662-05ca9f866162
+[root@xs-04 602patch]# xe patch-upload  file-name =XS602E009.xsupdate
+6c9f9c22-d4b9-4c39-9343-7f0e6d0104b5
+[root@xs-04 602patch]# xe patch-list 
+uuid ( RO) : 7f363047-46f2-41b7-8ff2-141d88e7b4ec
+name-label ( RO): XS602E004
+name-description ( RO): Public Availability: CVE-2012-0217 security fix
+size ( RO): 776629
+hosts (SRO):
+after-apply-guidance (SRO): restartHost
+
+uuid ( RO) : 945655fe-2dcd-46eb-b224-e556aa2f22b8
+name-label ( RO): XS602E002
+name-description ( RO): Public Availability: Fix for VMs hanging when pa rsing fragmented IPv6 packet
+size ( RO): 0
+hosts (SRO): 016c2e53-3e1d-4273-a350-f89447614903
+after-apply-guidance (SRO): restartXAPI
+
+uuid ( RO) : 68276dea-a818-4970-af93-3e43cb37b426
+name-label ( RO): XS602E001
+name-description ( RO): Public Availability: Mark VMs with old PV driver s as out-of-date
+size ( RO): 0
+hosts (SRO): 016c2e53-3e1d-4273-a350-f89447614903
+after-apply-guidance (SRO): restartXAPI
+
+uuid ( RO) : 7c04fd30-9a0a-4894-9662-05ca9f866162
+name-label ( RO): XS602E008
+name-description ( RO): Public Availability: security fixes to Xen and d evice model
+size ( RO): 2784821
+hosts (SRO):
+after-apply-guidance (SRO): restartHost
+
+uuid ( RO) : b6f7bfe0-b969-11e1-afa6-0800200c9a66
+name-label ( RO): XS602E006
+name-description ( RO): Public availability: Fixes to Integrated Storage Link.
+size ( RO): 14530669
+hosts (SRO):
+after-apply-guidance (SRO): restartXAPI
+
+uuid ( RO) : 9b84b5c0-a027-11e1-a8b1-0800200c9a66
+name-label ( RO): XS602E005
+name-description ( RO): Public Availability: Kernel and Storage fixes
+size ( RO): 38529042
+hosts (SRO):
+after-apply-guidance (SRO): restartHost
+
+uuid ( RO) : 6c9f9c22-d4b9-4c39-9343-7f0e6d0104b5
+name-label ( RO): XS602E009
+name-description ( RO): Public Availability: XenTools fixes
+size ( RO): 117525717
+hosts (SRO):
+after-apply-guidance (SRO):
+
+uuid ( RO) : 26b72ceb-759c-4de3-b007-e2a5fc30a93a
+name-label ( RO): XS602E003
+name-description ( RO): Public Availability: Xapi hotfix for incorrect V NC port advertisement.
+size ( RO): 7454760
+hosts (SRO):
+after-apply-guidance (SRO): restartXAPI
+
+[root@xs-04 ~]# xe patch-pool-apply  uuid=6c9f9c22-d4b9-4c39-9343-7f 0e6d0104b5
+[root@xs-04 ~]# xe patch-pool-apply  uuid=9b84b5c0-a027-11e1-a8b1-08 00200c9a66
+[root@xs-04 ~]# xe patch-pool-apply  uuid=b6f7bfe0-b969-11e1-afa6-08 00200c9a66
+[root@xs-04 ~]# xe patch-pool-apply  uuid=7f363047-46f2-41b7-8ff2-14 1d88e7b4ec
+[root@xs-04 ~]# xe patch-pool-apply  uuid=7c04fd30-9a0a-4894-9662-05
+[root@xs-04 ~]#reboot
+[/bash]
+
+我是在单机的XenServer上打的补丁，打完之后只需要一次重即可。比较在XenCenter里面打补丁，这个方法更快捷，更节省时间。
+</password></hostname></password></hostname></blockquote></updatefilepath></password></hostname></updatefilepath></password></hostname></blockquote>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#Citrix" title="Pages tagged Citrix" class="tag"><span class="term">Citrix</span></a><a href="/tags/#nfs" title="Pages tagged nfs" class="tag"><span class="term">nfs</span></a><a href="/tags/#xenserver" title="Pages tagged xenserver" class="tag"><span class="term">xenserver</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2012/11/15/e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2012/11/15/e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2012/11/15/e5-a6-82-e4-bd-95-e5-9c-a8-e5-91-bd-e4-bb-a4-e8-a1-8c-e6-89-93xenserver-e7-9a-84-e8-a1-a5-e4-b8-81/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2012/10/30/e5-87-ba-e5-b7-ae-e5-b0-b1-e7-89-99-e7-96-bc/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>RedHat互联网平台解决方案 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="BAT, 开源, 架构">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="RedHat互联网平台解决方案">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RedHat互联网平台解决方案">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2015/05/17/redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2015/05/17/redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2015/05/17/redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" rel="bookmark" title="RedHat互联网平台解决方案">RedHat互联网平台解决方案</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-05-17T14:29:33+08:00">May 17, 2015</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>ppt点这里下载：[su_button target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]下载[/su_button]</p>
+
+<p>参考文档：
+AS深圳2014演讲PPT最终稿  <a href="http://pan.baidu.com/s/1i3KQFRJ">http://pan.baidu.com/s/1i3KQFRJ</a>
+QCon北京2015（PPT） <a href="http://pan.baidu.com/s/1sj2t1yl">http://pan.baidu.com/s/1sj2t1yl</a>
+这两个目录里面干货还是不少，可以下载了慢慢看。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/redhat-sulution.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/redhat-sulution.jpg" alt="redhat-sulution" /></a></p>
+
+<p>学习了一写文档后，逐渐对互联网公司的架构挑战需求和现状有了一些了解。下面先聊下这方面的一些理解。</p>
+
+<h1 id="section">中国规模交易量</h1>
+
+<p>什么叫中国规模交易量，以淘宝2014-11-11 双十一当天的数据举例：</p>
+
+<p>[su_list icon=”icon: rocket”]</p>
+
+<ul>
+  <li>
+    <p>交易创建    80000笔/秒</p>
+  </li>
+  <li>
+    <p>支付    38000笔/秒</p>
+  </li>
+  <li>
+    <p>24小时完成交易额 571亿元人民币 // 93 亿美元</p>
+  </li>
+</ul>
+
+<p>[/su_list]</p>
+
+<p>乍一看这个数字可能没什么感觉，可以比较一下美国的情况。全美所有的传统商场在“黑色星期五”一天的销售也仅为91亿美元，即使加上网络销售的24亿美元也比天猫“双十一”多不了太多。也就是说，美国黑五当天全网的电商是中国淘宝/天猫一家的四分之一。</p>
+
+<p>因此中国人口基数大，网民数量大，假如您能激起大众的兴趣的话，你是不缺访问量的。对于意外的大规模的峰值访问量的处理，如果系统架构和应用没有提前经过特别的架构调整、优化；用膝盖都能想到系统挂掉、基础架构崩溃、交易数据出错是必然的事情。</p>
+
+<p>理解到这个潜在的风险、需求和调整，我们所有设计和从事IT基础架构技术服务的人，可以想想，不向前看，不向BAT学习，不站在他们的肩膀上设计和调整自己的应用的话。想保证系统平安，除非业务是失败的业务（没有流量），否则没有平安可言。</p>
+
+<h1 id="section-1">架构特点</h1>
+
+<p>且不说马云家系统已经多么牛叉，我们看下京东的架构，我们也可以看到其架构设计在两个维度都非常清晰到位。业务架构维度上尽可能的松耦合，所有业务单元分解清晰，貌似莫名的遵循了分布式架构的要求；这样每个业务单元都可以对IT资源的消耗联动，弹性的供给必要的业务处理能力。IT架构维度上分解为三个层次：应用架构、数据架构、基础架构。基本上JD的这个PPT改变了我对这个企业的印象。从我的职业经验告诉我，这份PPT中规中矩，比较专业，堪称教科书式的架构设计。相对马云家的架构师的PPT图画的比较豪放，风格不同。JD这份PPT下载在这里。</p>
+
+<p>[su_button url=”http://pan.baidu.com/s/1o6MI0t0” target=”blank” style=”stroked” size=”2” icon=”icon: cloud-download”]AS深圳2014 京东架构设计-吴博[/su_button]</p>
+
+<p>除了分层细致设计业务架构之外，我们还能看到，电商公司多使用多数据中心多活的模式并发处理海量交易量，每个数据中心都可以处理全业务，都能在灾备和并行处理上一石二鸟。这和我们高贵的传统企业不同，他们往往可以实现同城双中心运行，异地数据中心往往是灾备中心；有些灾备切换并不是全业务的切换，有些灾备中只用于灾备切换演练，并不真的运行业务；有些异地灾备中心也会和主数据中心中的一部分业务做周期性的切换运行。这些高贵的客户往往把核心的数据放在主机上，这在他们想扩展到3个或者更多个数据中心的时候，略显尴尬；新增的数据中心也要配置一套新主机系统么？新的主机上数据和应用怎样快速迁移过来？需要多长时间？数据同步的和其他两个数据中心一致么？这些问题的回答都不简单？主机硬件固然是贵？但是所有问题都解决周全的话，可能更贵。</p>
+
+<p>全新的纯X86的架构就在面前，BAT已经证明了它和开源技术组合在一起就是多快好省的架构。因此，IT架构的转型也成了必然选择。试想转型之后的机房，每个机架都是标准化的工作单元，它可能是几种类型：纯物理机计算节点、纯虚拟机计算节点（服务器虚拟化或者OpenStack等）、纯物理机存储节点（软件定义存储）；或运行容器的物理机或者虚拟机。另外机架上的网络设备和核心网络设备必然有他们自己的设计。这是我的一个猜测，有机会还需要和BAT的人多了解。</p>
+
+<h1 id="section-2">开源技术</h1>
+
+<p>BAT用到的开源技术真的是不甚枚举，也没有必要逐一分析。基本上各个领域里从开发堆栈、到架构堆栈和运维管理堆栈；各个方面的前几位的项目都有实践和应用。</p>
+
+<h1 id="section-3">红帽</h1>
+
+<p>那么红帽的互联网平台解决方案是什么？红帽的定位是基础架构技术厂商，因此红帽的全套技术框架就是它的互联网解决方案。如下图所示。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/Red-Hat-open-hybrid-cloud-1000x563_0.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/05/Red-Hat-open-hybrid-cloud-1000x563_0.png" alt="Red-Hat-open-hybrid-cloud-1000x563_0" /></a></p>
+
+<p>有些产品模块需要稍微说明一下，方便和开源项目对应起来。</p>
+
+<p>[su_list icon=”icon: linux”]</p>
+
+<ul>
+  <li>
+    <p>Red Hat Storage server / ICE : Gluster, Ceph</p>
+  </li>
+  <li>
+    <p>Red Hat Enterprise Linux : Fedora Linux</p>
+  </li>
+  <li>
+    <p>RHEV-M : Ovirt - 服务器虚拟化</p>
+  </li>
+  <li>
+    <p>RHELOSP ： OpenStack 企业版IaaS平台</p>
+  </li>
+  <li>
+    <p>OpenShift ：OpenShift社区</p>
+  </li>
+  <li>
+    <p>JBoss : JBoss 社区</p>
+  </li>
+  <li>
+    <p>Satellite ： Puppet + Foreman 等等其它配置管理工具</p>
+  </li>
+  <li>
+    <p>CloudForms ：CloudForms社区 - 混合云管理</p>
+  </li>
+</ul>
+
+<p>[/su_list]</p>
+
+<p>红帽的技术支持范围还包括很多操作系统内的功能组件，包括：HA-Proxy，LVS，MySQL等等。在技术面的广度上，并不限于以上框架图。不过那幅图是全堆栈的最简易的展示。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#BAT" title="Pages tagged BAT" class="tag"><span class="term">BAT</span></a><a href="/tags/#开源" title="Pages tagged 开源" class="tag"><span class="term">开源</span></a><a href="/tags/#架构" title="Pages tagged 架构" class="tag"><span class="term">架构</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2015/05/17/redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2015/05/17/redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2015/05/17/redhat-e4-ba-92-e8-81-94-e7-bd-91-e5-b9-b3-e5-8f-b0-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2015/05/15/openstack-enterprise-ready/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

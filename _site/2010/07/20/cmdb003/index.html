@@ -1,0 +1,312 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>规划CMDB数据填充-003 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="Atrium, cmdb, cms, ITIL, ITSM">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="规划CMDB数据填充-003">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="规划CMDB数据填充-003">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2010/07/20/cmdb003/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2010/07/20/cmdb003/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2010/07/20/cmdb003/" rel="bookmark" title="规划CMDB数据填充-003">规划CMDB数据填充-003</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2010-07-20T19:35:44+08:00">July 20, 2010</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>From 《Step by step to build a CMDB》步骤17-规划CMDB数据填充</p>
+
+<p>本文描述填充过程的任务3到任务4：</p>
+
+<p><img src="http://martinliu.cn/wp-content/gallery/cmdb/ci-data-mapping.png" alt="ci-data-mapping" /></p>
+
+<p><strong>任务3 映射CI和数据源</strong>
+现在拿出您的CI清单，并把每一类CI与具有相关信息的数据源映射起来。一个简单的电子数据表格，像图17.2一样的就足够了。有更复杂数据需求的大一点的企业可能需要多个数据页或者通过CI分类来连接到不同的数据页。</p>
+
+<p>这项工作的最终目标不仅是识别用以填充CMDB数据源，而且还识别了流程和平台的接触点，有些平台对数据填充是有影响的。这项工作也是至关重要，用来定义数据调和规则，定义数据优先度，这些会在下面的步骤，任务7“建立调和规则”中用的。
+工具映射如下图17.2所示，包括了每一个CI类，相关的属性，相关的关系数据，和数据源。
+图17.2 Ci和数据源之间的对照关系图样例
+您可能会发现一些s数据源之间的重叠，特别是CI库存清单的属性数据。这些数据通常包括唯一物理特性和CI的地点的说明 ，例如：型号、序列号、地点和所有者。此信息可能被存储在其他多个地方，它们也可用于CI数据填充的来源和日常维护的来源。
+多种的资产和库存清单数据来源可能包括如下：</p>
+
+<ul>
+  <li>
+    <p>审计（资产清单或者配置发现数据库；无代理和有代理方式）</p>
+  </li>
+  <li>
+    <p>资产管理系统</p>
+  </li>
+  <li>
+    <p>采购系统和许可证管理</p>
+  </li>
+  <li>
+    <p>财会系统（采购或者收货）</p>
+  </li>
+  <li>
+    <p>合同管理系统</p>
+  </li>
+  <li>
+    <p>变更管理系统</p>
+  </li>
+  <li>
+    <p>其他财务应用和系统</p>
+  </li>
+</ul>
+
+<p><strong>任务4 访问数据源环境</strong>
+为了确保数据质量，你应该访问所有的数据源环境，而不仅仅只是CMDB，还包括连接工具和相关技术，要逐一访问查看每一个数据源。在这里，“进来的是垃圾，出去的就是垃圾”这个俗语是适用的。CMDB项目的成功可能依赖于对系统或者基础架构的更新，以适应网络流量和数据量，还依赖于确保每一个数据源的数据质量。</p>
+
+<p>当你规划CMDB数据填充的时候，要自问这样几个问题，是有关外部映射数据源质量的：</p>
+
+<ul>
+  <li>
+    <p>现在那些信息在那里、怎样被存储的？ –数据库、电子表格、Word文档？</p>
+  </li>
+  <li>
+    <p>当前环境中有没有审计（发现）工具、软件分发、配置管理或者采购系统，用来自动的跟踪和存储这些信息？ 或者数据时被手工地收集和更新的？</p>
+  </li>
+  <li>
+    <p>这些系统是基于开放标准还是私有技术的？</p>
+  </li>
+  <li>
+    <p>这些系统的厂商有没有标准化的工具？或者CMDB厂商？</p>
+  </li>
+  <li>
+    <p>需要被继承的数据源的物理位置在那里？</p>
+  </li>
+  <li>
+    <p>在CMDB和数据源之间，通讯的方式是双向的还是单向的？</p>
+  </li>
+</ul>
+
+<p>还要考虑有关映射数据源性能相关的问题：</p>
+
+<ul>
+  <li>
+    <p>就当前的数据源来说，现实的性能、容量和可靠性是怎样的？</p>
+  </li>
+  <li>
+    <p>系统上当前的活动状况怎样？</p>
+  </li>
+  <li>
+    <p>活动用户数</p>
+  </li>
+  <li>
+    <p>其他并发继承此数据源的工具</p>
+  </li>
+  <li>
+    <p>备份、病毒扫描、报表或者数据挖掘的日程</p>
+  </li>
+  <li>
+    <p>审计工具（配置发现或者库存清单）扫描或者排队日程</p>
+  </li>
+  <li>
+    <p>其他任何将影响性能的事情</p>
+  </li>
+  <li>
+    <p>硬件和当前环境是不是能完全满足今后数据迁移所需要的附加工作量和空间需求？以及满足对于以后的日常数据同步？有没有对今后几年里增长率有做过计算？</p>
+  </li>
+  <li>
+    <p>是不是需要考虑要满足什么约束或者特殊权限？</p>
+  </li>
+  <li>
+    <p>厂商是否在与他们数据库集成方面有建议的最佳实践？（使用热备的生产机来降低作业压力）</p>
+  </li>
+  <li>
+    <p>CMDB周边的数据集和连接技术是什么？</p>
+  </li>
+  <li>
+    <p>网络环境中物理的限制（带宽、距离等）是否会有影响？</p>
+  </li>
+  <li>
+    <p>当前的版本是多少？在以后的六个月或者一年里是否有升级的计划？有哪些好处？</p>
+  </li>
+  <li>
+    <p>为当前的解决方案是否得到了足够的资料来负责架构、排错以及连接系统的维护？</p>
+  </li>
+</ul>
+
+<p>通过尽早的回答这些问题，就可以避免后续可能出现的性能问题，那些问题会影响项目的成功。如果数据源不太可靠，而且数据质量和性能方面是有问题的，这个时候，可以回到这些数据的关键利益相关者那里，与他们讨论，并确定这是否会影响到使用方面的关键需求。如果没有，需要把这部分数据需求从CMDB项目计划的第一阶段中展示放弃。这里最重要的是第一阶段的合理部署，实施结果能够获得用户全面的适应。然而，如果这些数据依然是比较关键的需求，那么需要与数据所有者，和收益者各方进行沟通，并引起各方的高度重视，共同确定一个解决方案。</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#Atrium" title="Pages tagged Atrium" class="tag"><span class="term">Atrium</span></a><a href="/tags/#cmdb" title="Pages tagged cmdb" class="tag"><span class="term">cmdb</span></a><a href="/tags/#cms" title="Pages tagged cms" class="tag"><span class="term">cms</span></a><a href="/tags/#ITIL" title="Pages tagged ITIL" class="tag"><span class="term">ITIL</span></a><a href="/tags/#ITSM" title="Pages tagged ITSM" class="tag"><span class="term">ITSM</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2010/07/20/cmdb003/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2010/07/20/cmdb003/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2010/07/20/cmdb003/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2010/07/20/plan-cmdb-population-002/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>

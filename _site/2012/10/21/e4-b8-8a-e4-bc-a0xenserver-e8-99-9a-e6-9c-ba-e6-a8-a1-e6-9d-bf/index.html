@@ -1,0 +1,213 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>上传XenServer虚机模板 &#8211; Martin's Blog</title>
+<meta name="description" content="DevOps Coach & Cloud Expert">
+<meta name="keywords" content="bz2, cloudstack, nfs, tar, vhd, vhd.bz2, xenserver">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="上传XenServer虚机模板">
+<meta name="twitter:description" content="DevOps Coach & Cloud Expert">
+<meta name="twitter:creator" content="@zliu">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="上传XenServer虚机模板">
+<meta property="og:description" content="DevOps Coach & Cloud Expert">
+<meta property="og:url" content="/2012/10/21/e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/">
+<meta property="og:site_name" content="Martin's Blog">
+
+
+
+
+
+<link rel="canonical" href="/2012/10/21/e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<h4>Martin Liu</h4>
+					<p>DevOps Coach, Cloud Expert, Runner</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/zliu"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				
+				<li>
+					<a href="https://google.com/+MartinLiu-cn"><i class="fa fa-fw fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://linkedin.com/in/liuzheng"><i class="fa fa-fw fa-linkedin"></i> LinkedIn</a>
+				</li>
+				<li>
+					<a href="https://github.com/martinliu"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	    <li><a href="/about/" >About</a></li>
+	  
+	    
+	    <li><a href="http://mademistakes.com" target="_blank">Ex site</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/2012/10/21/e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/" rel="bookmark" title="上传XenServer虚机模板">上传XenServer虚机模板</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2012-10-21T16:05:31+08:00">October 21, 2012</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>目标：在XenServer上生成CloudStack所需要的操作系统模板，转换成CloudStack所需要的格式，上传模板，测试使用模板创建的虚拟机。</p>
+
+<p>在一个XenServer上安装目标操作系统，选择合适的版本，位数，安装xentools，安装需要的补丁，安装完毕之后关机待用。你建立的虚拟机是建在了NFS SR上的，那么就简单了，直接去NFS SR里面找到这个虚拟机的文件，文件应该是vhd文件，直接压缩为bz2格式的就ok了。如果虚拟机建立在了本地硬盘、iscsi或者FS等块存储上了，就稍微麻烦一点。一个最简单的方法，在www（如果是linux apache）下载服务器上建立一个nfs文件夹，用XenCenter建立一个新的SR，把这个nfs文件夹挂上。选择需要的模板虚拟机，选择Copy VM右键菜单，选择Full Copy，选中刚才建立的nfs SR；等待虚拟机复制完成，去nfs文件夹下面看看文件的大小是否正常，必要的话可以把这个copy出来的新虚拟机启动一下，看是否可以正常运行。</p>
+
+<p>在nfs文件夹下面看到vhd文件后，就可以使用tar jcf命令压缩模板了，tar的压缩能力蛮强的，win2008 r2 sp1虚拟机vhd文件大小是8个多GB，压缩之后只有3个多GB。把压缩后的vhd.bz2文件放到合适的地方，在浏览器里面测试一下这个文件的下载地址是否正常。</p>
+
+<p>登陆CloudStack，选择模板，选择注册新模板。这个过程一般可能10~20分钟和你的机器的速度有关，注册的过程是，先下载然后在辅助出差上解压模板的过程，在这个过程中，可以在辅助存储中的目录里面查看解压的过程，可以看到文件的大小从3。2GB的临时文件涨到8GB多的过程。等模板有变为vhd文件后，刷新模板的状态，最终状态为ready。</p>
+
+<p>下面可以测试模板了，创建一个实例，选择该模板，看测试vm在CloudStack是否能够正常运行。</p>
+
+<p>参考文章：</p>
+
+<p><a href="http://docs.cloudstack.org/Knowledge_Base/How_to_upload_a_OVA_or_XVA_template">How to upload a OVA or XVA template</a>
+<a href="http://linux.dsplabs.com.au/tar-how-to-create-and-extract-tar-gz-and-bz2-compressed-archives-under-linux-p39/">how to create and extract tar.gz and tar.bz2</a></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/tags/#bz2" title="Pages tagged bz2" class="tag"><span class="term">bz2</span></a><a href="/tags/#cloudstack" title="Pages tagged cloudstack" class="tag"><span class="term">cloudstack</span></a><a href="/tags/#nfs" title="Pages tagged nfs" class="tag"><span class="term">nfs</span></a><a href="/tags/#tar" title="Pages tagged tar" class="tag"><span class="term">tar</span></a><a href="/tags/#vhd" title="Pages tagged vhd" class="tag"><span class="term">vhd</span></a><a href="/tags/#vhd.bz2" title="Pages tagged vhd.bz2" class="tag"><span class="term">vhd.bz2</span></a><a href="/tags/#xenserver" title="Pages tagged xenserver" class="tag"><span class="term">xenserver</span></a></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2012/10/21/e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2012/10/21/e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/2012/10/21/e4-b8-8a-e4-bc-a0xenserver-e8-99-9a-e6-9c-ba-e6-a8-a1-e6-9d-bf/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/2012/10/04/e4-b8-8a-e5-bc-80-e6-ba-90-e9-9c-80-e8-b0-a8-e6-85-8e-e9-80-89openstack-e9-98-b2-e5-bf-bd-e6-82-a0/" class="read-more-btn">Read More</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h3>
+      <p>首先使用ssh登录cvm，进入acropolis命令行。## 找出模板对应的虚拟机使用 vm.disk_get 命令，按多次tab，显示虚拟机清单，复制模板机名称~~~ vm.disk_get vm-fedora25ide.0 {  addr {    bus: "ide"...&hellip; <a href="/2017/01/10/clone-ahv-vm-template/">Continue reading</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/2017/01/07/devops-glossary/" title="DevOps术语表">DevOps术语表</a></h4>
+        <span>Published on January 07, 2017</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2017 Martin Liu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/hpstr-jekyll-theme/" rel="nofollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+	        
+
+</body>
+</html>
