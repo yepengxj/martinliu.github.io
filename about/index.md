@@ -20,4 +20,4 @@ modified: 2016-02-01
 * 微信： martinliu_cn  
 
 
-![Martin Liu wechat ](/img/martinliu-weichat.jpg)
+![Martin Liu wechat ](/images/martinliu-weichat.jpg)
