@@ -11,7 +11,7 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="/images/">
+<meta name="twitter:image" content="http://martinliu.cn/images/">
 <meta name="twitter:title" content="PostgreSQL基本操作指南">
 <meta name="twitter:description" content="DevOps Coach & Cloud Expert">
 <meta name="twitter:creator" content="@zliu">
@@ -21,15 +21,15 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="PostgreSQL基本操作指南">
 <meta property="og:description" content="DevOps Coach & Cloud Expert">
-<meta property="og:url" content="/2008/04/03/postsql-basic-admin/">
+<meta property="og:url" content="http://martinliu.cn/2008/04/03/postsql-basic-admin/">
 <meta property="og:site_name" content="Martin's Blog">
 
+<meta name="google-site-verification" content="4oSwNTpy1vzip3_lt6XhkhMfImCD_DZlvL3K1k-M8qk">
 
 
 
-
-<link rel="canonical" href="/2008/04/03/postsql-basic-admin/">
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
+<link rel="canonical" href="http://martinliu.cn/2008/04/03/postsql-basic-admin/">
+<link href="http://martinliu.cn/feed.xml" type="application/atom+xml" rel="alternate" title="Martin's Blog Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -37,28 +37,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="http://martinliu.cn/assets/css/main.css">
 <!-- Webfonts -->
 <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
 
 <meta http-equiv="cleartype" content="on">
 
 <!-- Load Modernizr -->
-<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+<script src="http://martinliu.cn/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="shortcut icon" href="http://martinliu.cn/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="/favicon.png">
+<link rel="shortcut icon" href="http://martinliu.cn/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon-precomposed" href="http://martinliu.cn/images/apple-touch-icon.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://martinliu.cn/images/apple-touch-icon-72x72.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://martinliu.cn/images/apple-touch-icon-114x114.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://martinliu.cn/images/apple-touch-icon-144x144.png">
 
 
 
@@ -70,16 +70,16 @@
 <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
 	<button class="dl-trigger">Open Menu</button>
 	<ul class="dl-menu">
-		<li><a href="/">首页</a></li>
+		<li><a href="http://martinliu.cn/">首页</a></li>
 		<li>
 			<a href="#">关于</a>
 			<ul class="dl-submenu">
 				<li>
-					<img src="/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
+					<img src="http://martinliu.cn/images/avatar.jpg" alt="Martin Liu photo" class="author-photo">
 					<h4>Martin Liu</h4>
 					<p>DevOps Coach, Cloud Expert, Runner</p>
 				</li>
-				<li><a href="/about/"><span class="btn btn-inverse">详情</span></a></li>
+				<li><a href="http://martinliu.cn/about/"><span class="btn btn-inverse">详情</span></a></li>
 				<li>
 					<a href="mailto:67120666@qq.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
 				</li>
@@ -105,8 +105,8 @@
 		<li>
 			<a href="#">文章</a>
 			<ul class="dl-submenu">
-				<li><a href="/posts/">所有文章</a></li>
-				<li><a href="/tags/">所有分类</a></li>
+				<li><a href="http://martinliu.cn/posts/">所有文章</a></li>
+				<li><a href="http://martinliu.cn/tags/">所有分类</a></li>
 			</ul>
 		</li>
 		
@@ -127,7 +127,7 @@
     <header class="header-title">
       <div class="header-title-wrap">
         
-          <h1 class="entry-title"><a href="/2008/04/03/postsql-basic-admin/" rel="bookmark" title="PostgreSQL基本操作指南">PostgreSQL基本操作指南</a></h1>
+          <h1 class="entry-title"><a href="http://martinliu.cn/2008/04/03/postsql-basic-admin/" rel="bookmark" title="PostgreSQL基本操作指南">PostgreSQL基本操作指南</a></h1>
         
         <h2><span class="entry-date date published"><time datetime="2008-04-03T16:25:44+08:00">April 03, 2008</time></span></h2>
         
@@ -165,13 +165,13 @@ Reading time ~1 minute
 <blockquote># Put your actual configuration here<br /># ----------------------------------<br />#<br /># CAUTION: The default configuration allows any local user to connect<br /># using any PostgreSQL user name, including the superuser, over either<br /># Unix-domain sockets or TCP/IP.  If you are on a multiple-user<br /># machine, the default configuration is probably too liberal for you.<br /># Change it to use something other than "trust" authentication.<br />#<br /># If you want to allow non-local connections, you need to add more<br /># "host" records.  Also, remember TCP/IP connections are only enabled<br /># if you enable "tcpip_socket" in postgresql.conf.<br /># TYPE  DATABASE    USER        IP-ADDRESS        IP-MASK           METHOD<br />#访问来源 数据库    用户        IP-地址           子网掩码          认证方式<br />local   typhoon     typhoon                                         md5<br />#对于来自本地的访问，数据库“typhoon”对用户“typhoon”采用“md5”加密口令认证<br />local   typhoon     all                                             reject<br />#对于来自本地的访问，数据库“typhoon”对上面没提到的所有用户无条件拒绝认证<br />host    typhoon     typhoon     255.255.255.255   127.0.0.1         md5<br />#对于来网络的访问，数据库“typhoon”对用户“typhoon”，如果提出访问的是本机，采用“md5”加密口令认证<br />host    typhoon     all         0.0.0.0           0.0.0.0           reject<br />#对于来网络的访问，数据库“typhoon”对上面没提到的所有用户，不管提出访问的哪台机器，也不管它来自哪个子网，无条件拒绝认证<br />local   all         all                                             md5<br />#对于来自本地的访问，上面没提到的数据库对上面没提到的所有用户采用“md5”加密口令认证<br />host    all         all         0.0.0.0           0.0.0.0           md5<br />#对于来网络的访问，数上面没提到的数据库对上面没提到的所有用户，不管提出访问的哪台机器，也不管它来自哪个子网，采用“md5”加密口令认证<br />########################################<br />#   Others are all denied   其他访问一概无条件拒绝<br />local   all         all                                             reject<br />host    all         all         0.0.0.0           0.0.0.0           teject<br />########################################<br />########################################<br />#   All denied permissed, not safe<br />#   对所有访问都信任，太不安全，被我禁止掉了，只作为参考<br />#local   all         all                                             trust<br />#host    all         all         0.0.0.0           0.0.0.0           trust<br />########################################<br />这些认证的规则是从上到下一条一条加载的，要注意的是，里面的“all”并不是真正意义上的“所有”，只是前面的规定中没有提到的那部分。个人感觉用“other”也许更恰当。<br />这样，最终的结果是：<br />所有用户都能通过加密口令访问“typhoon”以外的数据库，但是只有用户“typhoon”能以加密口令访问数据库“typhoon”。<br />操作篇<br />[客户端基本连接操作]====================<br />*查看PostgreSQL的系统表：<br />(摸索/查找中)<br />*终端登录：<br />psql -l[主机名/IP] -d[数据库名] -U[用户名]<br />*连接到另外一个数据库：<br />\c [数据库名]<br />*断开终端：<br />\q<br />========================================<br />[基本用户管理]==========================<br />*添加用户：<br />create user [用户名];<br />*修改用户密码：<br />alter user [用户名] with password [口令];<br />*删除用户：<br />drop user [用户名];<br />*查看用户信息：<br />(摸索/查找中)<br />========================================<br />[基本数据库操作]========================<br />*创建数据库：<br />create database [数据库名];<br />*查看数据库列表：<br />\d<br />*删除数据库：<br />drop database [数据库名];<br />*修改数据库的所有者：<br />(摸索/查找中)<br />========================================<br />[数据库内基本操作]======================<br />*给予某用户在某数据库创建表的授权：<br />(摸索/查找中)<br />*收回某用户在某数据库创建表的授权：<br />(摸索/查找中)<br />创建表：<br />create table ([字段名1] [类型1] &lt;references 关联表名(关联的字段名)&gt;,[字段名2] [类型2],......&lt;,primary key (字段名m,字段名n,...)&gt;);<br />*查看表名列表：<br />\d<br />*查看某个表的状况：<br />\d [表名]<br />*重命名一个表：<br />alter table [表名A] rename to [表名B];<br />*修改表的所有者：<br />(摸索/查找中)<br />*删除一个表：<br />drop table [表名];<br />========================================<br />[表内基本操作]==========================<br />*在已有的表里添加字段：<br />alter table [表名] add column [字段名] [类型];<br />*删除表中的字段：<br />alter table [表名] drop column [字段名];<br />*重命名一个字段：<br />alter table [表名] rename column [字段名A] to [字段名B];</blockquote>
 
       <footer class="entry-meta">
-        <span class="entry-tags"><a href="/tags/#PostgreSQL" title="Pages tagged PostgreSQL" class="tag"><span class="term">PostgreSQL</span></a></span>
+        <span class="entry-tags"><a href="http://martinliu.cn/tags/#PostgreSQL" title="Pages tagged PostgreSQL" class="tag"><span class="term">PostgreSQL</span></a></span>
         
         <div class="social-share">
   <ul class="socialcount socialcount-small inline-list">
-    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/2008/04/03/postsql-basic-admin/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
-    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/2008/04/03/postsql-basic-admin/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
-    <li class="googleplus"><a href="https://plus.google.com/share?url=/2008/04/03/postsql-basic-admin/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=http://martinliu.cn/2008/04/03/postsql-basic-admin/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=http://martinliu.cn/2008/04/03/postsql-basic-admin/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=http://martinliu.cn/2008/04/03/postsql-basic-admin/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
   </ul>
 </div><!-- /.social-share -->
       </footer>
@@ -180,22 +180,22 @@ Reading time ~1 minute
     <div class="read-more">
   
     <div class="read-more-header">
-      <a href="/2008/04/02/vm-jumpbox-rpath-play-oss/" class="read-more-btn">阅读全文</a>
+      <a href="http://martinliu.cn/2008/04/02/vm-jumpbox-rpath-play-oss/" class="read-more-btn">阅读全文</a>
     </div><!-- /.read-more-header -->
     <div class="read-more-content">
-      <h3><a href="/2017/01/27/kyoto/" title="日本旅行-第一部分京都休闲游">日本旅行-第一部分京都休闲游</a></h3>
-      <p>首次到日本玩，第一站到了京都，休闲待了几天。 <a href="/2017/01/27/kyoto/">阅读全文</a></p>
+      <h3><a href="http://martinliu.cn/2017/01/27/kyoto/" title="日本旅行-第一部分京都休闲游">日本旅行-第一部分京都休闲游</a></h3>
+      <p>首次到日本玩，第一站到了京都，休闲待了几天。 <a href="http://martinliu.cn/2017/01/27/kyoto/">阅读全文</a></p>
     </div><!-- /.read-more-content -->
   
   <div class="read-more-list">
     
       <div class="list-item">
-        <h4><a href="/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h4>
+        <h4><a href="http://martinliu.cn/2017/01/10/clone-ahv-vm-template/" title="Nutanix AHV 虚拟机模板制作">Nutanix AHV 虚拟机模板制作</a></h4>
         <span>Published on January 10, 2017</span>
       </div><!-- /.list-item -->
     
       <div class="list-item">
-        <h4><a href="/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
+        <h4><a href="http://martinliu.cn/2017/01/07/nutanix-resource-sites/" title="Nutanix资源站点清单">Nutanix资源站点清单</a></h4>
         <span>Published on January 07, 2017</span>
       </div><!-- /.list-item -->
     
@@ -213,9 +213,21 @@ Reading time ~1 minute
 </div><!-- /.footer-wrapper -->
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="http://martinliu.cn/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="http://martinliu.cn/assets/js/scripts.min.js"></script>
 
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-749876-6', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
 
 
 	        
