@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,70 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-07-06T00:49:31+08:00"><a href="http://martinliu.cn/2012/07/06/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">July 06, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2012/07/06/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/" rel="bookmark" title="[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud" itemprop="url">[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：<a href="http://blogs.citrix.com/2012/07/03/reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</a></p>
+
+<p>下面是硬件的测试架构，使用的服务器是UCS 14刀，NatApp存储，Hyper-V，加载XenDesktop 5.6</p>
+
+<p><a href="http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview.png"><img src="http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview-1024x743.png" alt="" /></a></p>
+
+<p><strong><em>Test Results</em></strong></p>
+
+<p>The reference implementation achieved impressive results in our test runs, especially in comparison to previous testing with earlier generation Cisco blades. As a matter of fact, the tested configuration reduced the rack space needed to support 2000 users, decreasing it from 30 Rack Units (RUs) to 12 RUs. This density can help to lower power use, which directly translates into energy savings.</p>
+
+<p>The results specifically showed that the Cisco UCS B230 M2 half-width blade (featuring dual-socket, 10-core processors and 256GB of memory) can support medium workloads up to 145 users per blade. A single FlexPod VDI design containing two Cisco UCS chassis units with 14 such blades can support at least 2000 virtual desktop workloads while maintaining acceptable response times. The results clearly demonstrated linear scalability of desktop workloads for this reference architecture.  Detailed metrics are given below.</p>
+
+<p>14片在12U的空间上，轻松的支撑了2000个Normal型工作负载的Win7虚拟桌面（1.5GB/8~12IOPS；所有虚拟机开机启动时间为半个小时。平均每个刀片上能够支持145个用户，而且维持了比较合理的用户相应速度。在这个架构中，证明了XenDeskTop可以实现横向扩展的特性。</p>
+
+<p>微软和思科的详细测试报告下载：</p>
+
+<p>[download id=”13” format=”1”]</p>
+
+<p>[download id=”12” format=”1”]</p>
+
+<h2 id="section">微软测试报告中的主要结论：</h2>
+
+<p>Microsoft, Citrix, Cisco, and NetApp successfully validated XenDesktop streaming 2,000 concurrent Windows 7 desktops to virtual machines hosted with Hyper-V. The deployment was built on a 16-node FlexPod with Microsoft Private Cloud infrastructure that comprises the hardware requirements in the Microsoft Private Cloud Fast Track program. The hardware, in conjunction with Windows Server 2008 R2 Enterprise SP1, Hyper-V, System Center 2012, and Citrix XenDesktop 5.6:</p>
+
+<blockquote>
+
+&gt; 
+&gt; 
+	
+&gt;   * Validated that a single instance of Virtual Machine Manager and a single instance of the XenDesktop delivery controller successfully hosted 2,000 VDI workloads.
+&gt; 
+	
+&gt;   * Verified single-server scalability: 143 Windows 7 desktops with 512 MB of dynamic memory (expandable to 2 GB) running knowledge worker load on a single Cisco UCS B230 M2 Blade Server with 20 cores and 256 GB of random access memory (RAM).
+&gt; 
+	
+&gt;   * Validated a fully virtualized environment where all VDI components (such as Active Directory Domain Services, Microsoft SQL Server, VMM, XenDesktop, and Provisioning Server) were run in virtual machines.
+&gt; 
+	
+&gt;   * _**Observed an 80 percent storage savings in comparison to a similar VDI environment without NetApp storage efficiencies.**_
+&gt; 
+
+</blockquote>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -237,34 +295,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>CloudStack3.0.2安装是非常简单容易的，安装的过程，所需要用到的命令，都已经被详细的记录在官方的 <a href="http://download.cloud.com/releases/3.0.0/CloudStack3.0.0-3.0.2QuickInstallGuide.pdf">English</a> 版Quick Install Guide中了。最简洁的安装配置应该是：RHEL6.2 64bit的管理服务器+XenServer6.0.2；原因主是在XenServer这部分非常简单，CloudStack和XenServer使用API通信，只需要在XenServer上安装一个附件包即可。 安装过程中最精彩，可能也是最复杂的部分是在最后的CloudStack初始化向导那里。这个向导特别具有开源软件的风范，我接触过的很多OSS都是通过这样一个友好的向导，帮你做初始化设置的。它复杂在于，CloudStack的一些基本的概念，如果你对这些概念不是很理解可以会有点费劲。不过凭着基本的云计算常识和理解你也不会配置错到哪去，如果那个参数输入的不正确，在初始化的过程中，它还能停止在那个部分，在给你改正参数的机会，这些细节做的还是非常到位，不是傻傻的把你输入的参数直接写库，让你回头troubleshooting都找不到北。这个版本的CloudStack感觉非常不错，需要尝试的朋友，可以马上行动起来了。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-07-01T00:59:56+08:00"><a href="http://martinliu.cn/2012/07/01/magic-quadrant-for-x86-server-virtualization-infrastructure/">July 01, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2012/07/01/magic-quadrant-for-x86-server-virtualization-infrastructure/" rel="bookmark" title="[Gartner 2012-6-11] Magic Quadrant for x86 Server Virtualization Infrastructure" itemprop="url">[Gartner 2012-6-11] Magic Quadrant for x86 Server Virtualization Infrastructure</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>连接地址 ：<a href="http://www.gartner.com/technology/reprints.do?id=1-1AVRXJO&amp;ct=120612&amp;st=sb">http://www.gartner.com/technology/reprints.do?id=1-1AVRXJO&amp;ct;=120612&amp;st;=sb</a></p>
-
-<p>[caption id=”attachment_51747” align=”alignnone” width=”400”]<img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/07/Magic-Quadrant-for-x86-Server-Virtualization-Infrastructure.png" alt="Magic Quadrant for x86 Server Virtualization Infrastructure" /> Magic Quadrant for x86 Server Virtualization Infrastructure[/caption]</p>
-
-<p>报告下载： [download id=”11” format=”1”]</p>
-
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

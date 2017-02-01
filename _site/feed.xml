@@ -1,19 +1,260 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://martinliu.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://martinliu.cn/" rel="alternate" type="text/html" /><updated>2017-01-28T22:43:04+08:00</updated><id>http://martinliu.cn/</id><title>Martin&#39;s Blog</title><subtitle>DevOps Coach &amp; Cloud Expert</subtitle><entry><title>日本旅行-第一部分京都休闲游</title><link href="http://martinliu.cn/2017/01/27/kyoto/" rel="alternate" type="text/html" title="日本旅行-第一部分京都休闲游" /><published>2017-01-27T00:00:00+08:00</published><updated>2017-01-27T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/27/kyoto</id><content type="html" xml:base="http://martinliu.cn/2017/01/27/kyoto/">&lt;p&gt;这次并不是刻意安排来日本，为了和同学凑行程，意外来日本国一游。行程稍微有点周折，从北京–威海–大板西关–京都–大板–大板西关–北京。这个行程的缺点在于选择了同一个城市进出日本。本文讲讲京都的几天。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://martinliu.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://martinliu.cn/" rel="alternate" type="text/html" /><updated>2017-02-01T10:51:09+08:00</updated><id>http://martinliu.cn/</id><title>Martin&#39;s Blog</title><subtitle>DevOps Coach &amp; Cloud Expert</subtitle><entry><title>Nutanix AHV（KVM）Windows虚拟机安装全攻略</title><link href="http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix/" rel="alternate" type="text/html" title="Nutanix AHV（KVM）Windows虚拟机安装全攻略" /><published>2017-01-29T00:00:00+08:00</published><updated>2017-01-29T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix</id><content type="html" xml:base="http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix/">&lt;h1 id=&quot;windows-&quot;&gt;Windows 虚拟机安装&lt;/h1&gt;
+&lt;p&gt;Nutanix的AHV虚拟机是基于KVM的。本文件假设您使用和安装的是Nutanix社区版本的群集。在上面安装Windows虚拟机的步骤如下：&lt;/p&gt;
 
-&lt;h2 id=&quot;section&quot;&gt;住在‘新京极’&lt;/h2&gt;
+&lt;ol&gt;
+  &lt;li&gt;下载操作系统安装光盘&lt;/li&gt;
+  &lt;li&gt;上传操作系统安装光盘到Nutanix群集 （安装Windows虚拟机需要 Fedora virtio 驱动）&lt;/li&gt;
+  &lt;li&gt;新建和配置虚拟机&lt;/li&gt;
+  &lt;li&gt;安装OS&lt;/li&gt;
+  &lt;li&gt;安装Nutanix Guest Tools （NGT）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;下面用安装Windows 10举例，说明详细的安装步骤。&lt;/p&gt;
+
+&lt;h2 id=&quot;iso&quot;&gt;第一步：下载操作系统 ISO&lt;/h2&gt;
+&lt;p&gt;如果你需要下载 Ubuntu Desktop &lt;a href=&quot;https://www.ubuntu.com/desktop&quot;&gt;点这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;从微软的TechNet Evaluation Center下载 &lt;a href=&quot;https://www.microsoft.com/en-us/evalcenter/&quot;&gt;Microsoft ISO&lt;/a&gt; 注意，评估的服务器版只能使用180天，桌面版能使用90天。&lt;/p&gt;
+
+&lt;h2 id=&quot;isonutanix&quot;&gt;第二步：上传ISO文件到Nutanix群集&lt;/h2&gt;
+&lt;p&gt;Nutanix群集上提供了镜像服务，可以存储几种格式的镜像：ISO格式的操作系统安装镜像，虚拟机的磁盘(如KVM格式等)。这些镜像文件可以被虚拟机通过挂载CD-ROM设备使用，或者直接克隆出虚拟机的磁盘。操作步骤如下。&lt;/p&gt;
+
+&lt;p&gt;点击右上角的齿轮图标，选择image configuration
+&lt;img src=&quot;/images/14857476024029.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 upload image按钮&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857476555578.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;界面字段解释：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Name: 镜像文件的名字（用ISO来与磁盘镜像区分一下）&lt;/li&gt;
+  &lt;li&gt;Image Type: 选择 ISO&lt;/li&gt;
+  &lt;li&gt;Container: 选择用来存储ISO文件的容器&lt;/li&gt;
+  &lt;li&gt;Image Source: 选择上传文件作为镜像来源&lt;/li&gt;
+  &lt;li&gt;Save: 点击Save按钮可以看到上传的进度条。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857477053373.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在上传成功之后，镜像清单中显示刚才的镜像为 Active 状态。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857479049693.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于Nutanix的hypervisor是基于Linux KVM技术，它需要附加的Windows驱动，需要下载 Fedora Windows virtio 驱动。 下载地址如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://fedoraproject.org/wiki/Windows_Virtio_Drivers&quot;&gt;https://fedoraproject.org/wiki/Windows_Virtio_Drivers&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;点击第三条 Direct download&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857480805485.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 “Stable virtio-win iso” 下载最新的驱动 ISO 文件。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857481167991.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下载到的文件名如：virtio-win-0.1.126.iso；重复上述Windows IOS文件上传的步骤，把这个文件上传到镜像服务中。&lt;/p&gt;
+
+&lt;p&gt;Fedora 的开源版 VirtIO驱动和Nutanix的版本稍微有些不同。Nutanix的 VirtioIO驱动是经过数字签名的，能从Nutanix客户门户下载。由于Nutanix CE社区版是提供给所有人做体验测试的，因此这里使用的是开源版本的VirtioIO驱动，而不是Nutanix的官方版本的驱动。&lt;/p&gt;
+
+&lt;p&gt;##第三步：创建和配置虚拟机&lt;/p&gt;
+
+&lt;p&gt;我们已经准备好了Windows 10 ISO文件和 Fedora VirtIO驱动IOS文件，现在可以安装虚拟机了。步骤如下：&lt;/p&gt;
+
+&lt;p&gt;点击 Home–VM&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857485236059.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击右侧的 Create VM 按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857485706681.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在下面的页面中输入虚拟机的配置。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857486182975.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/images/14857486277811.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;主要配置介绍如下：
+&lt;img src=&quot;/images/14857486605678.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Name: Win10Desktop  虚拟机的名称&lt;/li&gt;
+  &lt;li&gt;vCPUs: 2  两颗虚拟CPU&lt;/li&gt;
+  &lt;li&gt;Number of Cores per vCPU: 1&lt;/li&gt;
+  &lt;li&gt;Memory: 2GB (只是做测试的话，2GB可以了)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面添加用于虚拟机挂载Windows 10 安装盘的 CDROM设备。删除默认的CDROM设备。
+&lt;img src=&quot;/images/14857489095951.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于偶尔安装Windows 10的时候默认的CDROM驱动器中Fedora Virtio驱动会显示不出来，因此删除默认的CDROM设备。&lt;/p&gt;
+
+&lt;p&gt;添加vm系统安装的磁盘。点击添加磁盘，输入如下实例信息，得到一块40GB的SCSI磁盘用来安装Window 10操作系统。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857490738212.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;添加一个新的CDROM驱动盘，用来挂载 Windows 10 的ISO镜像文件，如下图所示。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Type: CDROM 类型&lt;/li&gt;
+  &lt;li&gt;Operation: Clone from Image Service&lt;/li&gt;
+  &lt;li&gt;Bus Type: IDE 类型的应该是默认类型&lt;/li&gt;
+  &lt;li&gt;Image: 选择刚才上传的 Win10ISO&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857492195172.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;添加一个新的CDROM设备，用来挂载 Fedora Virtio驱动IOS文件，如下图所示。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Type: CDROM 类型&lt;/li&gt;
+  &lt;li&gt;Operation: Clone from Image Service&lt;/li&gt;
+  &lt;li&gt;Bus Type: IDE&lt;/li&gt;
+  &lt;li&gt;Image: 选择 FedoraVirtISO&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;配置完成之后的磁盘配置布局如下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857493954380.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在来添加网卡，点击下面的按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857494220235.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;使用默认的ID为0的网络，如下图所示。（此VLAN时之前建立好的）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857494722709.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;现在所有配置都已经完成，点击 Save 保存按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857495029831.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;页面的状态栏会出现一个绿色的执行的提示，表示后天虚拟机正在创建中。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857495959115.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;第四步：运行并安装虚拟机&lt;/h2&gt;
+
+&lt;p&gt;做如下操作来开启并运行虚拟机，进入Windows操作系统的安装过程。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;点击到 VM 视图&lt;/li&gt;
+  &lt;li&gt;点击 Table&lt;/li&gt;
+  &lt;li&gt;点击  Win10Desktop VM 刚才创建的虚拟机&lt;/li&gt;
+  &lt;li&gt;点击  Power on&lt;/li&gt;
+  &lt;li&gt;当 VM 启动了, 点击  Launch Console 进入控制台页面。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857496408859.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在Windows安装的界面，选择Custom ：高级安装选项。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857499695677.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由于我们使用的 AHV 是KVM虚拟化，所以需要加载Virtio驱动。点击 Load Driver 按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857502423986.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 Browse 浏览。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857502795932.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击并浏览驱动器 E： （这是之前我们挂载 Fedora Virtio ISO文件的CDROM）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857503335113.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;浏览驱动盘到目录 vioscsi&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857504369501.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选择 w10 目录&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857504579467.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选择 amd64 目录，点击 ok&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857504816806.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选择所显示出来的 Red Hat VirtIO SCSI 驱动，点击 Next&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857505411190.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样刚才创建的 40GB的磁盘就可以看到了，选择 Next&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14857506028586.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击了 Next 按钮之后， Windows 10 开始安装，这个过程大约是3~10分钟不等。最后就到了Windows的账户创建的环节。虽然现在Windows已经安装完成了，还需要进入Windows的设备管理器中查看一下，设备的状态。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;右击Windows的图标&lt;/li&gt;
+  &lt;li&gt;选择 Device Manager&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858815713785.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在设备官开启中，我们需要更新一下网卡设备的驱动。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858816384447.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;右击网卡设备，选择 Update Driver Software…&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858816757065.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 Browse，选择当前的 virtio-win-0.11 ，也就是 Fedora VirtIO 驱动的光驱设备，点击 Next&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858817470182.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;选中了合适的目录后，网卡设备的驱动安装正常了显示如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858818602337.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;到目前为止，我们的Windows 10 虚拟机安装完毕了。&lt;/p&gt;
+
+&lt;h2 id=&quot;nutanix-guest-tools-ngt&quot;&gt;第五步： 安装Nutanix Guest Tools （NGT）&lt;/h2&gt;
+
+&lt;p&gt;Nutanix Guest Tools 可以实现自服务恢复和应用一致性快照功能，它需要Microsoft Volume Shadow Copy Services (VSS)服务的配合。下面来安装它。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;进入虚拟机的清单视图&lt;/li&gt;
+  &lt;li&gt;点击 Table&lt;/li&gt;
+  &lt;li&gt;点击选中刚才安装的Windows 10 虚拟机&lt;/li&gt;
+  &lt;li&gt;点击 Enable NGT （这个操作需要有一个空闲的CDROM设备，可以点击虚拟机的编辑，把之前的两个光驱中挂载的ISO盘退出一个）&lt;/li&gt;
+  &lt;li&gt;在后续的窗口中点击 Yes&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858821642374.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在网页上成功启用了NGT之后，进入Windows 10桌面的控制台页面。打开Windows的资源管理器，双击带有Nutanix图标的CDROM设备，进入该设备安装NGT软件。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858823586478.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;点击 Install 按钮。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/14858823893756.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;跟随安装向导完成NGT的安装。安装完成之后，在Windows10中关机，在网页上编辑这个虚拟机的配置，删除多余的CDROM设备，之后在开机。至此Windows10虚拟机的安装过程全部完毕。&lt;/p&gt;
+
+&lt;p&gt;扩展阅读：&lt;a href=&quot;http://martinliu.cn/2017/01/10/clone-ahv-vm-template/&quot;&gt;Nutanix AHV 虚拟机模板制作&lt;/a&gt;&lt;/p&gt;</content><category term="Nutanix" /><summary>Windows 虚拟机安装
+Nutanix的AHV虚拟机是基于KVM的。本文件假设您使用和安装的是Nutanix社区版本的群集。在上面安装Windows虚拟机的步骤如下：</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;p014h7g3.jpg&quot;}" /></entry><entry><title>日本旅行-第一部分京都休闲游</title><link href="http://martinliu.cn/2017/01/27/kyoto/" rel="alternate" type="text/html" title="日本旅行-第一部分京都休闲游" /><published>2017-01-27T00:00:00+08:00</published><updated>2017-01-27T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/27/kyoto</id><content type="html" xml:base="http://martinliu.cn/2017/01/27/kyoto/">&lt;p&gt;这次并不是刻意安排来日本，为了和同学凑行程，意外来日本国一游。行程稍微有点周折，从北京–威海–大板西关–京都–大板–大板西关–北京。这个行程的缺点在于选择了同一个城市进出日本。本文讲讲京都的几天。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;新京极&lt;/h2&gt;
+
 &lt;p&gt;在京都期间都住在了锦市场北边的一个市场附近的一家Airbnb。其实从锦市场到新京极的几个街区中间是京都市中心附近。从住所往北一站就是京都市的市政厅。往北一站就是鸭川，这是一条从北到南穿过京都市区的河流，冬季河水特别浅。&lt;/p&gt;
 
 &lt;p&gt;住所在市场旁边吃喝玩逛都非常方便。属于在居民楼中的一个商住楼。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/IMG_3411.jpg&quot; alt=&quot;IMG_3411&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;由于这个区域靠近商业中心，因此楼下临街商业也很发达，大街小巷遍布着各种饭馆和小店，买什么的都有。&lt;/p&gt;
+&lt;p&gt;由于这个区域靠近商业中心，因此楼下临街商业也很发达，大街小巷遍布着各种饭馆和小店，买什么的都有。各种类型的各式各样的小店。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-1&quot;&gt;伏见稻荷大社访问狐狸大神&lt;/h2&gt;
+&lt;h2 id=&quot;section-1&quot;&gt;伏见稻荷&lt;/h2&gt;
 
-&lt;p&gt;这里是一座山伏见稻荷山所在，山上的这个神庙以它的狐狸大神最为有名。从下图可以看出，这座香火旺盛的主庙的屋脊还是有唐朝的感觉。&lt;/p&gt;
+&lt;p&gt;这里是一座山伏见稻荷山所在，山上的这个神庙以它的狐狸大神最为有名。从下图可以看出，这座香火旺盛的主庙的屋脊还是有唐朝的感觉。即使是工作日也有很多人专门来这里朝拜。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/images/IMG_3417.jpg&quot; alt=&quot;IMG_3417&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;除了在正门的主殿有人朝拜，还有山上的其它地方，凡是有人供奉的地方的石台上，都是有人书有供奉者的名字，或者是毛笔写的或者是石刻的。&lt;/p&gt;
 
 &lt;p&gt;From &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E4%BC%8F%E8%A6%8B%E7%A8%BB%E8%8D%B7%E5%A4%A7%E7%A4%BE&quot;&gt;wiki&lt;/a&gt;&lt;/p&gt;
 
@@ -24,11 +265,18 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/IMG_3414.jpg&quot; alt=&quot;IMG_3414&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;从右侧上山，到山顶后从左侧下山，如果走的快的话，两个小时左右可以玩完。这里可以看到日本所信奉的神的多样性。&lt;/p&gt;
+&lt;p&gt;从右侧上山，到山顶后从左侧下山，如果走的快的话，两个小时左右可以玩完。这里可以看到日本所信奉的神的多样性。各种植物、动物和农业相关的东西比较多。&lt;/p&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;奈良喂小鹿&lt;/h2&gt;
-&lt;p&gt;奈良到京都不远。来这里大部分时间都放在了，带孩子喂鹿上了，基本没有怎么逛著名的东大寺。
-&lt;img src=&quot;/images/IMG_3430.jpg&quot; alt=&quot;IMG_3430&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;我们走到半山腰的一个桔园时，有些迷路的感觉，觉得找不到路了。有一个出租车司机回家，把车停到了路边换鞋回家；看到我们似乎找不到路了，他回家后拿来一张地图给我们指路。由于日本的英语真的不通，他所以回家那地图来，大约至少用了他四十分钟的时间，拿着地图来告诉我们继续向前走就可以到山顶了。他说的所有话里面，就两个词可以听懂“Top”和“thirty minutes”；很感谢这个指路人。&lt;/p&gt;
+
+&lt;p&gt;上顶上有一个能够俯瞰市区景色的地方，几排长椅上，人们一边看风景，一遍晒太阳，还是很休闲的。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;奈良&lt;/h2&gt;
+&lt;p&gt;奈良到京都不远。来这里大部分时间都放在了，带孩子喂鹿上了，基本没有怎么逛著名的东大寺。&lt;/p&gt;
+
+&lt;p&gt;我们在路上换车的时候，做错了车，做了一辆特急的快车，结果需要补票花了1千多。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/IMG_3430.jpg&quot; alt=&quot;IMG_3430&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;出了地铁站不远，就可以看到奈良公园的小鹿，一波一波的喂鹿，孩子总是能想出各种奇思妙想的喂法，基本一天没干别的。&lt;/p&gt;
 
@@ -41,9 +289,11 @@
 
 &lt;p&gt;&lt;img src=&quot;/images/IMG_3439.jpg&quot; alt=&quot;IMG_3439&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;最后到寺院里面转了一圈依然下班了。&lt;/p&gt;
+&lt;p&gt;最后到寺院里面转了一圈依然下班了。发现日本的景点都是在寺庙附近的；和各种大寺相关的公园非常多，有寺庙，就有公园，就有风景。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;二条城&lt;/h2&gt;
+
+&lt;p&gt;这个城是一个将军府，距离天皇住所不远。麻雀虽小五脏俱全，它内城和外城，有两层的护城河，城墙是很低的。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E4%BA%8C%E6%A2%9D%E5%9F%8E&quot;&gt;From wiki&lt;/a&gt;&lt;/p&gt;
 
@@ -60,8 +310,11 @@
 &lt;p&gt;我下图的跑步路线大约就是鸭川的主要部分。其中三条到5条的河岸左侧就是京都旧市井的所在，感觉像是北京的南锣鼓巷，不过原貌保护的更好一些。
 &lt;img src=&quot;/images/IMG_3493.jpg&quot; alt=&quot;IMG_3493&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;##炸猪排饭
-&lt;img src=&quot;/images/IMG_3494.jpg&quot; alt=&quot;IMG_3494&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;section-5&quot;&gt;炸猪排饭&lt;/h2&gt;
+
+&lt;p&gt;日餐里面的食物和中餐是非常相似的，随便进一个店，都不用为吃啥发愁；有些饭馆是有日文、英语和中文菜单的。下图是一家专门做炸猪排饭的饭馆。这家饭馆主要做三总餐：炸猪排饭、红烧猪排饭和炸大虾饭。套餐的价格在900日元左右，量还是比较多的。我点了一杯扎啤配炸猪排饭味道非常好。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/IMG_3494.jpg&quot; alt=&quot;炸猪排&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;这家餐厅吃了两次，感觉非常好，年长的老人在店里带领几个非常年轻的孩子们，把这家店搭理的井井有条。看着食物制作的每一个工序，感觉还是不错的。&lt;/p&gt;</content><category term="旅游" /><summary>这次并不是刻意安排来日本，为了和同学凑行程，意外来日本国一游。行程稍微有点周折，从北京–威海–大板西关–京都–大板–大板西关–北京。这个行程的缺点在于选择了同一个城市进出日本。本文讲讲京都的几天。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;p014h7g3.jpg&quot;}" /></entry><entry><title>Nutanix AHV 虚拟机模板制作</title><link href="http://martinliu.cn/2017/01/10/clone-ahv-vm-template/" rel="alternate" type="text/html" title="Nutanix AHV 虚拟机模板制作" /><published>2017-01-10T00:00:00+08:00</published><updated>2017-01-10T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/10/clone-ahv-vm-template</id><content type="html" xml:base="http://martinliu.cn/2017/01/10/clone-ahv-vm-template/">&lt;p&gt;本文描述了AHV虚拟化的虚拟机模板的制作过程。首先使用ssh登录cvm，进入acropolis命令行。&lt;/p&gt;
 
@@ -1119,107 +1372,4 @@ Amazon Best Sellers Rank: #357,633 in Books (See Top 100 in Books)
   &lt;li&gt;&lt;a href=&quot;http://www.dockerinfo.net/1867.html&quot;&gt;Nutanix超”容”合之ACS Docker Volume Plugin的使用和数据持久化测试&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://nutanix.club/&quot;&gt;http://nutanix.club/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://nutanixbible.com/&quot;&gt;Nutanix圣经&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Nutanix" /><summary>Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;HongKongEye_ZH-CN12285832688_1920x1080.jpg&quot;}" /></entry><entry><title>美国西岸旧金山之行</title><link href="http://martinliu.cn/2016/12/31/west-coast-SFO/" rel="alternate" type="text/html" title="美国西岸旧金山之行" /><published>2016-12-31T00:00:00+08:00</published><updated>2016-12-31T00:00:00+08:00</updated><id>http://martinliu.cn/2016/12/31/west-coast-SFO</id><content type="html" xml:base="http://martinliu.cn/2016/12/31/west-coast-SFO/">&lt;p&gt;这次旅行的目的地是硅谷腹地圣何塞，工作了一周之后，周末在旧金山简单游玩了一下。&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;交通&lt;/h2&gt;
-&lt;p&gt;从北京到硅谷（圣何塞）有了海航直飞的飞机还是很方便的，在淡季的时候票价也不错。如果你的目的地就在圣何塞市附近的话，乘坐这个航班无疑是最佳的选择。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2754.jpg&quot; alt=&quot;IMG_2754&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我是星期天从北京出发的，飞机经过了11个多小时的飞行后，抵达圣何塞的时间是：同一天的上午。由于机场离我住的酒店太近了，我就经历了人生第一次，从机场走路去酒店入住。&lt;/p&gt;
-
-&lt;p&gt;我在圣何塞待了大约5天，公司和酒店离的非常近，而且公司每天的餐食足够让人忘记去找饭馆吃饭这回事，这也是我首次出差这么不计较吃饭这回事。&lt;/p&gt;
-
-&lt;p&gt;值得一提的是，一天和一位华人同事聊天，得知他家附近有OUTLETS，当时就说您那天下班回家，求顺道带去。第二天我如约坐上了这位同事的宝马和他一同经历了一次，硅谷人的下班。没想到的不到五点，在从圣何塞去往东湾的路上就非常的堵了，正常情况下40分钟的路程走了快两个小时。不过好在我近半年多创业公司的经理起了大用处，有很多谈资，对于这位硅谷的资深前辈来说也非常有兴趣。&lt;/p&gt;
-
-&lt;p&gt;乘坐Uber替代租车是我本次出行最明智的选择，Uber选择拼车，如果和您同程的话，交通费用会非常的便宜。我的几次必要的打车经历都是用Uber解决的。只是最后一天回家的时候，到时出了状况，由于前一天晚上Uber升级，导致需要密码登录，而我的那个备用手机又没有带，最后只能请房东打了一辆正常的Yellow CAB出租车。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2837.jpg&quot; alt=&quot;IMG_2837&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;乘坐Uber从圣何塞到旧金山市区的那一趟，让我在周五的下午再次领略了硅谷的堵车，足足走了3个多小时。从此我再也不觉得帝都是世界上唯一的堵车严重的城市了。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_3106.jpg&quot; alt=&quot;IMG_3106&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;我在旧金山期间的交通是乘坐公交电车，价格便宜又方便；不过也部分依靠了这个红色旅游巴士，两天45刀的价格倒也不便宜；买票的原因主要是，当我暴走至金门大桥的北岸的时候，觉得好像再也不能走回头路，而且附近并没有方便的公共交通工具。因此就上车了，不过对于第一天的市区游也是增色不少，一下子就让我对三藩市的整个情况摸了个七七八八，对第二天的行程非常有帮助。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_3099.jpg&quot; alt=&quot;IMG_3099&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;上图就是三藩市有名的叮当单车，其实就是有轨电车，由于保留了怀旧的车厢，因此一下子就成为了一个游客必选的项目。如果不是我买了CITY TOUR的票，我肯定也会去体验一把。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;公司&lt;/h2&gt;
-&lt;p&gt;Nutanix是我工作十几年来所加入的一家最年轻的公司，这家公司在16年9月刚刚IPO，公司只有六七年的时间，超融合架构这块独特的市场空间可以说是他们创造的。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2757.jpg&quot; alt=&quot;IMG_2757&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;公司目前还在一栋很平常的办公楼中，由于人员扩张的比较快，左侧的那栋楼也几层入住了。公司的文化还保留了比较浓的创业公司的气质，这么说是由于，公司的中高层大部分已经被来自于：VMWare、EMC、NetApp、Dell、HP等大公司的职业经理人们占据了，公司的执行层面上是不折不扣的职业经理人负责的路线，几天的培训下来，感觉所有的人都赶紧十足，大家对市场和机遇的感受和我们之前经历的所有公司都是不同的。很多本次一起来的同事中，有的是已经有一两年的Nutanix产品经验的，有的已经入职了半年左右的；相比之下我是第二周上班的新丁，在几天的培训过程中，我也是只有沉默的份。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2790.jpg&quot; alt=&quot;IMG_2790&quot; /&gt;
-两个大冰箱，左边其实还有一个冰箱一个冰柜，里面都是各种饮料和食品。
-&lt;img src=&quot;/images/IMG_2791.jpg&quot; alt=&quot;IMG_2791&quot; /&gt;
-这些小货架上是零食和水果。这间屋子有人搭理，会及时补充缺少了的食品。这几天的培训管两餐，在加上这些零食和补给，基本上晚餐不吃也行了。到下班的时候，可以看见有人在这些货架和冰箱里自然地往背包里装东西，后来的两天里面我晚餐基本没有出去，和很快学会这种行为也很有关，晚餐不吃的另外一个原因是时差。这次我经理了前所未有的严重的时差，几乎每天下午6点左右就困得快要昏倒，到凌晨3点左右肯定是清醒的。当然这些食品肯定比不上一线的互联网公司，可是也基本上赶超了我之前所经理过的所有的传统公司的情况。工作相关的内容就此打住。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-2&quot;&gt;游玩&lt;/h2&gt;
-
-&lt;p&gt;我住在了教会区的一个非常安静的民宅里面，是租的Airbnb的房间。房间的外形如下所示。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_3234.jpg&quot; alt=&quot;IMG_3234&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;家里也非常整洁、宽敞和温馨。这家附近有公交车，30分钟可以到达渔人码头所在的北滩。我第一天的路线基本上是从渔人码头沿着海边不行到进门桥下，上桥，从桥上不行到桥的北岸，最CITY TOUR红色双层BUS，回城区，然后横穿过金门公园内部的一部分，在回到联合广场。之后我有步行到了三藩市的China Town吃饭。一天的暴走下来，其实对这个城市的感觉还是非常不错的。有几个可圈可点之处：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;特色景点比较多，这里不一一枚举，都是大家耳熟能详的&lt;/li&gt;
-  &lt;li&gt;城市地形高低起伏，建筑物各具特色，错落有致，绝无前篇一律的感觉。&lt;/li&gt;
-  &lt;li&gt;城市的色彩丰富，特别是那些个精彩的墙壁彩绘&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section-3&quot;&gt;金门大桥&lt;/h3&gt;
-
-&lt;p&gt;随拍的几张图片如下。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2992.jpg&quot; alt=&quot;IMG_2992&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2979.jpg&quot; alt=&quot;IMG_2979&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2939.jpg&quot; alt=&quot;IMG_2939&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;慕名上桥走一圈的游客还是蛮多的。距离对于我这样的暴走一组来说，也没啥强度。可以感谢的是苍天有眼，让我在这抑郁、寒冷的冬季，让我待了一周已经对天气绝望的心境再次激活。后来要走的几天里，天天是艳阳高照万里无云。&lt;/p&gt;
-
-&lt;h3 id=&quot;section-4&quot;&gt;其他景点&lt;/h3&gt;
-
-&lt;p&gt;渔老人码头比我想象中的小，而且由于并非捕鱼的季节，有赶上是寒冷的冬天，真的也就是觉得是到此一游，没有看到什么特殊的地方。
-&lt;img src=&quot;/images/IMG_3116.jpg&quot; alt=&quot;IMG_3116&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;China Town的墙壁彩绘，不像是人随手为之，而这样质量的墙壁彩绘在三藩市还有很多很多。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_3085.jpg&quot; alt=&quot;IMG_3085&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;金门公园是我这个跑步爱好者的毕竟之地，由于本次身体状态不佳，没有跑在这个公园里面；而是从东门到西门的暴走了一趟。公园的面积其实和纽约的中央公园差不多，也就是从东到西大约5公里左右。&lt;/p&gt;
-
-&lt;p&gt;公园里面被分成了很多不同的区域，正值周末各种狗友、航模、跑步、飞碟、航模等等的爱好者聚集在自己的区域里面消遣着周末时光。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_3200.jpg&quot; alt=&quot;IMG_3200&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;走到了三藩市西侧的海边，面朝大海的位置离注明的悬崖屋餐厅不远，我可以清晰的看到那个餐厅的建筑物。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_3211.jpg&quot; alt=&quot;IMG_3211&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;section-5&quot;&gt;斯坦福&lt;/h3&gt;
-&lt;p&gt;对于我来说各个著名的大学有很深的吸引力，想想这所大学和硅谷的IT行业是有多麽重要和紧密的联系。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/IMG_2819.jpg&quot; alt=&quot;IMG_2819&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;上图是校园里著名的教堂，是一座美丽而古典的建筑，是校园的心脏。来这里游览应该从南边的正面进入，直接走到这个教堂，然后在看其他的部分。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-6&quot;&gt;美食&lt;/h2&gt;
-
-&lt;p&gt;酸面包算是渔人码头景点的美食之一，性价比很高。
-&lt;img src=&quot;/images/IMG_3125.jpg&quot; alt=&quot;IMG_3125&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;面包产自下面这家店。
-&lt;img src=&quot;/images/IMG_3174.jpg&quot; alt=&quot;IMG_3174&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;最后的一次正餐，选择了北滩海景叫做Dinner的餐厅，主要吃个海景；餐食炸鱼陪薯条。
-&lt;img src=&quot;/images/IMG_3233.jpg&quot; alt=&quot;IMG_3233&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;压轴的是这个早餐，点名叫“8 AM”；三藩市早餐分类在点评网站上排第五。吐司三吃。
-&lt;img src=&quot;/images/IMG_2847.jpg&quot; alt=&quot;IMG_2847&quot; /&gt;&lt;/p&gt;</content><category term="旅行" /><category term="SFO" /><summary>这次旅行的目的地是硅谷腹地圣何塞，工作了一周之后，周末在旧金山简单游玩了一下。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;sfan-gate-park.jpg&quot;}" /></entry></feed>
+&lt;/ul&gt;</content><category term="Nutanix" /><summary>Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;HongKongEye_ZH-CN12285832688_1920x1080.jpg&quot;}" /></entry></feed>

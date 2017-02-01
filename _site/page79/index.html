@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,49 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-08-23T23:17:05+08:00"><a href="http://martinliu.cn/2008/08/23/open-source-total-it-management-solution/">August 23, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2008/08/23/open-source-total-it-management-solution/" rel="bookmark" title="Open Source Total IT management Solution" itemprop="url">Open Source Total IT management Solution</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>在IT管理领域里，商业软件厂商中有自称Big 4的集团：CA，HP，BMC， IBM；在开源软件项目中也好像有自称“开源Big 4”的集团，他们是<a href="http://www.vlan9.com/net-manage/soft/x103091.html">Groundwork、Hyperic、Qlusters和Zenoss公司。</a>商业厂商向用户推出自己的产品的时候，往往都会打着一些比较大的概念和幌子，说“我们是IT管理的Total Solution”；潜台词是我们的产品非常多，可以满足您所有的需求，而且只要您选择了我们，我们能保证所有的产品模块之间是无缝集成的。事实上的确如此，商业厂商凭着后台开发团队的强大，还有本地服务商的支持，在解决方案的集成性上的确没有什么问题。对于开源软件来说，由于每个软件都在各自为政的状态下独立发展，即使是彼此之间的功能有着某种衔接和集成性，在多数的情况下也往往是各自独立发展；没有考虑到彼此的组合和集成。不过换一个角度看，既然是开源软件，人家把源代码都全开放出来了，如果你想做两个开源软件的集成的话，从技术的角度上说，没有任何障碍；对比商业的闭源软件产品来说，似乎他们又在这方面有着与生俱来的优势。</p>
+
+<p>开源的IT管理软件中有非常多的种类，就拿网管软件来说吧。我的blog上介绍了很多，其中很多的软件都是功能非常重复，而各有千秋的。要想组合一个纯开源的整体IT管理解决方案不是不可能的，需要的是对一些比较精华的软件系统有所了解，并且了解他们之间集成的方式和实现功能。在此基础上做出合理的组合，方能搭建出一个整体的方案。</p>
+
+<p>由于现在ITIL已经成为了大家耳熟能详的“GOOD PRACTICE”，这是08年V3之后的一个转变，V3提出之后，它就以一种亲民的身份，自称自己不再是“BEST PRACTICE”了。既然是要攒一个“开源IT管理整体解决方案”，同时为了保持本方案具有一定的理论高度 ;) 选择ITIL作为理论依据当然是不会错了呵呵～～ 不好意思今天心情比较好，废话实在太多，抱歉，下面将开始方案书写了。</p>
+
+<p>本方案将兼顾ITIL中的两大块：IT交付和IT支持。我所选取的是OpenNMS, Hyperic HQ 和 OTRS来分别支撑IT交付和IT支持者两个部分。OpenNMS和Hyperic HQ组合来完成网络和系统监控，它们为可用性管理、性能（容量）管理和服务水平管理提供支持和实现，注意这里说的是为这几个流程提供支持的工具，这些工具本身并不是流程工具。OTRS完成事件管理、问题管理、配置管理和服务水平管理等流程，OTRS本身是一个工单跟踪管理系统，他现在的ITSM模块以及发展到1.1的版本了，同时自称是ITIL兼容的软件。</p>
+
+<p><img src="http://www.martinliu.cn/wp-content/uploads/2008/08/opeople-over-process.jpg" alt="People over process" /></p>
+
+<p><strong>IT Delivery</strong></p>
+
+<p>OpenNMS和Hyperic HQ的功能定位有所不同，在这里选择他们俩来作为监控网络和系统的平台由一下的一些理由。OpenNMS是agentless的监控软件，它的网络自动发现功能非常好使，而且现在能支持越来越多的网络设备，对于国内的华为等厂商的设备需要做一些定制后才能监控，否则只能看到标准的mib2的信息。最新的版本也能支持分布式的管理功能，也就是remote monitor的模块。我没有让Zenoss入选网络监控的一个重要原因是，OpenNMS是纯开源软件项目，它的所有功能都是可用的，而且它是Java程序，配置文件大多是xml文件。对支持非常大量的网络设备和端口，你需要有的是对Tomcat和Java应用的调优能力，和通过OpenNMS的邮件组来解决bug的能力。OpenNMS里面有非常好的告警事件管理功能，它本身是一个非常好的事件平台，事件升级、报警、过滤等功能都有。而且现在OpenNMS已经能和Hyperic HQ做事件集成，Hyperic HQ的报警事件能传递到OpenNMS中，这就意味着OpenNMS可以作为一个统一集成的事件管理平台，在这里对集中管理所有类型的告警事件。HQ是一种Agent based的监控软件，对于系统监控而言，很多商业厂商的软件功能都无法很好的做到单一代理的技术，当然我认为BMC的Patrol是例外，它的单一代理技术是我见到最好的。HQ的单一代理技术意味着，通过在一台服务器上部署一次代理程序后，其他的工作就都转到web console上了，在那里，你可以配置代理对各种资源的管理，它的代理能发现非常广泛的基础架构应用：Web， midtier, DB等。由于HQ是一个商业开源的软件，所以它对商业基础架构软件的平台支持的非常好，能支持目前流行的所有基础架构软件包括各种商业的操作系统、数据库、中间件；当然它对开源的软件也能够监控。监控参数很多，配置容易，有开放的接口提供功能扩展开发。从OpenNMS和HQ的各种图形上可以很好的评价和监控和各种IT服务的质量。OpenNMS中的界面中最多的就是对某个节点或者上面的某个服务可用性的计算。</p>
+
+<p>OpenNMS和HQ实现和完成的功能能为IT交付中的：可用性管理、性能管理和服务水平管理提供实时的数据支持，OpenNMS作为总的事件平台，同时它还监控所有的网络设备。HQ用来监控所有重要业务服务器，那些边缘的非重要的业务服务器或者是客户端设备也可以交给OpenNMS来管理，它的无代理监控，对这些设备也能管理的不错。</p>
+
+<p><strong>IT Support</strong></p>
+
+<p>OTRS本身是一个非常不错的工单跟踪系统，它在加载了ITSM模块之后，就把ITIL的很多精髓理论做了很好的诠释和实现。对于很多大型企业用户而言可能会笑话OTRS的简陋，不过实施ITIL的过程，我觉得应该是：把当前的繁杂工作，按照ITIL的几个流程简化梳理的过程，每个流程完成比较单一而纯粹的目标；流程之间又能有一定的集成就可以了。对于OTRS的研究，我目前也处于安装和读管理员手册阶段，没时间细看。选择OTRS的一个最重要原因是，今年也开发了一个事件集成模块，它能通过这个模块与Nagios，openNMS，OpenView，Tivoli等监控产品做事件集成，也就是说告警事件能自动在OTRS中生成事件单，而OTRS的事件管理模块就负责吧入站的事件单自动化的分配给相关的技术支持人员受理解决。详情请参考Automated System Monitoring with OTRS <a href="http://www.otrs.com/fileadmin/mediafiles/News_Presse/Whitepaper/SystemMonitoring_Module_OTRS_US.pdf">Download</a>这个白皮书是在OTRS.com的网站上下载的，我当初怀疑这个事件集成模块是否是开源的软件，所以在<a href="http://blog.kuhn-kt.de/">Christopher T. Kuhn</a> 的Blog上<a href="http://blog.kuhn-kt.de/?p=87">问他了一下</a>，他向我确认该模块是开源的，并提供了下载地址。从技术路线上来说OTRS是实现了服务台的功能，并且实现事件、问题、配置和SLA管理；从界面上看它对这些流程的支持是比较简洁的实现，你完全不能把它和商业的服务台软件来比较。不过实施ITIL的道路，我觉得应该是丰俭由人的，我相信一定会有人走简洁路线的。想想Apple的产品，它的设计无比的简洁，它简洁并不丑陋，而且还很cool，很流行。</p>
+
+<p>由于这个方案攒的还是比较匆忙，而且技术上没有实际测试和验证，本文旨抛砖引玉的提出一些思路和想法，未经详细推敲，欢迎提出您的建议。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -248,29 +285,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>中午后去超市购物；超市的人可真多啊，大家都在采购备战晚上的奥运哈哈。我也买的毫不手软啊，西瓜、王老吉、可乐、牛肉、蔬菜等等！回家后，先炖上一锅牛腩萝卜汤，昨天立秋，今天贴贴秋膘有不迟。<br /><br />准时5点就开始收获在电视机前。等待开幕式的开始。开幕式终于开始，虽然视觉上的冲击性不强，不过还是完美的展示了中华文化的精髓。通过四大发明的展示，以东方人含蓄和细腻的手法，把吾国浩浩汤汤2000多年的历史优美的展示与全球世人面前。地球村的创意我觉得非常好，最后刘欢站在最上方高歌一曲，挺好。兴致最好的时候牛腩汤经过几个小时的熬制，也香气扑鼻了，呵呵来上一碗，继续看<br /><br />总之真个文艺演出，文化气息十足，可圈可点之处也很多；唯一担心的是怕老外们理解不了。现在终于看到中国代表队在姚明的带领下，正缓缓入场；中国体育健儿的队伍可真大啊！！！<br /><br />中国加油!!! <br /><br /><img src="http://www.jxcn.cn/mmsource/image/2008-2-28/U1565P1T1D14341297F21DT20071120190907.jpg" alt="" /><br /><br />哈哈忍不住了，我也在blog上喊一嗓子吧，明天奥运的战幕就缓缓拉开了，希望他们拿更多金牌为国争光。<br /><br />现在中国队走到了中场，期待圣火点燃的那一刻吧。顺便说一句，有人说中国队的服装配色有点借鉴了‘西红柿炒鸡蛋’的色彩，呵呵有点象，的确有点象，而且那时我的拿手菜:) 今年北京的天气，好的是，天公作美，真的憋住，愣是没有下雨；不好的是，桑拿的程度太高了。场内入场的所有运动员，从电视上可以看出都已经是大汗淋漓了，都在等待圣火。烟火，有事一波烟火，整个鸟巢像是个火锅一样，再次沸腾一次。<br /><br />中国画，由所有运动员参与绘制的一副巨画放到了场地中央，这幅画可谓整场的一个核心线索，这可能是老谋子的idea吧，和拍电影的道理一样，需要有一个线索贯穿始终，像是ice age2里的那颗坚果。不知道以后会把它放在那，细看这画很不错，写意，非常写意，还有点点现代气息。<br /><br />刘淇开始讲话了。不禁回想起，我在看圣火采集实况转播时候的激动心情，他在希腊的采集圣火的神殿哪里也发言了。LP说他在这发言可谓捡了一个不小的便宜，前人种树后人乘凉啊!!<br /><br />胡锦涛主席宣布“大会开始！！” :) 呵呵，有一波强烈烟火，太cool了！！ 奥运会旗入场了，八人举着会旗缓缓入场，8人都是奥运的元老人物。现在看到那些在场地周边，做分割线的MM们好像不用再跳跳跳的欢迎了，这些MM已经在入场式的时候跳了快2个小时了，体力不行还真去不了啊，辛苦辛苦了！哈哈！！护旗手开始升会旗，不得不说中国的护旗手世界上最cool，赞一个！！在赞一次天工吧，到现在为止，一滴雨都没下，真给面子啊！<br /><br />张怡宁右手抓五环旗开始宣誓，她表现的很腼腆：）黄利庭代表裁判员宣誓，慷慨激扬，强！！<br /><br />我看时间一定要拖到12点整了，不行我先把这个post发布一下啊，一定要讨到八月八的这个好彩头。发布ed<br /><br />DONE继续，很大很强的一个烟火在鸟巢上空喷出，绚烂啊！！许海峰手持火炬入场，开幕式的最大悬念缓缓揭开了。啊！点燃了高敏的火炬～～～转给李小双，继续跑，传给第四个占旭刚，跑～～这第五个张军该是最后一个了吧，都快是最后一分钟了，我和LP都猜，最后一个是谁呢？刘翔？？第六位了陈中，跑～第七个了，孙晋芳，第八个该是最后一个吧？继续跑～过0点了。火炬在晚上看，真好看，最后一个李宁了，被吊起来到空中，很高，很高，继续升高～～OH my god ，升到最高处，绕嘴上圈，在空中跑，创意啊！！！赞！！！画卷在他下面缓缓打开，画卷始终在他身后，缓缓打开，太强了，弓虽！！！牛啊～～～李宁依然在空中认真的跑着，要绕场一周了，看来，不知主火炬到底在哪里啊？？到了，主火炬终于出现了，点ing。。点了一个导火索，导火索螺旋上升，圣火熊熊绽放在北京夜空～～全城烟火一起点燃，烟火到达等顶峰。一个五环的烟火呀！！我坐在家里可以听到隆隆的烟火声，家里的视野不好，无奈啥也看不到！<br /><br />刚才急奔向楼顶，想看一眼最后的绚烂，可惜到了楼顶的门口发现，门已被锁，而且上了封条了。外面的烟火声还是有，心里一个字痒啊～～～不过无奈总是难免的，我的奥运开幕式实况转播也要结束了。<br /><br /><strong>动态奥运奖牌榜</strong><br /></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-08-04T17:26:57+08:00"><a href="http://martinliu.cn/2008/08/04/systems-monitoring-shootout/">August 04, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2008/08/04/systems-monitoring-shootout/" rel="bookmark" title="Systems Monitoring Shootout" itemprop="url">Systems Monitoring Shootout</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Please download it here <a href="http://ols.fedoraproject.org/OLS/Reprints-2008/buytaert-reprint.pdf">A paper from Open Management Consortium</a><br /><br /><img src="http://www.isausa.com/img/paper-to-cd-2.jpg" alt="" /> This is a paper from “2008 Ottawa Linux Symposium”. It will give you a nice insight about some great NSM projects. It is talking about OpenNMS, Zabix, Zenoss, GroundWorks and Hyperic, those might b the hottest projects around NMS field.  If you are looking for a open source network and system monitoring solution, or you are testing one of them; you should <a href="http://ols.fedoraproject.org/OLS/Reprints-2008/buytaert-reprint.pdf">check it out</a>. I got this paper from <a href="http://www.open-management.com">Open Management Consortium.</a><br /><br />Sometimes, people might spend too much time on testing different projects; I know this is a kind of fun. But eventually they only got lots of comments about manny project. They still did not realize the value of open source. The best way to adpat open source is that you just pick one nice project and keeping to use it for months at least. I have a net admin frind who I had since helped to setup Cacti for all of his network devices. He don’t know so many NSM projects, but he really engoy Cacti. With Cacti, he can do a easier and better job then before. So, are you going to still watching open source world? Let’s get start your real open source journey.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

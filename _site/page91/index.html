@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,337 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2007-05-08T12:41:00+08:00"><a href="http://martinliu.cn/2007/05/08/what-is-opennms/">May 08, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2007/05/08/what-is-opennms/" rel="bookmark" title="OpenNMS网络和系统管理简介" itemprop="url">OpenNMS网络和系统管理简介</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <h2 id="section">1.1  概述</h2>
+
+<p><br /></p>
+
+<p>Opennms能够帮助IT管理部门持续的监控分布式的异构系统和网络设备的运行状态，它可以支持SNMP网络管理协议确保管理的扩展性，并且提供非常灵活的定制功能从而有利于管理范围的伸缩。它内置的故障事件管理以提供故障事件的记录和分析的能力，快速隔离非根源事件并迅速发现故障原因。Opennms良好的设计可以快速部署实施，简单友好的图形界面能够使得用户迅速掌握，从而降低操作的复杂度，提高IT管理效率。</p>
+
+<p><br /><br /></p>
+
+<h2 id="section-1">1.2  体系架构</h2>
+
+<p><br /></p>
+
+<p>作为一个通用的网络系统故障监控平台，其体系架构应如下图所示：</p>
+
+<p><br /></p>
+
+<p> <img src="http://blog.chinaunix.net/u/2632/photo/060204205615.jpg" alt="" /></p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><strong>附图1. **     **Opennms</strong><strong>体系架构</strong></p>
+
+<p><br /></p>
+
+<p>我们从下至上对Opnnms体系架构作一一的介绍：</p>
+
+<p><br /></p>
+
+<p>u      被管理对象层，SNMP代理程序是数据采集和动作执行层。对应网络设备来讲，该层对应与网络设备本身的网络管理功能，不需要在设备上单独部署功能模块；对计算机来讲，该层是运行在目标计算机上的SNMP服务，负责采集该系统运行状况、性能等数据，并向管理层汇报。</p>
+
+<p><br /></p>
+
+<p>u      Opennms监控引擎是实现网络和系统可用性、故障管理的业务逻辑和策略的处理层。他利用特定的轮询策略：从代理程序层收集数据、更新和维护被管理对象状态、执行相关的报警事件通知。</p>
+
+<p><br /></p>
+
+<p>u      管理对象数据库是网络和系统管理的数据存储层。其中以面向对象的方式保存着网络和系统资源的模型，记录着他们的配置、描述和状态等信息。这些模型和信息是通过Opennms网络扫描模块自动建立起来的，并由管理者层自动维护。</p>
+
+<p><br /></p>
+
+<p>u      图形用户界面是网络和系统管理的数据表示层。他以各种直观、生动的用户界面向用户展示网络和系统中各种对象的关系、配置、状态和故障情况，是优秀的用户接口。</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>针对某企业简称user short name的环境，其IT故障监控子系统的管理框架为：</p>
+
+<p><br /></p>
+
+<p>u      被管理对象层——启动核心路由器和交换机的SNMP网管协议，作为网络设备故障的数据提供源；在所有需要管理的服务器上运行SNMP服务，作为监控操作系统故障的数据提供源。</p>
+
+<p><br /></p>
+
+<p>u      Opennms网络监控服务器——新增一台服务器，部署Opennms的监控引擎模块，由该模块对被管理对象层的数据源进行自动的数据采集和翻译采集的结果。并实时发送报警信息。</p>
+
+<p><br /></p>
+
+<p>u      对象存储库——在和Opennms监控引擎安装的机器上安装PostgreSQL，作为Opennms监控模块的对象存储库。</p>
+
+<p><br /></p>
+
+<p>u      图形用户界面——某企业简称user short name管理员可使用任何的WWW浏览器连接Opennms网络监控服务器的用户界面，使用合适的用户名，在某种适当的权限下查看和浏览网络监控信息、状态信息、可用性报表和性能报表。</p>
+
+<p><br /><br /></p>
+
+<h2 id="section-2">1.3  功能介绍</h2>
+
+<p><br /></p>
+
+<h3 id="section-3">1.3.1  网络节点自动发现</h3>
+
+<p><br /></p>
+
+<p>对象存储库中的信息并不是靠管理员手工输入和维护的，而是由Opennms网络监控引擎－自动扫描模块自动从用户的计算机系统中搜索发现出来的。</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><strong>附图2. **     **网络节点自动发现</strong></p>
+
+<p><br /><br /></p>
+
+<h3 id="section-4">1.3.2  图形用户管理界面</h3>
+
+<p><br /></p>
+
+<p>在某企业简称user short name这 样的网络和系统中，需要一些友好的监控视图。目的是使得管理员能够通过直观的界面，迅速发现故障，从而在最短的时间内解决故障。该用户界面视图可使得管理 员通过管理工具看到现实世界对象的真实反映，而不是抽象的符号。使用户能够监控整个系统的概貌，系统的大体分布和总体运行状况等。并且决策适当的故障排除 方案，各种界面视图可通过Intranet进行浏览查看。</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><strong>附图3. **     **网络管理员管理主页</strong></p>
+
+<p><br /></p>
+
+<p>该用户界面的最左边是：Nodes with Outages，表格中列出了最近发生故障状况的12个节点，这些节点可能是网络故障，或者是某些网络服务出错等。</p>
+
+<p><br /></p>
+
+<p>用户界面的中间是：各种网络服务的服务水平报告。它列出了最近24小时之内各种网络服务的服务质量水平；其中的网络服务可能包括：网络接口的UP时间、Web服务、DNS和DHCP服务和数据库服务等。</p>
+
+<p><br /></p>
+
+<p>最右侧的是一些比较常用的功能选项：报警提示信息、节点的性能报表、节点网络服务相应时间报表和自定义的性能报表。</p>
+
+<p><br /><br /></p>
+
+<h3 id="section-5">1.3.3  故障监控</h3>
+
+<p><br /></p>
+
+<p>被管理对象的数据采集和状态维护是由Opennms的监控引擎模块实现的。每个所管理的所有对象存储在数据库中。可以管理的对象包括：</p>
+
+<p><br /></p>
+
+<p>u      支持SNMP网管的网络设备</p>
+
+<p><br /></p>
+
+<p>u      部署了SNMP服务的服务器上的操作系统</p>
+
+<p><br /></p>
+
+<p>Opennms采取统一的通讯方式从这些管理对象上采集可用性和故障信息，信息的采集有两种方式：</p>
+
+<p><br /></p>
+
+<p>u      Opennms主动地通过SNMP协议定期查询被管理对象状态</p>
+
+<p><br /></p>
+
+<p>u      Opennms被动接收被管理对象发来的SNMP Trap</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>Opennms得到被管理对象的轮询或Trap信息后，根据收到的信息类型、对象原来的状态和网络系统管理的策略和逻辑判断对象的状态是否发生变化。如果发生了变化，则可以按照管理策略采取若干更新操作。</p>
+
+<p><br /><br /></p>
+
+<h3 id="section-6">1.3.4  故障事件管理</h3>
+
+<p><br /></p>
+
+<p>当 被管理对象的运行状态发生变化时，就会产生事件。如果该事件是由正常变为故障，则会产生故障报警。事件管理是通过收集、确认事件，对事件进行分类和过滤， 关联不同来源的事件完成对事件的处理和响应。通过事件管理，系统管理人员可以方便、迅速、及时掌握系统运行的故障和警报，及时进行处理，保障系统的正常、 稳定运行。</p>
+
+<p><br /></p>
+
+<p>IT系统管理人员所关注的问题，如系统资源出现短缺、数据库连接失败、网络通信中断、主机文件系统溢出等等都会以事件的形式表现出来。</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><strong>附图4. **     **事件管理控制台</strong></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<h3 id="section-7">1.3.5  操作系统监控</h3>
+
+<p><br /></p>
+
+<p>Opennms对各种计算机操作系统的可用性、运行状况和故障的集中监控是通过本身的SNMP服务程序完成的。这些SNMP代理程序是SNMP服务的组成部分。在本次建议的方案中，在所有的被监控服务器上其监控的主要内容包括：</p>
+
+<p><br /></p>
+
+<p>u      CPU利用率，显示系统、用户、空闲时间的百分比；</p>
+
+<p><br /></p>
+
+<p>u      虚拟内存(Virtual memory)利用率；</p>
+
+<p><br /></p>
+
+<p>u      文件系统使用情况，显示磁盘空间使用情况；</p>
+
+<p><br /></p>
+
+<p>u      监视文件系统的使用率，当使用率超过特定阈值时向系统管理员报警；</p>
+
+<p><br /></p>
+
+<p>u      监控网络端口的输入、输出、错包，以及端口是否被停用或者删除；</p>
+
+<p><br /></p>
+
+<p>u      UNIX系统还可以监控</p>
+
+<p><br /></p>
+
+<p>²       Load Average：服务器平均处理量</p>
+
+<p><br /></p>
+
+<p>²       共享内存</p>
+
+<p><br /><br /></p>
+
+<h3 id="section-8">1.3.6  网络节点配置信息管理</h3>
+
+<p><br /></p>
+
+<p>被监控对象节点在数据中的配置信息是IT设备的资产信息，每个网络节点都是一个特定的IT资产设备。每个节点在数据库中有很多属性字段供选择填写，主要有三类属性信息：</p>
+
+<p><br /></p>
+
+<ol>
+  <li>配置种类信息：配置分类、告警分类、轮询属性和阈值分类。</li>
+</ol>
+
+<p><br /></p>
+
+<ol>
+  <li>标识信息：资产描述、厂商、型号、资产编号、操作系统等</li>
+</ol>
+
+<p><br /></p>
+
+<ol>
+  <li>位置信息：负责人、部门、楼层、房间、机架编号等</li>
+</ol>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><strong>附图5. **     **节点资产信息</strong></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<h3 id="section-9">1.3.7  全面的节点监控</h3>
+
+<p><br /></p>
+
+<p>每个被监控的节点都能被细致的记录和监控。当查看某节点的信息时，有这样几类信息：状态信息、各种网络服务总的可用性、SNMP属性、各个接口熟悉、最近发生的5个事件和最近的故障事件。</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p><strong>附图6. **     **节点监控视图</strong></p>
+
+<p><br /></p>
+
+<p>在查看某个节点是，界面上的信息分为三类：网络服务可用性报表、当前状态和监控事件信息。在菜单栏还能有很多功能选项：查看故障事件、资产信息、响应时间报表、SNMP性能报表、重新扫描、节点管理和更新SNMP信息。</p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<h2 id="section-10">1.4  特点和优势</h2>
+
+<p><br /></p>
+
+<p>Opennms在网络和系统管理方面，有非常广泛的用户，特别是中小企业用户，Opennms具有很多极好的特点：</p>
+
+<p><br /></p>
+
+<p>u      方便易用的用户管理界面——Opennms可以提供故障事件视图、节点视图、相应时间视图、性能视图等各种管理视图。</p>
+
+<p><br /></p>
+
+<p>u      基于Open Source协议开发——用户可以按照自己的需求，通过修改软件本身或者软件的源代码来定制。</p>
+
+<p><br /></p>
+
+<p>u      跨平台管理——Opennms支持任何能运行标准SNMP协议服务的操作系统系统，并且可以从一个单一的用户界面分别管理其局域网（LAN）。</p>
+
+<p><br /></p>
+
+<p>u      切实可行的事件管理系统——Opennms通过方便易用的交互式控制台，为IT管理员显示关键事件，提供自动的事件响应，可以以电子邮件方式发出事件通知。</p>
+
+<p><br /></p>
+
+<p>u      方便的集成——Opennms可以与第三方产品集成。例如Opennms可以方便的与Dell、HP、IBM等厂商的服务器自带的SNMP故障管理软件集成。</p>
+
+<p><br /></p>
+
+<p>u      2005 Linux World推荐管理产品 ——Opennms获得2005年Linux世界大会的“最佳网络系统管理软件”的荣誉。已经被认定开源软件世界中的最佳网络系统管理软件。</p>
+
+<p><br /></p>
+
+<p><br /></p>
+
+<p>版权所有，如果转载请著名出处。</p>
+
+<p><br /></p>
+
+<p>曾被<a href="http://www.vshj.com/">www.vshj.com</a>转载：<a href="http://www.vshj.com/Article/2006/200607/Article_97842.htm">http://www.vshj.com/Article/2006/200607/Article_97842.htm</a></p>
+
+<p><br /></p>
+
+<p><br /><br /></p>
+
+<p><a href="http://picasaweb.google.com/liuzh66/OpenNMS">文章中所提到的图片请参阅我的相册。  </a><br /><br /></p>
+
+<p><br /><br /></p>
+
+<p><br /><br /></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -256,99 +581,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p><a href="http://images.insecure.org/nmap/images/nmap_bnr_euroboy.jpg"><img src="http://images.insecure.org/nmap/images/nmap_bnr_euroboy.jpg" alt="" /></a><br /><br />Nmap (“Network Mapper(网络映射器)”) 是一款开放源代码的 网络探测和安全审核的工具。它的设计目标是快速地扫描大型网络，当然用它扫描单个 主机也没有问题。Nmap以新颖的方式使用原始IP报文来发现网络上有哪些主机，那些 主机提供什么服务(应用程序名和版本)，那些服务运行在什么操作系统(包括版本信息)， 它们使用什么类型的报文过滤器/防火墙，以及一堆其它功能。虽然Nmap通常用于安全审核， 许多系统管理员和网络管理员也用它来做一些日常的工作，比如查看整个网络的信息， 管理服务升级计划，以及监视主机和服务的运行。<br />Nmap输出的是扫描目标的列表，以及每个目标的补充信息，至于是哪些信息则依赖于所使用的选项。 “所感兴趣的端口表格”是其中的关键。那张表列出端口号，协议，服务名称和状态。状态可能是 open(开放的)，filtered(被过滤的)， closed(关闭的)，或者unfiltered(未被过滤的)。 Open(开放的)意味着目标机器上的应用程序正在该端口监听连接/报文。 filtered(被过滤的) 意味着防火墙，过滤器或者其它网络障碍阻止了该端口被访问，Nmap无法得知 它是 open(开放的) 还是 closed(关闭的)。 closed(关闭的) 端口没有应用程序在它上面监听，但是他们随时可能开放。 当端口对Nmap的探测做出响应，但是Nmap无法确定它们是关闭还是开放时，这些端口就被认为是 unfiltered(未被过滤的) 如果Nmap报告状态组合 openfiltered 和 closedfiltered时，那说明Nmap无法确定该端口处于两个状态中的哪一个状态。 当要求进行版本探测时，端口表也可以包含软件的版本信息。当要求进行IP协议扫描时 (-sO)，Nmap提供关于所支持的IP协议而不是正在监听的端口的信息。<br />除了所感兴趣的端口表，Nmap还能提供关于目标机的进一步信息，包括反向域名，操作系统猜测，设备类型，和MAC地址。<br /><br />摘自：<a href="http://insecure.org/nmap/man/zh/">nmap中文文档</a> <a href="http://insecure.org/nmap/index.html">nmap首页</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2007-04-26T18:47:00+08:00"><a href="http://martinliu.cn/2007/04/26/opennms-install-sample/">April 26, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2007/04/26/opennms-install-sample/" rel="bookmark" title="OpenNMS 安装说明－精简版" itemprop="url">OpenNMS 安装说明－精简版</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><strong>Per-install Checklist:</strong><br /></p>
-
-<p><br />	
-  1. SuSE 10.1 Linux install CD
-<br />	
-  2. OpenNMS rpm packages for SuSE Linux
-<br />	
-  3. JDK 1.5 package
-<br />	
-  4. Tomcat 5.5.20 package
-<br /><br /><strong>Here we go:</strong><br /></p>
-
-<p><br />	
-  * Insert install CD into Cd/Dvd rom
-<br />	
-  * Do SuSE Linux mini install
-<br />	
-  * Logon in OS, run ‘yast firewall’ to open 8080 tcp port on firewall
-<br />	
-  * upload all packages to /opt
-<br />	
-  * untar JDK
-<br />	
-  * untar Tomcat
-<br />	
-  * install postgresql through yast; run ‘rcpostgresql start’
-<br />	
-  * Export some variables
-<br /><br /><em>export JAVA_HOME=/opt/jdk1.5.0_09<br />export OPENNMS_HOME=/opt/opennms<br />export CATALINA_HOME=/opt/apache-tomcat-5.5.20<br />export PATH=$PATH:$JAVA_HOME/bin</em><br /></p>
-
-<p><br />	
-  * Test Java and Tomcat
-<br /><br /><em>java -version<br />$CATALINA_HOME/bin/startup.sh</em><br /></p>
-
-<p><br />	
-  * Modify this file, vi /var/lib/pgsql/data/pg_hba.conf , then run ‘rcpostgresql restart’
-<br /><br /><em>#local  all    all             ident   sameuser<br />local all all trus<br />thost all all 127.0.0.1 255.255.255.255 trust<br />host all all ::1 ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff trust</em><br /></p>
-
-<p><br />	
-  * install OpenNMS rpm packages; rpm -ivh xxx.rpm
-<br />	
-  * $OPENNMS_HOME/bin/runjava -s
-<br />	
-  * $OPENNMS_HOME/bin/install -dis
-<br />	
-  * $OPENNMS_HOME/bin/install -y -w $CATALINA_HOME/conf/Catalina/localhost
-<br />	
-  * restart Tomcat
-<br />	
-  * start OpenNMS; $OPENNMS_HOME/bin/opennms start
-<br />	
-  * Check opennms status; $OPENNMS_HOME/bin/opennms -v status
-<br />	
-  * login web console
-<br /><br />以上仅仅是我一个偷懒的方法，可以比较快的部署运行OpenNMS。这种方式的好处如下：<br /><br />	
-  1. Mini安装可以是最快的安装，总共只有几百MB就得到一个Linux操作系统
-<br />	
-  2. SuSE的包管理比较好用，配合一张安装DVD，几乎所有软件招之即来，不需要下载任何东西
-<br />	
-  3. Java和Tomcat的安装包是从以前的机器上直接把安装目录tar出来的，这也直接解压来用速度比较快。
-<br /><br />这个安装方式的缺点：<br /><br />	
-  1. 并不是最优的安装，没用设置服务的自动重启
-<br />	
-  2. 没用优化PostgreSQL
-<br />	
-  3. 没用优化Java和Tomcat；ONMS是java应用，性能可能会是个问题
-<br />	
-  4. 没用对ONMS做任何配置
-<br /><br /><br />	
-  * <strong>Post-install Checklist:</strong><br /><em>Change Admin password for ONMS<br />customize ONMS per your requirements<br />optimize Tomcat/Postgresql/ONMS configuration</em>
-<br /></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

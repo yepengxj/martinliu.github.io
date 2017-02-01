@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,56 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-07-12T01:04:22+08:00"><a href="http://martinliu.cn/2012/07/12/e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/">July 12, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2012/07/12/e5-a6-82-e4-bd-95-e6-b5-8b-e8-af-95-xenapp-mobility-pack/" rel="bookmark" title="如何测试 XenApp Mobility Pack" itemprop="url">如何测试 XenApp Mobility Pack</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>安装XenApp6.5，下载XenApp6_5MobilityPack1_0.zip；解压缩之后是三个文件，我习惯于先打那个补丁包，然后在安装CitrixGroupPolicyManagement_x64.msi文件（我的测试系统是64位的）。</p>
+
+<p>安装完之后，XenApp里面多了什么？多了两个自动运行的服务。如下图所示：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2012/07/mp-services.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/07/mp-services.png" alt="" /></a></p>
+
+<p>XenApp的管理策略里面多了什么？如下图所示：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2012/07/3-functions.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/07/3-functions.png" alt="" /></a></p>
+
+<p>这些策略怎么测试？先启用这些策略，再使用Pad设备或者其它移动设备测试即可。</p>
+
+<ul>
+  <li>
+    <p>启动触控优化桌面：发布一个Xenapp的共享桌面，pad连上后，可以看到右上角有个半透明的块，点击它既可以在优化和普通桌面直接切换，切换之后，世界一下子变得特别美好，enjoy！</p>
+  </li>
+  <li>
+    <p>远程控制组合框：发布一个界面或者页面上有下拉框的程序，用移动设备连上后，在点击这些页面的下拉框，看看这世界变得和以前有何不同。</p>
+  </li>
+  <li>
+    <p>自动显示键盘：发布一个界面或者页面上有文本输入框的程序，用移动设备连上后，点击文本框，让它获得焦点，接着输入字符，接着点击别的地方，让它失去焦点。想想你以前类似的过程是怎么操作的，是不是发现以前的日子有点点苦逼了吧？</p>
+  </li>
+</ul>
+
+<p>还能够做什么绚丽的演示？</p>
+
+<p>可以在http://www.citrix.com/mobilitysdk/docs/downloads.html 网站下载官方的演示程序，<a href="http://www.citrix.com/mobilitysdk/docs/downloads/CMP.NET%20MobilitySDK%20%23318504.3.zip">点此处下载</a>。这个程序既包含源代码有包含编译好的可执行文件，把它们都copy到xenapp服务器上，发布一下那里面的可执行程序，用pad或者手机连上，看看有什么新发现，是否感觉这简直就是一个原生的ios或者安卓程序呢？</p>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -250,70 +294,6 @@ Reading time ~1 minute
     <p>今天测试发现，使用自定义的服务模板无法创建虚拟机实例。但是默认安装的两个服务模板能够正常创建虚拟机。</p>
 
 <p>目前还没要找到合理的解决方法。而且还有另外一个问题 ，使用ISO模式安装的xp，安装了xentools之后初始化的网络配置丢失了。这个问题容易理解原因，但是真的不应该发生这种问题的。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-07-06T00:49:31+08:00"><a href="http://martinliu.cn/2012/07/06/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">July 06, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2012/07/06/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/" rel="bookmark" title="[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud" itemprop="url">[ZT] Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>今天学习了一篇很有意义的帖子，特别是它的结论对我特别有帮助。帖子的原文地址：<a href="http://blogs.citrix.com/2012/07/03/reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">Reference Architectures that Scale: Citrix XenDesktop on FlexPod with Microsoft Private Cloud</a></p>
-
-<p>下面是硬件的测试架构，使用的服务器是UCS 14刀，NatApp存储，Hyper-V，加载XenDesktop 5.6</p>
-
-<p><a href="http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview.png"><img src="http://cdn.ws.citrix.com/wp-content/uploads/2012/07/1-CVD-SolutionsOverview-1024x743.png" alt="" /></a></p>
-
-<p><strong><em>Test Results</em></strong></p>
-
-<p>The reference implementation achieved impressive results in our test runs, especially in comparison to previous testing with earlier generation Cisco blades. As a matter of fact, the tested configuration reduced the rack space needed to support 2000 users, decreasing it from 30 Rack Units (RUs) to 12 RUs. This density can help to lower power use, which directly translates into energy savings.</p>
-
-<p>The results specifically showed that the Cisco UCS B230 M2 half-width blade (featuring dual-socket, 10-core processors and 256GB of memory) can support medium workloads up to 145 users per blade. A single FlexPod VDI design containing two Cisco UCS chassis units with 14 such blades can support at least 2000 virtual desktop workloads while maintaining acceptable response times. The results clearly demonstrated linear scalability of desktop workloads for this reference architecture.  Detailed metrics are given below.</p>
-
-<p>14片在12U的空间上，轻松的支撑了2000个Normal型工作负载的Win7虚拟桌面（1.5GB/8~12IOPS；所有虚拟机开机启动时间为半个小时。平均每个刀片上能够支持145个用户，而且维持了比较合理的用户相应速度。在这个架构中，证明了XenDeskTop可以实现横向扩展的特性。</p>
-
-<p>微软和思科的详细测试报告下载：</p>
-
-<p>[download id=”13” format=”1”]</p>
-
-<p>[download id=”12” format=”1”]</p>
-
-<h2 id="section">微软测试报告中的主要结论：</h2>
-
-<p>Microsoft, Citrix, Cisco, and NetApp successfully validated XenDesktop streaming 2,000 concurrent Windows 7 desktops to virtual machines hosted with Hyper-V. The deployment was built on a 16-node FlexPod with Microsoft Private Cloud infrastructure that comprises the hardware requirements in the Microsoft Private Cloud Fast Track program. The hardware, in conjunction with Windows Server 2008 R2 Enterprise SP1, Hyper-V, System Center 2012, and Citrix XenDesktop 5.6:</p>
-
-<blockquote>
-
-&gt; 
-&gt; 
-	
-&gt;   * Validated that a single instance of Virtual Machine Manager and a single instance of the XenDesktop delivery controller successfully hosted 2,000 VDI workloads.
-&gt; 
-	
-&gt;   * Verified single-server scalability: 143 Windows 7 desktops with 512 MB of dynamic memory (expandable to 2 GB) running knowledge worker load on a single Cisco UCS B230 M2 Blade Server with 20 cores and 256 GB of random access memory (RAM).
-&gt; 
-	
-&gt;   * Validated a fully virtualized environment where all VDI components (such as Active Directory Domain Services, Microsoft SQL Server, VMM, XenDesktop, and Provisioning Server) were run in virtual machines.
-&gt; 
-	
-&gt;   * _**Observed an 80 percent storage savings in comparison to a similar VDI environment without NetApp storage efficiencies.**_
-&gt; 
-
-</blockquote>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

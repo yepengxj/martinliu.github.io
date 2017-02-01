@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,29 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-08-22T21:47:59+08:00"><a href="http://martinliu.cn/2012/08/22/e6-b9-96-e5-8d-97-e5-b2-b3-e9-98-b3/">August 22, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2012/08/22/e6-b9-96-e5-8d-97-e5-b2-b3-e9-98-b3/" rel="bookmark" title="湖南岳阳" itemprop="url">湖南岳阳</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>打上飞的，我到了长沙机场，坐上高铁我到了湖南岳阳。第一次来湖南。明天是一个重要的客户会议，客户方湖南全省十几二十个地市的信息中心的主任都纷至沓来，明天的ppt和demo一定要给力。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -720,50 +737,6 @@ testfile   #Check this file inside NFS folder.
 [nggallery id=14]</p>
 
 <p>I had followed above to installed CloudStack twice within less 3 hours. If you get other tips/issue, pls drop me a comment, I will try my best to response you.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-08-16T23:25:19+08:00"><a href="http://martinliu.cn/2012/08/16/xenserver-san-boot-e5-ae-89-e8-a3-85/">August 16, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2012/08/16/xenserver-san-boot-e5-ae-89-e8-a3-85/" rel="bookmark" title="XenServer SAN Boot安装" itemprop="url">XenServer SAN Boot安装</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><strong>环境：</strong>服务器–HP BL680 G7刀片服务器   存储–EMC CX480</p>
-
-<p><strong>故障描述：</strong>
-从存储方面为主机分配作为San Boot引导Lun 60GB空间，作为HA独立Lun 40GB，用来存放虚拟机数据Lun
-安装过程中选择60GB的Lun并且在安装之前高级设置中打开了multipath开关。
-安装完成后，显示如下：attempling boot from hard drive (C:)
-<img src="http://martinliu.cn/wp-content/gallery/citrix/attemting-boot-from-hard-driver-c.png" alt="attemting-boot-from-hard-driver-c" />
-<strong>解决办法：</strong>
-需要说明的是在EMC CX480存储在分配Lun空间时，会为Lun分配Lun ID和Host ID（这2个ID均可以进行修改）
-一般HBA默认Host ID为0的Lun作为San Boot的引导lun。因此，在实际生产中，如果之前Host ID 0的lun已经被其他Lun所使用，引导lun使用为其他Host ID时，需要在HBA卡设置中明确设置由该Host ID Lun引导。</p>
-
-<p>如：本项目中，主机的引导Lun Host ID为 1，我们就需要在HBA卡中设置Host ID1的Lun作为引导Lun。
-<img src="http://martinliu.cn/wp-content/gallery/citrix/select-adapter.png" alt="select-adapter" />
-开启HBA的San Boot功能
-<img src="http://martinliu.cn/wp-content/gallery/citrix/qlogic-fast-util.png" alt="qlogic-fast-util" />
-选择正确的作为引导的lun作为引导lun使用。完成后保存设置重启后故障解决</p>
-
-<p><strong>注意：</strong>这里所看到的lun ID都是存储上面的Host ID，一定不要忽视。</p>
-
-<p>致谢：投稿人 王文博（北京网智瑞通信息技术服务有限公司）
-欢迎投稿，请发邮件到 liuzh66@gmail.com</p>
-
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

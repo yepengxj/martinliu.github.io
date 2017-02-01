@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,37 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-03-30T11:13:47+08:00"><a href="http://martinliu.cn/2015/03/30/import-cloudforms-into-rhevm/">March 30, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2015/03/30/import-cloudforms-into-rhevm/" rel="bookmark" title="Import CloudForms  into rhevm" itemprop="url">Import CloudForms  into rhevm</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>[bash]
+[root@rhevm03 export]# cat /etc/exports
+/var/lib/exports/iso *(rw)
+/export/rhev_import_export_disk *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+/export/template *(rw,sync,no_subtree_check,all_squash,anonuid=36,anongid=36)
+# [root@rhevm03 export]# engine-image-uploader -N cfme5351 -e export-nfs-rhevm -v -m upload /tmp/cfme-rhevm-5.3-51.x86_64.rhevm.ova
+[/bash]</p>
+
+<p>然后从Web Console上导入这个模板，创建一个目标规格的虚拟机。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -564,42 +589,6 @@ anaconda-ks.cfg Desktop Documents Downloads initial-setup-ks.cfg ist Music Pictu
 <p>Mac OS X用户则建议实用iTerm2来替换原声的terminal。下载item2在这里：<a href="http://iterm2.com/">http://iterm2.com/</a></p>
 
 <p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/iterm2-logo.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/iterm2-logo.jpg" alt="iterm2-logo" /></a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-03-20T10:22:16+08:00"><a href="http://martinliu.cn/2015/03/20/impact-mapping/">March 20, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2015/03/20/impact-mapping/" rel="bookmark" title="Impact Mapping" itemprop="url">Impact Mapping</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>这种方法论的东西很久不感冒了，可是这次耐心看了一下，确实有温故而知新的作用，有点意思，特此推荐一下。</p>
-
-<p><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/impact-mapping.jpg" alt="impact-mapping" /></p>
-
-<p>这个方法论的网站在：<a href="http://www.impactmapping.org/">http://www.impactmapping.org/</a></p>
-
-<p><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/impact-mapping-1.jpg" alt="impact-mapping-1" /></p>
-
-<p>上图是此方法分析的思路。网上搜索了一下，多看到很多介绍敏捷方法的网站在推荐。下图是次方法的宣传海报。</p>
-
-<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/poster_im_print_1500.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2015/03/poster_im_print_1500-1024x673.jpg" alt="poster_im_print_1500" /></a></p>
-
-<p>这里还从YouTube上搬运回来一个视频，可以参考一下。</p>
-
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

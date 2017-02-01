@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,41 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-06-15T23:50:31+08:00"><a href="http://martinliu.cn/2008/06/15/monitoring-temperature-and-fan-speed-using-ganglia/">June 15, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2008/06/15/monitoring-temperature-and-fan-speed-using-ganglia/" rel="bookmark" title="盛夏严防服务器中暑" itemprop="url">盛夏严防服务器中暑</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><img src="http://www.hlj.xinhuanet.com/xw/2007-03/24/xin_190304241641921962117.jpg" alt="" />哦不是中暑:-)而是发烧；夏天就要到了，监控服务器的主板温度和风扇是否工作正常有变的比较重要起来了。<br /><br />今天发现一个文档 <a href="http://www.slac.stanford.edu/gen/edu/suli2006/finaltalks_thurs/caitie.ppt">Monitoring Temperature and Fan Speed Using Ganglia and Winbond Chips</a> 这个是一个不错的文档，值得参考一下。<br /><br />文章是写如何在Ganglia中实现对主板温度和风扇的监控。以前也有人问过我这个问题“Ganglia的监控图上为什么没有温度也风扇的图”；相信您看后就知道怎么回事了。<br /><br />下面是我对关于温度和风扇监控的一点想法：<br /></p>
+
+<p><br />	
+  * 主板的芯片能提供这些数据的访问给操作系统
+<br />	
+  * 操作系统上有sensors这个命令工具用来采集这些数据
+<br />	
+  * 有合适的脚本分析上面命令的输出数据转换成能被监控工具（ganglia， cacti，nagios， opennms）采集的格式等
+<br />	
+  * 往往这两个参数并不是监控工具的默认采集数据，所以需要扩展采集工具的采集集合，收集并保存这些数据。
+<br />	
+  * 在监控工具如Ganglia中显示这些数据，当然如果有自动报警功能就好了，可以及时通知管理员给服务器消暑：）
+<br /><br />Ganglia是最好的网格或者群集的监控软件，不过当你用它的使用也要注意到下面这个问题：<br /><br />What does Ganglia not provide?<br />Ganglia does not attempt to address service monitoring or reporting (unlike Nagios). So far, we have not come across a single monitoring solution that addresses all of our needs effectively.<br /><br />上面所说的服务监控是说，它的特点不是想Nagios和OpenNMS那样对服务器系统做非常全面细致的监控，它默认的监控指标比较少不过对于监控网格或者群集这种数量巨大的对象来说这些比较经典的指标也够用了，特别是对服务器的可用性，CUP、RAM，网络资源利用率和工作负载等数据的采集也比较够用了。如果你使用它来监控数量不是很多服务器的话，你可以使用它的可扩展性加入任何想监控的KPI。我最喜欢的还是它能把服务做分组，而且垂直的方向上可以加N层的嵌套；这种组织方式能比较好的适用于业务系统众多而复杂的数据中心。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -234,39 +263,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>现在我坐在清华主教学楼里等待这个自由软件大会的开始。<a href="http://www.zeuux.org/index.cn.html">Zeuux社区</a>组织在发一些免费的书籍和及时贴。我也领了几个，在笔记本上贴了三个：<br /><br />1）GNU\Linux inside<br /><br /><img src="http://tbn0.google.com/images?q=tbn:Dj-A1Whyu0tc0M:http://amitjames.com/pictures/linux_inside_small.jpg" alt="" /><br /><br />2)GNU牛头<br /><br /><img src="http://tbn0.google.com/images?q=tbn:-MPgv5LN7iFlkM:http://adele.gerwinski.de/~anja/gnuart/aurelio/GNU.png" alt="" /><br /><br />3）GNU&amp;Linux the dynamic duo。<br /><br /><img src="http://tbn0.google.com/images?q=tbn:aP3YicGaQHswlM:http://labor-liber.org/images/gnu-linux.jpg" alt="" /><br /><br />这次也将会见到Richard Stallman，听听他今天能讲点什么。<br /><br />现在会议还没有开始，已经有很多学生来此等候，好像GPL v3的 T恤比较强手，很多学生都在找自己的号。为了获得Richard签名的人可以购买一本他的文件，附送一件这样的T恤，会后即可获得签名。<br /><br />发现www.gnu.org网站的速度非常慢，几乎打不开，通往自由的路其实是艰难的:P<br /><br /><strong>写在活动之后：</strong><br /><br />现在已经是晚上11点，我坐在电脑前上网，把今天活动的收获整理一下。我做的第一件事情是把我的blog的标题改了，logo随后在改。从“LiuZheng’s OSS Blog” 到 “LiuZheng’s Free Software Blog”。Richard S.的一席话对我来说可谓醍醐灌顶了。我以前把Linux和open source软件都看做就是自由软件，可谓是一叶障目不见泰山。Richard今天把他对GNU所作的所有相关工作都做了一个回顾，并解释了Linux其实是Gnu-Linux的一部分而以，还介绍所谓开源软件的真实来由。这也让我能更加理解他彻底不同意Sun开源策略的原因。Linux的发展和产生依赖于Gnu项目下的所有自由软件，Richard认为如果Linux的发明人没有在当时创造出Linux内核的话，一个GNU free operation system kernel也早晚会产生。我认为Linux的产生也是有他的必然性，它是在软件发展历史上应运而生的；由于它站在了前人的肩膀上，能整合所有相关的自由软件，从而风靡一时，甚至声明远胜GNU。Richard认为开源软件是商业公司利用自由软件谋利的一种手段，open source这个词在商业公司市场宣传的运作下，声势也掩盖了GNU。我发现其实我的一些认识也一直受到潮流的影响，如果我是和Richard站在同一条战线的话，我可以说彻底的被潮流带到沟里去了。总之Richard给我一个清楚的自由软件的发展脉络。他几乎是一个斗士，坚定的认为：任何一个软件用户都要保护自己的自由，彻底的抵制任何私有软件；他把MS，RealPlay，Adaobe等商业软件批斗的非常狠。到结束时，他穿上他那标志性传道士的行头就地化身为自由软件教堂的一个圣徒，来呼唤和号召大家一起行动起来加入自由软件的行列。说实话我作为一个商业软件的从业人员，站在我个人立场上我很难说我是否要站到Richard的行列里，很难做到彻底的变成一个自由软件的卫道士。虽然现在可以说立场还是糊涂的，不过总算头脑边的清醒了，我应该会以这样的头脑来静静看待软件世界即将到来的变革吧！</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-05-24T10:15:27+08:00"><a href="http://martinliu.cn/2008/05/24/ganglia-install-and-configure/">May 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2008/05/24/ganglia-install-and-configure/" rel="bookmark" title="Ganglia install and configure" itemprop="url">Ganglia install and configure</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>我准备安装的版本是ganglia-3.0.7 ， 参考的安装文档是<a href="http://www.linuxsir.org/bbs/thread309837.html">http://www.linuxsir.org/bbs/thread309837.html</a><br /><br />rpm的安装会比较省事。rpm安装都会很正常，不过在Suse下面需要注意一下两点：<br /></p>
-
-<p><br />	
-  * gmond和gmated的启动脚本不是rpm包中默认装上的那个，那个脚本适用于redhat linux；下载源码编译之后在gmond/ gmated/的文件夹里有后缀为 .SuSE的哪两个文件才对。
-<br />	
-  * rpm吧gmated的web界面默认安装路径是/var/www/http/ ，SuSE下的apache的路径是 /srv/www/htdoc/；安装完后copy或者连接过来
-<br /><br />配置：<br /><br />	
-  * gmond.conf 更具我参考的安装文档产生这个文件的命令是 gmond -t &gt; /etc/gmond.conf；rpm安装包中有这个文件，如果需要恢复到默认状态可以使用这个命令。
-<br />	
-  * gmated.conf 是服务器端的主要配置文件，详细阅读一下源码包中的那个html文件对这个文件的配置会有帮助
-<br /><br />安装过程中出现的问题如下：在启动gmond的时候启动失败，debug一下可以看到下面的错误。<br /><br />sles:~ # gmond –debug=9<br />slurpfile() open() error on file /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq: No such file or directory<br />udp_recv_channel mcast_join=239.2.11.71 mcast_if=NULL port=8649 bind=239.2.11.71<br />Error creating multicast server mcast_join=239.2.11.71 port=8649 mcast_if=NULL family=’inet4’. Exiting.<br /><br />在所有虚拟机（host-only 网络设置）上都遇到这个错误。一次一个NAT网络的虚机上正常<br /><br />至今觉得这是一个网络的问题，还没有想出正确的配置和解决方法。如果您有什么好建议请留言。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

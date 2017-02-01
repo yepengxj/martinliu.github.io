@@ -21,3 +21,13 @@ modified: 2016-02-01
 
 
 ![Martin Liu wechat ](/images/martinliu-weichat.jpg)
+
+## Martin 的其它网站
+
+### title: AWS-FAQ
+  url: [http://www.aws-faq.com](http://www.aws-faq.com)
+
+###  title: DevOps教练
+  url: [http://devopscoach.org](http://devopscoach.org)
+
+

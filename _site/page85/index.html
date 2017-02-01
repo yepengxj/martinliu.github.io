@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,71 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-02-02T14:02:00+08:00"><a href="http://martinliu.cn/2008/02/02/hyperic-hq-32-new-features/">February 02, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2008/02/02/hyperic-hq-32-new-features/" rel="bookmark" title="Hyperic HQ 3.2 new features" itemprop="url">Hyperic HQ 3.2 new features</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>If you’d like to check out release note, please click here. <a href="http://support.hyperic.com/confluence/display/DOC/HQ+3.2+Release+Notes">http://support.hyperic.com/confluence/display/DOC/HQ+3.2+Release+Notes</a><br /><br />I had a quick install on RHEL 5. For some features what I saw, I took some screenshots as bellowing. I hope this helps you to understand what’s new in 3.2 and save a little bit time for you if you do not wants to install it. I will describe in Chinese.<br /></p>
+
+<h2 id="new-nav-menu-">New Nav menu 新导航菜单</h2>
+
+<p><br /><img src="http://lh5.google.com/liuzh66/R6QKZn2WokI/AAAAAAAAAeo/ZYObo0rO5Dc/image%5B15%5D.png" alt="" />导航菜单的名称变成了：Dashboard – Resources – Analyze – Administration 菜单的风格稍微有一点变化。Analyze下面可以进入Alert Center去查看报警信息。我觉得3.2毕竟是一个小的功能增进板，添加了支持MY SQL的支持。增强了对Nagios的集成。对Nagios的集成对它还是很有好处的，由于它自己是Agent Based的监控方法，而Nagios是Agentless的监控方法；集成之后通过它的web界面能统一管理，还是挺好的。不过和Nagios具体能集成到什么程度，我还没有试过。<br /></p>
+
+<h2 id="currently-down-resources">Currently Down Resources当前宕机资源</h2>
+
+<p><br /><img src="http://lh4.google.com/liuzh66/R6QK9X2WomI/AAAAAAAAAe4/iGNp8zHxnok/image%5B19%5D.png" alt="" /><br />如果所示：各种有问题的资源安装各种分类都显示出来，同实现时什么时间出的问题，持续了多久，点击放大镜后查看相关的报警信息。上图显示的是：HQ Agent在w2k3vm这一Windows服务器上没有启动的情况，它报告了包括hq agent自身以及所有相关资源的都宕机的情形。同时作为一个监控系统来说，管理员最需要看到的信息可能主要包括两种：1）有那些资源出了问题；2）当前有什么样的告警事件。这里对这两类信息提供了一个非常不错的访问入口。<br /></p>
+
+<h2 id="live-exec-data">Live Exec Data实时数据获取</h2>
+
+<p><br /><img src="http://lh6.google.com/liuzh66/R6QLY32WooI/AAAAAAAAAfI/JDuTMobC7IE/image%5B24%5D.png" alt="" /><br />HQ-agent本身只能周期性的采集matrix，在汇报给管理服务器。实时的数据采集对排错还是非常有帮助的。此功能我觉得是3.2版中的最好的增强。它应该是远程的让agent去执行一下命令在把最终结果返回到页面上：<br /></p>
+
+<p><br />	
+  * Cpuinfo  CPU信息
+<br />	
+  * Cpuperc  CPU利用率
+<br />	
+  * Df            磁盘利用率
+<br />	
+  * Ifconfig   网卡ip信息
+<br />	
+  * Netstat   网络端口信息
+<br />	
+  * Top
+<br />	
+  * Who
+<br /><br />这些信息的获取通过agent完成所以和平台无关，即使是Window平台也能收到相同的信息。<br /></p>
+
+<h2 id="hq-health-check-">HQ Health Check 管理服务器自身检查</h2>
+
+<p><br /><img src="http://lh4.google.com/liuzh66/R6QLxX2WoqI/AAAAAAAAAfY/_qW9Xr0ni6w/image%5B28%5D.png" alt="" /><br />一个真正的自监控功能最好能做到对相关指标的报警处理。能设置一些条件，在不正常情况发生的时候报告管理员说出管理服务器那里有问题了。上图可以看出，hq已经做出了第一步，能采集并且显示很多HQ服务器运行的状态信息。<br /></p>
+
+<h2 id="summary">Summary：</h2>
+
+<p><br />在3.2的发布说明中还提到它自身的扩展性也很大的增强，这一点对hq来说尤为重要。由于它的结构是基于代理的，当监控的设备和资源都非常多时，hq管理服务器自身的处理能理将会成为瓶颈，如果它的处理，存储和网络上的任何一个环节出现了问题，整个监控系统就失效了。由于事件有限，目前还留下了一些问题：<br /></p>
+
+<p><br />	
+  * Global Alert Disable是在那里设置的？
+<br />	
+  * 报警阀值的设置是否有全局设置的地方？（例如：对所有windows机器都设置一个CPU&gt;80％的阀值）
+<br /><br />如果您对以上两个问题有些答案请回复告诉我。关于HQ的其它文章，清在本blog中搜索。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -358,39 +417,6 @@ Reading time ~1 minute
 <p>#</p>
 
 <p><br /><strong>＃3 <a href="http://www.snort.org/">Snort</a> :所有人都喜欢的开源IDS</strong><a href="http://lh5.google.com/liuzh66/R35T7YClh7I/AAAAAAAAAO4/uouKkrzkwnQ/image22"><img src="http://lh3.google.com/liuzh66/R35T84Clh8I/AAAAAAAAAPA/Yler5Ex4xys/s144/image_thumb12.png" alt="image" /></a> 这个轻量级网络入侵检测和阻止系统擅长于IP网络上的流量分析和包记录。通过协议分析，内容搜索和各种预处理，Snort能探测上千种蠕虫, 利用漏洞企图，端口扫描和其他可疑行为。Snort使用一个弹性的基于规则的语言去描述它应该收集或者忽略的网络通信流量，和一个模块化的检测引擎。从此链接产看更多的基本分析和安全引擎，有一个Web用户界面来分析Snort告警。开源的Snort被一些个人、小企业和部门用的很不错。它的母公司<a href="http://www.sourcefire.com/">SourceFire</a>提供了一个非常全的产品线；具有很多的企业级功能和实时规则更新。它们提供了一个免费的（需注册）的5天延迟的规则更新源，你还能在<a href="http://www.bleedingsnort.com/">Bleeding Edge Snort</a>找到很多非常好的免费规则。 查看所有入侵检测系统<a href="http://sectools.org/ids.html">intrusion detection systems</a><br /><br /><strong>＃4 <a href="http://www.vulnwatch.org/netcat/">Netcat</a> :网络瑞士军刀</strong><br /><br /><a href="http://lh5.google.com/liuzh66/R35USYCliLI/AAAAAAAAAQ4/dU0lezyQvVs/image29"><img src="http://lh5.google.com/liuzh66/R35UVYCliMI/AAAAAAAAARA/2Hj4d6RBDGo/s144/image_thumb17.png" alt="image" /></a><br /><br />这个简单的工具通过TCP或者UDP网络链接读写数据。它被设计为一个可靠的后端工具：能被直接和通过其他程序或脚本简单地驱动执行。同时，它也是一个功能丰富的网络调试和探索工具，因为它能生成几乎所有类型的你需要的网络链接，包括接受绑定了端口的外来链接。最初版本的Netcat <a href="http://seclists.org/bugtraq/1995/Oct/0028.html">released</a> 是Hobbit在1995年发布的，但是不论它是多么的流行也没有被持续。它有时候很难被找到<a href="http://download.insecure.org/stf/nc110.tgz">nc110.tgz</a>。利用这个工具的弹性和用途去开发了很多其他的Netcat的实现极大的推广了这个工具- 经常的很多现代的功能都不能在原始版本中找到。其中最有趣的是 <a href="http://sectools.org/tools3.html#socat">Socat</a>，扩展Netcat去支持很多其它socket类型、SSL加密、SOCKS代理和更多。它甚至按自己的意图扩展。还有 <a href="http://sourceforge.net/projects/nmap-ncat/">Chris Gibson’s Ncat</a>，提供了甚至更多功能同时能保持可移植性和简洁性。其它流行的Netcat包括 <a href="http://www.openbsd.org/cgi-bin/cvsweb/src/usr.bin/nc/">OpenBSD’s nc</a>, <a href="http://farm9.org/Cryptcat/">Cryptcat</a>, <a href="http://www.deepspace6.net/projects/netcat6.html">Netcat6</a>, <a href="http://dcs.nac.uci.edu/%7Estrombrg/pnetcat.html">PNetcat</a>, <a href="http://tigerteam.se/dl/sbd/">SBD</a>, 和 <a href="http://netcat.sourceforge.net/">GNU Netcat</a>。查看所有 <a href="http://sectools.org/netcats.html">Netcats</a><br /><br /><strong>＃5 <a href="http://www.metasploit.com/">Metasploit Framework</a> : Hack星球</strong><br /><br /><a href="http://lh5.google.com/liuzh66/R35UoYCliZI/AAAAAAAAASo/OuA6ULryO7o/image%5B5%5D"><img src="http://lh6.google.com/liuzh66/R35UpoCliaI/AAAAAAAAASw/0G_VO5lpS_s/s144/image_thumb%5B2%5D.png" alt="image" /></a> Metasploit 在它2004年发布的时候给安全界带来风暴。没有其它什么工具能出现在这个列表的前15中， Metasploit 以第五位进入榜单，超过了很多知名的开发超过10年的工具。它是一个高级的开源平台。The extensible model through which payloads, encoders, no-op generators, and exploits can be integrated has made it possible to use the Metasploit Framework as an outlet for cutting-edge exploitation research. It ships with hundreds of exploits, as you can see in their <a href="http://metasploit.com:55555/">online exploit building demo</a>. This makes writing your own exploits easier, and it certainly beats scouring the darkest corners of the Internet for illicit shellcode of dubious quality. Similar professional exploitation tools, such as <a href="http://sectools.org/tools2.html#impact">Core Impact</a> and <a href="http://sectools.org/tools4.html#canvas">Canvas</a> already existed for wealthy users on all sides of the ethical spectrum. Metasploit simply brought this capability to the masses. 查看所有 <a href="http://sectools.org/sploits.html">vulnerability exploitation tools</a><br /><br /><strong>如需了解全列表，请参考源列表页面：<a href="http://sectools.org/">http://sectools.org/</a></strong></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2007-12-31T22:13:00+08:00"><a href="http://martinliu.cn/2007/12/31/itilv2/">December 31, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2007/12/31/itilv2/" rel="bookmark" title="看图学话，学ITIL(v2)系列 之1" itemprop="url">看图学话，学ITIL(v2)系列 之1</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <h5 id="section">前言</h5>
-
-<p><br />在2007年ITILv3推出之后，ITIL这个概念从最佳Best practice实践变成最好Good practice实践。从此称呼的转变能够看出ITIL思想的普及化、平民化。ITIL v2已经使用了快20多年了，看看如今的ITIL的用户，成熟度依旧参差不齐。有的已开始琢磨着如何完善所有ITIL Support流程并开展实施ITIL Delivery中的各个流程；有的已经在开始实施帮助台并建立事件和问题管理；有的依然处于扫描阶段。<br /><br />在ITILv3即将普及的2008年，v2对于各类用户来说还是基础，是最可实施的框架。v2是v3的核心内容，为了及时的升级到v3，熟练掌握v2的概念是当务之急。下个月公司有ITILv3升级的认证考试，本系列文章可能算是一个v2的复习笔记吧。<br /><br /><a href="http://lh4.google.com/liuzh66/R3j5IoClhRI/AAAAAAAAAJo/GKvNXZ7OEvQ/splash%5B4%5D"><img src="http://lh4.google.com/liuzh66/R3j5IoClhRI/AAAAAAAAAJo/GKvNXZ7OEvQ/s144/splash%5B4%5D.jpg" alt="splash" /></a><br /><br />一图胜过千言，本系列通过对一些经典图形的回顾来复习v2的部分概念。由于是看图学话版，所以目标观众是ITIL的学龄前儿童呵呵，学习内容是ITIL Delivery。如果您已经是小学以上水平，请忽略:)<br /></p>
-
-<h5 id="itil-service-delivery">ITIL Service Delivery介绍</h5>
-
-<p><br />ITIL的全称是IT Infrastructure Library，开发于1980年；成果要素：Public domain framework公共领域框架－放之四海皆准；Best practice framework最佳事件框架－现在成最好事件了；De facto standard事实上的标准－90年ITSM推广； Quality approach质量解决方案－IT质量保障；itSMF IT服务管理论坛。<br /><br /><a href="http://lh5.google.com/liuzh66/R3j5s4ClhTI/AAAAAAAAAJ4/gPPEBI8BEHg/fig1_1%5B3%5D"><img src="http://lh5.google.com/liuzh66/R3j5s4ClhTI/AAAAAAAAAJ4/gPPEBI8BEHg/fig1_1%5B3%5D.gif" alt="fig1_1" /></a><br /><br />Jigsaw diagram ～ 锯齿图 OGC设计了这个图，用此来说明ITIL有5个主要部分组成；每个部分之间都相互接口并联系着。<br /><br /><a href="http://lh5.google.com/liuzh66/R3j504ClhVI/AAAAAAAAAKI/0_2r9JBru3I/fig1_2%5B3%5D"><img src="http://lh5.google.com/liuzh66/R3j504ClhVI/AAAAAAAAAKI/0_2r9JBru3I/fig1_2%5B3%5D.gif" alt="fig1_2" /></a><br /><br />Service Delivery; the coverage ～服务交付涵盖如图5个不同流程。<br /><br /><a href="http://lh5.google.com/liuzh66/R3j594ClhXI/AAAAAAAAAKY/mA7zH6B9Rf4/fig1_3%5B3%5D"><img src="http://lh5.google.com/liuzh66/R3j594ClhXI/AAAAAAAAAKY/mA7zH6B9Rf4/fig1_3%5B3%5D.gif" alt="fig1_3" /></a><br /><br />BS15000 Service Management processes～BS1万5中的服务流程图示。它涵盖了ITIL的所有流程，以控制为中心的增强版。<br /></p>
-
-<h5 id="fig21httplh5googlecomliuzh66r3j6e4clhziaaaaaaaaakohzqpnmtdjnifig215b35dgifhttplh5googlecomliuzh66r3j6e4clhziaaaaaaaaakohzqpnmtdjnifig215b35d"><a href="http://lh5.google.com/liuzh66/R3j6E4ClhZI/AAAAAAAAAKo/HzqPNMtDjnI/fig2_1%5B3%5D"><img src="http://lh5.google.com/liuzh66/R3j6E4ClhZI/AAAAAAAAAKo/HzqPNMtDjnI/fig2_1%5B3%5D.gif" alt="fig2_1" /></a></h5>
-
-<p><br />Relationship between Change Management, Configuration Management, Capacity Management and Release Management～变更、配置、能力和发布管理之间的关系。<br /><br />[![fig3<em>1](http://lh4.google.com/liuzh66/R3j6_oClhbI/AAAAAAAAAK4/U0FWq6YXMRk/fig3_1%5B4%5D.gif)](http://lh4.google.com/liuzh66/R3j6_oClhbI/AAAAAAAAAK4/U0FWq6YXMRk/fig3_1%5B4%5D)<br /><br />_Process improvement model ～</em> 流程改进模型：发展方针和业务目标，评估、流程改变和指标追踪。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

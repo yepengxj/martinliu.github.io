@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,58 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2010-08-09T09:08:31+08:00"><a href="http://martinliu.cn/2010/08/09/remedy-lb-midtier-server-group-configure/">August 09, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2010/08/09/remedy-lb-midtier-server-group-configure/" rel="bookmark" title="Remedy Server Group及负载均衡配置参考步骤" itemprop="url">Remedy Server Group及负载均衡配置参考步骤</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><a href="http://martinliu.cn/2010/08/remedy-lb-midtier-server-group-configure.html/remedyitsmarch"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2010/08/RemedyITSMArch-253x300.jpg" alt="" /></a>上图为大型用户环境下Remedy ITSM的部署架构，作为本安装步骤参考模型。所不同的是，如下配置步骤只应用了一个最上面的负载均衡器，每个Web对应连接一个ARS服务器，简化掉了中间放在ARS前的负载均衡器。</p>
+
+<p><strong>第一步</strong> 安装前的准备工作。
+确定Remedy ARS的服务别名，例如“AtriumCMDB”。在所有的Web服务器（Mid-tier所安装的服务器）的host文件中加入一条Ip地址解析，例如：</p>
+
+<blockquote>192.168.10.11   AtriumCMDB</blockquote>
+
+<p>此ARS服务别名指向的是该Web服务器所对应的ARS服务器，例如：Web1中AtriumCMDB对应的ip为ARS1，Web2对应ARS2，Web3对应ARS3，以此类推。</p>
+
+<p><strong>第二步</strong>安装第一台ARS服务器
+默认所有的ARS都安装了数据库客户端程序，如果是Oracle数据库，ARS上的客户端程序的大小版本号必须和远程数据库的大小版本号完全一致。Windows平台的Oracle客户端只支持32位的程序。在所有ARS服务器的host文件中加入一条Ip地址解析，例如：</p>
+
+<blockquote>192.168.10.11   AtriumCMDB</blockquote>
+
+<p>此IP地址为每台ARS自己的对外提供ARS服务的IP。ARS上安装完JDK之后，开始安装ARS，安装过程中服务器别名输入AtriumCMDB，其他的选项都按需要配置，所有有关服务器端组件、服务端口、密码、安装路径的信息都要做详细记录，用来安装Server Group中其他成员使用。安装完第一台服务器的ARS之后，申请Remedy License，打License，包括其他所有CMDB、ITSM相关应用模块的License，打完License后导出成文件备用。ARS安装成功之后，顺序安装其他应用，顺序时CMDB 》ITSM  其他。安装完毕后，通过Remedy User来确认所有应用功能是否正常。</p>
+
+<p>**第三步 **配置第一台ARS服务器为Server Group中的管理服务器
+配置方法参照，ARS Configuration Guide中的Server Group的相关章节。配置完毕之后打开Server Group的Log，从启动ARS服务之后，查看该Log看Server Group工作是否正常。</p>
+
+<p><strong>第四步</strong> 安装Server Group中的成员ARS服务器
+准备工作参考第一台ARS服务器。运行ARS安装程序，选择Server Group，选择输入AtriumCMDB别名，选择共享的数据库，其他参数与第一台保持一致。安装完毕之后。使用ARS自带的Sample应用新增一个city，在ARS1上查询ARS2上新增的记录。同样参考的Server Group的相关章节，对ARS2进行配置。在ARS2上查看Server Group的日志，确认该ARS已经加入了以第一台ARS为管理服务器的群集中。为第二台ARS服务器打License。在确认第二台ARS服务器成功加入之后，安装CMDB应用。安装完毕之后，在第二台ARS服务器上，使用Remedy User客户端，打开CMDB的相关表单进行新增和查询操作；然后在ARS1上检查操作结果，保证两边一致。安装ITSM：直接把第一台ARS服务器的ar.cfg文件覆盖到第二台ARS的ar.cfg上，一定要修改第一台ARS服务器主机名的哪一行，把它修改为第二台ARS的主机名。复制第一台ARS的ITSM安装目录到第二台ARS的相同路径中，重启ARS服务。查看arerror.log文件看看ARS启动的是否正常。在第二台ARS上使用Remedy User确认ITSM应用是否工作正常，如果一切工作正常，则第二台ARS服务器安装完毕。按照相同的方式安装其他的ARS服务器。</p>
+
+<p><strong>第五步</strong> 配置每台ARS的ranking
+按照ARS Configuration Guide中的Server Group的相关章节配置每台ARS服务器处理不同后台工作流的ranking。</p>
+
+<p><strong>第六步</strong> 安装配置所有Web服务器的Remedy Mid-tier
+安装Remedy Mid-tier软件，都指向相同的ARS服务别名AtriumCMDB，当然该别名被解析为它所对应的ARS服务器的IP地址。使用浏览器测试每台Web服务器，保证Remedy Mid-tier都能正常工作。</p>
+
+<p><strong>第七步</strong> 配置F5负载均衡
+配置F5的分发策略，按不同ARS服务器的用途，来分别不同的用户请求。考虑管理和接口功能的ARS负担少量的用户交互。开发一个jsp的程序部署在Mid-tier的shared目录中，用它来判断Web所对应的ARS的可用性，以此作为唯一判断条件来分发用户请求给可用的web服务器。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -333,141 +379,6 @@ Reading time ~1 minute
 <p>英文版下载地址：<a href="http://cactiez.cactiusers.org/">http://cactiez.cactiusers.org/</a></p>
 
 <p>中文版下载地址：<a href="http://linux.chinaunix.net/bbs/thread-1049886-1-1.html">http://linux.chinaunix.net/bbs/thread-1049886-1-1.html</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2010-07-20T19:35:44+08:00"><a href="http://martinliu.cn/2010/07/20/cmdb003/">July 20, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2010/07/20/cmdb003/" rel="bookmark" title="规划CMDB数据填充-003" itemprop="url">规划CMDB数据填充-003</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>From 《Step by step to build a CMDB》步骤17-规划CMDB数据填充</p>
-
-<p>本文描述填充过程的任务3到任务4：</p>
-
-<p><img src="http://martinliu.cn/wp-content/gallery/cmdb/ci-data-mapping.png" alt="ci-data-mapping" /></p>
-
-<p><strong>任务3 映射CI和数据源</strong>
-现在拿出您的CI清单，并把每一类CI与具有相关信息的数据源映射起来。一个简单的电子数据表格，像图17.2一样的就足够了。有更复杂数据需求的大一点的企业可能需要多个数据页或者通过CI分类来连接到不同的数据页。</p>
-
-<p>这项工作的最终目标不仅是识别用以填充CMDB数据源，而且还识别了流程和平台的接触点，有些平台对数据填充是有影响的。这项工作也是至关重要，用来定义数据调和规则，定义数据优先度，这些会在下面的步骤，任务7“建立调和规则”中用的。
-工具映射如下图17.2所示，包括了每一个CI类，相关的属性，相关的关系数据，和数据源。
-图17.2 Ci和数据源之间的对照关系图样例
-您可能会发现一些s数据源之间的重叠，特别是CI库存清单的属性数据。这些数据通常包括唯一物理特性和CI的地点的说明 ，例如：型号、序列号、地点和所有者。此信息可能被存储在其他多个地方，它们也可用于CI数据填充的来源和日常维护的来源。
-多种的资产和库存清单数据来源可能包括如下：</p>
-
-<ul>
-  <li>
-    <p>审计（资产清单或者配置发现数据库；无代理和有代理方式）</p>
-  </li>
-  <li>
-    <p>资产管理系统</p>
-  </li>
-  <li>
-    <p>采购系统和许可证管理</p>
-  </li>
-  <li>
-    <p>财会系统（采购或者收货）</p>
-  </li>
-  <li>
-    <p>合同管理系统</p>
-  </li>
-  <li>
-    <p>变更管理系统</p>
-  </li>
-  <li>
-    <p>其他财务应用和系统</p>
-  </li>
-</ul>
-
-<p><strong>任务4 访问数据源环境</strong>
-为了确保数据质量，你应该访问所有的数据源环境，而不仅仅只是CMDB，还包括连接工具和相关技术，要逐一访问查看每一个数据源。在这里，“进来的是垃圾，出去的就是垃圾”这个俗语是适用的。CMDB项目的成功可能依赖于对系统或者基础架构的更新，以适应网络流量和数据量，还依赖于确保每一个数据源的数据质量。</p>
-
-<p>当你规划CMDB数据填充的时候，要自问这样几个问题，是有关外部映射数据源质量的：</p>
-
-<ul>
-  <li>
-    <p>现在那些信息在那里、怎样被存储的？ –数据库、电子表格、Word文档？</p>
-  </li>
-  <li>
-    <p>当前环境中有没有审计（发现）工具、软件分发、配置管理或者采购系统，用来自动的跟踪和存储这些信息？ 或者数据时被手工地收集和更新的？</p>
-  </li>
-  <li>
-    <p>这些系统是基于开放标准还是私有技术的？</p>
-  </li>
-  <li>
-    <p>这些系统的厂商有没有标准化的工具？或者CMDB厂商？</p>
-  </li>
-  <li>
-    <p>需要被继承的数据源的物理位置在那里？</p>
-  </li>
-  <li>
-    <p>在CMDB和数据源之间，通讯的方式是双向的还是单向的？</p>
-  </li>
-</ul>
-
-<p>还要考虑有关映射数据源性能相关的问题：</p>
-
-<ul>
-  <li>
-    <p>就当前的数据源来说，现实的性能、容量和可靠性是怎样的？</p>
-  </li>
-  <li>
-    <p>系统上当前的活动状况怎样？</p>
-  </li>
-  <li>
-    <p>活动用户数</p>
-  </li>
-  <li>
-    <p>其他并发继承此数据源的工具</p>
-  </li>
-  <li>
-    <p>备份、病毒扫描、报表或者数据挖掘的日程</p>
-  </li>
-  <li>
-    <p>审计工具（配置发现或者库存清单）扫描或者排队日程</p>
-  </li>
-  <li>
-    <p>其他任何将影响性能的事情</p>
-  </li>
-  <li>
-    <p>硬件和当前环境是不是能完全满足今后数据迁移所需要的附加工作量和空间需求？以及满足对于以后的日常数据同步？有没有对今后几年里增长率有做过计算？</p>
-  </li>
-  <li>
-    <p>是不是需要考虑要满足什么约束或者特殊权限？</p>
-  </li>
-  <li>
-    <p>厂商是否在与他们数据库集成方面有建议的最佳实践？（使用热备的生产机来降低作业压力）</p>
-  </li>
-  <li>
-    <p>CMDB周边的数据集和连接技术是什么？</p>
-  </li>
-  <li>
-    <p>网络环境中物理的限制（带宽、距离等）是否会有影响？</p>
-  </li>
-  <li>
-    <p>当前的版本是多少？在以后的六个月或者一年里是否有升级的计划？有哪些好处？</p>
-  </li>
-  <li>
-    <p>为当前的解决方案是否得到了足够的资料来负责架构、排错以及连接系统的维护？</p>
-  </li>
-</ul>
-
-<p>通过尽早的回答这些问题，就可以避免后续可能出现的性能问题，那些问题会影响项目的成功。如果数据源不太可靠，而且数据质量和性能方面是有问题的，这个时候，可以回到这些数据的关键利益相关者那里，与他们讨论，并确定这是否会影响到使用方面的关键需求。如果没有，需要把这部分数据需求从CMDB项目计划的第一阶段中展示放弃。这里最重要的是第一阶段的合理部署，实施结果能够获得用户全面的适应。然而，如果这些数据依然是比较关键的需求，那么需要与数据所有者，和收益者各方进行沟通，并引起各方的高度重视，共同确定一个解决方案。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

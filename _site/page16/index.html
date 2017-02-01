@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,90 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-12-24T09:43:03+08:00"><a href="http://martinliu.cn/2014/12/24/wget-e4-b8-8b-e8-bd-bd-e5-a4-a7-e6-96-87-e4-bb-b6-e6-96-ad-e7-82-b9-e7-bb-ad-e4-bc-a0/">December 24, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2014/12/24/wget-e4-b8-8b-e8-bd-bd-e5-a4-a7-e6-96-87-e4-bb-b6-e6-96-ad-e7-82-b9-e7-bb-ad-e4-bc-a0/" rel="bookmark" title="wget 下载大文件-断点续传" itemprop="url">wget 下载大文件-断点续传</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>举例如下：</p>
+
+<p>wget -c -b -t 0 -O CentOS-7.0-1406-x86_64-Everything.iso  http://mirrors.sohu.com/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso -o centos.log</p>
+
+<p>下载一个7GB的DVD文件，能够断点续传，能够把状态写入centos.log文件中。具体参数说明如下：</p>
+
+<p>[su_table]</p>
+<table>
+<tbody>
+<tr>
+
+<td>-c
+</td>
+
+<td>断点续传
+</td>
+</tr>
+<tr>
+
+<td>-b
+</td>
+
+<td>后台下载
+</td>
+</tr>
+<tr>
+
+<td>-t 0
+</td>
+
+<td>反复尝试下载，0（零）为不限次数
+</td>
+</tr>
+<tr>
+
+<td>-O file name
+</td>
+
+<td>O（大写字母o）下载的文件命名为
+</td>
+</tr>
+<tr>
+
+<td>-o file name
+</td>
+
+<td>o（小写字母o）下载的日志保存在文件中
+</td>
+</tr>
+<tr>
+
+<td>URL
+</td>
+
+<td>http://mirrors.sohu.com/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso
+</td>
+</tr>
+</tbody>
+</table>
+<p>[/su_table]</p>
+
+<p>本文参考：<a href="http://blog.chinaunix.net/uid-14735472-id-111049.html">http://blog.chinaunix.net/uid-14735472-id-111049.html</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -711,33 +789,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p><a href="https://openstack.redhat.com/">https://openstack.redhat.com/Main_Page</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-12-02T00:14:51+08:00"><a href="http://martinliu.cn/2014/12/02/e6-98-8e-e5-a4-a9-e6-be-b3-e9-97-a8-e8-a7-81/">December 02, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2014/12/02/e6-98-8e-e5-a4-a9-e6-be-b3-e9-97-a8-e8-a7-81/" rel="bookmark" title="明天澳门见" itemprop="url">明天澳门见</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>[caption id=”attachment_53304” align=”alignnone” width=”802”]<a href="http://cdn1.martinliu.cn/wp-content/uploads/2014/12/10407649_10152796900375816_4259586778690078611_n-e1417451217310.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2014/12/10407649_10152796900375816_4259586778690078611_n-e1417451217310.png" alt="10407649_10152796900375816_4259586778690078611_n" /></a> If there is anything you need, I won’t be far away.[/caption]</p>
-
-<p>半年了，第一次出差，赶上公司开大会，Apac整个技术部门的人都汇聚一堂，这是一个geek的盛会。期待的看点还是很多的。更有周三超过百人的geek running。周末会绕道香港，在转机去新加坡，在哪有一周的产品培训。这趟洗肺之旅，不知道能够创下多少公里的跑步里程，我已经按耐不住，脚底板发痒了。</p>
-
-<p>悲催的我明天才能够拿到港澳签注，因此只能乘坐下午4点的航班，到晚上才能到澳门。比其他所有人的到达时间，整整晚了一天。由于签注还没到手，还有一点点忐忑，毕竟我的程三张机票都出好了。但愿明天顺利出发。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,31 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-01-26T22:26:12+08:00"><a href="http://martinliu.cn/2015/01/26/fedora-22-e6-9c-89-e4-bd-95-e5-80-bc-e5-be-97-e6-9c-9f-e5-be-85/">January 26, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2015/01/26/fedora-22-e6-9c-89-e4-bd-95-e5-80-bc-e5-be-97-e6-9c-9f-e5-be-85/" rel="bookmark" title="Fedora 22 有何值得期待" itemprop="url">Fedora 22 有何值得期待</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>我使用这新安装的F21，连接着公司阿姆斯特丹的VPN，流畅的使用Firefox ， Chrome 上网，在没有墙的世界里顺利传行着。重返Linux世界，想起来很久没有用windows桌面了，渐渐适应和熟悉这感觉，且有些怀旧。</p>
+
+<p>之前Fedora是没有太多的体验，用的最多的是opensuse + kde桌面的组合。目前，看到fedora magazine上很多更新，感觉真的是发展的太快了。 http://fedoramagazine.org/see-whats-coming-in-fedora-22-workstation/ 看了下这个帖子，上面说F22的提升包括：更长的电池寿命、gnome Wayland更多改进、开始应用bundle的开发、更好的第三方应用支持、提升Terminal、改善开发工具等等。查看更多细节：<a href="http://blogs.gnome.org/uraeus/2015/01/19/planning-for-fedora-workstation-22/">Christian’s blog pos</a>t</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -497,90 +516,6 @@ Reading time ~1 minute
 [root@w540 Desktop]# virt-clone -o rhel70-tmp -n rhel70-tmp-clone -f /data/vm/cloned-new-vm.img<br />
 Cloning rhel7-tmp.img                                                                             | 195 GB  00:00:03     <br />
 Clone ‘rhel70-tmp-clone’ created successfully.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-12-24T09:43:03+08:00"><a href="http://martinliu.cn/2014/12/24/wget-e4-b8-8b-e8-bd-bd-e5-a4-a7-e6-96-87-e4-bb-b6-e6-96-ad-e7-82-b9-e7-bb-ad-e4-bc-a0/">December 24, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2014/12/24/wget-e4-b8-8b-e8-bd-bd-e5-a4-a7-e6-96-87-e4-bb-b6-e6-96-ad-e7-82-b9-e7-bb-ad-e4-bc-a0/" rel="bookmark" title="wget 下载大文件-断点续传" itemprop="url">wget 下载大文件-断点续传</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>举例如下：</p>
-
-<p>wget -c -b -t 0 -O CentOS-7.0-1406-x86_64-Everything.iso  http://mirrors.sohu.com/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso -o centos.log</p>
-
-<p>下载一个7GB的DVD文件，能够断点续传，能够把状态写入centos.log文件中。具体参数说明如下：</p>
-
-<p>[su_table]</p>
-<table>
-<tbody>
-<tr>
-
-<td>-c
-</td>
-
-<td>断点续传
-</td>
-</tr>
-<tr>
-
-<td>-b
-</td>
-
-<td>后台下载
-</td>
-</tr>
-<tr>
-
-<td>-t 0
-</td>
-
-<td>反复尝试下载，0（零）为不限次数
-</td>
-</tr>
-<tr>
-
-<td>-O file name
-</td>
-
-<td>O（大写字母o）下载的文件命名为
-</td>
-</tr>
-<tr>
-
-<td>-o file name
-</td>
-
-<td>o（小写字母o）下载的日志保存在文件中
-</td>
-</tr>
-<tr>
-
-<td>URL
-</td>
-
-<td>http://mirrors.sohu.com/centos/7/isos/x86_64/CentOS-7.0-1406-x86_64-Everything.iso
-</td>
-</tr>
-</tbody>
-</table>
-<p>[/su_table]</p>
-
-<p>本文参考：<a href="http://blog.chinaunix.net/uid-14735472-id-111049.html">http://blog.chinaunix.net/uid-14735472-id-111049.html</a></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

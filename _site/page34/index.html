@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,62 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2013-04-07T18:27:38+08:00"><a href="http://martinliu.cn/2013/04/07/xenserver-tools-not-installed/">April 07, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2013/04/07/xenserver-tools-not-installed/" rel="bookmark" title="解决XenServer tools not installed" itemprop="url">解决XenServer tools not installed</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>[box color=”orange” icon=”flag”]
+鸣谢：Michael Zhang的经验分享，有需要的请收藏备用。
+[/box]</p>
+
+<p>刚刚搞定了POC环境中一个很诡异的问题。把过程写出来以供大家参考。建议可以把这个设置放到POC的实施手册中。
+刚开始做POC时，我们安装了XP的模板，并且安装了同版本的XenTools，此时XenCenter面板上显示虚机的IP地址没有问题。但是跑了一段时间后发现，所有的虚机的IP地址都显示不出来了，并且XenCenter面板上显示XenServer tools not installed，虚机的内存信息，Disk IO等信息，都没有显示：
+<a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools1.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools1.png" alt="xentools1" /></a></p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools8.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools8.png" alt="xentools8" /></a></p>
+
+<p>后来重装了模板，重新发布了虚机，一切就OK了，此时我认为是原先的模板有问题，所以导致了这个issue。
+但是后来跑了几天，某台虚机又出现了类似的症状，此时我意识到应该不是模板的问题了。然后我就检查了这台虚机的Service，发现：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools2.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools2.png" alt="xentools2" /></a></p>
+
+<p>这个Service就是XenTool的Service，因为没有启动，所以导致了上述的问题。
+但是当我用手工试图重启该Service的时候，系统报改Service启动时停止，没有给出任何原因。Windows Event Log里也没看到任何报错。
+后来上网查了下，原来是Windows Event Log的Application类的log满了以后，会导致该Service启动异常。
+看了下XP的Windows Event Log的Application类日志的属性，默认只有64K：</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools3.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools3.png" alt="xentools3" /></a></p>
+
+<p>我把上面的日志文件大小阀值改成了1024K，清空Application类的log，重启上面的Service, 成功，问题解决。</p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools5.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools5.png" alt="xentools5" /></a>
+<a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools6.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools6.png" alt="xentools6" /></a></p>
+
+<p><a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools7.png"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/04/xentools7.png" alt="xentools7" /></a></p>
+
+<p>上述类似的问题我记得也有兄弟曾经遇到过，发邮件出来问过，当时怀疑是XenServer跟VDA的时间不同步造成，现在感觉也许跟这个原因有关。</p>
+
+<p>[box color=”gray” icon=”order-check”]
+欢迎投稿，请发邮件到： liuzh66@gmail.com
+[/box]</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -426,31 +476,6 @@ Reading time ~1 minute
 <p>Citrix产品生命周期查询一览表：</p>
 
 <p><a href="http://www.citrix.com/support/product-lifecycle/product-matrix.html">http://www.citrix.com/support/product-lifecycle/product-matrix.html</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2013-03-14T20:13:49+08:00"><a href="http://martinliu.cn/2013/03/14/my-first-half-marathon/">March 14, 2013</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2013/03/14/my-first-half-marathon/" rel="bookmark" title="My first half marathon" itemprop="url">My first half marathon</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>[caption id=”attachment_52283” align=”aligncenter” width=”720”]<a href="http://cdn1.martinliu.cn/wp-content/uploads/2013/03/the_first_half_marathon.jpg"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2013/03/the_first_half_marathon.jpg" alt="1:56:33 @Xuanwu Lake Nanjing" /></a> My first half marathon record[/caption]</p>
-
-<p>本周一，在南京出差，周二一大早，我5点就醒了，常识跑一次半马。这是第一次尝试跑两个小时的时间，第一次尝试跑半马的距离。其实前10公里还是可以，后十公里还是有点疲劳的，中途休息了四次，每次走大约1分分钟左右。很惊喜的看到大部分的路程都在配速5分左右，和我设定的五分二十秒目标配速很接近。本次试跑证明了，我身体的耐力跑半马还是可以。打算在半马的基础上提高成绩，争取能把半马跑好再说。下个月四月十四日在苏州的半马比赛很期待，比赛前抽空好好准备争取能轻松完成。跑完后，这几天没有发现身体任何不适，今天早晨跑5公里，发现加速比以前有力，似乎经过这次拉练后，身体的体能有所提高。最重要的是：我在没有伤痛的情况下即感受到了体育竞技的乐趣，又达到了强身健体的目的。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

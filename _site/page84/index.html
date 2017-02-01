@@ -111,12 +111,6 @@
 			</ul>
 		</li>
 		
-	    
-	    <li><a href="http://www.aws-faq.com" target="_blank">AWS-FAQ</a></li>
-	  
-	    
-	    <li><a href="http://devopscoach.org" target="_blank">DevOps教练</a></li>
-	  
 	</ul><!-- /.dl-menu -->
 </nav><!-- /.dl-menuwrapper -->
 
@@ -138,6 +132,39 @@
 
 <div id="main" role="main">
   
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-04-05T22:19:20+08:00"><a href="http://martinliu.cn/2008/04/05/get-right-size-of-oss/">April 05, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2008/04/05/get-right-size-of-oss/" rel="bookmark" title="Get right-size of OSS" itemprop="url">Get right-size of OSS</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>6yeas ago, I had a open source talk with my friend Tom Chen. The topic was “ does oss suppose to work for large enterprise for mission critical business?” Until last week, I thought I found answer by myself; the OSS does works for bank business in China. During last week, I deployed my company’s product on CCB’s machines. Those machines are part of e-banking system, 1/4th of them are on Redhat Enterprise Linux 4 update6. As we all know CCB is one of big four bank in China, those Linux machines are running Apache for web-tier of e-banking system. A 160MB installation image was ftp to every managed nodes, untar it then ran a same install script. I felt Linux boxes took less time then other HP-UX boxes, they are similar servers I mean similar hardware. Actually CCB have many Linux servers all over the country then I touched at this time.<br /><br />I had a business travel in Urumchi lat year. I met another bank customer there. When we were talking about what kind of OS they have. They impressed me very much. They said part of servers are on SuSE Enterprise Linux, they are just virus-free and lower maintenance cost then M$ Windows. They are just use those SuSE Linux to running IBM DB2 database for some bank business. They like Linux, but not use it everywhere. I didn’t tell them that is my favorite Linux distribution. Just look back 5 years, I would say more and more companies are using OSS or they are considering have more OSS for  their business.<br /><br />Let’s get back to my topic: what OSS could be good for you? Do you have confidence for have more OSS for your business system? I think you need to just have the right-size of OSS. You have to figure by yourself. The following are my suggestions:<br /></p>
+
+<p><br />	
+  * OSS adoption might take years, you should have a plan.
+<br />	
+  * Starting from one single on-going project, you could migrate all or part of a business system to OSS(Linux for OS, Tomcat for mid-tier, or what every you’d like to use)
+<br />	
+  * Monitoring the entire IT by same way by 24 hours. You must have availability and performance report for every node. Then you could analyses those history report to figure out if OSS does a good job or not. A incident report of whole IT support org is highly recommended.
+<br />	
+  * Having more OSS engineers might speed up the process you move forward to OSS.
+<br /><br />If you like my thought in this post, you would like to see this <a href="http://www.martinliu.cn/2007/06/12/%e5%bb%ba%e7%ab%8b%e4%b8%80%e4%b8%aa%e5%bc%80%e6%ba%90%e4%bc%81%e4%b8%9a/">old one</a>.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
 <article class="hentry">
   <header>
     
@@ -286,71 +313,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>纪念一下吧~~~从blogger搬到此处，真的非了很多的周折~<br /><img src="http://www.huanatv.com.cn/news/uploadfile/200709/20070904024609344.jpg" alt="" /><strong>本博客介绍：</strong><br />我曾经有过好多个Blog，其中最喜欢是 <a href="http://lzheng.blogspot.com/">http://lzheng.blogspot.com</a>。在这个Blog之前我曾经在chinaunix.net上有过两个blog，一个 <a href="http://okwiner.cublog.cn/">okwiner.cublog.cn</a>,后来有专门为OpenNMS新开了一个   <a href="http://opennms.cublog.cn/">opennms.cublog.cn</a>； 其实对这两个blog更新的还是挺多的，特别是第一个CUblog。不过后来，还是觉得google的blog有非常多的功能，就把以前写的好的文章都搬 去blogspot了。目的有二，一来是想用一个功能能强大的blog，二来呢觉得google对自己的blog的搜索一定会更好，通过google可以 能带来更多读者。不过不幸的是去年两会的时候blogspot就被封了，期间偶尔也开放过一两。有一次我还以为真的是有恢复了，一夜没睡觉，更新了 blog的样式准备重新开始继续更新。可是第二天就有访问不了了，其实平时在公司或者在公司的VPN上是可以访问的，由于是走的国外的网络；从blog流 量统计上可以看出，<a href="http://lzheng.blogspot.com/">http://lzheng.blogspot.com</a>的访问量是平均大约每天12个，访问者基本上都是从国外和港台地区。不过我觉得我的读者是应该面向国内的，写这个博客的目的还是向国内的中文用户提供开源的信息和技术。所以就申请了自己的域名，购买了一个虚拟机（LAMP），在虚机上安装了<a href="http://wordpress%e3%80%82com/">wordpress。</a>wordpress和blogspot的内容是可以互相兼容的，把blogspot里的文章导出成xml文件在导入到这个站点当中，这样完成了blog的搬家工程。工程虽然不是很浩大，不过毕竟还是费了一番周折，目的只有一个，以前写的东西有些还是有用的舍不得丢。<br /><br />以后会把我在开源方面的心得和想法都更新到这个博客上，希望能够为您提供一点点的帮助。在这里呢会对开源技术提供全景式介绍，做的力求比较全面内 容。不过我一直以来呢是做IT管理这个方向的，所以从我的文章分将有70%以上是这方面的内容，30%介绍其他内容。不过您如果有其他任何相关的想法也欢 迎和我探讨。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-02-02T14:02:00+08:00"><a href="http://martinliu.cn/2008/02/02/hyperic-hq-32-new-features/">February 02, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2008/02/02/hyperic-hq-32-new-features/" rel="bookmark" title="Hyperic HQ 3.2 new features" itemprop="url">Hyperic HQ 3.2 new features</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>If you’d like to check out release note, please click here. <a href="http://support.hyperic.com/confluence/display/DOC/HQ+3.2+Release+Notes">http://support.hyperic.com/confluence/display/DOC/HQ+3.2+Release+Notes</a><br /><br />I had a quick install on RHEL 5. For some features what I saw, I took some screenshots as bellowing. I hope this helps you to understand what’s new in 3.2 and save a little bit time for you if you do not wants to install it. I will describe in Chinese.<br /></p>
-
-<h2 id="new-nav-menu-">New Nav menu 新导航菜单</h2>
-
-<p><br /><img src="http://lh5.google.com/liuzh66/R6QKZn2WokI/AAAAAAAAAeo/ZYObo0rO5Dc/image%5B15%5D.png" alt="" />导航菜单的名称变成了：Dashboard – Resources – Analyze – Administration 菜单的风格稍微有一点变化。Analyze下面可以进入Alert Center去查看报警信息。我觉得3.2毕竟是一个小的功能增进板，添加了支持MY SQL的支持。增强了对Nagios的集成。对Nagios的集成对它还是很有好处的，由于它自己是Agent Based的监控方法，而Nagios是Agentless的监控方法；集成之后通过它的web界面能统一管理，还是挺好的。不过和Nagios具体能集成到什么程度，我还没有试过。<br /></p>
-
-<h2 id="currently-down-resources">Currently Down Resources当前宕机资源</h2>
-
-<p><br /><img src="http://lh4.google.com/liuzh66/R6QK9X2WomI/AAAAAAAAAe4/iGNp8zHxnok/image%5B19%5D.png" alt="" /><br />如果所示：各种有问题的资源安装各种分类都显示出来，同实现时什么时间出的问题，持续了多久，点击放大镜后查看相关的报警信息。上图显示的是：HQ Agent在w2k3vm这一Windows服务器上没有启动的情况，它报告了包括hq agent自身以及所有相关资源的都宕机的情形。同时作为一个监控系统来说，管理员最需要看到的信息可能主要包括两种：1）有那些资源出了问题；2）当前有什么样的告警事件。这里对这两类信息提供了一个非常不错的访问入口。<br /></p>
-
-<h2 id="live-exec-data">Live Exec Data实时数据获取</h2>
-
-<p><br /><img src="http://lh6.google.com/liuzh66/R6QLY32WooI/AAAAAAAAAfI/JDuTMobC7IE/image%5B24%5D.png" alt="" /><br />HQ-agent本身只能周期性的采集matrix，在汇报给管理服务器。实时的数据采集对排错还是非常有帮助的。此功能我觉得是3.2版中的最好的增强。它应该是远程的让agent去执行一下命令在把最终结果返回到页面上：<br /></p>
-
-<p><br />	
-  * Cpuinfo  CPU信息
-<br />	
-  * Cpuperc  CPU利用率
-<br />	
-  * Df            磁盘利用率
-<br />	
-  * Ifconfig   网卡ip信息
-<br />	
-  * Netstat   网络端口信息
-<br />	
-  * Top
-<br />	
-  * Who
-<br /><br />这些信息的获取通过agent完成所以和平台无关，即使是Window平台也能收到相同的信息。<br /></p>
-
-<h2 id="hq-health-check-">HQ Health Check 管理服务器自身检查</h2>
-
-<p><br /><img src="http://lh4.google.com/liuzh66/R6QLxX2WoqI/AAAAAAAAAfY/_qW9Xr0ni6w/image%5B28%5D.png" alt="" /><br />一个真正的自监控功能最好能做到对相关指标的报警处理。能设置一些条件，在不正常情况发生的时候报告管理员说出管理服务器那里有问题了。上图可以看出，hq已经做出了第一步，能采集并且显示很多HQ服务器运行的状态信息。<br /></p>
-
-<h2 id="summary">Summary：</h2>
-
-<p><br />在3.2的发布说明中还提到它自身的扩展性也很大的增强，这一点对hq来说尤为重要。由于它的结构是基于代理的，当监控的设备和资源都非常多时，hq管理服务器自身的处理能理将会成为瓶颈，如果它的处理，存储和网络上的任何一个环节出现了问题，整个监控系统就失效了。由于事件有限，目前还留下了一些问题：<br /></p>
-
-<p><br />	
-  * Global Alert Disable是在那里设置的？
-<br />	
-  * 报警阀值的设置是否有全局设置的地方？（例如：对所有windows机器都设置一个CPU&gt;80％的阀值）
-<br /><br />如果您对以上两个问题有些答案请回复告诉我。关于HQ的其它文章，清在本blog中搜索。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
