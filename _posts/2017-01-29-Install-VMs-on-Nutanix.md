@@ -4,7 +4,7 @@ title: "Nutanix AHV（KVM）Windows虚拟机安装全攻略"
 description: "本文使用Nutanix CE版本的群集来完成默认的KVM虚拟化下，Windows 10虚拟机的安装"
 tags: [Nutanix]
 image:
-  feature: p014h7g3.jpg
+  feature: Community_Edition_-_Nutanix.jpg
 ---
 
 # Windows 虚拟机安装
