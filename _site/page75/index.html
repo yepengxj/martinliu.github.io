@@ -136,6 +136,65 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2009-01-11T10:33:12+08:00"><a href="http://martinliu.cn/2009/01/11/161-1-opennms-quick-install-guide/">January 11, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2009/01/11/161-1-opennms-quick-install-guide/" rel="bookmark" title="opennms 1.6.1-1 quick start guide" itemprop="url">opennms 1.6.1-1 quick start guide</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><img src="http://www.etproductions.com/images/start.jpg" alt="" /><br /><br />本安装手册为纯命令版，如果有什么疑问清参考官方安装手册，或给本贴留言。<br /><br />[install yum on your Linux box]<br />选择任意Linux系统，安装上yum工具，在命令行测试 yum -v<br /><br />[testing internet connection with those two URL]<br />测试是否能上网，用浏览器分别打开这两个网址<br /></p>
+
+<p><br />	
+  1. <a href="http://www.martinliu.cn/2007/12/13/opennms-yum-install/">http://www.martinliu.cn/2007/12/13/opennms-yum-install/</a>
+<br />	
+  2. <a href="http://http://yum.opennms.org/repofiles/">http://yum.opennms.org/repofiles/</a>
+<br /><br />先别关闭这两个网页。<br /><br />[Install opennms   开始安装:<br /><br />	
+  1. yum install yum-fastestmirror
+<br />	
+  2. rpm -Uvh http://yum.opennms.org/repofiles/opennms-repo-snapshot-rhel4.noarch.rpm
+<br />	
+  3. yum list opennms
+<br />	
+  4. yum install opennms
+<br /><br />[ post-install and config]  开始配置：<br /><br />	
+  1. export OPENNMS_HOME=/opt/opennms
+<br />	
+  2. vi /var/lib/pgsql/data/pg_hba.conf<br /><br />	
+    1. 注释掉其中所有可用的行，加入下面三行<br />local   all     all     trust<br />host    all     all     127.0.0.1/32 trust<br />host    all     all     ::1/128 trust
+<br /><br />
+<br />	
+  3. /sbin/service postgresql restart
+<br />	
+  4. /usr/java/jdk1.5.0_15/bin/java -version
+<br />	
+  5. $OPENNMS_HOME/bin/runjava -S  /usr/java/jdk1.5.0_15/bin/java
+<br />	
+  6. $OPENNMS_HOME/bin/install      -disU -l /usr/lib/jni:/usr/lib
+<br /><br />[ startup opennms and login ]启动登录：<br /><br />	
+  1. /etc/init.d/opennms start
+<br />	
+  2. http://localhost:8980/opennms
+<br />	
+  3. username and password are admin/admin
+<br />	
+  4. click Admin  / Add Interface, input a ipaddress and press Add button
+<br /><br />OK， I have get oepnnms 1.6.1-1 installed on my home pc, I hope you good luck and have fun.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2009-01-07T18:18:18+08:00"><a href="http://martinliu.cn/2009/01/07/top-25-oss-projects-on-06-jan-2009/">January 07, 2009</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -262,29 +321,6 @@ Reading time ~1 minute
 <p><br />&lt;/tr&gt;<br />&lt;/tr&gt;<br />&lt;/tbody&gt;&lt;/table&gt;<br /></p>
 
 <blockquote></blockquote>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-11-20T01:40:56+08:00"><a href="http://martinliu.cn/2008/11/20/otrs-project-news-update/">November 20, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~2 minutes
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2008/11/20/otrs-project-news-update/" rel="bookmark" title="[项目更新] OTRS project news update" itemprop="url">[项目更新] OTRS project news update</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><a href="http://www.otrs.org/"><img src="http://www.otrs.com/uploads/pics/otrs_download_01.jpg" alt="" /></a><br /><br /><strong>当OTRS遇到OpenNMS</strong> <strong>OTRS meets openNMS! **OTRS和OpenNMS发布了新的集成手册  <a href="http://www.opennms.org/index.php/OTRS_Integration">http://www.opennms.org/index.php/OTRS_Integration</a> 这个Web Service的接口应该能做方便的集成了，没有试过，总之OpenNMS+OTRS应该是不错的组合，黄金搭档送给你，到~~<br /><br /></strong>The SIRIOS 2.2 modules for OTRS 2.3 are released <em>*SIRIOS 2.2模块发布了。我一直以为<a href="http://www.otrs.com/en/produkte/sirios/">SIROS</a>是非开源的项目，今天才知道它也是开源的哦，有空试试看。这个是专门为安全管理定制的，主要是去管理企业的安全事件。<br /><br />自从2008-08-05   **OTRS 2.3.1 (Bora Bora) **发布之后，又发布了两个版本，2.3.2  和 2.3.3，这两个版本都是2.3.1的bug修复版，功能上没有增加。<br /><br />OTRS 2.3 中重大的改变如下：<br /><br /><!-- more --><br /><br /># “Performance, Performance, Performance!”  系统性能提高<br /></em> Data base- &amp; code-improvements increase lead to a general performance gain of up to 20%.<br />* The support of an indexed full text search has been added. The feature is disabled per default because additional disc space is needed. The expected performance gain is 50%.<br />* Reduced reloads by using AJAX technology<br />* Instead of an ongoing recalculating of the escalation time during the run time, it is only recalculated when it changes due to an event in OTRS. It is then being stored in the ticket object which allows a direct access of external reporting tools to the data base as well as a more efficient reporting on escalations. This will also lead into a substantial performance improvement.<br /><br /># Search Functionality 搜索功能<br />* Support of logical expressions: ticket-, customer- and FAQ- search supports logical expressions, utilizing the AND, OR and ! operators as well as structuring expressions with parentheses.<br />* Search for ticket numbers by using the Browser OpenSearch feature (OpenSearch format).<br />* Search for ticket titles in the agent ticket search form and in the generic agent.<br />* Search for ticket close time in the agent ticket search form and in the generic agent.<br /><br /># Ticket Zoom &amp; Ticket Move 工单伸缩和移动<br />* Expand/Collapse of articles: the article view can be expanded to display all articles at once. The current article will remain in focus, and the preceding, or following articles will be displayed.<br />* Structured article tree - The article tree has been changed to a table.<br />* Printing of articles has been realized.<br />* The ticket title of linked tickets are displayed in case of a mouse over action.<br />* Merged tickets are displayed crossed out.<br />* Multiple files can be attached while moving a ticket using the ticket move mask.<br /><br /># Ticket FreeText &amp; FreeTime opportunities<br />* When splitting a ticket, all FreeText and Free Time data will be copied to the new ticket.<br />* Ticket Free Time fields can be declared as mandatory.<br />* A URL can be configured that takes the value of a FreeText Field and displays it as an URL link in the ticket.<br />* Added X-OTRS-TicketTime and X-OTRS-FollowUp-TicketTime.<br /><br /># IMAP, IMAPS, POP3 &amp; POP3S support 对以上协议的支持<br />* With OTRS 2.3 IMAP, IMAPS, and POP3S is supported to fetch mails from your MTA.<br /><br /># Security 安全方面<br />* In case of a lost password, OTRS is sending an e-mail to the user with a “password reset link”. After clicking this link the new password is sent to the user in a second e-mail.<br /><br /># Notifications &amp; Escalations 通知和升级<br />* All agents that have a read permission on a certain queue can be selected for notification.<br />* An escalation view has been added that displays all tickets sorted by their remaining time to escalation.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

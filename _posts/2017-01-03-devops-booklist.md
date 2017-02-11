@@ -364,3 +364,7 @@ http://item.jd.com/10843669.html
 
 
 
+Eric J.Evans在《领域驱动设计》一书中
+
+ Domain Driven Design by Eric J. Evans. 
+

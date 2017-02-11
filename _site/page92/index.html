@@ -136,6 +136,29 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2007-04-28T19:43:00+08:00"><a href="http://martinliu.cn/2007/04/28/nmap-network-mappe/">April 28, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2007/04/28/nmap-network-mappe/" rel="bookmark" title="Nmap — Network Mapper(网络映射器)" itemprop="url">Nmap — Network Mapper(网络映射器)</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><a href="http://images.insecure.org/nmap/images/nmap_bnr_euroboy.jpg"><img src="http://images.insecure.org/nmap/images/nmap_bnr_euroboy.jpg" alt="" /></a><br /><br />Nmap (“Network Mapper(网络映射器)”) 是一款开放源代码的 网络探测和安全审核的工具。它的设计目标是快速地扫描大型网络，当然用它扫描单个 主机也没有问题。Nmap以新颖的方式使用原始IP报文来发现网络上有哪些主机，那些 主机提供什么服务(应用程序名和版本)，那些服务运行在什么操作系统(包括版本信息)， 它们使用什么类型的报文过滤器/防火墙，以及一堆其它功能。虽然Nmap通常用于安全审核， 许多系统管理员和网络管理员也用它来做一些日常的工作，比如查看整个网络的信息， 管理服务升级计划，以及监视主机和服务的运行。<br />Nmap输出的是扫描目标的列表，以及每个目标的补充信息，至于是哪些信息则依赖于所使用的选项。 “所感兴趣的端口表格”是其中的关键。那张表列出端口号，协议，服务名称和状态。状态可能是 open(开放的)，filtered(被过滤的)， closed(关闭的)，或者unfiltered(未被过滤的)。 Open(开放的)意味着目标机器上的应用程序正在该端口监听连接/报文。 filtered(被过滤的) 意味着防火墙，过滤器或者其它网络障碍阻止了该端口被访问，Nmap无法得知 它是 open(开放的) 还是 closed(关闭的)。 closed(关闭的) 端口没有应用程序在它上面监听，但是他们随时可能开放。 当端口对Nmap的探测做出响应，但是Nmap无法确定它们是关闭还是开放时，这些端口就被认为是 unfiltered(未被过滤的) 如果Nmap报告状态组合 openfiltered 和 closedfiltered时，那说明Nmap无法确定该端口处于两个状态中的哪一个状态。 当要求进行版本探测时，端口表也可以包含软件的版本信息。当要求进行IP协议扫描时 (-sO)，Nmap提供关于所支持的IP协议而不是正在监听的端口的信息。<br />除了所感兴趣的端口表，Nmap还能提供关于目标机的进一步信息，包括反向域名，操作系统猜测，设备类型，和MAC地址。<br /><br />摘自：<a href="http://insecure.org/nmap/man/zh/">nmap中文文档</a> <a href="http://insecure.org/nmap/index.html">nmap首页</a></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2007-04-26T18:47:00+08:00"><a href="http://martinliu.cn/2007/04/26/opennms-install-sample/">April 26, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -306,35 +329,6 @@ Reading time ~2 minutes
   </header>
   <div class="entry-content">
     <p><a href="http://www.ntop.org/ntop1.jpg"><img src="http://www.ntop.org/ntop1.jpg" alt="" /></a><br /><br /><strong>安装方法：</strong><br />最简单的安装方法应该是从Linux的安装光盘中安装，因为它比较小只有2～3MB；很多Linux都包含这个软件。在SuSE Linux 10.1中可以找到ntop-3.2-17。<br /><br /><strong>配置使用：</strong><br />安装之后参考说明文档做首次初始化运行，如果是通过rpm从Linux光盘中安装；相关的系统服务也已经帮你安装。在SuSE里运行rcntop start就可以启动后台进程。访问ntop的界面<a href="http://myserver:3000/">http://myserver:3000/</a>。<br /><br />Tips：<br />ntop会吃掉比较多的内存资源，不建议在生产机上安装。它工作在第二层，采用实时抓包的方式；ntop像是网络探针来捕获和分析网络活动，产生一些分析报表，部署时需要考虑它的部署位置。<br /><br /><strong>于其它系统的集成：</strong><br />该系统界面的访问比较的直接，没有用户认证过程。所有报表和分析结果的按两个方式保存和呈现：host和协议。它通过rdd存储数据，通过web页面展示图片；本身不需要依赖web server。准备尝试把它集成到Nagios和OpenNMS中。<br /><br /><strong>ntop的英文说明</strong><br />From: <a href="http://www.ntop.org/Monitoring.html">http://www.ntop.org/Monitoring.html</a><br />NTOP is helpful as an “emergency” tool. When you are experiencing response time delays or you suspect that something is wrong with your network, NTOP allows you to easily monitor the protocols running on your LAN and to determine the utilization of each.<br /><br />NTOP comes very well when suspicious behavior is found on your network. Suppose you have a set of local clients accessing a database on your LAN. They claim that time response is very poor. You embark on a search to determine who or what is to blame. You generally have 2 options: the application or the network. You ask the application engineer(s) to determine that the application is OK. They determine that it is. You move on to the network engineers who come to find out that you have a very high retransmission packet rate caused by the server’s faulty network card (a problem to be detected by the sysadmin using standard linux/unix commands). In a situation like this, it is likely that they were able to determine this by using a tool like NTOP. Without the help of NTOP and similar tools, finding the cause of the problem could have been extremely tedious.<br /><br />Some very useful sections of NTOP include:<br /><br />‘Active TCP Sessions” - shows what is taking place on your network at that specific moment. For example:<br /><br />Client Server Data Sent Data Rcvd Active Since Last Seen Duration<br />123.231.213.1 mail_server 3.6 MB 3.8 MB 12/08/99 19:40:01 12/20/99 20:47:31 12 day(s) 1:07:02<br /><br />All this information can be accessed using any standard web browser. To have enough information to work on, you may wish to run NTOP for at least a couple of days (non-stop) in a production environment. (This may vary depending on the size of your network. For a medium departmental LAN, a couple of days should be fine).<br /><br />‘Connection Matrix’ - shows which station is talking to what<br />server and the amount of traffic being exchanged<br /><br />Monitoring of the most intensive bandwidth senders and receivers - Heavy traffic is not only caused by physical media but also by other system intensive actions (e.g. users downloading large files). This can cause severe bottlenecks to your LAN.<br /><br />The NTOP data presentation is impressive. Bar and Pie charts are used to demonstrate protocol utilization and packet size distribution. Data gathered from the monitoring can be logged in a file for posterior plotting using any spreadsheet application such as Sun’s Star Office. If you want to keep all of the information stored for future structured retrieval, NTOP gives you the option to store it in a SQL database.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2007-02-28T17:14:00+08:00"><a href="http://martinliu.cn/2007/02/28/groundwork-rpm-error/">February 28, 2007</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2007/02/28/groundwork-rpm-error/" rel="bookmark" title="GroundWork rpm 安装会导致原系统的一些改变" itemprop="url">GroundWork rpm 安装会导致原系统的一些改变</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>GroundWork rpm安装对系统造成的改变有：<br /></p>
-
-<p><br />	
-  1. /etc/init.d/apache2 被改名为 apache2-save 导致，以前的Apache不能启动
-<br />	
-  2. 会在/etc/ld.so.conf中加入一行/usr/local/groundwork/lib ；不知道为什么这会导致一下系统的服务不能正常运行，如：PostgreSQL和snmpd。修复方法是注释掉这一行，然后运ldconfig命令。还不知道GroundWork在没有这一行的情况下有什么问题，注释掉之后好像它还是能正常运行的。
-<br /></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

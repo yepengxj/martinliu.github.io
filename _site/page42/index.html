@@ -136,6 +136,424 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-08-18T19:50:07+08:00"><a href="http://martinliu.cn/2012/08/18/cloudstack-quick-install-guide-english-mini-version/">August 18, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~8 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2012/08/18/cloudstack-quick-install-guide-english-mini-version/" rel="bookmark" title="CloudStack Quick install guide (English mini version)" itemprop="url">CloudStack Quick install guide (English mini version)</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Testing environment:
+I have two hight spec laptop connecting to one wireless router, they all have internet access.
+Install process: step 1 install RHEL6 for management server; step 2 install CloudStack software on management server; step 3 install XenServer; step 4 CloudStack initialization and configure.<!-- more -->
+Install RHEL6 64bit OS notes:</p>
+
+<ol>
+  <li>
+    <p>User FQDN as hostname, for example cloudstack.xen.cn; use this command to confirm: hostname –fqdn</p>
+  </li>
+  <li>
+    <p>Use 0~3.xenserver.pool.ntp.org as ntp server</p>
+  </li>
+  <li>
+    <p>Install KDE desktop, with MySQL/Clent</p>
+  </li>
+  <li>
+    <p>Configure static ip address, for sure both DNS and GW are all right, for internet download.</p>
+  </li>
+  <li>
+    <p>Shutdown iptables firewall, by this way you could ignore port settings of iptables, this is not secure, but you can speed up a little bit</p>
+  </li>
+</ol>
+
+<p><a href="http://martinliu.cn/2012/06/cloudstack-quick-install-guide.html/img_0841"><img src="http://cdn1.martinliu.cn/wp-content/uploads/2012/06/IMG_0841.jpg" alt="" /></a>
+Setting up local DVD as yum source, in order to install dependance packages of Cladestack, mount DVD to /media folder, you have to install following rpm packages before create a new yum source.
+[shell]
+mount /dev/cdrom /media
+yum install deltarpm-3.5-0.5.20090913git.el6.x86_64.rpm
+yum install python-deltarpm-3.5-0.5.20090913git.el6.x86_64.rpm
+yum install createrepo-0.9.8-4.el6.noarch.rpm
+[/shell]</p>
+
+<p>Crete a new yum source file, see below:
+[shell]
+[root@cloudstack 1] cat /etc/yum.repos.d/rhel6.repo
+[rhel6]
+name=rhel6
+baseurl=file:///media/
+enabled=1
+gpgcheck=0
+[/shell]</p>
+
+<p>Checking if new source file is loaded correctly:
+[shell]
+yum list
+[/shell]</p>
+
+<p>Download CloudStack install package for RHEL 6, unzip it and execute install command
+[shell]
+tar xzvf CloudStack-oss-3.0.2-1-rhel6.2.tar.gz
+./install
+Select m
+Select y
+[/shell]</p>
+
+<p>You will see install script need yum to install all dependence rpm packages; you should get a different list as below:</p>
+
+<p>[shell]
+tomcat6-lib                          noarch          6.0.24-33.el6               rhel6               2.9 M
+tomcat6-servlet-2.5-api              noarch          6.0.24-33.el6               rhel6                93 k
+ws-commons-util                      noarch          1.0.1-13.el6                rhel6                37 k
+wsdl4j                               noarch          1.5.2-7.8.el6               rhel6               157 k
+xml-commons-apis                     x86_64          1.3.04-3.6.el6              rhel6               439 k
+xml-commons-resolver                 x86_64          1.1-4.18.el6                rhel6               145 k</p>
+
+<h1 id="transaction-summary">Transaction Summary</h1>
+<p>Install      38 Package(s)</p>
+
+<p>Total download size: 91 M
+Installed size: 172 M
+Is this ok [y/N]: y
+Downloading Packages:
+————————————————————————————————————
+Total                                                                       115 MB/s |  91 MB     00:00
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+Installing : libgcj-4.4.6-3.el6.x86_64                                                               1/38
+Installing : jakarta-commons-logging-1.0.4-10.el6.noarch                                             2/38
+Installing : cloud-deps-3.0.2-1.el6.x86_64                                                           3/38
+Installing : cloud-utils-3.0.2-1.el6.x86_64                                                          4/38</p>
+
+<p>Installed:
+cloud-client.x86_64 0:3.0.2-1.el6</p>
+
+<p>Dependency Installed:
+axis.noarch 0:1.2.1-7.2.el6                            bcel.x86_64 0:5.2-7.2.el6
+classpathx-jaf.x86_64 0:1.0-15.4.el6                   classpathx-mail.noarch 0:1.1.1-9.4.el6
+cloud-agent-scripts.x86_64 0:3.0.2-1.el6               cloud-client-ui.x86_64 0:3.0.2-1.el6
+cloud-core.x86_64 0:3.0.2-1.el6                        cloud-deps.x86_64 0:3.0.2-1.el6
+cloud-python.x86_64 0:3.0.2-1.el6                      cloud-server.x86_64 0:3.0.2-1.el6
+cloud-setup.x86_64 0:3.0.2-1.el6                       cloud-utils.x86_64 0:3.0.2-1.el6
+ecj.x86_64 1:3.4.2-6.el6                               ipmitool.x86_64 0:1.8.11-12.el6
+jakarta-commons-collections.noarch 0:3.2.1-3.4.el6     jakarta-commons-daemon.x86_64 1:1.0.1-8.9.el6
+jakarta-commons-dbcp.noarch 0:1.2.1-13.8.el6           jakarta-commons-discovery.noarch 1:0.4-5.4.el6
+jakarta-commons-httpclient.x86_64 1:3.1-0.6.el6        jakarta-commons-logging.noarch 0:1.0.4-10.el6
+jakarta-commons-pool.x86_64 0:1.3-12.7.el6             java-1.5.0-gcj.x86_64 0:1.5.0.0-29.1.el6
+java_cup.x86_64 1:0.10k-5.el6                          libgcj.x86_64 0:4.4.6-3.el6
+log4j.x86_64 0:1.2.14-6.4.el6                          mx4j.noarch 1:3.0.1-9.13.el6
+regexp.x86_64 0:1.5-4.4.el6                            sinjdoc.x86_64 0:0.5-9.1.el6
+tomcat6.noarch 0:6.0.24-33.el6                         tomcat6-el-2.1-api.noarch 0:6.0.24-33.el6
+tomcat6-jsp-2.1-api.noarch 0:6.0.24-33.el6             tomcat6-lib.noarch 0:6.0.24-33.el6
+tomcat6-servlet-2.5-api.noarch 0:6.0.24-33.el6         ws-commons-util.noarch 0:1.0.1-13.el6
+wsdl4j.noarch 0:1.5.2-7.8.el6                          xml-commons-apis.x86_64 0:1.3.04-3.6.el6
+xml-commons-resolver.x86_64 0:1.1-4.18.el6</p>
+
+<p>Complete!
+Done
+[/shell]
+At this point, management server has been installed successfully on my 8GB laptop.</p>
+
+<p>Install MySQL server from CloudStack install script:
+[shell]
+./install
+&gt; select d
+Installing the MySQL server…
+Loaded plugins: product-id, refresh-packagekit, security, subscription-manager
+Updating certificate-based repositories.
+cloud-temp                                                                          | 2.6 kB     00:00 …
+rhel6                                                                               | 4.0 kB     00:00 …
+Setting up Install Process
+Package mysql-server-5.1.52-1.el6_0.1.x86_64 already installed and latest version
+Nothing to do
+Starting the MySQL server…
+Initializing MySQL database： Installing MySQL system tables…
+OK
+Filling help tables…
+OK</p>
+
+<p>To start mysqld at boot time you have to copy
+support-files/mysql.server to the right place for your system</p>
+
+<p>PLEASE REMEMBER TO SET A PASSWORD FOR THE MySQL root USER !
+To do so, start the server, then issue the following commands:</p>
+
+<p>/usr/bin/mysqladmin -u root password ‘new-password’
+/usr/bin/mysqladmin -u root -h cloudstack.xen.cn password ‘new-password’</p>
+
+<p>Alternatively you can run:
+/usr/bin/mysql_secure_installation</p>
+
+<p>which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.</p>
+
+<p>See the manual for more instructions.</p>
+
+<p>You can start the MySQL daemon with:
+cd /usr ; /usr/bin/mysqld_safe &amp;</p>
+
+<p>You can test the MySQL daemon with mysql-test-run.pl
+cd /usr/mysql-test ; perl mysql-test-run.pl</p>
+
+<p>Please report any problems with the /usr/bin/mysqlbug script!</p>
+
+<p>[OK]
+Starting mysqld：                                          [OK]
+Done
+[/shell]</p>
+
+<p>We had installed MySQL server successfully; some parameters must be changed from default value. I show my configure file as a simple bellow:</p>
+
+<p>[shell]
+cat /etc/my.cfn
+[mysqld]
+datadir=/var/lib/mysql
+#Added for CloudStack
+innodb_rollback_on_timeout=1
+innodb_lock_wait_timeout=600
+max_connections=350
+log-bin=mysql-bin
+binlog-format = ‘ROW’
+#Above are for CloudStack
+socket=/var/lib/mysql/mysql.sock
+user=mysql
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0</p>
+
+<p>[mysqld_safe]
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+[/shell]</p>
+
+<p>Restart MySQL server.</p>
+
+<p>[shell]
+[root@cloudstack CloudStack-oss-3.0.2-1-rhel6.2] service mysqld restart
+Stop mysqld：                                              [OK]
+Starting mysqld：                                          [OK]
+[/shell]</p>
+
+<p>Set MySQL root password:
+[shell]
+[root@cloudstack home] mysql -u root
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 2
+Server version: 5.1.52-log Source distribution</p>
+
+<p>Copyright (c) 2000, 2010, Oracle and/or its affiliates. All rights reserved.
+This software comes with ABSOLUTELY NO WARRANTY. This is free software,
+and you are welcome to modify and redistribute it under the GPL v2 license</p>
+
+<p>Type ‘help;’ or ‘\h’ for help. Type ‘\c’ to clear the current input statement.</p>
+
+<p>mysql&gt; set password = password(‘citrix’);
+Query OK, 0 rows affected (0.00 sec)</p>
+
+<p>mysql&gt; exit
+Bye
+[/shell]</p>
+
+<p>Initialisation Cloudtack management server database.
+[shell]
+[root@cloudstack home] cloud-setup-databases cloud:citrix@localhost –deploy-as=root:citrix
+Mysql user name:cloud                                                           [ OK ]
+Mysql user password:citrix                                                      [ OK ]
+Mysql server ip:localhost                                                       [ OK ]
+Mysql server port:3306                                                          [ OK ]
+Mysql root user name:root                                                       [ OK ]
+Mysql root user password:citrix                                                 [ OK ]
+Checking Cloud database files …                                               [ OK ]
+Checking local machine hostname …                                             [ OK ]
+Checking SELinux setup …                                                      [ OK ]
+Detected local IP address as 192.168.10.15, will use as cluster management server node IP[ OK ]
+Preparing /etc/cloud/management/db.properties                                   [ OK ]
+Applying /usr/share/cloud/setup/create-database.sql                             [ OK ]
+Applying /usr/share/cloud/setup/create-schema.sql                               [ OK ]
+Applying /usr/share/cloud/setup/create-database-premium.sql                     [ OK ]
+Applying /usr/share/cloud/setup/create-schema-premium.sql                       [ OK ]
+Applying /usr/share/cloud/setup/server-setup.sql                                [ OK ]
+Applying /usr/share/cloud/setup/templates.sql                                   [ OK ]
+Applying /usr/share/cloud/setup/create-index-fk.sql                             [ OK ]
+Processing encryption …                                                       [ OK ]
+Finalizing setup …                                                            [ OK ]</p>
+
+<p>CloudStack has successfully initialized database, you can check your database configuration in /etc/cloud/management/db.properties
+[/shell]</p>
+
+<p>Database initialization successful, then we need to run CloudStack setup command.
+[shell]
+[root@cloudstack home] cloud-setup-management
+Starting to configure CloudStack Management Server:
+Configure sudoers …         [OK]
+Configure Firewall …        [OK]
+Configure CloudStack Management Server …[OK]
+CloudStack Management Server setup is Done!
+[/shell]</p>
+
+<p>After we have installed CloudStack management server. We are going to create storage. I use my management server for setting up NFS share. It’s convenient and easy enough. But according CloudStack document, you’d better attached a 16 TB NFS storage on management server. If you have pls use it. For me 250 GB HD is good for my testing purpose. You may have one more Linux machine for NFS server, then you can follow my steps.</p>
+
+<p>[shell]
+[root@cloudstack ~] service rpcbind start
+[root@cloudstack ~] service nfs start
+Start NFS server：                                            [OK]
+Stop NFS quota：                                            [OK]
+Start NFS service：                                        [OK]
+Start NFS mountd：                                          [OK]
+[root@cloudstack ~] chkconfig nfs on
+[root@cloudstack ~] chkconfig rpcbind on
+[root@cloudstack home] cd /home
+[root@cloudstack home] mkdir primary
+[root@cloudstack home] mkdir secondary
+[root@cloudstack home] vi /etc/exports   #set NFS path
+[root@cloudstack home] cat /etc/exports
+/home    *(rw,async,no_root_squash)
+[root@cloudstack home] exportfs -a
+[root@cloudstack home] exportfs
+/home             <world>
+[/shell]</world></p>
+
+<p>Edit /etc/sysconfig/nfs file, for sure it has follow parameter.
+[shell]
+MOUNTD_NFS_V3=”yes”
+LOCKD_TCPPORT=32803
+LOCKD_UDPPORT=32769
+MOUNTD_PORT=892
+RQUOTAD_PORT=875
+STATD_PORT=662
+STATD_OUTGOING_PORT=2020
+[/shell]</p>
+
+<p>Restart NFS server, you’d better test it from a XenServer host. To for sure XenServer can read and write NFS share:
+[shell]
+[root@xs root]mkdir test
+[root@xs root]mount 192.168.10.15:/home  /root/test
+[root@xs root]ls test
+[root@xs root]touch testfile   #this file must be showed by ls on both management server and XenServer host.
+[/shell]</p>
+
+<p>Test your intenet connection from management server, We need to download system vm template and install it on management server.
+[shell]
+/usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt -m /home/secondary -u http://download.cloud.com/templates/acton/acton-systemvm-02062012.vhd.bz2 -h xenserver -F
+正在解析主机 download.cloud.com… 207.171.189.81
+正在连接 download.cloud.com|207.171.189.81|:80… 已连接。
+已发出 HTTP 请求，正在等待回应… 200 OK
+长度：140616708 (134M) [binary/octet-stream]</p>
+
+<p>99% [===================================================================================================&gt; ] 140,512,160  149K/s eta(英国中部时
+99% [===================================================================================================&gt; ] 140,551,600  145K/s eta(英国中部时
+100%[====================================================================================================&gt;] 140,616,708  155K/s   in 11m 27s
+2012-06-29 20:03:57 (200 KB/s) - 已保存 “/usr/lib64/cloud/agent/scripts/storage/secondary/a5fc3577-c5e7-49ff-8fbf-ed88dc8aaff5.vhd” [140616708/140616708])</p>
+
+<p>Uncompressing to /usr/lib64/cloud/agent/scripts/storage/secondary/a5fc3577-c5e7-49ff-8fbf-ed88dc8aaff5.vhd.tmp (type bz2)…could take a long time
+Moving to /home/secondary/template/tmpl/1/1///a5fc3577-c5e7-49ff-8fbf-ed88dc8aaff5.vhd…could take a while
+Successfully installed system VM template  to /home/secondary/template/tmpl/1/1/
+[/shell]
+Go into secondary storage folder to verify template file, check the file size.</p>
+
+<p>I use a 32GB HP latop for XenServer, it’s in same network subnet with management server, and it also can access internet.</p>
+
+<p>XenServer installation note:</p>
+
+<ol>
+  <li>
+    <p>Download XenServer 6.0.201 iso image, it can work with CloudStack 3.0.201 well</p>
+  </li>
+  <li>
+    <p>Internet access is convenient for download CloudStack support package.</p>
+  </li>
+  <li>
+    <p>Using same 0~3.xenserver.pool.ntp.org NTP server</p>
+  </li>
+</ol>
+
+<p>Access XenServer host from my management server. There are some post-install steps need to be done for CloudStack.
+[shell]
+[root@cloudstack .ssh]# ssh 192.168.10.10   #Connect to XenServer host ip address
+The authenticity of host ‘192.168.10.10 (192.168.10.10)’ can’t be established.
+RSA key fingerprint is ae:5b:8a:dc:2a:c8:6c:56:f6:7a:48:02:e6:db:78:dd.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added ‘192.168.10.10’ (RSA) to the list of known hosts.
+root@192.168.10.10’s password:
+Type “xsconsole” for access to the management console.
+[root@hpxs1 ~] pwd
+/root
+[root@hpxs1 ~] mkdir tmp
+[root@hpxs1 ~] cd tmp
+[root@hpxs1 tmp] wget http://download.cloud.com/releases/3.0.1/XS-6.0.2/xenserver-cloud-supp.tgz
+–2012-06-29 21:55:08–  http://download.cloud.com/releases/3.0.1/XS-6.0.2/xenserver-cloud-supp.tgz
+Resolving download.cloud.com… 207.171.185.201
+Connecting to download.cloud.com|207.171.185.201|:80… connected.
+HTTP request sent, awaiting response… 200 OK
+Length: 3342001 (3.2M) [application/x-tar]
+Saving to: `xenserver-cloud-supp.tgz’</p>
+
+<p>100%[================================================================&gt;] 3,342,001    217K/s   in 15s</p>
+
+<p>2012-06-29 21:55:49 (214 KB/s) - `xenserver-cloud-supp.tgz’ saved [3342001/3342001]
+[root@hpxs1 tmp] tar xf xenserver-cloud-supp.tgz
+[root@hpxs1 tmp] ls
+example-answerfile   post-install.sh  src                       xenserver-cloud-supp.tgz
+packages.cloud-supp  README           xenserver-cloud-supp.iso
+[root@hpxs1 tmp] xe-install-supplemental-pack xenserver-cloud-supp.iso
+Installing ‘XenServer Cloud Supp Pack’…</p>
+
+<p>Preparing…                ########################################### [100%]
+1:iptables               ########################################### [ 10%]
+2:iptables-ipv6          ########################################### [ 20%]
+3:arptables              ########################################### [ 30%]
+4:iptables-debuginfo     ########################################### [ 40%]
+5:ipset-modules-kdump-2.6########################################### [ 50%]
+6:ipset-modules-xen-2.6.3########################################### [ 60%]
+7:csp-pack               ########################################### [ 70%]
+8:ebtables               ########################################### [ 80%]
+9:ipset                  ########################################### [ 90%]
+10:iptables-devel         ########################################### [100%]
+Update sysctl to enable <em>tables checking
+Memory required by all installed packages: 894697472
+Truncating to static-max: 789839872
+Setting VM.memory_target: 789839872
+Pack installation successful.
+[root@hpxs1 tmp]
+[root@hpxs1 tmp] xe-switch-network-backend bridge
+Cleaning up old ifcfg files
+Remove… ifcfg-xenbr0
+Disabling openvswitch daemon
+Configure system for bridge networking
+You *MUST</em> now reboot your system
+[root@hpxs1 tmp] reboot
+[/shell]</p>
+
+<p>Test if NFS storage is up and running for my XenServer host.
+[shell]
+[root@hpxs1 ~] mkdir nfs
+[root@hpxs1 ~] mount 192.168.10.15:/home/primary /root/nfs
+[root@hpxs1 ~] cd nfs
+[root@hpxs1 nfs] touch testfile
+[root@hpxs1 nfs] ls
+testfile   #Check this file inside NFS folder.
+[/shell]</p>
+
+<p>Now, it’s time to initialize CloudStack on management server. It has a very nice wizard for helping you lunching your zone.
+[nggallery id=14]</p>
+
+<p>I had followed above to installed CloudStack twice within less 3 hours. If you get other tips/issue, pls drop me a comment, I will try my best to response you.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-08-16T23:25:19+08:00"><a href="http://martinliu.cn/2012/08/16/xenserver-san-boot-e5-ae-89-e8-a3-85/">August 16, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -273,76 +691,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>今天是Supper Monday，一上午有4个电话会议，而且我这周会很繁忙。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-08-13T10:35:05+08:00"><a href="http://martinliu.cn/2012/08/13/zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/">August 13, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2012/08/13/zt-e4-b8-8d-e7-94-a8-e8-99-9a-e6-8b-9f-e6-9c-ba-ef-bc-8c-e4-b9-9f-e8-83-bd-e6-a1-8c-e9-9d-a2-e8-99-9a-e6-8b-9f/" rel="bookmark" title="[ZT]不用虚拟机，也能桌面虚拟" itemprop="url">[ZT]不用虚拟机，也能桌面虚拟</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>转贴学习，FROM: <a href="http://vdesk.blog.51cto.com/2969473/959588">http://vdesk.blog.51cto.com/2969473/959588</a></p>
-
-<p>最近Citrix在XenDesktop 5.6 Feature Pack 1版本中发布了一个新的功能“Remote PC”。这个功能是如此简单而又聪明！</p>
-
-<p>“从外网访问我办公桌面的PC”，其实是一个原始得不能再原始的需求。自VPN推广以来就不绝于耳。但从未有一个厂商能大范围的实现这个需求。Remote PC的出现终于彻底满足了这个需求，而且将它再向前推进了一大步，即“从任何设备上远程访问我办公桌面的PC”。</p>
-
-<p>我看好“Remote PC”不仅仅基于以上理由，更重要的一个原因是我认为它的出现会让桌面虚拟化更加容易推进和被广为接受！</p>
-
-<p>桌面虚拟化的好处不言而喻。但为什么桌面虚拟化项目推进起来还是会觉得困难？很重要的一个阻碍因素就是成本！要想获得桌面虚拟化所带来的那些好处，意味着你首先要投入巨额的资金，采购一堆的服务器，一堆的共享存储，然后将物理PC转换到虚拟PC。在经济危机的大背景下，CXO们确实踌躇不前，他们面临一个非常现实的问题就是，企业已经投资的这些桌面PC怎么办？ “Remote PC”让这个问题迎刃而解。企业只需要投入少量预算在Citrix基础管理架构上，就可以让所有办公桌面的PC获得远程移动办公的能力。很小的投入，不再是惠及几十、上百个点，而是立刻让企业所有的PC产生回报。而一旦人们慢慢适应了这种高效的移动办公方式，桌面的PC也渐渐折旧为零，他们可以很自然地迁移到真正桌面虚拟化（VDI）的模式。</p>
-
-<p>另外，只要是做过桌面虚拟化的人都知道，不可能让所有的桌面都被虚拟化，总会有一些潜在的障碍冒出来。一些明明唾手可得的桌面虚拟化项目，往往因为少数桌面不满足虚拟化的条件而被搁置。比如，奇奇怪怪的外设，老得掉渣的应用，特殊的硬件要求，甚至是不可理喻的借口等等都会让你赔上无数的时间，让整个项目组深陷其中，进退两难。比如我遇到过的两个极端例子，就是某要害部门的员工中午休息时间有打对战游戏的爱好，他要求的操作响应速度虚拟桌面根本达不到要求。还有就是高层领导总是担心桌面上收以后，他的个人数据无秘密可言，而坚持必须使用物理PC。当遇到这些情况出现时，桌面虚拟化项目的范围就会从100%的用户，缩减到80%，50%，甚至更糟。厂商和代理商前期投入了巨大的人力物力，但最后的收益却直线下降。Remote Pc的出现，立刻趟平了上面所列的这些障碍。只需要在用户的物理PC上安装一个Agent，他们一样能从任何地方，任何设备上访问自己的桌面和应用程序。于是项目组终于可以将精力放在可轻松实现的目标上，等到以后再折回来解决这些掉队的桌面。</p>
-
-<p>Remote PC的最大价值，就在于它给了我们一个选择！我们终于可以选择让一些棘手的事情变得简单！</p>
-
-<p>所以当你花了数周或者数月，试图解决当前技术上还不完美的场景时，请换个思路！ Remote their PC！</p>
-
-<p>讲了半天，你可能还不知道Remote PC到底是什么功能，那就看看下面的介绍吧：</p>
-
-<ul>
-  <li>
-    <p>不再需要专门的VPN通道访问你的个人PC；</p>
-  </li>
-  <li>
-    <p>认证通过DDC来进行，比如你可以实现双因素认证；</p>
-  </li>
-  <li>
-    <p>不需要记住你的个人PC的主机名和IP地址；</p>
-  </li>
-  <li>
-    <p>在物理PC上得到全部的HDX体验；</p>
-  </li>
-  <li>
-    <p>一个用户可以被分配多个桌面，而多个用户也能分配一个桌面；</p>
-  </li>
-  <li>
-    <p>提供新的WDDM显示驱动；</p>
-  </li>
-  <li>
-    <p>和本地显示驱动和平相处；</p>
-  </li>
-  <li>
-    <p>使用了ThinWire，可以支持任意设备，也能实现Aero效果啦；</p>
-  </li>
-  <li>
-    <p>电源管理功能：即使在远程PC关机时也能远程执行开机操作（必须要Intel AMT技术支持）；</p>
-  </li>
-</ul>
-
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

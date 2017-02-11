@@ -136,6 +136,31 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-07-06T20:47:45+08:00"><a href="http://martinliu.cn/2012/07/06/e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/">July 06, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2012/07/06/e8-87-aa-e5-ae-9a-e4-b9-89-e6-9c-8d-e5-8a-a1-e6-a8-a1-e6-9d-bf-e6-97-a0-e6-b3-95-e5-88-9b-e5-bb-ba-e8-99-9a-e6-8b-9f-e6-9c-ba/" rel="bookmark" title="自定义服务模板无法创建虚拟机" itemprop="url">自定义服务模板无法创建虚拟机</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>今天测试发现，使用自定义的服务模板无法创建虚拟机实例。但是默认安装的两个服务模板能够正常创建虚拟机。</p>
+
+<p>目前还没要找到合理的解决方法。而且还有另外一个问题 ，使用ISO模式安装的xp，安装了xentools之后初始化的网络配置丢失了。这个问题容易理解原因，但是真的不应该发生这种问题的。</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-07-06T00:49:31+08:00"><a href="http://martinliu.cn/2012/07/06/zt-reference-architectures-that-scale-citrix-xendesktop-on-flexpod-with-microsoft-private-cloud/">July 06, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -272,29 +297,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>短暂的访问了青岛的客户，下午回到了北京。比较而言，北京像是个热锅，闷的人喘不过气，回想起海风的味道，真感觉在青岛逗留的时间太短了。客户是铁杆的XenApp的粉丝，给他们介绍了整个系统架构之后，用户感觉很好；原来我的这些需求你们都有解决方案，产品确实都有这些功能。遗憾的是不是每个客户都是从开始就意识到整个架构，意识到所有模块和功能，说白了，用了好几年了，还没有把系统的发展道路看清楚。作为一个实体而言，不同的单位平行独立建设的情况较多，缺乏统筹安排。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-07-01T22:12:35+08:00"><a href="http://martinliu.cn/2012/07/01/cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/">July 01, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2012/07/01/cloudstack-3-0-2-e5-ae-89-e8-a3-85-e5-bf-83-e5-be-97/" rel="bookmark" title="CloudStack 3.0.2安装心得" itemprop="url">CloudStack 3.0.2安装心得</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>CloudStack3.0.2安装是非常简单容易的，安装的过程，所需要用到的命令，都已经被详细的记录在官方的 <a href="http://download.cloud.com/releases/3.0.0/CloudStack3.0.0-3.0.2QuickInstallGuide.pdf">English</a> 版Quick Install Guide中了。最简洁的安装配置应该是：RHEL6.2 64bit的管理服务器+XenServer6.0.2；原因主是在XenServer这部分非常简单，CloudStack和XenServer使用API通信，只需要在XenServer上安装一个附件包即可。 安装过程中最精彩，可能也是最复杂的部分是在最后的CloudStack初始化向导那里。这个向导特别具有开源软件的风范，我接触过的很多OSS都是通过这样一个友好的向导，帮你做初始化设置的。它复杂在于，CloudStack的一些基本的概念，如果你对这些概念不是很理解可以会有点费劲。不过凭着基本的云计算常识和理解你也不会配置错到哪去，如果那个参数输入的不正确，在初始化的过程中，它还能停止在那个部分，在给你改正参数的机会，这些细节做的还是非常到位，不是傻傻的把你输入的参数直接写库，让你回头troubleshooting都找不到北。这个版本的CloudStack感觉非常不错，需要尝试的朋友，可以马上行动起来了。</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

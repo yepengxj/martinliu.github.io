@@ -136,6 +136,90 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2011-02-14T23:05:27+08:00"><a href="http://martinliu.cn/2011/02/14/backup-restore-remedy-ars-oracle-db/">February 14, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2011/02/14/backup-restore-remedy-ars-oracle-db/" rel="bookmark" title="在Oracle上备份和恢复 Remedy ARS数据库" itemprop="url">在Oracle上备份和恢复 Remedy ARS数据库</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <h1 id="why-ars-system-need-full-backup-and-restore">Why ARS system need full backup and restore</h1>
+
+<p>众所周知_Remedy ARS_上运行的所有程序代码都是在数据库中存储的，几乎所有的程序代码和相关数据都是存储在后端的数据库里的。基于这种特性，我们可以很方便地从数据库层面实现对ARS系统的备份和恢复。所谓基于数据库的备份和恢复就是指数据库的全库导入和导出。在这方面_Oracle_做的很好，他所提供的imp和exp命令行工具能很好的完成此项任务。
+<img src="http://img.en25.com/Web/BMCSoftwareInc/eloqua_webform_banner_868w_arch07.jpg" alt="" /></p>
+
+<h1 id="when-you-may-backup-bmc-remedy-ars-system-database">When you may backup BMC Remedy ARS system Database</h1>
+
+<p>_Remedy ARS_系统数据库全备份可能会发生在下面的几个时间点：</p>
+
+<ol>
+  <li></li>
+</ol>
+
+<h2 id="remedy-itsmars">在安装过程中，_Remedy ITSM_套件的安装都是从ARS开始一个模块一个模块增加安装的，可以在安装每个新模块之前，做一个数据库备份，用于安装失败情况下的现场恢复</h2>
+
+<ol>
+  <li></li>
+</ol>
+
+<h2 id="section">在系统上线前，当系统需要做升级/代码更新等等大规模操作之前可以考虑做一次数据库的导出备份</h2>
+
+<ol>
+  <li></li>
+</ol>
+
+<h2 id="section-1">在做系统迁移的情况下，我们甚至可以生产库迁移到开发机上进行问题的重现，或者代码的修改，或者测试，完成之后再导回生产系统（如果生产系统再次期间处于维护状态的话）</h2>
+
+<h1 id="how-to">How-to</h1>
+
+<p>下面是我总结的相关操作步骤参考。</p>
+
+<h2 id="arsystem">备份_ARSystem_数据库</h2>
+
+<p>exp aradmin/ar#admin@itil file=c:\before-patch7.dmp log=c:\exp.log compress=n statistics=none</p>
+
+<p>参数解释：
+aradmin/ar#admin  是ARS系统默认的用户名和口令
+@itil 是ARSystem数据库所在的数据库实例名
+file=c:\before-patch7.dmp log=c:\exp.log  是导出的数据库文件和日志文件路径</p>
+
+<h2 id="aradmin"><em>删除ARAdmin用户数据</em></h2>
+
+<p>drop user aradmin cascade;</p>
+
+<h2 id="aradmin-1"><em>创建和授权ARAdmin用户</em></h2>
+
+<p>CREATE USER ARADMIN
+IDENTIFIED BY ar#admin#
+DEFAULT TABLESPACE ARSYSTEM
+TEMPORARY TABLESPACE ARTMPSPC
+PROFILE DEFAULT
+ACCOUNT UNLOCK;</p>
+
+<p>GRANT ARADMINROLE TO ARADMIN;
+ALTER USER ARADMIN DEFAULT ROLE ALL;
+ALTER USER ARADMIN QUOTA UNLIMITED ON ARSYSTEM;</p>
+
+<h2 id="section-2"><em>导入备份的数据文件</em></h2>
+
+<p>imp ARAdmin/AR#Admin@ars file=c:\CMDB2010-12-13_13.dmp log=c:\imp.log  fromuser=ARAdmin touser=ARAdmin ignore=y</p>
+
+<p>Credit to：以上操作步骤由_神州太岳_工程师_李成旗_协助编写和测试.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2011-02-12T09:17:17+08:00"><a href="http://martinliu.cn/2011/02/12/book-service-modelling/">February 12, 2011</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -416,83 +500,6 @@ ReturnCode:  OK
 Status List : 0 items</p>
 
 <p>使用Remedy User，用Demo登录，把语言切换到英文，然后在查BMC_ComputerSystem表达，在custom 2 ～n的tab页面里面查看哪些导入的属性。或者使用class manager查看确认导入是否成功。</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2010-12-22T15:28:45+08:00"><a href="http://martinliu.cn/2010/12/22/fiddler-timers/">December 22, 2010</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2010/12/22/fiddler-timers/" rel="bookmark" title="Fiddler Timers " itemprop="url">Fiddler Timers </a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><img src="http://www.fiddler2.com/Fiddler/images/FiddlerLogo.png" alt="Fiddler" />Fiddler is a Web Debugging Proxy which logs all HTTP(S) traffic between your computer and the Internet. Fiddler allows you to inspect all HTTP(S) traffic, set breakpoints, and “fiddle” with incoming or outgoing data. Fiddler includes a powerful event-based scripting subsystem, and can be extended using any .NET language.Fiddler is freeware and can debug traffic from virtually any application, including Internet Explorer, Mozilla Firefox, Opera, and thousands more.</p>
-
-<ul>
-  <li>
-    <p><strong>ClientConnected</strong>- Exact time that the client browser made a TCP/IP connection to Fiddler.</p>
-  </li>
-  <li>
-    <p><strong>ClientBeginRequest</strong>– Time at which this HTTP request began. May be much later than ClientConnected due to client connection reuse.</p>
-  </li>
-  <li>
-    <p><strong>ClientDoneRequest</strong> - Exact time that the client browser finished sending the HTTP request to Fiddler.</p>
-  </li>
-  <li>
-    <p><strong>DNSTime</strong> - # milliseconds Fiddler spent in DNS looking up the server’s IP address.</p>
-  </li>
-  <li>
-    <p><strong>GatewayDeterminationTime</strong> - # milliseconds Fiddler  spent determining the upstream gateway proxy to use (e.g. processing  autoproxy script). Mutually exclusive to DNSTime.</p>
-  </li>
-  <li>
-    <p><strong>TCPConnectTime</strong> - # milliseconds Fiddler spent TCP/IP connecting to that server’s IP address.</p>
-  </li>
-  <li>
-    <p><strong>HTTPSHandshakeTime</strong> – Amount of time spent in HTTPS handshake</p>
-  </li>
-  <li>
-    <p><strong>ServerConnected</strong> – Time at which this connection to  the server was made. May be much earlier than ClientConnected due to  server connection reuse.</p>
-  </li>
-  <li>
-    <p><strong>FiddlerBeginRequest</strong> – The time at which Fiddler began sending the HTTP request to the server.</p>
-  </li>
-  <li>
-    <p><strong>ServerGotRequest</strong> - Exact time that Fiddler finished (re)sending the HTTP request to the server.</p>
-  </li>
-  <li>
-    <p><strong>ServerBeginResponse</strong> - Exact time that Fiddler got the first bytes of the server’s HTTP response.</p>
-  </li>
-  <li>
-    <p><strong>ServerDoneResponse</strong> - Exact time that Fiddler got the last bytes of the server’s HTTP response.</p>
-  </li>
-  <li>
-    <p><strong>ClientBeginResponse</strong> - Exact time that Fiddler began transmitting the HTTP response to the client browser.</p>
-  </li>
-  <li>
-    <p><strong>ClientDoneResponse</strong>- Exact time that Fiddler finished transmitting the HTTP response to the client browser.</p>
-  </li>
-</ul>
-
-<p><strong>Can i find out how long the server needs to process my request ?</strong>
-(ServerBeginResponse - ServerGotRequest) is probably what you want.</p>
-
-<p><strong>Can i find out how long the request needs to pass through the network?</strong>
-I’m not sure that’s what you really want to know, but it would be:</p>
-
-<p>(ServerGotRequest - ClientDoneRequest) - (DNSTime + TCPConnectTime)</p>
-
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

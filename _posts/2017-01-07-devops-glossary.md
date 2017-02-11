@@ -20,7 +20,7 @@ image:
 | lead time  | 前置时间|
 | developer  | 开发人员
 | Exploratory test  | 探索测试
-| batch sizes  | 批次尺寸
+| batch sizes  | 批次尺寸、批量
 | Affinity | 亲和
 | Agile | 敏捷
 | Application Deployment | 应用部署
@@ -102,9 +102,25 @@ image:
 | acceptance stage | 验收阶段
 | commit stage | 提交阶段
 | staging environments, SIT | 准生产环境
+| infrastructure as code | 基础设施即代码
+| static code analysis | 静态代码分析
+| test coverage analysis | 测试覆盖率分析
+| build | build（名词）
+| green build | 绿色Build
+| roll-back | 回滚
+| test-driven development (TDD) | 测试驱动开发
+| acceptance test-driven development (ATDD) | 验收测试驱动开发
+| downward spiral | 恶性循环
 |  | 
 |  | 
 |  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+|  | 
+
 
 请帮忙改进本术语表，[点这里](https://github.com/martinliu/martinliu.github.io/blob/master/_posts/2017-01-07-devops-glossary.md)。
 

@@ -136,6 +136,64 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2012-03-05T23:06:33+08:00"><a href="http://martinliu.cn/2012/03/05/xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/">March 05, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~1 minute
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2012/03/05/xenapp-6-5-mobility-pack-and-mobile-app-sdk-v1/" rel="bookmark" title="XenApp 6.5 Mobility Pack and Mobile App SDK v1 " itemprop="url">XenApp 6.5 Mobility Pack and Mobile App SDK v1 </a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>XenApp 6.5 Mobility Pack 是可以安装在XenApp服务器上的一个扩展包，它能够使企业应用调用到移动终端设备上的原生功能，包括：GPS，摄像头，原生的界面控件。这个扩展包增加的策略能够和终端设备交互，控制相关传感器和功能。</p>
+
+<p>XenApp 6.5 Mobile Application SDK 是一个开发包，程序猿可以使用一个微软Virtual Studio的开发环境，使用C或者C++语言来开发出运行在移动设备上的企业应用。</p>
+
+<p>百闻不如一见，下面是一个实例程序。 [singlepic id=1333 w=320 h=240 float=none] 此程序是一个供水设施的巡检系统，中间部分是告警事件，按时间先后顺序显示了出现故障的GPS坐标，告警设备类型等信息。左边显示的是这些告警的地点在gogle map上的位置，下面是设备的图片。屏幕的右侧是事件处理区域，可以让巡查人员编辑和处理每一条告警事件，右下角是使用移动摄像头拍照记录的部分。这个应用是透过Citrix Receiver连接到虚拟应用发布服务器上使用的，虚拟应用发布服务器上发布了此应用的客户端，次客户端在和后台的应用服务器交互，做信息的存储和处理等业务逻辑操作。以上是我对改应用的理解。原帖见：<a href="http://blogs.citrix.com/2011/10/25/announcing-the-xenapp-6-5-mobile-application-sdk-mobility-pack/">http://blogs.citrix.com/2011/10/25/announcing-the-xenapp-6-5-mobile-application-sdk-mobility-pack/</a></p>
+
+<p>下面在举一个例子：对比一下使用了移动应用开发包优化过后的XenDesktop虚拟桌面和为优化的差异，细节下差异一目了然。</p>
+
+<p> For example, with this pack, XenApp can intelligently recognize an Android or iOS tablet as the endpoint and render Tablet Optimized Desktops, making the experience much more natural for the user.  From this:</p>
+
+<p> <a href="http://martinliu.cn/?attachment_id=174177488"><img src="http://cdn.ws.citrix.com/wp-content/uploads/2011/12/prev-start-menu-300x225.png" alt="" /></a></p>
+
+<p>to this:</p>
+
+<p> <a href="http://martinliu.cn/?attachment_id=174177489"><img src="http://cdn.ws.citrix.com/wp-content/uploads/2011/12/pack-start-menu-300x225.png" alt="" /></a></p>
+
+<p>No more pinching and zooming to navigate windows intended for a full desktop interface! // from <a href="http://blogs.citrix.com/2011/12/19/mobilize-your-enterprise-with-the-xenapp-6-5-mobility-pack/">http://blogs.citrix.com/2011/12/19/mobilize-your-enterprise-with-the-xenapp-6-5-mobility-pack/</a></p>
+
+<p>[box]Citrix 移动应用开发包能为我们做什么：The Citrix Mobile Application SDK provides over 50 specific mobile API’s that can be used from any enterprise Windows development environment.  These APIs allow developers to create touch enabled UI’s for new and existing enterprise applications.  With these new APIs the applications can leverage the unique capabilities of smartphones and tablets, allowing full access to device sensors and capabilities such as GPS, camera, and accelerometer.  This sensor information can then be relayed back to and used by an enterprise application hosted on XenApp in the data center. This capability is novel and innovative as up till now it has not been possible for Windows applications in the datacentre to access these new device capabilities.[/box]</p>
+
+<p>从那里能够的到Citrix 移动应用开发包：<a href="http://community.citrix.com/display/xa/XenApp+6.5+Mobile+Application+SDK">http://community.citrix.com/display/xa/XenApp+6.5+Mobile+Application+SDK</a> 下载SDK需要注册免费的mycitrix账号，登陆后下载。</p>
+
+<p>本文的参考文章：</p>
+
+<ul>
+  <li>
+    <p><a href="http://blogs.citrix.com/2011/10/25/announcing-the-xenapp-6-5-mobile-application-sdk-mobility-pack/">http://blogs.citrix.com/2011/10/25/announcing-the-xenapp-6-5-mobile-application-sdk-mobility-pack/</a></p>
+  </li>
+  <li>
+    <p><a href="http://blogs.citrix.com/2011/12/19/mobility-pack-and-mobile-app-sdk-v1-released/">http://blogs.citrix.com/2011/12/19/mobility-pack-and-mobile-app-sdk-v1-released/</a></p>
+  </li>
+  <li>
+    <p><a href="http://blogs.citrix.com/2011/12/19/mobilize-your-enterprise-with-the-xenapp-6-5-mobility-pack/">http://blogs.citrix.com/2011/12/19/mobilize-your-enterprise-with-the-xenapp-6-5-mobility-pack/</a></p>
+  </li>
+</ul>
+
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2012-03-05T22:38:20+08:00"><a href="http://martinliu.cn/2012/03/05/e5-a6-82-e4-bd-95-e5-ae-89-e8-a3-85-e5-92-8c-e4-bd-bf-e7-94-a8citrix-xenapp-6-5-e7-a7-bb-e5-8a-a8-e5-ba-94-e7-94-a8-e5-bc-80-e5-8f-91-e5-8c-85sdk/">March 05, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -464,34 +522,6 @@ Reading time ~1 minute
 <p>中小企业期望的桌面虚拟化解决方案要比PC更便宜，比PC更易安装和管理，有着与PC相接近的用户体验，同时还能少花钱多办事，在重要的功能上没有缺失（如高可用， 随需扩展和动态负载均衡）。天啦！天下有这么便宜的事吗?</p>
 
 <p>       VMware目前肯定是没有的。而Citrix针对中小企业市场，特别推出了一款产品，叫做VDI-in-a-Box， 大家可以去下载体验一下。这个产品在1个小时内就可以安装完毕，零培训就可以上手。与传统企业级VDI方案相比，它削减掉超过60%的基础设施， 使得每个虚拟桌面的成本比新购PC还低。即使今后扩容，也仅需要简单的增加服务器，不需要重新设计和重新架构，没有任何隐形的成本。想要了解更多有关VDI-in-a-Box的信息，可以参考链接中的文档：<a href="https://citrix.sharefile.com/d-s7824ca9d0dd47479">https://citrix.sharefile.com/d-s7824ca9d0dd47479</a></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2012-01-31T15:43:35+08:00"><a href="http://martinliu.cn/2012/01/31/personalization-ringcube/">January 31, 2012</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2012/01/31/personalization-ringcube/" rel="bookmark" title="Personalization RingCube" itemprop="url">Personalization RingCube</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>转帖自学
-Personalization – Where does RingCube fit?
-<a href="http://blogs.citrix.com/2011/08/24/personal-vdisks/">http://blogs.citrix.com/2011/08/24/personal-vdisks/</a></p>
-
-<p>Digging into RingCube
-<a href="http://blogs.citrix.com/2011/08/29/digging-into-ringcube/">http://blogs.citrix.com/2011/08/29/digging-into-ringcube/</a></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

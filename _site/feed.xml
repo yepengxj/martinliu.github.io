@@ -1,4 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://martinliu.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://martinliu.cn/" rel="alternate" type="text/html" /><updated>2017-02-03T16:46:04+08:00</updated><id>http://martinliu.cn/</id><title>Martin&#39;s Blog</title><subtitle>DevOps Coach &amp; Cloud Expert</subtitle><entry><title>Nutanix AHV（KVM）Windows虚拟机安装全攻略</title><link href="http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix/" rel="alternate" type="text/html" title="Nutanix AHV（KVM）Windows虚拟机安装全攻略" /><published>2017-01-29T00:00:00+08:00</published><updated>2017-01-29T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix</id><content type="html" xml:base="http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix/">&lt;h1 id=&quot;windows-&quot;&gt;Windows 虚拟机安装&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.1.6">Jekyll</generator><link href="http://martinliu.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://martinliu.cn/" rel="alternate" type="text/html" /><updated>2017-02-12T00:16:54+08:00</updated><id>http://martinliu.cn/</id><title>Martin&#39;s Blog</title><subtitle>DevOps Coach &amp; Cloud Expert</subtitle><entry><title>2017DevOps采用和趋势现状-信息图</title><link href="http://martinliu.cn/2017/02/11/state-devops-adoption-trends-2017/" rel="alternate" type="text/html" title="2017DevOps采用和趋势现状-信息图" /><published>2017-02-11T00:00:00+08:00</published><updated>2017-02-11T00:00:00+08:00</updated><id>http://martinliu.cn/2017/02/11/state-devops-adoption-trends-2017</id><content type="html" xml:base="http://martinliu.cn/2017/02/11/state-devops-adoption-trends-2017/">&lt;p&gt;&lt;img src=&quot;/images/14868257964355.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在过去的一两年里DevOps持续升温，逐渐成为一场IT行业内的谁不可回避的运动。&lt;/p&gt;
+
+&lt;h2 id=&quot;devops-&quot;&gt;DevOps 定义&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/1-X.jpg&quot; alt=&quot;1-X&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我个人是一直以来反对给DevOps做一个名词解释样式的定义的。不过这种需求实在强大，摘抄几条供大家参考，上图是一种定义。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;定义2：You cannot buy DevOps and install it. DevOps is not just automation or infrastructure as code. DevOps is people following a process enabled by products to deliver value to end users.   – Donovan Brown, Microsoft DevOps Program Manager&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上出自：&lt;a href=&quot;http://www.donovanbrown.com/post/2015/09/01/what-is-devops&quot;&gt;Donovan’s blog post on “What is DevOps”.&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;定义3：DevOps（Development和Operations的组合词）是一种重视“软件开发人员（Dev）”和“IT运维技术人员（Ops）”之间沟通合作的文化、运动或惯例。透过自动化“软件交付”和“架构变更”的流程，来使得构建、测试、发布软件能够更加地快捷、频繁和可靠。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;以上出自：&lt;a href=&quot;http://zh.wikipedia.org/wiki/DevOps&quot;&gt;维基百科 Wikipedia - DevOps&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;兴趣和搜索量&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/2.jpg&quot; alt=&quot;2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;以上结果来自Google趋势，上图是从2004年到现在，一共13年的趋势图。下面再看一下最近五年的趋势详情。&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;最近5年的搜索趋势&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2-2.png&quot; alt=&quot;2-2&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;国际关注度&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2-1.png&quot; alt=&quot;2-1&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;相关话题和查询&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/images/2-3.png&quot; alt=&quot;2-3&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;section-4&quot;&gt;关注者年龄和性别&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/3.jpg&quot; alt=&quot;3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图年龄分布情况。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/4.jpg&quot; alt=&quot;4&quot; /&gt;
+上图是性别分布情况。&lt;/p&gt;
+
+&lt;h2 id=&quot;devops&quot;&gt;DevOps应用状态&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/images/5.jpg&quot; alt=&quot;5&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;正在应用的:从66%上升到74%&lt;/li&gt;
+  &lt;li&gt;没有应用的:从19%下降到16%&lt;/li&gt;
+  &lt;li&gt;不知道的：从15%下降到6%&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;devops-checklist&quot;&gt;DevOps Checklist&lt;/h2&gt;
+&lt;p&gt;不管你做不做DevOps？不管你知不知道你是不是DevOps？不管你从哪个角度入手DevOps？看看这个清单中有几项和您相关，就知道你和DevOps的关系是否密切。
+&lt;img src=&quot;/images/6.jpg&quot; alt=&quot;6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;检查清单如下：
+* 基础架构即代码
+* 每天多次部署
+    * 研发人员直接部署都生产环境
+    * 研发和运维共同奋战在支持的一线
+* 消除研发和运维的部门墙&lt;/p&gt;
+
+&lt;h2 id=&quot;devops-1&quot;&gt;DevOps流程&lt;/h2&gt;
+
+&lt;p&gt;下面看看两种相关流程图。
+&lt;img src=&quot;/images/7.jpg&quot; alt=&quot;7&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;持续业务计划&lt;/li&gt;
+  &lt;li&gt;协作型软件开发&lt;/li&gt;
+  &lt;li&gt;持续测试&lt;/li&gt;
+  &lt;li&gt;持续发布和部署&lt;/li&gt;
+  &lt;li&gt;持续监控&lt;/li&gt;
+  &lt;li&gt;协作式客户反馈和优化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/C_Success_with_enterprise_DevOps_CN_pdf.jpg&quot; alt=&quot;C_Success_with_enterprise_DevOps_CN_pdf&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;上图来源于《Exin DevOps Master 白皮书 - 企业DevOps的成功之路》 作者：Koichiro(Luke) Toda、Nobuyuki Mitsui、译者：刘颋，史鹏程；审校：EXIN，刘征&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;计划&lt;/li&gt;
+  &lt;li&gt;需求&lt;/li&gt;
+  &lt;li&gt;设计&lt;/li&gt;
+  &lt;li&gt;开发&lt;/li&gt;
+  &lt;li&gt;部署&lt;/li&gt;
+  &lt;li&gt;运营&lt;/li&gt;
+  &lt;li&gt;终止&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;devops--1&quot;&gt;7大DevOps 趋势&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;DevOps will be the mainstream and garner a lot of attention; hence, 2017 is going to be the “Year of DevOps.”&lt;/li&gt;
+  &lt;li&gt;随着DevOps的推广，三个C：持续集成、持续部署和持续交付，将形成巨大的势头。&lt;/li&gt;
+  &lt;li&gt;即将产生越来越多新的DevOps自动化工具，这些工具改变了我们软件开发的方式。&lt;/li&gt;
+  &lt;li&gt;“容器化”也将引人注目（例如使用Docker容器）。&lt;/li&gt;
+  &lt;li&gt;许多软件公司将转向微服务架构。&lt;/li&gt;
+  &lt;li&gt;自动化测试和持续测试将变得更加普遍，且更加重要。&lt;/li&gt;
+  &lt;li&gt;必须拥有的工具和平台，包括Docker、AWS、GitHub和JIRA将在开发者社区更受欢迎。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;本文参考来源：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;http://www.rightscale.com/blog/cloud-industry-insights/new-devops-trends-2016-state-cloud-survey&lt;/li&gt;
+  &lt;li&gt;https://www.storybase.com&lt;/li&gt;
+  &lt;li&gt;http://pt.slideshare.net/johnpviner/devops-be-careful-what-you-wish-for&lt;/li&gt;
+  &lt;li&gt;https://en.wikipedia.org/wiki/DevOps&lt;/li&gt;
+  &lt;li&gt;http://www.Google.com&lt;/li&gt;
+&lt;/ul&gt;</content><category term="DevOps" /><summary></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;BingWallpaper-2017-02-10_Fotor.jpg&quot;}" /></entry><entry><title>Nutanix AHV（KVM）Windows虚拟机安装全攻略</title><link href="http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix/" rel="alternate" type="text/html" title="Nutanix AHV（KVM）Windows虚拟机安装全攻略" /><published>2017-01-29T00:00:00+08:00</published><updated>2017-01-29T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix</id><content type="html" xml:base="http://martinliu.cn/2017/01/29/Install-VMs-on-Nutanix/">&lt;h1 id=&quot;windows-&quot;&gt;Windows 虚拟机安装&lt;/h1&gt;
 &lt;p&gt;Nutanix的AHV虚拟机是基于KVM的。本文件假设您使用和安装的是Nutanix社区版本的群集。在上面安装Windows虚拟机的步骤如下：&lt;/p&gt;
 
 &lt;ol&gt;
@@ -465,7 +579,7 @@ fedora25-Template: complete
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;batch sizes&lt;/td&gt;
-      &lt;td&gt;批次尺寸&lt;/td&gt;
+      &lt;td&gt;批次尺寸、批量&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Affinity&lt;/td&gt;
@@ -790,6 +904,66 @@ fedora25-Template: complete
     &lt;tr&gt;
       &lt;td&gt;staging environments, SIT&lt;/td&gt;
       &lt;td&gt;准生产环境&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;infrastructure as code&lt;/td&gt;
+      &lt;td&gt;基础设施即代码&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;static code analysis&lt;/td&gt;
+      &lt;td&gt;静态代码分析&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;test coverage analysis&lt;/td&gt;
+      &lt;td&gt;测试覆盖率分析&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;build&lt;/td&gt;
+      &lt;td&gt;build（名词）&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;green build&lt;/td&gt;
+      &lt;td&gt;绿色Build&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;roll-back&lt;/td&gt;
+      &lt;td&gt;回滚&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;test-driven development (TDD)&lt;/td&gt;
+      &lt;td&gt;测试驱动开发&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;acceptance test-driven development (ATDD)&lt;/td&gt;
+      &lt;td&gt;验收测试驱动开发&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;downward spiral&lt;/td&gt;
+      &lt;td&gt;恶性循环&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt; &lt;/td&gt;
@@ -1276,7 +1450,11 @@ Amazon Best Sellers Rank: #357,633 in Books (See Top 100 in Books)
 
 &lt;p&gt;持续交付：发布可靠软件的系统方法&lt;/p&gt;
 
-&lt;p&gt;http://item.jd.com/10843669.html&lt;/p&gt;</content><category term="DevOps" /><summary>本清单来自于《DevOps Handbook》书中提到的书，更新到第五本；《看板方法》、《精益思想》、《Implementing Lean Software Development: From Concept to Cash》、《第五项修炼:学习型组织的艺术与实践》、《探索吧!深入理解探索式软件测试》</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;ZellerHorn_ZH-CN7123868469_1920x1080.jpg&quot;}" /></entry><entry><title>HPE 分兵两路进军超融合市场</title><link href="http://martinliu.cn/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/" rel="alternate" type="text/html" title="HPE 分兵两路进军超融合市场" /><published>2017-01-03T00:00:00+08:00</published><updated>2017-01-03T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/03/HPE 分兵两路进军超融合市场</id><content type="html" xml:base="http://martinliu.cn/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/">&lt;p&gt;关于HP超融合产品家族的变迁简史和相关评论，本文转自 HC 250? HC 380? What are they actually for?。&lt;/p&gt;
+&lt;p&gt;http://item.jd.com/10843669.html&lt;/p&gt;
+
+&lt;p&gt;Eric J.Evans在《领域驱动设计》一书中&lt;/p&gt;
+
+&lt;p&gt;Domain Driven Design by Eric J. Evans.&lt;/p&gt;</content><category term="DevOps" /><summary>本清单来自于《DevOps Handbook》书中提到的书，更新到第五本；《看板方法》、《精益思想》、《Implementing Lean Software Development: From Concept to Cash》、《第五项修炼:学习型组织的艺术与实践》、《探索吧!深入理解探索式软件测试》</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;ZellerHorn_ZH-CN7123868469_1920x1080.jpg&quot;}" /></entry><entry><title>HPE 分兵两路进军超融合市场</title><link href="http://martinliu.cn/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/" rel="alternate" type="text/html" title="HPE 分兵两路进军超融合市场" /><published>2017-01-03T00:00:00+08:00</published><updated>2017-01-03T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/03/HPE 分兵两路进军超融合市场</id><content type="html" xml:base="http://martinliu.cn/2017/01/03/HPE-%E5%88%86%E5%85%B5%E4%B8%A4%E8%B7%AF%E8%BF%9B%E5%86%9B%E8%B6%85%E8%9E%8D%E5%90%88%E5%B8%82%E5%9C%BA/">&lt;p&gt;关于HP超融合产品家族的变迁简史和相关评论，本文转自 HC 250? HC 380? What are they actually for?。&lt;/p&gt;
 
 &lt;p&gt;转帖：《HC 250? HC 380? What are they actually for?》
 &lt;a href=&quot;http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/&quot;&gt;http://www.theregister.co.uk/2016/12/05/the_state_of_hpes_hyperconverged_play/
@@ -1326,50 +1504,4 @@ Amazon Best Sellers Rank: #357,633 in Books (See Top 100 in Books)
 
 &lt;p&gt;The rising adoption of AWS and other public cloud services over the past five or six years has been tremendously helpful for Nutanix since many end users have already worked through departmental feuds and have grown accustomed to consuming a one-click service across the entire company, Potti said.&lt;/p&gt;
 
-&lt;p&gt;“It has emotionally built a cognitive bias toward an architecture like this,” Potti said. “We are looking to provide an Amazon-like experience for the global enterprise.”&lt;/p&gt;</content><category term="Nutanix" /><summary>关于HP超融合产品家族的变迁简史和相关评论，本文转自 HC 250? HC 380? What are they actually for?。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;WinterOwls_Hokkaido_shutterstock_7934020_FF_768_HD_ZH-CN898513788.jpg&quot;}" /></entry><entry><title>Nutanix CE All In One</title><link href="http://martinliu.cn/2017/01/02/Nutanix-CE-all-in-one/" rel="alternate" type="text/html" title="Nutanix CE All In One" /><published>2017-01-02T00:00:00+08:00</published><updated>2017-01-02T00:00:00+08:00</updated><id>http://martinliu.cn/2017/01/02/Nutanix-CE-all-in-one</id><content type="html" xml:base="http://martinliu.cn/2017/01/02/Nutanix-CE-all-in-one/">&lt;p&gt;Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。&lt;/p&gt;
-
-&lt;h2 id=&quot;nutanix-community-edition-&quot;&gt;Nutanix Community Edition 社区版简介&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Community_Edition_-_Nutanix.png&quot; alt=&quot;Nutanix CE&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;这个产品目前的位置在 &lt;a href=&quot;https://www.nutanix.com/products/community-edition/&quot;&gt;https://www.nutanix.com/products/community-edition/&lt;/a&gt;；目前这个页面还没有中文化，下面简单介绍以下。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Feature Rich Software  它是一个功能丰富的软件&lt;/li&gt;
-  &lt;li&gt;Broad Hardware Support &amp;amp; Available On-demand 很丰富的硬件支持，在网上可以按需体验&lt;/li&gt;
-  &lt;li&gt;Zero Cost 零成本&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;用Nutanix CE社区版体验，体验超融合技术的三个步骤。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;注册 ： 这次Nutanix社区，下载安装镜像&lt;/li&gt;
-  &lt;li&gt;部署 ： 在你的服务器上部署，或者在Ravello上在线开启体验；&lt;a href=&quot;https://www.youtube.com/watch?v=xKtQRp6dcAc&quot;&gt;官方安装部署视频点这里&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;玩耍 ： 安装完之后就可以开心地玩耍了，有问题请移步 &lt;a href=&quot;http://next.nutanix.com/t5/Discussion-Forum/bd-p/Discussion&quot;&gt;社区版论坛&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;用物理机安装和体验的几点注意事项如下：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;物理机安装支持1，3，4个节点的部署；推荐内存在32GB以上；由于版本CE 2016.12.22的CVM的内存需求是24GB，由于加入了自服务门户功能；建议使用SSD硬盘，最好能混搭一些普通硬盘。&lt;/li&gt;
-  &lt;li&gt;安装后的首次启动需要系统能链接互联网，否则CVM会启动不了，首次启动成功之后就不用再联网了&lt;/li&gt;
-  &lt;li&gt;用虚拟机安装，请注意本机的内存，和给虚拟机分配的内存，网上也有修改对内存和CPU限制修改的脚本&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;产品在社区里的文档页面： &lt;a href=&quot;http://next.nutanix.com/t5/Discussion-Forum/Download-Nutanix-CE-Docs-and-Guides/m-p/16442#U16442&quot;&gt;点这里&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;section&quot;&gt;参考配置&lt;/h2&gt;
-&lt;p&gt;Intel NUC 最新版一台，i7处理器，两条16GB内存，两条512GB硬盘。它的好处是便携；然而内存还是有限，不能跑多少个虚拟机。&lt;/p&gt;
-
-&lt;h2 id=&quot;section-1&quot;&gt;相关文档&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://huanwenli.blog.51cto.com/2848240/1749083&quot;&gt;在VMware Workstation上安装Nutanix CE&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.nextech.space/nextech/2016/06/nutanix-community-edition%E5%AE%89%E8%A3%85%E5%9C%A8vsphere%E7%8E%AF%E5%A2%83%E4%B8%AD/&quot;&gt;Nutanix Community Edition安装在vSphere环境中&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.onlyeric.com/2016/05/13/%E6%B5%85%E5%B0%9D%E8%B6%85%E8%9E%8D%E5%90%88%E4%B9%8BNutanix-%E4%B8%8A-%E4%BB%8B%E7%BB%8D%E7%AF%87/&quot;&gt;浅尝超融合之Nutanix(上)介绍篇&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.onlyeric.com/2016/05/15/%E6%B5%85%E5%B0%9D%E8%B6%85%E8%9E%8D%E5%90%88%E4%B9%8BNutanix-%E4%B8%8B-%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2%E7%AF%87/&quot;&gt;浅尝超融合之Nutanix(下)安装篇&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.dockerinfo.net/1865.html&quot;&gt;Nutanix超”容”合之ACS Acropolis Container Service(下)实战篇01&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.dockerinfo.net/1867.html&quot;&gt;Nutanix超”容”合之ACS Docker Volume Plugin的使用和数据持久化测试&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nutanix.club/&quot;&gt;http://nutanix.club/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://nutanixbible.com/&quot;&gt;Nutanix圣经&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><category term="Nutanix" /><summary>Nutanix CE是Nutanix社区版软件的简称，它是Nutanix企业版产品的功能精简集合，是体验和测试Nutanix技术的很方便的途径。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;HongKongEye_ZH-CN12285832688_1920x1080.jpg&quot;}" /></entry></feed>
+&lt;p&gt;“It has emotionally built a cognitive bias toward an architecture like this,” Potti said. “We are looking to provide an Amazon-like experience for the global enterprise.”&lt;/p&gt;</content><category term="Nutanix" /><summary>关于HP超融合产品家族的变迁简史和相关评论，本文转自 HC 250? HC 380? What are they actually for?。</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://martinliu.cn{&quot;feature&quot;=&gt;&quot;WinterOwls_Hokkaido_shutterstock_7934020_FF_768_HD_ZH-CN898513788.jpg&quot;}" /></entry></feed>

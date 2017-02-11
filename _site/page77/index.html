@@ -136,6 +136,37 @@
   <header>
     
     <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2008-10-24T08:52:53+08:00"><a href="http://martinliu.cn/2008/10/24/ms-windows-is-eating-your-hard-driver/">October 24, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+Reading time ~2 minutes
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="http://martinliu.cn/2008/10/24/ms-windows-is-eating-your-hard-driver/" rel="bookmark" title="M$ Windows is eating your hard driver" itemprop="url">M$ Windows is eating your hard driver</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><img src="http://lh5.ggpht.com/liuzh66/SQEZ0RBOw_I/AAAAAAAAA38/Ulq2AKwYejU/s800/Access%20is%20denied.jpg" alt="" />No matter Bill says how friendly M$ Windows is. It is eating more and more my free disk space. Toady I figured out some tips for releasing disk space. In Windows file explore, you can not see the folder size without checking on property. So you may need a tool, something like FolderSizes. FolderSize helps me to know more about my heard diver. It shows me there is a folder ‘System Volume information”, this folder is 6.20GB big. What the hell is that??? I can not even see it in file explore. Then I check on Folder Options, here are so many hiding options for you. In order to take out that big folder, I unchecked ‘“Hide protected operating system files and folders”, then the folder shows up. But I can not open it sine I really wants to know what hell is been hidden in that folder. A error message box popup up”Assess is denied.” WOW this is my laptop, I am not able to access the folder. Is this a M$ asset? In FolderSize, I can go inside this folder; it has so many files. Everything in this folder looks like patch file. I have no idea where and when it went down my computer; or this dame OS made it. Now I’m deleting these files and folders in folder ‘System Volume information” from FolderSize. Another error message box popup up; it says “Cannot delete XXX000.ps1: It is being used by another person or program”. Kidding me? Does anyone share this laptop with me at this moment? Fortunately I have openSuSe, I issued rm -rf command after booted into openSuse. Now 6.2GB space was released.<br /><br /><!-- more --><br /><br />Within FolderSize, one more fat folder was identified out, It is ‘‘C:\Documents and Settings\LocalService\Local Settings\Application Data\Google’. I have Google Desktop on my laptop, but I did not use Google desktop search too much, but it take me near 2GBs space. I realized Google desktop indexed my whole hard drive anyway. I have to uninstalled Google Desktop and deleted that folder. Now I got more 2GB space.<br /><br />M$ Windows also did anther favorite for me to created a fat pagefile.sys. It is 3.5 GB; Big~~ isn’t it? My laptop have 4GBs physical RAM, but XP only use 3.5GB. As same 32bit OS, openSuSE does use all of 4GB. Since I am short of free space, pagefile.sys was changed to 1.5GB. SO, 2GB spaces was saved.<br /><br />In XP file system, there are some files can not be deleted. I bet you do have some files like that. Those files are already useless, but you can’t get rid of them. <a href="http://www.threatexpert.com/files/ForceDel.exe.html">ForceDel.exe</a> can delete them all. This tiny tool saved me more then 1GB space.<br /><br />6.2+2+2+1=11.2GB<br /><br />There are more screen-shots, please check out: http://picasaweb.google.com/liuzh66/Mis and comment.<br /><br />Ok now I’m be able to create at least two VMWare machines for my work. I hope those tips are helpful for you.<br /><br />In this week, I’m so busy on a Bladelogic product POC testing for CCB which is one of the biggest bank in China. At evening, I usually had to study on ITIL v3 stuff in order to get myself ready for a upcoming training next month. But tonight I’d like to take time off of the work.<br /><br /><strong>XP磁盘空间节省偏方</strong><br /></p>
+
+<p><br />
+  * 通过类似于FolderSize的工具找出磁盘中占比重比较大的目录，识别需要删除的目录
+<br />	
+  * 对于System Volume information里的文件，可以用一个USB或者CD引导的Linux系统启动机器，删除；然后再关闭xp中的系统恢复功能
+<br />	
+  * 如果你不经常使用Google Desktop，或者已经删除了这个程序的话，一定记得删除它建的索引
+<br /><br /><br /></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry">
+  <header>
+    
+    <div class="entry-meta">
       <span class="entry-date date published updated"><time datetime="2008-10-19T21:01:34+08:00"><a href="http://martinliu.cn/2008/10/19/otrs-faq-153-you-have-six-reasons-to-use-it/">October 19, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
       
       <span class="entry-reading-time">
@@ -240,29 +271,6 @@ Reading time ~1 minute
   </header>
   <div class="entry-content">
     <p>Now this forum is open for registration. Please feel free to post any of your idea or question. I hope you will have fun.<br /><br /><a href="http://www.martinliu.cn/forum">http://www.martinliu.cn/forum</a><br /><br />论坛开张了:) 欢迎加入我的开源论坛！</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2008-09-23T12:58:47+08:00"><a href="http://martinliu.cn/2008/09/23/should-i-open-a-forum-on-my-site/">September 23, 2008</a></time></span><span class="author vcard"><span class="fn"><a href="http://martinliu.cn/about/" title="About Martin Liu">Martin Liu</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-Reading time ~1 minute
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="http://martinliu.cn/2008/09/23/should-i-open-a-forum-on-my-site/" rel="bookmark" title="Should I open a forum on my site?" itemprop="url">Should I open a forum on my site?</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><a href="http://bbpress.org/"><img src="http://bbpress.org/blog-wp-content/themes/bb/images/bbpress.png" alt="" /></a> 这个论坛软件看似还不错，而且号称简单、快速和优雅，比较吸引我。我的blog后台是Wordpress的，所以理论上讲可以和这个软件很好的集成，这可能是最吸引我的一个地方。对于本开源软件博客而言，是否需要增加论坛这个功能呢？其实本博客还是一个多作者博客，我邀请了几个开源的朋友供稿，不过他们也应该比较忙 :) 其中的两个朋友也有自己的论坛，分别是 www.itnms.net 和 www.zenosscn.com 。对于国内的很多朋友而言，可能论坛是一个更好的沟通方式，泡论坛已经是很多朋友上班中不可缺少的内容。<br /><br />考虑一下开设论坛的利弊。好处应该是会带来更多站点交互。坏处还没有想好，目前能想到的可能是：需要花更多的时间打理本站，还有就是抵御论坛的垃圾。总之还没想好是否增设论坛功能，如果您有什么意见和看法也请告诉我。<br /><br />[poll id=”7”]  [poll id=”6”]</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
