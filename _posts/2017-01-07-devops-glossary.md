@@ -11,7 +11,7 @@ image:
 
 | 英文 | 中文 |
 | --- | --- |
-| artifacts  |  部署包 |
+| artifacts  |  ~~部署包~~部件、在制品 |
 | Telemetry | 告警数据 
 | process time | 处理时间
 | cycle time  | 周期时间
@@ -24,7 +24,7 @@ image:
 | Affinity | 亲和
 | Agile | 敏捷
 | Application Deployment | 应用部署
-| Artifact Management | 构件库管理
+| Artifact Management | ~~构建库~~ 部件、在制品管理
 | Automation | 自动化
 | Blamelessness | 免责
 | Cloud Computing | 云计算
@@ -34,8 +34,8 @@ image:
 | Continuous Delivery | 持续交付
 | Continuous Deployment | 持续部署
 | Continuous Integration | 持续集成
-| Definition of Done | 完成的定义
-| Infrastructure Automation | 基础架构自动化
+| Definition of Done | ~~完成的定义~~ 对”完成“的定义
+| Infrastructure Automation | 基础~~架构~~ 设施自动化
 | Iteration | 迭代
 | ITSM (IT Service Management) | IT服务管理
 | Ji-Kotei-Kanketsu (JKK) | 质量检查（JKK）
